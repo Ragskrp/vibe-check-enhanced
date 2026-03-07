@@ -68,6 +68,7 @@ export default function QuizArenaGame() {
   const [timer, setTimer] = useState(15);
   const [isHost, setIsHost] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [allAnswered, setAllAnswered] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -85,9 +86,14 @@ export default function QuizArenaGame() {
         // Handle view transitions based on room status
         if (data.status === 'playing' && view === 'lobby') {
           setView('playing');
-        } else if (data.status === 'results' && view === 'playing') {
+        } else if (data.status === 'results' && view !== 'results') {
           setView('results');
         }
+
+        // Check if all players have answered the current question
+        const totalPlayers = data.players.length;
+        const answersCount = data.players.filter(p => (p.answers?.length || 0) > data.currentQuestion).length;
+        setAllAnswered(answersCount >= totalPlayers && totalPlayers > 0);
       } else {
         setError('Room no longer exists');
         setView('home');
@@ -244,12 +250,6 @@ export default function QuizArenaGame() {
     };
 
     await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
-
-    // Check if all players answered
-    const allAnswered = newPlayers.every(p => (p.answers?.length || 0) > room.currentQuestion);
-    if (allAnswered && isHost) {
-      // Small pause before moving on
-    }
   };
 
   const nextQuestion = async () => {
@@ -391,6 +391,7 @@ export default function QuizArenaGame() {
   const renderPlaying = () => {
     const q = room.questions[room.currentQuestion];
     const isAnswered = selectedAnswer !== null;
+    const showFeedback = isAnswered || allAnswered;
     const answeredCount = room.players.filter(p => (p.answers?.length || 0) > room.currentQuestion).length;
     
     return (
@@ -418,7 +419,7 @@ export default function QuizArenaGame() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
           {q.options.map((opt, i) => {
             let cls = 'option-btn';
-            if (isAnswered) {
+            if (showFeedback) {
               if (i === q.answer) cls += ' correct';
               else if (i === selectedAnswer) cls += ' wrong';
               else cls += ' disabled';

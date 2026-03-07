@@ -38,7 +38,8 @@ export default function AdBanner({ slot = 'default', format = 'auto', className 
       <div className={`ad-slot ${className}`} style={{
         minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px'
       }}>
-        📢 AD SPACE — {slot.toUpperCase()} ({format})
+        📢 AD SPACE — {slot.toUpperCase()} ({format}) <br/>
+        <span style={{fontSize: '10px', opacity: 0.5}}>(ca-pub-7832965089021505)</span>
       </div>
     );
   }
@@ -48,7 +49,7 @@ export default function AdBanner({ slot = 'default', format = 'auto', className 
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-client="ca-pub-7832965089021505"
         data-ad-slot={slot}
         data-ad-format={format === 'auto' ? 'auto' : undefined}
         data-full-width-responsive={format === 'auto' ? 'true' : undefined}
