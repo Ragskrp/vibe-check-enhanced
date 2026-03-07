@@ -60,6 +60,46 @@ const GAMES = [
     path: '/quiz-arena',
     tag: 'Multiplayer',
     color: '#00d4ff'
+  },
+  {
+    emoji: '⚡',
+    title: 'Reaction Arena',
+    desc: 'Multiplayer reflex battle. Who is the fastest in the room?',
+    path: '/reaction-arena',
+    tag: 'Multiplayer Battle',
+    color: '#ff2d78'
+  },
+  {
+    emoji: '👁️',
+    title: 'Odd One Out',
+    desc: 'Find the hidden symbol. A fast-paced perception race!',
+    path: '/odd-one-out',
+    tag: 'Perception Race',
+    color: '#00ff94'
+  },
+  {
+    emoji: '🧠',
+    title: 'Memory Arena',
+    desc: 'Group memory challenge. Last player standing wins!',
+    path: '/memory-arena',
+    tag: 'Brain Sync',
+    color: '#b14aed'
+  },
+  {
+    emoji: '🗳️',
+    title: 'Poll Party',
+    desc: 'Funny prompts and voting. Best vibe takes the crown!',
+    path: '/poll-party',
+    tag: 'Vote Party',
+    color: '#ff6b35'
+  },
+  {
+    emoji: '🎨',
+    title: 'Drawing Dash',
+    desc: 'One draws, many guess. A real-time creative showdown!',
+    path: '/drawing-dash',
+    tag: 'Drawing Party',
+    color: '#00d4ff'
   }
 ];
 
@@ -81,7 +121,7 @@ export default function HomeContent() {
         {/* Stats */}
         <div className="stats-row">
           <div className="stat-card">
-            <div className="stat-number">7</div>
+            <div className="stat-number">12</div>
             <div className="stat-label">Games</div>
           </div>
           <div className="stat-card">
@@ -158,8 +198,8 @@ export default function HomeContent() {
           </div>
           <div className="card card-glow-yellow" style={{ textAlign: 'center', cursor: 'default' }}>
             <TrendingUp size={32} color="#ff2d78" style={{ marginBottom: 12 }} />
-            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8 }}>7 Game Modes</h3>
-            <p style={{ color: '#888', fontSize: 13 }}>Word games, quizzes, reactions, trivia & more!</p>
+            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8 }}>12 Game Modes</h3>
+            <p style={{ color: '#888', fontSize: 13 }}>Word games, trivia, memory, drawing & fast reflexes!</p>
           </div>
         </div>
       </section>

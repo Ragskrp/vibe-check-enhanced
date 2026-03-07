@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Send, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Send, CheckCircle, Home } from 'lucide-react';
 
 export default function ContactPage() {
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
@@ -36,6 +37,11 @@ export default function ContactPage() {
   return (
     <div className="page-container animate-fade-in">
       <div className="card" style={{ maxWidth: '600px', margin: '0 auto', padding: '40px' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <Link href="/" className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: 'none', padding: '0' }}>
+            <Home size={18} /> Back to VibeCheck
+          </Link>
+        </div>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <h1 className="game-title" style={{ fontSize: '36px', marginBottom: '12px' }}>
             Contact <span style={{ color: '#00d4ff' }}>Us</span>
@@ -138,11 +144,7 @@ export default function ContactPage() {
           </form>
         )}
 
-        <div style={{ marginTop: '40px', paddingTop: '32px', borderTop: '1px solid #1a1a2e', textAlign: 'center' }}>
-          <p style={{ color: '#555', fontSize: '13px' }}>
-            Prefer direct email? Reach us at <span style={{ color: '#00d4ff' }}>support@vibecheck-play.com</span>
-          </p>
-        </div>
+
       </div>
     </div>
   );

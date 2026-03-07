@@ -13,6 +13,11 @@ const NAV_ITEMS = [
   { name: 'VibeQuiz', label: '✨ Vibe Quiz', path: '/vibe-quiz' },
   { name: 'WouldYouRather', label: '😈 Would U Rather', path: '/would-you-rather' },
   { name: 'QuizArena', label: '🏆 Quiz Arena', path: '/quiz-arena' },
+  { name: 'ReactionArena', label: '⚡ Reaction Arena', path: '/reaction-arena' },
+  { name: 'OddOneOut', label: '👁️ Odd One Out', path: '/odd-one-out' },
+  { name: 'MemoryArena', label: '🧠 Memory Arena', path: '/memory-arena' },
+  { name: 'PollParty', label: '🗳️ Poll Party', path: '/poll-party' },
+  { name: 'DrawingDash', label: '🎨 Drawing Dash', path: '/drawing-dash' },
 ];
 
 export default function SiteLayout({ children }) {
@@ -23,7 +28,7 @@ export default function SiteLayout({ children }) {
       {/* Animated Ticker */}
       <div className="ticker-wrap">
         <span className="ticker-text">
-          🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ TEST • 🔥 HOT TAKES • SHARE YOUR SCORE • 🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ TEST • 🔥 HOT TAKES • SHARE YOUR SCORE •
+          🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ TEST • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY SYNC • 🗳️ POLL PARTY • 🎨 DRAWING DASH • SHARE YOUR SCORE •
         </span>
       </div>
 

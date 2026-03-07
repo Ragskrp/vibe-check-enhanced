@@ -1,9 +1,15 @@
 'use client';
 
+import Link from 'next/link';
+import { Home } from 'lucide-react';
+
 export default function PrivacyPage() {
   return (
     <div className="page-container animate-fade-in">
       <div className="card" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px' }}>
+        <Link href="/" className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', border: 'none', padding: '0 0 10px 0' }}>
+          <Home size={18} /> Back to VibeCheck
+        </Link>
         <h1 className="game-title" style={{ textAlign: 'left', fontSize: '36px', marginBottom: '24px' }}>
           Privacy <span style={{ color: '#00ff94' }}>Policy</span>
         </h1>
@@ -49,7 +55,7 @@ export default function PrivacyPage() {
           </p>
 
           <div style={{ marginTop: '40px', borderTop: '1px solid #1a1a2e', paddingTop: '20px', color: '#555' }}>
-            For any questions regarding this policy, please contact us at support@vibecheck-play.com.
+            For any questions regarding this policy, please reach out via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
           </div>
         </div>
       </div>
