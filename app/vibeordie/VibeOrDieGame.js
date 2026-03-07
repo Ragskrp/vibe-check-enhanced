@@ -208,7 +208,7 @@ export default function VibeOrDieGame() {
         </div>
       )}
 
-      <AdBanner slot="vibeordie-bottom" format="rectangle" />
+      <AdBanner format="rectangle" />
     </div>
   );
 }

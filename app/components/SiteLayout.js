@@ -54,7 +54,7 @@ export default function SiteLayout({ children }) {
       <main>{children}</main>
 
       {/* Bottom Ad Banner */}
-      <AdBanner slot="footer-banner" format="horizontal" />
+      <AdBanner format="horizontal" />
 
       {/* Footer */}
       <footer className="site-footer">

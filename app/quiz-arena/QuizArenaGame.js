@@ -338,7 +338,7 @@ export default function QuizArenaGame() {
           </div>
         </div>
       </div>
-      <AdBanner slot="quizarena-home" />
+      <AdBanner />
     </div>
   );
 
@@ -446,7 +446,7 @@ export default function QuizArenaGame() {
         )}
 
         <div style={{ marginTop: '24px' }}>
-          <AdBanner slot="quiz-playing" />
+          <AdBanner />
         </div>
       </div>
     );

@@ -155,7 +155,7 @@ export default function HotTakesGame() {
 
       {/* Ad */}
       {currentIndex > 0 && currentIndex % 3 === 0 && (
-        <AdBanner slot="hottakes-between" format="rectangle" />
+        <AdBanner format="rectangle" />
       )}
 
       {/* Share */}
@@ -167,7 +167,7 @@ export default function HotTakesGame() {
         </div>
       )}
 
-      <AdBanner slot="hottakes-bottom" format="horizontal" />
+      <AdBanner format="horizontal" />
     </div>
   );
 }

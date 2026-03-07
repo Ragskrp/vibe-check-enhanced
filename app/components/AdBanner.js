@@ -13,7 +13,7 @@ import { useEffect, useRef } from 'react';
  * - "vertical" - Skyscraper (160x600)
  * - "auto" - Responsive
  */
-export default function AdBanner({ slot = 'default', format = 'auto', className = '' }) {
+export default function AdBanner({ slot = '7171012882', format = 'auto', className = '' }) {
   const adRef = useRef(null);
   const isLoaded = useRef(false);
 

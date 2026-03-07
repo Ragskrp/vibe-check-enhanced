@@ -100,7 +100,7 @@ export default function HomeContent() {
       </section>
 
       {/* Ad Banner */}
-      <AdBanner slot="home-top" format="horizontal" />
+      <AdBanner format="horizontal" />
 
       {/* Games Grid */}
       <section style={{ marginTop: 32 }}>
@@ -133,7 +133,7 @@ export default function HomeContent() {
       </section>
 
       {/* Mid-page Ad */}
-      <AdBanner slot="home-mid" format="rectangle" />
+      <AdBanner format="rectangle" />
 
       {/* Feature Highlights */}
       <section style={{ marginTop: 48, textAlign: 'center' }}>

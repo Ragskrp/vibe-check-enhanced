@@ -209,7 +209,7 @@ export default function WordVibeGame() {
       )}
 
       {/* Ad between game and keyboard */}
-      <AdBanner slot="wordvibe-mid" format="horizontal" />
+      <AdBanner format="horizontal" />
 
       {/* Keyboard */}
       <div className="keyboard">

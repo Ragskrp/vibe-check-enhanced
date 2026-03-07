@@ -180,7 +180,7 @@ export default function EmojiIQGame() {
         </button>
       )}
 
-      <AdBanner slot="emoji-mid" format="horizontal" />
+      <AdBanner format="horizontal" />
     </div>
   );
 }

@@ -213,7 +213,7 @@ export default function VibeQuizGame() {
             </button>
           </div>
         </div>
-        <AdBanner slot="vibe-result" format="rectangle" />
+        <AdBanner format="rectangle" />
       </div>
     );
   }
@@ -266,7 +266,7 @@ export default function VibeQuizGame() {
       </div>
 
       {currentQ > 0 && currentQ % 4 === 0 && (
-        <AdBanner slot="quiz-between" format="horizontal" />
+        <AdBanner format="horizontal" />
       )}
     </div>
   );

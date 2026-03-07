@@ -175,7 +175,7 @@ export default function WouldYouRatherGame() {
       </div>
 
       {currentIndex > 0 && currentIndex % 4 === 0 && (
-        <AdBanner slot="wyr-between" format="rectangle" />
+        <AdBanner format="rectangle" />
       )}
 
       {totalPlayed >= 3 && (
@@ -186,7 +186,7 @@ export default function WouldYouRatherGame() {
         </div>
       )}
 
-      <AdBanner slot="wyr-bottom" format="horizontal" />
+      <AdBanner format="horizontal" />
     </div>
   );
 }
