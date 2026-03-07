@@ -128,7 +128,7 @@ export default function WordVibeGame() {
     const emojis = guesses.map(g => 
       g.result.map(r => r === 'correct' ? '🟩' : r === 'present' ? '🟨' : '⬛').join('')
     ).join('\n');
-    const text = `VIBECHECK WordVibe 🔤\n${guesses.length}/6\n\n${emojis}\n\nPlay at vibecheck-play.vercel.app/wordvibe`;
+    const text = `VIBEMENOW WordVibe 🔤\n${guesses.length}/6\n\n${emojis}\n\nPlay at vibemenow.vercel.app/wordvibe`;
     
     if (navigator.share) {
       navigator.share({ text });

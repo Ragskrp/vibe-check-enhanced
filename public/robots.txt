@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vibecheck-play.vercel.app/sitemap.xml
+Sitemap: https://vibemenow.vercel.app/sitemap.xml

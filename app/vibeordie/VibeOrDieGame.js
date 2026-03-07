@@ -77,7 +77,7 @@ export default function VibeOrDieGame() {
 
   const shareResult = () => {
     const avg = attempts.length ? Math.round(attempts.reduce((a, b) => a + b, 0) / attempts.length) : 0;
-    const text = `VIBECHECK Vibe or Die 🎯\nBest: ${bestTime}ms\nAverage: ${avg}ms (${attempts.length} rounds)\nRating: ${getRating(bestTime)?.label}\n\nPlay at vibecheck-play.vercel.app/vibeordie`;
+    const text = `VIBEMENOW Vibe or Die 🎯\nBest: ${bestTime}ms\nAverage: ${avg}ms (${attempts.length} rounds)\nRating: ${getRating(bestTime)?.label}\n\nPlay at vibemenow.vercel.app/vibeordie`;
     
     if (navigator.share) {
       navigator.share({ text });

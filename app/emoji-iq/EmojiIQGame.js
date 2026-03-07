@@ -76,7 +76,7 @@ export default function EmojiIQGame() {
 
   const shareResult = () => {
     const pct = Math.round((score / totalQuestions) * 100);
-    const text = `VIBECHECK Emoji IQ 😂\nScore: ${score}/${totalQuestions} (${pct}%)\nEmoji IQ: ${pct >= 80 ? 'GENIUS 🧠' : pct >= 60 ? 'SMART 📚' : pct >= 40 ? 'AVERAGE 🤷' : 'NOOB 😅'}\n\nPlay at vibecheck-play.vercel.app/emoji-iq`;
+    const text = `VIBEMENOW Emoji IQ 😂\nScore: ${score}/${totalQuestions} (${pct}%)\nEmoji IQ: ${pct >= 80 ? 'GENIUS 🧠' : pct >= 60 ? 'SMART 📚' : pct >= 40 ? 'AVERAGE 🤷' : 'NOOB 😅'}\n\nPlay at vibemenow.vercel.app/emoji-iq`;
     
     if (navigator.share) {
       navigator.share({ text });

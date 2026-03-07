@@ -271,7 +271,7 @@ export default function QuizArenaGame() {
   const shareResults = () => {
     const sorted = [...room.players].sort((a,b) => b.score - a.score);
     const winner = sorted[0];
-    const text = `🏆 VIBECHECK Quiz Arena Results!\nCategory: ${CATEGORIES[room.category]}\nWinner: ${winner.name} (${winner.score} pts)\nMy Rank: #${sorted.findIndex(p => p.name === playerName) + 1}\n\nChallenge me at: vibecheck-play.vercel.app/quiz-arena`;
+    const text = `🏆 VIBEMENOW Quiz Arena Results!\nCategory: ${CATEGORIES[room.category]}\nWinner: ${winner.name} (${winner.score} pts)\nMy Rank: #${sorted.findIndex(p => p.name === playerName) + 1}\n\nChallenge me at: vibemenow.vercel.app/quiz-arena`;
     
     if (navigator.share) {
       navigator.share({ text });

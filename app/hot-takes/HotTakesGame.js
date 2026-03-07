@@ -68,7 +68,7 @@ export default function HotTakesGame() {
   const shareResult = () => {
     const agrees = Object.values(votes).filter(v => v).length;
     const disagrees = Object.values(votes).filter(v => !v).length;
-    const text = `VIBECHECK Hot Takes 🔥\nVoted on ${totalVoted} takes\n👍 Agreed: ${agrees}\n👎 Disagreed: ${disagrees}\n\nPlay at vibecheck-play.vercel.app/hot-takes`;
+    const text = `VIBEMENOW Hot Takes 🔥\nVoted on ${totalVoted} takes\n👍 Agreed: ${agrees}\n👎 Disagreed: ${disagrees}\n\nPlay at vibemenow.vercel.app/hot-takes`;
     
     if (navigator.share) {
       navigator.share({ text });

@@ -160,7 +160,7 @@ export default function VibeQuizGame() {
 
   const shareResult = () => {
     const result = getResult();
-    const text = `VIBECHECK Vibe Quiz ✨\nI'm a ${result.emoji} ${result.title}!\n${result.desc.substring(0, 80)}...\n\nFind your vibe: vibecheck-play.vercel.app/vibe-quiz`;
+    const text = `VIBEMENOW Vibe Quiz ✨\nI'm a ${result.emoji} ${result.title}!\n${result.desc.substring(0, 80)}...\n\nFind your vibe: vibemenow.vercel.app/vibe-quiz`;
     
     if (navigator.share) {
       navigator.share({ text });

@@ -56,7 +56,7 @@ export default function WouldYouRatherGame() {
   };
 
   const shareResult = () => {
-    const text = `VIBECHECK Would You Rather 😈\nPlayed ${totalPlayed} rounds!\n\nPlay at vibecheck-play.vercel.app/would-you-rather`;
+    const text = `VIBEMENOW Would You Rather 😈\nPlayed ${totalPlayed} rounds!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
