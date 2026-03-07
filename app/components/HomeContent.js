@@ -112,7 +112,7 @@ export default function HomeContent() {
           🎮 FREE DAILY GAMES — NO LOGIN REQUIRED
         </div>
         <h1 className="hero-title">
-          VIBE<span>CHECK</span>
+          VIBE<span>MENOW</span>
         </h1>
         <p className="hero-desc">
           Fast, addictive, bite-sized daily games designed to brighten your mood and challenge your brain. Play now ⚡
@@ -178,7 +178,7 @@ export default function HomeContent() {
       {/* Feature Highlights */}
       <section style={{ marginTop: 48, textAlign: 'center' }}>
         <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 32, color: '#f0f0f0' }}>
-          Why VIBECHECK? 🤔
+          Why VIBEMENOW? 🤔
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
           <div className="card" style={{ textAlign: 'center', cursor: 'default' }}>

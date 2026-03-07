@@ -38,7 +38,7 @@ export default function SiteLayout({ children }) {
           <Link href="/" className="logo-link">
             <Zap size={22} color="#ff2d78" style={{ filter: 'drop-shadow(0 0 8px #ff2d78)' }} />
             <span className="logo-text">
-              VIBE<span>CHECK</span>
+              VIBE<span>MENOW</span>
             </span>
           </Link>
           <nav className="nav-links">
@@ -64,7 +64,7 @@ export default function SiteLayout({ children }) {
       {/* Footer */}
       <footer className="site-footer">
         <div className="footer-inner">
-          <span className="footer-brand">VIBECHECK</span> — Free daily games. No login. Just vibes.
+          <span className="footer-brand">VIBEMENOW</span> — Free daily games. No login. Just vibes.
           <div className="footer-links">
             {NAV_ITEMS.map(item => (
               <Link key={item.name} href={item.path}>
