@@ -140,9 +140,6 @@ export default function PollPartyGame() {
 
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <Link href="/" className="btn-outline" style={{ display: 'inline-flex', gap: '8px', border: 'none', marginBottom: '24px' }}>
-        <Home size={18} /> Back to VibeMeNow
-      </Link>
       <div className="game-badge" style={{ background: 'rgba(255, 107, 53, 0.1)', color: '#ff6b35' }}>Vote Party</div>
       <h1 className="game-title">🗳️ POLL <span style={{ color: '#ff6b35' }}>PARTY</span></h1>
       <p className="game-subtitle">Answer prompts and vote for the funniest vibe.</p>

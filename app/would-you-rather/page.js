@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import WouldYouRatherGame from './WouldYouRatherGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function WouldYouRatherPage() {
-  return (
-    <SiteLayout>
-      <WouldYouRatherGame />
-    </SiteLayout>
-  );
+  return <WouldYouRatherGame />;
 }

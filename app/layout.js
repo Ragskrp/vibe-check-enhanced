@@ -1,3 +1,4 @@
+import SiteLayout from "./components/SiteLayout";
 import "./globals.css";
 
 export const metadata = {
@@ -81,7 +82,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="grid-bg" suppressHydrationWarning>
-        {children}
+        <SiteLayout>
+          {children}
+        </SiteLayout>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import SiteLayout from '../components/SiteLayout';
 import MemoryArenaGame from './MemoryArenaGame';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function MemoryArenaPage() {
-  return <MemoryArenaGame />;
+  return (
+    <SiteLayout>
+      <MemoryArenaGame />
+    </SiteLayout>
+  );
 }

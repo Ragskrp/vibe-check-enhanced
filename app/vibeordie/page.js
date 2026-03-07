@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import VibeOrDieGame from './VibeOrDieGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function VibeOrDiePage() {
-  return (
-    <SiteLayout>
-      <VibeOrDieGame />
-    </SiteLayout>
-  );
+  return <VibeOrDieGame />;
 }

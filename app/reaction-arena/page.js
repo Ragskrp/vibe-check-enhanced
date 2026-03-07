@@ -1,3 +1,4 @@
+import SiteLayout from '../components/SiteLayout';
 import ReactionArenaGame from './ReactionArenaGame';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function ReactionArenaPage() {
-  return <ReactionArenaGame />;
+  return (
+    <SiteLayout>
+      <ReactionArenaGame />
+    </SiteLayout>
+  );
 }

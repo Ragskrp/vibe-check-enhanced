@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import WordVibeGame from './WordVibeGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function WordVibePage() {
-  return (
-    <SiteLayout>
-      <WordVibeGame />
-    </SiteLayout>
-  );
+  return <WordVibeGame />;
 }

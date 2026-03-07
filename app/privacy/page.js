@@ -7,9 +7,6 @@ export default function PrivacyPage() {
   return (
     <div className="page-container animate-fade-in">
       <div className="card" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px' }}>
-        <Link href="/" className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', border: 'none', padding: '0 0 10px 0' }}>
-          <Home size={18} /> Back to VibeMeNow
-        </Link>
         <h1 className="game-title" style={{ textAlign: 'left', fontSize: '36px', marginBottom: '24px' }}>
           Privacy <span style={{ color: '#00ff94' }}>Policy</span>
         </h1>

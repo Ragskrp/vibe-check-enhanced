@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import HotTakesGame from './HotTakesGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function HotTakesPage() {
-  return (
-    <SiteLayout>
-      <HotTakesGame />
-    </SiteLayout>
-  );
+  return <HotTakesGame />;
 }

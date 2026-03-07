@@ -123,9 +123,6 @@ export default function ReactionArenaGame() {
 
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <Link href="/" className="btn-outline" style={{ display: 'inline-flex', gap: '8px', border: 'none', marginBottom: '24px' }}>
-        <Home size={18} /> Back to VibeMeNow
-      </Link>
       <div className="game-badge" style={{ background: 'rgba(255, 45, 120, 0.1)', color: '#ff2d78' }}>Arena Mode</div>
       <h1 className="game-title">⚡ REACTION <span style={{ color: '#ff2d78' }}>BATTLE</span></h1>
       <p className="game-subtitle">Who has the fastest reflexes in the room?</p>

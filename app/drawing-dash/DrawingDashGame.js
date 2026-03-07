@@ -63,8 +63,8 @@ export default function DrawingDashGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#00d4ff';
 
     lines.forEach(line => {
       ctx.beginPath();
@@ -145,6 +145,10 @@ export default function DrawingDashGame() {
     
     // Local Draw for Speed
     const ctx = canvasRef.current.getContext('2d');
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#00d4ff';
     ctx.beginPath();
     ctx.moveTo(newLine.x1 * canvasRef.current.width, newLine.y1 * canvasRef.current.height);
     ctx.lineTo(newLine.x2 * canvasRef.current.width, newLine.y2 * canvasRef.current.height);
@@ -192,9 +196,6 @@ export default function DrawingDashGame() {
 
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <Link href="/" className="btn-outline" style={{ display: 'inline-flex', gap: '8px', border: 'none', marginBottom: '24px' }}>
-        <Home size={18} /> Back to VibeMeNow
-      </Link>
       <div className="game-badge" style={{ background: 'rgba(0, 212, 255, 0.1)', color: '#00d4ff' }}>Drawing Party</div>
       <h1 className="game-title">🎨 DRAWING <span style={{ color: '#00d4ff' }}>DASH</span></h1>
       <p className="game-subtitle">One player draws, everyone guesses. Instant multiplayer fun!</p>

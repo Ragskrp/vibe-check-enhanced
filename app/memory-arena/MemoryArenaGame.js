@@ -172,9 +172,6 @@ export default function MemoryArenaGame() {
 
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <Link href="/" className="btn-outline" style={{ display: 'inline-flex', gap: '8px', border: 'none', marginBottom: '24px' }}>
-        <Home size={18} /> Back to VibeMeNow
-      </Link>
       <div className="game-badge" style={{ background: 'rgba(177, 74, 237, 0.1)', color: '#b14aed' }}>Memory Arena</div>
       <h1 className="game-title">🧠 BRAIN <span style={{ color: '#b14aed' }}>SYNC</span></h1>
       <p className="game-subtitle">Repeat the sequence as a group. Last survivor wins!</p>

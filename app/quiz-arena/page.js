@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import QuizArenaGame from './QuizArenaGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function QuizArenaPage() {
-  return (
-    <SiteLayout>
-      <QuizArenaGame />
-    </SiteLayout>
-  );
+  return <QuizArenaGame />;
 }

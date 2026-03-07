@@ -1,3 +1,4 @@
+import SiteLayout from '../components/SiteLayout';
 import PollPartyGame from './PollPartyGame';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function PollPartyPage() {
-  return <PollPartyGame />;
+  return (
+    <SiteLayout>
+      <PollPartyGame />
+    </SiteLayout>
+  );
 }

@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import VibeQuizGame from './VibeQuizGame';
 
 export const metadata = {
@@ -11,9 +10,5 @@ export const metadata = {
 };
 
 export default function VibeQuizPage() {
-  return (
-    <SiteLayout>
-      <VibeQuizGame />
-    </SiteLayout>
-  );
+  return <VibeQuizGame />;
 }

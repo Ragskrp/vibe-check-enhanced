@@ -130,9 +130,6 @@ export default function OddOneOutGame() {
 
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <Link href="/" className="btn-outline" style={{ display: 'inline-flex', gap: '8px', border: 'none', marginBottom: '24px' }}>
-        <Home size={18} /> Back to VibeMeNow
-      </Link>
       <div className="game-badge" style={{ background: 'rgba(0, 255, 148, 0.1)', color: '#00ff94' }}>Perception Game</div>
       <h1 className="game-title">👁️ ODD <span style={{ color: '#00ff94' }}>ONE OUT</span></h1>
       <p className="game-subtitle">Find the emoji that doesn&apos;t match. First one wins!</p>

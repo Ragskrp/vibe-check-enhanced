@@ -1,3 +1,4 @@
+import SiteLayout from '../components/SiteLayout';
 import DrawingDashGame from './DrawingDashGame';
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function DrawingDashPage() {
-  return <DrawingDashGame />;
+  return (
+    <SiteLayout>
+      <DrawingDashGame />
+    </SiteLayout>
+  );
 }
