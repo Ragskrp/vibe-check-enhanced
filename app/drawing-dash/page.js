@@ -1,4 +1,3 @@
-```
 import DrawingDashGame from './DrawingDashGame';
 
 export const metadata = {
@@ -9,4 +8,3 @@ export const metadata = {
 export default function DrawingDashPage() {
   return <DrawingDashGame />;
 }
-```
