@@ -67,6 +67,11 @@ export default function SiteLayout({ children }) {
               </Link>
             ))}
           </div>
+          <div className="footer-links">
+            <Link href="/about">About Us</Link>
+            <Link href="/contact">Contact Us</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+          </div>
           <div className="footer-tagline">
             Play daily • Share with friends • Come back tomorrow for new vibes ⚡
           </div>
