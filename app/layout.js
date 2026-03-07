@@ -72,8 +72,7 @@ export default function RootLayout({ children }) {
         {/* Google AdSense - Injected Pub ID: ca-pub-7832965089021505 */}
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          data-ad-client="ca-pub-7832965089021505"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
           crossOrigin="anonymous"
         ></script>
         <script
