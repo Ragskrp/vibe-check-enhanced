@@ -8,7 +8,7 @@ export default function PrivacyPage() {
     <div className="page-container animate-fade-in">
       <div className="card" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px' }}>
         <Link href="/" className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', border: 'none', padding: '0 0 10px 0' }}>
-          <Home size={18} /> Back to VibeCheck
+          <Home size={18} /> Back to VibeMeNow
         </Link>
         <h1 className="game-title" style={{ textAlign: 'left', fontSize: '36px', marginBottom: '24px' }}>
           Privacy <span style={{ color: '#00ff94' }}>Policy</span>
@@ -21,13 +21,13 @@ export default function PrivacyPage() {
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Information We Collect</h2>
           <p>
-            VIBECHECK is designed to be played without registration. We do not require you to provide a name, email address, or any personal identification to access our games. 
+            VIBEMENOW is designed to be played without registration. We do not require you to provide a name, email address, or any personal identification to access our games. 
             However, we may collect non-personal data such as your IP address, browser type, and device information to improve our services.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Google AdSense & Cookies</h2>
           <p>
-            VIBECHECK uses Google AdSense to serve advertisements. Google, as a third-party vendor, uses cookies to serve ads on our site. 
+            VIBEMENOW uses Google AdSense to serve advertisements. Google, as a third-party vendor, uses cookies to serve ads on our site. 
             Google&apos;s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>

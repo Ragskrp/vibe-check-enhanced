@@ -1,7 +1,7 @@
 import MemoryArenaGame from './MemoryArenaGame';
 
 export const metadata = {
-  title: 'Memory Arena | VIBECHECK',
+  title: 'Memory Arena | VIBEMENOW',
   description: 'The ultimate group memory challenge. Copy the sequence and be the last player standing!',
 };
 

@@ -39,7 +39,7 @@ export default function ContactPage() {
       <div className="card" style={{ maxWidth: '600px', margin: '0 auto', padding: '40px' }}>
         <div style={{ marginBottom: '24px' }}>
           <Link href="/" className="btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: 'none', padding: '0' }}>
-            <Home size={18} /> Back to VibeCheck
+            <Home size={18} /> Back to VibeMeNow
           </Link>
         </div>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>

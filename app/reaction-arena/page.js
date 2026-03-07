@@ -1,7 +1,7 @@
 import ReactionArenaGame from './ReactionArenaGame';
 
 export const metadata = {
-  title: 'Reaction Arena | VIBECHECK',
+  title: 'Reaction Arena | VIBEMENOW',
   description: 'Multiplayer fast-reflex battle. Challenge your friends to see who can react the fastest!',
 };
 
