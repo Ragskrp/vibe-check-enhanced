@@ -4,6 +4,13 @@ import { useState, useEffect } from 'react';
 import { Share2, ThumbsUp, ThumbsDown, ArrowRight } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', right: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const HOT_TAKES = [
   { text: "Pineapple belongs on pizza 🍕", agreePercent: 45 },
   { text: "Morning showers > Night showers 🚿", agreePercent: 58 },
@@ -79,10 +86,14 @@ export default function HotTakesGame() {
   };
 
   return (
-    <div className="game-container" style={{ textAlign: 'center' }}>
-      <div className="game-badge">Viral Content</div>
-      <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Hot Takes</h1>
-      <p className="game-subtitle">Vote on spicy opinions. Do you agree?</p>
+    <>
+      <FloatingBg />
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <div className="game-badge">Viral Content</div>
+        <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Hot Takes</h1>
+        <p className="game-subtitle">Vote on spicy opinions. Do you agree?</p>
+        
+        <AdBanner format="horizontal" />
 
       {totalVoted > 0 && (
         <div style={{ color: '#555', fontSize: 13, fontWeight: 700, marginBottom: 20 }}>
@@ -169,5 +180,6 @@ export default function HotTakesGame() {
 
       <AdBanner format="horizontal" />
     </div>
+    </>
   );
 }

@@ -4,6 +4,13 @@ import { useState, useEffect } from 'react';
 import { Share2, RotateCcw, ArrowRight } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '15%', right: '10%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 230, 0, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '20%', left: '10%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const PUZZLES = [
   { emojis: '🕷️🧑‍🦱🕸️', answer: 'Spider-Man', options: ['Batman', 'Spider-Man', 'Superman', 'Ant-Man'], category: '🎬 Movie' },
   { emojis: '🧊🚢💔', answer: 'Titanic', options: ['Frozen', 'Titanic', 'The Poseidon Adventure', 'Ice Age'], category: '🎬 Movie' },
@@ -118,10 +125,13 @@ export default function EmojiIQGame() {
   }
 
   return (
-    <div className="game-container" style={{ textAlign: 'center' }}>
-      <div className="game-badge">Brain Teaser</div>
-      <h1 className="game-title" style={{ color: '#ffe600' }}>😂 Emoji IQ</h1>
-      <p className="game-subtitle">Decode the emoji puzzle!</p>
+    <>
+      <FloatingBg />
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <div className="game-badge">Brain Teaser</div>
+        <h1 className="game-title" style={{ color: '#ffe600' }}>😂 Emoji IQ</h1>
+        <p className="game-subtitle">Decode the emoji puzzle!</p>
+        <AdBanner format="horizontal" />
 
       {/* Progress */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
@@ -182,5 +192,6 @@ export default function EmojiIQGame() {
 
       <AdBanner format="horizontal" />
     </div>
+    </>
   );
 }

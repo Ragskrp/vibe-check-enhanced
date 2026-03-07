@@ -4,6 +4,13 @@ import { useState, useEffect } from 'react';
 import { Share2, RotateCcw, ArrowRight } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', left: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(177, 74, 237, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', right: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const QUESTIONS = [
   {
     q: "It's Friday night. What are you doing?",
@@ -221,10 +228,13 @@ export default function VibeQuizGame() {
   const question = QUESTIONS[currentQ];
 
   return (
-    <div className="game-container" style={{ textAlign: 'center' }}>
-      <div className="game-badge">Personality Quiz</div>
-      <h1 className="game-title" style={{ color: '#b14aed' }}>✨ Vibe Quiz</h1>
-      <p className="game-subtitle">What vibe are you? Find out in 8 questions!</p>
+    <>
+      <FloatingBg />
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <div className="game-badge">Personality Quiz</div>
+        <h1 className="game-title" style={{ color: '#b14aed' }}>✨ Vibe Quiz</h1>
+        <p className="game-subtitle">What vibe are you? Find out in 8 questions!</p>
+        <AdBanner format="horizontal" />
 
       {/* Progress */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
@@ -269,5 +279,7 @@ export default function VibeQuizGame() {
         <AdBanner format="horizontal" />
       )}
     </div>
+    <AdBanner format="horizontal" /> {/* AdBanner at the bottom */}
+    </>
   );
 }

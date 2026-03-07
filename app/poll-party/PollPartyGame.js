@@ -10,6 +10,13 @@ import { MessageSquare, Users, Home, ArrowRight, Trophy, Vote, Send, ChevronLeft
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '20%', left: '5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '10%', right: '10%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(177, 74, 237, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const PROMPTS = [
   "The worst thing to say during a first date...",
   "A rejected name for a new planet...",
@@ -215,6 +222,9 @@ export default function PollPartyGame() {
             </button>
           </div>
         )}
+        <div style={{ marginTop: '32px' }}>
+          <AdBanner format="horizontal" />
+        </div>
       </div>
     );
   };
@@ -254,7 +264,7 @@ export default function PollPartyGame() {
     const sorted = [...room.players].sort((a,b) => b.score - a.score);
     return (
       <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-        <h1 className="game-title">👑 Final Vibe Check</h1>
+        <h1 className="game-title">👑 Final Vibe Me Now</h1>
         <div className="card" style={{ marginTop: '24px', background: '#13131f' }}>
           {sorted.map((p, i) => (
             <div key={i} style={{ 
@@ -274,12 +284,16 @@ export default function PollPartyGame() {
         <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
           Next Party
         </button>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
       </div>
     );
   };
 
   return (
     <>
+      <FloatingBg />
       {view === 'home' && renderHome()}
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}

@@ -4,6 +4,13 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { Share2, RotateCcw, Zap } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '15%', right: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '10%', left: '10%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const STATES = {
   IDLE: 'idle',
   WAITING: 'waiting',
@@ -18,7 +25,7 @@ const RATINGS = [
   { max: 250, label: '✨ VIBING', color: '#00d4ff', desc: 'Solid reflexes! You\'re in the zone.' },
   { max: 350, label: '😎 CHILL', color: '#b14aed', desc: 'Not bad! Room for improvement though.' },
   { max: 500, label: '🐢 SLOW VIBES', color: '#ff2d78', desc: 'Might wanna wake up first...' },
-  { max: Infinity, label: '💀 VIBE CHECK FAILED', color: '#ff2d78', desc: 'Were you asleep? Try again!' }
+  { max: Infinity, label: '💀 VIBE FAILED', color: '#ff2d78', desc: 'Were you asleep? Try again!' }
 ];
 
 export default function VibeOrDieGame() {
@@ -130,10 +137,13 @@ export default function VibeOrDieGame() {
   const rating = reactionTime ? getRating(reactionTime) : null;
 
   return (
-    <div className="game-container" style={{ textAlign: 'center' }}>
-      <div className="game-badge">Reaction Game</div>
-      <h1 className="game-title" style={{ color: '#ff2d78' }}>🎯 Vibe or Die</h1>
-      <p className="game-subtitle">Test your reaction speed. How fast can you click?</p>
+    <>
+      <FloatingBg />
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <div className="game-badge">Reaction Game</div>
+        <h1 className="game-title" style={{ color: '#ff2d78' }}>🎯 Vibe or Die</h1>
+        <p className="game-subtitle">Test your reaction speed. How fast can you click?</p>
+        <AdBanner format="horizontal" />
 
       {/* Stats Bar */}
       {attempts.length > 0 && (
@@ -210,5 +220,6 @@ export default function VibeOrDieGame() {
 
       <AdBanner format="rectangle" />
     </div>
+    </>
   );
 }

@@ -10,6 +10,13 @@ import { Eye, Users, Home, ArrowRight, Trophy, ChevronLeft, Target } from 'lucid
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', right: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(0, 255, 148, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', left: '5%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const GRID_SIZE = 36; // 6x6 grid
 const SYMBOLS = ['🍎', '🍏', '🍊', '🍋', '🍐', '🫐', '🍓', '🍒', '🥑', '🥦', '🍕', '🍔', '🍟', '🍦', '🍩', '🍪', '🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁'];
 
@@ -272,12 +279,16 @@ export default function OddOneOutGame() {
         <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
           Find More
         </button>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
       </div>
     );
   };
 
   return (
     <>
+      <FloatingBg />
       {view === 'home' && renderHome()}
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}

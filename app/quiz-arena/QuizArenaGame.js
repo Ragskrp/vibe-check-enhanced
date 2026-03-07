@@ -9,6 +9,13 @@ import {
 import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', left: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 230, 0, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', right: '5%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const CATEGORIES = {
   general: "🌍 General Knowledge",
   pop_culture: "🎭 Pop Culture",
@@ -492,6 +499,9 @@ export default function QuizArenaGame() {
              New Arena Match
           </button>
         </div>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
       </div>
     );
   };
@@ -501,11 +511,13 @@ export default function QuizArenaGame() {
     return null;
   }
 
-  switch(view) {
-    case 'home': return renderHome();
-    case 'lobby': return renderLobby();
-    case 'playing': return renderPlaying();
-    case 'results': return renderResults();
-    default: return renderHome();
-  }
+  return (
+    <>
+      <FloatingBg />
+      {view === 'home' && renderHome()}
+      {view === 'lobby' && renderLobby()}
+      {view === 'playing' && renderPlaying()}
+      {view === 'results' && renderResults()}
+    </>
+  );
 }

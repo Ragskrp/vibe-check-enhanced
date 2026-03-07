@@ -4,6 +4,13 @@ import { useState, useEffect } from 'react';
 import { Share2, ArrowRight, Flame } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', right: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(0, 255, 148, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', left: '5%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const SCENARIOS = [
   { a: "Be able to fly", b: "Be invisible", aPct: 58 },
   { a: "Live 200 years", b: "Restart life at 10 with all your knowledge", aPct: 34 },
@@ -66,10 +73,13 @@ export default function WouldYouRatherGame() {
   };
 
   return (
-    <div className="game-container" style={{ textAlign: 'center' }}>
-      <div className="game-badge">Social Game</div>
-      <h1 className="game-title" style={{ color: '#00ff94' }}>😈 Would U Rather</h1>
-      <p className="game-subtitle">Impossible choices. Pick one. No skipping!</p>
+    <>
+      <FloatingBg />
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <div className="game-badge">Social Game</div>
+        <h1 className="game-title" style={{ color: '#00ff94' }}>😈 Would U Rather</h1>
+        <p className="game-subtitle">Impossible choices. Pick one. No skipping!</p>
+        <AdBanner format="horizontal" />
 
       {totalPlayed > 0 && (
         <div style={{ color: '#555', fontSize: 13, fontWeight: 700, marginBottom: 20 }}>
@@ -188,5 +198,6 @@ export default function WouldYouRatherGame() {
 
       <AdBanner format="horizontal" />
     </div>
+    </>
   );
 }

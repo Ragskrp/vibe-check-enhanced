@@ -17,6 +17,13 @@ const COLORS = [
   { id: 3, color: '#00ff94', shadow: 'rgba(0, 255, 148, 0.4)' }
 ];
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.4 }}>
+    <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(177, 74, 237, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+    <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} />
+  </div>
+);
+
 export default function MemoryArenaGame() {
   const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); 
@@ -272,6 +279,9 @@ export default function MemoryArenaGame() {
               ))}
            </div>
         </div>
+        <div style={{ marginTop: '32px' }}>
+          <AdBanner format="horizontal" />
+        </div>
       </div>
     );
   };
@@ -297,12 +307,16 @@ export default function MemoryArenaGame() {
         <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
           New Arena
         </button>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
       </div>
     );
   };
 
   return (
     <>
+      <FloatingBg />
       {view === 'home' && renderHome()}
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}

@@ -10,6 +10,13 @@ import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser } f
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '15%', right: '5%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.05) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 const WORDS = ['APPLE', 'HOUSE', 'CAR', 'DRAGON', 'SUNFLOWER', 'PIZZA', 'CAT', 'ROBOT', 'TREE', 'PLANE', 'CAKE', 'FISH', 'BANANA', 'GUITAR', 'BOTTLE', 'SPIDER'];
 
 export default function DrawingDashGame() {
@@ -79,6 +86,7 @@ export default function DrawingDashGame() {
       type: 'drawing',
       status: 'lobby',
       drawerId: 0,
+      round: 1,
       currentWord: WORDS[Math.floor(Math.random() * WORDS.length)],
       lines: [],
       players: [{ name: playerName, score: 0 }],
@@ -163,14 +171,18 @@ export default function DrawingDashGame() {
       newPlayers[myPlayerId].score += 10;
       newPlayers[room.drawerId].score += 5;
 
+      const nextRound = room.round + 1;
+      const isGameOver = nextRound > (room.players.length * 2); // 2 rounds per player
       const nextDrawer = (room.drawerId + 1) % room.players.length;
       const nextWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 
       await updateDoc(doc(db, "rooms", room.id), {
         players: newPlayers,
         drawerId: nextDrawer,
+        round: nextRound,
         currentWord: nextWord,
-        lines: [] // Clear for next round
+        lines: [],
+        status: isGameOver ? 'results' : 'playing'
       });
       setGuess('');
     } else {
@@ -274,6 +286,9 @@ export default function DrawingDashGame() {
             </button>
           )}
         </div>
+        <div style={{ marginTop: '24px' }}>
+          <AdBanner format="horizontal" />
+        </div>
 
         <div style={{ marginTop: '24px' }}>
           {!isDrawer ? (
@@ -305,11 +320,37 @@ export default function DrawingDashGame() {
     );
   };
 
+  const renderResults = () => {
+    const sortedPlayers = [...room.players].sort((a, b) => b.score - a.score);
+    return (
+      <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
+        <h2 style={{ fontSize: '32px', marginBottom: '24px' }}>🏆 RESULTS 🏆</h2>
+        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
+          <div style={{ color: '#555', fontSize: '11px', fontWeight: 800, marginBottom: '12px' }}>FINAL SCORES</div>
+          {sortedPlayers.map((p, i) => (
+            <div key={i} style={{ padding: '4px', display: 'flex', justifyContent: 'space-between' }}>
+              <span>{p.name}</span>
+              <span style={{ color: '#ffe600', fontWeight: 800 }}>{p.score}</span>
+            </div>
+          ))}
+        </div>
+        <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
+           Next Match
+        </button>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
+      <FloatingBg />
       {view === 'home' && renderHome()}
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
+      {view === 'results' && renderResults()}
     </>
   );
 }

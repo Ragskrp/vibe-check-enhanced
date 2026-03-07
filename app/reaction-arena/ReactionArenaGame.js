@@ -10,6 +10,13 @@ import { Zap, Users, Home, ArrowRight, Timer, Trophy, ChevronLeft } from 'lucide
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
+const FloatingBg = () => (
+  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
+    <div style={{ position: 'absolute', top: '15%', right: '10%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 45, 120, 0.1) 0%, transparent 70%)', borderRadius: '50%' }} />
+    <div style={{ position: 'absolute', bottom: '20%', left: '10%', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)', borderRadius: '50%' }} className="animate-pulse" />
+  </div>
+);
+
 export default function ReactionArenaGame() {
   const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); // home, lobby, playing, results
@@ -19,7 +26,6 @@ export default function ReactionArenaGame() {
   const [myPlayerId, setMyPlayerId] = useState(null);
   const [isHost, setIsHost] = useState(false);
   const [error, setError] = useState('');
-  const [gameState, setGameState] = useState('waiting'); // waiting, steady, go
   const [reactionTime, setReactionTime] = useState(null);
 
   useEffect(() => { setMounted(true); }, []);
@@ -181,35 +187,39 @@ export default function ReactionArenaGame() {
   const renderPlaying = () => {
     const isWait = room.gameState === 'waiting';
     return (
-      <div 
-        className="game-container" 
-        onClick={handleTrigger}
-        style={{ 
-          height: '600px', 
-          display: 'flex', 
-          flexDirection: 'column',
-          alignItems: 'center', 
-          justifyContent: 'center',
-          background: isWait ? '#1a1a2e' : '#ff2d78',
-          cursor: 'pointer',
-          borderRadius: '24px',
-          transition: 'background 0.1s ease'
-        }}
-      >
-        <div style={{ textAlign: 'center', color: '#fff' }}>
-          {isWait ? (
-            <>
-              <Timer size={64} className="animate-pulse" style={{ marginBottom: '20px', opacity: 0.5 }} />
-              <h2 style={{ fontSize: '32px', fontWeight: 800 }}>WAIT FOR IT...</h2>
-              <p style={{ opacity: 0.6 }}>Don't click yet!</p>
-            </>
-          ) : (
-            <>
-              <Zap size={80} style={{ marginBottom: '20px' }} />
-              <h2 style={{ fontSize: '64px', fontWeight: 900 }}>TAP NOW!</h2>
-              {reactionTime && <div style={{ fontSize: '48px', fontWeight: 900, marginTop: '20px' }}>{reactionTime}ms</div>}
-            </>
-          )}
+      <div className="game-container">
+        <div 
+          onClick={handleTrigger}
+          style={{ 
+            height: '600px', 
+            display: 'flex', 
+            flexDirection: 'column',
+            alignItems: 'center', 
+            justifyContent: 'center',
+            background: isWait ? '#1a1a2e' : '#ff2d78',
+            cursor: 'pointer',
+            borderRadius: '24px',
+            transition: 'background 0.1s ease'
+          }}
+        >
+          <div style={{ textAlign: 'center', color: '#fff' }}>
+            {isWait ? (
+              <>
+                <Timer size={64} className="animate-pulse" style={{ marginBottom: '20px', opacity: 0.5 }} />
+                <h2 style={{ fontSize: '32px', fontWeight: 800 }}>WAIT FOR IT...</h2>
+                <p style={{ opacity: 0.6 }}>Don't click yet!</p>
+              </>
+            ) : (
+              <>
+                <Zap size={80} style={{ marginBottom: '20px' }} />
+                <h2 style={{ fontSize: '64px', fontWeight: 900 }}>TAP NOW!</h2>
+                {reactionTime && <div style={{ fontSize: '48px', fontWeight: 900, marginTop: '20px' }}>{reactionTime}ms</div>}
+              </>
+            )}
+          </div>
+        </div>
+        <div style={{ marginTop: '32px' }}>
+          <AdBanner format="horizontal" />
         </div>
       </div>
     );
@@ -236,12 +246,16 @@ export default function ReactionArenaGame() {
         <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
           Play Again
         </button>
+        <div style={{ marginTop: '40px' }}>
+          <AdBanner format="rectangle" />
+        </div>
       </div>
     );
   };
 
   return (
     <>
+      <FloatingBg />
       {view === 'home' && renderHome()}
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
