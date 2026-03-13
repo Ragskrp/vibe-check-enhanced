@@ -179,7 +179,7 @@ export default function HomeContent() {
       </section>
 
       {/* Control Bar */}
-      <section style={{ marginTop: 40, marginBottom: 32 }}>
+      <section id="games-listing" style={{ marginTop: 40, marginBottom: 32 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', flex: 1 }}>
             {CATEGORIES.map(cat => (

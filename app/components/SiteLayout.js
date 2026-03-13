@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Zap, ChevronDown, LayoutGrid, Globe } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { Zap, LayoutGrid } from 'lucide-react';
 import AdBanner from './AdBanner';
 
 const NAV_ITEMS = [
@@ -24,23 +24,17 @@ const NAV_ITEMS = [
 
 export default function SiteLayout({ children }) {
   const pathname = usePathname();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const router = useRouter();
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
+  const handleBrowseClick = (e) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById('games-listing');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Close dropdown on navigation
-  useEffect(() => {
-    setDropdownOpen(false);
-  }, [pathname]);
+    }
+  };
 
   return (
     <>
@@ -66,46 +60,14 @@ export default function SiteLayout({ children }) {
               Home
             </Link>
             
-            <div style={{ position: 'relative' }} ref={dropdownRef}>
-              <button 
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`nav-link ${dropdownOpen ? 'active' : ''}`}
-                style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'none', border: 'none', padding: '6px 12px', cursor: 'pointer' }}
-              >
-                Browse Games <ChevronDown size={14} style={{ transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
-              </button>
-              
-              {dropdownOpen && (
-                <div style={{
-                  position: 'absolute',
-                  top: '100%',
-                  right: 0,
-                  marginTop: '10px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-light)',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
-                  padding: '12px',
-                  width: '240px',
-                  display: 'grid',
-                  gridTemplateColumns: '1fr',
-                  gap: '4px',
-                  zIndex: 200,
-                  animation: 'fadeInUp 0.2s ease-out'
-                }}>
-                  {NAV_ITEMS.map(item => (
-                    <Link
-                      key={item.name}
-                      href={item.path}
-                      className={`nav-link${pathname === item.path ? ' active' : ''}`}
-                      style={{ display: 'block', width: '100%', textAlign: 'left', padding: '10px 14px' }}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Link 
+              href="/#games-listing" 
+              onClick={handleBrowseClick}
+              className="nav-link"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <LayoutGrid size={16} /> Browse Games
+            </Link>
           </nav>
         </div>
       </header>
