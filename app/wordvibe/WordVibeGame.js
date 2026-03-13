@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Share2, RotateCcw } from 'lucide-react';
+import { Share2, RotateCcw, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -236,6 +236,26 @@ export default function WordVibeGame() {
             ))}
           </div>
         ))}
+      </div>
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#00d4ff" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Guess the <strong>WORDVIBE</strong> in 6 tries. The word resets every 24 hours.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Each guess must be a valid 5-letter word. Hit the enter button to submit.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>The color of the tiles will change to show how close your guess was.</span>
+          </div>
+        </div>
       </div>
     </div>
     </>

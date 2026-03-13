@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Eye, Users, Home, ArrowRight, Trophy, ChevronLeft, Target } from 'lucide-react';
+import { Eye, Users, Home, ArrowRight, Trophy, ChevronLeft, Target, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
@@ -174,6 +174,26 @@ export default function OddOneOutGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#00ff94" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>A grid of emojis will appear. All of them are identical except for **ONE**.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Scan the grid as quickly as possible and tap the emoji that looks different.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>The first player to find the odd emoji in each round gets 10 points. Fastest seeker wins!</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

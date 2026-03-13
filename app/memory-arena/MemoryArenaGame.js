@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Brain, Users, Home, ArrowRight, Trophy, ChevronLeft, Volume2 } from 'lucide-react';
+import { Brain, Users, Home, ArrowRight, Trophy, ChevronLeft, Volume2, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
@@ -216,6 +216,26 @@ export default function MemoryArenaGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#b14aed" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>A sequence of flashing colors will be shown to the group. Watch it very carefully!</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Once it's your turn, click the colors in the exact same order they were flashed.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>The sequence gets longer every round. If you make one mistake, you are eliminated! Last survivor wins.</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

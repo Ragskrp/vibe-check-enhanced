@@ -6,7 +6,7 @@ import {
   collection, doc, onSnapshot, setDoc, updateDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft } from 'lucide-react';
+import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -353,6 +353,26 @@ export default function QuizArenaGame() {
         </div>
       </div>
       <AdBanner />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ffe600" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Create a room and share the 6-digit code with your friends to join the arena.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Once the match starts, you have 15 seconds to answer each multiple-choice question.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>Correct answers earn 10 points. If everyone answers or time runs out, the host moves to the next question!</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

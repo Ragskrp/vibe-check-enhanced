@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Share2, ThumbsUp, ThumbsDown, ArrowRight } from 'lucide-react';
+import { Share2, ThumbsUp, ThumbsDown, ArrowRight, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -179,6 +179,26 @@ export default function HotTakesGame() {
       )}
 
       <AdBanner format="horizontal" />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ff6b35" /> How it Works
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Read the &apos;Hot Take&apos; — a controversial opinion from our daily collection.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Vote whether you Agree or Disagree based on your own opinion.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>Instantly see real-time statistics of how many people across the world voted the same way!</span>
+          </div>
+        </div>
+      </div>
     </div>
     </>
   );

@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Zap, Users, Home, ArrowRight, Timer, Trophy, ChevronLeft } from 'lucide-react';
+import { Zap, Users, Home, ArrowRight, Timer, Trophy, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
@@ -167,6 +167,26 @@ export default function ReactionArenaGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ff2d78" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Host a room or join with a code. This is a multiplayer test of speed!</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>When the match starts, wait for the screen to turn **PINK**.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>Click or tap the screen the millisecond it changes content. The fastest reaction time wins!</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

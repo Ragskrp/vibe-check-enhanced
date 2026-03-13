@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Share2, RotateCcw, Zap } from 'lucide-react';
+import { Zap, Timer, Share2, RotateCcw, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -219,6 +219,26 @@ export default function VibeOrDieGame() {
       )}
 
       <AdBanner format="rectangle" />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ff2d78" /> How it Works
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Click or tap the screen to start the round. The screen will turn **PINK**.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Wait patiently. When the screen turns **GREEN**, click or tap as fast as you humanly can!</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>We measure your reaction time in milliseconds. Get your rating and try to reach &apos;GOD TIER&apos; status!</span>
+          </div>
+        </div>
+      </div>
     </div>
     </>
   );

@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { MessageSquare, Users, Home, ArrowRight, Trophy, Vote, Send, ChevronLeft } from 'lucide-react';
+import { MessageSquare, Users, Home, ArrowRight, Trophy, Vote, Send, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
@@ -184,6 +184,26 @@ export default function PollPartyGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ff6b35" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Everyone in the room is given the same funny or weird prompt.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Write your most creative or hilarious answer. Try to match the vibe of the group!</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>All answers are displayed anonymously. Vote for your favorite (you can&apos;t vote for yourself). Most votes wins!</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 

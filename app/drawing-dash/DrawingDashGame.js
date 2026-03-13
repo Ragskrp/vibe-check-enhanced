@@ -6,9 +6,10 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser } from 'lucide-react';
+import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
+import confetti from 'canvas-confetti';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -39,15 +40,25 @@ export default function DrawingDashGame() {
   // Firestore Listener for Game State and Drawing
   useEffect(() => {
     if (!mounted || !room?.id) return;
-    const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
-      if (doc.exists()) {
-        const data = doc.data();
+    const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data();
+        
+        // If round changed, clear local canvas for everyone
+        if (room && data.round !== room.round) {
+          const canvas = canvasRef.current;
+          if (canvas) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+        }
+
         setRoom(prev => ({ ...prev, ...data }));
         
         if (data.status === 'playing' && view === 'lobby') setView('playing');
         if (data.status === 'results' && view !== 'results') setView('results');
 
-        // Draw incoming lines if I'm not the drawer
+        // Sync drawing for non-drawers
         if (data.status === 'playing' && data.drawerId !== myPlayerId) {
           syncCanvas(data.lines || []);
         }
@@ -170,25 +181,47 @@ export default function DrawingDashGame() {
   };
 
   const handleGuess = async () => {
+    if (!guess.trim() || room.lastWinner) return;
+    
     if (guess.toUpperCase() === room.currentWord) {
+      // Trigger Confetti!
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#00d4ff', '#ff2d78', '#ffe600']
+      });
+
+      // Show local success immediately
+      setGuess('CORRECT! ✨');
+      
       const newPlayers = [...room.players];
       newPlayers[myPlayerId].score += 10;
       newPlayers[room.drawerId].score += 5;
 
       const nextRound = room.round + 1;
-      const isGameOver = nextRound > (room.players.length * 2); // 2 rounds per player
+      const isGameOver = nextRound > (room.players.length * 2);
       const nextDrawer = (room.drawerId + 1) % room.players.length;
       const nextWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 
+      // Store winner info briefly
       await updateDoc(doc(db, "rooms", room.id), {
         players: newPlayers,
-        drawerId: nextDrawer,
-        round: nextRound,
-        currentWord: nextWord,
-        lines: [],
+        lastWinner: playerName,
         status: isGameOver ? 'results' : 'playing'
       });
-      setGuess('');
+
+      // Simple delay before full state reset to next round
+      setTimeout(async () => {
+        await updateDoc(doc(db, "rooms", room.id), {
+          drawerId: nextDrawer,
+          round: nextRound,
+          currentWord: nextWord,
+          lines: [],
+          lastWinner: null
+        });
+        setGuess('');
+      }, 2000);
     } else {
       setGuess('');
     }
@@ -240,6 +273,26 @@ export default function DrawingDashGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
+      
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#00d4ff" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Join a room and wait for the host to start. One player is chosen as the Drawer each round.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>If you are the Drawer, draw the secret word on the canvas for others to see.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>If you are a Guesser, type your ideas in the chat box! Correct guesses win points.</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 
@@ -269,10 +322,16 @@ export default function DrawingDashGame() {
            <div style={{ fontSize: '12px' }}>
               Drawer: <span style={{ color: '#ffe600', fontWeight: 800 }}>{room.players[room.drawerId].name}</span>
            </div>
-           {isDrawer && (
+           {isDrawer ? (
              <div style={{ background: '#00d4ff15', color: '#00d4ff', padding: '4px 12px', borderRadius: '8px', fontWeight: 800 }}>
                 SECRET WORD: {room.currentWord}
              </div>
+           ) : (
+             room.lastWinner && (
+               <div className="animate-pulse" style={{ background: 'rgba(0, 255, 148, 0.2)', color: '#00ff94', padding: '4px 12px', borderRadius: '8px', fontWeight: 800 }}>
+                  ✨ {room.lastWinner} GUESSED IT!
+               </div>
+             )
            )}
         </div>
 

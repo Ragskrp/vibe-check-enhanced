@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Share2, RotateCcw, ArrowRight } from 'lucide-react';
+import { Share2, RotateCcw, ArrowRight, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -278,8 +278,28 @@ export default function VibeQuizGame() {
       {currentQ > 0 && currentQ % 4 === 0 && (
         <AdBanner format="horizontal" />
       )}
+      <AdBanner format="horizontal" />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#b14aed" /> How it Works
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Answer 8 subjective questions about your personality, aesthetic, and preferences.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Choose the option that most accurately reflects how you feel in the moment.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>Our algorithm will analyze your answers to determine your core &apos;Vibe&apos; — complete with personality traits and energy profiles!</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <AdBanner format="horizontal" /> {/* AdBanner at the bottom */}
     </>
   );
 }

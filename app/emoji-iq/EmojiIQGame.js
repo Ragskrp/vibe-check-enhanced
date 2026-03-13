@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Share2, RotateCcw, ArrowRight } from 'lucide-react';
+import { Share2, RotateCcw, ArrowRight, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -191,6 +191,26 @@ export default function EmojiIQGame() {
       )}
 
       <AdBanner format="horizontal" />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#ffe600" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>Look at the emojis shown in the card. They represent a well-known movie, song, or phrase.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Choose the correct answer from the four options provided.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>Complete 10 puzzles to get your Emoji IQ rating and share your genius with friends!</span>
+          </div>
+        </div>
+      </div>
     </div>
     </>
   );

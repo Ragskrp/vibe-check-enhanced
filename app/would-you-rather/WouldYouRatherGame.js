@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Share2, ArrowRight, Flame } from 'lucide-react';
+import { Share2, ArrowRight, Flame, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -197,6 +197,26 @@ export default function WouldYouRatherGame() {
       )}
 
       <AdBanner format="horizontal" />
+
+      <div className="how-to-play">
+        <div className="how-to-play-title">
+          <HelpCircle size={16} color="#00ff94" /> How to Play
+        </div>
+        <div className="how-to-play-steps">
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">1</span>
+            <span>You are presented with two difficult scenarios. You must pick one.</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">2</span>
+            <span>Click on your preferred choice. There is no right or wrong answer!</span>
+          </div>
+          <div className="how-to-play-step">
+            <span className="how-to-play-number">3</span>
+            <span>See how many other people chose the same as you. The stats update in real-time.</span>
+          </div>
+        </div>
+      </div>
     </div>
     </>
   );
