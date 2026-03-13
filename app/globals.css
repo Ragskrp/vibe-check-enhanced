@@ -227,6 +227,30 @@ input, select, textarea {
   box-shadow: 0 8px 32px rgba(255, 230, 0, 0.15);
 }
 
+/* ====== INPUTS ====== */
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--bg-card-hover);
+  border: 2px solid var(--border-light);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(255, 45, 120, 0.2);
+  background: var(--bg-card);
+}
+
+.input-field::placeholder {
+  color: var(--text-dim);
+}
+
 /* ====== BUTTONS ====== */
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--purple));

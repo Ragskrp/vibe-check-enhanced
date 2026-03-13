@@ -1,4 +1,3 @@
-import SiteLayout from '../components/SiteLayout';
 import OddOneOutGame from './OddOneOutGame';
 
 export const metadata = {
@@ -7,9 +6,5 @@ export const metadata = {
 };
 
 export default function OddOneOutPage() {
-  return (
-    <SiteLayout>
-      <OddOneOutGame />
-    </SiteLayout>
-  );
+  return <OddOneOutGame />;
 }

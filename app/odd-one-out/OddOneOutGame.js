@@ -134,27 +134,44 @@ export default function OddOneOutGame() {
       <h1 className="game-title">👁️ ODD <span style={{ color: '#00ff94' }}>ONE OUT</span></h1>
       <p className="game-subtitle">Find the emoji that doesn&apos;t match. First one wins!</p>
 
-      <div style={{ maxWidth: '400px', margin: '40px auto' }}>
-        <input 
-          placeholder="ENTER NICKNAME" 
-          className="input-field"
-          value={playerName}
-          onChange={e => setPlayerName(e.target.value.toUpperCase())}
-          maxLength={10}
-        />
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '20px' }}>
-          <button className="btn-secondary" onClick={handleCreateRoom}>Host Race</button>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div className="card" style={{ maxWidth: '450px', margin: '40px auto', padding: '32px' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <label style={{ display: 'block', color: '#555', fontSize: '11px', fontWeight: 800, textAlign: 'left', marginBottom: '8px', textTransform: 'uppercase' }}>
+            Choose your nickname
+          </label>
+          <input 
+            placeholder="E.G. HAWKEYE" 
+            className="input-field"
+            value={playerName}
+            onChange={e => setPlayerName(e.target.value.toUpperCase())}
+            maxLength={10}
+            style={{ marginBottom: 0 }}
+          />
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
+          <button className="btn-secondary" onClick={handleCreateRoom} style={{ width: '100%', justifyContent: 'center' }}>
+            Host New Race
+          </button>
+          
+          <div style={{ position: 'relative', margin: '10px 0' }}>
+            <div style={{ borderTop: '1px solid #2a2a3e', width: '100%' }}></div>
+            <span style={{ position: 'absolute', top: '-10px', left: '50%', transform: 'translateX(-50%)', background: 'var(--bg-card)', padding: '0 12px', color: '#555', fontSize: '12px', fontWeight: 800 }}>OR</span>
+          </div>
+
+          <div style={{ display: 'flex', gap: '8px' }}>
             <input 
-              placeholder="CODE"
+              placeholder="ENTER RACE CODE"
               className="input-field"
               value={roomCode}
               onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
             />
-            <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '10px' }}>Join</button>
+            <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>
           </div>
         </div>
-        {error && <p style={{ color: '#ff2d78', marginTop: '12px', fontSize: '14px' }}>{error}</p>}
+        
+        {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
     </div>

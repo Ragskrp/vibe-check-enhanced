@@ -302,44 +302,51 @@ export default function QuizArenaGame() {
         </div>
       )}
 
-      <div className="card" style={{ marginBottom: '24px' }}>
-        <input 
-          placeholder="Your Name / Nickname"
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-          maxLength={15}
-          style={{ width: '100%', padding: '14px', borderRadius: '12px', background: '#0a0a0f', border: '2px solid #2a2a3e', color: '#fff', fontSize: '16px', marginBottom: '20px' }}
-        />
+      <div className="card" style={{ maxWidth: '500px', margin: '40px auto', padding: '32px' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <label style={{ display: 'block', color: '#555', fontSize: '11px', fontWeight: 800, textAlign: 'left', marginBottom: '8px', textTransform: 'uppercase' }}>
+            Choose your nickname
+          </label>
+          <input 
+            placeholder="E.G. QUIZ_MASTER"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            maxLength={15}
+            className="input-field"
+            style={{ marginBottom: 0 }}
+          />
+        </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-          <div style={{ background: 'rgba(0, 212, 255, 0.05)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(0, 212, 255, 0.2)' }}>
-            <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎮</div>
-            <h3 style={{ fontSize: '16px', color: '#00d4ff', marginBottom: '8px' }}>Host Game</h3>
+          <div style={{ background: 'rgba(0, 212, 255, 0.05)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(0, 212, 255, 0.2)', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🎮</div>
+            <h3 style={{ fontSize: '14px', color: '#00d4ff', marginBottom: '12px', fontWeight: 800 }}>HOST GAME</h3>
             <select 
               value={selectedCategory} 
               onChange={(e) => setSelectedCategory(e.target.value)}
-              style={{ width: '100%', padding: '8px', background: '#0a0a0f', color: '#fff', border: '1px solid #2a2a3e', borderRadius: '8px', fontSize: '12px', marginBottom: '12px' }}
+              style={{ width: '100%', padding: '10px', background: '#0a0a0f', color: '#fff', border: '1px solid #2a2a3e', borderRadius: '10px', fontSize: '12px', marginBottom: '12px', cursor: 'pointer' }}
             >
               {Object.entries(CATEGORIES).map(([val, label]) => (
                 <option key={val} value={val}>{label}</option>
               ))}
             </select>
-            <button className="btn-secondary" onClick={handleCreateRoom} style={{ width: '100%', padding: '10px', fontSize: '13px' }}>
+            <button className="btn-secondary" onClick={handleCreateRoom} style={{ width: '100%', padding: '10px', fontSize: '12px', marginTop: 'auto' }}>
               Create Room
             </button>
           </div>
 
-          <div style={{ background: 'rgba(255, 45, 120, 0.05)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(255, 45, 120, 0.2)' }}>
-            <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔗</div>
-            <h3 style={{ fontSize: '16px', color: '#ff2d78', marginBottom: '8px' }}>Join Room</h3>
+          <div style={{ background: 'rgba(255, 45, 120, 0.05)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(255, 45, 120, 0.2)', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🔗</div>
+            <h3 style={{ fontSize: '14px', color: '#ff2d78', marginBottom: '12px', fontWeight: 800 }}>JOIN ROOM</h3>
             <input 
-              placeholder="ENTER CODE"
+              placeholder="CODE"
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
               maxLength={6}
-              style={{ width: '100%', textAlign: 'center', padding: '8px', background: '#0a0a0f', border: '1px solid #2a2a3e', borderRadius: '8px', color: '#ffe600', fontWeight: 'bold', letterSpacing: '2px', marginBottom: '12px' }}
+              className="input-field"
+              style={{ textAlign: 'center', fontSize: '14px', letterSpacing: '2px', padding: '10px', marginBottom: '12px' }}
             />
-            <button className="btn-primary" onClick={handleJoinRoom} style={{ width: '100%', padding: '10px', fontSize: '13px' }}>
+            <button className="btn-primary" onClick={handleJoinRoom} style={{ width: '100%', padding: '10px', fontSize: '12px', marginTop: 'auto' }}>
               Join Game
             </button>
           </div>
