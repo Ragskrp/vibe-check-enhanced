@@ -59,7 +59,10 @@ export default function PollPartyGame() {
 
   if (!mounted) return <div className="game-container" />;
 
-  const generateRoomCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+  const generateRoomCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
 
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
@@ -81,7 +84,7 @@ export default function PollPartyGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and code!');
+    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
     const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
@@ -171,11 +174,12 @@ export default function PollPartyGame() {
 
           <div style={{ display: 'flex', gap: '8px' }}>
             <input 
-              placeholder="ENTER PARTY CODE"
+              placeholder="ENTER 3-LETTER CODE"
               className="input-field"
               value={roomCode}
               onChange={e => setRoomCode(e.target.value.toUpperCase())}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
+              maxLength={3}
             />
             <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>
           </div>
@@ -184,26 +188,6 @@ export default function PollPartyGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
-
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#ff6b35" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>Everyone in the room is given the same funny or weird prompt.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>Write your most creative or hilarious answer. Try to match the vibe of the group!</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>All answers are displayed anonymously. Vote for your favorite (you can&apos;t vote for yourself). Most votes wins!</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -333,6 +317,28 @@ export default function PollPartyGame() {
       {view === 'playing' && renderPlaying()}
       {view === 'voting' && renderVoting()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#ff6b35" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>Everyone in the room is given the same funny or weird prompt.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>Write your most creative or hilarious answer. Try to match the vibe of the group!</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>All answers are displayed anonymously. Vote for your favorite (you can&apos;t vote for yourself). Most votes wins!</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

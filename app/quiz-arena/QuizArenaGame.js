@@ -48,7 +48,6 @@ const TRIVIA_QUESTIONS = {
     { q: "Which platform streams Stranger Things?", options: ["Hulu", "HBO", "Disney+", "Netflix"], answer: 3 },
     { q: "What color is Sonic the Hedgehog?", options: ["Red", "Green", "Blue", "Yellow"], answer: 2 },
   ],
-  // Add more content as needed
 };
 
 // Default trivial list for other categories
@@ -59,7 +58,8 @@ Object.keys(CATEGORIES).forEach(cat => {
 });
 
 function generateRoomCode() {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
 }
 
 export default function QuizArenaGame() {
@@ -132,7 +132,7 @@ export default function QuizArenaGame() {
       setTimer(15);
       setSelectedAnswer(null);
     }
-  }, [room?.currentQuestion, view, room, mounted]);
+  }, [room?.currentQuestion, view, mounted]);
 
   if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
 
@@ -145,8 +145,6 @@ export default function QuizArenaGame() {
 
     try {
       const code = generateRoomCode();
-      console.log('Attempting to create room with code:', code);
-      
       const newRoom = {
         code,
         category: selectedCategory,
@@ -159,48 +157,29 @@ export default function QuizArenaGame() {
 
       const roomRef = doc(db, "rooms", code);
       await setDoc(roomRef, newRoom);
-      console.log('Room created successfully in Firestore');
       
       setRoom({ 
         id: code, 
         ...newRoom, 
-        createdAt: new Date().toISOString() // use string date for local state
+        createdAt: new Date().toISOString()
       });
       setMyPlayerId(0);
       setIsHost(true);
       setView('lobby');
     } catch (e) {
       console.error('Firebase Room Creation Error:', e);
-      setError('Firebase Error: ' + e.message + '. Initializing local room...');
-      
-      // Local fallback logic
-      const code = "LOCAL-" + Math.floor(Math.random() * 1000);
-      const localRoom = {
-        id: code,
-        code,
-        category: selectedCategory,
-        status: 'lobby',
-        currentQuestion: 0,
-        questions: TRIVIA_QUESTIONS[selectedCategory],
-        players: [{ name: playerName, score: 0, answers: [] }],
-        createdAt: new Date().toISOString(),
-      };
-      setRoom(localRoom);
-      setMyPlayerId(0);
-      setIsHost(true);
-      setView('lobby');
+      setError('Unable to create room. Please try again.');
     }
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || playerName.trim().length < 2 || !roomCode.trim()) {
-      setError('Enter both a valid name and 6-char room code!');
+    if (!playerName || !roomCode.trim() || roomCode.trim().length !== 3) {
+      setError('Enter both a valid name and 3-char room code!');
       return;
     }
     setError('');
 
     try {
-      console.log('Attempting to join room:', roomCode.toUpperCase());
       const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()));
       const querySnapshot = await getDocs(q);
 
@@ -224,7 +203,6 @@ export default function QuizArenaGame() {
       await updateDoc(roomRef, {
         players: arrayUnion(newPlayer)
       });
-      console.log('Joined room successfully');
 
       setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, newPlayer] });
       setMyPlayerId(playerIdx);
@@ -288,8 +266,6 @@ export default function QuizArenaGame() {
     }
   };
 
-  // --- RENDERING COMPONENTS ---
-
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
       <div className="game-badge">Multiplayer</div>
@@ -342,7 +318,7 @@ export default function QuizArenaGame() {
               placeholder="CODE"
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-              maxLength={6}
+              maxLength={3}
               className="input-field"
               style={{ textAlign: 'center', fontSize: '14px', letterSpacing: '2px', padding: '10px', marginBottom: '12px' }}
             />
@@ -353,26 +329,6 @@ export default function QuizArenaGame() {
         </div>
       </div>
       <AdBanner />
-
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#ffe600" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>Create a room and share the 6-digit code with your friends to join the arena.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>Once the match starts, you have 15 seconds to answer each multiple-choice question.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>Correct answers earn 10 points. If everyone answers or time runs out, the host moves to the next question!</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -488,7 +444,6 @@ export default function QuizArenaGame() {
 
   const renderResults = () => {
     const sorted = [...room.players].sort((a,b) => b.score - a.score);
-    const myRank = sorted.findIndex(p => p.name === playerName) + 1;
     const medals = ['🥇', '🥈', '🥉'];
 
     return (
@@ -545,6 +500,28 @@ export default function QuizArenaGame() {
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#ffe600" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>Create a room and share the 3-letter code with your friends to join the arena.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>Once the match starts, you have 15 seconds to answer each multiple-choice question.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>Correct answers earn 10 points. If everyone answers or time runs out, the host moves to the next question!</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

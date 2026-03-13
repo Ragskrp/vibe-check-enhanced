@@ -49,7 +49,10 @@ export default function OddOneOutGame() {
 
   if (!mounted) return <div className="game-container" />;
 
-  const generateRoomCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+  const generateRoomCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
 
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
@@ -74,7 +77,7 @@ export default function OddOneOutGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and code!');
+    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
     const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
@@ -140,11 +143,11 @@ export default function OddOneOutGame() {
             Choose your nickname
           </label>
           <input 
-            placeholder="E.G. HAWKEYE" 
+            placeholder="E.G. ABC" 
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            maxLength={3}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -174,26 +177,6 @@ export default function OddOneOutGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
-
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#00ff94" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>A grid of emojis will appear. All of them are identical except for **ONE**.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>Scan the grid as quickly as possible and tap the emoji that looks different.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>The first player to find the odd emoji in each round gets 10 points. Fastest seeker wins!</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -327,6 +310,28 @@ export default function OddOneOutGame() {
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#00ff94" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>A grid of emojis will appear. All of them are identical except for **ONE**.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>Scan the grid as quickly as possible and tap the emoji that looks different.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>The first player to find the odd emoji in each round gets 10 points. Fastest seeker wins!</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

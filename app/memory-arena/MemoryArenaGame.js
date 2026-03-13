@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Brain, Users, Home, ArrowRight, Trophy, ChevronLeft, Volume2, HelpCircle } from 'lucide-react';
+import { Brain, Users, Home, ArrowRight, Trophy, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 
@@ -57,8 +57,12 @@ export default function MemoryArenaGame() {
   useEffect(() => {
     if (view === 'playing' && room?.gameState === 'showing' && !isShowingSequence) {
       playSequence();
+    } else if (view === 'playing' && room?.gameState === 'input' && isShowingSequence) {
+      // Sync case: if host already moved to input but we are still showing, force stop
+      setIsShowingSequence(false);
+      setActiveButton(null);
     }
-  }, [room?.sequence, room?.gameState, view]);
+  }, [room?.sequence?.length, room?.gameState, view]);
 
   const playSequence = async () => {
     setIsShowingSequence(true);
@@ -79,7 +83,10 @@ export default function MemoryArenaGame() {
 
   if (!mounted) return <div className="game-container" />;
 
-  const generateRoomCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+  const generateRoomCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
 
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
@@ -102,7 +109,7 @@ export default function MemoryArenaGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and code!');
+    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
     const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
@@ -173,7 +180,7 @@ export default function MemoryArenaGame() {
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
       <div className="game-badge" style={{ background: 'rgba(177, 74, 237, 0.1)', color: '#b14aed' }}>Memory Arena</div>
-      <h1 className="game-title">🧠 BRAIN <span style={{ color: '#b14aed' }}>SYNC</span></h1>
+      <h1 className="game-title">🧠 MEMORY <span style={{ color: '#b14aed' }}>ARENA</span></h1>
       <p className="game-subtitle">Repeat the sequence as a group. Last survivor wins!</p>
 
       <div className="card" style={{ maxWidth: '450px', margin: '40px auto', padding: '32px' }}>
@@ -186,7 +193,7 @@ export default function MemoryArenaGame() {
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            maxLength={3}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -216,26 +223,6 @@ export default function MemoryArenaGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
-
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#b14aed" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>A sequence of flashing colors will be shown to the group. Watch it very carefully!</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>Once it's your turn, click the colors in the exact same order they were flashed.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>The sequence gets longer every round. If you make one mistake, you are eliminated! Last survivor wins.</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -247,8 +234,8 @@ export default function MemoryArenaGame() {
       <h2 style={{ fontSize: '28px' }}>Join Code: <span style={{ color: '#ffe600' }}>{room.code}</span></h2>
       <div className="card" style={{ margin: '32px 0' }}>
         {room.players.map((p, i) => (
-          <div key={i} style={{ padding: '8px', color: '#fff', fontWeight: 800 }}>
-             {i === 0 ? '👑' : '🧠'} {p.name}
+          <div key={i} style={{ padding: '8px', color: i === 0 ? '#ffe600' : '#fff', fontWeight: 800 }}>
+             {i === 0 ? '👑' : '🧠'} {p.name} {i === myPlayerId && "(YOU)"}
           </div>
         ))}
       </div>
@@ -266,6 +253,15 @@ export default function MemoryArenaGame() {
       <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', fontWeight: 800 }}>
            <span style={{ color: '#b14aed' }}>Level {room.sequence.length}</span>
+           <div style={{ 
+             background: room.gameState === 'showing' ? 'rgba(255, 230, 0, 0.1)' : 'rgba(0, 255, 148, 0.1)',
+             color: room.gameState === 'showing' ? '#ffe600' : '#00ff94',
+             padding: '4px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 900,
+             border: `1px solid ${room.gameState === 'showing' ? '#ffe60044' : '#00ff9444'}`,
+             animation: room.gameState === 'showing' ? 'pulse 1s infinite' : 'none'
+           }}>
+             {room.gameState === 'showing' ? '👀 WATCH SEQUENCE' : '👆 YOUR TURN!'}
+           </div>
            <span style={{ color: isAlive ? '#00ff94' : '#ff2d78' }}>{isAlive ? 'ALIVE' : 'ELIMINATED'}</span>
         </div>
 
@@ -293,9 +289,14 @@ export default function MemoryArenaGame() {
               }}
             />
           ))}
-          {isShowingSequence && (
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }}>
-               <Volume2 size={48} color="#fff" />
+          {room.gameState === 'showing' && (
+            <div style={{ 
+              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', 
+              pointerEvents: 'none', background: 'rgba(0,0,0,0.6)', padding: '10px 20px', 
+              borderRadius: '12px', color: '#ffe600', fontWeight: 900, fontSize: '14px',
+              border: '1px solid #ffe600'
+            }}>
+               WATCH...
             </div>
           )}
         </div>
@@ -355,6 +356,28 @@ export default function MemoryArenaGame() {
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#b14aed" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>A sequence of flashing colors will be shown to the group. Watch it very carefully!</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>Once it&apos;s your turn, click the colors in the exact same order they were flashed.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>The sequence gets longer every round. If you make one mistake, you are eliminated! Last survivor wins.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

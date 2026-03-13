@@ -34,6 +34,9 @@ export default function DrawingDashGame() {
   
   const canvasRef = useRef(null);
   const lastPoint = useRef(null);
+  const lastRound = useRef(null);
+  const lastDrawnCount = useRef(0);
+  const linesBuffer = useRef([]);
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -45,11 +48,13 @@ export default function DrawingDashGame() {
         const data = docSnapshot.data();
         
         // If round changed, clear local canvas for everyone
-        if (room && data.round !== room.round) {
+        if (data.round !== lastRound.current) {
+          lastRound.current = data.round;
           const canvas = canvasRef.current;
           if (canvas) {
             const ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            lastDrawnCount.current = 0; 
           }
         }
 
@@ -58,36 +63,74 @@ export default function DrawingDashGame() {
         if (data.status === 'playing' && view === 'lobby') setView('playing');
         if (data.status === 'results' && view !== 'results') setView('results');
 
-        // Sync drawing for non-drawers
-        if (data.status === 'playing' && data.drawerId !== myPlayerId) {
-          syncCanvas(data.lines || []);
+        // Sync drawing for non-drawers, OR if lines were cleared
+        if (data.status === 'playing') {
+          const isDrawer = data.drawerId === myPlayerId;
+          const isClear = !data.lines || data.lines.length === 0;
+          if (!isDrawer || isClear) {
+            syncCanvas(data.lines || []);
+          }
         }
       }
     });
     return () => unsub();
   }, [room?.id, view, mounted, myPlayerId]);
 
+  // Sync buffered lines to Firestore periodically (Throttled Sync)
+  useEffect(() => {
+    if (view === 'playing' && room?.id && room?.drawerId === myPlayerId) {
+      const interval = setInterval(async () => {
+        if (linesBuffer.current.length > 0) {
+          const toSync = [...linesBuffer.current];
+          linesBuffer.current = [];
+          try {
+            await updateDoc(doc(db, "rooms", room.id), {
+              lines: arrayUnion(...toSync)
+            });
+          } catch (e) {
+            console.error("Drawing Sync Error:", e);
+          }
+        }
+      }, 300); // Batch updates every 300ms to stay within Firestore limits
+      return () => clearInterval(interval);
+    }
+  }, [view, room?.id, room?.drawerId, myPlayerId]);
+
   const syncCanvas = (lines) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Clear canvas if lines collection is empty or reset
+    if (lines.length === 0 || lines.length < lastDrawnCount.current) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      lastDrawnCount.current = 0;
+      if (lines.length === 0) return;
+    }
+
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 4;
     ctx.strokeStyle = '#00d4ff';
 
-    lines.forEach(line => {
+    // Incremental draw to maximize performance
+    for (let i = lastDrawnCount.current; i < lines.length; i++) {
+      const line = lines[i];
+      if (!line) continue;
       ctx.beginPath();
       ctx.moveTo(line.x1 * canvas.width, line.y1 * canvas.height);
       ctx.lineTo(line.x2 * canvas.width, line.y2 * canvas.height);
       ctx.stroke();
-    });
+    }
+    lastDrawnCount.current = lines.length;
   };
 
   if (!mounted) return <div className="game-container" />;
 
-  const generateRoomCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+  const generateRoomCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
 
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
@@ -112,7 +155,7 @@ export default function DrawingDashGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and code!');
+    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
     const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
@@ -167,10 +210,8 @@ export default function DrawingDashGame() {
 
     lastPoint.current = { x, y };
     
-    // Throttled sync to Firestore
-    await updateDoc(doc(db, "rooms", room.id), {
-      lines: arrayUnion(newLine)
-    });
+    // Buffer for throttled sync
+    linesBuffer.current.push(newLine);
   };
 
   const stopDrawing = () => setIsDrawing(false);
@@ -243,7 +284,7 @@ export default function DrawingDashGame() {
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            maxLength={3}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -273,26 +314,6 @@ export default function DrawingDashGame() {
         {error && <p style={{ color: '#ff2d78', marginTop: '16px', fontSize: '14px', fontWeight: 600 }}>{error}</p>}
       </div>
       <AdBanner />
-      
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#00d4ff" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>Join a room and wait for the host to start. One player is chosen as the Drawer each round.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>If you are the Drawer, draw the secret word on the canvas for others to see.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>If you are a Guesser, type your ideas in the chat box! Correct guesses win points.</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -344,6 +365,17 @@ export default function DrawingDashGame() {
             onMouseMove={draw}
             onMouseUp={stopDrawing}
             onMouseLeave={stopDrawing}
+            onTouchStart={(e) => {
+              const touch = e.touches[0];
+              const mouseEvent = { clientX: touch.clientX, clientY: touch.clientY };
+              startDrawing(mouseEvent);
+            }}
+            onTouchMove={(e) => {
+              const touch = e.touches[0];
+              const mouseEvent = { clientX: touch.clientX, clientY: touch.clientY };
+              draw(mouseEvent);
+            }}
+            onTouchEnd={stopDrawing}
             style={{ 
               width: '100%', 
               background: '#0a0a0f', 
@@ -428,6 +460,28 @@ export default function DrawingDashGame() {
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#00d4ff" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>Join a room and wait for the host to start. One player is chosen as the Drawer each round.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>If you are the Drawer, draw the secret word on the canvas for others to see.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>If you are a Guesser, type your ideas in the chat box! Correct guesses win points.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

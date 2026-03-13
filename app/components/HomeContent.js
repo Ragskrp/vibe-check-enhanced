@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { Trophy, Sparkles, Users, TrendingUp } from 'lucide-react';
+import { Trophy, Sparkles, Users, TrendingUp, Search, X } from 'lucide-react';
 import AdBanner from './AdBanner';
 
 const GAMES = [
@@ -10,48 +11,54 @@ const GAMES = [
     title: 'WordVibe',
     desc: 'Daily 5-letter word challenge. Guess it in 6 tries!',
     path: '/wordvibe',
-    tag: 'Daily Challenge',
-    color: '#00d4ff'
+    tag: 'Daily',
+    color: '#00d4ff',
+    category: 'daily'
   },
   {
     emoji: '🎯',
     title: 'Vibe or Die',
     desc: 'Quick-fire reaction game. How fast are your reflexes?',
     path: '/vibeordie',
-    tag: 'Reaction Game',
-    color: '#ff2d78'
+    tag: 'Reaction',
+    color: '#ff2d78',
+    category: 'solo'
   },
   {
     emoji: '😂',
     title: 'Emoji IQ',
     desc: 'Decode emoji puzzles. Can you guess what they mean?',
     path: '/emoji-iq',
-    tag: 'Brain Teaser',
-    color: '#ffe600'
+    tag: 'Brain',
+    color: '#ffe600',
+    category: 'daily'
   },
   {
     emoji: '🔥',
     title: 'Hot Takes',
     desc: 'Vote on spicy opinions. Do you agree or disagree?',
     path: '/hot-takes',
-    tag: 'Viral Content',
-    color: '#ff6b35'
+    tag: 'Viral',
+    color: '#ff6b35',
+    category: 'daily'
   },
   {
     emoji: '✨',
     title: 'Vibe Quiz',
     desc: 'What vibe are you? Take the personality quiz to find out!',
     path: '/vibe-quiz',
-    tag: 'Personality Quiz',
-    color: '#b14aed'
+    tag: 'Personality',
+    color: '#b14aed',
+    category: 'daily'
   },
   {
     emoji: '😈',
     title: 'Would U Rather',
     desc: 'Impossible choices. Pick one or the other. No skipping!',
     path: '/would-you-rather',
-    tag: 'Social Game',
-    color: '#00ff94'
+    tag: 'Social',
+    color: '#00ff94',
+    category: 'daily'
   },
   {
     emoji: '🏆',
@@ -59,51 +66,83 @@ const GAMES = [
     desc: 'Multiplayer trivia showdown. Create a room & compete!',
     path: '/quiz-arena',
     tag: 'Multiplayer',
-    color: '#00d4ff'
+    color: '#00d4ff',
+    category: 'multiplayer'
   },
   {
     emoji: '⚡',
     title: 'Reaction Arena',
     desc: 'Multiplayer reflex battle. Who is the fastest in the room?',
     path: '/reaction-arena',
-    tag: 'Multiplayer Battle',
-    color: '#ff2d78'
+    tag: 'Multiplayer',
+    color: '#ff2d78',
+    category: 'multiplayer'
   },
   {
     emoji: '👁️',
     title: 'Odd One Out',
     desc: 'Find the hidden symbol. A fast-paced perception race!',
     path: '/odd-one-out',
-    tag: 'Perception Race',
-    color: '#00ff94'
+    tag: 'Multiplayer',
+    color: '#00ff94',
+    category: 'multiplayer'
   },
   {
     emoji: '🧠',
     title: 'Memory Arena',
     desc: 'Group memory challenge. Last player standing wins!',
     path: '/memory-arena',
-    tag: 'Brain Sync',
-    color: '#b14aed'
+    tag: 'Multiplayer',
+    color: '#b14aed',
+    category: 'multiplayer'
   },
   {
     emoji: '🗳️',
     title: 'Poll Party',
     desc: 'Funny prompts and voting. Best vibe takes the crown!',
     path: '/poll-party',
-    tag: 'Vote Party',
-    color: '#ff6b35'
+    tag: 'Multiplayer',
+    color: '#ff6b35',
+    category: 'multiplayer'
   },
   {
     emoji: '🎨',
     title: 'Drawing Dash',
     desc: 'One draws, many guess. A real-time creative showdown!',
     path: '/drawing-dash',
-    tag: 'Drawing Party',
-    color: '#00d4ff'
+    tag: 'Multiplayer',
+    color: '#00d4ff',
+    category: 'multiplayer'
+  },
+  {
+    emoji: '🌍',
+    title: 'Geo Guesser',
+    desc: 'Test your world knowledge. How many flags can you identify?',
+    path: '/geography-guesser',
+    tag: 'Solo',
+    color: '#00d4ff',
+    category: 'solo'
   }
 ];
 
+const CATEGORIES = [
+  { id: 'all', name: 'All Games', icon: '🎮' },
+  { id: 'daily', name: 'Daily Vibes', icon: '✨' },
+  { id: 'multiplayer', name: 'Party Games', icon: '🔥' },
+  { id: 'solo', name: 'Fast & Fun', icon: '⚡' },
+];
+
 export default function HomeContent() {
+  const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
+
+  const filteredGames = GAMES.filter(game => {
+    const matchesFilter = filter === 'all' || game.category === filter;
+    const matchesSearch = game.title.toLowerCase().includes(search.toLowerCase()) || 
+                          game.desc.toLowerCase().includes(search.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
   return (
     <div className="page-container">
       {/* Hero Section */}
@@ -121,7 +160,7 @@ export default function HomeContent() {
         {/* Stats */}
         <div className="stats-row">
           <div className="stat-card">
-            <div className="stat-number">12</div>
+            <div className="stat-number">13</div>
             <div className="stat-label">Games</div>
           </div>
           <div className="stat-card">
@@ -139,36 +178,77 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* Control Bar */}
+      <section style={{ marginTop: 40, marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', flex: 1 }}>
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setFilter(cat.id)}
+                className={`btn-outline ${filter === cat.id ? 'active' : ''}`}
+                style={{ 
+                  whiteSpace: 'nowrap',
+                  borderColor: filter === cat.id ? 'var(--primary)' : 'var(--border-light)',
+                  color: filter === cat.id ? 'var(--primary)' : 'var(--text-muted)',
+                  background: filter === cat.id ? 'rgba(255, 45, 120, 0.1)' : 'transparent'
+                }}
+              >
+                {cat.icon} {cat.name}
+              </button>
+            ))}
+          </div>
+
+          <div style={{ position: 'relative', width: '100%', maxWidth: '300px' }}>
+            <Search size={16} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#555' }} />
+            <input 
+              type="text"
+              placeholder="Search games..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="input-field"
+              style={{ paddingLeft: '44px', marginBottom: 0 }}
+            />
+            {search && (
+              <X 
+                size={16} 
+                onClick={() => setSearch('')}
+                style={{ position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)', color: '#555', cursor: 'pointer' }} 
+              />
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Ad Banner */}
       <AdBanner format="horizontal" />
 
       {/* Games Grid */}
-      <section style={{ marginTop: 32 }}>
-        <h2 style={{ 
-          fontSize: 24, 
-          fontWeight: 800, 
-          color: '#f0f0f0',
-          marginBottom: 24,
-          textAlign: 'center'
-        }}>
-          🎮 Pick Your Vibe
-        </h2>
+      <section style={{ marginTop: 20 }}>
         <div className="game-grid">
-          {GAMES.map((game) => (
-            <Link href={game.path} key={game.title} style={{ textDecoration: 'none' }}>
-              <div className="game-card">
-                <div className="game-card-emoji">{game.emoji}</div>
-                <h3 className="game-card-title">{game.title}</h3>
-                <p className="game-card-desc">{game.desc}</p>
-                <span className="game-card-tag" style={{ 
-                  background: `${game.color}15`,
-                  color: game.color 
-                }}>
-                  {game.tag}
-                </span>
-              </div>
-            </Link>
-          ))}
+          {filteredGames.length > 0 ? (
+            filteredGames.map((game) => (
+              <Link href={game.path} key={game.title} style={{ textDecoration: 'none' }}>
+                <div className="game-card">
+                  <div className="game-card-emoji">{game.emoji}</div>
+                  <h3 className="game-card-title">{game.title}</h3>
+                  <p className="game-card-desc">{game.desc}</p>
+                  <span className="game-card-tag" style={{ 
+                    background: `${game.color}15`,
+                    color: game.color 
+                  }}>
+                    {game.tag}
+                  </span>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px', color: '#555' }}>
+              <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔍</div>
+              <h3 style={{ fontSize: '20px', color: '#f0f0f0' }}>No games found matching your search.</h3>
+              <p>Try a different keyword or category!</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -198,8 +278,8 @@ export default function HomeContent() {
           </div>
           <div className="card card-glow-yellow" style={{ textAlign: 'center', cursor: 'default' }}>
             <TrendingUp size={32} color="#ff2d78" style={{ marginBottom: 12 }} />
-            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8 }}>12 Game Modes</h3>
-            <p style={{ color: '#888', fontSize: 13 }}>Word games, trivia, memory, drawing & fast reflexes!</p>
+            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8 }}>13 Game Modes</h3>
+            <p style={{ color: '#888', fontSize: 13 }}>Word games, trivia, geography, drawing & fast reflexes!</p>
           </div>
         </div>
       </section>

@@ -47,7 +47,10 @@ export default function ReactionArenaGame() {
 
   if (!mounted) return <div className="game-container" />;
 
-  const generateRoomCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+  const generateRoomCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
 
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
@@ -69,7 +72,7 @@ export default function ReactionArenaGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and code!');
+    if (!playerName || !roomCode || roomCode.length !== 3) return setError('Enter name and 3-letter code!');
     const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found or game started!');
@@ -124,7 +127,7 @@ export default function ReactionArenaGame() {
   const renderHome = () => (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
       <div className="game-badge" style={{ background: 'rgba(255, 45, 120, 0.1)', color: '#ff2d78' }}>Arena Mode</div>
-      <h1 className="game-title">⚡ REACTION <span style={{ color: '#ff2d78' }}>BATTLE</span></h1>
+      <h1 className="game-title">⚡ REACTION <span style={{ color: '#ff2d78' }}>ARENA</span></h1>
       <p className="game-subtitle">Who has the fastest reflexes in the room?</p>
 
       <div className="card" style={{ maxWidth: '450px', margin: '40px auto', padding: '32px' }}>
@@ -168,25 +171,6 @@ export default function ReactionArenaGame() {
       </div>
       <AdBanner />
 
-      <div className="how-to-play">
-        <div className="how-to-play-title">
-          <HelpCircle size={16} color="#ff2d78" /> How to Play
-        </div>
-        <div className="how-to-play-steps">
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">1</span>
-            <span>Host a room or join with a code. This is a multiplayer test of speed!</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">2</span>
-            <span>When the match starts, wait for the screen to turn **PINK**.</span>
-          </div>
-          <div className="how-to-play-step">
-            <span className="how-to-play-number">3</span>
-            <span>Click or tap the screen the millisecond it changes content. The fastest reaction time wins!</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -293,6 +277,28 @@ export default function ReactionArenaGame() {
       {view === 'lobby' && renderLobby()}
       {view === 'playing' && renderPlaying()}
       {view === 'results' && renderResults()}
+
+      <div className="game-container" style={{ paddingTop: 0, marginTop: '-20px' }}>
+        <div className="how-to-play">
+          <div className="how-to-play-title">
+            <HelpCircle size={16} color="#ff2d78" /> How to Play
+          </div>
+          <div className="how-to-play-steps">
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">1</span>
+              <span>Host a room or join with a code. This is a multiplayer test of speed!</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">2</span>
+              <span>When the match starts, wait for the screen to turn **PINK**.</span>
+            </div>
+            <div className="how-to-play-step">
+              <span className="how-to-play-number">3</span>
+              <span>Click or tap the screen the millisecond it changes content. The fastest reaction time wins!</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -28,10 +28,8 @@ const KEYBOARD_ROWS = [
   ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '⌫']
 ];
 
-function getDailyWord() {
-  const today = new Date();
-  const dayIndex = Math.floor((today.getTime() / (1000 * 60 * 60 * 24))) % WORDS.length;
-  return WORDS[dayIndex];
+function getRandomWord() {
+  return WORDS[Math.floor(Math.random() * WORDS.length)];
 }
 
 function checkGuess(guess, answer) {
@@ -72,7 +70,7 @@ export default function WordVibeGame() {
   const [shake, setShake] = useState(false);
 
   useEffect(() => {
-    setAnswer(getDailyWord());
+    setAnswer(getRandomWord());
     setMounted(true);
   }, []);
 
@@ -150,6 +148,7 @@ export default function WordVibeGame() {
     setCurrentGuess('');
     setGameState('playing');
     setKeyStates({});
+    setAnswer(getRandomWord());
   };
 
   if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
@@ -245,7 +244,7 @@ export default function WordVibeGame() {
         <div className="how-to-play-steps">
           <div className="how-to-play-step">
             <span className="how-to-play-number">1</span>
-            <span>Guess the <strong>WORDVIBE</strong> in 6 tries. The word resets every 24 hours.</span>
+            <span>Guess the <strong>WORDVIBE</strong> in 6 tries. The word resets every match.</span>
           </div>
           <div className="how-to-play-step">
             <span className="how-to-play-number">2</span>

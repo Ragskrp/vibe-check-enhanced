@@ -1,34 +1,53 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Zap } from 'lucide-react';
+import { Zap, ChevronDown, LayoutGrid, Globe } from 'lucide-react';
 import AdBanner from './AdBanner';
 
 const NAV_ITEMS = [
-  { name: 'WordVibe', label: '🔤 WordVibe', path: '/wordvibe' },
-  { name: 'VibeOrDie', label: '🎯 Vibe or Die', path: '/vibeordie' },
-  { name: 'EmojiIQ', label: '😂 Emoji IQ', path: '/emoji-iq' },
-  { name: 'HotTakes', label: '🔥 Hot Takes', path: '/hot-takes' },
-  { name: 'VibeQuiz', label: '✨ Vibe Quiz', path: '/vibe-quiz' },
-  { name: 'WouldYouRather', label: '😈 Would U Rather', path: '/would-you-rather' },
-  { name: 'QuizArena', label: '🏆 Quiz Arena', path: '/quiz-arena' },
-  { name: 'ReactionArena', label: '⚡ Reaction Arena', path: '/reaction-arena' },
-  { name: 'OddOneOut', label: '👁️ Odd One Out', path: '/odd-one-out' },
-  { name: 'MemoryArena', label: '🧠 Memory Arena', path: '/memory-arena' },
-  { name: 'PollParty', label: '🗳️ Poll Party', path: '/poll-party' },
-  { name: 'DrawingDash', label: '🎨 Drawing Dash', path: '/drawing-dash' },
+  { name: 'WordVibe', label: '🔤 WordVibe', path: '/wordvibe', category: 'daily' },
+  { name: 'VibeOrDie', label: '🎯 Vibe or Die', path: '/vibeordie', category: 'solo' },
+  { name: 'EmojiIQ', label: '😂 Emoji IQ', path: '/emoji-iq', category: 'daily' },
+  { name: 'HotTakes', label: '🔥 Hot Takes', path: '/hot-takes', category: 'daily' },
+  { name: 'VibeQuiz', label: '✨ Vibe Quiz', path: '/vibe-quiz', category: 'daily' },
+  { name: 'WouldYouRather', label: '😈 Would U Rather', path: '/would-you-rather', category: 'daily' },
+  { name: 'QuizArena', label: '🏆 Quiz Arena', path: '/quiz-arena', category: 'multiplayer' },
+  { name: 'ReactionArena', label: '⚡ Reaction Arena', path: '/reaction-arena', category: 'multiplayer' },
+  { name: 'OddOneOut', label: '👁️ Odd One Out', path: '/odd-one-out', category: 'multiplayer' },
+  { name: 'MemoryArena', label: '🧠 Memory Arena', path: '/memory-arena', category: 'multiplayer' },
+  { name: 'PollParty', label: '🗳️ Poll Party', path: '/poll-party', category: 'multiplayer' },
+  { name: 'DrawingDash', label: '🎨 Drawing Dash', path: '/drawing-dash', category: 'multiplayer' },
+  { name: 'GeoGuesser', label: '🌍 Geo Guesser', path: '/geography-guesser', category: 'solo' },
 ];
 
 export default function SiteLayout({ children }) {
   const pathname = usePathname();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close dropdown on navigation
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, [pathname]);
 
   return (
     <>
       {/* Animated Ticker */}
       <div className="ticker-wrap">
         <span className="ticker-text">
-          🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ TEST • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY SYNC • 🗳️ POLL PARTY • 🎨 DRAWING DASH • SHARE YOUR SCORE •
+          🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY ARENA • 🗳️ POLL PARTY • 🎨 DRAWING DASH • 🌍 GEO GUESSER • SHARE YOUR SCORE •
         </span>
       </div>
 
@@ -41,16 +60,52 @@ export default function SiteLayout({ children }) {
               VIBE<span>MENOW</span>
             </span>
           </Link>
-          <nav className="nav-links">
-            {NAV_ITEMS.map(item => (
-              <Link
-                key={item.name}
-                href={item.path}
-                className={`nav-link${pathname === item.path ? ' active' : ''}`}
+          
+          <nav className="nav-links" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <Link href="/" className={`nav-link${pathname === '/' ? ' active' : ''}`}>
+              Home
+            </Link>
+            
+            <div style={{ position: 'relative' }} ref={dropdownRef}>
+              <button 
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`nav-link ${dropdownOpen ? 'active' : ''}`}
+                style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'none', border: 'none', padding: '6px 12px', cursor: 'pointer' }}
               >
-                {item.label}
-              </Link>
-            ))}
+                Browse Games <ChevronDown size={14} style={{ transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+              </button>
+              
+              {dropdownOpen && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  right: 0,
+                  marginTop: '10px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-light)',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+                  padding: '12px',
+                  width: '240px',
+                  display: 'grid',
+                  gridTemplateColumns: '1fr',
+                  gap: '4px',
+                  zIndex: 200,
+                  animation: 'fadeInUp 0.2s ease-out'
+                }}>
+                  {NAV_ITEMS.map(item => (
+                    <Link
+                      key={item.name}
+                      href={item.path}
+                      className={`nav-link${pathname === item.path ? ' active' : ''}`}
+                      style={{ display: 'block', width: '100%', textAlign: 'left', padding: '10px 14px' }}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </header>
