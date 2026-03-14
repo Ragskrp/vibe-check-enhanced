@@ -60,7 +60,9 @@ export default function ReactionArenaGame() {
       type: 'reaction',
       status: 'lobby',
       gameState: 'waiting',
-      players: [{ name: playerName, reaction: null, ready: false }],
+      currentRound: 1,
+      totalRounds: 5,
+      players: [{ name: playerName, reaction: null, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -80,7 +82,7 @@ export default function ReactionArenaGame() {
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
-    const newPlayer = { name: playerName, reaction: null, ready: false };
+    const newPlayer = { name: playerName, reaction: null, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
       players: arrayUnion(newPlayer)
@@ -97,12 +99,13 @@ export default function ReactionArenaGame() {
     await updateDoc(doc(db, "rooms", room.id), { status: 'playing', gameState: 'waiting' });
     
     // Random delay for the "GO" signal
+    const delay = 2000 + Math.random() * 3000;
     setTimeout(async () => {
       await updateDoc(doc(db, "rooms", room.id), { 
         gameState: 'go', 
         startTime: Date.now() 
       });
-    }, 2000 + Math.random() * 3000);
+    }, delay);
   };
 
   const handleTrigger = async () => {
@@ -111,17 +114,45 @@ export default function ReactionArenaGame() {
     const time = now - room.startTime;
     setReactionTime(time);
     
-    const newPlayers = [...room.players];
+    const roomRef = doc(db, "rooms", room.id);
+    const docSnap = await getDoc(roomRef);
+    const currentData = docSnap.data();
+    
+    const newPlayers = [...currentData.players];
     newPlayers[myPlayerId].reaction = time;
-    await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
-
-    // Check if everyone clicked
-    const allFinished = newPlayers.every(p => p.reaction !== null);
-    if (allFinished && isHost) {
-      setTimeout(async () => {
-        await updateDoc(doc(db, "rooms", room.id), { status: 'results' });
-      }, 1500);
+    
+    // Wait for everyone and award point to fastest
+    const everyoneFinished = newPlayers.every(p => p.reaction !== null);
+    if (everyoneFinished) {
+      const winnerIdx = newPlayers.reduce((best, p, idx) => (p.reaction < newPlayers[best].reaction ? idx : best), 0);
+      newPlayers[winnerIdx].score += 1;
+      
+      if (isHost) {
+        setTimeout(async () => {
+          if (currentData.currentRound >= 5) {
+            await updateDoc(roomRef, { status: 'results', players: newPlayers.map(p => ({ ...p, reaction: null })) });
+          } else {
+            await updateDoc(roomRef, { 
+              currentRound: currentData.currentRound + 1,
+              gameState: 'waiting',
+              players: newPlayers.map(p => ({ ...p, reaction: null })),
+              startTime: null
+            });
+            // Reset local state
+            setReactionTime(null);
+            // Trigger next round wait
+            setTimeout(async () => {
+              await updateDoc(roomRef, { 
+                gameState: 'go', 
+                startTime: Date.now() 
+              });
+            }, 2000 + Math.random() * 3000);
+          }
+        }, 2000);
+      }
     }
+    
+    await updateDoc(roomRef, { players: newPlayers });
   };
 
   const renderHome = () => (
@@ -205,6 +236,16 @@ export default function ReactionArenaGame() {
     const isWait = room.gameState === 'waiting';
     return (
       <div className="game-container">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <span style={{ fontWeight: 800, color: '#ff2d78' }}>ROUND {room.currentRound} / 5</span>
+          <div style={{ display: 'flex', gap: '15px' }}>
+             {room.players.map((p, i) => (
+               <div key={i} style={{ fontSize: '12px', fontWeight: 800 }}>
+                 {p.name}: <span style={{ color: '#ffe600' }}>{p.score}</span>
+               </div>
+             ))}
+          </div>
+        </div>
         <div 
           onClick={handleTrigger}
           style={{ 
@@ -256,7 +297,7 @@ export default function ReactionArenaGame() {
               fontWeight: i === 0 ? 800 : 400
             }}>
               <span>{i === 0 ? '👑' : `#${i+1}`} {p.name}</span>
-              <span>{p.reaction ? `${p.reaction}ms` : 'FAIL'}</span>
+              <span>{p.score} wins</span>
             </div>
           ))}
         </div>

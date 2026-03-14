@@ -117,7 +117,259 @@ const ALL_QUESTIONS = [
       { text: "🐉 A mini dragon", vibe: 'neon' },
       { text: "🐱 A sleepy cat", vibe: 'chill' },
       { text: "🐶 A golden retriever", vibe: 'sunset' },
-      { text: "🦉 A wise owl", vibe: 'cosmic' },
+      { text: "Owl", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Choose a weather type:",
+    options: [
+      { text: "☀️ Golden hour sunshine", vibe: 'sunset' },
+      { text: "⛈️ Thunderstorm at night", vibe: 'neon' },
+      { text: "🌧️ Gentle morning rain", vibe: 'chill' },
+      { text: "❄️ Silent snowfall", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Pick a legendary city:",
+    options: [
+      { text: "🏛️ Ancient Rome", vibe: 'vintage' },
+      { text: "🌲 Elven forest city", vibe: 'nature' },
+      { text: "🦾 Future Tokyo", vibe: 'cyber' },
+      { text: "🧊 Floating sky temple", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Which instrument speaks to you?",
+    options: [
+      { text: "🎷 Jazzy Saxophone", vibe: 'vintage' },
+      { text: "🎻 Classic Violin", vibe: 'minimal' },
+      { text: "🎸 Electric Lead", vibe: 'neon' },
+      { text: "🎹 Ambient Synth", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "What's your fashion vibe?",
+    options: [
+      { text: "📽️ Retro/Vintage", vibe: 'vintage' },
+      { text: "🌿 Earthy & Bohemian", vibe: 'nature' },
+      { text: "🔳 Sleek & Monochrome", vibe: 'minimal' },
+      { text: "📟 Techwear & Neon", vibe: 'cyber' },
+    ]
+  },
+  {
+    q: "Pick a mode of transport:",
+    options: [
+      { text: "🚲 Vintage bicycle", vibe: 'vintage' },
+      { text: "🐎 Horseback thru a forest", vibe: 'nature' },
+      { text: "🚀 Faster-than-light ship", vibe: 'cosmic' },
+      { text: "🚅 Magnetic levitation train", vibe: 'cyber' },
+    ]
+  },
+  {
+    q: "What's on your desk?",
+    options: [
+      { text: "🪴 Lots of plants", vibe: 'nature' },
+      { text: "🖥️ Multi-monitor setup", vibe: 'cyber' },
+      { text: "🖋️ A single notebook", vibe: 'minimal' },
+      { text: "📸 Film camera", vibe: 'vintage' },
+    ]
+  },
+  {
+    q: "Ideal weekend morning?",
+    options: [
+      { text: "🥞 Cooking a big breakfast", vibe: 'sunset' },
+      { text: "🚶‍♂️ Trail running", vibe: 'nature' },
+      { text: "💤 Sleeping in guilt-free", vibe: 'chill' },
+      { text: "💻 Coding/Creating", vibe: 'cyber' },
+    ]
+  },
+  {
+    q: "Choose a scent:",
+    options: [
+      { text: "🪵 Cedarwood & Pine", vibe: 'nature' },
+      { text: "🧁 Vanilla & Bergamot", vibe: 'sunset' },
+      { text: "🏙️ Rain on asphalt", vibe: 'cyber' },
+      { text: "📖 Old book pages", vibe: 'vintage' },
+    ]
+  },
+  {
+    q: "Pick a hobby:",
+    options: [
+      { text: "🧶 Crafting/DIY", vibe: 'vintage' },
+      { text: "🧗 Rock climbing", vibe: 'nature' },
+      { text: "♟️ Strategy games", vibe: 'cosmic' },
+      { text: "📸 Urban photography", vibe: 'cyber' },
+    ]
+  },
+  {
+    q: "What's your phone wallpaper?",
+    options: [
+      { text: "🏔️ A scenic landscape", vibe: 'nature' },
+      { text: "🎨 Abstract art", vibe: 'minimal' },
+      { text: "🌌 Space/Nebula", vibe: 'cosmic' },
+      { text: "📸 Friends/Memories", vibe: 'sunset' },
+    ]
+  },
+  {
+    q: "Choose a mythical creature reward:",
+    options: [
+      { text: "🦄 Unicorn (pure energy)", vibe: 'sunset' },
+      { text: "🦅 Phoenix (eternal fire)", vibe: 'neon' },
+      { text: "🐉 Dragon (ancient wisdom)", vibe: 'cosmic' },
+      { text: "🦌 White Hart (nature protector)", vibe: 'nature' },
+    ]
+  },
+  {
+    q: "How do you prefer to travel?",
+    options: [
+      { text: "🚞 Scenic train journey", vibe: 'vintage' },
+      { text: "🗺️ Random road trip", vibe: 'sunset' },
+      { text: "✈️ First-class direct", vibe: 'minimal' },
+      { text: "🛸 Teleportation", vibe: 'cyber' },
+    ]
+  },
+  {
+    q: "What makes you feel most alive?",
+    options: [
+      { text: "🏔️ Reaching a mountain peak", vibe: 'nature' },
+      { text: "💃 Dancing in a crowd", vibe: 'neon' },
+      { text: "🎨 Finishing a masterpiece", vibe: 'sunset' },
+      { text: "🧬 Solving a complex puzzle", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Pick a secret room for your house:",
+    options: [
+      { text: "🌿 Indoor garden oasis", vibe: 'nature' },
+      { text: "🕹️ High-end gaming cave", vibe: 'cyber' },
+      { text: "🍷 Hidden vintage library", vibe: 'vintage' },
+      { text: "🧘 Ultra-minimal zen room", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Choose a life philosophy:",
+    options: [
+      { text: "🌱 Grow through what you go through", vibe: 'nature' },
+      { text: "✨ Live for the moment", vibe: 'sunset' },
+      { text: "🧠 Knowledge is power", vibe: 'cosmic' },
+      { text: "🔋 More is more", vibe: 'neon' },
+    ]
+  },
+  {
+    q: "What's your primary motivation?",
+    options: [
+      { text: "❤️ Love and connection", vibe: 'sunset' },
+      { text: "🏆 Achievement and glory", vibe: 'neon' },
+      { text: "🕊️ Inner peace", vibe: 'chill' },
+      { text: "🔭 Discovery", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Pick a decade to live in:",
+    options: [
+      { text: "📻 The 1920s", vibe: 'vintage' },
+      { text: "🕺 The 1970s", vibe: 'sunset' },
+      { text: "📟 The 1990s", vibe: 'cyber' },
+      { text: "👽 The 2090s", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Choose a signature element:",
+    options: [
+      { text: "🌊 Water", vibe: 'chill' },
+      { text: "⛰️ Earth", vibe: 'nature' },
+      { text: "🔥 Fire", vibe: 'neon' },
+      { text: "🌬️ Air", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Pick an office vibe:",
+    options: [
+      { text: "☕ Coffee shop chatter", vibe: 'sunset' },
+      { text: "📁 Paper and ink", vibe: 'vintage' },
+      { text: "💻 Dark mode everything", vibe: 'cyber' },
+      { text: "🧊 Glass and silence", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "What's on your feet?",
+    options: [
+      { text: "👟 High-tech sneakers", vibe: 'cyber' },
+      { text: "👞 Leather loafers", vibe: 'vintage' },
+      { text: "🦶 Barefoot in the grass", vibe: 'nature' },
+      { text: "🩴 Comfortable slides", vibe: 'chill' },
+    ]
+  },
+  {
+    q: "Choose a weapon (for an RPG):",
+    options: [
+      { text: "🪓 Heavy battleaxe", vibe: 'nature' },
+      { text: "🏹 Precision bow", vibe: 'minimal' },
+      { text: "🔫 Plasma rifle", vibe: 'cyber' },
+      { text: "🪄 Enchanted staff", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "What's your favorite time?",
+    options: [
+      { text: "🕙 Mid-morning", vibe: 'chill' },
+      { text: "🌅 Twilight", vibe: 'sunset' },
+      { text: "🕛 Midnight", vibe: 'neon' },
+      { text: "🕓 Pre-dawn", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Pick a snack bowl:",
+    options: [
+      { text: "🍇 Fresh fruit", vibe: 'nature' },
+      { text: "🥜 Selection of nuts", vibe: 'minimal' },
+      { text: "🍬 Sour candy", vibe: 'neon' },
+      { text: "🥨 Pretzels", vibe: 'chill' },
+    ]
+  },
+  {
+    q: "Your dream home type?",
+    options: [
+      { text: "🌲 Treehouse", vibe: 'nature' },
+      { text: "🏢 Urban loft", vibe: 'cyber' },
+      { text: "🏰 Gothic mansion", vibe: 'vintage' },
+      { text: "📐 Modernist cube", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Pick a superpower (again):",
+    options: [
+      { text: "🗣️ Speaking all languages", vibe: 'cosmic' },
+      { text: "🦅 Flight", vibe: 'nature' },
+      { text: "👻 Invisibility", vibe: 'chill' },
+      { text: "💪 Super strength", vibe: 'neon' },
+    ]
+  },
+  {
+    q: "Choose a digital hobby:",
+    options: [
+      { text: "🎞️ Video editing", vibe: 'sunset' },
+      { text: "🕹️ Competitive gaming", vibe: 'neon' },
+      { text: "⌨️ Custom keyboards", vibe: 'cyber' },
+      { text: "📊 Data visualization", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "What's in your pockets?",
+    options: [
+      { text: "🗝️ Old keys", vibe: 'vintage' },
+      { text: "📱 Only a phone", vibe: 'minimal' },
+      { text: "🍬 Random candy wrappers", vibe: 'chill' },
+      { text: "🪙 Collectible coin", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Pick a sky:",
+    options: [
+      { text: "🌈 Full double rainbow", vibe: 'sunset' },
+      { text: "🌌 Aurora Borealis", vibe: 'cosmic' },
+      { text: "🌩️ Lightning storm", vibe: 'neon' },
+      { text: "☁️ Perfectly clear blue", vibe: 'minimal' },
     ]
   }
 ];
@@ -130,7 +382,7 @@ const RESULTS = {
     gradient: 'linear-gradient(135deg, #ff8a3d, #ff2d78)',
     desc: 'You radiate warm energy. You\'re the kind of person who makes everything feel golden. Creative, nostalgic, and deeply connected to beauty. People feel calm and inspired around you.',
     traits: ['Creative', 'Romantic', 'Nostalgic', 'Optimistic'],
-    match: '68% of players'
+    match: '22% of players'
   },
   neon: {
     emoji: '⚡',
@@ -139,7 +391,7 @@ const RESULTS = {
     gradient: 'linear-gradient(135deg, #b14aed, #ff2d78)',
     desc: 'You bring the energy! Bold, fearless, and unapologetically yourself. You light up every room and live life like it\'s a party. Your confidence is contagious.',
     traits: ['Bold', 'Energetic', 'Fearless', 'Charismatic'],
-    match: '54% of players'
+    match: '15% of players'
   },
   chill: {
     emoji: '🌊',
@@ -148,7 +400,7 @@ const RESULTS = {
     gradient: 'linear-gradient(135deg, #00d4ff, #0080ff)',
     desc: 'You\'re the calm in the storm. Cool, collected, and effortlessly cool. People come to you for peace and good vibes. You don\'t need drama — you ARE the vibe.',
     traits: ['Calm', 'Wise', 'Reliable', 'Peaceful'],
-    match: '72% of players'
+    match: '18% of players'
   },
   cosmic: {
     emoji: '🌌',
@@ -157,7 +409,43 @@ const RESULTS = {
     gradient: 'linear-gradient(135deg, #7c3aed, #00d4ff)',
     desc: 'You think different. While others look at the ground, you\'re mapping the stars. Intellectual, curious, and slightly mysterious. Your mind is your superpower.',
     traits: ['Curious', 'Intellectual', 'Mysterious', 'Visionary'],
-    match: '41% of players'
+    match: '12% of players'
+  },
+  vintage: {
+    emoji: '🎞️',
+    title: 'Vintage Soul',
+    color: '#d4a373',
+    gradient: 'linear-gradient(135deg, #d4a373, #a68a64)',
+    desc: 'You appreciate the classics. You have a timeless quality that transcends trends. Deeply appreciative of history, craft, and stories. You find beauty in the old and worn.',
+    traits: ['Timeless', 'Sophisticated', 'Authentic', 'Classy'],
+    match: '10% of players'
+  },
+  nature: {
+    emoji: '🌿',
+    title: 'Nature Spirit',
+    color: '#2d6a4f',
+    gradient: 'linear-gradient(135deg, #2d6a4f, #52b788)',
+    desc: 'You are grounded and organic. You find your strength in the great outdoors. You are resilient, nurturing, and in tune with the world\'s natural rhythms.',
+    traits: ['Resilient', 'Organic', 'Nurturing', 'Grounded'],
+    match: '11% of players'
+  },
+  cyber: {
+    emoji: '🦾',
+    title: 'Cyber Glitch',
+    color: '#3a86ff',
+    gradient: 'linear-gradient(135deg, #3a86ff, #8338ec)',
+    desc: 'You live in the future. Fast-paced, tech-aware, and always one step ahead of the curve. You embrace change and the digital unknown with excitement.',
+    traits: ['Future-proof', 'Fast', 'Innovative', 'Adaptable'],
+    match: '7% of players'
+  },
+  minimal: {
+    emoji: '🔳',
+    title: 'Zen Minimalist',
+    color: '#495057',
+    gradient: 'linear-gradient(135deg, #495057, #ced4da)',
+    desc: 'You understand that less is more. Sharp, focused, and incredibly efficient. You cut through the noise to find the essential truth in everything.',
+    traits: ['Focused', 'Efficient', 'Sharp', 'Disciplined'],
+    match: '5% of players'
   }
 };
 
@@ -165,13 +453,13 @@ export default function VibeQuizGame() {
   const [mounted, setMounted] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [currentQ, setCurrentQ] = useState(0);
-  const [scores, setScores] = useState({ sunset: 0, neon: 0, chill: 0, cosmic: 0 });
+  const [scores, setScores] = useState({ sunset: 0, neon: 0, chill: 0, cosmic: 0, vintage: 0, nature: 0, cyber: 0, minimal: 0 });
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     setMounted(true);
-    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 8);
+    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 15);
     setQuestions(shuffled);
   }, []);
 
@@ -198,10 +486,10 @@ export default function VibeQuizGame() {
   };
 
   const reset = () => {
-    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 8);
+    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 15);
     setQuestions(shuffled);
     setCurrentQ(0);
-    setScores({ sunset: 0, neon: 0, chill: 0, cosmic: 0 });
+    setScores({ sunset: 0, neon: 0, chill: 0, cosmic: 0, vintage: 0, nature: 0, cyber: 0, minimal: 0 });
     setShowResult(false);
     setSelectedOption(null);
   };
@@ -275,7 +563,7 @@ export default function VibeQuizGame() {
       <div className="game-container" style={{ textAlign: 'center' }}>
         <div className="game-badge">Personality Quiz</div>
         <h1 className="game-title" style={{ color: '#b14aed' }}>✨ Vibe Quiz</h1>
-        <p className="game-subtitle">What vibe are you? Find out in 8 questions!</p>
+        <p className="game-subtitle">What vibe are you? Find out in 15 questions!</p>
         <AdBanner format="horizontal" />
 
       {/* Progress */}
@@ -329,7 +617,7 @@ export default function VibeQuizGame() {
         <div className="how-to-play-steps">
           <div className="how-to-play-step">
             <span className="how-to-play-number">1</span>
-            <span>Answer 8 subjective questions about your personality, aesthetic, and preferences.</span>
+            <span>Answer 15 subjective questions about your personality, aesthetic, and preferences.</span>
           </div>
           <div className="how-to-play-step">
             <span className="how-to-play-number">2</span>

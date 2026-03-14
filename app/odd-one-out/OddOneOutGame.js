@@ -18,7 +18,15 @@ const FloatingBg = () => (
 );
 
 const GRID_SIZE = 36; // 6x6 grid
-const SYMBOLS = ['🍎', '🍏', '🍊', '🍋', '🍐', '🫐', '🍓', '🍒', '🥑', '🥦', '🍕', '🍔', '🍟', '🍦', '🍩', '🍪', '🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁'];
+const SYMBOLS = [
+  '🍎', '🍏', '🍊', '🍋', '🍐', '🫐', '🍓', '🍒', '🥑', '🥦', '🍕', '🍔', '🍟', '🍦', '🍩', '🍪', 
+  '🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁', '🐯', '🦁', '🦓', '🦒', '🐘', '🦏', '🦛', '🐮',
+  '🐷', '🐨', '🦦', '🦥', '🦘', '🦬', '🐎', '🐫', '🦙', '🦝', '🐈', '🐕', '🐩', '🐿️', '🐀', '🐁',
+  '🕊️', '🦅', '🦆', '🦢', '🦉', '🦩', '🦚', '🦜', '⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏉', '🎱',
+  '🥎', '🏒', '🗂️', '📂', '📁', '💼', '📅', '🗑️', '📌', '📎', '🔒', '🔓', '🔏', '🔐', '🔑', '🗝️',
+  '🔨', '🪓', '⛏️', '⚒️', '🛠️', '🗡️', '⚔️', '🔫', '💣', '🛡️', '🚬', '⚰️', '⚱️', '🏺', '🔮', '📿',
+  '🧿', '💈', '⚗️', '🔭', '🔬', '🕳️', '🩹', '🩺', '🌡️', '💉', '🧪', '🧬', '☢️', '☣️', '🈲', '🈳',
+];
 
 export default function OddOneOutGame() {
   const [mounted, setMounted] = useState(false);
@@ -62,7 +70,7 @@ export default function OddOneOutGame() {
             const freshRoom = freshRoomSnap.data();
             if (freshRoom.roundWinner) {
               const nextRound = freshRoom.currentRound + 1;
-              const isGameOver = nextRound > 10;
+              const isGameOver = nextRound > 30;
               await updateDoc(roomRef, {
                 gridSeed: Math.floor(Math.random() * 1000000),
                 oddIndex: Math.floor(Math.random() * GRID_SIZE),
@@ -245,7 +253,7 @@ export default function OddOneOutGame() {
     return (
       <div className="game-container animate-fade-in">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <span style={{ fontWeight: 800, color: '#00ff94' }}>ROUND {room.currentRound} / 10</span>
+          <span style={{ fontWeight: 800, color: '#00ff94' }}>ROUND {room.currentRound} / 30</span>
           <div style={{ display: 'flex', gap: '15px' }}>
              {room.players.map((p, i) => (
                <div key={i} style={{ fontSize: '12px', fontWeight: 800 }}>

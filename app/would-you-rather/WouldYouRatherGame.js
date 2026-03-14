@@ -32,29 +32,64 @@ const SCENARIOS = [
   { a: "Have a personal chef", b: "Have a personal trainer", aPct: 67 },
   { a: "Be stuck in a rom-com", b: "Be stuck in an action movie", aPct: 39 },
   { a: "Have free WiFi everywhere", b: "Have free food everywhere", aPct: 43 },
+  { a: "Live in a permanent winter", b: "Live in a permanent summer", aPct: 45 },
+  { a: "Be a professional athlete", b: "Be a professional musician", aPct: 52 },
+  { a: "Explore the deepest ocean", b: "Explore outer space", aPct: 64 },
+  { a: "Lose all your digital memories", b: "Lose all your physical photos", aPct: 31 },
+  { a: "Be able to breathe underwater", b: "Be able to walk through walls", aPct: 57 },
+  { a: "Have a 3-day weekend forever", b: "Get 2 extra hours of sleep every night", aPct: 61 },
+  { a: "Spend a week in the jungle", b: "Spend a week in the arctic", aPct: 42 },
+  { a: "Know when you will die", b: "Know how you will die", aPct: 15 },
+  { a: "Always have to shout", b: "Always have to whisper", aPct: 38 },
+  { a: "Be deeply respected", b: "Be deeply loved", aPct: 72 },
+  { a: "Have a house on the moon", b: "Have a house underwater", aPct: 48 },
+  { a: "Only drink coffee", b: "Only drink tea", aPct: 54 },
+  { a: "Be a master of every sport", b: "Be a master of every instrument", aPct: 46 },
+  { a: "Live without your phone", b: "Live without your car", aPct: 39 },
+  { a: "See 10 minutes into your own future", b: "See 10 minutes into anyone's future", aPct: 61 },
+  { a: "Win an Oscar", b: "Win an Olympic Gold Medal", aPct: 43 },
+  { a: "Have X-ray vision", b: "Have super hearing", aPct: 55 },
+  { a: "Be an unknown billionaire", b: "Be a world-famous celebrity with no money", aPct: 91 },
+  { a: "Eat anything and never gain weight", b: "Never have to sleep again", aPct: 52 },
+  { a: "Live in a treehouse", b: "Live in a lighthouse", aPct: 47 },
+  { a: "Have permanent hiccups", b: "Always have the feeling you need to sneeze", aPct: 24 },
+  { a: "Be the star in a horror movie", b: "Be a background character in a fantasy epic", aPct: 38 },
+  { a: "Have your own private island", b: "Have your own private jet", aPct: 66 },
+  { a: "Teleport anywhere but never carry luggage", b: "Fly but only at walking speed", aPct: 59 },
+  { a: "Always speak your mind", b: "Never speak again", aPct: 74 },
+  { a: "Only be able to wear wet socks", b: "Only be able to use a fork for everything", aPct: 18 },
+  { a: "Have robot arms", b: "Have robot legs", aPct: 45 },
+  { a: "Live in a world with dinosaurs", b: "Live in a world with dragons", aPct: 62 },
+  { a: "Be a spy", b: "Be an astronaut", aPct: 53 },
+  { a: "Spend the day with your favorite celebrity", b: "Spend the day with your future self", aPct: 41 },
 ];
 
 export default function WouldYouRatherGame() {
   const [mounted, setMounted] = useState(false);
+  const [gameScenarios, setGameScenarios] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [totalPlayed, setTotalPlayed] = useState(0);
-  const [choices, setChoices] = useState([]);
 
   useEffect(() => {
     setMounted(true);
+    // Shuffle and pick 50
+    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5);
+    setGameScenarios(shuffled);
   }, []);
 
-  if (!mounted) return <div className="game-container" style={{ minHeight: '500px' }} />;
+  if (!mounted || gameScenarios.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
 
-  const scenario = SCENARIOS[currentIndex % SCENARIOS.length];
+  const scenario = gameScenarios[currentIndex];
+  // Guard against scenario being undefined (though shouldnt happen with match)
+  if (!scenario) return null;
+
   const fakeVotes = 2847 + currentIndex * 231;
 
   const handleSelect = (option) => {
     if (selected !== null) return;
     setSelected(option);
     setTotalPlayed(prev => prev + 1);
-    setChoices(prev => [...prev, { index: currentIndex, choice: option }]);
   };
 
   const next = () => {
@@ -63,7 +98,7 @@ export default function WouldYouRatherGame() {
   };
 
   const shareResult = () => {
-    const text = `VIBEMENOW Would You Rather 😈\nPlayed ${totalPlayed} rounds!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
+    const text = `VIBEMENOW Would You Rather 😈\nI chose between 50 impossible scenarios!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
@@ -71,6 +106,31 @@ export default function WouldYouRatherGame() {
       alert('Copied! 📋');
     }
   };
+
+  if (currentIndex >= 50 || currentIndex >= gameScenarios.length) {
+    return (
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <h1 className="game-title" style={{ color: '#00ff94' }}>🏁 Game Over!</h1>
+        <p className="game-subtitle">You made 50 tough choices!</p>
+
+        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
+          <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94', margin: '20px 0' }}>
+            50/50 Decisions Made
+          </div>
+          <p style={{ color: '#888' }}>You&apos;ve explored every impossible scenario in today&apos;s collection.</p>
+        </div>
+
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+          <button className="share-btn" onClick={shareResult}>
+            <Share2 size={16} /> Share Results
+          </button>
+          <button className="btn-primary" onClick={() => window.location.reload()}>
+            Play Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

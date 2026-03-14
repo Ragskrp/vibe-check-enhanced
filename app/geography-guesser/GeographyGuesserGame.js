@@ -69,7 +69,53 @@ const COUNTRIES = [
   { name: 'Chile', flag: 'cl' },
   { name: 'Colombia', flag: 'co' },
   { name: 'Peru', flag: 'pe' },
-  { name: 'New Zealand', flag: 'nz' }
+  { name: 'New Zealand', flag: 'nz' },
+  { name: 'Ireland', flag: 'ie' },
+  { name: 'Iceland', flag: 'is' },
+  { name: 'Croatia', flag: 'hr' },
+  { name: 'Serbia', flag: 'rs' },
+  { name: 'Slovakia', flag: 'sk' },
+  { name: 'Slovenia', flag: 'si' },
+  { name: 'Bulgaria', flag: 'bg' },
+  { name: 'Estonia', flag: 'ee' },
+  { name: 'Latvia', flag: 'lv' },
+  { name: 'Lithuania', flag: 'lt' },
+  { name: 'Luxembourg', flag: 'lu' },
+  { name: 'Malta', flag: 'mt' },
+  { name: 'Cyprus', flag: 'cy' },
+  { name: 'Albania', flag: 'al' },
+  { name: 'Georgia', flag: 'ge' },
+  { name: 'Armenia', flag: 'am' },
+  { name: 'Azerbaijan', flag: 'az' },
+  { name: 'Kazakhstan', flag: 'kz' },
+  { name: 'Uzbekistan', flag: 'uz' },
+  { name: 'Mongolia', flag: 'mn' },
+  { name: 'Nepal', flag: 'np' },
+  { name: 'Sri Lanka', flag: 'lk' },
+  { name: 'Myanmar', flag: 'mm' },
+  { name: 'Cambodia', flag: 'kh' },
+  { name: 'Laos', flag: 'la' },
+  { name: 'Jordan', flag: 'jo' },
+  { name: 'Lebanon', flag: 'lb' },
+  { name: 'Oman', flag: 'om' },
+  { name: 'Kuwait', flag: 'kw' },
+  { name: 'Tunisia', flag: 'tn' },
+  { name: 'Ghana', flag: 'gh' },
+  { name: 'Ivory Coast', flag: 'ci' },
+  { name: 'Senegal', flag: 'sn' },
+  { name: 'Tanzania', flag: 'tz' },
+  { name: 'Uganda', flag: 'ug' },
+  { name: 'Zambia', flag: 'zm' },
+  { name: 'Zimbabwe', flag: 'zw' },
+  { name: 'Ecuador', flag: 'ec' },
+  { name: 'Uruguay', flag: 'uy' },
+  { name: 'Paraguay', flag: 'py' },
+  { name: 'Bolivia', flag: 'bo' },
+  { name: 'Costa Rica', flag: 'cr' },
+  { name: 'Panama', flag: 'pa' },
+  { name: 'Guatemala', flag: 'gt' },
+  { name: 'Cuba', flag: 'cu' },
+  { name: 'Jamaica', flag: 'jm' },
 ];
 
 function getRandomOptions(correctCountry) {
@@ -98,7 +144,7 @@ export default function GeographyGuesserGame() {
   }, []);
 
   const generateGame = useCallback(() => {
-    const shuffled = [...COUNTRIES].sort(() => Math.random() - 0.5).slice(0, 10);
+    const shuffled = [...COUNTRIES].sort(() => Math.random() - 0.5).slice(0, 20);
     const gameQuestions = shuffled.map(country => ({
       country,
       options: getRandomOptions(country)
@@ -172,7 +218,7 @@ export default function GeographyGuesserGame() {
       <div className="card" style={{ maxWidth: '450px', margin: '40px auto', padding: '32px' }}>
         <Globe size={64} color="#00d4ff" style={{ margin: '0 auto 24px', display: 'block' }} />
         <p style={{ color: '#888', marginBottom: '32px', fontSize: '15px' }}>
-          Identify 10 random flags as fast as you can. Speed gives more points!
+          Identify 20 random flags as fast as you can. Speed gives more points!
         </p>
         <button className="btn-primary" onClick={generateGame} style={{ width: '100%', fontSize: '18px' }}>
           Start Guessing! <ArrowRight size={20} />
@@ -189,7 +235,7 @@ export default function GeographyGuesserGame() {
     return (
       <div className="game-container animate-fade-in">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-          <span style={{ color: '#555', fontWeight: 'bold', fontSize: '13px' }}>FLAG {currentQuestion + 1} / 10</span>
+          <span style={{ color: '#555', fontWeight: 'bold', fontSize: '13px' }}>FLAG {currentQuestion + 1} / 20</span>
           <div style={{ 
             background: timer < 3 ? 'rgba(255, 45, 120, 0.1)' : 'rgba(0, 212, 255, 0.1)',
             borderColor: timer < 3 ? '#ff2d78' : '#00d4ff',
@@ -202,7 +248,7 @@ export default function GeographyGuesserGame() {
         </div>
 
         <div className="progress-bar" style={{ marginBottom: '24px' }}>
-          <div className="progress-fill" style={{ width: `${((currentQuestion + 1) / 10) * 100}%`, background: '#00d4ff' }} />
+          <div className="progress-fill" style={{ width: `${((currentQuestion + 1) / 20) * 100}%`, background: '#00d4ff' }} />
         </div>
 
         <div className="card" style={{ textAlign: 'center', padding: '48px', marginBottom: '20px' }}>

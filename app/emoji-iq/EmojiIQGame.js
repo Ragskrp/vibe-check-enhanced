@@ -32,6 +32,40 @@ const PUZZLES = [
   { emojis: '👨‍🍳🐀🇫🇷', answer: 'Ratatouille', options: ['Julie & Julia', 'Ratatouille', 'Chef', 'Burnt'], category: '🎬 Movie' },
   { emojis: '🤖❤️🌱', answer: 'WALL-E', options: ['I, Robot', 'WALL-E', 'Big Hero 6', 'Terminator'], category: '🎬 Movie' },
   { emojis: '🦈🌊😱', answer: 'Jaws', options: ['Sharknado', 'Jaws', 'The Meg', 'Deep Blue Sea'], category: '🎬 Movie' },
+  { emojis: '🧛‍♂️🦇🏰', answer: 'Dracula', options: ['Twilight', 'Dracula', 'Blade', 'Van Helsing'], category: '🎬 Movie' },
+  { emojis: '🐍✈️😱', answer: 'Snakes on a Plane', options: ['Flight', 'Snakes on a Plane', 'Air Force One', 'Red Eye'], category: '🎬 Movie' },
+  { emojis: '🥚🦖🌴', answer: 'Jurassic Park', options: ['King Kong', 'Jurassic Park', 'Ice Age', '65'], category: '🎬 Movie' },
+  { emojis: '🍬🍭🏭', answer: 'Willy Wonka', options: ['Chocolate Factory', 'Willy Wonka', 'Sweet Tooth', 'Candy Crush'], category: '🎬 Movie' },
+  { emojis: '🤡🎈🎈', answer: 'IT', options: ['Joker', 'IT', 'Poltergeist', 'Saw'], category: '🎬 Movie' },
+  { emojis: '🦁🧙‍♀️🚪', answer: 'Narnia', options: ['The Chronicles of Narnia', 'The Hobbit', 'Narnia', 'Harry Potter'], category: '🎬 Movie' },
+  { emojis: '👽👈📞🏠', answer: 'E.T.', options: ['Aliens', 'E.T.', 'Interstellar', 'Contact'], category: '🎬 Movie' },
+  { emojis: '👑🦁🤱', answer: 'Circle of Life', options: ['Hakuna Matata', 'Circle of Life', 'Can You Feel The Love', 'I Just Can\'t Wait'], category: '🎵 Song' },
+  { emojis: '🆙🎈🏠', answer: 'Up', options: ['Toy Story', 'Up', 'Coco', 'Inside Out'], category: '🎬 Movie' },
+  { emojis: '🤠🧸🚀', answer: 'Toy Story', options: ['Action Figure', 'Toy Story', 'The Lego Movie', 'Wreck-it Ralph'], category: '🎬 Movie' },
+  { emojis: '👸🍎💤', answer: 'Snow White', options: ['Sleeping Beauty', 'Snow White', 'Cinderella', 'Tangled'], category: '🎬 Movie' },
+  { emojis: '👸👠🕛', answer: 'Cinderella', options: ['Snow White', 'Cinderella', 'Brave', 'Beauty and the Beast'], category: '🎬 Movie' },
+  { emojis: '🕯️🍵🥀', answer: 'Beauty and the Beast', options: ['Aladdin', 'Sleeping Beauty', 'Beauty and the Beast', 'Mulan'], category: '🎬 Movie' },
+  { emojis: '🐒👦🧞‍♂️', answer: 'Aladdin', options: ['The Mummy', 'Sinbad', 'Aladdin', 'The Scorpion King'], category: '🎬 Movie' },
+  { emojis: '🐚🧜‍♀️🦞', answer: 'The Little Mermaid', options: ['Moana', 'The Little Mermaid', 'Finding Nemo', 'Shark Tale'], category: '🎬 Movie' },
+  { emojis: '🥊🐅🎶', answer: 'Eye of the Tiger', options: ['Roar', 'Eye of the Tiger', 'Survivor', 'Wild Ones'], category: '🎵 Song' },
+  { emojis: '🕺✨👞', answer: 'Footloose', options: ['Dirty Dancing', 'Footloose', 'Grease', 'Flashdance'], category: '🎬 Movie' },
+  { emojis: '🍌🏃‍♂️💨', answer: 'Minions', options: ['Despicable Me', 'Minions', 'Madagascar', 'Sing'], category: '🎬 Movie' },
+  { emojis: '🍳🥓🥞', answer: 'The Breakfast Club', options: ['Brunch Boys', 'The Breakfast Club', 'Chef', 'Waitress'], category: '🎬 Movie' },
+  { emojis: '🌊🛶🌀', answer: 'Moana', options: ['Lilo & Stitch', 'Moana', 'Encanto', 'Surf\'s Up'], category: '🎬 Movie' },
+  { emojis: '🎸👨‍🎤⚡', answer: 'David Bowie', options: ['Freddie Mercury', 'David Bowie', 'Prince', 'Elton John'], category: '🎵 Artist' },
+  { emojis: '🎭👻🌹', answer: 'Phantom of the Opera', options: ['Ghostbusters', 'Phantom of the Opera', 'Les Misérables', 'Hamilton'], category: '🎬 Movie' },
+  { emojis: '👨‍👩‍👧‍👦🏠👻', answer: 'The Addams Family', options: ['The Munsters', 'The Addams Family', 'Beetlejuice', 'Hotel Transylvania'], category: '🎬 Movie' },
+  { emojis: '🕵️‍♂️🔍🇬🇧', answer: 'Sherlock Holmes', options: ['James Bond', 'Sherlock Holmes', 'Doctor Who', 'Luther'], category: '📺 Show' },
+  { emojis: '🍸🔫🇬🇧', answer: 'James Bond', options: ['Kingsman', 'James Bond', 'Mission Impossible', 'John Wick'], category: '🎬 Movie' },
+  { emojis: '🧱🎮🌈', answer: 'Minecraft', options: ['Roblox', 'Minecraft', 'Fortnite', 'Tetris'], category: '🎮 Game' },
+  { emojis: '🟦🟥🟩🟨', answer: 'Simon Says', options: ['Tetris', 'Simon Says', 'Simon', 'Colors'], category: '🎮 Game' },
+  { emojis: '🗡️🐉🏔️', answer: 'The Hobbit', options: ['The Lord of the Rings', 'The Hobbit', 'Skyrim', 'The Witcher'], category: '🎬 Movie' },
+  { emojis: '🛸🐄🌾', answer: 'Independence Day', options: ['Mars Attacks', 'Independence Day', 'Nope', 'Signs'], category: '🎬 Movie' },
+  { emojis: '🍯🐻🎈', answer: 'Winnie the Pooh', options: ['Paddington', 'Winnie the Pooh', 'Ted', 'Care Bears'], category: '🎬 Movie' },
+  { emojis: '🏰✨🧚‍♀️', answer: 'Disney', options: ['Pixar', 'Disney', 'Dreamworks', 'Netflix'], category: '🍎 Brand' },
+  { emojis: '🦉⚡🚂', answer: 'Harry Potter', options: ['Paddington', 'Harry Potter', 'Hugo', 'Polar Express'], category: '🎬 Movie' },
+  { emojis: '🤡🎭🃏', answer: 'Joker', options: ['Batman', 'Joker', 'Suicide Squad', 'Harley Quinn'], category: '🎬 Movie' },
+  { emojis: '🐘👂✈️', answer: 'Dumbo', options: ['Bambi', 'Dumbo', 'Tarzan', 'Jungle Book'], category: '🎬 Movie' },
 ];
 
 export default function EmojiIQGame() {
@@ -49,7 +83,7 @@ export default function EmojiIQGame() {
 
   if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
 
-  const totalQuestions = 10;
+  const totalQuestions = 50;
   const puzzle = PUZZLES[currentIndex % PUZZLES.length];
 
   const handleSelect = (option) => {
@@ -207,7 +241,7 @@ export default function EmojiIQGame() {
           </div>
           <div className="how-to-play-step">
             <span className="how-to-play-number">3</span>
-            <span>Complete 10 puzzles to get your Emoji IQ rating and share your genius with friends!</span>
+            <span>Complete 50 puzzles to get your Emoji IQ rating and share your genius with friends!</span>
           </div>
         </div>
       </div>

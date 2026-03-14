@@ -66,10 +66,17 @@ export default function VibeOrDieGame() {
     if (state === STATES.READY) {
       const time = Math.round(performance.now() - startRef.current);
       setReactionTime(time);
-      setAttempts(prev => [...prev, time]);
+      const newAttempts = [...attempts, time];
+      setAttempts(newAttempts);
       setRound(prev => prev + 1);
       if (!bestTime || time < bestTime) setBestTime(time);
-      setState(STATES.CLICKED);
+      
+      if (newAttempts.length >= 5) {
+        setState(STATES.CLICKED); // Final result screen
+      } else {
+        setState(STATES.IDLE); // Go back to 'Tap to Start' for next round
+        // Wait a bit then auto-start next? No, user tap to start next is safer
+      }
       return;
     }
 
@@ -142,7 +149,7 @@ export default function VibeOrDieGame() {
       <div className="game-container" style={{ textAlign: 'center' }}>
         <div className="game-badge">Reaction Game</div>
         <h1 className="game-title" style={{ color: '#ff2d78' }}>🎯 Vibe or Die</h1>
-        <p className="game-subtitle">Test your reaction speed. How fast can you click?</p>
+        <p className="game-subtitle">Complete a 5-round series to find your true vibe speed.</p>
         <AdBanner format="horizontal" />
 
       {/* Stats Bar */}
@@ -235,7 +242,7 @@ export default function VibeOrDieGame() {
           </div>
           <div className="how-to-play-step">
             <span className="how-to-play-number">3</span>
-            <span>We measure your reaction time in milliseconds. Get your rating and try to reach &apos;GOD TIER&apos; status!</span>
+            <span>Complete 5 rounds in a row. We calculate your average speed and best time to give you a final 'Vibe Rating'!</span>
           </div>
         </div>
       </div>

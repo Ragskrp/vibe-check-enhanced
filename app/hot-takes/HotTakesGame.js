@@ -36,6 +36,36 @@ const HOT_TAKES = [
   { text: "Coffee is a personality trait ☕", agreePercent: 44 },
   { text: "Mondays aren't that bad 📅", agreePercent: 18 },
   { text: "It's fine to double-dip chips 🫓", agreePercent: 42 },
+  { text: "Toilet paper should hang 'over', not 'under' 🧻", agreePercent: 82 },
+  { text: "Washing dishes is better than cooking 🍳", agreePercent: 31 },
+  { text: "The book is ALWAYS better than the movie 📕", agreePercent: 68 },
+  { text: "Android is better than iPhone 📱", agreePercent: 42 },
+  { text: "Winter is better than summer ❄️", agreePercent: 36 },
+  { text: "Burgers are better than pizza 🍔", agreePercent: 49 },
+  { text: "Popcorn belongs in the fridge 🍿", agreePercent: 12 },
+  { text: "Marvel is better than DC 🦸", agreePercent: 64 },
+  { text: "The ending of Game of Thrones was fine 🐉", agreePercent: 15 },
+  { text: "Starbucks is mid ☕", agreePercent: 55 },
+  { text: "Tik Tok is better than YouTube 🎥", agreePercent: 28 },
+  { text: "Gaming is a sport 🎮", agreePercent: 71 },
+  { text: "Work from home should be permanent 🏠", agreePercent: 86 },
+  { text: "Ketchup belongs on everything 🍅", agreePercent: 22 },
+  { text: "Manual cars are more fun than automatic 🏎️", agreePercent: 45 },
+  { text: "AI will replace most creative jobs 🤖", agreePercent: 53 },
+  { text: "The moon landing was faked 🌑", agreePercent: 9 },
+  { text: "Reality TV is high art 📺", agreePercent: 14 },
+  { text: "Mayo is better than ketchup 🥣", agreePercent: 37 },
+  { text: "Physical books are better than Kindles 📚", agreePercent: 73 },
+  { text: "Coffee without sugar is elite ☕", agreePercent: 48 },
+  { text: "Clowns are actually scary 🤡", agreePercent: 62 },
+  { text: "Podcasts are better than music 🎙️", agreePercent: 31 },
+  { text: "Cereal with water is an abomination 🥣", agreePercent: 97 },
+  { text: "The Matrix sequels are underrated 🕶️", agreePercent: 24 },
+  { text: "Bacon is overrated 🥓", agreePercent: 19 },
+  { text: "Everyone should travel solo once ✈️", agreePercent: 81 },
+  { text: "Texting is better than calling 📱", agreePercent: 88 },
+  { text: "Aliens have definitely visited Earth 🛸", agreePercent: 46 },
+  { text: "Oat milk is the best milk 🥛", agreePercent: 33 },
 ];
 
 export default function HotTakesGame() {
@@ -49,8 +79,8 @@ export default function HotTakesGame() {
 
   useEffect(() => {
     setMounted(true);
-    // Shuffle and pick 10
-    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
+    // Shuffle and pick 50 (or all available)
+    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 50);
     setGameTakes(shuffled);
   }, []);
 
@@ -76,14 +106,14 @@ export default function HotTakesGame() {
     setMyVote(null);
   };
 
-  if (currentIndex >= 10) {
+  if (currentIndex >= 50 || currentIndex >= gameTakes.length) {
     const agrees = Object.values(votes).filter(v => v).length;
     const disagrees = Object.values(votes).filter(v => !v).length;
     
     return (
       <div className="game-container" style={{ textAlign: 'center' }}>
         <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Final Results</h1>
-        <p className="game-subtitle">You've voted on 10 spicy takes!</p>
+        <p className="game-subtitle">You've voted on 50 spicy takes!</p>
 
         <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', borderBottom: '1px solid #1a1a2e' }}>
