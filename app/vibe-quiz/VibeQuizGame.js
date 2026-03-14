@@ -11,7 +11,7 @@ const FloatingBg = () => (
   </div>
 );
 
-const QUESTIONS = [
+const ALL_QUESTIONS = [
   {
     q: "It's Friday night. What are you doing?",
     options: [
@@ -83,6 +83,42 @@ const QUESTIONS = [
       { text: "🌊 Calm & flowing", vibe: 'chill' },
       { text: "🌀 Deep & infinite", vibe: 'cosmic' },
     ]
+  },
+  {
+    q: "What's your go-to drink?",
+    options: [
+      { text: "☕ Black coffee", vibe: 'cosmic' },
+      { text: "🍹 Tropical smoothie", vibe: 'sunset' },
+      { text: "⚡ Energy drink", vibe: 'neon' },
+      { text: "🍵 Matcha latte", vibe: 'chill' },
+    ]
+  },
+  {
+    q: "Pick a movie genre:",
+    options: [
+      { text: "🛸 Sci-Fi & Fantasy", vibe: 'cosmic' },
+      { text: "😂 Romantic Comedy", vibe: 'sunset' },
+      { text: "💥 Action & Thriller", vibe: 'neon' },
+      { text: "🌿 Indie & Documentary", vibe: 'chill' },
+    ]
+  },
+  {
+    q: "How do you handle stress?",
+    options: [
+      { text: "🧘 Meditate and breathe", vibe: 'chill' },
+      { text: "🏃‍♂️ Go for a hard run", vibe: 'neon' },
+      { text: "📖 Read and escape", vibe: 'cosmic' },
+      { text: "🗣️ Talk it out with friends", vibe: 'sunset' },
+    ]
+  },
+  {
+    q: "What's your dream pet?",
+    options: [
+      { text: "🐉 A mini dragon", vibe: 'neon' },
+      { text: "🐱 A sleepy cat", vibe: 'chill' },
+      { text: "🐶 A golden retriever", vibe: 'sunset' },
+      { text: "🦉 A wise owl", vibe: 'cosmic' },
+    ]
   }
 ];
 
@@ -127,6 +163,7 @@ const RESULTS = {
 
 export default function VibeQuizGame() {
   const [mounted, setMounted] = useState(false);
+  const [questions, setQuestions] = useState([]);
   const [currentQ, setCurrentQ] = useState(0);
   const [scores, setScores] = useState({ sunset: 0, neon: 0, chill: 0, cosmic: 0 });
   const [showResult, setShowResult] = useState(false);
@@ -134,6 +171,8 @@ export default function VibeQuizGame() {
 
   useEffect(() => {
     setMounted(true);
+    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 8);
+    setQuestions(shuffled);
   }, []);
 
   if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
@@ -144,7 +183,7 @@ export default function VibeQuizGame() {
     setScores(newScores);
 
     setTimeout(() => {
-      if (currentQ + 1 >= QUESTIONS.length) {
+      if (currentQ + 1 >= questions.length) {
         setShowResult(true);
       } else {
         setCurrentQ(prev => prev + 1);
@@ -159,6 +198,8 @@ export default function VibeQuizGame() {
   };
 
   const reset = () => {
+    const shuffled = [...ALL_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 8);
+    setQuestions(shuffled);
     setCurrentQ(0);
     setScores({ sunset: 0, neon: 0, chill: 0, cosmic: 0 });
     setShowResult(false);
@@ -225,7 +266,8 @@ export default function VibeQuizGame() {
     );
   }
 
-  const question = QUESTIONS[currentQ];
+  const question = questions[currentQ];
+  if (!question) return null;
 
   return (
     <>
@@ -239,12 +281,12 @@ export default function VibeQuizGame() {
       {/* Progress */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
         <span style={{ color: '#555', fontSize: 13, fontWeight: 700 }}>
-          Question {currentQ + 1} / {QUESTIONS.length}
+          Question {currentQ + 1} / {questions.length}
         </span>
       </div>
       <div className="progress-bar" style={{ marginBottom: 24 }}>
         <div className="progress-fill" style={{ 
-          width: `${((currentQ) / QUESTIONS.length) * 100}%`,
+          width: `${((currentQ) / questions.length) * 100}%`,
           background: 'linear-gradient(90deg, #b14aed, #ff2d78)'
         }} />
       </div>

@@ -260,8 +260,18 @@ export default function ReactionArenaGame() {
             </div>
           ))}
         </div>
-        <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
-          Play Again
+        <button className="btn-primary" style={{ marginTop: '32px' }} onClick={async () => {
+          if (isHost) {
+            const resetPlayers = room.players.map(p => ({ ...p, reaction: null, ready: false }));
+            await updateDoc(doc(db, "rooms", room.id), {
+              status: 'lobby',
+              gameState: 'waiting',
+              players: resetPlayers,
+              startTime: null
+            });
+          }
+        }}>
+          {isHost ? 'Play Again' : 'Waiting for host to restart...'}
         </button>
         <div style={{ marginTop: '40px' }}>
           <AdBanner format="rectangle" />

@@ -138,8 +138,10 @@ export default function HomeContent() {
 
   const filteredGames = GAMES.filter(game => {
     const matchesFilter = filter === 'all' || game.category === filter;
-    const matchesSearch = game.title.toLowerCase().includes(search.toLowerCase()) || 
-                          game.desc.toLowerCase().includes(search.toLowerCase());
+    const s = search.toLowerCase();
+    const matchesSearch = game.title.toLowerCase().includes(s) || 
+                          game.desc.toLowerCase().includes(s) || 
+                          game.tag.toLowerCase().includes(s);
     return matchesFilter && matchesSearch;
   });
 

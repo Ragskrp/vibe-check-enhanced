@@ -40,6 +40,7 @@ const HOT_TAKES = [
 
 export default function HotTakesGame() {
   const [mounted, setMounted] = useState(false);
+  const [gameTakes, setGameTakes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [voted, setVoted] = useState(false);
   const [myVote, setMyVote] = useState(null);
@@ -48,11 +49,14 @@ export default function HotTakesGame() {
 
   useEffect(() => {
     setMounted(true);
+    // Shuffle and pick 10
+    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
+    setGameTakes(shuffled);
   }, []);
 
-  if (!mounted) return <div className="game-container" style={{ minHeight: '500px' }} />;
+  if (!mounted || gameTakes.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
 
-  const take = HOT_TAKES[currentIndex % HOT_TAKES.length];
+  const take = gameTakes[currentIndex];
   // Simulate vote counts with some variance
   const fakeTotal = 1247 + currentIndex * 173;
   const agreeCount = Math.round(fakeTotal * (take.agreePercent / 100));
@@ -71,6 +75,33 @@ export default function HotTakesGame() {
     setVoted(false);
     setMyVote(null);
   };
+
+  if (currentIndex >= 10) {
+    const agrees = Object.values(votes).filter(v => v).length;
+    const disagrees = Object.values(votes).filter(v => !v).length;
+    
+    return (
+      <div className="game-container" style={{ textAlign: 'center' }}>
+        <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Final Results</h1>
+        <p className="game-subtitle">You've voted on 10 spicy takes!</p>
+
+        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', borderBottom: '1px solid #1a1a2e' }}>
+            <span style={{ fontSize: '24px' }}>👍 Agreed</span>
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94' }}>{agrees}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+            <span style={{ fontSize: '24px' }}>👎 Disagreed</span>
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff2d78' }}>{disagrees}</span>
+          </div>
+        </div>
+
+        <button className="btn-primary" onClick={() => window.location.reload()}>
+          Play Again
+        </button>
+      </div>
+    );
+  }
 
   const shareResult = () => {
     const agrees = Object.values(votes).filter(v => v).length;

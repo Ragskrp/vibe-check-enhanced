@@ -35,9 +35,12 @@ export default function OddOneOutGame() {
 
   useEffect(() => {
     if (!mounted || !room?.id) return;
-    const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
-      if (doc.exists()) {
-        const data = doc.data();
+    const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data();
+        if (room && data.currentRound !== room.currentRound) {
+          setFeedback(null);
+        }
         setRoom(prev => ({ ...prev, ...data }));
         
         if (data.status === 'playing' && view === 'lobby') setView('playing');
@@ -45,7 +48,35 @@ export default function OddOneOutGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, view, mounted]);
+  }, [room?.id, room?.currentRound, view, mounted]);
+
+  // Host listener
+  useEffect(() => {
+    if (!mounted || !room || !isHost || view !== 'playing') return;
+
+    if (room.roundWinner) {
+      const timer = setTimeout(async () => {
+        const roomRef = doc(db, "rooms", room.id);
+        const freshRoomSnap = await getDoc(roomRef);
+        if (freshRoomSnap.exists()) {
+            const freshRoom = freshRoomSnap.data();
+            if (freshRoom.roundWinner) {
+              const nextRound = freshRoom.currentRound + 1;
+              const isGameOver = nextRound > 10;
+              await updateDoc(roomRef, {
+                gridSeed: Math.floor(Math.random() * 1000000),
+                oddIndex: Math.floor(Math.random() * GRID_SIZE),
+                symbolIndex: Math.floor(Math.random() * SYMBOLS.length),
+                currentRound: isGameOver ? freshRoom.currentRound : nextRound,
+                status: isGameOver ? 'results' : 'playing',
+                roundWinner: null
+              });
+            }
+        }
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [room?.roundWinner, room?.currentRound, isHost, view, mounted]);
 
   if (!mounted) return <div className="game-container" />;
 
@@ -65,7 +96,8 @@ export default function OddOneOutGame() {
       gridSeed: Math.floor(Math.random() * 1000000),
       oddIndex: Math.floor(Math.random() * GRID_SIZE),
       symbolIndex: Math.floor(Math.random() * SYMBOLS.length),
-      players: [{ name: playerName, score: 0, lastCheck: 0 }],
+      roundWinner: null,
+      players: [{ name: playerName, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -85,7 +117,7 @@ export default function OddOneOutGame() {
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
-    const newPlayer = { name: playerName, score: 0, lastCheck: 0 };
+    const newPlayer = { name: playerName, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
       players: arrayUnion(newPlayer)
@@ -103,28 +135,28 @@ export default function OddOneOutGame() {
   };
 
   const handleTileClick = async (idx) => {
-    if (feedback === 'correct' || room.players.find(p => p.lastCheck === room.currentRound)) return;
+    if (feedback === 'correct' || room.roundWinner) return;
 
     if (idx === room.oddIndex) {
       setFeedback('correct');
-      const newPlayers = [...room.players];
-      newPlayers[myPlayerId].score += 10;
-      newPlayers[myPlayerId].lastCheck = room.currentRound;
+      
+      const roomRef = doc(db, "rooms", room.id);
+      const docSnap = await getDoc(roomRef);
+      if (!docSnap.exists()) return;
+      
+      const currentData = docSnap.data();
+      if (currentData.roundWinner) return; // already won
+      
+      const newPlayers = [...currentData.players];
+      newPlayers[myPlayerId] = {
+        ...newPlayers[myPlayerId],
+        score: newPlayers[myPlayerId].score + 10
+      };
 
-      // Update room for next round
-      const nextRound = room.currentRound + 1;
-      const isGameOver = nextRound > 10;
-
-      await updateDoc(doc(db, "rooms", room.id), { 
+      await updateDoc(roomRef, { 
         players: newPlayers,
-        gridSeed: Math.floor(Math.random() * 1000000),
-        oddIndex: Math.floor(Math.random() * GRID_SIZE),
-        symbolIndex: Math.floor(Math.random() * SYMBOLS.length),
-        currentRound: isGameOver ? room.currentRound : nextRound,
-        status: isGameOver ? 'results' : 'playing'
+        roundWinner: playerName
       });
-
-      setTimeout(() => setFeedback(null), 1000);
     } else {
       setFeedback('wrong');
       setTimeout(() => setFeedback(null), 800);
@@ -246,7 +278,7 @@ export default function OddOneOutGame() {
                 borderRadius: '8px',
                 cursor: 'pointer',
                 border: feedback === 'correct' && i === room.oddIndex ? '2px solid #00ff94' : '2px solid transparent',
-                opacity: (feedback === 'correct' && i !== room.oddIndex) ? 0.3 : 1,
+                opacity: (feedback === 'correct' && i !== room.oddIndex) || room.roundWinner ? 0.3 : 1,
                 transition: 'all 0.2s'
               }}
               className="option-btn"
@@ -256,7 +288,19 @@ export default function OddOneOutGame() {
           ))}
         </div>
 
-        {feedback && (
+        {room.roundWinner && (
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+            background: 'rgba(0,0,0,0.85)', padding: '20px', borderRadius: '16px', border: '2px solid #00ff94',
+            textAlign: 'center', zIndex: 10, minWidth: '250px'
+          }}>
+            <div style={{ fontSize: '14px', color: '#00ff94', fontWeight: 800 }}>ROUND OVER</div>
+            <div style={{ fontSize: '24px', fontWeight: 900, margin: '10px 0' }}>{room.roundWinner}</div>
+            <div style={{ fontSize: '12px', color: '#ffe600' }}>FOUND IT FIRST!</div>
+          </div>
+        )}
+
+        {feedback && !room.roundWinner && (
           <div style={{ 
             marginTop: '20px', 
             textAlign: 'center', 

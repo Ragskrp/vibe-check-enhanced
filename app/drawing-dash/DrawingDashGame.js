@@ -6,7 +6,7 @@ import {
   collection, doc, setDoc, updateDoc, onSnapshot, getDoc, 
   query, where, getDocs, arrayUnion, serverTimestamp 
 } from 'firebase/firestore';
-import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser, HelpCircle } from 'lucide-react';
+import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser, HelpCircle, Timer } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import confetti from 'canvas-confetti';
@@ -18,7 +18,9 @@ const FloatingBg = () => (
   </div>
 );
 
-const WORDS = ['APPLE', 'HOUSE', 'CAR', 'DRAGON', 'SUNFLOWER', 'PIZZA', 'CAT', 'ROBOT', 'TREE', 'PLANE', 'CAKE', 'FISH', 'BANANA', 'GUITAR', 'BOTTLE', 'SPIDER'];
+const WORDS = ['APPLE', 'HOUSE', 'CAR', 'DRAGON', 'SUNFLOWER', 'PIZZA', 'CAT', 'ROBOT', 'TREE', 'PLANE', 'CAKE', 'FISH', 'BANANA', 'GUITAR', 'BOTTLE', 'SPIDER', 'ELEPHANT', 'DOG', 'BIRD', 'MOON', 'ASTRONAUT', 'MOUNTAIN', 'RIVER', 'PENGUIN', 'SNOWMAN', 'WIZARD'];
+
+const DRAW_COLORS = ['#fff', '#ff2d78', '#00d4ff', '#ffe600', '#00ff94', '#b14aed'];
 
 export default function DrawingDashGame() {
   const [mounted, setMounted] = useState(false);
@@ -32,6 +34,9 @@ export default function DrawingDashGame() {
   const [guess, setGuess] = useState('');
   const [isDrawing, setIsDrawing] = useState(false);
   
+  const [color, setColor] = useState(DRAW_COLORS[2]);
+  const [timeLeft, setTimeLeft] = useState(120);
+  
   const canvasRef = useRef(null);
   const lastPoint = useRef(null);
   const lastRound = useRef(null);
@@ -40,6 +45,45 @@ export default function DrawingDashGame() {
 
   useEffect(() => { setMounted(true); }, []);
 
+  // Timer logic
+  useEffect(() => {
+    if (view === 'playing' && room?.gameState === 'drawing' && !room?.lastWinner) {
+      const interval = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev <= 1 && isHost) {
+            // Time up! Host moves to next round
+            handleTimeUp();
+            return 0;
+          }
+          return prev > 0 ? prev - 1 : 0;
+        });
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [view, room?.gameState, room?.lastWinner, isHost]);
+
+  const handleTimeUp = async () => {
+    // Reveal word and advance
+    const nextRound = room.round + 1;
+    const isGameOver = nextRound > room.players.length;
+    const nextDrawer = (room.drawerId + 1) % room.players.length;
+    
+    await updateDoc(doc(db, "rooms", room.id), {
+      lastWinner: 'NO ONE',
+      status: isGameOver ? 'results' : 'playing'
+    });
+    
+    setTimeout(async () => {
+      await updateDoc(doc(db, "rooms", room.id), {
+        drawerId: nextDrawer,
+        round: nextRound,
+        gameState: 'choosing',
+        lines: [],
+        lastWinner: null
+      });
+    }, 3000);
+  };
+
   // Firestore Listener for Game State and Drawing
   useEffect(() => {
     if (!mounted || !room?.id) return;
@@ -47,7 +91,6 @@ export default function DrawingDashGame() {
       if (docSnapshot.exists()) {
         const data = docSnapshot.data();
         
-        // If round changed, clear local canvas for everyone
         if (data.round !== lastRound.current) {
           lastRound.current = data.round;
           const canvas = canvasRef.current;
@@ -56,6 +99,7 @@ export default function DrawingDashGame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             lastDrawnCount.current = 0; 
           }
+          setTimeLeft(120);
         }
 
         setRoom(prev => ({ ...prev, ...data }));
@@ -63,8 +107,7 @@ export default function DrawingDashGame() {
         if (data.status === 'playing' && view === 'lobby') setView('playing');
         if (data.status === 'results' && view !== 'results') setView('results');
 
-        // Sync drawing for non-drawers, OR if lines were cleared
-        if (data.status === 'playing') {
+        if (data.status === 'playing' && data.gameState === 'drawing') {
           const isDrawer = data.drawerId === myPlayerId;
           const isClear = !data.lines || data.lines.length === 0;
           if (!isDrawer || isClear) {
@@ -76,9 +119,9 @@ export default function DrawingDashGame() {
     return () => unsub();
   }, [room?.id, view, mounted, myPlayerId]);
 
-  // Sync buffered lines to Firestore periodically (Throttled Sync)
+  // Sync buffered lines to Firestore periodically
   useEffect(() => {
-    if (view === 'playing' && room?.id && room?.drawerId === myPlayerId) {
+    if (view === 'playing' && room?.id && room?.drawerId === myPlayerId && room?.gameState === 'drawing') {
       const interval = setInterval(async () => {
         if (linesBuffer.current.length > 0) {
           const toSync = [...linesBuffer.current];
@@ -88,20 +131,19 @@ export default function DrawingDashGame() {
               lines: arrayUnion(...toSync)
             });
           } catch (e) {
-            console.error("Drawing Sync Error:", e);
+             console.error("Drawing Sync Error", e);
           }
         }
-      }, 300); // Batch updates every 300ms to stay within Firestore limits
+      }, 300);
       return () => clearInterval(interval);
     }
-  }, [view, room?.id, room?.drawerId, myPlayerId]);
+  }, [view, room?.id, room?.drawerId, room?.gameState, myPlayerId]);
 
   const syncCanvas = (lines) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    // Clear canvas if lines collection is empty or reset
     if (lines.length === 0 || lines.length < lastDrawnCount.current) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       lastDrawnCount.current = 0;
@@ -111,12 +153,11 @@ export default function DrawingDashGame() {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 4;
-    ctx.strokeStyle = '#00d4ff';
 
-    // Incremental draw to maximize performance
     for (let i = lastDrawnCount.current; i < lines.length; i++) {
       const line = lines[i];
       if (!line) continue;
+      ctx.strokeStyle = line.c || '#00d4ff';
       ctx.beginPath();
       ctx.moveTo(line.x1 * canvas.width, line.y1 * canvas.height);
       ctx.lineTo(line.x2 * canvas.width, line.y2 * canvas.height);
@@ -135,13 +176,23 @@ export default function DrawingDashGame() {
   const handleCreateRoom = async () => {
     if (!playerName) return setError('Enter a nickname!');
     const code = generateRoomCode();
+    
+    // Choose 3 options
+    const options = [];
+    while(options.length < 3) {
+       const w = WORDS[Math.floor(Math.random() * WORDS.length)];
+       if (!options.includes(w)) options.push(w);
+    }
+
     const newRoom = {
       code,
       type: 'drawing',
       status: 'lobby',
       drawerId: 0,
       round: 1,
-      currentWord: WORDS[Math.floor(Math.random() * WORDS.length)],
+      options,
+      currentWord: '',
+      gameState: 'choosing', // choosing -> drawing
       lines: [],
       players: [{ name: playerName, score: 0 }],
       createdAt: serverTimestamp()
@@ -179,8 +230,17 @@ export default function DrawingDashGame() {
     await updateDoc(doc(db, "rooms", room.id), { status: 'playing' });
   };
 
+  const selectWord = async (word) => {
+     if (room.drawerId !== myPlayerId) return;
+     await updateDoc(doc(db, "rooms", room.id), {
+        currentWord: word,
+        gameState: 'drawing'
+     });
+     setTimeLeft(120);
+  };
+
   const startDrawing = (e) => {
-    if (room.drawerId !== myPlayerId) return;
+    if (room.drawerId !== myPlayerId || room.gameState !== 'drawing') return;
     setIsDrawing(true);
     const rect = canvasRef.current.getBoundingClientRect();
     lastPoint.current = {
@@ -190,27 +250,24 @@ export default function DrawingDashGame() {
   };
 
   const draw = async (e) => {
-    if (!isDrawing || room.drawerId !== myPlayerId) return;
+    if (!isDrawing || room.drawerId !== myPlayerId || room.gameState !== 'drawing') return;
     const rect = canvasRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
 
-    const newLine = { x1: lastPoint.current.x, y1: lastPoint.current.y, x2: x, y2: y };
+    const newLine = { x1: lastPoint.current.x, y1: lastPoint.current.y, x2: x, y2: y, c: color };
     
-    // Local Draw for Speed
     const ctx = canvasRef.current.getContext('2d');
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 4;
-    ctx.strokeStyle = '#00d4ff';
+    ctx.strokeStyle = color;
     ctx.beginPath();
     ctx.moveTo(newLine.x1 * canvasRef.current.width, newLine.y1 * canvasRef.current.height);
     ctx.lineTo(newLine.x2 * canvasRef.current.width, newLine.y2 * canvasRef.current.height);
     ctx.stroke();
 
     lastPoint.current = { x, y };
-    
-    // Buffer for throttled sync
     linesBuffer.current.push(newLine);
   };
 
@@ -222,10 +279,9 @@ export default function DrawingDashGame() {
   };
 
   const handleGuess = async () => {
-    if (!guess.trim() || room.lastWinner) return;
+    if (!guess.trim() || room.lastWinner || room.gameState !== 'drawing') return;
     
     if (guess.toUpperCase() === room.currentWord) {
-      // Trigger Confetti!
       confetti({
         particleCount: 150,
         spread: 70,
@@ -233,7 +289,6 @@ export default function DrawingDashGame() {
         colors: ['#00d4ff', '#ff2d78', '#ffe600']
       });
 
-      // Show local success immediately
       setGuess('CORRECT! ✨');
       
       const newPlayers = [...room.players];
@@ -241,31 +296,61 @@ export default function DrawingDashGame() {
       newPlayers[room.drawerId].score += 5;
 
       const nextRound = room.round + 1;
-      const isGameOver = nextRound > (room.players.length * 2);
+      const isGameOver = nextRound > room.players.length; 
       const nextDrawer = (room.drawerId + 1) % room.players.length;
-      const nextWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+      
+      const options = [];
+      while(options.length < 3) {
+         const w = WORDS[Math.floor(Math.random() * WORDS.length)];
+         if (!options.includes(w)) options.push(w);
+      }
 
-      // Store winner info briefly
       await updateDoc(doc(db, "rooms", room.id), {
         players: newPlayers,
         lastWinner: playerName,
         status: isGameOver ? 'results' : 'playing'
       });
 
-      // Simple delay before full state reset to next round
       setTimeout(async () => {
-        await updateDoc(doc(db, "rooms", room.id), {
-          drawerId: nextDrawer,
-          round: nextRound,
-          currentWord: nextWord,
-          lines: [],
-          lastWinner: null
-        });
+        if (!isGameOver) {
+          await updateDoc(doc(db, "rooms", room.id), {
+            drawerId: nextDrawer,
+            round: nextRound,
+            options,
+            gameState: 'choosing',
+            lines: [],
+            lastWinner: null
+          });
+        }
         setGuess('');
-      }, 2000);
+      }, 3000); // 3 seconds to see who won before starting choice
     } else {
       setGuess('');
     }
+  };
+
+  const retryGame = async () => {
+     if (isHost) {
+        const nextDrawer = Math.floor(Math.random() * room.players.length);
+        const resetPlayers = room.players.map(p => ({ ...p, score: 0 }));
+        
+        const options = [];
+        while(options.length < 3) {
+           const w = WORDS[Math.floor(Math.random() * WORDS.length)];
+           if (!options.includes(w)) options.push(w);
+        }
+
+        await updateDoc(doc(db, "rooms", room.id), {
+           drawerId: nextDrawer,
+           round: 1,
+           options,
+           gameState: 'choosing',
+           lines: [],
+           lastWinner: null,
+           status: 'playing',
+           players: resetPlayers
+        });
+     }
   };
 
   const renderHome = () => (
@@ -284,7 +369,7 @@ export default function DrawingDashGame() {
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={3}
+            maxLength={10}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -337,20 +422,50 @@ export default function DrawingDashGame() {
 
   const renderPlaying = () => {
     const isDrawer = room.drawerId === myPlayerId;
+    const currentDrawerName = room.players[room.drawerId]?.name;
+
+    if (room.gameState === 'choosing') {
+       return (
+         <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
+           <h2 style={{ fontSize: '24px', marginBottom: '20px', color: '#00d4ff' }}>ROUND {room.round} / {room.players.length}</h2>
+           <p style={{ fontSize: '18px', marginBottom: '30px' }}>
+              <span style={{ fontWeight: 800, color: '#ffe600' }}>{currentDrawerName}</span> is choosing a word...
+           </p>
+           {isDrawer && (
+             <div className="card" style={{ maxWidth: '400px', margin: '0 auto' }}>
+                <p style={{ marginBottom: '16px', color: '#555', fontWeight: 800 }}>CHOOSE A WORD TO DRAW</p>
+                <div style={{ display: 'grid', gap: '10px' }}>
+                   {room.options?.map((opt, i) => (
+                      <button key={i} className="btn-outline" onClick={() => selectWord(opt)}>
+                         {opt}
+                      </button>
+                   ))}
+                </div>
+             </div>
+           )}
+         </div>
+       );
+    }
+
     return (
       <div className="game-container animate-fade-in">
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', alignItems: 'center' }}>
-           <div style={{ fontSize: '12px' }}>
-              Drawer: <span style={{ color: '#ffe600', fontWeight: 800 }}>{room.players[room.drawerId].name}</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', alignItems: 'center', background: '#13131f', padding: '10px 20px', borderRadius: '12px' }}>
+           <div style={{ fontSize: '14px', fontWeight: 800 }}>
+              ?? Drawer: <span style={{ color: '#ffe600' }}>{currentDrawerName}</span>
            </div>
+           
+           <div style={{ color: timeLeft < 30 ? '#ff2d78' : '#00d4ff', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800 }}>
+             <Timer size={18} /> {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
+           </div>
+
            {isDrawer ? (
-             <div style={{ background: '#00d4ff15', color: '#00d4ff', padding: '4px 12px', borderRadius: '8px', fontWeight: 800 }}>
-                SECRET WORD: {room.currentWord}
+             <div style={{ background: '#00d4ff15', color: '#00d4ff', padding: '6px 14px', borderRadius: '8px', fontWeight: 900 }}>
+                WORD: {room.currentWord}
              </div>
            ) : (
              room.lastWinner && (
-               <div className="animate-pulse" style={{ background: 'rgba(0, 255, 148, 0.2)', color: '#00ff94', padding: '4px 12px', borderRadius: '8px', fontWeight: 800 }}>
-                  ✨ {room.lastWinner} GUESSED IT!
+               <div className="animate-pulse" style={{ background: 'rgba(0, 255, 148, 0.2)', color: '#00ff94', padding: '6px 14px', borderRadius: '8px', fontWeight: 900 }}>
+                  ✨ {room.lastWinner === 'NO ONE' ? 'TIME UP!' : `${room.lastWinner} GUESSED IT!`}
                </div>
              )
            )}
@@ -381,26 +496,48 @@ export default function DrawingDashGame() {
               background: '#0a0a0f', 
               borderRadius: '20px', 
               border: '2px solid #1a1a2e',
-              cursor: isDrawer ? 'cell' : 'default',
+              cursor: isDrawer && room.gameState === 'drawing' ? 'cell' : 'default',
               touchAction: 'none'
             }}
           />
-          {isDrawer && (
-            <button 
-              className="btn-outline" 
-              onClick={clearCanvas}
-              style={{ position: 'absolute', top: '10px', right: '10px', padding: '8px' }}
-            >
-              <Eraser size={18} /> Clear
-            </button>
+          {isDrawer && room.gameState === 'drawing' && (
+            <>
+              <div style={{ position: 'absolute', top: '10px', left: '10px', display: 'flex', gap: '8px', background: 'rgba(0,0,0,0.5)', padding: '8px', borderRadius: '12px' }}>
+                 {DRAW_COLORS.map(c => (
+                    <div 
+                      key={c} 
+                      onClick={() => setColor(c)}
+                      style={{ 
+                         width: 24, height: 24, borderRadius: '50%', background: c, cursor: 'pointer',
+                         border: color === c ? '3px solid #fff' : '2px solid transparent',
+                         outline: color === c ? '2px solid #00d4ff' : 'none'
+                      }}
+                    />
+                 ))}
+              </div>
+              <button 
+                className="btn-outline" 
+                onClick={clearCanvas}
+                style={{ position: 'absolute', top: '10px', right: '10px', padding: '8px 12px', background: 'rgba(0,0,0,0.5)' }}
+              >
+                <Eraser size={16} /> Clear
+              </button>
+            </>
           )}
-        </div>
-        <div style={{ marginTop: '24px' }}>
-          <AdBanner format="horizontal" />
+
+          {room.lastWinner && (
+             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'rgba(10,10,15, 0.9)', padding: '30px', borderRadius: '20px', border: '2px solid #00d4ff', textAlign: 'center' }}>
+                <p style={{ fontSize: '14px', color: '#555', fontWeight: 800, marginBottom: '8px' }}>THE WORD WAS</p>
+                <h2 style={{ fontSize: '32px', color: '#ffe600', marginBottom: '16px' }}>{room.currentWord}</h2>
+                <p style={{ fontSize: '16px', color: '#00ff94', fontWeight: 800 }}>
+                   {room.lastWinner === 'NO ONE' ? 'NO ONE GUESSED IT' : `${room.lastWinner} EARNED POINTS!`}
+                </p>
+             </div>
+          )}
         </div>
 
         <div style={{ marginTop: '24px' }}>
-          {!isDrawer ? (
+          {!isDrawer && room.gameState === 'drawing' ? (
             <div style={{ display: 'flex', gap: '8px' }}>
                <input 
                  className="input-field"
@@ -412,18 +549,24 @@ export default function DrawingDashGame() {
                <button className="btn-primary" onClick={handleGuess}>Guess</button>
             </div>
           ) : (
-            <div style={{ color: '#555', fontSize: '13px', textAlign: 'center' }}>
-               Drawing for the group... make it good! 🎨
-            </div>
+            isDrawer && room.gameState === 'drawing' && (
+              <div style={{ color: '#555', fontSize: '13px', textAlign: 'center', fontWeight: 800 }}>
+                 DO NOT WRITE THE WORD! JUST DRAW! 🎨
+              </div>
+            )
           )}
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '24px', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '24px', justifyContent: 'center' }}>
            {room.players.map((p, i) => (
-             <div key={i} style={{ fontSize: '11px', background: '#13131f', padding: '4px 10px', borderRadius: '12px' }}>
-                {p.name}: {p.score}
+             <div key={i} style={{ fontSize: '12px', fontWeight: 800, background: '#13131f', padding: '6px 14px', borderRadius: '12px', border: i === room.drawerId ? '1px solid #00d4ff' : '1px solid transparent' }}>
+                {p.name}: <span style={{ color: '#00ff94' }}>{p.score}</span>
              </div>
            ))}
+        </div>
+
+        <div style={{ marginTop: '24px' }}>
+          <AdBanner format="horizontal" />
         </div>
       </div>
     );
@@ -433,19 +576,27 @@ export default function DrawingDashGame() {
     const sortedPlayers = [...room.players].sort((a, b) => b.score - a.score);
     return (
       <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-        <h2 style={{ fontSize: '32px', marginBottom: '24px' }}>🏆 RESULTS 🏆</h2>
+        <h2 style={{ fontSize: '48px', marginBottom: '8px' }}>🏆</h2>
+        <h2 style={{ fontSize: '32px', marginBottom: '24px', color: '#ffe600' }}>GAME OVER</h2>
         <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
           <div style={{ color: '#555', fontSize: '11px', fontWeight: 800, marginBottom: '12px' }}>FINAL SCORES</div>
           {sortedPlayers.map((p, i) => (
-            <div key={i} style={{ padding: '4px', display: 'flex', justifyContent: 'space-between' }}>
-              <span>{p.name}</span>
-              <span style={{ color: '#ffe600', fontWeight: 800 }}>{p.score}</span>
+            <div key={i} style={{ padding: '12px', display: 'flex', justifyContent: 'space-between', borderBottom: i < sortedPlayers.length - 1 ? '1px solid #1a1a2e' : 'none' }}>
+              <span style={{ fontWeight: 800 }}>{i === 0 ? '👑' : `#${i+1}`} {p.name}</span>
+              <span style={{ color: '#00ff94', fontWeight: 800 }}>{p.score} PTS</span>
             </div>
           ))}
         </div>
-        <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
-           Next Match
-        </button>
+        
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '32px' }}>
+           <button className="btn-primary" onClick={retryGame}>
+              {isHost ? 'Play Again' : 'Waiting for host...'}
+           </button>
+           <button className="btn-outline" onClick={() => window.location.reload()}>
+              Exit
+           </button>
+        </div>
+
         <div style={{ marginTop: '40px' }}>
           <AdBanner format="rectangle" />
         </div>
@@ -469,15 +620,15 @@ export default function DrawingDashGame() {
           <div className="how-to-play-steps">
             <div className="how-to-play-step">
               <span className="how-to-play-number">1</span>
-              <span>Join a room and wait for the host to start. One player is chosen as the Drawer each round.</span>
+              <span>Join a room and wait for the host to start. Each round, one player is chosen as the Drawer.</span>
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">2</span>
-              <span>If you are the Drawer, draw the secret word on the canvas for others to see.</span>
+              <span>The Drawer picks a word from 3 options and draws it using multiple colors!</span>
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">3</span>
-              <span>If you are a Guesser, type your ideas in the chat box! Correct guesses win points.</span>
+              <span>Guessers have 2 minutes to type the correct word. The fastest Guesser and the Drawer earn points!</span>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { db } from '../lib/firebase';
 import { 
   collection, doc, onSnapshot, setDoc, updateDoc, 
-  query, where, getDocs, arrayUnion, serverTimestamp 
+  query, where, getDocs, arrayUnion, serverTimestamp, getDoc
 } from 'firebase/firestore';
 import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft, HelpCircle } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
@@ -33,21 +33,49 @@ const TRIVIA_QUESTIONS = {
     { q: "How many sides does a hexagon have?", options: ["5", "6", "7", "8"], answer: 1 },
     { q: "What planet is closest to the Sun?", options: ["Venus", "Earth", "Mars", "Mercury"], answer: 3 },
     { q: "What's the largest ocean on Earth?", options: ["Atlantic", "Indian", "Pacific", "Arctic"], answer: 2 },
-    { q: "Who painted the Mona Lisa?", options: ["Picasso", "Da Vinci", "Van Gogh", "Michelangelo"], answer: 1 },
-    { q: "How many continents are there?", options: ["5", "6", "7", "8"], answer: 2 },
-    { q: "Which gas do plants absorb from the air?", options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Helium"], answer: 2 },
-    { q: "What's the fastest land animal?", options: ["Lion", "Horse", "Cheetah", "Leopard"], answer: 2 },
   ],
   pop_culture: [
     { q: "Which year did TikTok launch globally?", options: ["2016", "2017", "2018", "2019"], answer: 2 },
     { q: "Who plays Iron Man in the MCU?", options: ["Chris Evans", "Robert Downey Jr.", "Chris Pratt", "Mark Ruffalo"], answer: 1 },
     { q: "Which show features the 'Red Wedding'?", options: ["Vikings", "The Witcher", "Game of Thrones", "House of the Dragon"], answer: 2 },
-    { q: "Which app has a ghost as its logo?", options: ["Instagram", "WhatsApp", "Snapchat", "BeReal"], answer: 2 },
-    { q: "Who sang 'Bad Guy'?", options: ["Ariana Grande", "Billie Eilish", "Dua Lipa", "Olivia Rodrigo"], answer: 1 },
-    { q: "What's the name of Shrek's donkey friend?", options: ["Donkey", "Burro", "Eddie", "Ass"], answer: 0 },
     { q: "Which platform streams Stranger Things?", options: ["Hulu", "HBO", "Disney+", "Netflix"], answer: 3 },
-    { q: "What color is Sonic the Hedgehog?", options: ["Red", "Green", "Blue", "Yellow"], answer: 2 },
   ],
+  science: [
+    { q: "What is H2O?", options: ["Helium", "Water", "Hydrogen", "Oxygen"], answer: 1 },
+    { q: "What planet is known as the Red Planet?", options: ["Venus", "Jupiter", "Saturn", "Mars"], answer: 3 },
+    { q: "What force keeps us on the ground?", options: ["Friction", "Magnetism", "Gravity", "Inertia"], answer: 2 },
+    { q: "Which part of the plant conducts photosynthesis?", options: ["Root", "Stem", "Leaf", "Flower"], answer: 2 }
+  ],
+  gaming: [
+    { q: "What is the main character's name in The Legend of Zelda?", options: ["Zelda", "Ganon", "Navi", "Link"], answer: 3 },
+    { q: "Which game features creepers?", options: ["Roblox", "Minecraft", "Fortnite", "Terraria"], answer: 1 },
+    { q: "What company made the PlayStation?", options: ["Microsoft", "Nintendo", "Sega", "Sony"], answer: 3 },
+    { q: "Which color is the imposter usually portrayed as in Among Us memes?", options: ["Blue", "Red", "Green", "Yellow"], answer: 1 }
+  ],
+  movies: [
+    { q: "Who directed Jurassic Park?", options: ["Steven Spielberg", "George Lucas", "James Cameron", "Peter Jackson"], answer: 0 },
+    { q: "What is the name of the lion in The Lion King?", options: ["Mufasa", "Scar", "Simba", "Timon"], answer: 2 },
+    { q: "Which movie features a Delorean time machine?", options: ["Star Wars", "Back to the Future", "E.T.", "Ghostbusters"], answer: 1 },
+    { q: "What is the highest grossing film of all time (as of 2023)?", options: ["Avatar", "Avengers: Endgame", "Titanic", "Star Wars: The Force Awakens"], answer: 0 }
+  ],
+  music: [
+    { q: "Who is the 'King of Pop'?", options: ["Prince", "Michael Jackson", "Elvis Presley", "Stevie Wonder"], answer: 1 },
+    { q: "Which band sang 'Hey Jude'?", options: ["The Rolling Stones", "The Beach Boys", "The Beatles", "The Who"], answer: 2 },
+    { q: "How many strings are on a standard guitar?", options: ["4", "5", "6", "7"], answer: 2 },
+    { q: "What instrument is used to play a snare drum?", options: ["Hands", "Sticks", "Mallets", "Brushes"], answer: 1 }
+  ],
+  food: [
+    { q: "What is the main ingredient in hummus?", options: ["Lentils", "Chickpeas", "Black Beans", "Peas"], answer: 1 },
+    { q: "Which country is famous for pasta?", options: ["France", "Spain", "Italy", "Greece"], answer: 2 },
+    { q: "What type of food is a Granny Smith?", options: ["Apple", "Pear", "Plum", "Peach"], answer: 0 },
+    { q: "What is sushi traditionally wrapped in?", options: ["Bread", "Lettuce", "Seaweed", "Rice Paper"], answer: 2 }
+  ],
+  sports: [
+    { q: "How many players are on a soccer team on the field?", options: ["9", "10", "11", "12"], answer: 2 },
+    { q: "In what sport would you perform a slam dunk?", options: ["Baseball", "Tennis", "Basketball", "Volleyball"], answer: 2 },
+    { q: "Which country won the first World Cup?", options: ["Brazil", "Argentina", "Uruguay", "Germany"], answer: 2 },
+    { q: "What color is a standard tennis ball?", options: ["White", "Yellow-green", "Orange", "Pink"], answer: 1 }
+  ]
 };
 
 // Default trivial list for other categories
@@ -227,14 +255,19 @@ export default function QuizArenaGame() {
     const isCorrect = idx === question.answer;
     const points = isCorrect ? 10 : 0;
 
-    const newPlayers = [...room.players];
+    const roomRef = doc(db, "rooms", room.id);
+    const docSnap = await getDoc(roomRef);
+    if (!docSnap.exists()) return;
+    
+    const currentData = docSnap.data();
+    const newPlayers = [...currentData.players];
     newPlayers[myPlayerId] = {
       ...newPlayers[myPlayerId],
       score: newPlayers[myPlayerId].score + points,
       answers: [...(newPlayers[myPlayerId].answers || []), idx]
     };
 
-    await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
+    await updateDoc(roomRef, { players: newPlayers });
   };
 
   const nextQuestion = async () => {

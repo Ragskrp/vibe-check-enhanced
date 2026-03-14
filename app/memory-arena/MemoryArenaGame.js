@@ -64,6 +64,31 @@ export default function MemoryArenaGame() {
     }
   }, [room?.sequence?.length, room?.gameState, view]);
 
+  // Host listener to advance rounds
+  useEffect(() => {
+    if (!mounted || !room || !isHost || view !== 'playing') return;
+
+    if (room.gameState === 'input') {
+      const alivePlayers = room.players.filter(p => p.alive);
+      if (room.players.length > 0 && alivePlayers.length === 0) {
+        updateDoc(doc(db, "rooms", room.id), { status: 'results' });
+      } else if (alivePlayers.length > 0 && alivePlayers.every(p => p.score === room.sequence.length)) {
+        // Everyone finished round, delay then advance
+        const advance = async () => {
+          const freshRoom = (await getDoc(doc(db, "rooms", room.id))).data();
+          if (freshRoom.gameState === 'input') {
+            await updateDoc(doc(db, "rooms", room.id), { 
+              sequence: [...freshRoom.sequence, Math.floor(Math.random() * 4)],
+              gameState: 'showing'
+            });
+          }
+        };
+        const timer = setTimeout(advance, 1000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [room?.players, room?.gameState, isHost, view, mounted]);
+
   const playSequence = async () => {
     setIsShowingSequence(true);
     setUserInput([]);
@@ -143,37 +168,25 @@ export default function MemoryArenaGame() {
     const isCorrect = id === room.sequence[nextInput.length - 1];
     
     if (!isCorrect) {
-      const newPlayers = [...room.players];
+      const roomRef = doc(db, "rooms", room.id);
+      const docSnap = await getDoc(roomRef);
+      if (!docSnap.exists()) return;
+      const currentRoom = docSnap.data();
+      const newPlayers = [...currentRoom.players];
       newPlayers[myPlayerId].alive = false;
-      await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
+      await updateDoc(roomRef, { players: newPlayers });
       return;
     }
 
     // Finished sequence correctly
     if (nextInput.length === room.sequence.length) {
-      const newPlayers = [...room.players];
+      const roomRef = doc(db, "rooms", room.id);
+      const docSnap = await getDoc(roomRef);
+      if (!docSnap.exists()) return;
+      const currentRoom = docSnap.data();
+      const newPlayers = [...currentRoom.players];
       newPlayers[myPlayerId].score += 1;
-      await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
-      
-      // If host, check if everyone is done or out
-      if (isHost) {
-        setTimeout(async () => {
-          const updatedRoom = (await getDoc(doc(db, "rooms", room.id))).data();
-          const alivePlayers = updatedRoom.players.filter(p => p.alive);
-          
-          if (alivePlayers.length === 0) {
-            await updateDoc(doc(db, "rooms", room.id), { status: 'results' });
-            return;
-          }
-
-          // Advance to next level
-          const newSequence = [...room.sequence, Math.floor(Math.random() * 4)];
-          await updateDoc(doc(db, "rooms", room.id), { 
-            sequence: newSequence, 
-            gameState: 'showing' 
-          });
-        }, 1000);
-      }
+      await updateDoc(roomRef, { players: newPlayers });
     }
   };
 

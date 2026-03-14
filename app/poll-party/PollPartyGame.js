@@ -18,14 +18,26 @@ const FloatingBg = () => (
 );
 
 const PROMPTS = [
-  "The worst thing to say during a first date...",
-  "A rejected name for a new planet...",
+  "If your pet could talk, what would be its catchphrase?",
+  "A rejected name for a new flavor of ice cream...",
   "What ghosts do when they're bored...",
   "The weirdest thing to find in your sandwich...",
   "If animals could talk, which one would be the rudest?",
-  "A bad superpower for a superhero to have...",
+  "A terrible superpower for a superhero to have...",
   "The real reason aliens won't visit Earth...",
-  "A generic name for a really boring movie..."
+  "A funny excuse for not doing your homework...",
+  "If you had to change your name to a food, what would it be?",
+  "The worst thing to bring to a sleepover...",
+  "A secret hidden in the school cafeteria...",
+  "What do teachers actually do in the teachers' lounge?",
+  "If you were a mad scientist, what would you invent?",
+  "The title of a movie about your average Tuesday...",
+  "A strange rule you would make if you were President of the World...",
+  "What dogs are really thinking when they stare at you...",
+  "If vegetables came alive, which one would be the villain?",
+  "The worst flavor for toothpaste...",
+  "What aliens think when they see humans dancing...",
+  "If you could combine two animals, what would you make?"
 ];
 
 export default function PollPartyGame() {
@@ -44,9 +56,9 @@ export default function PollPartyGame() {
 
   useEffect(() => {
     if (!mounted || !room?.id) return;
-    const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
-      if (doc.exists()) {
-        const data = doc.data();
+    const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
         setRoom(prev => ({ ...prev, ...data }));
         
         if (data.status === 'answering' && view !== 'playing') setView('playing');
@@ -56,6 +68,29 @@ export default function PollPartyGame() {
     });
     return () => unsub();
   }, [room?.id, view, mounted]);
+
+  // Host listener for voting and answering
+  useEffect(() => {
+    if (!mounted || !room || !isHost) return;
+
+    if (room.status === 'answering') {
+      const allDone = room.players.every(p => p.answer !== null);
+      if (allDone) {
+        const timer = setTimeout(async () => {
+          await updateDoc(doc(db, "rooms", room.id), { status: 'voting' });
+        }, 1000);
+        return () => clearTimeout(timer);
+      }
+    } else if (room.status === 'voting') {
+      const voteCount = room.players.reduce((acc, p) => acc + (p.votes || 0), 0);
+      if (voteCount >= room.players.length) {
+         const timer = setTimeout(async () => {
+           await updateDoc(doc(db, "rooms", room.id), { status: 'results' });
+         }, 2000);
+         return () => clearTimeout(timer);
+      }
+    }
+  }, [room?.players, room?.status, isHost, mounted]);
 
   if (!mounted) return <div className="game-container" />;
 
@@ -113,14 +148,6 @@ export default function PollPartyGame() {
     const newPlayers = [...room.players];
     newPlayers[myPlayerId].answer = myAnswer;
     await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
-
-    // If host, check if everyone is done
-    const allDone = newPlayers.every(p => p.answer !== null);
-    if (allDone && isHost) {
-      setTimeout(async () => {
-        await updateDoc(doc(db, "rooms", room.id), { status: 'voting' });
-      }, 1000);
-    }
   };
 
   const castVote = async (targetId) => {
@@ -131,14 +158,6 @@ export default function PollPartyGame() {
     newPlayers[targetId].votes += 1;
     newPlayers[targetId].score += 10;
     await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
-
-    // If host, check for everyone voted
-    const voteCount = newPlayers.reduce((acc, p) => acc + p.votes, 0);
-    if (voteCount >= room.players.length && isHost) {
-       setTimeout(async () => {
-         await updateDoc(doc(db, "rooms", room.id), { status: 'results' });
-       }, 2000);
-    }
   };
 
   const renderHome = () => (
