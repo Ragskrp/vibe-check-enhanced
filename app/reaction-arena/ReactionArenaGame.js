@@ -133,26 +133,34 @@ export default function ReactionArenaGame() {
             await updateDoc(roomRef, { status: 'results', players: newPlayers.map(p => ({ ...p, reaction: null })) });
           } else {
             await updateDoc(roomRef, { 
-              currentRound: currentData.currentRound + 1,
-              gameState: 'waiting',
-              players: newPlayers.map(p => ({ ...p, reaction: null })),
-              startTime: null
+              gameState: 'summary',
+              players: newPlayers
             });
-            // Reset local state
-            setReactionTime(null);
-            // Trigger next round wait
-            setTimeout(async () => {
-              await updateDoc(roomRef, { 
-                gameState: 'go', 
-                startTime: Date.now() 
-              });
-            }, 2000 + Math.random() * 3000);
           }
-        }, 2000);
+        }, 1000);
       }
     }
     
     await updateDoc(roomRef, { players: newPlayers });
+  };
+
+  const startNextRound = async () => {
+    if (!isHost) return;
+    const roomRef = doc(db, "rooms", room.id);
+    await updateDoc(roomRef, {
+      currentRound: room.currentRound + 1,
+      gameState: 'waiting',
+      players: room.players.map(p => ({ ...p, reaction: null })),
+      startTime: null
+    });
+    setReactionTime(null);
+    const delay = 2000 + Math.random() * 3000;
+    setTimeout(async () => {
+      await updateDoc(roomRef, { 
+        gameState: 'go', 
+        startTime: Date.now() 
+      });
+    }, delay);
   };
 
   const renderHome = () => (
@@ -234,48 +242,74 @@ export default function ReactionArenaGame() {
 
   const renderPlaying = () => {
     const isWait = room.gameState === 'waiting';
+    const isSummary = room.gameState === 'summary';
+
     return (
       <div className="game-container">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <span style={{ fontWeight: 800, color: '#ff2d78' }}>ROUND {room.currentRound} / 5</span>
           <div style={{ display: 'flex', gap: '15px' }}>
              {room.players.map((p, i) => (
-               <div key={i} style={{ fontSize: '12px', fontWeight: 800 }}>
-                 {p.name}: <span style={{ color: '#ffe600' }}>{p.score}</span>
-               </div>
+                <div key={i} style={{ fontSize: '12px', fontWeight: 800, color: p.reaction ? '#00ff94' : '#fff' }}>
+                  {p.name}: <span style={{ color: '#ffe600' }}>{p.score}</span> {p.reaction && `(${p.reaction}ms)`}
+                </div>
              ))}
           </div>
         </div>
-        <div 
-          onClick={handleTrigger}
-          style={{ 
-            height: '600px', 
-            display: 'flex', 
-            flexDirection: 'column',
-            alignItems: 'center', 
-            justifyContent: 'center',
-            background: isWait ? '#1a1a2e' : '#ff2d78',
-            cursor: 'pointer',
-            borderRadius: '24px',
-            transition: 'background 0.1s ease'
-          }}
-        >
-          <div style={{ textAlign: 'center', color: '#fff' }}>
-            {isWait ? (
-              <>
-                <Timer size={64} className="animate-pulse" style={{ marginBottom: '20px', opacity: 0.5 }} />
-                <h2 style={{ fontSize: '32px', fontWeight: 800 }}>WAIT FOR IT...</h2>
-                <p style={{ opacity: 0.6 }}>Don't click yet!</p>
-              </>
-            ) : (
-              <>
-                <Zap size={80} style={{ marginBottom: '20px' }} />
-                <h2 style={{ fontSize: '64px', fontWeight: 900 }}>TAP NOW!</h2>
-                {reactionTime && <div style={{ fontSize: '48px', fontWeight: 900, marginTop: '20px' }}>{reactionTime}ms</div>}
-              </>
-            )}
+        
+        {isSummary ? (
+          <div className="card" style={{ height: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#13131f' }}>
+            <h2 style={{ fontSize: '32px', color: '#ffe600', marginBottom: '20px' }}>ROUND {room.currentRound} COMPLETE</h2>
+            <div style={{ marginBottom: '40px' }}>
+              {isHost ? (
+                <button className="btn-secondary" onClick={startNextRound}>
+                  START ROUND {room.currentRound + 1} <ArrowRight size={18} />
+                </button>
+              ) : (
+                <p style={{ color: '#555', fontWeight: 800 }}>WAITING FOR HOST...</p>
+              )}
+            </div>
+            <div style={{ width: '100%', maxWidth: '300px' }}>
+               {room.players.map((p, i) => (
+                 <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', borderBottom: '1px solid #1a1a2e' }}>
+                   <span>{p.name}</span>
+                   <span style={{ fontWeight: 800, color: '#00ff94' }}>{p.reaction}ms</span>
+                 </div>
+               ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div 
+            onClick={handleTrigger}
+            style={{ 
+              height: '600px', 
+              display: 'flex', 
+              flexDirection: 'column',
+              alignItems: 'center', 
+              justifyContent: 'center',
+              background: isWait ? '#1a1a2e' : '#ff2d78',
+              cursor: 'pointer',
+              borderRadius: '24px',
+              transition: 'background 0.1s ease'
+            }}
+          >
+            <div style={{ textAlign: 'center', color: '#fff' }}>
+              {isWait ? (
+                <>
+                  <Timer size={64} className="animate-pulse" style={{ marginBottom: '20px', opacity: 0.5 }} />
+                  <h2 style={{ fontSize: '32px', fontWeight: 800 }}>WAIT FOR IT...</h2>
+                  <p style={{ opacity: 0.6 }}>Don't click yet!</p>
+                </>
+              ) : (
+                <>
+                  <Zap size={80} style={{ marginBottom: '20px' }} />
+                  <h2 style={{ fontSize: '64px', fontWeight: 900 }}>TAP NOW!</h2>
+                  {reactionTime && <div style={{ fontSize: '48px', fontWeight: 900, marginTop: '20px' }}>{reactionTime}ms</div>}
+                </>
+              )}
+            </div>
+          </div>
+        )}
         <div style={{ marginTop: '32px' }}>
           <AdBanner format="horizontal" />
         </div>

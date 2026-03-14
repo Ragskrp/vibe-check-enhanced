@@ -79,8 +79,7 @@ export default function HotTakesGame() {
 
   useEffect(() => {
     setMounted(true);
-    // Shuffle and pick 50 (or all available)
-    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 50);
+    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
     setGameTakes(shuffled);
   }, []);
 
@@ -106,14 +105,24 @@ export default function HotTakesGame() {
     setMyVote(null);
   };
 
-  if (currentIndex >= 50 || currentIndex >= gameTakes.length) {
+  const resetGame = () => {
+    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
+    setGameTakes(shuffled);
+    setCurrentIndex(0);
+    setVoted(false);
+    setMyVote(null);
+    setTotalVoted(0);
+    setVotes({});
+  };
+
+  if (currentIndex >= 10 || currentIndex >= gameTakes.length) {
     const agrees = Object.values(votes).filter(v => v).length;
     const disagrees = Object.values(votes).filter(v => !v).length;
     
     return (
       <div className="game-container" style={{ textAlign: 'center' }}>
         <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Final Results</h1>
-        <p className="game-subtitle">You've voted on 50 spicy takes!</p>
+        <p className="game-subtitle">You've voted on 10 spicy takes!</p>
 
         <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', borderBottom: '1px solid #1a1a2e' }}>
@@ -121,12 +130,12 @@ export default function HotTakesGame() {
             <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94' }}>{agrees}</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-            <span style={{ fontSize: '24px' }}>👎 Disagreed</span>
+            <span style={{ fontSize: '24px' }}>Disagreed</span>
             <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff2d78' }}>{disagrees}</span>
           </div>
         </div>
 
-        <button className="btn-primary" onClick={() => window.location.reload()}>
+        <button className="btn-primary" onClick={resetGame}>
           Play Again
         </button>
       </div>

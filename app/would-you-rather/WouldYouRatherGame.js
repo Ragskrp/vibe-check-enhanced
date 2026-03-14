@@ -73,8 +73,7 @@ export default function WouldYouRatherGame() {
 
   useEffect(() => {
     setMounted(true);
-    // Shuffle and pick 50
-    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5);
+    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 10);
     setGameScenarios(shuffled);
   }, []);
 
@@ -107,15 +106,23 @@ export default function WouldYouRatherGame() {
     }
   };
 
-  if (currentIndex >= 50 || currentIndex >= gameScenarios.length) {
+  const resetGame = () => {
+    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 10);
+    setGameScenarios(shuffled);
+    setCurrentIndex(0);
+    setSelected(null);
+    setTotalPlayed(0);
+  };
+
+  if (currentIndex >= 10 || currentIndex >= gameScenarios.length) {
     return (
       <div className="game-container" style={{ textAlign: 'center' }}>
         <h1 className="game-title" style={{ color: '#00ff94' }}>🏁 Game Over!</h1>
-        <p className="game-subtitle">You made 50 tough choices!</p>
+        <p className="game-subtitle">You made 10 tough choices!</p>
 
         <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
           <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94', margin: '20px 0' }}>
-            50/50 Decisions Made
+            10/10 Decisions Made
           </div>
           <p style={{ color: '#888' }}>You&apos;ve explored every impossible scenario in today&apos;s collection.</p>
         </div>
@@ -124,7 +131,7 @@ export default function WouldYouRatherGame() {
           <button className="share-btn" onClick={shareResult}>
             <Share2 size={16} /> Share Results
           </button>
-          <button className="btn-primary" onClick={() => window.location.reload()}>
+          <button className="btn-primary" onClick={resetGame}>
             Play Again
           </button>
         </div>

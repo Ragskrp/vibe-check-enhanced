@@ -41,9 +41,9 @@ export default function MemoryArenaGame() {
 
   useEffect(() => {
     if (!mounted || !room?.id) return;
-    const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
-      if (doc.exists()) {
-        const data = doc.data();
+    const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data();
         setRoom(prev => ({ ...prev, ...data }));
         
         if (data.status === 'playing' && view === 'lobby') setView('playing');
@@ -58,51 +58,58 @@ export default function MemoryArenaGame() {
     if (view === 'playing' && room?.gameState === 'showing' && !isShowingSequence) {
       playSequence();
     } else if (view === 'playing' && room?.gameState === 'input' && isShowingSequence) {
-      // Sync case: if host already moved to input but we are still showing, force stop
       setIsShowingSequence(false);
       setActiveButton(null);
     }
   }, [room?.sequence?.length, room?.gameState, view]);
 
-  // Host listener to advance rounds
+  // Host listener for turn and round management
   useEffect(() => {
     if (!mounted || !room || !isHost || view !== 'playing') return;
 
     if (room.gameState === 'input') {
       const alivePlayers = room.players.filter(p => p.alive);
+      const isAnyoneLeftInRound = room.turnIndex < room.players.length;
+
       if (room.players.length > 0 && alivePlayers.length === 0) {
         updateDoc(doc(db, "rooms", room.id), { status: 'results' });
-      } else if (alivePlayers.length > 0 && alivePlayers.every(p => p.score === room.sequence.length)) {
-        // Everyone finished round, delay then advance
-        const advance = async () => {
-          const freshRoom = (await getDoc(doc(db, "rooms", room.id))).data();
-          if (freshRoom.gameState === 'input') {
-            await updateDoc(doc(db, "rooms", room.id), { 
-              sequence: [...freshRoom.sequence, Math.floor(Math.random() * 4)],
-              gameState: 'showing'
+      } else if (!isAnyoneLeftInRound) {
+        // Round complete, start next
+        const timeout = setTimeout(async () => {
+          const freshRoomSnap = await getDoc(doc(db, "rooms", room.id));
+          if (freshRoomSnap.exists()) {
+            const data = freshRoomSnap.data();
+            await updateDoc(doc(db, "rooms", room.id), {
+              sequence: [...data.sequence, Math.floor(Math.random() * 4)],
+              gameState: 'showing',
+              turnIndex: 0
             });
           }
-        };
-        const timer = setTimeout(advance, 1000);
-        return () => clearTimeout(timer);
+        }, 1500);
+        return () => clearTimeout(timeout);
       }
     }
-  }, [room?.players, room?.gameState, isHost, view, mounted]);
+  }, [room?.players, room?.gameState, room?.turnIndex, isHost, view, mounted]);
 
   const playSequence = async () => {
     setIsShowingSequence(true);
     setUserInput([]);
     
     for (let i = 0; i < room.sequence.length; i++) {
-      await new Promise(r => setTimeout(r, 600));
-      setActiveButton(room.sequence[i]);
       await new Promise(r => setTimeout(r, 400));
+      setActiveButton(room.sequence[i]);
+      await new Promise(r => setTimeout(r, 300));
       setActiveButton(null);
     }
     
     setIsShowingSequence(false);
     if (isHost) {
-      await updateDoc(doc(db, "rooms", room.id), { gameState: 'input' });
+      // Find first alive player
+      const firstAlive = room.players.findIndex(p => p.alive);
+      await updateDoc(doc(db, "rooms", room.id), { 
+        gameState: 'input',
+        turnIndex: firstAlive === -1 ? 0 : firstAlive
+      });
     }
   };
 
@@ -122,6 +129,7 @@ export default function MemoryArenaGame() {
       status: 'lobby',
       gameState: 'waiting',
       sequence: [Math.floor(Math.random() * 4)],
+      turnIndex: 0,
       players: [{ name: playerName, alive: true, score: 0 }],
       createdAt: serverTimestamp()
     };
@@ -142,12 +150,13 @@ export default function MemoryArenaGame() {
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
+    const newPlayer = { name: playerName, alive: true, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
-      players: arrayUnion({ name: playerName, alive: true, score: 0 })
+      players: arrayUnion(newPlayer)
     });
 
-    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, { name: playerName, alive: true, score: 0 }] });
+    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, newPlayer] });
     setMyPlayerId(playerIdx);
     setIsHost(false);
     setView('lobby');
@@ -160,33 +169,39 @@ export default function MemoryArenaGame() {
 
   const handleButtonClick = async (id) => {
     if (room.gameState !== 'input' || !room.players[myPlayerId].alive || isShowingSequence) return;
-    
+    if (room.turnIndex !== myPlayerId) return; // NOT YOUR TURN
+
     const nextInput = [...userInput, id];
     setUserInput(nextInput);
 
-    // Check if correct so far
     const isCorrect = id === room.sequence[nextInput.length - 1];
-    
+    const roomRef = doc(db, "rooms", room.id);
+
     if (!isCorrect) {
-      const roomRef = doc(db, "rooms", room.id);
-      const docSnap = await getDoc(roomRef);
-      if (!docSnap.exists()) return;
-      const currentRoom = docSnap.data();
-      const newPlayers = [...currentRoom.players];
+      const newPlayers = [...room.players];
       newPlayers[myPlayerId].alive = false;
-      await updateDoc(roomRef, { players: newPlayers });
+      
+      let nextTurn = room.turnIndex + 1;
+      while (nextTurn < room.players.length && !newPlayers[nextTurn].alive) nextTurn++;
+      
+      await updateDoc(roomRef, { 
+        players: newPlayers,
+        turnIndex: nextTurn
+      });
       return;
     }
 
-    // Finished sequence correctly
     if (nextInput.length === room.sequence.length) {
-      const roomRef = doc(db, "rooms", room.id);
-      const docSnap = await getDoc(roomRef);
-      if (!docSnap.exists()) return;
-      const currentRoom = docSnap.data();
-      const newPlayers = [...currentRoom.players];
+      const newPlayers = [...room.players];
       newPlayers[myPlayerId].score += 1;
-      await updateDoc(roomRef, { players: newPlayers });
+      
+      let nextTurn = room.turnIndex + 1;
+      while (nextTurn < room.players.length && !newPlayers[nextTurn].alive) nextTurn++;
+
+      await updateDoc(roomRef, { 
+        players: newPlayers,
+        turnIndex: nextTurn
+      });
     }
   };
 
@@ -194,7 +209,7 @@ export default function MemoryArenaGame() {
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
       <div className="game-badge" style={{ background: 'rgba(177, 74, 237, 0.1)', color: '#b14aed' }}>Memory Arena</div>
       <h1 className="game-title">🧠 MEMORY <span style={{ color: '#b14aed' }}>ARENA</span></h1>
-      <p className="game-subtitle">Repeat the sequence as a group. Last survivor wins!</p>
+      <p className="game-subtitle">Group memory challenge. Take turns repeating the sequence.</p>
 
       <div className="card" style={{ maxWidth: '450px', margin: '40px auto', padding: '32px' }}>
         <div style={{ marginBottom: '24px' }}>
@@ -202,11 +217,11 @@ export default function MemoryArenaGame() {
             Choose your nickname
           </label>
           <input 
-            placeholder="E.G. BRAINIAC" 
+            placeholder="E.G. PLAYER" 
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={3}
+            maxLength={10}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -262,18 +277,20 @@ export default function MemoryArenaGame() {
 
   const renderPlaying = () => {
     const isAlive = room.players[myPlayerId].alive;
+    const isMyTurn = room.turnIndex === myPlayerId;
+    const currentTurnName = room.players[room.turnIndex]?.name || '...';
+
     return (
       <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', fontWeight: 800 }}>
            <span style={{ color: '#b14aed' }}>Level {room.sequence.length}</span>
            <div style={{ 
-             background: room.gameState === 'showing' ? 'rgba(255, 230, 0, 0.1)' : 'rgba(0, 255, 148, 0.1)',
-             color: room.gameState === 'showing' ? '#ffe600' : '#00ff94',
+             background: room.gameState === 'showing' ? 'rgba(255, 230, 0, 0.1)' : (isMyTurn ? 'rgba(0, 255, 148, 0.1)' : 'rgba(255,255,255,0.05)'),
+             color: room.gameState === 'showing' ? '#ffe600' : (isMyTurn ? '#00ff94' : '#555'),
              padding: '4px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 900,
-             border: `1px solid ${room.gameState === 'showing' ? '#ffe60044' : '#00ff9444'}`,
-             animation: room.gameState === 'showing' ? 'pulse 1s infinite' : 'none'
+             border: `1px solid ${room.gameState === 'showing' ? '#ffe60044' : (isMyTurn ? '#00ff9444' : '#333')}`,
            }}>
-             {room.gameState === 'showing' ? '👀 WATCH SEQUENCE' : '👆 YOUR TURN!'}
+             {room.gameState === 'showing' ? '👀 WATCH SEQUENCE' : (isMyTurn ? '👆 YOUR TURN!' : `WAITING FOR ${currentTurnName}`)}
            </div>
            <span style={{ color: isAlive ? '#00ff94' : '#ff2d78' }}>{isAlive ? 'ALIVE' : 'ELIMINATED'}</span>
         </div>
@@ -295,9 +312,9 @@ export default function MemoryArenaGame() {
                 borderRadius: '24px',
                 background: activeButton === c.id ? c.color : '#13131f',
                 boxShadow: activeButton === c.id ? `0 0 40px ${c.shadow}` : 'none',
-                opacity: isAlive ? 1 : 0.3,
+                opacity: isAlive ? (isMyTurn || room.gameState === 'showing' ? 1 : 0.3) : 0.1,
                 border: `4px solid ${c.color}`,
-                cursor: isAlive && !isShowingSequence ? 'pointer' : 'default',
+                cursor: isAlive && isMyTurn && !isShowingSequence ? 'pointer' : 'default',
                 transition: 'all 0.1s'
               }}
             />
@@ -315,14 +332,17 @@ export default function MemoryArenaGame() {
         </div>
 
         <div style={{ marginTop: '32px' }}>
-           <div style={{ fontSize: '12px', color: '#555', marginBottom: '16px' }}>SURVIVORS</div>
-           <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+           <div style={{ fontSize: '12px', color: '#555', marginBottom: '16px' }}>PLAYERS</div>
+           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
               {room.players.map((p, i) => (
                 <div key={i} style={{ 
-                  padding: '4px 12px', borderRadius: '8px', background: p.alive ? '#1a1a2e' : 'transparent',
-                  color: p.alive ? '#fff' : '#444', border: `1px solid ${p.alive ? '#1a1a2e' : '#222'}`
+                  padding: '4px 12px', borderRadius: '8px', 
+                  background: p.alive ? (room.turnIndex === i ? 'rgba(0, 255, 148, 0.1)' : '#1a1a2e') : 'transparent',
+                  color: p.alive ? (room.turnIndex === i ? '#00ff94' : '#fff') : '#444',
+                  border: `1px solid ${p.alive ? (room.turnIndex === i ? '#00ff94' : '#1a1a2e') : '#222'}`,
+                  fontSize: '13px', fontWeight: room.turnIndex === i ? 900 : 400
                 }}>
-                  {p.name}
+                  {p.name} {p.alive ? `(Lvl ${p.score})` : '💀'}
                 </div>
               ))}
            </div>
@@ -355,9 +375,6 @@ export default function MemoryArenaGame() {
         <button className="btn-primary" style={{ marginTop: '32px' }} onClick={() => window.location.reload()}>
           New Arena
         </button>
-        <div style={{ marginTop: '40px' }}>
-          <AdBanner format="rectangle" />
-        </div>
       </div>
     );
   };
@@ -378,15 +395,15 @@ export default function MemoryArenaGame() {
           <div className="how-to-play-steps">
             <div className="how-to-play-step">
               <span className="how-to-play-number">1</span>
-              <span>A sequence of flashing colors will be shown to the group. Watch it very carefully!</span>
+              <span>A sequence of colors will be shown. Watch it carefully!</span>
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">2</span>
-              <span>Once it&apos;s your turn, click the colors in the exact same order they were flashed.</span>
+              <span>Players take turns repeating the sequence. You must wait for your turn.</span>
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">3</span>
-              <span>The sequence gets longer every round. If you make one mistake, you are eliminated! Last survivor wins.</span>
+              <span>The sequence grows every round. If you fail, you are eliminated! last survivor wins.</span>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import {
   query, where, getDocs, arrayUnion, serverTimestamp, getDoc
 } from 'firebase/firestore';
 import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft, HelpCircle } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import AdBanner from '../components/AdBanner';
 
 const FloatingBg = () => (
@@ -188,10 +189,21 @@ export default function QuizArenaGame() {
   const [myPlayerId, setMyPlayerId] = useState(null);
   const [error, setError] = useState('');
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [timer, setTimer] = useState(15);
+  const [timer, setTimer] = useState(5);
   const [isHost, setIsHost] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
   const [allAnswered, setAllAnswered] = useState(false);
+
+  useEffect(() => {
+    if (view === 'results') {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ffe600', '#00d4ff', '#ff2d78']
+      });
+    }
+  }, [view]);
 
   useEffect(() => {
     setMounted(true);
@@ -245,7 +257,7 @@ export default function QuizArenaGame() {
   // Reset timer on question change
   useEffect(() => {
     if (mounted && view === 'playing' && room) {
-      setTimer(15);
+      setTimer(5);
       setSelectedAnswer(null);
     }
   }, [room?.currentQuestion, view, mounted]);
@@ -634,7 +646,7 @@ export default function QuizArenaGame() {
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">2</span>
-              <span>Once the match starts, you have 15 seconds to answer each multiple-choice question.</span>
+              <span>Once the match starts, you have 5 seconds to answer each multiple-choice question.</span>
             </div>
             <div className="how-to-play-step">
               <span className="how-to-play-number">3</span>

@@ -17,7 +17,7 @@ const FloatingBg = () => (
   </div>
 );
 
-const GRID_SIZE = 36; // 6x6 grid
+const GRID_SIZE = 25; // 5x5 grid
 const SYMBOLS = [
   '🍎', '🍏', '🍊', '🍋', '🍐', '🫐', '🍓', '🍒', '🥑', '🥦', '🍕', '🍔', '🍟', '🍦', '🍩', '🍪', 
   '🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁', '🐯', '🦁', '🦓', '🦒', '🐘', '🦏', '🦛', '🐮',
@@ -183,11 +183,11 @@ export default function OddOneOutGame() {
             Choose your nickname
           </label>
           <input 
-            placeholder="E.G. ABC" 
+            placeholder="E.G. PLAYER" 
             className="input-field"
             value={playerName}
             onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={3}
+            maxLength={10}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -265,7 +265,7 @@ export default function OddOneOutGame() {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(6, 1fr)', 
+          gridTemplateColumns: 'repeat(5, 1fr)', 
           gap: '10px',
           background: '#0a0a0f',
           padding: '10px',
