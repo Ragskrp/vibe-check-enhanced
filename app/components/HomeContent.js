@@ -283,6 +283,11 @@ export default function HomeContent() {
             <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8 }}>13 Game Modes</h3>
             <p style={{ color: '#888', fontSize: 13 }}>Word games, trivia, geography, drawing & fast reflexes!</p>
           </div>
+          <Link href="/guides" className="card" style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}>
+            <div style={{ fontSize: 32, marginBottom: 12 }}>📚</div>
+            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8, color: '#fff' }}>Expert Guides</h3>
+            <p style={{ color: '#888', fontSize: 13 }}>Learn pro tips and the psychology behind our viral games.</p>
+          </Link>
         </div>
       </section>
 
