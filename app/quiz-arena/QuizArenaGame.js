@@ -213,25 +213,39 @@ export default function QuizArenaGame() {
   useEffect(() => {
     if (!mounted || !room?.id) return;
 
-    const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
-      if (doc.exists()) {
-        const data = doc.data();
+    const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data();
         setRoom(prev => ({ ...prev, ...data }));
         
-        // Handle view transitions based on room status
-        if (data.status === 'playing' && view === 'lobby') {
-          setView('playing');
-        } else if (data.status === 'results' && view !== 'results') {
-          setView('results');
-        }
+        if (data.status === 'playing' && view === 'lobby') setView('playing');
+        if (data.status === 'results' && view !== 'results') setView('results');
 
-        // Check if all players have answered the current question
+        // Check if all players finished current question
         const totalPlayers = data.players.length;
         const answersCount = data.players.filter(p => (p.answers?.length || 0) > data.currentQuestion).length;
-        setAllAnswered(answersCount >= totalPlayers && totalPlayers > 0);
-      } else {
-        setError('Room no longer exists');
-        setView('home');
+        const currentlyAllAnswered = answersCount >= totalPlayers && totalPlayers > 0;
+        setAllAnswered(currentlyAllAnswered);
+
+        // Host Auto-Advance logic
+        if (isHost && currentlyAllAnswered && data.status === 'playing') {
+          // Add a small delay so they can see their feedback
+          setTimeout(async () => {
+            const freshRoomSnap = await getDoc(doc(db, "rooms", data.code));
+            if (freshRoomSnap.exists()) {
+              const freshData = freshRoomSnap.data();
+              // Re-verify they are still on the same question
+              if (freshData.currentQuestion === data.currentQuestion) {
+                const nextQ = freshData.currentQuestion + 1;
+                if (nextQ >= freshData.questions.length) {
+                  await updateDoc(doc(db, "rooms", data.code), { status: 'results' });
+                } else {
+                  await updateDoc(doc(db, "rooms", data.code), { currentQuestion: nextQ });
+                }
+              }
+            }
+          }, 2500);
+        }
       }
     });
 
@@ -527,9 +541,15 @@ export default function QuizArenaGame() {
             color: timer < 5 ? '#ff2d78' : '#00d4ff',
             border: '2px solid', borderRadius: '10px', padding: '4px 12px', fontWeight: 'bold', fontSize: '18px'
           }}>
-            {isAnswered ? '✓' : timer}
+            {isAnswered ? 'READY' : timer}
           </div>
         </div>
+        
+        {isAnswered && !allAnswered && (
+          <div style={{ textAlign: 'center', color: '#00ff94', fontSize: '11px', fontWeight: 800, marginBottom: '8px', letterSpacing: '1px' }}>
+             WAITING FOR OTHERS...
+          </div>
+        )}
         
         <div className="progress-bar" style={{ marginBottom: '24px' }}>
           <div className="progress-fill" style={{ width: `${((room.currentQuestion + 1) / room.questions.length) * 100}%` }} />

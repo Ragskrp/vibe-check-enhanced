@@ -17,7 +17,7 @@ const FloatingBg = () => (
   </div>
 );
 
-const GRID_SIZE = 25; // 5x5 grid
+const GRID_SIZE = 16; // 4x4 grid
 const SYMBOLS = [
   '🍎', '🍏', '🍊', '🍋', '🍐', '🫐', '🍓', '🍒', '🥑', '🥦', '🍕', '🍔', '🍟', '🍦', '🍩', '🍪', 
   '🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🐸', '🦁', '🐯', '🦁', '🦓', '🦒', '🐘', '🦏', '🦛', '🐮',
@@ -265,7 +265,7 @@ export default function OddOneOutGame() {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(5, 1fr)', 
+          gridTemplateColumns: 'repeat(4, 1fr)', 
           gap: '10px',
           background: '#0a0a0f',
           padding: '10px',

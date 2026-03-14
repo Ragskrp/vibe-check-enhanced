@@ -355,6 +355,87 @@ const ALL_QUESTIONS = [
     ]
   },
   {
+    q: "How do you learn?",
+    options: [
+      { text: "📺 Video tutorials", vibe: 'cyber' },
+      { text: "📖 Reading textbooks", vibe: 'vintage' },
+      { text: "🛠️ Hands-on/Trial and error", vibe: 'nature' },
+      { text: "🧘 Observation and thought", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Pick a legendary weapon:",
+    options: [
+      { text: "🗡️ Excalibur", vibe: 'vintage' },
+      { text: "🏹 Bow of Artemis", vibe: 'nature' },
+      { text: "🛡️ Aegis Shield", vibe: 'minimal' },
+      { text: "⚡ Mjolnir", vibe: 'neon' },
+    ]
+  },
+  {
+    q: "Choose a planet to visit (for free):",
+    options: [
+      { text: "🌕 The Moon (classic)", vibe: 'vintage' },
+      { text: "🪐 Saturn (the rings)", vibe: 'cosmic' },
+      { text: "🔴 Mars (the dust)", vibe: 'cyber' },
+      { text: "☁️ Venus (the clouds)", vibe: 'minimal' },
+    ]
+  },
+  {
+    q: "Pick a secret superpower:",
+    options: [
+      { text: "👂 Super hearing", vibe: 'minimal' },
+      { text: "👁️ X-ray vision", vibe: 'cyber' },
+      { text: "👅 Infinite taste", vibe: 'sunset' },
+      { text: "👃 Smell fear", vibe: 'neon' },
+    ]
+  },
+  {
+    q: "What's your morning ritual?",
+    options: [
+      { text: "☕ Coffee & Silence", vibe: 'minimal' },
+      { text: "🍳 High-energy breakfast", vibe: 'neon' },
+      { text: "🗞️ News & Radio", vibe: 'vintage' },
+      { text: "🧘 Stretching & Tea", vibe: 'nature' },
+    ]
+  },
+  {
+    q: "Choose a party role:",
+    options: [
+      { text: "🎧 The DJ", vibe: 'neon' },
+      { text: "🍹 The Mixologist", vibe: 'minimal' },
+      { text: "💃 The Center of Attention", vibe: 'sunset' },
+      { text: "🛋️ The Deep Conversationalist", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "Your favorite natural phenomena?",
+    options: [
+      { text: "🌈 Rainbows", vibe: 'sunset' },
+      { text: "⚡ Lightning", vibe: 'neon' },
+      { text: "🌊 Tides", vibe: 'chill' },
+      { text: "🌑 Eclipse", vibe: 'cosmic' },
+    ]
+  },
+  {
+    q: "How do you celebrate?",
+    options: [
+      { text: "🥂 Fancy dinner", vibe: 'minimal' },
+      { text: "🎉 Huge party", vibe: 'neon' },
+      { text: "🏖️ Weekend getaway", vibe: 'sunset' },
+      { text: "🧸 Quiet night in", vibe: 'chill' },
+    ]
+  },
+  {
+    q: "Choose a time of year:",
+    options: [
+      { text: "🌸 Early Spring", vibe: 'nature' },
+      { text: "🏖️ Peak Summer", vibe: 'sunset' },
+      { text: "🍂 Late Autumn", vibe: 'vintage' },
+      { text: "❄️ Deep Winter", vibe: 'cosmic' },
+    ]
+  },
+  {
     q: "What's in your pockets?",
     options: [
       { text: "🗝️ Old keys", vibe: 'vintage' },

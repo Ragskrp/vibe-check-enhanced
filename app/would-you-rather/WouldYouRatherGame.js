@@ -79,10 +79,6 @@ export default function WouldYouRatherGame() {
 
   if (!mounted || gameScenarios.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
 
-  const scenario = gameScenarios[currentIndex];
-  // Guard against scenario being undefined (though shouldnt happen with match)
-  if (!scenario) return null;
-
   const fakeVotes = 2847 + currentIndex * 231;
 
   const handleSelect = (option) => {
@@ -97,7 +93,7 @@ export default function WouldYouRatherGame() {
   };
 
   const shareResult = () => {
-    const text = `VIBEMENOW Would You Rather 😈\nI chose between 50 impossible scenarios!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
+    const text = `VIBEMENOW Would You Rather 😈\nI chose between 10 impossible scenarios!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
@@ -138,6 +134,10 @@ export default function WouldYouRatherGame() {
       </div>
     );
   }
+
+  const scenario = gameScenarios[currentIndex];
+  // Guard against scenario being undefined (though shouldnt happen with match)
+  if (!scenario) return null;
 
   return (
     <>

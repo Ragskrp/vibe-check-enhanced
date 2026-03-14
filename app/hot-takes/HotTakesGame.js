@@ -66,6 +66,40 @@ const HOT_TAKES = [
   { text: "Texting is better than calling 📱", agreePercent: 88 },
   { text: "Aliens have definitely visited Earth 🛸", agreePercent: 46 },
   { text: "Oat milk is the best milk 🥛", agreePercent: 33 },
+  { text: "Crocs are the ultimate footwear 🐊", agreePercent: 28 },
+  { text: "Pizza is better cold than hot 🍕", agreePercent: 21 },
+  { text: "Watching movies at home is superior to the cinema 🏠", agreePercent: 67 },
+  { text: "The toilet paper roll should face inside 🧻", agreePercent: 12 },
+  { text: "Music was better in the 80s 🎸", agreePercent: 59 },
+  { text: "VR will replace real travel 🽽", agreePercent: 15 },
+  { text: "Breakfast for dinner is elite 🥞", agreePercent: 88 },
+  { text: "Dark mode should be the default for everything 🌑", agreePercent: 92 },
+  { text: "Apple is just a fashion brand 🍎", agreePercent: 44 },
+  { text: "Modern architecture is soul-less 🏙️", agreePercent: 61 },
+  { text: "Cities are better than nature 🌃", agreePercent: 24 },
+  { text: "Socks with sandals is actually comfortable 🧦", agreePercent: 31 },
+  { text: "Everyone should work in retail once 🛒", agreePercent: 82 },
+  { text: "The Office (US) is better than The Office (UK) 🏢", agreePercent: 74 },
+  { text: "Physical media is better than streaming 📀", agreePercent: 39 },
+  { text: "Working 4 days a week is plenty 🗓️", agreePercent: 95 },
+  { text: "Self-driving cars are scary 🚗", agreePercent: 58 },
+  { text: "Mars is not worth colonizing 🪐", agreePercent: 41 },
+  { text: "Coffee is just bean water ☕", agreePercent: 19 },
+  { text: "TikTok is bad for the brain 🧠", agreePercent: 63 },
+  { text: "Privacy is dead 👁️", agreePercent: 72 },
+  { text: "Crypto is a scam 💰", agreePercent: 51 },
+  { text: "We are living in a simulation 💻", agreePercent: 38 },
+  { text: "The ocean is scarier than space 🌊", agreePercent: 77 },
+  { text: "Classical music is underrated 🎻", agreePercent: 49 },
+  { text: "Superheroes are getting boring 🦸", agreePercent: 56 },
+  { text: "Camping is just being homeless for fun ⛺", agreePercent: 22 },
+  { text: "The world was better without the internet 🌍", agreePercent: 43 },
+  { text: "Podcasts are too long 🎙️", agreePercent: 36 },
+  { text: "Tacos are better than pizza 🌮", agreePercent: 47 },
+  { text: "Summer is the worst season ☀️", agreePercent: 14 },
+  { text: "Emails should be banned after 6PM 📧", agreePercent: 89 },
+  { text: "Money CAN buy happiness 💸", agreePercent: 54 },
+  { text: "Humans will go extinct in 200 years 💀", agreePercent: 33 },
 ];
 
 export default function HotTakesGame() {
@@ -84,12 +118,6 @@ export default function HotTakesGame() {
   }, []);
 
   if (!mounted || gameTakes.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
-
-  const take = gameTakes[currentIndex];
-  // Simulate vote counts with some variance
-  const fakeTotal = 1247 + currentIndex * 173;
-  const agreeCount = Math.round(fakeTotal * (take.agreePercent / 100));
-  const disagreeCount = fakeTotal - agreeCount;
 
   const handleVote = (agree) => {
     if (voted) return;
@@ -141,6 +169,12 @@ export default function HotTakesGame() {
       </div>
     );
   }
+
+  const take = gameTakes[currentIndex];
+  // Simulate vote counts with some variance
+  const fakeTotal = 1247 + currentIndex * 173;
+  const agreeCount = Math.round(fakeTotal * (take.agreePercent / 100));
+  const disagreeCount = fakeTotal - agreeCount;
 
   const shareResult = () => {
     const agrees = Object.values(votes).filter(v => v).length;
