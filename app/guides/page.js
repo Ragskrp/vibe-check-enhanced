@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, Zap, Users, Brain, Globe, Palette } from 'lucide-react';
+import { BookOpen, Zap, Users, Brain, Globe, Palette, Target } from 'lucide-react';
 import Link from 'next/link';
 
 export default function GuidesPage() {
