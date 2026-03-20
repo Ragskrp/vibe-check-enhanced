@@ -92,10 +92,16 @@ export default function SiteLayout({ children }) {
           <div className="footer-links">
             <Link href="/about">About Us</Link>
             <Link href="/contact">Contact Us</Link>
+            <Link href="/guides">Expert Guides</Link>
             <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
           </div>
           <div className="footer-tagline">
             Play daily • Share with friends • Come back tomorrow for new vibes ⚡
+          </div>
+          <div style={{ marginTop: '16px', fontSize: '12px', color: 'rgba(255,255,255,0.25)' }}>
+            © 2026 VIBEMENOW (vibemenow.uk). All rights reserved. All games and content are original creations of the VIBEMENOW team.
           </div>
         </div>
       </footer>

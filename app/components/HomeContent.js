@@ -326,7 +326,7 @@ export default function HomeContent() {
         </div>
 
         <div style={{ marginTop: 48, padding: '32px', borderRadius: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-          <h3 style={{ color: '#fff', fontSize: 20, marginBottom: 16, textAlign: 'center' }}>Vibe Check: Frequently Asked Questions</h3>
+          <h3 style={{ color: '#fff', fontSize: 20, marginBottom: 16, textAlign: 'center' }}>VIBEMENOW: Frequently Asked Questions</h3>
           <div style={{ display: 'grid', gap: '24px' }}>
             <div>
               <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>Is VIBEMENOW really free?</p>

@@ -64,6 +64,8 @@ const SCENARIOS = [
   { a: "Spend the day with your favorite celebrity", b: "Spend the day with your future self", aPct: 41 },
 ];
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function WouldYouRatherGame() {
   const [mounted, setMounted] = useState(false);
   const [gameScenarios, setGameScenarios] = useState([]);
@@ -93,7 +95,7 @@ export default function WouldYouRatherGame() {
   };
 
   const shareResult = () => {
-    const text = `VIBEMENOW Would You Rather 😈\nI chose between 10 impossible scenarios!\n\nPlay at vibemenow.vercel.app/would-you-rather`;
+    const text = `VIBEMENOW Would You Rather 😈\nI chose between 10 impossible scenarios!\n\nPlay at vibemenow.uk/would-you-rather`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
@@ -112,26 +114,17 @@ export default function WouldYouRatherGame() {
 
   if (currentIndex >= 10 || currentIndex >= gameScenarios.length) {
     return (
-      <div className="game-container" style={{ textAlign: 'center' }}>
-        <h1 className="game-title" style={{ color: '#00ff94' }}>🏁 Game Over!</h1>
-        <p className="game-subtitle">You made 10 tough choices!</p>
-
-        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
-          <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94', margin: '20px 0' }}>
-            10/10 Decisions Made
-          </div>
-          <p style={{ color: '#888' }}>You&apos;ve explored every impossible scenario in today&apos;s collection.</p>
-        </div>
-
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
-          <button className="share-btn" onClick={shareResult}>
-            <Share2 size={16} /> Share Results
-          </button>
-          <button className="btn-primary" onClick={resetGame}>
-            Play Again
-          </button>
-        </div>
-      </div>
+      <GameEndScreen
+        gameId="would-you-rather"
+        score={10}
+        maxScore={10}
+        emoji="🏁"
+        title="Game Over!"
+        description="You made 10 tough choices!"
+        accentColor="#00ff94"
+        onShare={shareResult}
+        onPlayAgain={resetGame}
+      />
     );
   }
 

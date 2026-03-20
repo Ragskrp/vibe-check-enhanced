@@ -179,6 +179,8 @@ function generateRoomCode() {
   return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
 }
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function QuizArenaGame() {
   const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); // home, lobby, playing, results
@@ -403,7 +405,7 @@ export default function QuizArenaGame() {
   const shareResults = () => {
     const sorted = [...room.players].sort((a,b) => b.score - a.score);
     const winner = sorted[0];
-    const text = `🏆 VIBEMENOW Quiz Arena Results!\nCategory: ${CATEGORIES[room.category]}\nWinner: ${winner.name} (${winner.score} pts)\nMy Rank: #${sorted.findIndex(p => p.name === playerName) + 1}\n\nChallenge me at: vibemenow.vercel.app/quiz-arena`;
+    const text = `🏆 VIBEMENOW Quiz Arena Results!\nCategory: ${CATEGORIES[room.category]}\nWinner: ${winner.name} (${winner.score} pts)\nMy Rank: #${sorted.findIndex(p => p.name === playerName) + 1}\n\nChallenge me at: vibemenow.uk/quiz-arena`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -598,46 +600,41 @@ export default function QuizArenaGame() {
   const renderResults = () => {
     const sorted = [...room.players].sort((a,b) => b.score - a.score);
     const medals = ['🥇', '🥈', '🥉'];
+    const myScore = room.players[myPlayerId]?.score || 0;
 
     return (
-      <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: '64px', marginBottom: '16px' }}>🏆</div>
-        <h1 className="game-title" style={{ color: '#ffe600' }}>Game Over!</h1>
-        <p style={{ color: '#555', marginBottom: '32px' }}>Final Standings</p>
-
+      <GameEndScreen
+        gameId="quiz-arena"
+        score={myScore}
+        emoji="🏆"
+        title="Arena Over!"
+        description={`Match in ${CATEGORIES[room.category]}`}
+        accentColor="#ffe600"
+        onShare={shareResults}
+        onPlayAgain={() => setView('home')}
+      >
+        <div style={{ color: '#555', fontSize: '11px', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '12px', marginTop: '20px' }}>Final Standings</div>
         <div className="card" style={{ marginBottom: '32px', padding: '16px' }}>
           {sorted.map((p, i) => (
             <div key={i} style={{ 
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', 
-              padding: '16px', background: p.name === playerName ? 'rgba(0, 212, 255, 0.05)' : 'transparent',
+              padding: '12px', background: p.name === playerName ? 'rgba(0, 212, 255, 0.05)' : 'transparent',
               borderRadius: '12px', borderBottom: i < sorted.length - 1 ? '1px solid #1a1a2e' : 'none',
-              border: p.name === playerName ? '1px solid #00d4ff' : 'none',
-              marginBottom: '8px'
+              border: p.name === playerName ? '1px solid #00d4ff44' : 'none',
+              marginBottom: '4px'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '20px', fontWeight: 'bold' }}>{medals[i] || `#${i+1}`}</span>
-                <span style={{ fontWeight: 'bold', fontSize: '18px' }}>{p.name} {p.name === playerName && '(YOU)'}</span>
+                <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{medals[i] || `#${i+1}`}</span>
+                <span style={{ fontWeight: 'bold', fontSize: '15px' }}>{p.name} {p.name === playerName && '(YOU)'}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#00ff94' }}>{p.score}</span>
-                <span style={{ fontSize: '11px', color: '#555' }}>PTS</span>
+                <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#00ff94' }}>{p.score}</span>
+                <span style={{ fontSize: '9px', color: '#555' }}>PTS</span>
               </div>
             </div>
           ))}
         </div>
-
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button className="share-btn" onClick={shareResults}>
-            <Share2 size={16} /> Share Results
-          </button>
-          <button className="btn-outline" onClick={() => setView('home')}>
-             New Arena Match
-          </button>
-        </div>
-        <div style={{ marginTop: '40px' }}>
-          <AdBanner format="rectangle" />
-        </div>
-      </div>
+      </GameEndScreen>
     );
   };
 

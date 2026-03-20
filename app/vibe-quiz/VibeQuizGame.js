@@ -530,6 +530,8 @@ const RESULTS = {
   }
 };
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function VibeQuizGame() {
   const [mounted, setMounted] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -577,7 +579,7 @@ export default function VibeQuizGame() {
 
   const shareResult = () => {
     const result = getResult();
-    const text = `VIBEMENOW Vibe Quiz ✨\nI'm a ${result.emoji} ${result.title}!\n${result.desc.substring(0, 80)}...\n\nFind your vibe: vibemenow.vercel.app/vibe-quiz`;
+    const text = `VIBEMENOW Vibe Quiz ✨\nI'm a ${result.emoji} ${result.title}!\n${result.desc.substring(0, 80)}...\n\nFind your vibe: vibemenow.uk/vibe-quiz`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -590,48 +592,37 @@ export default function VibeQuizGame() {
   if (showResult) {
     const result = getResult();
     return (
-      <div className="game-container" style={{ textAlign: 'center' }}>
-        <div className="result-card" style={{ borderColor: result.color }}>
-          <div className="result-emoji">{result.emoji}</div>
-          <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', color: '#555', textTransform: 'uppercase', marginBottom: 4 }}>
-            YOUR VIBE IS
-          </div>
-          <div className="result-title" style={{ color: result.color, fontSize: 36 }}>
-            {result.title}
-          </div>
-          <div className="result-desc">{result.desc}</div>
-          
-          {/* Traits */}
-          <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
-            {result.traits.map(trait => (
-              <span key={trait} style={{
-                background: `${result.color}15`,
-                color: result.color,
-                padding: '6px 14px',
-                borderRadius: 8,
-                fontWeight: 700,
-                fontSize: 13
-              }}>
-                {trait}
-              </span>
-            ))}
-          </div>
-
-          <div style={{ color: '#555', fontSize: 13, fontWeight: 600, marginBottom: 24 }}>
-            {result.match} got this result
-          </div>
-
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button className="share-btn" onClick={shareResult}>
-              <Share2 size={16} /> Share My Vibe
-            </button>
-            <button className="btn-outline" onClick={reset}>
-              <RotateCcw size={16} /> Retake Quiz
-            </button>
-          </div>
+      <GameEndScreen
+        gameId="vibe-quiz"
+        score={1} // Static score for quiz
+        maxScore={1}
+        emoji={result.emoji}
+        title={result.title}
+        description={result.desc}
+        accentColor={result.color}
+        onShare={shareResult}
+        onPlayAgain={reset}
+      >
+        {/* Traits */}
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
+          {result.traits.map(trait => (
+            <span key={trait} style={{
+              background: `${result.color}15`,
+              color: result.color,
+              padding: '6px 14px',
+              borderRadius: 8,
+              fontWeight: 700,
+              fontSize: 13
+            }}>
+              {trait}
+            </span>
+          ))}
         </div>
-        <AdBanner format="rectangle" />
-      </div>
+
+        <div style={{ color: '#555', fontSize: 13, fontWeight: 600, marginBottom: 24 }}>
+          {result.match} got this result
+        </div>
+      </GameEndScreen>
     );
   }
 

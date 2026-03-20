@@ -28,6 +28,8 @@ const RATINGS = [
   { max: Infinity, label: '💀 VIBE FAILED', color: '#ff2d78', desc: 'Were you asleep? Try again!' }
 ];
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function VibeOrDieGame() {
   const [mounted, setMounted] = useState(false);
   const [state, setState] = useState(STATES.IDLE);
@@ -35,6 +37,7 @@ export default function VibeOrDieGame() {
   const [bestTime, setBestTime] = useState(null);
   const [attempts, setAttempts] = useState([]);
   const [round, setRound] = useState(0);
+  const [showResults, setShowResults] = useState(false);
   const timeoutRef = useRef(null);
   const startRef = useRef(null);
 
@@ -72,10 +75,10 @@ export default function VibeOrDieGame() {
       if (!bestTime || time < bestTime) setBestTime(time);
       
       if (newAttempts.length >= 5) {
-        setState(STATES.CLICKED); // Final result screen
+        setState(STATES.CLICKED);
+        setTimeout(() => setShowResults(true), 800);
       } else {
-        setState(STATES.IDLE); // Go back to 'Tap to Start' for next round
-        // Wait a bit then auto-start next? No, user tap to start next is safer
+        setState(STATES.IDLE);
       }
       return;
     }
@@ -83,7 +86,7 @@ export default function VibeOrDieGame() {
     if (state === STATES.TOO_EARLY || state === STATES.CLICKED) {
       startRound();
     }
-  }, [state, bestTime, startRound]);
+  }, [state, bestTime, startRound, attempts]);
 
   if (!mounted) return <div className="game-container" style={{ minHeight: '500px' }} />;
 
@@ -91,7 +94,7 @@ export default function VibeOrDieGame() {
 
   const shareResult = () => {
     const avg = attempts.length ? Math.round(attempts.reduce((a, b) => a + b, 0) / attempts.length) : 0;
-    const text = `VIBEMENOW Vibe or Die 🎯\nBest: ${bestTime}ms\nAverage: ${avg}ms (${attempts.length} rounds)\nRating: ${getRating(bestTime)?.label}\n\nPlay at vibemenow.vercel.app/vibeordie`;
+    const text = `VIBEMENOW Vibe or Die 🎯\nBest: ${bestTime}ms\nAverage: ${avg}ms (${attempts.length} rounds)\nRating: ${getRating(bestTime)?.label}\n\nPlay at vibemenow.uk/vibeordie`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -107,8 +110,31 @@ export default function VibeOrDieGame() {
     setBestTime(null);
     setAttempts([]);
     setRound(0);
+    setShowResults(false);
     clearTimeout(timeoutRef.current);
   };
+
+  if (showResults) {
+    const avg = Math.round(attempts.reduce((a, b) => a + b, 0) / attempts.length);
+    const bestRating = getRating(bestTime);
+    
+    return (
+      <GameEndScreen
+        gameId="vibeordie"
+        score={bestTime}
+        emoji="🎯"
+        title={bestRating.label}
+        description={`Best: ${bestTime}ms | Avg: ${avg}ms`}
+        accentColor="#ff2d78"
+        onShare={shareResult}
+        onPlayAgain={reset}
+      >
+        <div style={{ color: '#888', fontSize: 14, marginBottom: 20 }}>
+          {bestRating.desc}
+        </div>
+      </GameEndScreen>
+    );
+  }
 
   const getScreenStyle = () => {
     const base = {

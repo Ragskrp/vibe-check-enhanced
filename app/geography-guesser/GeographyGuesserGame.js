@@ -129,6 +129,8 @@ function getRandomOptions(correctCountry) {
   return options.sort(() => Math.random() - 0.5);
 }
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function GeographyGuesserGame() {
   const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); // home, playing, results
@@ -198,7 +200,7 @@ export default function GeographyGuesserGame() {
   };
 
   const shareResults = () => {
-    const text = `🌍 I scored ${score} pts in VIBEMENOW Geography Guesser!\nCan you beat my score?\n\nPlay at: vibemenow.vercel.app/geography-guesser`;
+    const text = `🌍 I scored ${score} pts in VIBEMENOW Geography Guesser!\nCan you beat my score?\n\nPlay at: vibemenow.uk/geography-guesser`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
@@ -301,30 +303,16 @@ export default function GeographyGuesserGame() {
   };
 
   const renderResults = () => (
-    <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
-      <div style={{ fontSize: '64px', marginBottom: '16px' }}>🏆</div>
-      <h1 className="game-title" style={{ color: '#ffe600' }}>Great Job!</h1>
-      <p style={{ color: '#888', marginBottom: '32px' }}>You've finished your world tour.</p>
-
-      <div className="card" style={{ marginBottom: '32px', padding: '32px' }}>
-        <div style={{ fontSize: '12px', color: '#555', fontWeight: 800, textTransform: 'uppercase', marginBottom: '8px' }}>Final Score</div>
-        <div style={{ fontSize: '64px', fontWeight: 900, color: '#00ff94' }}>{score}</div>
-        <div style={{ color: '#555', fontSize: '14px', marginTop: '8px' }}>Points Earned</div>
-      </div>
-
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <button className="share-btn" onClick={shareResults}>
-          <Share2 size={16} /> Share Result
-        </button>
-        <button className="btn-outline" onClick={() => setView('home')}>
-          <RotateCcw size={16} /> Try Again
-        </button>
-      </div>
-
-      <div style={{ marginTop: '40px' }}>
-        <AdBanner format="rectangle" />
-      </div>
-    </div>
+    <GameEndScreen
+      gameId="geography-guesser"
+      score={score}
+      emoji="🏆"
+      title="Great Job!"
+      description="You've finished your world tour."
+      accentColor="#00d4ff"
+      onShare={shareResults}
+      onPlayAgain={() => setView('home')}
+    />
   );
 
   return (

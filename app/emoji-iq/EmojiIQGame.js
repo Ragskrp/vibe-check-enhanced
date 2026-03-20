@@ -92,6 +92,8 @@ const PUZZLES = [
   { emojis: '🐘👂✈️', answer: 'Dumbo', options: ['Bambi', 'Dumbo', 'Tarzan', 'Jungle Book'], category: '🎬 Movie' },
 ];
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function EmojiIQGame() {
   const [mounted, setMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -141,7 +143,7 @@ export default function EmojiIQGame() {
 
   const shareResult = () => {
     const pct = Math.round((score / totalQuestions) * 100);
-    const text = `VIBEMENOW Emoji IQ 😂\nScore: ${score}/${totalQuestions} (${pct}%)\nEmoji IQ: ${pct >= 80 ? 'GENIUS 🧠' : pct >= 60 ? 'SMART 📚' : pct >= 40 ? 'AVERAGE 🤷' : 'NOOB 😅'}\n\nPlay at vibemenow.vercel.app/emoji-iq`;
+    const text = `VIBEMENOW Emoji IQ 😂\nScore: ${score}/${totalQuestions} (${pct}%)\nEmoji IQ: ${pct >= 80 ? 'GENIUS 🧠' : pct >= 60 ? 'SMART 📚' : pct >= 40 ? 'AVERAGE 🤷' : 'NOOB 😅'}\n\nPlay at vibemenow.uk/emoji-iq`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -160,25 +162,17 @@ export default function EmojiIQGame() {
     else { rating = 'EMOJI NOOB'; emoji = '😅'; desc = 'Time to spend more time texting...'; }
 
     return (
-      <div className="game-container" style={{ textAlign: 'center' }}>
-        <div className="result-card">
-          <div className="result-emoji">{emoji}</div>
-          <div className="result-title">{rating}</div>
-          <div style={{ fontSize: 48, fontWeight: 800, color: '#00d4ff', margin: '16px 0' }}>
-            {score}/{totalQuestions}
-          </div>
-          <div className="result-desc">{desc}</div>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button className="share-btn" onClick={shareResult}>
-              <Share2 size={16} /> Share Score
-            </button>
-            <button className="btn-outline" onClick={reset}>
-              <RotateCcw size={16} /> Play Again
-            </button>
-          </div>
-        </div>
-        <AdBanner slot="emoji-result" format="rectangle" />
-      </div>
+      <GameEndScreen
+        gameId="emoji-iq"
+        score={score}
+        maxScore={totalQuestions}
+        emoji={emoji}
+        title={rating}
+        description={desc}
+        accentColor="#ffe600"
+        onShare={shareResult}
+        onPlayAgain={reset}
+      />
     );
   }
 

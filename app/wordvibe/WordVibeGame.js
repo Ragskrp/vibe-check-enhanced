@@ -101,6 +101,8 @@ function checkGuess(guess, answer) {
   return result;
 }
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function WordVibeGame() {
   const [answer, setAnswer] = useState('');
   const [mounted, setMounted] = useState(false);
@@ -174,7 +176,7 @@ export default function WordVibeGame() {
     const emojis = guesses.map(g => 
       g.result.map(r => r === 'correct' ? '🟩' : r === 'present' ? '🟨' : '⬛').join('')
     ).join('\n');
-    const text = `VIBEMENOW WordVibe 🔤\n${guesses.length}/6\n\n${emojis}\n\nPlay at vibemenow.vercel.app/wordvibe`;
+    const text = `VIBEMENOW WordVibe 🔤\n${guesses.length}/6\n\n${emojis}\n\nPlay at vibemenow.uk/wordvibe`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -231,31 +233,23 @@ export default function WordVibeGame() {
         <AdBanner format="horizontal" />
 
       {/* Game Grid */}
-      <div className="wordle-grid animate-fade-in">
+      <div className="wordle-grid animate-fade-in" style={{ marginBottom: gameState !== 'playing' ? 0 : 24 }}>
         {renderGrid()}
       </div>
 
       {/* Game Over */}
       {gameState !== 'playing' && (
-        <div className="result-card" style={{ marginBottom: 24, borderColor: gameState === 'won' ? '#00ff94' : '#ff2d78' }}>
-          <div className="result-emoji">{gameState === 'won' ? '🎉' : '😭'}</div>
-          <div className="result-title" style={{ color: gameState === 'won' ? '#00ff94' : '#ff2d78' }}>
-            {gameState === 'won' ? `Got it in ${guesses.length}!` : 'Better luck tomorrow!'}
-          </div>
-          {gameState === 'lost' && (
-            <div className="result-desc">
-              The word was <strong style={{ color: '#ffe600' }}>{answer}</strong>
-            </div>
-          )}
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button className="share-btn" onClick={shareResult}>
-              <Share2 size={16} /> Share Result
-            </button>
-            <button className="btn-outline" onClick={resetGame}>
-              <RotateCcw size={16} /> Play Again
-            </button>
-          </div>
-        </div>
+        <GameEndScreen
+          gameId="wordvibe"
+          score={gameState === 'won' ? guesses.length : 0}
+          maxScore={6}
+          emoji={gameState === 'won' ? '🎉' : '😭'}
+          title={gameState === 'won' ? `Got it in ${guesses.length}!` : 'Try Again!'}
+          description={gameState === 'lost' ? `The word was ${answer}` : 'Brilliant vocabulary!'}
+          accentColor={gameState === 'won' ? '#00ff94' : '#ff2d78'}
+          onShare={shareResult}
+          onPlayAgain={resetGame}
+        />
       )}
 
       {/* Ad between game and keyboard */}

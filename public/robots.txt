@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vibemenow.vercel.app/sitemap.xml
+Sitemap: https://vibemenow.uk/sitemap.xml

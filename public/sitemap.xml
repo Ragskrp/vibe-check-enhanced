@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Pages -->
   <url>
-    <loc>https://vibemenow.vercel.app/</loc>
+    <loc>https://vibemenow.uk/</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/about</loc>
+    <loc>https://vibemenow.uk/about</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/contact</loc>
+    <loc>https://vibemenow.uk/contact</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/privacy</loc>
+    <loc>https://vibemenow.uk/privacy</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/terms</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/disclaimer</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -28,79 +40,79 @@
 
   <!-- Game Routes -->
   <url>
-    <loc>https://vibemenow.vercel.app/wordvibe</loc>
+    <loc>https://vibemenow.uk/wordvibe</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/vibeordie</loc>
+    <loc>https://vibemenow.uk/vibeordie</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/emoji-iq</loc>
+    <loc>https://vibemenow.uk/emoji-iq</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/hot-takes</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://vibemenow.vercel.app/vibe-quiz</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vibemenow.vercel.app/would-you-rather</loc>
+    <loc>https://vibemenow.uk/hot-takes</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/quiz-arena</loc>
+    <loc>https://vibemenow.uk/vibe-quiz</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/reaction-arena</loc>
+    <loc>https://vibemenow.uk/would-you-rather</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/quiz-arena</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/reaction-arena</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/geography-guesser</loc>
+    <loc>https://vibemenow.uk/geography-guesser</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/odd-one-out</loc>
+    <loc>https://vibemenow.uk/odd-one-out</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/memory-arena</loc>
+    <loc>https://vibemenow.uk/memory-arena</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/poll-party</loc>
+    <loc>https://vibemenow.uk/poll-party</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/drawing-dash</loc>
+    <loc>https://vibemenow.uk/drawing-dash</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -108,31 +120,43 @@
 
   <!-- Guides & Articles (High Value Content) -->
   <url>
-    <loc>https://vibemenow.vercel.app/guides</loc>
+    <loc>https://vibemenow.uk/guides</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/guides/vibe-quiz-mastery</loc>
+    <loc>https://vibemenow.uk/guides/vibe-quiz-mastery</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/guides/reaction-arena-tips</loc>
+    <loc>https://vibemenow.uk/guides/reaction-arena-tips</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/guides/would-you-rather-psychology</loc>
+    <loc>https://vibemenow.uk/guides/would-you-rather-psychology</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vibemenow.vercel.app/guides/wordvibe-strategies</loc>
+    <loc>https://vibemenow.uk/guides/wordvibe-strategies</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/guides/emoji-iq-mastery</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vibemenow.uk/guides/geography-guesser-tips</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

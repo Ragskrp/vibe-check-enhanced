@@ -20,7 +20,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vibemenow.vercel.app",
+    url: "https://vibemenow.uk",
     siteName: "VIBEMENOW",
     title: "VIBEMENOW — Free Daily Games & Viral Content",
     description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "VIBEMENOW",
-    url: "https://vibemenow.vercel.app",
+    url: "https://vibemenow.uk",
     description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
     applicationCategory: "GameApplication",
     operatingSystem: "Any",
@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://vibemenow.vercel.app" />
+        <link rel="canonical" href="https://vibemenow.uk" />
         <meta name="theme-color" content="#0a0a0f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />

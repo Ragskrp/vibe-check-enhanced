@@ -102,6 +102,8 @@ const HOT_TAKES = [
   { text: "Humans will go extinct in 200 years 💀", agreePercent: 33 },
 ];
 
+import GameEndScreen from '../components/GameEndScreen';
+
 export default function HotTakesGame() {
   const [mounted, setMounted] = useState(false);
   const [gameTakes, setGameTakes] = useState([]);
@@ -143,43 +145,10 @@ export default function HotTakesGame() {
     setVotes({});
   };
 
-  if (currentIndex >= 10 || currentIndex >= gameTakes.length) {
-    const agrees = Object.values(votes).filter(v => v).length;
-    const disagrees = Object.values(votes).filter(v => !v).length;
-    
-    return (
-      <div className="game-container" style={{ textAlign: 'center' }}>
-        <h1 className="game-title" style={{ color: '#ff6b35' }}>🔥 Final Results</h1>
-        <p className="game-subtitle">You've voted on 10 spicy takes!</p>
-
-        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', borderBottom: '1px solid #1a1a2e' }}>
-            <span style={{ fontSize: '24px' }}>👍 Agreed</span>
-            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94' }}>{agrees}</span>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-            <span style={{ fontSize: '24px' }}>Disagreed</span>
-            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff2d78' }}>{disagrees}</span>
-          </div>
-        </div>
-
-        <button className="btn-primary" onClick={resetGame}>
-          Play Again
-        </button>
-      </div>
-    );
-  }
-
-  const take = gameTakes[currentIndex];
-  // Simulate vote counts with some variance
-  const fakeTotal = 1247 + currentIndex * 173;
-  const agreeCount = Math.round(fakeTotal * (take.agreePercent / 100));
-  const disagreeCount = fakeTotal - agreeCount;
-
   const shareResult = () => {
     const agrees = Object.values(votes).filter(v => v).length;
     const disagrees = Object.values(votes).filter(v => !v).length;
-    const text = `VIBEMENOW Hot Takes 🔥\nVoted on ${totalVoted} takes\n👍 Agreed: ${agrees}\n👎 Disagreed: ${disagrees}\n\nPlay at vibemenow.vercel.app/hot-takes`;
+    const text = `VIBEMENOW Hot Takes 🔥\nVoted on ${totalVoted} takes\n👍 Agreed: ${agrees}\n👎 Disagreed: ${disagrees}\n\nPlay at vibemenow.uk/hot-takes`;
     
     if (navigator.share) {
       navigator.share({ text });
@@ -188,6 +157,42 @@ export default function HotTakesGame() {
       alert('Copied! 📋');
     }
   };
+
+  if (currentIndex >= 10 || currentIndex >= gameTakes.length) {
+    const agrees = Object.values(votes).filter(v => v).length;
+    const disagrees = Object.values(votes).filter(v => !v).length;
+    
+    return (
+      <GameEndScreen
+        gameId="hot-takes"
+        score={agrees}
+        maxScore={10}
+        emoji="🔥"
+        title="Final Results"
+        description="You've voted on 10 spicy takes!"
+        accentColor="#ff6b35"
+        onShare={shareResult}
+        onPlayAgain={resetGame}
+      >
+        <div className="card" style={{ margin: '32px auto', maxWidth: '400px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', borderBottom: '1px solid #1a1a2e' }}>
+            <span style={{ fontSize: '24px' }}>👍 Agreed</span>
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#00ff94' }}>{agrees}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+            <span style={{ fontSize: '24px' }}>👎 Disagreed</span>
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff2d78' }}>{disagrees}</span>
+          </div>
+        </div>
+      </GameEndScreen>
+    );
+  }
+
+  const take = gameTakes[currentIndex];
+  // Simulate vote counts with some variance
+  const fakeTotal = 1247 + currentIndex * 173;
+  const agreeCount = Math.round(fakeTotal * (take.agreePercent / 100));
+  const disagreeCount = fakeTotal - agreeCount;
 
   return (
     <>
