@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 /**
  * Google AdSense Banner Component
@@ -14,10 +14,12 @@ import { useEffect, useRef } from 'react';
  * - "auto" - Responsive
  */
 export default function AdBanner({ slot = '7171012882', format = 'auto', className = '' }) {
+  const [mounted, setMounted] = useState(false);
   const adRef = useRef(null);
   const isLoaded = useRef(false);
 
   useEffect(() => {
+    setMounted(true);
     if (isLoaded.current) return;
     
     try {
@@ -29,6 +31,14 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
       // AdSense not loaded yet or ad blocker active
     }
   }, []);
+
+  if (!mounted) {
+    return (
+      <div className={`ad-slot ${className}`} style={{
+        minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px'
+      }} />
+    );
+  }
 
   // In development, show a placeholder
   const isDev = process.env.NODE_ENV === 'development';

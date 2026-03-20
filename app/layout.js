@@ -73,16 +73,19 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://vibemenow.uk" />
+        <link rel="icon" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#0a0a0f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="VIBEMENOW" />
         {/* Google AdSense - Injected Pub ID: ca-pub-7832965089021505 */}
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
           crossOrigin="anonymous"
-        ></script>
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -92,7 +95,10 @@ export default function RootLayout({ children }) {
         <SiteLayout>
           {children}
         </SiteLayout>
+        <CookieConsent />
       </body>
     </html>
   );
 }
+
+import CookieConsent from "./components/CookieConsent";
