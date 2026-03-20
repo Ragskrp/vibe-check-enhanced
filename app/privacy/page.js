@@ -13,47 +13,55 @@ export default function PrivacyPage() {
         
         <div style={{ color: '#ccc', lineHeight: '1.6', fontSize: '14px' }}>
           <p style={{ marginBottom: '20px' }}>
-            Last Updated: March 7, 2026
+            Last Updated: March 20, 2026
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Information We Collect</h2>
-          <p>
-            VIBEMENOW is designed to be played without registration. We do not require you to provide a name, email address, or any personal identification to access our games. 
-            However, we may collect non-personal data such as your IP address, browser type, and device information to improve our services.
+          <p style={{ marginBottom: '20px' }}>
+            VIBEMENOW ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website. By using VIBEMENOW, you agree to the terms of this policy.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Google AdSense & Cookies</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Personal Information Collection</h2>
           <p>
-            VIBEMENOW uses Google AdSense to serve advertisements. Google, as a third-party vendor, uses cookies to serve ads on our site. 
-            Google&apos;s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
+            VIBEMENOW is designed as a "No-Registration" platform. We do not require you to provide a name, email address, or physical address to access our games. We do not maintain user accounts or profiles that link specifically to your real-world identity.
+          </p>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Technical Data & Cookies</h2>
+          <p>
+            Like most websites, we collect non-identifying technical data to ensure our games run smoothly. This includes your IP address (anonymized where possible), browser type, device type, and operating system.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            We use <strong>Cookies</strong> to enhance your experience. Cookies are small files stored on your device that help us remember your game progress and high scores locally.
+          </p>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. Google AdSense & Personalized Advertising</h2>
+          <p>
+            We use Google AdSense to serve advertisements on our site. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to VIBEMENOW and other websites on the internet.
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '8px' }}>Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to your website or other websites.</li>
-            <li style={{ marginBottom: '8px' }}>Google&apos;s use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
-            <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Ads Settings</a>.</li>
+            <li style={{ marginBottom: '8px' }}>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites.</li>
+            <li style={{ marginBottom: '8px' }}>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Google's Ads Settings</a>.</li>
+            <li>Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>www.aboutads.info</a>.</li>
           </ul>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. Data Storage (Firebase)</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Data Handling (Firebase & Multiplayer)</h2>
           <p>
-            For multiplayer game modes (like Quiz Arena), we use Google Firebase to store game room data temporarily. 
-            This data includes room codes, player nicknames, and scores. This data is non-personally identifiable and is used solely for the functionality of the live game match.
+            In multiplayer modes, we use Google Firebase for real-time data synchronization. This data (e.g., room codes and game scores) is transient and does not contain personal information. We do not store this data longer than necessary for the completion of your game session.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Third-Party Links</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. GDPR & CCPA Compliance</h2>
           <p>
-            Directly or through our advertisements, our site may contain links to third-party websites. 
-            We do not control these websites and are not responsible for their privacy policies.
+            If you are a resident of the European Economic Area (EEA) or California, you have certain data protection rights. Because we do not store "Personal Data" in the traditional sense (no names or emails), we fulfill our obligations by:
           </p>
+          <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}>Minimizing data collection to the absolute necessary technical requirements.</li>
+            <li style={{ marginBottom: '8px' }}>Providing clear information on third-party tracking (AdSense).</li>
+            <li>Allowing you to clear your local game data at any time through your browser settings.</li>
+          </ul>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. Policy Updates</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Contact Us</h2>
           <p>
-            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. 
-            You are advised to review this Privacy Policy periodically for any changes.
+            If you have any questions about this Privacy Policy, please contact us via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
           </p>
-
-          <div style={{ marginTop: '40px', borderTop: '1px solid #1a1a2e', paddingTop: '20px', color: '#555' }}>
-            For any questions regarding this policy, please reach out via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
-          </div>
         </div>
       </div>
     </div>

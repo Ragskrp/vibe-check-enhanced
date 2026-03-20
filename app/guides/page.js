@@ -22,6 +22,12 @@ export default function GuidesPage() {
       desc: "Why we choose the impossible scenarios and what it says about your decision making.",
       icon: <Brain className="text-purple-500" />,
       href: "/guides/would-you-rather-psychology"
+    },
+    {
+      title: "WordVibe Mastery Strategies",
+      desc: "Linguistics, frequency analysis, and the 'starter word' secret to guessing in 3.",
+      icon: <Target className="text-cyan-500" />,
+      href: "/guides/wordvibe-strategies"
     }
   ];
 

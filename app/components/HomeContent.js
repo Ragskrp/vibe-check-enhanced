@@ -291,6 +291,59 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* Mission & FAQ Section for AdSense Value */}
+      <section style={{ 
+        marginTop: 64, 
+        padding: '60px 0', 
+        borderTop: '1px solid rgba(255,255,255,0.05)',
+        textAlign: 'left',
+        maxWidth: '900px',
+        margin: '64px auto 0 auto'
+      }}>
+        <h2 style={{ fontSize: 32, fontWeight: 900, marginBottom: 24, color: '#fff' }}>
+          About the <span style={{ color: '#00d4ff' }}>VIBEMENOW</span> Experience
+        </h2>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40 }}>
+          <div style={{ color: '#888', lineHeight: '1.7' }}>
+            <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>🎮 The Future of Micro-Gaming</h3>
+            <p>
+              VIBEMENOW is designed for the modern web—a fast, secure, and instant gaming platform built for 2026. We believe that the best gaming experiences shouldn't be hidden behind complex login forms or subscription paywalls. Whether you're here for your daily <strong>WordVibe</strong> challenge or a <strong>Quiz Arena</strong> showdown with friends, we provide high-performance games that respect your time and privacy.
+            </p>
+          </div>
+          <div style={{ color: '#888', lineHeight: '1.7' }}>
+            <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>✨ Why Play Daily?</h3>
+            <p>
+              Every game on our platform is carefully curated to be bite-sized. We focus on "daily resets," meaning new puzzles, new trivia questions, and new reaction challenges are pushed live every 24 hours. Research in cognitive psychology shows that short, varied mental exercises can significantly improve focus and well-being. Our "vibe-algorithm" ensures that no two days are ever the same.
+            </p>
+          </div>
+          <div style={{ color: '#888', lineHeight: '1.7' }}>
+            <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>🌐 A Global Multiplayer Hub</h3>
+            <p>
+              More than just solo play, VIBEMENOW is built on real-time multiplayer technology. Create a "Vibe Room" in seconds and invite friends to compete in <strong>Reaction Arena</strong> or <strong>Odd One Out</strong>. We use low-latency edge computing to ensure a smooth experience for players around the world, making us the perfect companion for remote parties or office breaks.
+            </p>
+          </div>
+        </div>
+
+        <div style={{ marginTop: 48, padding: '32px', borderRadius: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+          <h3 style={{ color: '#fff', fontSize: 20, marginBottom: 16, textAlign: 'center' }}>Vibe Check: Frequently Asked Questions</h3>
+          <div style={{ display: 'grid', gap: '24px' }}>
+            <div>
+              <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>Is VIBEMENOW really free?</p>
+              <p style={{ color: '#777', fontSize: 14 }}>Yes! We are funded purely through non-intrusive advertisements. Every game mode, from single-player to multiplayer, is available without an account or payment.</p>
+            </div>
+            <div>
+              <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>How do I share my results?</p>
+              <p style={{ color: '#777', fontSize: 14 }}>Every game concludes with a "Vibe Summary." Use the share button to copy your scores in a viral-friendly format for Discord, WhatsApp, or Twitter.</p>
+            </div>
+            <div>
+              <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>Are you adding more games?</p>
+              <p style={{ color: '#777', fontSize: 14 }}>Absolutely. Our development team releases a new major game mode or enhancement every month. Check our <Link href="/guides" style={{ color: '#00d4ff', textDecoration: 'underline' }}>Expert Guides</Link> for the latest tips.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{ textAlign: 'center', marginTop: 48, padding: '40px 0' }}>
         <div style={{ 
