@@ -1,12 +1,20 @@
-import { db } from '../../lib/firebase';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getFirestore, collection, getDocs, deleteDoc, doc } from 'firebase/firestore/lite';
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
   try {
-    const roomsRef = collection(db, "rooms");
+    const firebaseConfig = {
+      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "dummy",
+      authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "dummy",
+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "dummy"
+    };
+    const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+    const liteDb = getFirestore(app);
+    
+    const roomsRef = collection(liteDb, "rooms");
     const snapshot = await getDocs(roomsRef);
     
     let deletedCount = 0;
@@ -32,7 +40,7 @@ export async function GET(request) {
       }
 
       if (shouldDelete) {
-        batchPromises.push(deleteDoc(doc(db, "rooms", roomDoc.id)));
+        batchPromises.push(deleteDoc(doc(liteDb, "rooms", roomDoc.id)));
         deletedCount++;
       }
     });

@@ -20,6 +20,10 @@ const NAV_ITEMS = [
   { name: 'PollParty', label: '🗳️ Poll Party', path: '/poll-party', category: 'multiplayer' },
   { name: 'DrawingDash', label: '🎨 Drawing Dash', path: '/drawing-dash', category: 'multiplayer' },
   { name: 'GeoGuesser', label: '🌍 Geo Guesser', path: '/geography-guesser', category: 'solo' },
+  { name: 'VibeClicker', label: '👆 Vibe Clicker', path: '/vibe-clicker', category: 'solo' },
+  { name: 'MergeVibe', label: '🎮 Merge Vibe', path: '/2048-vibe', category: 'solo' },
+  { name: 'FlappyVibe', label: '🕊️ Flappy Vibe', path: '/flappy-vibe', category: 'solo' },
+  { name: 'WhackVibe', label: '🔨 Whack-a-Vibe', path: '/whack-a-vibe', category: 'solo' },
 ];
 
 export default function SiteLayout({ children }) {
@@ -41,7 +45,7 @@ export default function SiteLayout({ children }) {
       {/* Animated Ticker */}
       <div className="ticker-wrap">
         <span className="ticker-text">
-          🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY ARENA • 🗳️ POLL PARTY • 🎨 DRAWING DASH • 🌍 GEO GUESSER • SHARE YOUR SCORE •
+          ✨ NEW: VIBE CLICKER • 🎮 MERGE VIBE • 🕊️ FLAPPY VIBE • 🔨 WHACK-A-VIBE • 🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY ARENA • 🗳️ POLL PARTY • 🎨 DRAWING DASH • 🌍 GEO GUESSER • SHARE YOUR SCORE •
         </span>
       </div>
 

@@ -10,18 +10,25 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.14.3",
-    "@grpc/proto-loader": "^0.8.0",
+    "@grpc/proto-loader": "^0.7.15",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "@types/three": "^0.183.1",
     "canvas-confetti": "^1.9.4",
     "firebase": "^12.10.0",
     "lodash.camelcase": "^4.3.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "postprocessing": "^6.39.0",
     "protobufjs": "^8.0.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "16.1.6"
+    "eslint-config-next": "16.1.6",
+    "playwright": "^1.58.2"
   }
 }

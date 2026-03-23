@@ -122,13 +122,49 @@ const GAMES = [
     tag: 'Solo',
     color: '#00d4ff',
     category: 'solo'
+  },
+  {
+    emoji: '👆',
+    title: 'Vibe Clicker',
+    desc: 'Idle clicking game! Generate energy and buy factory upgrades.',
+    path: '/vibe-clicker',
+    tag: 'Idle',
+    color: '#00d4ff',
+    category: 'solo'
+  },
+  {
+    emoji: '🎮',
+    title: 'Merge Vibe (2048)',
+    desc: 'Slide to merge tiles. Can you reach the legendary 2048 vibe?',
+    path: '/2048-vibe',
+    tag: 'Puzzle',
+    color: '#ff2d78',
+    category: 'solo'
+  },
+  {
+    emoji: '🕊️',
+    title: 'Flappy Vibe',
+    desc: 'Tap to fly, avoid the pipes! A classic frustratingly viral game.',
+    path: '/flappy-vibe',
+    tag: 'Arcade',
+    color: '#00ff94',
+    category: 'solo'
+  },
+  {
+    emoji: '🔨',
+    title: 'Whack-a-Vibe',
+    desc: 'Smash the bad vibes, save the good ones! 30 seconds on the clock.',
+    path: '/whack-a-vibe',
+    tag: 'Reaction',
+    color: '#f59e0b',
+    category: 'solo'
   }
 ];
 
 const CATEGORIES = [
   { id: 'all', name: 'All Games', icon: '🎮' },
-  { id: 'daily', name: 'Daily Vibes', icon: '✨' },
-  { id: 'multiplayer', name: 'Party Games', icon: '🔥' },
+  { id: 'daily', name: 'Daily Vibes', icon: '🔥' },
+  { id: 'multiplayer', name: 'Party Games', icon: '🎉' },
   { id: 'solo', name: 'Fast & Fun', icon: '⚡' },
 ];
 
@@ -162,7 +198,7 @@ export default function HomeContent() {
         {/* Stats */}
         <div className="stats-row">
           <div className="stat-card">
-            <div className="stat-number">13</div>
+            <div className="stat-number">17</div>
             <div className="stat-label">Games</div>
           </div>
           <div className="stat-card">
