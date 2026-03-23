@@ -37,6 +37,7 @@ export default function MergeGame() {
   ]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
   const initGame = useCallback(() => {
     let newGrid = [
@@ -45,15 +46,13 @@ export default function MergeGame() {
       [0,0,0,0],
       [0,0,0,0]
     ];
-    let score = 0;
-    // Add two random 2s
-    let cell1 = getEmptyCell(newGrid);
-    if(cell1) newGrid[cell1.r][cell1.c] = 2;
-    let cell2 = getEmptyCell(newGrid);
-    if(cell2) newGrid[cell2.r][cell2.c] = 2;
-    setGrid(newGrid);
-    setScore(score);
+    setScore(0);
     setGameOver(false);
+    setGameWon(false);
+    // Add two random 2s
+    addRandomTile(newGrid);
+    addRandomTile(newGrid);
+    setGrid(newGrid);
   }, []);
 
   useEffect(() => {
@@ -75,16 +74,24 @@ export default function MergeGame() {
     let pointsEarned = 0;
 
     const moveLeft = (row) => {
-      let b = row.filter(val => val);
-      for (let i = 0; i < b.length - 1; i++) {
-        if (b[i] === b[i+1]) {
-          b[i] *= 2;
-          pointsEarned += b[i];
-          b.splice(i+1, 1);
+      // 1. Slide all non-zero tiles to the left
+      let arr = row.filter(val => val !== 0);
+      
+      // 2. Combine adjacent identical tiles
+      for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] === arr[i + 1]) {
+          arr[i] = arr[i] * 2;
+          pointsEarned += arr[i];
+          arr[i + 1] = 0;
+          // Every tile can only merge once, so we skip the next element
+          i++; 
         }
       }
-      while (b.length < 4) b.push(0);
-      return b;
+      
+      // 3. Slide again to fill gaps created by merges
+      let finalRow = arr.filter(val => val !== 0);
+      while (finalRow.length < 4) finalRow.push(0);
+      return finalRow;
     };
 
     if (direction === 'LEFT') {
@@ -95,7 +102,8 @@ export default function MergeGame() {
       }
     } else if (direction === 'RIGHT') {
       for (let r = 0; r < 4; r++) {
-        let result = moveLeft(newGrid[r].slice().reverse()).reverse();
+        let reversed = [...newGrid[r]].reverse();
+        let result = moveLeft(reversed).reverse();
         if (newGrid[r].join(',') !== result.join(',')) moved = true;
         newGrid[r] = result;
       }
@@ -110,8 +118,9 @@ export default function MergeGame() {
       }
     } else if (direction === 'DOWN') {
       for (let c = 0; c < 4; c++) {
-        let col = [newGrid[3][c], newGrid[2][c], newGrid[1][c], newGrid[0][c]];
-        let result = moveLeft(col).reverse();
+        let col = [newGrid[0][c], newGrid[1][c], newGrid[2][c], newGrid[3][c]];
+        let reversed = col.reverse();
+        let result = moveLeft(reversed).reverse();
         for (let r = 0; r < 4; r++) {
           if (newGrid[r][c] !== result[r]) moved = true;
           newGrid[r][c] = result[r];
@@ -123,16 +132,26 @@ export default function MergeGame() {
       addRandomTile(newGrid);
       setGrid(newGrid);
       setScore(s => s + pointsEarned);
-      // check game over
-      if (!getEmptyCell(newGrid)) {
-        let hasMove = false;
-        for (let r = 0; r < 4; r++) {
-          for (let c = 0; c < 4; c++) {
-            if (c < 3 && newGrid[r][c] === newGrid[r][c+1]) hasMove = true;
-            if (r < 3 && newGrid[r][c] === newGrid[r+1][c]) hasMove = true;
+
+      // Check for 2048 win
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 4; c++) {
+          if (newGrid[r][c] === 2048 && !gameWon) {
+            setGameWon(true);
           }
         }
-        if (!hasMove) setGameOver(true);
+      }
+
+      // Check for game over
+      if (!getEmptyCell(newGrid)) {
+        let canMove = false;
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            if (c < 3 && newGrid[r][c] === newGrid[r][c+1]) canMove = true;
+            if (r < 3 && newGrid[r][c] === newGrid[r+1][c]) canMove = true;
+          }
+        }
+        if (!canMove) setGameOver(true);
       }
     }
   };
@@ -214,6 +233,22 @@ export default function MergeGame() {
           }}>
             <h2 style={{ fontSize: '48px', color: '#fff', marginBottom: '16px', fontWeight: 900 }}>Game Over!</h2>
             <button className="btn-primary" onClick={initGame}>Try Again</button>
+          </div>
+        )}
+        
+        {gameWon && !gameOver && (
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(255, 45, 120, 0.8)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            borderRadius: '16px', zIndex: 5
+          }}>
+            <h2 style={{ fontSize: '48px', color: '#fff', marginBottom: '8px', fontWeight: 900, textShadow: '0 4px 10px rgba(0,0,0,0.3)' }}>YOU WON! 🏆</h2>
+            <p style={{ color: '#fff', marginBottom: '20px', fontWeight: 600 }}>You reached the 2048 Vibe!</p>
+            <div style={{ display: 'flex', gap: '12px' }}>
+                <button className="btn-primary" onClick={() => setGameWon(false)} style={{ background: '#fff', color: '#ff2d78' }}>Keep Playing</button>
+                <button className="btn-outline" onClick={initGame} style={{ color: '#fff', borderColor: '#fff' }}>New Game</button>
+            </div>
           </div>
         )}
 

@@ -14,6 +14,10 @@ export default function FlappyGame() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   
+  // Difficulty scaling
+  const [currentSpeed, setCurrentSpeed] = useState(3.5);
+  const [currentGap, setCurrentGap] = useState(220);
+  
   const [birdPos, setBirdPos] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
   const [pipes, setPipes] = useState([]);
@@ -38,8 +42,10 @@ export default function FlappyGame() {
     setBirdPos(dim.h / 2);
     setBirdVelocity(0);
     setScore(0);
+    setCurrentSpeed(3.8); // Slightly faster than idle but easy
+    setCurrentGap(220);
     setPipes([
-      { x: dim.w, topHeight: 200, passed: false }
+      { x: dim.w + 200, topHeight: 200, passed: false } // First pipe further away
     ]);
   };
 
@@ -60,10 +66,20 @@ export default function FlappyGame() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState]);
+  }, [gameState, birdPos]); // Added dependencies to ensure jump uses latest state
 
   const updateGame = () => {
     if (gameState !== 'PLAYING') return;
+
+    // Update difficulty based on score
+    // Every 5 points, speed up and tighten gap
+    const level = Math.floor(score / 5);
+    const targetSpeed = Math.min(3.8 + level * 0.4, 6.5);
+    const targetGap = Math.max(220 - level * 10, 155);
+    
+    // Smoothly transition difficulty (optional but nice)
+    if (currentSpeed < targetSpeed) setCurrentSpeed(s => s + 0.01);
+    if (currentGap > targetGap) setCurrentGap(g => g - 0.1);
 
     // Update bird
     let newVelocity = birdVelocity + GRAVITY;
@@ -82,13 +98,16 @@ export default function FlappyGame() {
     }
 
     // Update pipes
-    let newPipes = pipes.map(p => ({ ...p, x: p.x - PIPE_SPEED }));
+    let newPipes = pipes.map(p => ({ ...p, x: p.x - currentSpeed }));
     
     // Add new pipe
     const lastPipe = newPipes[newPipes.length - 1];
-    if (lastPipe && lastPipe.x < dim.w - 250) {
+    // Distance between pipes also decreases as speed increases to maintain rhythm
+    const pipeDistance = Math.max(300 - (score * 2), 240);
+    
+    if (lastPipe && lastPipe.x < dim.w - pipeDistance) {
       const minPipeHeight = 50;
-      const maxPipeHeight = dim.h - PIPE_GAP - minPipeHeight;
+      const maxPipeHeight = dim.h - currentGap - minPipeHeight;
       const topHeight = Math.floor(Math.random() * (maxPipeHeight - minPipeHeight + 1) + minPipeHeight);
       newPipes.push({ x: dim.w, topHeight, passed: false });
     }
@@ -102,7 +121,7 @@ export default function FlappyGame() {
     for (let i = 0; i < newPipes.length; i++) {
         let p = newPipes[i];
         const topPipeBox = { x: p.x, y: 0, w: PIPE_WIDTH, h: p.topHeight };
-        const bottomPipeBox = { x: p.x, y: p.topHeight + PIPE_GAP, w: PIPE_WIDTH, h: dim.h - (p.topHeight + PIPE_GAP) };
+        const bottomPipeBox = { x: p.x, y: p.topHeight + currentGap, w: PIPE_WIDTH, h: dim.h - (p.topHeight + currentGap) };
 
         // Check rect overlap
         const isCollision = (rect1, rect2) => {

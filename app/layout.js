@@ -13,6 +13,10 @@ export const metadata = {
     default: "VIBEMENOW — Free Daily Games, Quizzes & Viral Content",
     template: "%s | VIBEMENOW"
   },
+  metadataBase: new URL('https://vibemenow.uk'),
+  alternates: {
+    canonical: '/',
+  },
   description: "Play addictive daily games, take vibe quizzes, vote on hot takes, and challenge friends. 12 free games updated daily — no login required!",
   keywords: ["daily games", "online quiz", "would you rather", "word games", "emoji quiz", "personality quiz", "hot takes", "viral games", "free games", "browser games"],
   authors: [{ name: "VIBEMENOW" }],
