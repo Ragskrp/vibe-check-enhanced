@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { name: 'WordVibe', label: '🔤 WordVibe', path: '/wordvibe', category: 'daily' },
   { name: 'VibeOrDie', label: '🎯 Vibe or Die', path: '/vibeordie', category: 'solo' },
   { name: 'EmojiIQ', label: '😂 Emoji IQ', path: '/emoji-iq', category: 'daily' },
+  { name: 'VocabVibe', label: '🔠 Vocab Vibe', path: '/vocab-match', category: 'daily' },
   { name: 'HotTakes', label: '🔥 Hot Takes', path: '/hot-takes', category: 'daily' },
   { name: 'VibeQuiz', label: '✨ Vibe Quiz', path: '/vibe-quiz', category: 'daily' },
   { name: 'WouldYouRather', label: '😈 Would U Rather', path: '/would-you-rather', category: 'daily' },
@@ -72,6 +73,10 @@ export default function SiteLayout({ children }) {
             >
               <LayoutGrid size={16} /> Browse Games
             </Link>
+
+              <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
+                Blog
+              </Link>
           </nav>
         </div>
       </header>
@@ -95,6 +100,7 @@ export default function SiteLayout({ children }) {
           </div>
           <div className="footer-links">
             <Link href="/about">About Us</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact Us</Link>
             <Link href="/guides">Expert Guides</Link>
             <Link href="/privacy">Privacy Policy</Link>

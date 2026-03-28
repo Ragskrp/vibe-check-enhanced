@@ -13,7 +13,8 @@ const nextConfig = {
         'firebase/app',
         'protobufjs', 
         '@grpc/proto-loader', 
-        '@grpc/grpc-js'
+        '@grpc/grpc-js',
+        'lodash.camelcase'
     ]
 };
 

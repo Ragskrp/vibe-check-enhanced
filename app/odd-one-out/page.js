@@ -5,6 +5,9 @@ export const metadata = {
   description: 'Fast-paced visual perception race. Find the emoji that doesn\'t match and beat your friends!',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function OddOneOutPage() {
   return (
     <>

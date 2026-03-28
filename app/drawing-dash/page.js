@@ -5,6 +5,9 @@ export const metadata = {
   description: 'The ultimate real-time drawing and guessing battle. Pick up the brush and see if your friends can guess your vibe!',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function DrawingDashPage() {
   return (
     <>

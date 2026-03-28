@@ -5,6 +5,9 @@ export const metadata = {
   description: 'Multiplayer fast-reflex battle. Challenge your friends to see who can react the fastest!',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function ReactionArenaPage() {
   return (
     <>

@@ -5,6 +5,9 @@ export const metadata = {
   description: 'The ultimate group memory challenge. Copy the sequence and be the last player standing!',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function MemoryArenaPage() {
   return (
     <>

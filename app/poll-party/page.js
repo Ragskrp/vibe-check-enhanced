@@ -5,6 +5,9 @@ export const metadata = {
   description: 'Funny prompts and competitive voting. Pitch your best vibes and see who has the best sense of humor!',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function PollPartyPage() {
   return (
     <>

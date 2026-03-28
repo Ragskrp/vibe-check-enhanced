@@ -5,6 +5,9 @@ export const metadata = {
   description: 'Test your world flag knowledge in this fast-paced geography game. Can you identify them all?',
 };
 
+export const dynamic = 'force-dynamic';
+
+
 export default function GeographyGuesserPage() {
   return (
     <>
