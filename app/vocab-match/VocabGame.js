@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Sparkles, HelpCircle, Trophy, RotateCcw, Lightbulb, ChevronRight, Zap, Users, Shield, ArrowRight, Share2, LogIn, PlusCircle } from 'lucide-react';
+import { Sparkles, HelpCircle, Trophy, RotateCcw, Lightbulb, ChevronRight, ChevronLeft, Zap, Users, Shield, ArrowRight, Share2, LogIn, PlusCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import AdBanner from '../components/AdBanner';
 import GameEndScreen from '../components/GameEndScreen';
