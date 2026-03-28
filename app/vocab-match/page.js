@@ -1,4 +1,5 @@
 import VocabGame from './VocabGame';
+import AdBanner from '../components/AdBanner';
 
 export const metadata = {
   title: "Vocab Vibe — Daily Vocabulary Match Game",
