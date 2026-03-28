@@ -87,6 +87,13 @@ const FACTS = {
     'The "Sunk Cost Fallacy" often influences our choices — we tend to stick with bad decisions because we\'ve already "invested" so much time in them!',
     'Deciding between two equally good options is known as an "approach-approach conflict," and it actually takes longer for the brain to resolve than a bad choice.'
   ],
+  'vocab-arena': [
+    'The "Testing Effect" in psychology proves that retrieving information (like matching a definition) is 50% more effective for memory than just reading it.',
+    'Research from 2018 shows that social competition in educational games increases motivation levels by up to 40% compared to solo play.',
+    'The human brain can process images (like emojis) and words simultaneously, but matching them requires "Cognitive Switching" which sharpens mental focus.',
+    'Polyglots (people who speak many languages) often use matching games to build their initial vocabulary foundation in record time.',
+    'Fast-paced word games stimulate the production of dopamine, which helps reinforce the neural pathways associated with learning new concepts.',
+  ],
   'vibeordie': [
     'The concept of "gamified binary choices" was pioneered by the 1997 board game "Scattergories" and evolved into modern mobile gaming formats.',
     'Brain scans show that time pressure during decision-making activates the amygdala (stress centre), which can either sharpen or impair judgement depending on the individual.',
@@ -136,6 +143,11 @@ const RELATED_GAMES = {
     { emoji: '⚡', name: 'Reaction Arena', path: '/reaction-arena', desc: 'Test your reflexes' },
     { emoji: '✨', name: 'Vibe Quiz', path: '/vibe-quiz', desc: 'Personality test' },
     { emoji: '😂', name: 'Emoji IQ', path: '/emoji-iq', desc: 'Decode emojis' },
+  ],
+  'vocab-arena': [
+    { emoji: '🔤', name: 'WordVibe', path: '/wordvibe', desc: 'Guess the daily word' },
+    { emoji: '🏆', name: 'Quiz Arena', path: '/quiz-arena', desc: 'Live trivia race' },
+    { emoji: '⚡', name: 'Reaction', path: '/reaction-arena', desc: 'Test your speed' },
   ],
 };
 

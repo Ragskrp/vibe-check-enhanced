@@ -509,7 +509,7 @@ export default function VocabGame() {
     }
     return (
       <GameEndScreen
-        gameId={`vocab-solo-${currentSet}`}
+        gameId="vocab-arena"
         score={score}
         maxScore={currentData.length}
         emoji="✨"
