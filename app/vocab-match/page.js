@@ -12,6 +12,8 @@ export const metadata = {
   }
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function VocabMatchPage() {
   return (
     <div className="page-container">

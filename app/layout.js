@@ -14,9 +14,6 @@ export const metadata = {
     template: "%s | VIBEMENOW"
   },
   metadataBase: new URL('https://vibemenow.uk'),
-  alternates: {
-    canonical: '/',
-  },
   description: "Play addictive daily games, take vibe quizzes, vote on hot takes, and challenge friends. 12 free games updated daily — no login required!",
   keywords: ["daily games", "online quiz", "would you rather", "word games", "emoji quiz", "personality quiz", "hot takes", "viral games", "free games", "browser games"],
   authors: [{ name: "VIBEMENOW" }],
@@ -83,11 +80,13 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="VIBEMENOW" />
         {/* Google AdSense - ca-pub-7832965089021505 */}
-        <script
-          async
+        {/* Google AdSense - ca-pub-7832965089021505 */}
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
           crossOrigin="anonymous"
-        ></script>
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

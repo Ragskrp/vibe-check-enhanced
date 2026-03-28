@@ -141,8 +141,8 @@ export default function VocabGame() {
 
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-  const initSoloGame = useCallback(() => {
-    const items = VOCAB_SETS[currentSet].items;
+  const initSoloGame = useCallback((topicKey = currentSet) => {
+    const items = VOCAB_SETS[topicKey].items;
     setShuffledItems({ terms: shuffle(items), defs: shuffle(items) });
     setMatchedIds(new Set());
     setScore(0);
@@ -324,7 +324,7 @@ export default function VocabGame() {
         {Object.entries(VOCAB_SETS).map(([key, set]) => (
           <button
             key={key}
-            onClick={() => { setCurrentSet(key); initSoloGame(); }}
+            onClick={() => { setCurrentSet(key); initSoloGame(key); }}
             className="card"
             style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '20px', textAlign: 'left' }}
           >
