@@ -40,6 +40,7 @@ export const metadata = {
     description: "Play 12 addictive daily games. No login. Just vibes. ⚡",
     images: ["/og-image.png"]
   },
+
   robots: {
     index: true,
     follow: true,
@@ -55,20 +56,29 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "VIBEMENOW",
-    url: "https://vibemenow.uk",
-    description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
-    applicationCategory: "GameApplication",
-    operatingSystem: "Any",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD"
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "VIBEMENOW",
+      url: "https://vibemenow.uk",
+      description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
+      applicationCategory: "GameApplication",
+      operatingSystem: "Any",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "VIBEMENOW",
+      url: "https://vibemenow.uk",
+      logo: "https://vibemenow.uk/icon.png"
     }
-  };
+  ];
 
   return (
     <html lang="en" suppressHydrationWarning>

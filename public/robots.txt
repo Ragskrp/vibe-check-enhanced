@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vibemenow.uk/sitemap.xml

@@ -41,8 +41,38 @@ export default function SiteLayout({ children }) {
     }
   };
 
+  const breadcrumbs = [
+    { name: 'Home', path: '/' },
+  ];
+
+  if (pathname !== '/') {
+    const parts = pathname.split('/').filter(Boolean);
+    let currentPath = '';
+    parts.forEach(part => {
+      currentPath += `/${part}`;
+      // Clean up name (e.g. word-vibe -> Word Vibe)
+      const name = part.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      breadcrumbs.push({ name, path: currentPath });
+    });
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": `https://vibemenow.uk${crumb.path}`
+    }))
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Animated Ticker */}
       <div className="ticker-wrap">
         <span className="ticker-text">
