@@ -38,7 +38,7 @@ export default function ReactionArenaGuide() {
         {/* Content */}
         <div style={{ color: '#ccc', lineHeight: 1.8, fontSize: 16 }}>
           <p style={{ marginBottom: 20 }}>
-            In the arena of millisecond competition, the difference between a "Casual" and "God Tier" reaction time is less than the blink of an eye. <strong>Reaction Arena</strong> is more than just a tap game; it is a test of your central nervous system's ability to process visual information and trigger a motor response at maximum speed.
+            In the arena of millisecond competition, the difference between a &quot;Casual" and "God Tier" reaction time is less than the blink of an eye. <strong>Reaction Arena</strong> is more than just a tap game; it is a test of your central nervous system&apos;s ability to process visual information and trigger a motor response at maximum speed.
           </p>
           <p style={{ marginBottom: 20 }}>
             While the average human reaction time is around 250 milliseconds, the top 1% of players on VIBEMENOW consistently achieve sub-150ms scores. How do they do it? Is it pure genetics, or can you train your way to the top? In this guide, we break down the neuroscience of speed, the hardware factors, and the daily training rituals of expert players.
@@ -46,7 +46,7 @@ export default function ReactionArenaGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>⏱️ 1. Understanding the Neural Pathway</h2>
           <p style={{ marginBottom: 20 }}>
-            When the screen changes colour in Reaction Arena, a remarkable chain of events occurs inside your body. Light enters your eye and hits the retina. Photoreceptor cells convert this light into electrical signals that travel through the optic nerve to the visual cortex at the back of your brain. Your brain identifies the "Go" signal, then sends a command down the motor cortex, through your spinal cord, along peripheral nerves, and finally to the muscles in your finger.
+            When the screen changes colour in Reaction Arena, a remarkable chain of events occurs inside your body. Light enters your eye and hits the retina. Photoreceptor cells convert this light into electrical signals that travel through the optic nerve to the visual cortex at the back of your brain. Your brain identifies the &quot;Go" signal, then sends a command down the motor cortex, through your spinal cord, along peripheral nerves, and finally to the muscles in your finger.
           </p>
           <p style={{ marginBottom: 20 }}>
             This entire pathway—from photon hitting retina to finger pressing screen—takes approximately 150–300ms in most humans. Each stage introduces a tiny delay. Your goal as a player is to minimise every controllable delay in this chain.
@@ -59,7 +59,7 @@ export default function ReactionArenaGuide() {
           }}>
             <p style={{ fontWeight: 700, color: '#00d4ff', marginBottom: 8, fontSize: 14 }}>💡 Pro Secret: Active Anticipation</p>
             <p style={{ fontSize: 14 }}>
-              Don't wait for your brain to consciously recognise "the colour changed." Instead, focus on detecting <em>any change at all</em>. The human brain processes general "change detection" approximately 30ms faster than specific colour identification. This single technique can shave critical milliseconds off your score.
+              Don&apos;t wait for your brain to consciously recognise &quot;the colour changed." Instead, focus on detecting <em>any change at all</em>. The human brain processes general &quot;change detection" approximately 30ms faster than specific colour identification. This single technique can shave critical milliseconds off your score.
             </p>
           </div>
 
@@ -70,13 +70,13 @@ export default function ReactionArenaGuide() {
           <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
             <li style={{ marginBottom: 10 }}><strong>Screen Refresh Rate:</strong> Ensure your device runs at 120Hz or higher. At 60Hz, each frame lasts ~16.6ms, meaning the colour change could be invisible for up to 16ms. At 120Hz, that drops to ~8.3ms. At 240Hz, just ~4.2ms.</li>
             <li style={{ marginBottom: 10 }}><strong>Touch vs. Click:</strong> High-end gaming mice often have lower latency than capacitive touchscreens. If you are on a phone, use a firm, direct tap with a pre-positioned finger rather than a swipe.</li>
-            <li style={{ marginBottom: 10 }}><strong>Brightness & Contrast:</strong> A brighter screen makes colour transitions more visually "loud," allowing faster detection. Play in a dimmer room so the screen transition stands out.</li>
+            <li style={{ marginBottom: 10 }}><strong>Brightness & Contrast:</strong> A brighter screen makes colour transitions more visually &quot;loud," allowing faster detection. Play in a dimmer room so the screen transition stands out.</li>
             <li style={{ marginBottom: 10 }}><strong>Focus Mode:</strong> Disable background notifications and close other tabs. Even a tiny frame drop or popup can add latency and ruin a perfect round.</li>
           </ul>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🧠 3. Training Your Reflexes</h2>
           <p style={{ marginBottom: 20 }}>
-            Reflexes are trainable, much like muscles. Regular play in our "Series of 5" mode builds and reinforces the neural pathways that make reactions more automatic. We recommend three 5-round sessions per day—morning, afternoon, and evening—to account for natural circadian rhythm shifts in cognitive speed.
+            Reflexes are trainable, much like muscles. Regular play in our &quot;Series of 5" mode builds and reinforces the neural pathways that make reactions more automatic. We recommend three 5-round sessions per day—morning, afternoon, and evening—to account for natural circadian rhythm shifts in cognitive speed.
           </p>
           <p style={{ marginBottom: 20 }}>
             Physiological factors also play a significant role. Research from sports science shows that even mild dehydration (as little as 2% body weight loss) can slow reaction times by up to 10%. That is the difference between a 200ms and a 220ms score. Caffeine, taken in moderation (100–200mg), has been shown to improve reaction times by 5–10% in clinical studies.

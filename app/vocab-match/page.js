@@ -33,7 +33,7 @@ export default function VocabMatchPage() {
             <li style={{ marginBottom: '12px' }}><strong>1. Select Your Mode:</strong> Choose between <b>Solo Practice</b> to learn at your own pace or <b>Arena Mode</b> to race friends.</li>
             <li style={{ marginBottom: '12px' }}><strong>2. Pick a Topic:</strong> From Geometry to Tech & AI, select a topic that challenges your current knowledge.</li>
             <li style={{ marginBottom: '12px' }}><strong>3. Connect the Vibes:</strong> Tap a Term on the left, then tap its matching Definition on the right.</li>
-            <li style={{ marginBottom: '12px' }}><strong>4. Build Your Streak:</strong> Correct matches increase your streak. Use a <b>Hint</b> if you're stuck, but remember—you only get 3!</li>
+            <li style={{ marginBottom: '12px' }}><strong>4. Build Your Streak:</strong> Correct matches increase your streak. Use a <b>Hint</b> if you&apos;re stuck, but remember—you only get 3!</li>
           </ul>
         </div>
 
@@ -50,7 +50,7 @@ export default function VocabMatchPage() {
           </div>
           <div>
             <h4 style={{ color: '#fbbf24', marginBottom: '8px' }}>📚 Knowledge Synthesis</h4>
-            <p style={{ fontSize: '15px', color: '#999', lineHeight: '1.6' }}>Exposure to diverse topics across Science, Art, and Digital Culture builds 'Crystallized Intelligence'—the ability to use skills, knowledge, and experience.</p>
+            <p style={{ fontSize: '15px', color: '#999', lineHeight: '1.6' }}>Exposure to diverse topics across Science, Art, and Digital Culture builds &apos;Crystallized Intelligence'—the ability to use skills, knowledge, and experience.</p>
           </div>
           <div>
             <h4 style={{ color: '#fbbf24', marginBottom: '8px' }}>⚡ Processing Speed</h4>

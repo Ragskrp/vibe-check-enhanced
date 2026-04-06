@@ -30,14 +30,14 @@ export default function VibeClickerPage() {
           <h3 style={{ color: '#fff', fontSize: '1.5em', marginBottom: '16px' }}>📖 How to Play</h3>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li style={{ marginBottom: '12px' }}><strong>1. Tap to Generate:</strong> Click the large central icon to earn your first Vibe points.</li>
-            <li style={{ marginBottom: '12px' }}><strong>2. Shop for Upgrades:</strong> Use your points to buy "Self-Clickers" and "Vibe Factories" that generate income automatically.</li>
+            <li style={{ marginBottom: '12px' }}><strong>2. Shop for Upgrades:</strong> Use your points to buy &quot;Self-Clickers" and "Vibe Factories" that generate income automatically.</li>
             <li style={{ marginBottom: '12px' }}><strong>3. Multiply Your Power:</strong> Purchase click multipliers to significantly increase the points you get from every manual tap.</li>
             <li style={{ marginBottom: '12px' }}><strong>4. Ascend:</strong> Keep scaling your production until you reach billions of vibes per second!</li>
           </ul>
         </div>
 
         <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '48px', marginBottom: '20px' }}>The Psychology Behind Clicker Games</h3>
-        <p>Idle games like <strong>Vibe Clicker</strong> tap into a fundamental human psychological loop called the "Compulsion Loop." By providing immediate, visual feedback for every action (a click), the brain receives a tiny burst of dopamine. As you begin to automate this process with upgrades, the satisfaction of seeing your numbers grow exponentially provides a sense of mastery and progression that is incredibly rewarding.</p>
+        <p>Idle games like <strong>Vibe Clicker</strong> tap into a fundamental human psychological loop called the &quot;Compulsion Loop." By providing immediate, visual feedback for every action (a click), the brain receives a tiny burst of dopamine. As you begin to automate this process with upgrades, the satisfaction of seeing your numbers grow exponentially provides a sense of mastery and progression that is incredibly rewarding.</p>
 
         <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>✨ Importance: Skill & Health Benefits</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px', margin: '32px 0' }}>
@@ -47,7 +47,7 @@ export default function VibeClickerPage() {
           </div>
           <div>
             <h4 style={{ color: '#00d4ff', marginBottom: '8px' }}>💆 Stress Relief</h4>
-            <p style={{ fontSize: '14px', color: '#999' }}>The low-stakes, high-reward nature of Vibe Clicker makes it an excellent "palate cleanser" for the brain after intense work or study sessions.</p>
+            <p style={{ fontSize: '14px', color: '#999' }}>The low-stakes, high-reward nature of Vibe Clicker makes it an excellent &quot;palate cleanser" for the brain after intense work or study sessions.</p>
           </div>
         </div>
       </article>

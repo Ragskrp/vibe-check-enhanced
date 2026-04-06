@@ -46,7 +46,7 @@ export default function WordVibeGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🎯 1. The Power of Starter Words</h2>
           <p style={{ marginBottom: 20 }}>
-            The most common mistake beginners make is choosing a word like "QUEUE" or "FUZZY" to start. While these are fun, they are statistically inefficient. A perfect starter word should contain the <strong>highest-frequency vowels and consonants</strong> in the English language.
+            The most common mistake beginners make is choosing a word like &quot;QUEUE" or "FUZZY" to start. While these are fun, they are statistically inefficient. A perfect starter word should contain the <strong>highest-frequency vowels and consonants</strong> in the English language.
           </p>
           <div style={{
             padding: 24, borderRadius: 16,
@@ -56,30 +56,30 @@ export default function WordVibeGuide() {
           }}>
             <p style={{ fontWeight: 700, color: '#00d4ff', marginBottom: 8, fontSize: 14 }}>💡 Statistical Elite Starters</p>
             <p style={{ fontSize: 14 }}>
-              Try "ADIEU," "ARISE," "STARE," or "CRANE." These words cover the most common English letters (A, E, I, S, R, T, N, C). Starting with one of these gives you a statistically optimal chance of landing green or yellow tiles on the first turn, because these letters appear in over 60% of all valid 5-letter English words.
+              Try &quot;ADIEU," "ARISE," "STARE," or "CRANE." These words cover the most common English letters (A, E, I, S, R, T, N, C). Starting with one of these gives you a statistically optimal chance of landing green or yellow tiles on the first turn, because these letters appear in over 60% of all valid 5-letter English words.
             </p>
           </div>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>📈 2. The Narrowing Down Technique</h2>
           <p style={{ marginBottom: 20 }}>
-            Once you have had your first turn, the "Narrowing Down" method begins. If you started with "ARISE" and only the 'R' and 'E' turned yellow, your second guess should not necessarily re-use those letters in random new positions. Instead, consider a more strategic approach.
+            Once you have had your first turn, the &quot;Narrowing Down" method begins. If you started with "ARISE" and only the &apos;R' and 'E' turned yellow, your second guess should not necessarily re-use those letters in random new positions. Instead, consider a more strategic approach.
           </p>
           <p style={{ marginBottom: 20 }}>
-            <strong>The Sacrifice Turn:</strong> Sometimes, on turn two, it is better to enter a word that uses entirely <em>new</em> letters to eliminate as many possibilities as possible. For example, if "ARISE" failed, try "CLOUD" or "NYMPH" as your second word. This sweeps through additional common consonants and the remaining vowels (O, U), dramatically narrowing the solution space.
+            <strong>The Sacrifice Turn:</strong> Sometimes, on turn two, it is better to enter a word that uses entirely <em>new</em> letters to eliminate as many possibilities as possible. For example, if &quot;ARISE" failed, try "CLOUD" or "NYMPH" as your second word. This sweeps through additional common consonants and the remaining vowels (O, U), dramatically narrowing the solution space.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Think of it this way: with two well-chosen "probe" words, you can test 10 unique letters. The English alphabet has 26 letters, so after two turns you have verified nearly 40% of the alphabet. At this point, the remaining possibilities are often obvious.
+            Think of it this way: with two well-chosen &quot;probe" words, you can test 10 unique letters. The English alphabet has 26 letters, so after two turns you have verified nearly 40% of the alphabet. At this point, the remaining possibilities are often obvious.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🛡️ 3. Recognising Patterns and Avoiding Traps</h2>
           <p style={{ marginBottom: 20 }}>
-            English words often follow clusters — common letter combinations that share the same ending. If your word ends in "IGHT," you are in a cluster: NIGHT, FIGHT, RIGHT, MIGHT, LIGHT, SIGHT, TIGHT. Blindly guessing through this cluster is a recipe for a 6-attempt failure.
+            English words often follow clusters — common letter combinations that share the same ending. If your word ends in &quot;IGHT," you are in a cluster: NIGHT, FIGHT, RIGHT, MIGHT, LIGHT, SIGHT, TIGHT. Blindly guessing through this cluster is a recipe for a 6-attempt failure.
           </p>
           <p style={{ marginBottom: 20 }}>
-            <strong>The Cluster Escape:</strong> When trapped in a pattern cluster, use a sacrificial word that tests multiple starting letters simultaneously. If you are stuck on _IGHT, enter "FILMS" to simultaneously test whether the answer starts with F, M, L, or S. This single move can resolve a 6-option cluster in one turn.
+            <strong>The Cluster Escape:</strong> When trapped in a pattern cluster, use a sacrificial word that tests multiple starting letters simultaneously. If you are stuck on _IGHT, enter &quot;FILMS" to simultaneously test whether the answer starts with F, M, L, or S. This single move can resolve a 6-option cluster in one turn.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Similarly, beware of "double letter" traps. Words like "HAPPY," "SPEED," or "FLOOD" are uncommon but devastating when they appear. If after three turns nothing is fitting, consider that a letter might appear twice.
+            Similarly, beware of &quot;double letter" traps. Words like "HAPPY," "SPEED," or "FLOOD" are uncommon but devastating when they appear. If after three turns nothing is fitting, consider that a letter might appear twice.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>⭐ 4. Daily Vibe Rituals</h2>
@@ -87,17 +87,17 @@ export default function WordVibeGuide() {
             WordVibe updates every 24 hours with a new secret word. Because the word of the day is often themed around current global events, seasons, or cultural moments, keeping a pulse on the cultural zeitgeist can give you an edge. Is it a holiday? Is there a major sporting event? Our puzzle curators often nod to the world around us.
           </p>
           <p style={{ marginBottom: 20 }}>
-            We recommend playing at the same time each day to build a consistent cognitive warm-up routine. Many top players report that their best scores come in the morning, when the mind is fresh and unencumbered by the day's decisions.
+            We recommend playing at the same time each day to build a consistent cognitive warm-up routine. Many top players report that their best scores come in the morning, when the mind is fresh and unencumbered by the day&apos;s decisions.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🏆 Prove Your Mastery</h2>
           <p style={{ marginBottom: 24 }}>
-            You have got the theory. Now it is time for the application. Head over to WordVibe and take today's challenge. Can you get it in under 3 tries?
+            You have got the theory. Now it is time for the application. Head over to WordVibe and take today&apos;s challenge. Can you get it in under 3 tries?
           </p>
           <div style={{ textAlign: 'center' }}>
             <Link href="/wordvibe">
               <button className="btn-primary" style={{ fontSize: 16 }}>
-                🔤 Guess Today's Word
+                🔤 Guess Today&apos;s Word
               </button>
             </Link>
           </div>

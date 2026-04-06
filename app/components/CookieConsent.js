@@ -40,7 +40,7 @@ export default function CookieConsent() {
             <h4>We care about your vibe 🍪</h4>
             <p>
               VIBEMENOW uses cookies to analyze traffic, remember your game streaks, and serve personalized ads via Google. 
-              By clicking "Accept", you agree to our use of cookies and our <Link href="/privacy">Privacy Policy</Link>.
+              By clicking &quot;Accept", you agree to our use of cookies and our <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </div>
         </div>

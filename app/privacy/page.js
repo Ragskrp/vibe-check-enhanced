@@ -17,12 +17,12 @@ export default function PrivacyPage() {
           </p>
 
           <p style={{ marginBottom: '20px' }}>
-            VIBEMENOW ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website. By using VIBEMENOW, you agree to the terms of this policy.
+            VIBEMENOW (&quot;we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website. By using VIBEMENOW, you agree to the terms of this policy.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Personal Information Collection</h2>
           <p>
-            VIBEMENOW is designed as a "No-Registration" platform. We do not require you to provide a name, email address, or physical address to access our games. We do not maintain user accounts or profiles that link specifically to your real-world identity.
+            VIBEMENOW is designed as a &quot;No-Registration" platform. We do not require you to provide a name, email address, or physical address to access our games. We do not maintain user accounts or profiles that link specifically to your real-world identity.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Technical Data & Cookies</h2>
@@ -38,9 +38,9 @@ export default function PrivacyPage() {
             We use Google AdSense to serve advertisements on our site. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to VIBEMENOW and other websites on the internet.
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '8px' }}>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites.</li>
-            <li style={{ marginBottom: '8px' }}>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Google's Ads Settings</a>.</li>
-            <li>Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>www.aboutads.info</a>.</li>
+            <li style={{ marginBottom: '8px' }}>Google&apos;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites.</li>
+            <li style={{ marginBottom: '8px' }}>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Google&apos;s Ads Settings</a>.</li>
+            <li>Alternatively, you can opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>www.aboutads.info</a>.</li>
           </ul>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Data Handling (Firebase & Multiplayer)</h2>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. GDPR & CCPA Compliance</h2>
           <p>
-            If you are a resident of the European Economic Area (EEA) or California, you have certain data protection rights. Because we do not store "Personal Data" in the traditional sense (no names or emails), we fulfill our obligations by:
+            If you are a resident of the European Economic Area (EEA) or California, you have certain data protection rights. Because we do not store &quot;Personal Data" in the traditional sense (no names or emails), we fulfill our obligations by:
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
             <li style={{ marginBottom: '8px' }}>Minimizing data collection to the absolute necessary technical requirements.</li>

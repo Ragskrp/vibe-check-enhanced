@@ -16,7 +16,7 @@ export default function TermsPage() {
           </p>
 
           <p style={{ marginBottom: '20px' }}>
-            Welcome to VIBEMENOW ("we," "us," or "our"). By accessing or using our website at <strong>vibemenow.uk</strong> (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Service. VIBEMENOW is a free, browser-based gaming platform that does not require registration.
+            Welcome to VIBEMENOW (&quot;we," "us," or "our"). By accessing or using our website at <strong>vibemenow.uk</strong> (the &quot;Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Service. VIBEMENOW is a free, browser-based gaming platform that does not require registration.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Acceptance of Terms</h2>
@@ -26,7 +26,7 @@ export default function TermsPage() {
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Description of Service</h2>
           <p>
-            VIBEMENOW provides a collection of free, browser-based casual games, quizzes, and interactive content. Our Service includes solo games (such as WordVibe, Emoji IQ, and Geography Guesser), multiplayer games (such as Quiz Arena, Reaction Arena, and Drawing Dash), and informational content (such as game guides and articles). The games are provided "as-is" for entertainment purposes and are available without user registration.
+            VIBEMENOW provides a collection of free, browser-based casual games, quizzes, and interactive content. Our Service includes solo games (such as WordVibe, Emoji IQ, and Geography Guesser), multiplayer games (such as Quiz Arena, Reaction Arena, and Drawing Dash), and informational content (such as game guides and articles). The games are provided &quot;as-is" for entertainment purposes and are available without user registration.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. User Conduct</h2>
@@ -52,7 +52,7 @@ export default function TermsPage() {
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Disclaimer of Warranties</h2>
           <p>
-            THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not warrant that the Service will be uninterrupted, error-free, or free of viruses or other harmful components.
+            THE SERVICE IS PROVIDED ON AN &quot;AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not warrant that the Service will be uninterrupted, error-free, or free of viruses or other harmful components.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>7. Limitation of Liability</h2>
@@ -67,7 +67,7 @@ export default function TermsPage() {
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>9. Changes to Terms</h2>
           <p>
-            We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance of the changes.
+            We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will make reasonable efforts to provide at least 30 days&apos; notice prior to any new terms taking effect. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance of the changes.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>10. Governing Law</h2>

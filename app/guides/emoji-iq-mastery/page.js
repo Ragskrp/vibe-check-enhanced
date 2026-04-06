@@ -43,7 +43,7 @@ export default function EmojiIQGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🧠 1. The Linguistics of Emojis</h2>
           <p style={{ marginBottom: 20 }}>
-            When you see a string of emojis in our game, your brain is performing a form of rapid translation. Linguists classify this process as "visual semantics" — the extraction of meaning from non-textual symbols. Unlike alphabets, emojis carry polysemous weight: a single fire emoji 🔥 can mean "flame," "hot," "trending," "attractive," or "excellent" depending entirely on context.
+            When you see a string of emojis in our game, your brain is performing a form of rapid translation. Linguists classify this process as &quot;visual semantics" — the extraction of meaning from non-textual symbols. Unlike alphabets, emojis carry polysemous weight: a single fire emoji 🔥 can mean "flame," "hot," "trending," "attractive," or "excellent" depending entirely on context.
           </p>
           <p style={{ marginBottom: 20 }}>
             The key to mastering Emoji IQ lies in understanding that emojis operate on <strong>three levels</strong> simultaneously:
@@ -72,7 +72,7 @@ export default function EmojiIQGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>📈 3. Cultural Fluency Is Your Superpower</h2>
           <p style={{ marginBottom: 20 }}>
-            Many Emoji IQ puzzles reference pop culture — movies, songs, TV shows, and famous people. The broader your cultural knowledge, the faster you decode. A "star" + "wars" combination is obvious, but a "crown" + "bee" requires knowing that Beyoncé is sometimes called "Queen Bey."
+            Many Emoji IQ puzzles reference pop culture — movies, songs, TV shows, and famous people. The broader your cultural knowledge, the faster you decode. A &quot;star" + "wars" combination is obvious, but a "crown" + "bee" requires knowing that Beyoncé is sometimes called "Queen Bey."
           </p>
           <p style={{ marginBottom: 20 }}>
             This cultural layer is what makes Emoji IQ unique among brain games. It does not just test logic — it tests how well you are connected to the shared cultural tapestry of the internet age. Players who consume diverse media (films, music, memes, current events) have a natural advantage. This is why the game updates its puzzle bank regularly to reflect current trends.
@@ -83,7 +83,7 @@ export default function EmojiIQGuide() {
             Research suggests that visual-linguistic puzzles like Emoji IQ activate both hemispheres of the brain simultaneously. The left hemisphere processes the linguistic retrieval (turning symbols into words), while the right hemisphere handles the visual pattern recognition and metaphorical reasoning.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Regular play can improve your "semantic fluency" — the speed at which your brain retrieves words from memory based on conceptual cues. This is a skill that benefits everyday communication, creative writing, and even professional problem-solving. In essence, every Emoji IQ round is a mini cognitive workout.
+            Regular play can improve your &quot;semantic fluency" — the speed at which your brain retrieves words from memory based on conceptual cues. This is a skill that benefits everyday communication, creative writing, and even professional problem-solving. In essence, every Emoji IQ round is a mini cognitive workout.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🏆 Test Your Emoji IQ</h2>

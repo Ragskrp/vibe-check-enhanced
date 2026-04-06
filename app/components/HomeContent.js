@@ -358,19 +358,19 @@ export default function HomeContent() {
           <div style={{ color: '#888', lineHeight: '1.7' }}>
             <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>🎮 The Future of Micro-Gaming</h3>
             <p>
-              VIBEMENOW is designed for the modern web—a fast, secure, and instant gaming platform built for 2026. We believe that the best gaming experiences shouldn't be hidden behind complex login forms or subscription paywalls. Whether you're here for your daily <strong>WordVibe</strong> challenge or a <strong>Quiz Arena</strong> showdown with friends, we provide high-performance games that respect your time and privacy.
+              VIBEMENOW is designed for the modern web—a fast, secure, and instant gaming platform built for 2026. We believe that the best gaming experiences shouldn&apos;t be hidden behind complex login forms or subscription paywalls. Whether you're here for your daily <strong>WordVibe</strong> challenge or a <strong>Quiz Arena</strong> showdown with friends, we provide high-performance games that respect your time and privacy.
             </p>
           </div>
           <div style={{ color: '#888', lineHeight: '1.7' }}>
             <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>✨ Why Play Daily?</h3>
             <p>
-              Every game on our platform is carefully curated to be bite-sized. We focus on "daily resets," meaning new puzzles, new trivia questions, and new reaction challenges are pushed live every 24 hours. Research in cognitive psychology shows that short, varied mental exercises can significantly improve focus and well-being. Our "vibe-algorithm" ensures that no two days are ever the same.
+              Every game on our platform is carefully curated to be bite-sized. We focus on &quot;daily resets," meaning new puzzles, new trivia questions, and new reaction challenges are pushed live every 24 hours. Research in cognitive psychology shows that short, varied mental exercises can significantly improve focus and well-being. Our "vibe-algorithm" ensures that no two days are ever the same.
             </p>
           </div>
           <div style={{ color: '#888', lineHeight: '1.7' }}>
             <h3 style={{ color: '#eee', fontSize: 18, marginBottom: 16 }}>🌐 A Global Multiplayer Hub</h3>
             <p>
-              More than just solo play, VIBEMENOW is built on real-time multiplayer technology. Create a "Vibe Room" in seconds and invite friends to compete in <strong>Reaction Arena</strong> or <strong>Odd One Out</strong>. We use low-latency edge computing to ensure a smooth experience for players around the world, making us the perfect companion for remote parties or office breaks.
+              More than just solo play, VIBEMENOW is built on real-time multiplayer technology. Create a &quot;Vibe Room" in seconds and invite friends to compete in <strong>Reaction Arena</strong> or <strong>Odd One Out</strong>. We use low-latency edge computing to ensure a smooth experience for players around the world, making us the perfect companion for remote parties or office breaks.
             </p>
           </div>
         </div>
@@ -384,7 +384,7 @@ export default function HomeContent() {
             </div>
             <div>
               <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>How do I share my results?</p>
-              <p style={{ color: '#777', fontSize: 14 }}>Every game concludes with a "Vibe Summary." Use the share button to copy your scores in a viral-friendly format for Discord, WhatsApp, or Twitter.</p>
+              <p style={{ color: '#777', fontSize: 14 }}>Every game concludes with a &quot;Vibe Summary." Use the share button to copy your scores in a viral-friendly format for Discord, WhatsApp, or Twitter.</p>
             </div>
             <div>
               <p style={{ color: '#eee', fontWeight: 600, marginBottom: 4 }}>Are you adding more games?</p>

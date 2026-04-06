@@ -298,7 +298,7 @@ export default function ReactionArenaGame() {
                 <>
                   <Timer size={64} className="animate-pulse" style={{ marginBottom: '20px', opacity: 0.5 }} />
                   <h2 style={{ fontSize: '32px', fontWeight: 800 }}>WAIT FOR IT...</h2>
-                  <p style={{ opacity: 0.6 }}>Don't click yet!</p>
+                  <p style={{ opacity: 0.6 }}>Don&apos;t click yet!</p>
                 </>
               ) : (
                 <>

@@ -38,7 +38,7 @@ export default function GeoGuesserGuide() {
         {/* Content */}
         <div style={{ color: '#ccc', lineHeight: 1.8, fontSize: 16 }}>
           <p style={{ marginBottom: 20 }}>
-            In an era of globalisation, how well do you truly know the world? VIBEMENOW's <strong>Geography Guesser</strong> challenges players to identify countries from their flags, capital cities, and geographical clues. This guide will transform you from a casual player into a geography expert by breaking down the visual patterns, historical origins, and mnemonic techniques behind world flags and territories.
+            In an era of globalisation, how well do you truly know the world? VIBEMENOW&apos;s <strong>Geography Guesser</strong> challenges players to identify countries from their flags, capital cities, and geographical clues. This guide will transform you from a casual player into a geography expert by breaking down the visual patterns, historical origins, and mnemonic techniques behind world flags and territories.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🏳️ 1. The Visual Language of Flags</h2>
@@ -46,7 +46,7 @@ export default function GeoGuesserGuide() {
             World flags are not random art. They follow visual conventions rooted in history, religion, and geopolitics. Understanding these conventions gives you instant recognition advantages:
           </p>
           <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
-            <li style={{ marginBottom: 10 }}><strong style={{ color: '#00ff94' }}>Pan-African Colours (Red, Yellow, Green):</strong> Flags featuring combinations of red, yellow/gold, and green are overwhelmingly African nations, inspired by the Ethiopian flag — one of Africa's oldest independent states. Examples: Ghana, Mali, Senegal, Cameroon.</li>
+            <li style={{ marginBottom: 10 }}><strong style={{ color: '#00ff94' }}>Pan-African Colours (Red, Yellow, Green):</strong> Flags featuring combinations of red, yellow/gold, and green are overwhelmingly African nations, inspired by the Ethiopian flag — one of Africa&apos;s oldest independent states. Examples: Ghana, Mali, Senegal, Cameroon.</li>
             <li style={{ marginBottom: 10 }}><strong style={{ color: '#00ff94' }}>Crescent & Star:</strong> A crescent moon and star is a strong indicator of a predominantly Muslim nation. Think Turkey, Pakistan, Tunisia, Algeria, and Malaysia.</li>
             <li style={{ marginBottom: 10 }}><strong style={{ color: '#00ff94' }}>Union Jack in the Canton:</strong> Flags incorporating the British Union Jack in the corner are almost always current or former British territories: Australia, New Zealand, Fiji, and Tuvalu.</li>
             <li style={{ marginBottom: 10 }}><strong style={{ color: '#00ff94' }}>Red, White, and Blue Tricolours:</strong> Many European and Latin American nations use these colours, but the arrangement tells the story. Vertical stripes tend to be French-influenced; horizontal stripes trend Dutch or Russian-influenced.</li>
@@ -55,7 +55,7 @@ export default function GeoGuesserGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🧠 2. Memory Techniques for 195 Countries</h2>
           <p style={{ marginBottom: 20 }}>
-            Nobody expects you to memorise every flag overnight. But with the right techniques, you can quickly learn the "tricky" flags that separate beginners from experts.
+            Nobody expects you to memorise every flag overnight. But with the right techniques, you can quickly learn the &quot;tricky" flags that separate beginners from experts.
           </p>
           <div style={{
             padding: 24, borderRadius: 16,
@@ -63,13 +63,13 @@ export default function GeoGuesserGuide() {
             border: '1px solid rgba(0, 255, 148, 0.15)',
             marginBottom: 20
           }}>
-            <p style={{ fontWeight: 700, color: '#00ff94', marginBottom: 8, fontSize: 14 }}>💡 The "Similar Pair" Method</p>
+            <p style={{ fontWeight: 700, color: '#00ff94', marginBottom: 8, fontSize: 14 }}>💡 The &quot;Similar Pair" Method</p>
             <p style={{ fontSize: 14 }}>
-              Many flags look nearly identical. Romania and Chad share the same blue-yellow-red tricolour. Monaco and Indonesia are both red-over-white bicolours (Indonesia's is slightly different in proportions). Ireland and Côte d'Ivoire are mirror images. By studying these "twin" flags deliberately, you prevent mix-ups during speed rounds.
+              Many flags look nearly identical. Romania and Chad share the same blue-yellow-red tricolour. Monaco and Indonesia are both red-over-white bicolours (Indonesia&apos;s is slightly different in proportions). Ireland and Côte d'Ivoire are mirror images. By studying these &quot;twin" flags deliberately, you prevent mix-ups during speed rounds.
             </p>
           </div>
           <p style={{ marginBottom: 20 }}>
-            <strong>The "Unique Feature" Method:</strong> Focus on what makes a flag <em>unlike</em> any other. Nepal is the only non-rectangular flag in the world. Switzerland and Vatican City are the only square flags. Mozambique's flag features an AK-47. Cambodia's flag has Angkor Wat. These unique features become instant identifiers that you will never forget.
+            <strong>The &quot;Unique Feature" Method:</strong> Focus on what makes a flag <em>unlike</em> any other. Nepal is the only non-rectangular flag in the world. Switzerland and Vatican City are the only square flags. Mozambique&apos;s flag features an AK-47. Cambodia's flag has Angkor Wat. These unique features become instant identifiers that you will never forget.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🌐 3. Why Geography Games Matter in 2026</h2>

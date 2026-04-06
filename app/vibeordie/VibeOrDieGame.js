@@ -268,7 +268,7 @@ export default function VibeOrDieGame() {
           </div>
           <div className="how-to-play-step">
             <span className="how-to-play-number">3</span>
-            <span>Complete 5 rounds in a row. We calculate your average speed and best time to give you a final 'Vibe Rating'!</span>
+            <span>Complete 5 rounds in a row. We calculate your average speed and best time to give you a final &apos;Vibe Rating'!</span>
           </div>
         </div>
       </div>

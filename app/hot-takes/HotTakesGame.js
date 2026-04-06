@@ -105,19 +105,16 @@ const HOT_TAKES = [
 import GameEndScreen from '../components/GameEndScreen';
 
 export default function HotTakesGame() {
-  const [mounted, setMounted] = useState(false);
-  const [gameTakes, setGameTakes] = useState([]);
+  const [mounted, setMounted] = useState(true);
+  const [gameTakes, setGameTakes] = useState(() => {
+    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
+    return shuffled;
+  });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [voted, setVoted] = useState(false);
   const [myVote, setMyVote] = useState(null);
   const [totalVoted, setTotalVoted] = useState(0);
   const [votes, setVotes] = useState({}); // track user votes
-
-  useEffect(() => {
-    setMounted(true);
-    const shuffled = [...HOT_TAKES].sort(() => Math.random() - 0.5).slice(0, 10);
-    setGameTakes(shuffled);
-  }, []);
 
   if (!mounted || gameTakes.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
 

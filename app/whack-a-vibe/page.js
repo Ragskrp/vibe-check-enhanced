@@ -18,7 +18,7 @@ export default function WhackVibePage() {
         <h1 style={{ fontSize: 36, fontWeight: 900, color: '#f59e0b', marginBottom: 8, marginTop: 32 }}>
           WHACK-A-VIBE 🔨
         </h1>
-        <p style={{ color: '#888', fontSize: 16 }}>Smash the bad vibes. Don't hit the good ones. 30 seconds on the clock!</p>
+        <p style={{ color: '#888', fontSize: 16 }}>Smash the bad vibes. Don&apos;t hit the good ones. 30 seconds on the clock!</p>
       </div>
       
       <WhackGame />
@@ -37,7 +37,7 @@ export default function WhackVibePage() {
         </div>
 
         <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>Improving Focus and Peripheral Awareness</h3>
-        <p><strong>Whack-a-Vibe</strong> is a classic test of reaction time and impulse control. It trains the brain to differentiate between "targets" and "distractors" under high pressure. This skill—the ability to selectively process visual information—is essential for everything from driving to competitive athletics.</p>
+        <p><strong>Whack-a-Vibe</strong> is a classic test of reaction time and impulse control. It trains the brain to differentiate between &quot;targets" and "distractors" under high pressure. This skill—the ability to selectively process visual information—is essential for everything from driving to competitive athletics.</p>
 
         <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>✨ Importance: Skill & Health Benefits</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', margin: '32px 0' }}>
