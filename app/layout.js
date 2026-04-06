@@ -14,6 +14,9 @@ export const metadata = {
     template: "%s | VIBEMENOW"
   },
   metadataBase: new URL('https://vibemenow.uk'),
+  alternates: {
+    canonical: '/',
+  },
   description: "Play addictive daily games, take vibe quizzes, vote on hot takes, and challenge friends. 12 free games updated daily — no login required!",
   keywords: ["daily games", "online quiz", "would you rather", "word games", "emoji quiz", "personality quiz", "hot takes", "viral games", "free games", "browser games"],
   authors: [{ name: "VIBEMENOW" }],
@@ -21,7 +24,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vibemenow.uk",
+    url: "/",
     siteName: "VIBEMENOW",
     title: "VIBEMENOW — Free Daily Games & Viral Content",
     description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",

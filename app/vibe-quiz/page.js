@@ -4,9 +4,14 @@ export const metadata = {
   title: 'Vibe Quiz — What Vibe Are You?',
   description: 'Take the ultimate personality vibe quiz! Are you a Sunset Dreamer, Neon Warrior, or Cosmic Explorer? Find out now!',
   openGraph: {
+    url: '/vibe-quiz',
     title: 'Vibe Quiz — What Vibe Are You? | VIBEMENOW',
     description: 'Find out your vibe personality! ✨ Take the quiz now!',
   }
+  , alternates: {
+    canonical: '/vibe-quiz',
+  },
+
 };
 
 export default function VibeQuizPage() {

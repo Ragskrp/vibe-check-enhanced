@@ -1,9 +1,14 @@
 import MergeGame from './MergeGame';
 import AdBanner from '../components/AdBanner';
 
-export const metadata = {
-  title: 'Merge Vibe (2048) | VIBEMENOW',
+export const metadata = {title: 'Merge Vibe (2048) | VIBEMENOW',
   description: 'The classic 2048 puzzle game with a vibe. Swipe to merge tiles and reach the legendary 2048 vibe. Free browser-based puzzle game.',
+  alternates: {
+    canonical: '/2048-vibe',
+  },
+  openGraph: {
+    url: '/2048-vibe',
+  },
 };
 
 export default function VibeMergePage() {

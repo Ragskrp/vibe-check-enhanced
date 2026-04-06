@@ -4,6 +4,13 @@ import AdBanner from '../components/AdBanner';
 export const metadata = {
   title: 'Flappy Vibe | VIBEMENOW',
   description: 'Tap, click, or space to flap your way through high-stakes obstacles. Free browser-based skill game to test your reflexes.',
+  alternates: {
+    canonical: '/flappy-vibe',
+  },
+  openGraph: {
+    url: '/flappy-vibe',
+  },
+
 };
 
 export default function FlappyVibePage() {

@@ -4,9 +4,14 @@ export const metadata = {
   title: 'Emoji IQ — Guess the Emoji Puzzle',
   description: 'Can you decode emoji puzzles? Guess movies, phrases, and more from emoji clues. Test your Emoji IQ now!',
   openGraph: {
+    url: '/emoji-iq',
     title: 'Emoji IQ — Decode Emoji Puzzles | VIBEMENOW',
     description: 'How smart are you with emojis? 😂 Test your Emoji IQ now!',
   }
+  , alternates: {
+    canonical: '/emoji-iq',
+  },
+
 };
 
 export default function EmojiIQPage() {

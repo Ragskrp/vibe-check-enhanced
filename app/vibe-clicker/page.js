@@ -1,9 +1,14 @@
 import VibeClickerGame from './VibeClickerGame';
 import AdBanner from '../components/AdBanner';
 
-export const metadata = {
-  title: 'Vibe Clicker | VIBEMENOW',
+export const metadata = {title: 'Vibe Clicker | VIBEMENOW',
   description: 'The ultimate idle clicking experience. Generate energy, buy upgrades, and automate your vibes. Play Vibe Clicker free online.',
+  alternates: {
+    canonical: '/vibe-clicker',
+  },
+  openGraph: {
+    url: '/vibe-clicker',
+  },
 };
 
 export default function VibeClickerPage() {

@@ -1,8 +1,13 @@
 import PollPartyGame from './PollPartyGame';
 
-export const metadata = {
-  title: 'Poll Party | VIBEMENOW',
+export const metadata = {title: 'Poll Party | VIBEMENOW',
   description: 'Funny prompts and competitive voting. Pitch your best vibes and see who has the best sense of humor!',
+  alternates: {
+    canonical: '/poll-party',
+  },
+  openGraph: {
+    url: '/poll-party',
+  },
 };
 
 export const dynamic = 'force-dynamic';

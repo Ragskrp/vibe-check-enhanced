@@ -1,8 +1,13 @@
 import DrawingDashGame from './DrawingDashGame';
 
-export const metadata = {
-  title: 'Drawing Dash | VIBEMENOW',
+export const metadata = {title: 'Drawing Dash | VIBEMENOW',
   description: 'The ultimate real-time drawing and guessing battle. Pick up the brush and see if your friends can guess your vibe!',
+  alternates: {
+    canonical: '/drawing-dash',
+  },
+  openGraph: {
+    url: '/drawing-dash',
+  },
 };
 
 export const dynamic = 'force-dynamic';

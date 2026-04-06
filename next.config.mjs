@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     transpilePackages: [
         'three', 
@@ -15,7 +14,22 @@ const nextConfig = {
         '@grpc/proto-loader', 
         '@grpc/grpc-js',
         'lodash.camelcase'
-    ]
+    ],
+    async redirects() {
+      return [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'www.vibemenow.uk',
+            },
+          ],
+          destination: 'https://vibemenow.uk/:path*',
+          permanent: true,
+        },
+      ];
+    },
 };
 
 export default nextConfig;

@@ -1,8 +1,13 @@
 import ReactionArenaGame from './ReactionArenaGame';
 
-export const metadata = {
-  title: 'Reaction Arena | VIBEMENOW',
+export const metadata = {title: 'Reaction Arena | VIBEMENOW',
   description: 'Multiplayer fast-reflex battle. Challenge your friends to see who can react the fastest!',
+  alternates: {
+    canonical: '/reaction-arena',
+  },
+  openGraph: {
+    url: '/reaction-arena',
+  },
 };
 
 export const dynamic = 'force-dynamic';

@@ -6,10 +6,15 @@ export const metadata = {
   description: "Challenge your brain with Vocab Vibe. Match geometry, science, and digital culture terms to their correct definitions in this fast-paced daily matching game.",
   keywords: ["vocabulary game", "word match", "geometry quiz", "science terms", "daily brain game", "educational puzzle", "multiplayer vocab"],
   openGraph: {
+    url: '/vocab-match',
     title: "Vocab Vibe — Boost Your Brain Daily",
     description: "The ultimate vocabulary matching challenge. No login. Just vibes. ⚡",
     images: ["/og-image.png"]
   }
+  , alternates: {
+    canonical: '/vocab-match',
+  },
+
 };
 
 export const dynamic = 'force-dynamic';

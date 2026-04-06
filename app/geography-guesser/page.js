@@ -1,8 +1,13 @@
 import GeographyGuesserGame from './GeographyGuesserGame';
 
-export const metadata = {
-  title: 'Geography Guesser | VIBEMENOW',
+export const metadata = {title: 'Geography Guesser | VIBEMENOW',
   description: 'Test your world flag knowledge in this fast-paced geography game. Can you identify them all?',
+  alternates: {
+    canonical: '/geography-guesser',
+  },
+  openGraph: {
+    url: '/geography-guesser',
+  },
 };
 
 export const dynamic = 'force-dynamic';

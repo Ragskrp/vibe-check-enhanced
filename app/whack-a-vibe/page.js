@@ -1,9 +1,14 @@
 import WhackGame from './WhackGame';
 import AdBanner from '../components/AdBanner';
 
-export const metadata = {
-  title: 'Whack-a-Vibe | VIBEMENOW',
+export const metadata = {title: 'Whack-a-Vibe | VIBEMENOW',
   description: 'Test your reflexes and destroy the bad vibes. Fast-paced whack-a-mole style game with addictive gameplay. Play Whack-a-Vibe for free.',
+  alternates: {
+    canonical: '/whack-a-vibe',
+  },
+  openGraph: {
+    url: '/whack-a-vibe',
+  },
 };
 
 export default function WhackVibePage() {
