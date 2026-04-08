@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 /**
  * Google AdSense Banner Component
@@ -14,12 +15,32 @@ import { useState, useEffect, useRef } from 'react';
  * - "auto" - Responsive
  */
 export default function AdBanner({ slot = '7171012882', format = 'auto', className = '' }) {
-  const [mounted, setMounted] = useState(false);
   const adRef = useRef(null);
   const isLoaded = useRef(false);
+  const pathname = usePathname();
+
+  const adBlockedRoutes = new Set([
+    '/2048-vibe',
+    '/about',
+    '/community-guidelines',
+    '/contact',
+    '/disclaimer',
+    '/drawing-dash',
+    '/editorial-policy',
+    '/flappy-vibe',
+    '/memory-arena',
+    '/odd-one-out',
+    '/poll-party',
+    '/privacy',
+    '/quiz-arena',
+    '/reaction-arena',
+    '/terms',
+    '/vibe-clicker',
+    '/whack-a-vibe'
+  ]);
+  const adsBlocked = adBlockedRoutes.has(pathname);
 
   useEffect(() => {
-    setMounted(true);
     if (isLoaded.current) return;
     
     try {
@@ -32,12 +53,8 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     }
   }, []);
 
-  if (!mounted) {
-    return (
-      <div className={`ad-slot ${className}`} style={{
-        minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px'
-      }} />
-    );
+  if (adsBlocked) {
+    return null;
   }
 
   // In development, show a placeholder

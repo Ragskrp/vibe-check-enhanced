@@ -10,6 +10,7 @@ import { Palette, Users, Home, ArrowRight, Trophy, Send, ChevronLeft, Eraser, He
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import confetti from 'canvas-confetti';
+import { sanitizeFreeText, sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -26,7 +27,6 @@ const WORDS = [
 const DRAW_COLORS = ['#fff', '#ff2d78', '#00d4ff', '#ffe600', '#00ff94', '#b14aed'];
 
 export default function DrawingDashGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); 
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -45,8 +45,6 @@ export default function DrawingDashGame() {
   const lastRound = useRef(null);
   const lastDrawnCount = useRef(0);
   const linesBuffer = useRef([]);
-
-  useEffect(() => { setMounted(true); }, []);
 
   // Timer logic
   useEffect(() => {
@@ -87,9 +85,36 @@ export default function DrawingDashGame() {
     }, 3000);
   };
 
+  function syncCanvas(lines) {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    if (lines.length === 0 || lines.length < lastDrawnCount.current) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      lastDrawnCount.current = 0;
+      if (lines.length === 0) return;
+    }
+
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 4;
+
+    for (let i = lastDrawnCount.current; i < lines.length; i++) {
+      const line = lines[i];
+      if (!line) continue;
+      ctx.strokeStyle = line.c || '#00d4ff';
+      ctx.beginPath();
+      ctx.moveTo(line.x1 * canvas.width, line.y1 * canvas.height);
+      ctx.lineTo(line.x2 * canvas.width, line.y2 * canvas.height);
+      ctx.stroke();
+    }
+    lastDrawnCount.current = lines.length;
+  }
+
   // Firestore Listener for Game State and Drawing
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
     const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
       if (docSnapshot.exists()) {
         const data = docSnapshot.data();
@@ -120,7 +145,7 @@ export default function DrawingDashGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, view, mounted, myPlayerId]);
+  }, [room?.id, view, myPlayerId]);
 
   // Sync buffered lines to Firestore periodically
   useEffect(() => {
@@ -142,42 +167,15 @@ export default function DrawingDashGame() {
     }
   }, [view, room?.id, room?.drawerId, room?.gameState, myPlayerId]);
 
-  const syncCanvas = (lines) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    
-    if (lines.length === 0 || lines.length < lastDrawnCount.current) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      lastDrawnCount.current = 0;
-      if (lines.length === 0) return;
-    }
-
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    ctx.lineWidth = 4;
-
-    for (let i = lastDrawnCount.current; i < lines.length; i++) {
-      const line = lines[i];
-      if (!line) continue;
-      ctx.strokeStyle = line.c || '#00d4ff';
-      ctx.beginPath();
-      ctx.moveTo(line.x1 * canvas.width, line.y1 * canvas.height);
-      ctx.lineTo(line.x2 * canvas.width, line.y2 * canvas.height);
-      ctx.stroke();
-    }
-    lastDrawnCount.current = lines.length;
-  };
-
-  if (!mounted) return <div className="game-container" />;
-
   const generateRoomCode = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
   }
 
   const handleCreateRoom = async () => {
-    if (!playerName) return setError('Enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) return setError(nameError);
     const code = generateRoomCode();
     
     // Choose 3 options
@@ -197,7 +195,7 @@ export default function DrawingDashGame() {
       currentWord: '',
       gameState: 'choosing', // choosing -> drawing
       lines: [],
-      players: [{ name: playerName, score: 0 }],
+      players: [{ name: cleanName, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -209,8 +207,11 @@ export default function DrawingDashGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
-    const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || !cleanCode) return setError(nameError || 'Enter name and 3-letter code!');
+    const q = query(collection(db, "rooms"), where("code", "==", cleanCode), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
     
@@ -219,10 +220,10 @@ export default function DrawingDashGame() {
     const playerIdx = roomData.players.length;
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
-      players: arrayUnion({ name: playerName, score: 0 })
+      players: arrayUnion({ name: cleanName, score: 0 })
     });
 
-    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, { name: playerName, score: 0 }] });
+    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, { name: cleanName, score: 0 }] });
     setMyPlayerId(playerIdx);
     setIsHost(false);
     setView('lobby');
@@ -310,7 +311,7 @@ export default function DrawingDashGame() {
 
       await updateDoc(doc(db, "rooms", room.id), {
         players: newPlayers,
-        lastWinner: playerName,
+        lastWinner: sanitizePlayerName(playerName),
         status: isGameOver ? 'results' : 'playing'
       });
 
@@ -371,8 +372,8 @@ export default function DrawingDashGame() {
             placeholder="E.G. PICASSO" 
             className="input-field"
             value={playerName}
-            onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            onChange={e => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -392,7 +393,7 @@ export default function DrawingDashGame() {
               placeholder="ENTER DASH CODE"
               className="input-field"
               value={roomCode}
-              onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
             />
             <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>
@@ -546,7 +547,7 @@ export default function DrawingDashGame() {
                  className="input-field"
                  placeholder="TYPE YOUR GUESS..."
                  value={guess}
-                 onChange={e => setGuess(e.target.value.toUpperCase())}
+                 onChange={e => setGuess(sanitizeFreeText(e.target.value.toUpperCase(), 40))}
                  onKeyDown={e => e.key === 'Enter' && handleGuess()}
                />
                <button className="btn-primary" onClick={handleGuess}>Guess</button>

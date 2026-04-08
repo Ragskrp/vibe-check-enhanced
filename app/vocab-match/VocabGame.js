@@ -10,6 +10,7 @@ import {
   doc, onSnapshot, setDoc, updateDoc, 
   query, collection, where, getDocs, arrayUnion, serverTimestamp, getDoc 
 } from 'firebase/firestore';
+import { sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const VOCAB_SETS = {
   geometry: {
@@ -199,8 +200,10 @@ export default function VocabGame() {
 
   // MULTIPLAYER LOGIC
   const createArenaRoom = async () => {
-    if (!playerName || playerName.trim().length < 2) {
-      setError('Please enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) {
+      setError(nameError);
       return;
     }
     try {
@@ -209,7 +212,7 @@ export default function VocabGame() {
         code,
         topic: currentSet,
         status: 'lobby',
-        players: [{ name: playerName, progress: 0 }],
+        players: [{ name: cleanName, progress: 0 }],
         winner: null,
         createdAt: serverTimestamp(),
       };
@@ -224,12 +227,15 @@ export default function VocabGame() {
   };
 
   const joinArenaRoom = async () => {
-    if (!playerName || roomCode.length !== 3) {
-      setError('Enter name and 3-letter code!');
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || cleanCode.length !== 3) {
+      setError(nameError || 'Enter name and 3-letter code!');
       return;
     }
     try {
-      const q = query(collection(db, "vocab_rooms"), where("code", "==", roomCode.toUpperCase()));
+      const q = query(collection(db, "vocab_rooms"), where("code", "==", cleanCode));
       const snap = await getDocs(q);
       if (snap.empty) {
         setError('Room not found!');
@@ -243,7 +249,7 @@ export default function VocabGame() {
       }
       const playerIdx = data.players.length;
       await updateDoc(doc(db, "vocab_rooms", roomDoc.id), {
-        players: arrayUnion({ name: playerName, progress: 0 })
+        players: arrayUnion({ name: cleanName, progress: 0 })
       });
       setRoom({ id: roomDoc.id, ...data });
       setCurrentSet(data.topic);
@@ -354,7 +360,7 @@ export default function VocabGame() {
         <input 
           placeholder="ENTER NICKNAME" 
           value={playerName} 
-          onChange={e => setPlayerName(e.target.value)} 
+          onChange={e => setPlayerName(sanitizePlayerName(e.target.value))} 
           className="input-field" 
         />
         
@@ -376,7 +382,7 @@ export default function VocabGame() {
              <input 
               placeholder="CODE" 
               value={roomCode} 
-              onChange={e => setRoomCode(e.target.value.toUpperCase())} 
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))} 
               maxLength={3}
               style={{ padding: 10, borderRadius: 10, background: '#0a0a0f', color: '#fff', border: '1px solid #2a2a3e', textAlign: 'center', fontWeight: 'bold' }}
              />

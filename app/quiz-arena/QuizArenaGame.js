@@ -9,6 +9,7 @@ import {
 import { Share2, ArrowRight, Trophy, Users, Search, PlusCircle, LogIn, ChevronLeft, HelpCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import AdBanner from '../components/AdBanner';
+import { sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -182,7 +183,6 @@ function generateRoomCode() {
 import GameEndScreen from '../components/GameEndScreen';
 
 export default function QuizArenaGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); // home, lobby, playing, results
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -207,13 +207,9 @@ export default function QuizArenaGame() {
     }
   }, [view]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   // Firestore listeners
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
 
     const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
       if (docSnapshot.exists()) {
@@ -252,14 +248,42 @@ export default function QuizArenaGame() {
     });
 
     return () => unsub();
-  }, [room?.id, view, mounted]);
+  }, [room?.id, view]);
+
+  async function handleAnswer(idx) {
+    if (selectedAnswer !== null) return;
+    setSelectedAnswer(idx);
+
+    const question = room.questions[room.currentQuestion];
+    const isCorrect = idx === question.answer;
+    const points = isCorrect ? 10 : 0;
+
+    const roomRef = doc(db, "rooms", room.id);
+    const docSnap = await getDoc(roomRef);
+    if (!docSnap.exists()) return;
+
+    const currentData = docSnap.data();
+    const newPlayers = [...currentData.players];
+    newPlayers[myPlayerId] = {
+      ...newPlayers[myPlayerId],
+      score: newPlayers[myPlayerId].score + points,
+      answers: [...(newPlayers[myPlayerId].answers || []), idx]
+    };
+
+    await updateDoc(roomRef, { players: newPlayers });
+  }
 
   // Timer logic for playing state
   useEffect(() => {
-    if (!mounted || view !== 'playing' || !room) return;
+    if (view !== 'playing' || !room) return;
 
     if (timer <= 0) {
-      if (selectedAnswer === null) handleAnswer(-1); // timeout
+      if (selectedAnswer === null) {
+        const timeout = setTimeout(() => {
+          void handleAnswer(-1);
+        }, 0);
+        return () => clearTimeout(timeout);
+      }
       return;
     }
 
@@ -268,21 +292,24 @@ export default function QuizArenaGame() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [view, timer, selectedAnswer, room, mounted]);
+  }, [view, timer, selectedAnswer, room]);
 
   // Reset timer on question change
   useEffect(() => {
-    if (mounted && view === 'playing' && room) {
-      setTimer(5);
-      setSelectedAnswer(null);
+    if (view === 'playing' && room) {
+      const timeout = setTimeout(() => {
+        setTimer(5);
+        setSelectedAnswer(null);
+      }, 0);
+      return () => clearTimeout(timeout);
     }
-  }, [room?.currentQuestion, view, mounted]);
-
-  if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
+  }, [room?.currentQuestion, view, room]);
 
   const handleCreateRoom = async () => {
-    if (!playerName || playerName.trim().length < 2) {
-      setError('Please enter a valid nickname (min 2 chars)!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) {
+      setError(nameError);
       return;
     }
     setError('');
@@ -295,7 +322,7 @@ export default function QuizArenaGame() {
         status: 'lobby',
         currentQuestion: 0,
         questions: TRIVIA_QUESTIONS[selectedCategory],
-        players: [{ name: playerName, score: 0, answers: [] }],
+        players: [{ name: cleanName, score: 0, answers: [] }],
         createdAt: serverTimestamp(),
       };
 
@@ -317,14 +344,17 @@ export default function QuizArenaGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode.trim() || roomCode.trim().length !== 3) {
-      setError('Enter both a valid name and 3-char room code!');
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || cleanCode.length !== 3) {
+      setError(nameError || 'Enter both a valid name and 3-char room code!');
       return;
     }
     setError('');
 
     try {
-      const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()));
+      const q = query(collection(db, "rooms"), where("code", "==", cleanCode));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
@@ -340,7 +370,7 @@ export default function QuizArenaGame() {
         return;
       }
 
-      const newPlayer = { name: playerName, score: 0, answers: [] };
+      const newPlayer = { name: cleanName, score: 0, answers: [] };
       const playerIdx = roomData.players.length;
 
       const roomRef = doc(db, "rooms", roomDoc.id);
@@ -361,29 +391,6 @@ export default function QuizArenaGame() {
   const startGame = async () => {
     if (!isHost) return;
     await updateDoc(doc(db, "rooms", room.id), { status: 'playing', currentQuestion: 0 });
-  };
-
-  const handleAnswer = async (idx) => {
-    if (selectedAnswer !== null) return;
-    setSelectedAnswer(idx);
-
-    const question = room.questions[room.currentQuestion];
-    const isCorrect = idx === question.answer;
-    const points = isCorrect ? 10 : 0;
-
-    const roomRef = doc(db, "rooms", room.id);
-    const docSnap = await getDoc(roomRef);
-    if (!docSnap.exists()) return;
-    
-    const currentData = docSnap.data();
-    const newPlayers = [...currentData.players];
-    newPlayers[myPlayerId] = {
-      ...newPlayers[myPlayerId],
-      score: newPlayers[myPlayerId].score + points,
-      answers: [...(newPlayers[myPlayerId].answers || []), idx]
-    };
-
-    await updateDoc(roomRef, { players: newPlayers });
   };
 
   const nextQuestion = async () => {
@@ -435,8 +442,8 @@ export default function QuizArenaGame() {
           <input 
             placeholder="E.G. QUIZ_MASTER"
             value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
-            maxLength={15}
+            onChange={(e) => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             className="input-field"
             style={{ marginBottom: 0 }}
           />
@@ -466,7 +473,7 @@ export default function QuizArenaGame() {
             <input 
               placeholder="CODE"
               value={roomCode}
-              onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
+              onChange={(e) => setRoomCode(sanitizeRoomCode(e.target.value))}
               maxLength={3}
               className="input-field"
               style={{ textAlign: 'center', fontSize: '14px', letterSpacing: '2px', padding: '10px', marginBottom: '12px' }}

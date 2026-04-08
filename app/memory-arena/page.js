@@ -8,6 +8,10 @@ export const metadata = {title: 'Memory Arena | VIBEMENOW',
   openGraph: {
     url: '/memory-arena',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export const dynamic = 'force-dynamic';

@@ -8,6 +8,10 @@ export const metadata = {title: 'Poll Party | VIBEMENOW',
   openGraph: {
     url: '/poll-party',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export const dynamic = 'force-dynamic';

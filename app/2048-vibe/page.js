@@ -9,6 +9,10 @@ export const metadata = {title: 'Merge Vibe (2048) | VIBEMENOW',
   openGraph: {
     url: '/2048-vibe',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function VibeMergePage() {

@@ -1,5 +1,6 @@
-import SiteLayout from "./components/SiteLayout";
 import Script from "next/script";
+import CookieConsent from "./components/CookieConsent";
+import SiteLayout from "./components/SiteLayout";
 import "./globals.css";
 
 export const viewport = {
@@ -10,15 +11,24 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: "VIBEMENOW — Free Daily Games, Quizzes & Viral Content",
-    template: "%s | VIBEMENOW"
+    default: "VIBEMENOW | Free Browser Games and Quick Quizzes",
+    template: "%s | VIBEMENOW",
   },
-  metadataBase: new URL('https://vibemenow.uk'),
+  metadataBase: new URL("https://vibemenow.uk"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
-  description: "Play addictive daily games, take vibe quizzes, vote on hot takes, and challenge friends. 12 free games updated daily — no login required!",
-  keywords: ["daily games", "online quiz", "would you rather", "word games", "emoji quiz", "personality quiz", "hot takes", "viral games", "free games", "browser games"],
+  description:
+    "Play original browser games, quick quizzes, and lightweight party modes on VIBEMENOW. No account required.",
+  keywords: [
+    "browser games",
+    "daily games",
+    "word game",
+    "emoji quiz",
+    "would you rather",
+    "reaction game",
+    "free games",
+  ],
   authors: [{ name: "VIBEMENOW" }],
   creator: "VIBEMENOW",
   openGraph: {
@@ -26,24 +36,25 @@ export const metadata = {
     locale: "en_US",
     url: "/",
     siteName: "VIBEMENOW",
-    title: "VIBEMENOW — Free Daily Games & Viral Content",
-    description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
+    title: "VIBEMENOW | Free Browser Games and Quick Quizzes",
+    description:
+      "A collection of original browser games you can open in seconds, from daily puzzles to party-room challenges.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "VIBEMENOW - Play Daily Games"
-      }
-    ]
+        alt: "VIBEMENOW - Play browser games",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VIBEMENOW — Free Daily Games & Viral Content",
-    description: "Play 12 addictive daily games. No login. Just vibes. ⚡",
-    images: ["/og-image.png"]
+    title: "VIBEMENOW | Free Browser Games and Quick Quizzes",
+    description:
+      "Play original browser games and quick quizzes with no account required.",
+    images: ["/og-image.png"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -52,10 +63,10 @@ export const metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({ children }) {
@@ -65,22 +76,23 @@ export default function RootLayout({ children }) {
       "@type": "WebApplication",
       name: "VIBEMENOW",
       url: "https://vibemenow.uk",
-      description: "A collection of fast, addictive, and bite-sized daily games designed to brighten your mood and challenge your brain.",
+      description:
+        "A collection of original browser games, quizzes, and quick party experiences that run without registration.",
       applicationCategory: "GameApplication",
       operatingSystem: "Any",
       offers: {
         "@type": "Offer",
         price: "0",
-        priceCurrency: "USD"
-      }
+        priceCurrency: "USD",
+      },
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "VIBEMENOW",
       url: "https://vibemenow.uk",
-      logo: "https://vibemenow.uk/icon.png"
-    }
+      logo: "https://vibemenow.uk/icon.png",
+    },
   ];
 
   return (
@@ -92,8 +104,6 @@ export default function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="VIBEMENOW" />
-        {/* Google AdSense - ca-pub-7832965089021505 */}
-        {/* Google AdSense - ca-pub-7832965089021505 */}
         <Script
           id="adsbygoogle-init"
           strategy="afterInteractive"
@@ -106,13 +116,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="grid-bg" suppressHydrationWarning>
-        <SiteLayout>
-          {children}
-        </SiteLayout>
+        <SiteLayout>{children}</SiteLayout>
         <CookieConsent />
       </body>
     </html>
   );
 }
-
-import CookieConsent from "./components/CookieConsent";

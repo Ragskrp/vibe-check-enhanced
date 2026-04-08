@@ -1,41 +1,68 @@
 import HotTakesGame from './HotTakesGame';
 
 export const metadata = {
-  title: 'Hot Takes — Vote on Viral Opinions',
-  description: 'Do you agree or disagree? Vote on controversial hot takes and see if your opinion matches the crowd!',
+  title: 'Hot Takes | Vote on Opinions',
+  description: 'Vote agree or disagree on short opinion prompts and compare your answer with other players.',
   openGraph: {
     url: '/hot-takes',
-    title: 'Hot Takes — Vote on Viral Opinions | VIBEMENOW',
-    description: 'Spicy opinions need your vote! 🔥 Agree or disagree?',
-  }
-  , alternates: {
+    title: 'Hot Takes | Vote on Opinions | VIBEMENOW',
+    description: 'Choose a side and compare how other players voted.',
+  },
+  alternates: {
     canonical: '/hot-takes',
   },
-
 };
 
 export const dynamic = 'force-dynamic';
-
 
 export default function HotTakesPage() {
   return (
     <>
       <HotTakesGame />
-      <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>The Psychology of &quot;Hot Takes": A Guide to Viral Opinions and Debate</h2>
-        
-        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>What Exactly is a &quot;Hot Take&quot;?</h3>
-        <p>In modern internet culture, the term &quot;hot take&quot; refers to a piece of commentary, an opinion, or a stance that is intentionally provocative, mildly controversial, and completely goes against the grain of mainstream consensus. While the term originated in sports journalism to describe loud, attention-grabbing debate points, it has evolved into a global social pastime. From asserting that &quot;pineapple absolutely belongs on pizza&quot; to claiming that &quot;The Beatles are wildly overrated,&quot; hot takes are the fuel that powers internet discourse. On VIBEMENOW&apos;s Hot Takes game, we compile the best, funniest, and most divisive opinions on the web and force players to officially pick a side. It is a wildly entertaining way to measure where your personal preferences align with the cultural zeitgeist.</p>
+      <article
+        className="seo-guide"
+        style={{
+          maxWidth: '800px',
+          margin: '40px auto',
+          padding: '0 20px',
+          color: '#ccc',
+          lineHeight: '1.7',
+          fontFamily: 'system-ui, sans-serif',
+        }}
+      >
+        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+          About Hot Takes
+        </h2>
 
-        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>How to Play and Evaluate the Data</h3>
-        <p>Playing Hot Takes is remarkably simple, but emotionally taxing—in the best way possible. Each round, a bold statement will appear on your screen. Your only job is to vote: &quot;Agree" or "Disagree." Once your vote is cast, the true fun begins. The system immediately reveals the real-time voting data from thousands of other players. This creates a moment of sudden revelation. You will either feel the immense vindication of knowing that the majority of the internet agrees with your weird dietary habits, or you will experience the hilarious realization that you are completely alone in your bizarre worldview.</p>
-        <p>This game is best experienced in a social setting. Reading a hot take out loud to a room of friends guarantees an instant burst of conversation. It acts as an incredible conversational icebreaker, often revealing surprising facets of your friends&apos; personalities that would never surface during normal small talk.</p>
+        <p>
+          Hot Takes is a simple voting game. You read a short opinion, choose a side, and then
+          compare your answer with the split from other players. The point is not to prove a fact.
+          It is to see where your instinct lands on a question people can reasonably disagree on.
+        </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>Why We Are Obsessed with Controversial Opinions</h3>
-        <p>Psychologically, human beings are deeply fascinated by social consensus. We are biologically wired to understand where we fit within a &quot;tribe." When you play a game of Hot Takes, you are essentially engaging in safe, low-stakes tribalism. Disagreeing over whether a hotdog is a sandwich does not have real-world consequences, but it allows us to flex our debate skills, express individuality, and enjoy the thrill of conflict without actual danger. Furthermore, adopting a "contrarian" opinion (a hot take) gives the brain a jolt of dopamine. It makes individuals feel unique and observant, fostering a sense of intellectual rebellion.</p>
+        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
+          What makes a prompt work
+        </h3>
+        <p>
+          The best prompts sit in the middle ground. If the answer feels completely obvious, there
+          is no tension. If the statement is too vague or too extreme, the result is less fun. The
+          interesting rounds are the ones that sound simple but reveal different habits, tastes, or
+          priorities once people start voting.
+        </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>How to Craft the Perfect Hot Take</h3>
-        <p>If you&apos;re looking to generate debate among your peers, formulating a good hot take is an art form. A poor hot take is completely offensive or demonstrably false (e.g., &quot;Water isn't wet"). A perfect hot take lies in the grey area of subjective experience. To craft one, think about universally beloved media, foods, or daily habits, and try to find a legitimate, logical flaw in them. Conversely, take something universally reviled and defend it passionately. For example, "Sitting in the middle seat on an airplane is actually the best spot because it forces you to practice mindfulness" is a masterful hot take. By practicing the art of the hot take, you learn how to view the world from alternative perspectives and realize that consensus does not always equal absolute truth.</p>
+        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
+          Good ways to use the page
+        </h3>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+          <li style={{ marginBottom: '10px' }}>Play solo if you want quick feedback on where you stand.</li>
+          <li style={{ marginBottom: '10px' }}>Read prompts aloud with friends before anyone votes.</li>
+          <li style={{ marginBottom: '10px' }}>Treat the result as a snapshot of participation, not a serious poll.</li>
+        </ul>
+
+        <p>
+          Hot Takes works best when the conversation stays light. It is meant for low-stakes debate,
+          not for claims that require expertise or sensitive personal advice.
+        </p>
       </article>
     </>
   );

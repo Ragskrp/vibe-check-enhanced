@@ -9,6 +9,7 @@ import {
 import { Brain, Users, Home, ArrowRight, Trophy, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
+import { sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const COLORS = [
   { id: 0, color: '#00d4ff', shadow: 'rgba(0, 212, 255, 0.4)' },
@@ -25,7 +26,6 @@ const FloatingBg = () => (
 );
 
 export default function MemoryArenaGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); 
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -37,10 +37,8 @@ export default function MemoryArenaGame() {
   const [userInput, setUserInput] = useState([]);
   const [isShowingSequence, setIsShowingSequence] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
-
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
     const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
       if (docSnapshot.exists()) {
         const data = docSnapshot.data();
@@ -51,21 +49,48 @@ export default function MemoryArenaGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, view, mounted]);
+  }, [room?.id, view]);
+
+  async function playSequence() {
+    setIsShowingSequence(true);
+    setUserInput([]);
+    
+    for (let i = 0; i < room.sequence.length; i++) {
+      await new Promise(r => setTimeout(r, 400));
+      setActiveButton(room.sequence[i]);
+      await new Promise(r => setTimeout(r, 300));
+      setActiveButton(null);
+    }
+    
+    setIsShowingSequence(false);
+    if (isHost) {
+      const firstAlive = room.players.findIndex(p => p.alive);
+      await updateDoc(doc(db, "rooms", room.id), {
+        gameState: 'input',
+        turnIndex: firstAlive === -1 ? 0 : firstAlive
+      });
+    }
+  }
 
   // Sequence playback logic
   useEffect(() => {
     if (view === 'playing' && room?.gameState === 'showing' && !isShowingSequence) {
-      playSequence();
+      const timer = setTimeout(() => {
+        void playSequence();
+      }, 0);
+      return () => clearTimeout(timer);
     } else if (view === 'playing' && room?.gameState === 'input' && isShowingSequence) {
-      setIsShowingSequence(false);
-      setActiveButton(null);
+      const timer = setTimeout(() => {
+        setIsShowingSequence(false);
+        setActiveButton(null);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [room?.sequence?.length, room?.gameState, view]);
 
   // Host listener for turn and round management
   useEffect(() => {
-    if (!mounted || !room || !isHost || view !== 'playing') return;
+    if (!room || !isHost || view !== 'playing') return;
 
     if (room.gameState === 'input') {
       const alivePlayers = room.players.filter(p => p.alive);
@@ -89,31 +114,7 @@ export default function MemoryArenaGame() {
         return () => clearTimeout(timeout);
       }
     }
-  }, [room?.players, room?.gameState, room?.turnIndex, isHost, view, mounted]);
-
-  const playSequence = async () => {
-    setIsShowingSequence(true);
-    setUserInput([]);
-    
-    for (let i = 0; i < room.sequence.length; i++) {
-      await new Promise(r => setTimeout(r, 400));
-      setActiveButton(room.sequence[i]);
-      await new Promise(r => setTimeout(r, 300));
-      setActiveButton(null);
-    }
-    
-    setIsShowingSequence(false);
-    if (isHost) {
-      // Find first alive player
-      const firstAlive = room.players.findIndex(p => p.alive);
-      await updateDoc(doc(db, "rooms", room.id), { 
-        gameState: 'input',
-        turnIndex: firstAlive === -1 ? 0 : firstAlive
-      });
-    }
-  };
-
-  if (!mounted) return <div className="game-container" />;
+  }, [room?.players, room?.gameState, room?.turnIndex, isHost, view]);
 
   const generateRoomCode = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -121,7 +122,9 @@ export default function MemoryArenaGame() {
   }
 
   const handleCreateRoom = async () => {
-    if (!playerName) return setError('Enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) return setError(nameError);
     const code = generateRoomCode();
     const newRoom = {
       code,
@@ -130,7 +133,7 @@ export default function MemoryArenaGame() {
       gameState: 'waiting',
       sequence: [Math.floor(Math.random() * 4)],
       turnIndex: 0,
-      players: [{ name: playerName, alive: true, score: 0 }],
+      players: [{ name: cleanName, alive: true, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -142,15 +145,18 @@ export default function MemoryArenaGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
-    const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || !cleanCode) return setError(nameError || 'Enter name and 3-letter code!');
+    const q = query(collection(db, "rooms"), where("code", "==", cleanCode), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
     
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
-    const newPlayer = { name: playerName, alive: true, score: 0 };
+    const newPlayer = { name: cleanName, alive: true, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
       players: arrayUnion(newPlayer)
@@ -220,8 +226,8 @@ export default function MemoryArenaGame() {
             placeholder="E.G. PLAYER" 
             className="input-field"
             value={playerName}
-            onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            onChange={e => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -241,7 +247,7 @@ export default function MemoryArenaGame() {
               placeholder="ENTER ARENA CODE"
               className="input-field"
               value={roomCode}
-              onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
             />
             <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>

@@ -131,6 +131,8 @@ export default function SiteLayout({ children }) {
           <div className="footer-links">
             <Link href="/about">About Us</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/editorial-policy">Editorial Policy</Link>
+            <Link href="/community-guidelines">Community Guidelines</Link>
             <Link href="/contact">Contact Us</Link>
             <Link href="/guides">Expert Guides</Link>
             <Link href="/privacy">Privacy Policy</Link>

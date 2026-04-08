@@ -8,6 +8,10 @@ export const metadata = {title: 'Reaction Arena | VIBEMENOW',
   openGraph: {
     url: '/reaction-arena',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export const dynamic = 'force-dynamic';

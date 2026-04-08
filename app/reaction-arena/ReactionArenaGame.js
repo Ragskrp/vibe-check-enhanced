@@ -9,6 +9,7 @@ import {
 import { Zap, Users, Home, ArrowRight, Timer, Trophy, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
+import { sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -18,7 +19,6 @@ const FloatingBg = () => (
 );
 
 export default function ReactionArenaGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); // home, lobby, playing, results
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -28,11 +28,9 @@ export default function ReactionArenaGame() {
   const [error, setError] = useState('');
   const [reactionTime, setReactionTime] = useState(null);
 
-  useEffect(() => { setMounted(true); }, []);
-
   // Firestore Listener
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
     const unsub = onSnapshot(doc(db, "rooms", room.id), (doc) => {
       if (doc.exists()) {
         const data = doc.data();
@@ -43,9 +41,7 @@ export default function ReactionArenaGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, view, mounted]);
-
-  if (!mounted) return <div className="game-container" />;
+  }, [room?.id, view]);
 
   const generateRoomCode = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -53,7 +49,9 @@ export default function ReactionArenaGame() {
   }
 
   const handleCreateRoom = async () => {
-    if (!playerName) return setError('Enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) return setError(nameError);
     const code = generateRoomCode();
     const newRoom = {
       code,
@@ -62,7 +60,7 @@ export default function ReactionArenaGame() {
       gameState: 'waiting',
       currentRound: 1,
       totalRounds: 5,
-      players: [{ name: playerName, reaction: null, score: 0 }],
+      players: [{ name: cleanName, reaction: null, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -74,15 +72,18 @@ export default function ReactionArenaGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode || roomCode.length !== 3) return setError('Enter name and 3-letter code!');
-    const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || cleanCode.length !== 3) return setError(nameError || 'Enter name and 3-letter code!');
+    const q = query(collection(db, "rooms"), where("code", "==", cleanCode), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found or game started!');
     
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
-    const newPlayer = { name: playerName, reaction: null, score: 0 };
+    const newPlayer = { name: cleanName, reaction: null, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
       players: arrayUnion(newPlayer)
@@ -178,8 +179,8 @@ export default function ReactionArenaGame() {
             placeholder="E.G. SPEEDSTER" 
             className="input-field"
             value={playerName}
-            onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            onChange={e => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -199,7 +200,7 @@ export default function ReactionArenaGame() {
               placeholder="ENTER ROOM CODE"
               className="input-field"
               value={roomCode}
-              onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
             />
             <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>

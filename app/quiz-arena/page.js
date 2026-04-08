@@ -11,6 +11,10 @@ export const metadata = {
   , alternates: {
     canonical: '/quiz-arena',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 
 };
 

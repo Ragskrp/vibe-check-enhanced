@@ -8,6 +8,10 @@ export const metadata = {title: 'Drawing Dash | VIBEMENOW',
   openGraph: {
     url: '/drawing-dash',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export const dynamic = 'force-dynamic';

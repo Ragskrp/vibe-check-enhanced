@@ -9,6 +9,7 @@ import {
 import { Eye, Users, Home, ArrowRight, Trophy, ChevronLeft, Target, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
+import { sanitizePlayerName, sanitizeRoomCode, validatePlayerName } from '../lib/contentPolicy';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -29,7 +30,6 @@ const SYMBOLS = [
 ];
 
 export default function OddOneOutGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); 
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -39,10 +39,8 @@ export default function OddOneOutGame() {
   const [error, setError] = useState('');
   const [feedback, setFeedback] = useState(null); // 'correct' or 'wrong'
 
-  useEffect(() => { setMounted(true); }, []);
-
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
     const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnapshot) => {
       if (docSnapshot.exists()) {
         const data = docSnapshot.data();
@@ -56,11 +54,11 @@ export default function OddOneOutGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, room?.currentRound, view, mounted]);
+  }, [room?.id, room?.currentRound, view]);
 
   // Host listener
   useEffect(() => {
-    if (!mounted || !room || !isHost || view !== 'playing') return;
+    if (!room || !isHost || view !== 'playing') return;
 
     if (room.roundWinner) {
       const timer = setTimeout(async () => {
@@ -84,9 +82,7 @@ export default function OddOneOutGame() {
       }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [room?.roundWinner, room?.currentRound, isHost, view, mounted]);
-
-  if (!mounted) return <div className="game-container" />;
+  }, [room?.roundWinner, room?.currentRound, isHost, view]);
 
   const generateRoomCode = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -94,7 +90,9 @@ export default function OddOneOutGame() {
   }
 
   const handleCreateRoom = async () => {
-    if (!playerName) return setError('Enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) return setError(nameError);
     const code = generateRoomCode();
     const newRoom = {
       code,
@@ -105,7 +103,7 @@ export default function OddOneOutGame() {
       oddIndex: Math.floor(Math.random() * GRID_SIZE),
       symbolIndex: Math.floor(Math.random() * SYMBOLS.length),
       roundWinner: null,
-      players: [{ name: playerName, score: 0 }],
+      players: [{ name: cleanName, score: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -117,15 +115,18 @@ export default function OddOneOutGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
-    const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || !cleanCode) return setError(nameError || 'Enter name and 3-letter code!');
+    const q = query(collection(db, "rooms"), where("code", "==", cleanCode), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
     
     const roomDoc = snap.docs[0];
     const roomData = roomDoc.data();
     const playerIdx = roomData.players.length;
-    const newPlayer = { name: playerName, score: 0 };
+    const newPlayer = { name: cleanName, score: 0 };
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
       players: arrayUnion(newPlayer)
@@ -163,7 +164,7 @@ export default function OddOneOutGame() {
 
       await updateDoc(roomRef, { 
         players: newPlayers,
-        roundWinner: playerName
+        roundWinner: sanitizePlayerName(playerName)
       });
     } else {
       setFeedback('wrong');
@@ -186,8 +187,8 @@ export default function OddOneOutGame() {
             placeholder="E.G. PLAYER" 
             className="input-field"
             value={playerName}
-            onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            onChange={e => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -207,7 +208,7 @@ export default function OddOneOutGame() {
               placeholder="ENTER RACE CODE"
               className="input-field"
               value={roomCode}
-              onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
             />
             <button className="btn-primary" onClick={handleJoinRoom} style={{ padding: '0 24px' }}>Join</button>

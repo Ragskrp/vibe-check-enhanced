@@ -9,6 +9,7 @@ import {
 import { MessageSquare, Users, Home, ArrowRight, Trophy, Vote, Send, ChevronLeft, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
+import { sanitizeFreeText, sanitizePlayerName, sanitizeRoomCode, validateFreeText, validatePlayerName } from '../lib/contentPolicy';
 
 const FloatingBg = () => (
   <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'hidden', opacity: 0.3 }}>
@@ -105,7 +106,6 @@ const PROMPTS = [
 ];
 
 export default function PollPartyGame() {
-  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home'); 
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -116,10 +116,8 @@ export default function PollPartyGame() {
   const [myAnswer, setMyAnswer] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
-
   useEffect(() => {
-    if (!mounted || !room?.id) return;
+    if (!room?.id) return;
     const unsub = onSnapshot(doc(db, "rooms", room.id), (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
@@ -131,11 +129,11 @@ export default function PollPartyGame() {
       }
     });
     return () => unsub();
-  }, [room?.id, view, mounted]);
+  }, [room?.id, view]);
 
   // Host listener for voting and answering
   useEffect(() => {
-    if (!mounted || !room || !isHost) return;
+    if (!room || !isHost) return;
 
     if (room.status === 'answering') {
       const allDone = room.players.every(p => p.answer !== null);
@@ -154,9 +152,7 @@ export default function PollPartyGame() {
          return () => clearTimeout(timer);
       }
     }
-  }, [room?.players, room?.status, isHost, mounted]);
-
-  if (!mounted) return <div className="game-container" />;
+  }, [room?.players, room?.status, isHost]);
 
   const generateRoomCode = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -164,14 +160,16 @@ export default function PollPartyGame() {
   }
 
   const handleCreateRoom = async () => {
-    if (!playerName) return setError('Enter a nickname!');
+    const cleanName = sanitizePlayerName(playerName);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError) return setError(nameError);
     const code = generateRoomCode();
     const newRoom = {
       code,
       type: 'pollparty',
       status: 'lobby',
       currentPrompt: PROMPTS[Math.floor(Math.random() * PROMPTS.length)],
-      players: [{ name: playerName, answer: null, score: 0, votes: 0 }],
+      players: [{ name: cleanName, answer: null, score: 0, votes: 0 }],
       createdAt: serverTimestamp()
     };
     const roomRef = doc(collection(db, "rooms"));
@@ -183,8 +181,11 @@ export default function PollPartyGame() {
   };
 
   const handleJoinRoom = async () => {
-    if (!playerName || !roomCode) return setError('Enter name and 3-letter code!');
-    const q = query(collection(db, "rooms"), where("code", "==", roomCode.toUpperCase()), where("status", "==", "lobby"));
+    const cleanName = sanitizePlayerName(playerName);
+    const cleanCode = sanitizeRoomCode(roomCode);
+    const nameError = validatePlayerName(cleanName);
+    if (nameError || cleanCode.length !== 3) return setError(nameError || 'Enter name and 3-letter code!');
+    const q = query(collection(db, "rooms"), where("code", "==", cleanCode), where("status", "==", "lobby"));
     const snap = await getDocs(q);
     if (snap.empty) return setError('Room not found!');
     
@@ -193,10 +194,10 @@ export default function PollPartyGame() {
     const playerIdx = roomData.players.length;
     
     await updateDoc(doc(db, "rooms", roomDoc.id), {
-      players: arrayUnion({ name: playerName, answer: null, score: 0, votes: 0 })
+      players: arrayUnion({ name: cleanName, answer: null, score: 0, votes: 0 })
     });
 
-    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, { name: playerName, answer: null, score: 0, votes: 0 }] });
+    setRoom({ ...roomData, id: roomDoc.id, players: [...roomData.players, { name: cleanName, answer: null, score: 0, votes: 0 }] });
     setMyPlayerId(playerIdx);
     setIsHost(false);
     setView('lobby');
@@ -208,10 +209,13 @@ export default function PollPartyGame() {
   };
 
   const submitAnswer = async () => {
-    if (!myAnswer) return;
+    const cleanAnswer = sanitizeFreeText(myAnswer, 100);
+    const answerError = validateFreeText(cleanAnswer);
+    if (answerError) return setError(answerError);
     const newPlayers = [...room.players];
-    newPlayers[myPlayerId].answer = myAnswer;
+    newPlayers[myPlayerId].answer = cleanAnswer;
     await updateDoc(doc(db, "rooms", room.id), { players: newPlayers });
+    setError('');
   };
 
   const castVote = async (targetId) => {
@@ -239,8 +243,8 @@ export default function PollPartyGame() {
             placeholder="E.G. JOKER" 
             className="input-field"
             value={playerName}
-            onChange={e => setPlayerName(e.target.value.toUpperCase())}
-            maxLength={10}
+            onChange={e => setPlayerName(sanitizePlayerName(e.target.value))}
+            maxLength={12}
             style={{ marginBottom: 0 }}
           />
         </div>
@@ -260,7 +264,7 @@ export default function PollPartyGame() {
               placeholder="ENTER 3-LETTER CODE"
               className="input-field"
               value={roomCode}
-              onChange={e => setRoomCode(e.target.value.toUpperCase())}
+              onChange={e => setRoomCode(sanitizeRoomCode(e.target.value))}
               style={{ fontSize: '14px', marginBottom: 0, flex: 1 }}
               maxLength={3}
             />
@@ -314,7 +318,7 @@ export default function PollPartyGame() {
               className="input-field"
               placeholder="Type your funniest answer..."
               value={myAnswer}
-              onChange={e => setMyAnswer(e.target.value)}
+              onChange={e => setMyAnswer(sanitizeFreeText(e.target.value, 100))}
               style={{ height: '120px', resize: 'none' }}
               maxLength={100}
             />

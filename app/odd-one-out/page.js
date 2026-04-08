@@ -8,6 +8,10 @@ export const metadata = {title: 'Odd One Out Arena | VIBEMENOW',
   openGraph: {
     url: '/odd-one-out',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export const dynamic = 'force-dynamic';
