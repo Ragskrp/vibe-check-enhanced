@@ -6,7 +6,7 @@ export async function POST(req) {
 
     // SERVER-SIDE LOGIC: Securely handle the data
     // Your email is NOT visible in the browser HTML/JS
-    const targetEmail = process.env.CONTACT_EMAIL || 'ragskrp@gmail.com';
+    const targetEmail = process.env.CONTACT_EMAIL || 'ragskrpreddy@gmail.com';
 
     console.log('----------------------------');
     console.log('NEW CONTACT FORM SUBMISSION');

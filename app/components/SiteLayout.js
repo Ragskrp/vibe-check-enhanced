@@ -142,6 +142,12 @@ export default function SiteLayout({ children }) {
           <div className="footer-tagline">
             Play daily • Share with friends • Come back tomorrow for new vibes ⚡
           </div>
+          <div style={{ marginTop: '12px', fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>
+            Publisher: VIBEMENOW • Contact:{' '}
+            <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+              ragskrpreddy@gmail.com
+            </a>
+          </div>
           <div style={{ marginTop: '16px', fontSize: '12px', color: 'rgba(255,255,255,0.25)' }}>
             © 2026 VIBEMENOW (vibemenow.uk). All rights reserved. All games and content are original creations of the VIBEMENOW team.
           </div>

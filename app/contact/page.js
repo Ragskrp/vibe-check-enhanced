@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Send, CheckCircle, Home } from 'lucide-react';
+import { Mail, Send, CheckCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
@@ -44,6 +44,27 @@ export default function ContactPage() {
           <p style={{ color: '#888' }}>
             Have a question or feedback? Send us a message securely.
           </p>
+          <div
+            style={{
+              marginTop: '20px',
+              padding: '16px',
+              borderRadius: '16px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.06)',
+              color: '#aaa',
+              fontSize: '14px',
+              lineHeight: '1.7',
+            }}
+          >
+            <div><strong style={{ color: '#fff' }}>Publisher:</strong> VIBEMENOW</div>
+            <div><strong style={{ color: '#fff' }}>Site:</strong> VIBEMENOW</div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
+              <Mail size={14} color="#00d4ff" />
+              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                ragskrpreddy@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
 
         {status === 'success' ? (

@@ -70,6 +70,32 @@ export default function AboutPage() {
 
           <div
             style={{
+              margin: '28px 0 40px 0',
+              padding: '24px',
+              borderRadius: '20px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            <h3 style={{ color: '#fff', fontSize: '20px', marginTop: 0, marginBottom: '12px' }}>
+              Publisher Information
+            </h3>
+            <p style={{ marginBottom: '8px', color: '#aaa' }}>
+              <strong style={{ color: '#fff' }}>Publisher:</strong> VIBEMENOW
+            </p>
+            <p style={{ marginBottom: '8px', color: '#aaa' }}>
+              <strong style={{ color: '#fff' }}>Website:</strong> VIBEMENOW at vibemenow.uk
+            </p>
+            <p style={{ marginBottom: 0, color: '#aaa' }}>
+              <strong style={{ color: '#fff' }}>Contact:</strong>{' '}
+              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                ragskrpreddy@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <div
+            style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
               gap: '32px',
@@ -148,8 +174,11 @@ export default function AboutPage() {
               Need to get in touch?
             </h3>
             <p style={{ marginBottom: '24px', color: '#aaa' }}>
-              Use the contact page for bug reports, moderation issues, site feedback, or general
-              questions about the project.
+              Use the contact page or email{' '}
+              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                ragskrpreddy@gmail.com
+              </a>{' '}
+              for bug reports, moderation issues, site feedback, or general questions about the project.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/contact">
