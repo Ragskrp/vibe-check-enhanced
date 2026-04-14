@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Zap, LayoutGrid } from 'lucide-react';
+import { Zap, LayoutGrid, ChevronRight } from 'lucide-react';
 import AdBanner from './AdBanner';
 
 const NAV_ITEMS = [
@@ -107,9 +107,43 @@ export default function SiteLayout({ children }) {
               <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
                 Blog
               </Link>
+              <Link href="/faq" className={`nav-link${pathname === '/faq' ? ' active' : ''}`}>
+                FAQ
+              </Link>
           </nav>
         </div>
       </header>
+
+      {/* Visible Breadcrumbs */}
+      {pathname !== '/' && (
+        <nav
+          aria-label="Breadcrumb"
+          style={{
+            maxWidth: 1200,
+            margin: '0 auto',
+            padding: '12px 24px 0',
+            fontSize: 13,
+            color: '#555',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 4,
+            flexWrap: 'wrap',
+          }}
+        >
+          {breadcrumbs.map((crumb, i) => (
+            <span key={crumb.path} style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              {i > 0 && <ChevronRight size={12} style={{ color: '#333' }} />}
+              {i === breadcrumbs.length - 1 ? (
+                <span style={{ color: '#aaa', fontWeight: 600 }}>{crumb.name}</span>
+              ) : (
+                <Link href={crumb.path} style={{ color: '#555', textDecoration: 'none' }}>
+                  {crumb.name}
+                </Link>
+              )}
+            </span>
+          ))}
+        </nav>
+      )}
 
       {/* Main Content */}
       <main>{children}</main>
@@ -134,6 +168,7 @@ export default function SiteLayout({ children }) {
             <Link href="/editorial-policy">Editorial Policy</Link>
             <Link href="/community-guidelines">Community Guidelines</Link>
             <Link href="/contact">Contact Us</Link>
+            <Link href="/faq">FAQ</Link>
             <Link href="/guides">Expert Guides</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>

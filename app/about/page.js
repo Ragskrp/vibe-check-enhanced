@@ -190,6 +190,53 @@ export default function AboutPage() {
             </div>
           </div>
 
+          <h2
+            style={{
+              color: '#b14aed',
+              fontSize: '28px',
+              marginTop: '48px',
+              marginBottom: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+            }}
+          >
+            <Heart size={24} /> Who Runs VIBEMENOW
+          </h2>
+          <p style={{ marginBottom: '24px' }}>
+            VIBEMENOW is built and maintained by <strong>Raghavendra Reddy</strong>, a web developer
+            and game design enthusiast based in the UK. The project started as an experiment
+            in creating lightweight browser games that load fast and work on any device, and
+            has since grown into a full collection of 18+ original games, educational articles,
+            and expert strategy guides.
+          </p>
+          <p style={{ marginBottom: '24px' }}>
+            Every game on the platform is an original creation of the VIBEMENOW team. The blog
+            and guides section draws on published research in cognitive science, educational
+            psychology, and neuroscience to provide readers with well-sourced, substantive
+            content alongside the games.
+          </p>
+
+          <div
+            style={{
+              margin: '28px 0 40px 0',
+              padding: '24px',
+              borderRadius: '20px',
+              background: 'rgba(177, 74, 237, 0.05)',
+              border: '1px solid rgba(177, 74, 237, 0.15)',
+            }}
+          >
+            <h3 style={{ color: '#b14aed', fontSize: '20px', marginTop: 0, marginBottom: '12px' }}>
+              Our Editorial Standards
+            </h3>
+            <ul style={{ color: '#aaa', paddingLeft: '20px', margin: 0 }}>
+              <li style={{ marginBottom: '8px' }}>All blog articles cite peer-reviewed research or reputable institutions (NIH, EEF, BrainFacts.org).</li>
+              <li style={{ marginBottom: '8px' }}>Quiz and personality results are clearly labeled as entertainment, not clinical advice.</li>
+              <li style={{ marginBottom: '8px' }}>User-generated content in multiplayer rooms is moderated and separated from ad-supported pages.</li>
+              <li>We do not use misleading headlines, clickbait, or auto-generated filler content.</li>
+            </ul>
+          </div>
+
           <div style={{ marginTop: '48px', textAlign: 'center', fontSize: '14px', color: '#555' }}>
             <p>VIBEMENOW is maintained as an independent web project focused on quick-play browser experiences.</p>
           </div>

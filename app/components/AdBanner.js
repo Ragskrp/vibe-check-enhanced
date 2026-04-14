@@ -20,23 +20,13 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   const pathname = usePathname();
 
   const adBlockedRoutes = new Set([
-    '/2048-vibe',
     '/about',
     '/community-guidelines',
     '/contact',
     '/disclaimer',
-    '/drawing-dash',
     '/editorial-policy',
-    '/flappy-vibe',
-    '/memory-arena',
-    '/odd-one-out',
-    '/poll-party',
     '/privacy',
-    '/quiz-arena',
-    '/reaction-arena',
-    '/terms',
-    '/vibe-clicker',
-    '/whack-a-vibe'
+    '/terms'
   ]);
   const adsBlocked = adBlockedRoutes.has(pathname);
 

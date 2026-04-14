@@ -12,7 +12,7 @@ export default function TermsPage() {
         
         <div style={{ color: '#ccc', lineHeight: '1.6', fontSize: '14px' }}>
           <p style={{ marginBottom: '20px' }}>
-            Last Updated: March 20, 2026
+            Last Updated: April 14, 2026
           </p>
 
           <p style={{ marginBottom: '20px' }}>

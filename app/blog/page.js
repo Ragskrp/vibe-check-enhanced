@@ -53,6 +53,106 @@ const ARTICLES = [
     date: 'March 2026',
     color: '#ffe600',
     category: 'Culture'
+  },
+  {
+    slug: 'socratic-method-discovery',
+    emoji: '❓',
+    title: 'The Socratic Method: Why Questions are Better than Answers',
+    excerpt: 'Research on how probing, open-ended questioning fosters critical thinking and intellectual curiosity in children.',
+    readTime: '12 min read',
+    date: 'April 2026',
+    color: '#00d4ff',
+    category: 'Science'
+  },
+  {
+    slug: 'cognitive-load-mastery',
+    emoji: '🧠',
+    title: 'Cognitive Load Theory: Protecting the Working Memory',
+    excerpt: 'Understanding the biological limits of the brain to design better learning experiences for kids.',
+    readTime: '15 min read',
+    date: 'April 2026',
+    color: '#ff2d78',
+    category: 'Education'
+  },
+  {
+    slug: 'spacing-effect-memory',
+    emoji: '⏳',
+    title: 'The Spacing Effect: Why Cramming is Biologically Inefficient',
+    excerpt: 'How spaced repetition facilitates long-term memory consolidation through synaptic plasticity.',
+    readTime: '10 min read',
+    date: 'April 2026',
+    color: '#00ff94',
+    category: 'Neuroscience'
+  },
+  {
+    slug: 'metacognition-thinking',
+    emoji: '🔍',
+    title: 'Metacognition: Teaching Kids to Think About Their Thinking',
+    excerpt: 'Practical techniques to improve self-regulated learning and problem-solving through reflection.',
+    readTime: '9 min read',
+    date: 'April 2026',
+    color: '#b14aed',
+    category: 'Cognition'
+  },
+  {
+    slug: 'executive-function-control',
+    emoji: '🎮',
+    title: 'Executive Function: The Brain’s Air Traffic Control',
+    excerpt: 'How targeted game-based training improves inhibitory control, working memory, and cognitive flexibility.',
+    readTime: '11 min read',
+    date: 'April 2026',
+    color: '#ffe600',
+    category: 'Development'
+  },
+  {
+    slug: 'philosophy-for-children',
+    emoji: '🏛️',
+    title: 'Philosophy for Children: Big Questions for Small Humans',
+    excerpt: 'How structured philosophical dialogue boosts reasoning, communication, and confidence in young minds.',
+    readTime: '13 min read',
+    date: 'April 2026',
+    color: '#ff8c00',
+    category: 'Philosophy'
+  },
+  {
+    slug: 'probabilistic-decisions',
+    emoji: '🎲',
+    title: 'Probabilistic Thinking: Navigating a World of Uncertainty',
+    excerpt: 'Teaching children to distinguish between theoretical probability and actual outcomes through play.',
+    readTime: '11 min read',
+    date: 'April 2026',
+    color: '#00bfff',
+    category: 'Logic'
+  },
+  {
+    slug: 'aha-moment-science',
+    emoji: '💡',
+    title: 'The Neuroscience of "Aha!" Moments',
+    excerpt: 'The sudden restructuring of perception and the surge of gamma waves during moments of insight.',
+    readTime: '10 min read',
+    date: 'April 2026',
+    color: '#ffd700',
+    category: 'Research'
+  },
+  {
+    slug: 'logical-reasoning-logic',
+    emoji: '🔗',
+    title: 'The Bedrock of Thinking: Logical Reasoning for Kids',
+    excerpt: 'Why the ability to analyze facts and recognize patterns is foundational for academic and life success.',
+    readTime: '14 min read',
+    date: 'April 2026',
+    color: '#adff2f',
+    category: 'Skills'
+  },
+  {
+    slug: 'chess-visual-logic',
+    emoji: '♟️',
+    title: 'Visual Logic: How Chess Trains the Multi-Process Mind',
+    excerpt: 'Why consistent practice in chess improves spatial reasoning, concentration, and visual memory.',
+    readTime: '12 min read',
+    date: 'April 2026',
+    color: '#ffffff',
+    category: 'Strategy'
   }
 ];
 

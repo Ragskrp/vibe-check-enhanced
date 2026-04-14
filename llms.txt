@@ -1,0 +1,27 @@
+# VIBEMENOW
+
+> High-performance, mobile-first collection of 13+ daily games.
+
+## Core Tech
+- Next.js 15 (App Router)
+- React 19
+- Vanilla CSS (Glassmorphism design system in `app/globals.css`)
+- Firebase (Real-time DB / Auth)
+- Three.js (3D graphics)
+
+## Project Structure
+- `/app`: Routing and core logic. Each subdirectory is a game route.
+- `/app/components`: Shared UI (SiteLayout, GameEndScreen).
+- `/app/lib`: Utilities (Firebase config).
+- `/public`: Static assets.
+
+## Key Files
+- `PROJECT_REFERENCE.md`: Detailed architecture guide.
+- `app/globals.css`: Global design system and aesthetic tokens.
+- `app/layout.js`: Global SEO, scripts, and shell.
+- `next.config.mjs`: Technical SEO and domain redirects.
+
+## Development
+- `npm run dev`: Start development server.
+- `npm run build`: Production build.
+- `node fix-metadata.js`: Maintenance script for SEO.

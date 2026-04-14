@@ -1,6 +1,10 @@
 # VIBEMENOW - Free Daily Games & Social Vibes
 
+> [!TIP]
+> **AI/LLM Notice**: For a high-level summary of the codebase logic, architecture, and project structure, please refer to [PROJECT_REFERENCE.md](./PROJECT_REFERENCE.md) or [llms.txt](./llms.txt).
+
 Welcome to the enhanced version of [VIBEMENOW](https://vibemenow.uk)! ⚡
+
 
 VIBEMENOW is a high-performance, mobile-first collection of **13+ daily games** designed to brighten your mood and challenge your brain—all with zero friction and no login required.
 

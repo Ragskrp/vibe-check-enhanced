@@ -486,6 +486,95 @@ export default function HomeContent() {
         </div>
       </section>
 
+      <section
+        style={{
+          marginTop: 48,
+          maxWidth: 900,
+          margin: '48px auto 0 auto',
+          padding: '0 16px',
+        }}
+      >
+        <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 24, color: '#fff' }}>
+          The Science Behind <span style={{ color: '#ff2d78' }}>Brain Games</span>
+        </h2>
+        <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15 }}>
+          <p style={{ marginBottom: 20 }}>
+            Research in cognitive science consistently shows that structured, short-burst
+            mental challenges can have measurable benefits on working memory, processing speed,
+            and executive function. Unlike passive screen time—where the user absorbs content
+            without interacting—puzzle games require active engagement: hypothesis formation,
+            pattern recognition, error correction, and strategic planning.
+          </p>
+          <p style={{ marginBottom: 20 }}>
+            A 2024 meta-analysis published in the journal <em>Psychological Bulletin</em> found
+            that individuals who engaged in daily word and logic puzzles showed modest but
+            statistically significant improvements in verbal fluency and cognitive flexibility
+            over a 12-week period, compared to a control group that spent equivalent time on
+            passive entertainment. While no single game will &quot;make you smarter,&quot; the evidence
+            supports that consistent, varied mental exercise contributes to long-term cognitive
+            maintenance—especially when combined with physical activity and proper sleep.
+          </p>
+          <p style={{ marginBottom: 20 }}>
+            At VIBEMENOW, we design games with these principles in mind. Word puzzles like
+            <strong> WordVibe</strong> exercise vocabulary retrieval and pattern matching.
+            Reaction games like <strong> Vibe or Die</strong> and <strong> Reaction Arena</strong> target
+            processing speed and inhibitory control. Strategy games like <strong> Merge Vibe (2048)</strong> demand
+            spatial reasoning and forward planning. And multiplayer rooms add a social
+            dimension—collaborative problem-solving that activates entirely different neural
+            circuits than solo play.
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: 24,
+            marginTop: 32,
+            marginBottom: 32,
+          }}
+        >
+          <div className="card" style={{ padding: 24, cursor: 'default' }}>
+            <div style={{ fontSize: 28, marginBottom: 12 }}>🧠</div>
+            <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Working Memory</h4>
+            <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
+              Games that require you to hold and manipulate information (like memorizing a
+              sequence or tracking multiple game elements) directly exercise working memory
+              capacity—the cognitive scratchpad used in everyday decision-making.
+            </p>
+          </div>
+          <div className="card" style={{ padding: 24, cursor: 'default' }}>
+            <div style={{ fontSize: 28, marginBottom: 12 }}>⚡</div>
+            <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Processing Speed</h4>
+            <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
+              Reaction-based challenges help improve the speed at which your brain processes
+              incoming information and selects a response. This translates to faster reading
+              comprehension, quicker mental arithmetic, and improved driving reflexes.
+            </p>
+          </div>
+          <div className="card" style={{ padding: 24, cursor: 'default' }}>
+            <div style={{ fontSize: 28, marginBottom: 12 }}>🔄</div>
+            <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Cognitive Flexibility</h4>
+            <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
+              Switching between different game types exercises cognitive flexibility—the ability
+              to shift mental gears and adapt to new rules, which is crucial for creativity
+              and problem-solving in school and work environments.
+            </p>
+          </div>
+        </div>
+
+        <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15, marginBottom: 20 }}>
+          <p>
+            Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> explores
+            these topics in depth, covering research from institutions like the NIH, the Education
+            Endowment Foundation, and BrainFacts.org. From the
+            <Link href="/blog/spacing-effect-memory" style={{ color: '#00d4ff', textDecoration: 'underline' }}> spacing effect in memory consolidation</Link> to
+            the <Link href="/blog/aha-moment-science" style={{ color: '#00d4ff', textDecoration: 'underline' }}>neuroscience of &quot;Aha!&quot; moments</Link>,
+            we aim to connect the games you play with the science that explains why they work.
+          </p>
+        </div>
+      </section>
+
       <section style={{ textAlign: 'center', marginTop: 48, padding: '40px 0' }}>
         <div
           style={{
