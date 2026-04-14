@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Mail, Send, CheckCircle } from 'lucide-react';
 
 export default function ContactPage() {
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [status, setStatus] = useState('idle'); // idle, loading, success, unavailable, error
+  const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,6 +16,7 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
+    setMessage('');
 
     try {
       const res = await fetch('/api/contact', {
@@ -23,14 +25,22 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         setStatus('success');
+        setMessage(data.message || 'Your message has been sent.');
         setFormData({ name: '', email: '', query: '' });
+      } else if (res.status === 503) {
+        setStatus('unavailable');
+        setMessage(data.message || 'Direct email is the fastest way to reach us right now.');
       } else {
         setStatus('error');
+        setMessage(data.error || 'Something went wrong. Please try again or email us directly.');
       }
     } catch (err) {
       setStatus('error');
+      setMessage('Something went wrong. Please try again or email us directly.');
     }
   };
 
@@ -77,7 +87,7 @@ export default function ContactPage() {
           }}>
             <CheckCircle size={48} color="#00ff94" style={{ marginBottom: '16px' }} />
             <h2 style={{ color: '#fff' }}>Message Sent!</h2>
-            <p style={{ color: '#888', marginTop: '8px' }}>We&apos;ve received your vibe. We&apos;ll get back to you soon at your email address.</p>
+            <p style={{ color: '#888', marginTop: '8px' }}>{message}</p>
             <button 
               className="btn-outline" 
               style={{ marginTop: '24px' }}
@@ -88,6 +98,24 @@ export default function ContactPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div
+              style={{
+                padding: '14px 16px',
+                borderRadius: '14px',
+                background: 'rgba(0, 212, 255, 0.05)',
+                border: '1px solid rgba(0, 212, 255, 0.18)',
+                color: '#9adfff',
+                fontSize: '14px',
+                lineHeight: '1.7',
+              }}
+            >
+              For the fastest response, email{' '}
+              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                ragskrpreddy@gmail.com
+              </a>
+              . The form below works only when server-side forwarding is enabled.
+            </div>
+
             <div>
               <label style={{ display: 'block', color: '#555', fontSize: '13px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
                 Full Name
@@ -139,9 +167,15 @@ export default function ContactPage() {
               />
             </div>
 
+            {status === 'unavailable' && (
+              <p style={{ color: '#fbbf24', fontSize: '14px', fontWeight: 700 }}>
+                {message}
+              </p>
+            )}
+
             {status === 'error' && (
               <p style={{ color: '#ff2d78', fontSize: '14px', fontWeight: 700 }}>
-                Oops! Something went wrong. Please try again or email us directly.
+                {message}
               </p>
             )}
 

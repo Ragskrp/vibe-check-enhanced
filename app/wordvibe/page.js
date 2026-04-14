@@ -1,15 +1,15 @@
 import WordVibeGame from './WordVibeGame';
 
 export const metadata = {
-  title: 'WordVibe | Daily 5-Letter Word Game',
-  description: 'Guess the 5-letter word in 6 tries. WordVibe is a free daily word puzzle you can play in your browser.',
+  title: 'WordVibe | 5-Letter Word Game',
+  description: 'Guess the 5-letter word in 6 tries. WordVibe is a free browser word puzzle you can play in seconds.',
   alternates: {
     canonical: '/wordvibe',
   },
   openGraph: {
     url: '/wordvibe',
-    title: 'WordVibe | Daily 5-Letter Word Game | VIBEMENOW',
-    description: 'Play today&apos;s WordVibe puzzle in your browser.',
+    title: 'WordVibe | 5-Letter Word Game | VIBEMENOW',
+    description: 'Play a fast 5-letter WordVibe round in your browser.',
   },
 };
 
@@ -64,11 +64,12 @@ export default function WordVibePage() {
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
-          Why the daily format works
+          Why the fast-match format works
         </h3>
         <p>
-          One puzzle per day keeps the game short and repeatable. You can check in, solve it in a
-          minute or two, and move on without the page asking you to commit to a long session.
+          WordVibe is designed for short repeatable rounds. You can play one game, reset, and run
+          another without setup, which makes it useful as a quick deduction puzzle rather than a
+          long commitment.
         </p>
       </article>
     </>

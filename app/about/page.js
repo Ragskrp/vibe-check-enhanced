@@ -230,7 +230,7 @@ export default function AboutPage() {
               Our Editorial Standards
             </h3>
             <ul style={{ color: '#aaa', paddingLeft: '20px', margin: 0 }}>
-              <li style={{ marginBottom: '8px' }}>All blog articles cite peer-reviewed research or reputable institutions (NIH, EEF, BrainFacts.org).</li>
+              <li style={{ marginBottom: '8px' }}>Long-form articles are written with reference to published research and reputable institutions, but they are general-interest explainers rather than formal academic papers.</li>
               <li style={{ marginBottom: '8px' }}>Quiz and personality results are clearly labeled as entertainment, not clinical advice.</li>
               <li style={{ marginBottom: '8px' }}>User-generated content in multiplayer rooms is moderated and separated from ad-supported pages.</li>
               <li>We do not use misleading headlines, clickbait, or auto-generated filler content.</li>

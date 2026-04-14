@@ -39,7 +39,10 @@ export default function PhilosophyForChildrenPage() {
 
           <h2>The Community of Inquiry</h2>
           <p>
-            P4C research suggests that when students engage in regular philosophical discussion, they see marked improvements in reading and mathematics. But more importantly, they develop higher <strong>emotional intelligence</strong>. By debating "Big Questions" (like "Is it ever okay to lie?"), children learn to respect diverse perspectives and build arguments based on reason rather than volume.
+            One practical value of structured philosophical discussion is that it slows children
+            down enough to define terms, listen carefully, and respond to ideas rather than just
+            react to them. Debating big questions helps them practice perspective-taking and
+            reasoned disagreement in a setting that is more curious than combative.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 24, margin: '40px 0' }}>
@@ -57,7 +60,9 @@ export default function PhilosophyForChildrenPage() {
 
           <h2>Why It Matters Today</h2>
           <p>
-            In an era of polarized information, the ability to think critically about claims and listen to others is a survival skill. P4C provides children with the "logical toolkit" they need to navigate complex social realities with confidence and empathy.
+            In an era of polarized information, the ability to question claims and listen to other
+            people carefully matters. P4C is interesting because it treats those habits as skills
+            that can be practiced, not just personality traits that some children have and others do not.
           </p>
         </section>
       </article>

@@ -80,10 +80,14 @@ export default function EmojiIQGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🛡️ 4. Cognitive Benefits of Emoji Puzzles</h2>
           <p style={{ marginBottom: 20 }}>
-            Research suggests that visual-linguistic puzzles like Emoji IQ activate both hemispheres of the brain simultaneously. The left hemisphere processes the linguistic retrieval (turning symbols into words), while the right hemisphere handles the visual pattern recognition and metaphorical reasoning.
+            Emoji puzzles are interesting because they mix several kinds of interpretation at once:
+            literal reading, cultural context, and sound-based wordplay. That makes them feel
+            different from a straightforward text clue.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Regular play can improve your &quot;semantic fluency" — the speed at which your brain retrieves words from memory based on conceptual cues. This is a skill that benefits everyday communication, creative writing, and even professional problem-solving. In essence, every Emoji IQ round is a mini cognitive workout.
+            Regular play can help you get faster at spotting recurring patterns and switching
+            between literal and playful interpretations. That does not make the game a formal
+            training tool, but it does explain why repeated rounds start to feel easier.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🏆 Test Your Emoji IQ</h2>
@@ -102,7 +106,7 @@ export default function EmojiIQGuide() {
 
       {/* Footer */}
       <div style={{ textAlign: 'center', marginTop: 40, color: '#555', fontSize: 12 }}>
-        <p>© 2026 VIBEMENOW (vibemenow.uk). Expert analysis on visual communication and cognitive gaming.</p>
+        <p>© 2026 VIBEMENOW (vibemenow.uk). Guide notes from the site team.</p>
       </div>
     </div>
   );

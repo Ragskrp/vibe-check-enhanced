@@ -14,6 +14,7 @@ export default function sitemap() {
     '/faq',
     '/guides',
     '/privacy',
+    '/publisher-information',
     '/terms'
   ].map(route => ({
     url: `${baseUrl}${route}`,

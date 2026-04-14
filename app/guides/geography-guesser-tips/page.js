@@ -74,7 +74,9 @@ export default function GeoGuesserGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🌐 3. Why Geography Games Matter in 2026</h2>
           <p style={{ marginBottom: 20 }}>
-            Studies from educational researchers at the University of Colorado and the National Geographic Society confirm that gamified geography significantly improves retention compared to rote study. Players who engage with map quizzes and flag games retain 40% more country locations after 30 days compared to traditional flashcard methods.
+            Geography games are useful because they turn repetition into recognition practice. When
+            you keep seeing similar flags, color patterns, and regional groupings, recall usually
+            gets easier than it does with passive memorization alone.
           </p>
           <p style={{ marginBottom: 20 }}>
             Beyond academic performance, geography literacy fosters cultural empathy. Understanding where nations are, what their flags look like, and what symbols they value is the first step toward understanding their people, their histories, and their perspectives. In a connected world, this is not just an academic skill — it is a deeply human one.

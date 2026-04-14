@@ -227,7 +227,7 @@ export default function WordVibeGame() {
     <>
       <FloatingBg />
       <div className="game-container" style={{ textAlign: 'center' }}>
-        <div className="game-badge">Daily Challenge</div>
+        <div className="game-badge">Word Challenge</div>
         <h1 className="game-title" style={{ color: '#00d4ff' }}>🔤 WordVibe</h1>
         <p className="game-subtitle">Guess the 5-letter word in 6 tries</p>
         <AdBanner format="horizontal" />

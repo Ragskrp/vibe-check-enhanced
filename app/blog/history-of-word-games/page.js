@@ -7,7 +7,18 @@ export default function HistoryOfWordGames() {
   return (
     <div className="page-container animate-fade-in">
       <div style={{ marginBottom: 24 }}>
-        <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#888', fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>
+        <Link
+          href="/blog"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            color: '#888',
+            fontSize: 13,
+            fontWeight: 700,
+            textDecoration: 'none',
+          }}
+        >
           <ChevronLeft size={14} /> BACK TO BLOG
         </Link>
       </div>
@@ -15,101 +26,148 @@ export default function HistoryOfWordGames() {
       <article className="card" style={{ maxWidth: 800, margin: '0 auto', padding: '48px 40px' }}>
         <div style={{ marginBottom: 32 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-            <span style={{ fontSize: 36 }}>📖</span>
-            <span style={{ fontSize: 11, fontWeight: 800, color: '#ff2d78', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Culture & History</span>
+            <span style={{ fontSize: 36 }}>Words</span>
+            <span
+              style={{
+                fontSize: 11,
+                fontWeight: 800,
+                color: '#ff2d78',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+              }}
+            >
+              Culture and Design
+            </span>
           </div>
           <h1 className="game-title" style={{ textAlign: 'left', fontSize: 30, marginBottom: 12, lineHeight: 1.3 }}>
-            From Scrabble to WordVibe: The Fascinating History of <span style={{ color: '#ff2d78' }}>Word Games</span>
+            How Old Word-Game Ideas Still Shape <span style={{ color: '#ff2d78' }}>WordVibe</span>
           </h1>
           <div style={{ display: 'flex', gap: 16, fontSize: 13, color: '#555', flexWrap: 'wrap' }}>
             <span>By the VIBEMENOW Editorial Team</span>
             <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Clock size={12} /> 12 Min Read</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <Clock size={12} /> 6 Min Read
+            </span>
             <span>•</span>
-            <span>March 2026</span>
+            <span>April 2026</span>
           </div>
         </div>
 
         <div style={{ color: '#ccc', lineHeight: 1.85, fontSize: 16 }}>
           <p style={{ marginBottom: 20, fontSize: 18, color: '#aaa', fontStyle: 'italic' }}>
-            Word games are one of humanity&apos;s oldest forms of intellectual entertainment. From ancient Roman acrostics to the global phenomenon of daily online puzzlers, the story of word games is a story about language, technology, and the eternally human desire to play with words.
+            Good word games rarely feel completely new. Most of them are smart recombinations of
+            older ideas: limited guesses, visible feedback, vocabulary recall, and the quiet
+            satisfaction of narrowing a problem down one letter at a time.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>Ancient Origins: When Words Became Puzzles</h2>
           <p style={{ marginBottom: 20 }}>
-            The earliest known word puzzles date back over two thousand years. The ancient Romans were fond of <strong>palindromes</strong> — phrases that read the same forwards and backwards. The famous &quot;Sator Square," discovered in the ruins of Pompeii and dating to the first century AD, is a five-by-five grid of letters that forms a perfect two-dimensional palindrome, readable in four directions. It remains one of the most studied archaeological puzzles in history, and it bears a striking structural resemblance to the word grids that form the basis of modern games like Scrabble and WordVibe.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            In the Middle Ages, word riddles known as <strong>&quot;kennings"</strong> were a defining feature of Old English and Norse poetry. A kenning is a compound expression that replaces a common noun with a metaphorical phrase — &quot;whale-road" for the sea, "battle-sweat" for blood. These creative linguistic puzzles were not merely entertainment; they were tests of cultural literacy and intellectual prowess, celebrated at royal courts and feasts across Northern Europe.
+            That is also true of <strong>WordVibe</strong>. The game lives in a browser and uses a
+            modern interface, but its core appeal comes from traditions that are much older than
+            the web itself.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>The Crossword Revolution: 1913-1960</h2>
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            Word Games Have Always Been About Constraint
+          </h2>
           <p style={{ marginBottom: 20 }}>
-            The modern era of word gaming begins on December 21, 1913, when journalist Arthur Wynne published a &quot;word-cross" puzzle in the <em>New York World</em> newspaper. Wynne&apos;s innovation was deceptively simple: a diamond-shaped grid of interlocking words, each defined by a numbered clue. Within a decade, the crossword puzzle had become a nationwide obsession in the United States, spawning dedicated puzzle books, national competitions, and even a Broadway musical.
+            The common thread across crosswords, tile games, newspaper puzzles, and modern web
+            formats is constraint. You do not have every letter. You do not have unlimited moves.
+            You have to work inside a small ruleset and make better decisions with partial
+            information.
           </p>
           <p style={{ marginBottom: 20 }}>
-            The crossword craze of the 1920s and 1930s is a fascinating case study in how word games reflect and shape culture. During the Great Depression, crossword puzzles offered affordable mental escape from economic hardship. During World War II, British intelligence famously used crossword-solving ability as a recruitment tool for Bletchley Park, the codebreaking centre that cracked the Enigma cipher. The logic, pattern recognition, and linguistic flexibility required for crosswords, it turned out, were exactly the skills needed to decode enemy transmissions.
+            That is why word games remain durable. Language itself is huge, but a puzzle turns it
+            into a manageable problem. Five letters. Six tries. One clue. One grid. One board.
+            That compression is what makes the challenge inviting rather than overwhelming.
           </p>
 
-          <div style={{
-            padding: 24, borderRadius: 16,
-            background: 'rgba(255, 45, 120, 0.05)',
-            border: '1px solid rgba(255, 45, 120, 0.15)',
-            marginBottom: 24
-          }}>
-            <p style={{ fontWeight: 700, color: '#ff2d78', marginBottom: 8, fontSize: 14 }}>📰 Historical Fact</p>
-            <p style={{ fontSize: 14 }}>
-              In 1924, the British Library reported that crossword puzzles were causing a &quot;national shortage" of dictionaries, as millions of amateur solvers rushed to buy reference books. The New York Public Library complained that its dictionaries were being "worn out faster by crossword enthusiasts than by serious scholars."
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            The Print Era Taught People to Love Slow Solving
+          </h2>
+          <p style={{ marginBottom: 20 }}>
+            Newspaper crosswords and magazine puzzles helped establish the rhythm that many digital
+            games still follow: stop for a few minutes, test an idea, erase, try again. Those
+            formats were not exciting because they were fast. They were satisfying because they
+            rewarded patience, pattern recognition, and memory.
+          </p>
+          <p style={{ marginBottom: 20 }}>
+            Even now, a browser word game works best when it preserves some of that feeling. The
+            player should sense progress, not chaos. Every guess should reduce uncertainty.
+          </p>
+
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            The Tile-Game Era Added Strategy
+          </h2>
+          <p style={{ marginBottom: 20 }}>
+            Board-based word games added another layer: efficiency. It was no longer enough to know
+            a word. You also had to decide when to spend good letters, when to play safely, and how
+            to leave yourself options for the next turn.
+          </p>
+          <p style={{ marginBottom: 20 }}>
+            That strategic habit still shows up in modern guessing games. In WordVibe, players
+            quickly learn that a guess is not just a guess. It is also an information-gathering
+            move. A strong opening word earns value even when it is wrong, because it helps shape
+            the next decision.
+          </p>
+
+          <div
+            style={{
+              padding: 20,
+              borderRadius: 16,
+              background: 'rgba(255, 45, 120, 0.05)',
+              border: '1px solid rgba(255, 45, 120, 0.15)',
+              margin: '24px 0',
+            }}
+          >
+            <p style={{ margin: 0, fontSize: 14, color: '#ffc0d6' }}>
+              One reason modern browser word games work so well is that they borrow the best part of
+              older formats: they let the player feel clever often.
             </p>
           </div>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>The Scrabble Era: Words Meet Strategy (1948-2000)</h2>
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            The Web Changed the Pace, Not the Core Appeal
+          </h2>
           <p style={{ marginBottom: 20 }}>
-            Scrabble, invented by American architect Alfred Mosher Butts in the 1930s and commercially released in 1948, added a transformative new dimension to word gaming: <strong>strategy</strong>. For the first time, a word game was not just about knowing words — it was about deploying them tactically on a board with point values, multiplier squares, and competitive scoring. Scrabble turned vocabulary into a weapon and the dictionary into an arsenal.
+            Browser play removed friction. No pencil, no board, no setup, no waiting for an app
+            install. That made word games easier to revisit in short bursts. It also made feedback
+            more immediate. The grid can respond instantly, the keyboard can update live, and the
+            player can restart without ceremony.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Butts designed the letter distribution and point values of Scrabble based on a painstaking analysis of letter frequencies on the front page of <em>The New York Times</em>. He counted thousands of letters by hand, calculating how often each appeared in standard English prose. This frequency analysis is the same mathematical principle that drives the design of modern word games, including the WordVibe scoring system, where less common letters yield higher rewards.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            By the 1970s, Scrabble had become a global phenomenon, played in over 120 countries and translated into 30 languages. The first National Scrabble Championship was held in the United States in 1978, and the World Scrabble Championship debuted in 1991. The competitive Scrabble community pioneered many of the strategic concepts that would later influence digital word games: &quot;rack management" (the art of keeping a balanced set of letters), "bingo hunting" (using all seven tiles for a 50-point bonus), and "board control" (strategically blocking opponents from accessing high-value squares).
-          </p>
-
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>The Digital Revolution: Words Go Online (2000-2020)</h2>
-          <p style={{ marginBottom: 20 }}>
-            The internet transformed word games in two fundamental ways: it made them <strong>instantly accessible</strong> and <strong>inherently social</strong>. Early online word games like TextTwist (2001) and Bookworm (2003) adapted the classic word-puzzle formula for browsers and mobile devices, removing the need for physical boards, tiles, or even a human opponent.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            But the true revolution came with <strong>Words with Friends</strong>, released in 2009. By borrowing the core mechanics of Scrabble and wrapping them in a smartphone-native social interface, Words with Friends became the first word game to truly leverage the networked nature of the modern internet. At its peak, over 20 million people were playing simultaneously, making it one of the most successful mobile games in history. The game demonstrated a crucial insight: word games are not just intellectual exercises — they are <strong>social connectors</strong>.
+            What did not change is the underlying pleasure of moving from uncertainty to clarity.
+            That is the part worth preserving, and it is the part we try to keep visible in
+            WordVibe.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>The Wordle Phenomenon and the Daily Puzzle Renaissance (2021-2025)</h2>
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            What We Tried to Keep in WordVibe
+          </h2>
           <p style={{ marginBottom: 20 }}>
-            In October 2021, a software engineer named Josh Wardle quietly released a free word game called &quot;Wordle" for his partner. The rules were brilliantly simple: guess a single five-letter word in six attempts, with colour-coded feedback showing which letters are correct. There was only one puzzle per day, and everyone in the world got the same word. Within three months, Wordle had over two million daily players. Within six months, it was acquired by <em>The New York Times</em> for a reported seven-figure sum.
+            From a site-design point of view, WordVibe is our attempt to keep the format lean. The
+            rules are short. The board is readable. The player can understand what happened after
+            each guess without reading a long manual. That is more important than novelty for its
+            own sake.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Wordle&apos;s genius was its <strong>deliberate constraints</strong>. By limiting players to one puzzle per day, it created a universal shared experience — a global conversation starter. By using a shareable emoji grid (those yellow and green squares that flooded social media), it turned individual puzzle-solving into a communal activity. These design principles — daily resets, shareable results, elegant simplicity — directly inspired the next generation of daily word games, including VIBEMENOW&apos;s WordVibe.
+            We also like that word games sit comfortably beside the rest of the site. They provide a
+            different tempo from reaction games or multiplayer rooms. A good games collection does
+            not need every page to feel the same; it needs each page to justify its place.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>WordVibe and Beyond: The 2026 Generation</h2>
-          <p style={{ marginBottom: 20 }}>
-            The current generation of word games, represented by platforms like VIBEMENOW, builds on a century of innovation. WordVibe takes the proven core loop of the daily five-letter puzzle and enhances it with modern web technology: real-time leaderboards that track the global community&apos;s performance, &quot;streak" systems that reward daily consistency, and performance analytics that help players identify and improve their linguistic weaknesses over time.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            But perhaps the most significant evolution is the integration of word games into <strong>larger gaming ecosystems</strong>. On VIBEMENOW, WordVibe is not an isolated experience — it sits alongside emoji puzzles, trivia arenas, reaction games, and social voting platforms. This diversity reflects a deeper understanding that word games are most powerful when they are part of a varied cognitive diet, rather than a standalone mental exercise.
-          </p>
-
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>Why Words Will Always Win</h2>
-          <p style={{ marginBottom: 20 }}>
-            As artificial intelligence generates increasingly sophisticated text and images, one might ask whether word games will eventually feel irrelevant. The evidence suggests the opposite. The more automated and AI-driven our world becomes, the more we value activities that celebrate distinctly human cognitive abilities: creativity, linguistic intuition, the joy of finding the right word at the right moment.
-          </p>
+          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
+            Why the Format Still Lasts
+          </h2>
           <p style={{ marginBottom: 24 }}>
-            From the Sator Square in ancient Pompeii to today&apos;s WordVibe leaderboards, word games endure because they tap into something fundamental about human nature. We are linguistic creatures. We think in words, dream in words, and connect with each other through words. As long as that remains true, the word game will remain one of the most enduring and beloved forms of human play.
+            Word games endure because language endures. People still enjoy testing recall, spotting
+            patterns, and finding the exact word that fits. The interface may evolve, but the
+            pleasure is recognisable across generations. That is less a trend than a design truth.
           </p>
 
           <div style={{ textAlign: 'center', marginTop: 40 }}>
             <Link href="/wordvibe">
               <button className="btn-primary" style={{ fontSize: 16 }}>
-                🔤 Play Today&apos;s WordVibe
+                Play WordVibe
               </button>
             </Link>
           </div>
@@ -117,7 +175,7 @@ export default function HistoryOfWordGames() {
       </article>
 
       <div style={{ textAlign: 'center', marginTop: 40, color: '#555', fontSize: 12 }}>
-        <p>© 2026 VIBEMENOW (vibemenow.uk). Written by the VIBEMENOW editorial team.</p>
+        <p>© 2026 VIBEMENOW (vibemenow.uk). Editorial commentary from the site team.</p>
       </div>
     </div>
   );

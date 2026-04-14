@@ -19,16 +19,21 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   const isLoaded = useRef(false);
   const pathname = usePathname();
 
-  const adBlockedRoutes = new Set([
-    '/about',
-    '/community-guidelines',
-    '/contact',
-    '/disclaimer',
-    '/editorial-policy',
-    '/privacy',
-    '/terms'
+  const adEnabledRoutes = new Set([
+    '/',
+    '/2048-vibe',
+    '/emoji-iq',
+    '/flappy-vibe',
+    '/geography-guesser',
+    '/hot-takes',
+    '/vibe-clicker',
+    '/vibe-quiz',
+    '/vibeordie',
+    '/whack-a-vibe',
+    '/wordvibe',
+    '/would-you-rather',
   ]);
-  const adsBlocked = adBlockedRoutes.has(pathname);
+  const adsBlocked = !adEnabledRoutes.has(pathname);
 
   useEffect(() => {
     if (isLoaded.current) return;

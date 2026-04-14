@@ -49,7 +49,9 @@ export default function ExecutiveFunctionPage() {
               <Zap size={20} /> Targeted Training
             </h3>
             <p style={{ color: '#eee', marginBottom: 0 }}>
-              Research shows that targeted, game-based training can lead to measurable improvements in EF skills. Games that require rule-switching (like "Simon Says" variants) or inhibitory control (reacting only to specific cues) are effectively "weightlifting" for the prefrontal cortex.
+              Games that involve rule-switching and inhibitory control can be a useful way to
+              practice EF-related skills. Activities that ask players to wait, switch rules, or
+              respond selectively are a reasonable fit for that kind of practice.
             </p>
           </div>
 

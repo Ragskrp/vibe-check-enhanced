@@ -8,11 +8,11 @@ const GAMES = [
   {
     emoji: '🔤',
     title: 'WordVibe',
-    desc: 'Daily 5-letter word challenge. Guess it in 6 tries.',
+    desc: '5-letter word challenge. Guess it in 6 tries.',
     path: '/wordvibe',
-    tag: 'Daily',
+    tag: 'Word',
     color: '#00d4ff',
-    category: 'daily'
+    category: 'solo'
   },
   {
     emoji: '🎯',
@@ -397,6 +397,17 @@ export default function HomeContent() {
               Browse site updates, game ideas, and behind-the-scenes notes from the project.
             </p>
           </Link>
+          <Link
+            href="/publisher-information"
+            className="card"
+            style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}
+          >
+            <div style={{ fontSize: 32, marginBottom: 12 }}>Info</div>
+            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8, color: '#fff' }}>Publisher Info</h3>
+            <p style={{ color: '#888', fontSize: 13 }}>
+              See who runs the site, how ads are handled, and where core policy pages live.
+            </p>
+          </Link>
         </div>
       </section>
 
@@ -495,24 +506,21 @@ export default function HomeContent() {
         }}
       >
         <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 24, color: '#fff' }}>
-          The Science Behind <span style={{ color: '#ff2d78' }}>Brain Games</span>
+          Games, Learning, and <span style={{ color: '#ff2d78' }}>Research Notes</span>
         </h2>
         <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15 }}>
           <p style={{ marginBottom: 20 }}>
-            Research in cognitive science consistently shows that structured, short-burst
-            mental challenges can have measurable benefits on working memory, processing speed,
-            and executive function. Unlike passive screen time—where the user absorbs content
-            without interacting—puzzle games require active engagement: hypothesis formation,
-            pattern recognition, error correction, and strategic planning.
+            VIBEMENOW is primarily an entertainment site, but some of the ideas behind the
+            games overlap with familiar topics in cognitive science and educational research:
+            retrieval practice, pattern recognition, attention, reaction time, and short-burst
+            repetition. We use those themes as context, not as a promise that casual gameplay
+            replaces medical, educational, or professional support.
           </p>
           <p style={{ marginBottom: 20 }}>
-            A 2024 meta-analysis published in the journal <em>Psychological Bulletin</em> found
-            that individuals who engaged in daily word and logic puzzles showed modest but
-            statistically significant improvements in verbal fluency and cognitive flexibility
-            over a 12-week period, compared to a control group that spent equivalent time on
-            passive entertainment. While no single game will &quot;make you smarter,&quot; the evidence
-            supports that consistent, varied mental exercise contributes to long-term cognitive
-            maintenance—especially when combined with physical activity and proper sleep.
+            That is why the site separates play pages, long-form articles, and policy pages.
+            The games are built to be useful on their own, the blog gives room for broader
+            commentary, and the editorial pages explain how we review claims, update content,
+            and think about monetization and user trust.
           </p>
           <p style={{ marginBottom: 20 }}>
             At VIBEMENOW, we design games with these principles in mind. Word puzzles like
@@ -520,8 +528,7 @@ export default function HomeContent() {
             Reaction games like <strong> Vibe or Die</strong> and <strong> Reaction Arena</strong> target
             processing speed and inhibitory control. Strategy games like <strong> Merge Vibe (2048)</strong> demand
             spatial reasoning and forward planning. And multiplayer rooms add a social
-            dimension—collaborative problem-solving that activates entirely different neural
-            circuits than solo play.
+            dimension that changes how the experience is moderated and where ads are appropriate.
           </p>
         </div>
 
@@ -538,27 +545,25 @@ export default function HomeContent() {
             <div style={{ fontSize: 28, marginBottom: 12 }}>🧠</div>
             <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Working Memory</h4>
             <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
-              Games that require you to hold and manipulate information (like memorizing a
-              sequence or tracking multiple game elements) directly exercise working memory
-              capacity—the cognitive scratchpad used in everyday decision-making.
+              Games that ask you to hold and manipulate information can help you practice
+              working memory skills such as short-term recall, sequencing, and attention.
             </p>
           </div>
           <div className="card" style={{ padding: 24, cursor: 'default' }}>
             <div style={{ fontSize: 28, marginBottom: 12 }}>⚡</div>
             <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Processing Speed</h4>
             <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
-              Reaction-based challenges help improve the speed at which your brain processes
-              incoming information and selects a response. This translates to faster reading
-              comprehension, quicker mental arithmetic, and improved driving reflexes.
+              Reaction-based challenges are built around quick perception and response timing.
+              They are best understood as practice in fast visual decisions rather than as a
+              guarantee of real-world performance changes.
             </p>
           </div>
           <div className="card" style={{ padding: 24, cursor: 'default' }}>
             <div style={{ fontSize: 28, marginBottom: 12 }}>🔄</div>
             <h4 style={{ fontWeight: 800, fontSize: 15, marginBottom: 8, color: '#eee' }}>Cognitive Flexibility</h4>
             <p style={{ color: '#777', fontSize: 13, margin: 0 }}>
-              Switching between different game types exercises cognitive flexibility—the ability
-              to shift mental gears and adapt to new rules, which is crucial for creativity
-              and problem-solving in school and work environments.
+              Switching between different game types can encourage mental flexibility and
+              rule-switching, both of which are common parts of learning and problem-solving.
             </p>
           </div>
         </div>
@@ -566,12 +571,47 @@ export default function HomeContent() {
         <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15, marginBottom: 20 }}>
           <p>
             Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> explores
-            these topics in depth, covering research from institutions like the NIH, the Education
-            Endowment Foundation, and BrainFacts.org. From the
+            these topics in more depth and pairs them with notes about how the games are built
+            and maintained. From the
             <Link href="/blog/spacing-effect-memory" style={{ color: '#00d4ff', textDecoration: 'underline' }}> spacing effect in memory consolidation</Link> to
             the <Link href="/blog/aha-moment-science" style={{ color: '#00d4ff', textDecoration: 'underline' }}>neuroscience of &quot;Aha!&quot; moments</Link>,
-            we aim to connect the games you play with the science that explains why they work.
+            we aim to add context without presenting entertainment pages as clinical advice or
+            formal research papers.
           </p>
+        </div>
+      </section>
+
+      <section
+        style={{
+          marginTop: 48,
+          maxWidth: 900,
+          margin: '48px auto 0 auto',
+          padding: '24px',
+          borderRadius: 24,
+          background: 'rgba(255,255,255,0.02)',
+          border: '1px solid rgba(255,255,255,0.06)',
+        }}
+      >
+        <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 12, color: '#fff' }}>
+          Learn How The Site Is Run
+        </h2>
+        <p style={{ color: '#888', lineHeight: '1.8', marginBottom: 20 }}>
+          These pages explain who runs VIBEMENOW, how ads are handled, how content is maintained,
+          and how to contact the publisher directly.
+        </p>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <Link href="/publisher-information" className="btn-outline">
+            Publisher Information
+          </Link>
+          <Link href="/about" className="btn-outline">
+            About
+          </Link>
+          <Link href="/editorial-policy" className="btn-outline">
+            Editorial Policy
+          </Link>
+          <Link href="/contact" className="btn-outline">
+            Contact
+          </Link>
         </div>
       </section>
 

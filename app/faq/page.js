@@ -93,7 +93,7 @@ const FAQ_SECTIONS = [
     faqs: [
       {
         q: 'Are the blog articles based on real research?',
-        a: 'Yes. Our educational articles cite peer-reviewed studies, reputable institutions (NIH, Education Endowment Foundation, BrainFacts.org), and established frameworks in cognitive science and pedagogy.'
+        a: 'Our long-form articles are written with reference to published research and reputable institutions, but they should be read as general educational commentary rather than formal academic or medical advice.'
       },
       {
         q: 'Are quiz results or personality labels scientific?',

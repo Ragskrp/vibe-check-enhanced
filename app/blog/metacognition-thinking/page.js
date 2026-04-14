@@ -39,7 +39,10 @@ export default function MetacognitionPage() {
 
           <h2>The Internal Auditor</h2>
           <p>
-            Research from the Education Endowment Foundation shows that metacognition and self-regulation techniques are among the most cost-effective ways to improve academic performance. Children who develop strong metacognitive skills become more resilient learners because they focus on the <em>process</em> rather than just the <em>outcome</em>.
+            Metacognition and self-regulation are often discussed together because both are about
+            noticing what you are doing, checking whether it is working, and adjusting when it is
+            not. Children who build that habit tend to pay more attention to the <em>process</em>,
+            not just the <em>outcome</em>.
           </p>
 
           <div style={{ padding: '32px', borderRadius: 24, background: 'rgba(177, 74, 237, 0.03)', border: '1px solid rgba(177, 74, 237, 0.1)', margin: '40px 0' }}>
@@ -54,7 +57,9 @@ export default function MetacognitionPage() {
 
           <h2>From Game to Life</h2>
           <p>
-            Games with immediate feedback (like WordVibe) are perfect labs for metacognition. When a player sees a gray tile, they must instantly evaluate their prior assumption. Learning to "pivot" based on evidence is a skill that transfers directly from the screen to the real world.
+            Games with immediate feedback, like WordVibe, are useful little labs for this kind of
+            reflection. When a player sees a gray tile, they have to reconsider the last guess and
+            decide what to try next. That pause-and-adjust rhythm is the part worth noticing.
           </p>
         </section>
       </article>

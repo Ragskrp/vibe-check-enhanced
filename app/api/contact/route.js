@@ -2,31 +2,69 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req) {
   try {
-    const { name, email, query } = await req.json();
-
-    // SERVER-SIDE LOGIC: Securely handle the data
-    // Your email is NOT visible in the browser HTML/JS
+    const payload = await req.json();
+    const name = payload?.name?.trim();
+    const email = payload?.email?.trim();
+    const query = payload?.query?.trim();
     const targetEmail = process.env.CONTACT_EMAIL || 'ragskrpreddy@gmail.com';
+    const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
 
-    console.log('----------------------------');
-    console.log('NEW CONTACT FORM SUBMISSION');
-    console.log('To:', targetEmail);
-    console.log('From:', name);
-    console.log('Email:', email);
-    console.log('Message:', query);
-    console.log('----------------------------');
+    if (!name || !email || !query) {
+      return NextResponse.json(
+        { success: false, error: 'Please complete every field before sending your message.' },
+        { status: 400 }
+      );
+    }
 
-    /**
-     * PRO TIP: To receive actual emails in your inbox, 
-     * most Vercel users use a free service like Formspree or Resend.
-     * I have built this as a Next.js Route Handler so your logic remains 100% hidden.
-     */
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { success: false, error: 'Please enter a valid email address.' },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Vibe received! We will get back to you soon.' 
+    if (!webhookUrl) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: `The contact form is not forwarding messages yet. Please email ${targetEmail} directly.`,
+          fallbackEmail: targetEmail,
+        },
+        { status: 503 }
+      );
+    }
+
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        site: 'VIBEMENOW',
+        targetEmail,
+        name,
+        email,
+        query,
+      }),
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: `We could not forward your message right now. Please email ${targetEmail} directly.`,
+        },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'Thanks. Your message has been forwarded to the VIBEMENOW inbox.',
     });
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed to send message' }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: 'Failed to send message. Please try again or email us directly.' },
+      { status: 500 }
+    );
   }
 }

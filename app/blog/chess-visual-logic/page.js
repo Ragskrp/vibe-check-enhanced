@@ -57,7 +57,10 @@ export default function VisualLogicPage() {
 
           <h2>Beyond the Board</h2>
           <p>
-            Consistent practice in visual logic has been linked to improvements in concentration, visual memory, and structured thinking. These skills transfer directly to subjects like geometry, architecture, and computer programming, where visualizing a structure before building it is essential.
+            Chess is often used as an example of visual logic because it asks players to hold a
+            changing board state in mind, compare options, and anticipate consequences before
+            acting. Those habits also show up in fields like geometry, design, and programming,
+            where seeing structure clearly matters.
           </p>
         </section>
       </article>

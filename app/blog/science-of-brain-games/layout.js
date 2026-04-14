@@ -1,15 +1,16 @@
 export const metadata = {
-  title: 'The Science Behind Brain Games: How Daily Puzzles Sharpen Your Mind',
-  description: 'Explore the neuroscience research behind cognitive gaming. Learn how just 5 minutes of daily puzzle-solving can measurably improve memory, focus, and mental agility.',
+  title: 'What Brain Games Can Actually Claim',
+  description:
+    'A grounded VIBEMENOW note on what browser puzzle games can reasonably claim about attention, practice, and short play sessions.',
   openGraph: {
     url: '/blog/science-of-brain-games',
-    title: 'The Science Behind Brain Games — VIBEMENOW Blog',
-    description: 'Explore the neuroscience research behind cognitive gaming and daily puzzle-solving.',
+    title: 'What Brain Games Can Actually Claim | VIBEMENOW Blog',
+    description:
+      'A grounded VIBEMENOW note on what browser puzzle games can reasonably claim.',
   },
   alternates: {
     canonical: '/blog/science-of-brain-games',
   },
-
 };
 
 export default function Layout({ children }) {

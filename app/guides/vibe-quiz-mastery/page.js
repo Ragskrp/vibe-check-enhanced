@@ -46,7 +46,9 @@ export default function VibeQuizGuide() {
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>🎯 1. The Science of Aesthetic Choice</h2>
           <p style={{ marginBottom: 20 }}>
-            Every click you make during the Vibe Quiz serves as a data point. When you choose a &quot;Cosy Bedroom" over a "Space Station," you are not just picking a picture; you are signalling a preference for comfort, stability, and organic textures over novelty, exploration, and clinical environments.
+            Every click you make during the Vibe Quiz helps shape the final result. When you choose
+            a &quot;Cosy Bedroom&quot; over a &quot;Space Station,&quot; you are usually expressing a style preference
+            in that moment, not revealing a fixed scientific truth about your personality.
           </p>
           <div style={{
             padding: 24, borderRadius: 16,

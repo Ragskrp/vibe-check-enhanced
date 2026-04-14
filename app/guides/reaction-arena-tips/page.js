@@ -79,7 +79,10 @@ export default function ReactionArenaGuide() {
             Reflexes are trainable, much like muscles. Regular play in our &quot;Series of 5" mode builds and reinforces the neural pathways that make reactions more automatic. We recommend three 5-round sessions per day—morning, afternoon, and evening—to account for natural circadian rhythm shifts in cognitive speed.
           </p>
           <p style={{ marginBottom: 20 }}>
-            Physiological factors also play a significant role. Research from sports science shows that even mild dehydration (as little as 2% body weight loss) can slow reaction times by up to 10%. That is the difference between a 200ms and a 220ms score. Caffeine, taken in moderation (100–200mg), has been shown to improve reaction times by 5–10% in clinical studies.
+            Your physical state still matters. If you are tired, dehydrated, distracted, or
+            over-caffeinated, your reactions will usually feel less consistent. For most players,
+            the practical takeaway is simple: play when you are alert and comfortable rather than
+            looking for miracle gains from tiny hacks.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>📊 4. Benchmarks and What They Mean</h2>

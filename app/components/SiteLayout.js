@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Zap, LayoutGrid, ChevronRight } from 'lucide-react';
 import AdBanner from './AdBanner';
 
@@ -29,7 +28,6 @@ const NAV_ITEMS = [
 
 export default function SiteLayout({ children }) {
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleBrowseClick = (e) => {
     if (pathname === '/') {
@@ -104,12 +102,15 @@ export default function SiteLayout({ children }) {
               <LayoutGrid size={16} /> Browse Games
             </Link>
 
-              <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
-                Blog
-              </Link>
-              <Link href="/faq" className={`nav-link${pathname === '/faq' ? ' active' : ''}`}>
-                FAQ
-              </Link>
+            <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
+              Blog
+            </Link>
+            <Link href="/about" className={`nav-link${pathname === '/about' ? ' active' : ''}`}>
+              About
+            </Link>
+            <Link href="/faq" className={`nav-link${pathname === '/faq' ? ' active' : ''}`}>
+              FAQ
+            </Link>
           </nav>
         </div>
       </header>
@@ -164,6 +165,7 @@ export default function SiteLayout({ children }) {
           </div>
           <div className="footer-links">
             <Link href="/about">About Us</Link>
+            <Link href="/publisher-information">Publisher Information</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/editorial-policy">Editorial Policy</Link>
             <Link href="/community-guidelines">Community Guidelines</Link>

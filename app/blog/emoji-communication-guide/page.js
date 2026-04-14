@@ -112,7 +112,11 @@ export default function EmojiCommunicationGuide() {
             One of the most significant cultural shifts of the 2020s has been the normalisation of emoji in professional communication. A 2025 survey by Adobe found that 78% of emoji users say they use emoji in work messages, and 63% of business leaders view emoji-using employees as more approachable and likeable. However, the rules are still evolving, and getting them wrong can have real consequences.
           </p>
           <p style={{ marginBottom: 20 }}>
-            The general consensus among communication experts is that emoji in the workplace should follow the &quot;mirror rule": use emoji with the same frequency and style as the person you are communicating with. If your manager uses a 👍 in Slack messages, it is safe to reciprocate. If your client communicates in formal paragraphs without any emoji, adding them to your replies may come across as inappropriately casual. This social awareness — reading the room and adapting your communication style accordingly — is a form of <strong>emotional intelligence</strong> that emoji has made visible and measurable.
+            A practical rule for workplace emoji is the &quot;mirror rule": use emoji with roughly the
+            same frequency and tone as the person you are replying to. If your manager uses a 👍 in
+            Slack messages, it is usually fine to reciprocate. If your client writes in formal
+            paragraphs without emoji, adding them may come across as too casual. Reading the room
+            and adjusting your tone matters more than any universal emoji formula.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>Why Emoji Literacy Matters</h2>
