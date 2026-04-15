@@ -237,6 +237,42 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* GCSE Revision CTA */}
+      <section style={{ marginTop: 32, marginBottom: 8 }}>
+        <Link href="/gcse" style={{ textDecoration: 'none' }}>
+          <div style={{
+            padding: '24px 28px',
+            borderRadius: 20,
+            background: 'linear-gradient(135deg, rgba(0,229,160,0.1), rgba(0,212,255,0.08))',
+            border: '2px solid rgba(0,229,160,0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 20,
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <span style={{ fontSize: 36 }}>🎓</span>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: '#00e5a0', textTransform: 'uppercase', marginBottom: 4 }}>
+                  NEW MODULE
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: '#f0f0f0' }}>
+                  GCSE Revision Tools
+                </div>
+                <div style={{ fontSize: 13, color: '#888', marginTop: 4 }}>
+                  Free interactive Maths revision — Equation Rush, Fraction Frenzy, Angle Snapper & more
+                </div>
+              </div>
+            </div>
+            <div style={{ color: '#00e5a0', fontWeight: 700, fontSize: 14, whiteSpace: 'nowrap' }}>
+              Explore →
+            </div>
+          </div>
+        </Link>
+      </section>
+
       <section id="games-listing" style={{ marginTop: 40, marginBottom: 32 }}>
         <div
           style={{

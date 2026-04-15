@@ -83,5 +83,50 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...corePages, ...games, ...blogPosts, ...guides];
+  // GCSE Revision Routes — auto-generated
+  const mathsSlugs = [
+    'laws-of-indices', 'prime-factors', 'standard-form', 'estimating', 'error-intervals',
+    'product-rule-counting', 'expanding-simplifying', 'factorising', 'substitution',
+    'setting-up-equations', 'straight-line-graphs', 'angles-polygons', 'angles-parallel-lines',
+    'area-2d-shapes', 'bearings', 'pythagoras-theorem', 'volume', 'surface-area',
+    'plans-elevations', 'percentages', 'fractions-operations', 'recurring-decimals',
+    'converting-fdp', 'frequency-polygons', 'parallel-perpendicular-lines',
+    'angle-bisectors', 'area-money-problems', 'area-2d-shapes-calc',
+    'averages-grouped-frequency', 'bounds', 'changing-subject',
+    'distance-time-graphs', 'expanding-factorising-calc', 'factorising-quadratics',
+    'fractions-calc', 'hcf-lcm', 'histograms', 'iteration', 'laws-of-indices-calc',
+    'metric-conversions', 'percentages-calc', 'pie-charts', 'rounding',
+    'scatter-graphs', 'sectors', 'standard-form-calc', 'substitution-calc',
+    'surds', 'surface-area-cones', 'two-way-tables'
+  ];
+  
+  const scienceSlugs = [
+    'cell-biology', 'organisation', 'infection-and-response', 'ecology',
+    'atomic-structure-periodic', 'bonding-properties', 'quantitative-chemistry', 
+    'chemical-analysis', 'chemistry-of-atmosphere', 'using-resources',
+    'energy', 'electricity', 'particle-model', 'atomic-physics', 'magnetism',
+  ];
+
+  const gcsePages = [
+    { url: `${baseUrl}/gcse`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/maths`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/maths/equation-rush`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/gcse/maths/fraction-frenzy`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/gcse/maths/angle-snapper`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
+    ...mathsSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/maths/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    ...scienceSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/science/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+  ];
+
+  return [...corePages, ...games, ...blogPosts, ...guides, ...gcsePages];
 }

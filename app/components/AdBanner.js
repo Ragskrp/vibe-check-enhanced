@@ -33,7 +33,7 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     '/wordvibe',
     '/would-you-rather',
   ]);
-  const adsBlocked = !adEnabledRoutes.has(pathname);
+  const adsBlocked = !adEnabledRoutes.has(pathname) && !pathname.startsWith('/gcse');
 
   useEffect(() => {
     if (isLoaded.current) return;

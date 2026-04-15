@@ -1,0 +1,22 @@
+
+> vibemenow@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+
+✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\Dell\\Documents\\Vibe-check-enhanced',
+  testMode: true
+}
+✓ Ready in 2.9s
+○ Compiling / ...
+ GET / 200 in 6.6s (compile: 5.4s, proxy.ts: 464ms, render: 786ms)
+ GET /contact 200 in 1535ms (compile: 1389ms, proxy.ts: 24ms, render: 122ms)
+ GET /editorial-policy 200 in 1363ms (compile: 1246ms, proxy.ts: 13ms, render: 105ms)
+ GET / 200 in 94ms (compile: 14ms, proxy.ts: 12ms, render: 69ms)
+ GET /wordvibe 200 in 1446ms (compile: 1324ms, proxy.ts: 14ms, render: 108ms)
+ GET / 200 in 210ms (compile: 25ms, proxy.ts: 25ms, render: 161ms)
+ GET /whack-a-vibe 200 in 1225ms (compile: 1079ms, proxy.ts: 10ms, render: 136ms)
