@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, Gamepad2, Activity, Zap, ClipboardList } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function ExecutiveFunctionPage() {
   return (
@@ -24,11 +25,8 @@ export default function ExecutiveFunctionPage() {
         </header>
 
         <figure style={{ marginBottom: 56, borderRadius: 24, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ width: '100%', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(45deg, #1d1a0b, #ffe6000a)', position: 'relative' }}>
-             <div style={{ textAlign: 'center', color: '#ffe600' }}>
-                <Activity size={64} style={{ marginBottom: 16, opacity: 0.5 }} />
-                <p style={{ fontSize: 14, fontWeight: 600 }}>[Visual: Abstract representation of a brain as a futuristic air traffic control center]</p>
-             </div>
+          <div style={{ width: '100%', height: 400, position: 'relative' }}>
+             <BlogArt type="executive-function-control" />
           </div>
         </figure>
 

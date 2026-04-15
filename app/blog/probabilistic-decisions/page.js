@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, Dices, TrendingUp, AlertCircle, BarChart } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function ProbabilisticDecisionsPage() {
   return (
@@ -24,11 +25,8 @@ export default function ProbabilisticDecisionsPage() {
         </header>
 
         <figure style={{ marginBottom: 56, borderRadius: 24, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ width: '100%', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(45deg, #0b151d, #00bfff0a)', position: 'relative' }}>
-             <div style={{ textAlign: 'center', color: '#00bfff' }}>
-                <TrendingUp size={64} style={{ marginBottom: 16, opacity: 0.5 }} />
-                <p style={{ fontSize: 14, fontWeight: 600 }}>[Visual: A child standing at a crossroads of many glowing paths made of dice and cards]</p>
-             </div>
+          <div style={{ width: '100%', height: 400, position: 'relative' }}>
+             <BlogArt type="probabilistic-decisions" />
           </div>
         </figure>
 

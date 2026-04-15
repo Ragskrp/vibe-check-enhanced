@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, Link as LinkIcon, Puzzle, Lightbulb, BookOpen } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function LogicalReasoningPage() {
   return (
@@ -24,11 +25,8 @@ export default function LogicalReasoningPage() {
         </header>
 
         <figure style={{ marginBottom: 56, borderRadius: 24, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ width: '100%', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(45deg, #161d0b, #adff2f0a)', position: 'relative' }}>
-             <div style={{ textAlign: 'center', color: '#adff2f' }}>
-                <LinkIcon size={64} style={{ marginBottom: 16, opacity: 0.5 }} />
-                <p style={{ fontSize: 14, fontWeight: 600 }}>[Visual: A child connecting glowing crystalline nodes in a complex 3D web]</p>
-             </div>
+          <div style={{ width: '100%', height: 400, position: 'relative' }}>
+             <BlogArt type="logical-reasoning-logic" />
           </div>
         </figure>
 

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, Quote, HelpCircle, Lightbulb, Users } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function SocraticMethodPage() {
   return (
@@ -24,12 +25,8 @@ export default function SocraticMethodPage() {
         </header>
 
         <figure style={{ marginBottom: 56, borderRadius: 24, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ width: '100%', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(45deg, #001f3f, #00d4ff0a)', position: 'relative' }}>
-             {/* Placeholder for the generated image */}
-             <div style={{ textAlign: 'center', color: '#00d4ff' }}>
-                <HelpCircle size={64} style={{ marginBottom: 16, opacity: 0.5 }} />
-                <p style={{ fontSize: 14, fontWeight: 600 }}>[Visual: A child holding a glowing question mark connecting with an adult]</p>
-             </div>
+          <div style={{ width: '100%', height: 400, position: 'relative' }}>
+             <BlogArt type="socratic-method-discovery" />
           </div>
           <figcaption style={{ padding: '16px 24px', fontSize: 14, color: '#666', fontStyle: 'italic', textAlign: 'center' }}>
             The Socratic Method shifts the burden of thought from the teacher to the learner, fostering neural autonomy.

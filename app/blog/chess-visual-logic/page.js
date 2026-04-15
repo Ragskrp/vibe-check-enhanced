@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, Target, Eye, Maximize, LayoutGrid } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function VisualLogicPage() {
   return (
@@ -24,11 +25,8 @@ export default function VisualLogicPage() {
         </header>
 
         <figure style={{ marginBottom: 56, borderRadius: 24, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)' }}>
-          <div style={{ width: '100%', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(45deg, #111111, #ffffff0a)', position: 'relative' }}>
-             <div style={{ textAlign: 'center', color: '#ffffff' }}>
-                <LayoutGrid size={64} style={{ marginBottom: 16, opacity: 0.5 }} />
-                <p style={{ fontSize: 14, fontWeight: 600 }}>[Visual: A chess board where the pieces are made of light and logical paths are drawn between them]</p>
-             </div>
+          <div style={{ width: '100%', height: 400, position: 'relative' }}>
+             <BlogArt type="chess-visual-logic" />
           </div>
         </figure>
 
