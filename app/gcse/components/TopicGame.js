@@ -94,7 +94,9 @@ export default function TopicGame({ config }) {
 
   // ===== MENU =====
   if (phase === 'menu') {
-    const parentCategory = config.category === 'Biology' || config.category === 'Chemistry' || config.category === 'Physics' ? 'GCSE Science' : 'GCSE Maths';
+    const isCompSci = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'].includes(config.category);
+    const parentCategory = isCompSci ? 'GCSE Computer Science' :
+                           config.category === 'Biology' || config.category === 'Chemistry' || config.category === 'Physics' ? 'GCSE Science' : 'GCSE Maths';
 
     return (
       <div className="game-container" style={{ textAlign: 'center' }}>

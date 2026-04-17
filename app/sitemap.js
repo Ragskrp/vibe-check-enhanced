@@ -107,10 +107,18 @@ export default function sitemap() {
     'energy', 'electricity', 'particle-model', 'atomic-physics', 'magnetism',
   ];
 
+  const computerScienceSlugs = [
+    'computational-thinking', 'programming-fundamentals', 'programming-constructs',
+    'errors-in-programming', 'algorithms-tracing', 'searching-algorithms',
+    'sorting-algorithms', 'flowcharts-algorithm-design', 'boolean-logic',
+    'mathematical-logic-in-programs', 'data-structures', 'databases-sql'
+  ];
+
   const gcsePages = [
     { url: `${baseUrl}/gcse`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/maths`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/computer-science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/maths/equation-rush`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/fraction-frenzy`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/angle-snapper`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
@@ -122,6 +130,12 @@ export default function sitemap() {
     })),
     ...scienceSlugs.map(slug => ({
       url: `${baseUrl}/gcse/science/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    ...computerScienceSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/computer-science/${slug}`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.7,
