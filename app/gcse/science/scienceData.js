@@ -46,15 +46,22 @@ const TOPICS = {
         const types = [
           () => makeMCQ('Which structure is found in BOTH animal and plant cells?', 'Mitochondria', ['Chloroplasts', 'Cell wall', 'Permanent vacuole'], 'The site of aerobic respiration', 'Both cell types need mitochondria for energy release.'),
           () => makeMCQ('What is the function of ribosomes?', 'Protein synthesis', ['Respiration', 'Photosynthesis', 'Storing sap'], 'Where are proteins made?', 'Ribosomes are the site of protein synthesis.'),
+          () => {
+             const organelle = pick(['Mitochondria', 'Ribosome', 'Nucleus', 'Cell Membrane']);
+             const func = organelle === 'Mitochondria' ? 'release energy' : organelle === 'Ribosome' ? 'make protein' : organelle === 'Nucleus' ? 'hold DNA' : 'control what enters/leaves';
+             return makeMCQ(`What is the main function of the ${organelle}?`, func, ['photosynthesis', 'making sugar', 'storing water', 'moving the cell'].filter(x => x !== func), `Think about ${organelle}'s role.`, `The ${organelle} is used to ${func}.`);
+          }
         ];
         return pick(types)();
       } else {
         const types = [
           () => makeMCQ('Are bacterial cells eukaryotic or prokaryotic?', 'Prokaryotic', ['Eukaryotic', 'Neither'], 'Think about the nucleus', 'Bacteria are prokaryotes because they lack a membrane-bound nucleus.'),
           () => {
-            const mg = pick([100, 200, 500, 1000]);
-            const rz = pick([0.01, 0.02, 0.05]);
-            return makeMCQ(`If a cell's real size is ${rz} mm and the magnification is x${mg}, what is the image size?`, `${rz * mg} mm`, [`${(rz * mg) / 10} mm`, `${rz * mg * 10} mm`, `${rz} mm`], 'Image = Mag × Real', `Image size = ${mg} × ${rz} = ${rz * mg} mm`);
+            const mg = pick([100, 200, 400, 1000, 1500]);
+            const rz = pick([0.01, 0.02, 0.05, 0.005]);
+            const units = pick(['mm', 'μm']);
+            const val = units === 'mm' ? rz : rz * 1000;
+            return makeMCQ(`If a cell's real size is ${val}${units} and the magnification is x${mg}, what is the image size?`, `${(val * mg).toFixed(2)}${units}`, [`${(val * mg * 10).toFixed(2)}${units}`, `${(val * mg / 10).toFixed(2)}${units}`, `${val}${units}`], 'Image = Mag × Real', `Image size = ${mg} × ${val} = ${(val * mg).toFixed(2)}${units}`);
           }
         ];
         return pick(types)();
@@ -162,7 +169,7 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'The Atom', content: 'Protons (+1 charge, mass 1), Neutrons (0 charge, mass 1), Electrons (-1 charge, very small mass). Protons & neutrons are in the nucleus.' },
+        { title: 'The Atom', visualId: 'sci-atomic-model', content: 'Protons (+1 charge, mass 1), Neutrons (0 charge, mass 1), Electrons (-1 charge, very small mass). Protons & neutrons are in the nucleus.' },
         { title: 'Atomic Number', content: 'The number of protons in an atom. In neutral atoms, the number of electrons equals the number of protons.' },
       ],
       higher: [
@@ -171,14 +178,31 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      const q = tier === 'foundation' ? [
-        () => makeMCQ('What is the electrical charge of a neutron?', '0', ['+1', '-1', '+2'], 'Neutral', 'Neutrons are neutral particles (charge 0).'),
-        () => makeMCQ('If Carbon has an atomic number of 6, how many protons does it have?', '6', ['12', '14', '8'], 'Atomic number defines the element', 'The atomic number is exactly the number of protons.'),
-      ] : [
-        () => makeMCQ('Isotopes of an element have a different number of what?', 'Neutrons', ['Protons', 'Electrons', 'Ions'], 'Different mass', 'Isotopes have identical protons but different neutrons.'),
-        () => makeMCQ('Why are Group 1 metals more reactive down the group?', 'Outer electron is further from the nucleus', ['Outer electron is closer', 'They have more protons', 'They form negative ions'], 'Electrostatic attraction', 'The outer electron is further from the positive nucleus and shielded, making it easier to lose.'),
-      ];
-      return pick(q)();
+      if (tier === 'foundation') {
+        const types = [
+          () => makeMCQ('What is the electrical charge of a neutron?', '0', ['+1', '-1', '+2'], 'Neutral', 'Neutrons are neutral particles (charge 0).'),
+          () => {
+             const protons = r(1, 20);
+             return makeMCQ(`If an atom has an atomic number of ${protons}, how many protons does it have?`, `${protons}`, [`${protons * 2}`, `${protons + 2}`, '0'], 'Atomic number = Protons', `By definition, the atomic number (${protons}) is the number of protons.`);
+          },
+          () => {
+             const particle = pick(['Proton', 'Electron', 'Neutron']);
+             const charge = particle === 'Proton' ? '+1' : particle === 'Electron' ? '-1' : '0';
+             return makeMCQ(`What is the relative charge of a ${particle}?`, charge, ['+1', '-1', '0', '+2'].filter(x => x !== charge), 'Check the lesson card table.', `A ${particle} has a relative charge of ${charge}.`);
+          }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => makeMCQ('Isotopes of an element have a different number of what?', 'Neutrons', ['Protons', 'Electrons', 'Ions'], 'Different mass', 'Isotopes have identical protons but different neutrons.'),
+          () => {
+             const group = pick(['1', '7']);
+             const trend = group === '1' ? 'More reactive' : 'Less reactive';
+             return makeMCQ(`How does reactivity change as you go DOWN Group ${group}?`, trend, ['No change', trend === 'More reactive' ? 'Less reactive' : 'More reactive'], 'Think about distance from nucleus.', `Group ${group} getting further from the nucleus makes them ${trend} as you go down.`);
+          }
+        ];
+        return pick(types)();
+      }
     },
   },
 
@@ -231,10 +255,24 @@ const TOPICS = {
     },
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
-        return (() => makeMCQ('What is the Relative Formula Mass (Mr) of Water (H2O)? (Ar: H=1, O=16)', '18', ['17', '33', '10'], '2 lots of H, 1 lot of O', '(2 × 1) + 16 = 18'))();
+        const types = [
+          () => {
+             const compound = pick([
+               { n: 'Relative Formula Mass (Mr) of H2O', a: '18', h: 'H=1, O=16', e: '(2*1)+16=18' },
+               { n: 'Relative Formula Mass (Mr) of CO2', a: '44', h: 'C=12, O=16', e: '12+(2*16)=44' },
+               { n: 'Relative Formula Mass (Mr) of NaCl', a: '58.5', h: 'Na=23, Cl=35.5', e: '23+35.5=58.5' },
+               { n: 'Relative Formula Mass (Mr) of CH4', a: '16', h: 'C=12, H=1', e: '12+(4*1)=16' }
+             ]);
+             return makeMCQ(`Calculate the ${compound.n}. (Ar: ${compound.h})`, compound.a, ['15', '32', '64', '20'].filter(x => x !== compound.a), 'Sum the atomic masses.', compound.e);
+          }
+        ];
+        return pick(types)();
       } else {
-        const mass = pick([44, 88, 132]);
-        return (() => makeMCQ(`How many moles in ${mass}g of CO2? (Mr of CO2 = 44)`, `${mass/44}`, [`${mass/22}`, `${mass/88}`, '1'], 'Mass / Mr', `Moles = ${mass} / 44 = ${mass/44}`))();
+        const compounds = [{n:'CO2', mr:44}, {n:'H2O', mr:18}, {n:'NaCl', mr:58.5}, {n:'O2', mr:32}];
+        const c = pick(compounds);
+        const multiplier = r(1, 5);
+        const mass = c.mr * multiplier;
+        return makeMCQ(`How many moles in ${mass}g of ${c.n}? (Mr of ${c.n} = ${c.mr})`, `${multiplier}`, [`${multiplier * 2}`, `${multiplier / 2}`, '10'], 'Mass / Mr', `Moles = ${mass} / ${c.mr} = ${multiplier}`);
       }
     },
   },
@@ -292,14 +330,32 @@ const TOPICS = {
     },
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
-        return pick([
+        const types = [
           () => makeMCQ('What is the Law of Conservation of Energy?', 'Energy cannot be created or destroyed', ['Energy is always lost as heat', 'Energy scales with mass', 'New energy is made in power plants'], 'It only transfers', 'Energy can only be transferred between stores, not created or destroyed.'),
-          () => makeMCQ('Which energy store is associated with a stretched rubber band?', 'Elastic potential', ['Kinetic', 'Gravitational', 'Chemical'], 'Think about stretching', 'Stretching or squashing changes the elastic potential store.'),
-        ])();
+          () => {
+             const store = pick(['stretched spring', 'battery', 'hot coffee', 'moving car', 'object on high shelf']);
+             const ans = store === 'stretched spring' ? 'Elastic' : store === 'battery' ? 'Chemical' : store === 'hot coffee' ? 'Thermal' : store === 'moving car' ? 'Kinetic' : 'Gravitational';
+             return makeMCQ(`Which energy store is increased in a ${store}?`, ans, ['Nuclear', 'Magnetic', 'Electrostatic'].filter(x => x !== ans), 'Think of the property.', `${store} primarily stores ${ans} energy.`);
+          }
+        ];
+        return pick(types)();
       } else {
-        const mass = pick([2, 4, 10]);
-        const v = pick([3, 4, 5]);
-        return (() => makeMCQ(`Calculate the Kinetic Energy of a ${mass}kg object moving at ${v} m/s`, `${0.5 * mass * v * v} J`, [`${mass * v} J`, `${mass * v * v} J`, `${0.5 * mass * v} J`], 'Ek = 0.5 × m × v^2', `Ek = 0.5 × ${mass} × ${v}² = ${0.5 * mass * v * v} J`))();
+        const types = [
+           () => {
+             const mass = r(2, 20);
+             const v = r(2, 6);
+             const ans = 0.5 * mass * v * v;
+             return makeMCQ(`Calculate the Kinetic Energy of a ${mass}kg object moving at ${v} m/s`, `${ans} J`, [`${mass * v} J`, `${mass * v * v} J`, `${ans * 2} J`], 'Ek = 0.5 × m × v^2', `Ek = 0.5 × ${mass} × ${v}² = ${ans} J`);
+           },
+           () => {
+             const mass = r(1, 10);
+             const height = r(2, 10);
+             const g = 9.8;
+             const ans = (mass * g * height).toFixed(1);
+             return makeMCQ(`Find the Gravitational Potential Energy (GPE) for a ${mass}kg weight lifted ${height}m. (g=9.8)`, `${ans} J`, [`${(mass*height).toFixed(1)} J`, `${(mass*g).toFixed(1)} J`, '100 J'], 'GPE = m * g * h', `Ep = ${mass} × 9.8 × ${height} = ${ans} J`);
+           }
+        ];
+        return pick(types)();
       }
     },
   },
@@ -314,7 +370,7 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'V = I R', content: 'Potential difference = Current × Resistance.', formula: 'V = I × R\n(Volts = Amps × Ohms)' },
+        { title: 'V = I R', visualId: 'sci-circuit-symbols', content: 'Potential difference = Current × Resistance.', formula: 'V = I × R\n(Volts = Amps × Ohms)' },
         { title: 'Series Circuits', content: 'Current (I) is the same everywhere. Potential Difference (V) is shared across components.' },
       ],
       higher: [
@@ -324,16 +380,18 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      const q = [
+      const types = [
         () => makeMCQ('In V = I × R, what is V measured in?', 'Volts', ['Amps', 'Ohms', 'Joules'], 'Potential difference unit', 'V is Voltage / Potential difference, measured in Volts.'),
-        () => makeMCQ('What is the colour of the Earth wire in a UK plug?', 'Green and yellow stripes', ['Brown', 'Blue', 'Black'], 'Safety colour', 'Earth is green and yellow stripes.'),
-        () => makeMCQ('In a series circuit, what happens to the current?', 'It is the same everywhere', ['It is shared between components', 'It gets used up', 'It alternates'], 'Series', 'Current has only one path to flow, so it is the same everywhere.'),
         () => {
-          const i = r(2,5); const r_val = r(5,12);
-          return makeMCQ(`If Current = ${i}A and Resistance = ${r_val}Ω, find the Voltage (V)`, `${i * r_val} V`, [`${i + r_val} V`, `${r_val / i} V`, `${i * r_val * 2} V`], 'V = I × R', `V = ${i} × ${r_val} = ${i * r_val}V`);
+          const i = r(1, 5); const res = r(2, 12);
+          return makeMCQ(`If Current = ${i}A and Resistance = ${res}Ω, find the Voltage (V)`, `${i * res} V`, [`${i + res} V`, `${res / i} V`, '230 V'], 'V = I × R', `V = ${i} × ${res} = ${i * res}V`);
+        },
+        () => {
+           const v = r(10, 200); const i = r(1, 10);
+           return makeMCQ(`If Voltage = ${v}V and Current = ${i}A, calculate Resistance`, `${(v / i).toFixed(1)} Ω`, [`${(v * i).toFixed(1)} Ω`, `${(i / v).toFixed(2)} Ω`, '50 Ω'], 'R = V / I', `R = ${v} / ${i} = ${(v / i).toFixed(1)} Ω`);
         }
       ];
-      return pick(q)();
+      return pick(types)();
     },
   },
 
@@ -378,7 +436,7 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'Alpha Radiation (α)', content: 'A helium nucleus (2 protons, 2 neutrons). Very strongly ionising but weakly penetrating. Stopped by a sheet of paper.' },
+        { title: 'Alpha Radiation (α)', visualId: 'sci-radiation-penetration', content: 'A helium nucleus (2 protons, 2 neutrons). Very strongly ionising but weakly penetrating. Stopped by a sheet of paper.' },
         { title: 'Beta Radiation (β)', content: 'A high-speed electron. Stopped by a few mm of aluminium.' },
         { title: 'Gamma Radiation (γ)', content: 'An electromagnetic wave. Weakly ionising but very highly penetrating. Stopped only by thick lead or concrete.' },
       ],
@@ -388,12 +446,19 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      const q = [
+      const types = [
         () => makeMCQ('Which type of radiation is completely stopped by a sheet of paper?', 'Alpha', ['Beta', 'Gamma', 'X-ray'], 'The largest, least penetrating particle', 'Alpha particles are large and easily stopped by paper or skin.'),
-        () => makeMCQ('What is Beta radiation?', 'A high speed electron', ['A helium nucleus', 'An electromagnetic wave', 'A neutron'], 'Emitted from the nucleus', 'A beta particle is a high-speed electron emitted when a neutron turns into a proton.'),
-        () => makeMCQ('What stops Gamma radiation?', 'Thick lead or concrete', ['Paper', 'A few mm of aluminium', 'Skin'], 'Highly penetrating', 'Gamma rays are highly penetrating and require thick dense materials like lead to stop them.'),
+        () => {
+           const source = r(100, 1000);
+           return makeMCQ(`A radioactive source has an activity of ${source} Bq. After 1 half-life, what is the activity?`, `${source / 2} Bq`, [`${source} Bq`, `${source / 4} Bq`, `${source * 2} Bq`], 'Half-life means dividing by 2.', `After one half-life, half the nuclei have decayed, so activity is ${source / 2} Bq.`);
+        },
+        () => {
+           const type = pick(['Alpha', 'Beta', 'Gamma']);
+           const stopped = type === 'Alpha' ? 'Paper' : type === 'Beta' ? 'Aluminium' : 'Lead/Concrete';
+           return makeMCQ(`What is the minimum material needed to stop ${type} radiation?`, stopped, ['Paper', 'Aluminium', 'Lead/Concrete', 'Air'].filter(x => x !== stopped), `Think about penetration of ${type}.`, `${type} is stopped by ${stopped}.`);
+        }
       ];
-      return pick(q)();
+      return pick(types)();
     },
   },
 

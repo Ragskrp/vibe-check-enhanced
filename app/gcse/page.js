@@ -36,6 +36,16 @@ const SUBJECTS = [
     available: true,
   },
   {
+    emoji: '💼',
+    title: 'Business',
+    desc: 'Real-world enterprise, operations, and HR. Build your business acumen with AQA-aligned tests.',
+    path: '/gcse/business',
+    color: '#ff6b35',
+    topics: 12,
+    tools: 12,
+    available: true,
+  },
+  {
     emoji: '🌍',
     title: 'Geography',
     desc: 'Map skills, case studies, and quick-fire knowledge checks.',

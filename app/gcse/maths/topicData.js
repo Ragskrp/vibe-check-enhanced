@@ -36,7 +36,7 @@ const TOPICS = {
     description: 'Simplify expressions using index laws — multiply, divide, and raise powers.',
     lessons: {
       foundation: [
-        { title: 'Multiplying Powers', content: 'When multiplying powers with the same base, add the indices.', formula: 'aᵐ × aⁿ = aᵐ⁺ⁿ', example: '3² × 3⁴ = 3⁶ = 729' },
+        { title: 'Multiplying Powers', visualId: 'math-indices', content: 'When multiplying powers with the same base, add the indices.', formula: 'aᵐ × aⁿ = aᵐ⁺ⁿ', example: '3² × 3⁴ = 3⁶ = 729' },
         { title: 'Dividing Powers', content: 'When dividing powers with the same base, subtract the indices.', formula: 'aᵐ ÷ aⁿ = aᵐ⁻ⁿ', example: '5⁷ ÷ 5³ = 5⁴ = 625' },
         { title: 'Power of Zero', content: 'Any number raised to the power of 0 equals 1.', formula: 'a⁰ = 1', example: '7⁰ = 1\n100⁰ = 1', tip: 'This works for ANY non-zero number.' },
       ],
@@ -47,31 +47,25 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const types = [
-          () => { const b = r(2, 5); const m = r(1, 4); const n = r(1, 4); return { display: `${b}^${m} × ${b}^${n} = ${b}^?`, answer: m + n, hint: 'Add the indices', explanation: `${b}^${m} × ${b}^${n} = ${b}^(${m}+${n}) = ${b}^${m + n}` }; },
-          () => { const b = r(2, 5); const m = r(4, 8); const n = r(1, m - 1); return { display: `${b}^${m} ÷ ${b}^${n} = ${b}^?`, answer: m - n, hint: 'Subtract the indices', explanation: `${b}^${m} ÷ ${b}^${n} = ${b}^(${m}-${n}) = ${b}^${m - n}` }; },
-          () => { const b = r(2, 10); return { display: `What is ${b}⁰?`, answer: 1, hint: 'Power of zero', explanation: 'Any number to the power of 0 = 1' }; },
-          () => { const b = r(2, 5); const n = r(2, 4); return { display: `Evaluate ${b}^${n}`, answer: Math.pow(b, n), hint: 'Calculate', explanation: `${b}^${n} = ${Array(n).fill(b).join(' × ')} = ${Math.pow(b, n)}` }; },
-        ];
-        return pick(types)();
-      } else {
-        const types = [
-          () => { const b = r(2, 5); const n = r(1, 3); const ans = `1/${Math.pow(b, n)}`; return { display: `Evaluate ${b}^(−${n}) as a fraction`, answer: ans, answerType: 'fraction', hint: 'Negative index = reciprocal', explanation: `${b}^(-${n}) = 1/${b}^${n} = 1/${Math.pow(b, n)}`, placeholder: 'e.g. 1/8' }; },
-          () => {
-            const pairs = [[4, 2], [9, 3], [16, 4], [25, 5], [36, 6], [49, 7], [64, 8], [100, 10]];
-            const [a, root] = pick(pairs);
-            return { display: `Evaluate ${a}^(1/2)`, answer: root, hint: 'Square root', explanation: `${a}^(1/2) = √${a} = ${root}` };
-          },
-          () => {
-            const pairs = [[8, 2], [27, 3], [64, 4], [125, 5]];
-            const [a, root] = pick(pairs);
-            return { display: `Evaluate ${a}^(1/3)`, answer: root, hint: 'Cube root', explanation: `${a}^(1/3) = ³√${a} = ${root}` };
-          },
-          () => { const b = r(2, 4); const m = r(2, 3); const n = r(2, 3); return { display: `(${b}^${m})^${n} = ${b}^?`, answer: m * n, hint: 'Multiply the indices', explanation: `(${b}^${m})^${n} = ${b}^(${m}×${n}) = ${b}^${m * n}` }; },
-        ];
-        return pick(types)();
-      }
+      const types = [
+        () => {
+           const b = r(2, 6); const m = r(2, 5); const n = r(2, 5);
+           return makeMCQ(`${b}^${m} × ${b}^${n} = ${b}^?`, `${m + n}`, [`${m * n}`, `${Math.abs(m - n)}`, `${m + n + 1}`], 'Add the powers.', `${b}^${m + n}`);
+        },
+        () => {
+           const b = r(2, 6); const m = r(6, 12); const n = r(2, 5);
+           return makeMCQ(`${b}^${m} ÷ ${b}^${n} = ${b}^?`, `${m - n}`, [`${m / n}`, `${m + n}`, '0'], 'Subtract the powers.', `${b}^${m - n}`);
+        },
+        () => {
+           const b = r(2, 10);
+           return makeMCQ(`Evaluate ${b}⁰`, '1', ['0', `${b}`, `${b * 10}`], 'Anything to the power of 0 is...', '1');
+        },
+        () => {
+           const b = r(2, 4); const m = r(2, 3); const n = r(2, 3);
+           return makeMCQ(`(${b}^${m})^${n} = ${b}^?`, `${m * n}`, [`${m + n}`, `${m ** n}`, '1'], 'Multiply the powers.', `${b}^${m * n}`);
+        }
+      ];
+      return pick(types)();
     },
   },
 
@@ -406,7 +400,7 @@ const TOPICS = {
     description: 'Work with y = mx + c — find gradients, intercepts, and equations.',
     lessons: {
       foundation: [
-        { title: 'y = mx + c', content: 'm is the gradient (steepness) and c is the y-intercept (where the line crosses the y-axis).', formula: 'y = mx + c', example: 'y = 3x + 2\nGradient = 3, y-intercept = 2' },
+        { title: 'y = mx + c', visualId: 'math-gradients', content: 'm is the gradient (steepness) and c is the y-intercept (where the line crosses the y-axis).', formula: 'y = mx + c', example: 'y = 3x + 2\nGradient = 3, y-intercept = 2' },
         { title: 'Finding the Gradient', content: 'Gradient = rise ÷ run = change in y ÷ change in x.', formula: 'm = (y₂ − y₁) / (x₂ − x₁)', example: 'Points (1, 3) and (3, 7):\nm = (7−3)/(3−1) = 4/2 = 2' },
       ],
       higher: [
@@ -415,20 +409,22 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const types = [
-          () => { const m = r(1, 6); const c = r(-5, 10); return { display: `y = ${m}x + ${c < 0 ? `(${c})` : c}\nWhat is the gradient?`, answer: m, hint: 'Coefficient of x', explanation: `In y = mx + c, m = ${m}` }; },
-          () => { const m = r(1, 5); const c = r(-5, 10); return { display: `y = ${m}x + ${c < 0 ? `(${c})` : c}\nWhat is the y-intercept?`, answer: c, hint: 'The constant', explanation: `In y = mx + c, c = ${c}` }; },
-          () => { const x1 = r(0, 3); const x2 = x1 + r(1, 4); const m = r(1, 5); const y1 = m * x1 + r(0, 5); const y2 = y1 + m * (x2 - x1); return { display: `Points (${x1}, ${y1}) and (${x2}, ${y2})\nFind the gradient`, answer: m, hint: 'rise ÷ run', explanation: `m = (${y2}−${y1})/(${x2}−${x1}) = ${y2 - y1}/${x2 - x1} = ${m}` }; },
-        ];
-        return pick(types)();
-      } else {
-        const types = [
-          () => { const m = r(1, 5); return { display: `A line has gradient ${m}.\nWhat gradient is perpendicular?`, answer: `${-1}/${m}`, answerType: 'fraction', hint: 'm₁ × m₂ = −1', explanation: `Perpendicular gradient = −1/${m}`, placeholder: 'e.g. -1/3' }; },
-          () => { const m = r(1, 5); const c = r(-5, 8); return { display: `y = ${m}x + ${c < 0 ? `(${c})` : c}\nWhat is the gradient of a parallel line?`, answer: m, hint: 'Same gradient', explanation: `Parallel lines have equal gradients: m = ${m}` }; },
-        ];
-        return pick(types)();
-      }
+      const types = [
+        () => {
+           const m = r(1, 6); const c = r(-5, 10);
+           return makeMCQ(`In the equation y = ${m}x + ${c}, what is the gradient?`, `${m}`, [`${c}`, `${m + 1}`, '1'], 'The gradient is the multiplier of x.', `${m}`);
+        },
+        () => {
+           const x1 = r(0, 3); const m = r(1, 5); const x2 = x1 + r(1, 4);
+           const y1 = r(0, 10); const y2 = y1 + m * (x2 - x1);
+           return makeMCQ(`Find the gradient of the line passing through (${x1}, ${y1}) and (${x2}, ${y2})`, `${m}`, [`${m + 2}`, `${y2 - y1}`, `${x2 - x1}`], 'Rise over Run.', `(${y2} - ${y1}) / (${x2} - ${x1}) = ${m}`);
+        },
+        () => {
+           const m = r(2, 6);
+           return makeMCQ(`A line has gradient ${m}. What is the gradient of a parallel line?`, `${m}`, [`${-1/m}`, '1', '0'], 'Parallel lines have the same gradient.', `${m}`);
+        }
+      ];
+      return pick(types)();
     },
     fractionInput: true,
   },
@@ -560,7 +556,7 @@ const TOPICS = {
     description: 'Find missing sides in right-angled triangles.',
     lessons: {
       foundation: [
-        { title: "Pythagoras' Theorem", content: 'In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.', formula: 'a² + b² = c²', example: 'a=3, b=4:\nc² = 9 + 16 = 25\nc = √25 = 5' },
+        { title: "Pythagoras' Theorem", visualId: 'math-triangles', content: 'In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.', formula: 'a² + b² = c²', example: 'a=3, b=4:\nc² = 9 + 16 = 25\nc = √25 = 5' },
         { title: 'Finding the Hypotenuse', content: 'Square both sides, add, then square root.', formula: 'c = √(a² + b²)', example: 'a=5, b=12:\nc = √(25 + 144) = √169 = 13' },
       ],
       higher: [
@@ -569,14 +565,13 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      const triples = [[3,4,5],[5,12,13],[6,8,10],[8,15,17],[7,24,25],[9,12,15],[9,40,41]];
-      if (tier === 'foundation') {
-        const [a, b, c] = pick(triples);
-        return { display: `Right triangle: sides ${a} and ${b}.\nFind the hypotenuse.`, answer: c, hint: 'a² + b² = c²', explanation: `${a}² + ${b}² = ${a*a} + ${b*b} = ${c*c}\nc = √${c*c} = ${c}` };
-      } else {
-        const [a, b, c] = pick(triples);
-        return { display: `Right triangle: hypotenuse ${c}, one side ${a}.\nFind the other side.`, answer: b, hint: 'b² = c² − a²', explanation: `${c}² − ${a}² = ${c*c} − ${a*a} = ${b*b}\nb = √${b*b} = ${b}` };
-      }
+      const triples = [[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29]];
+      const t = pick(triples);
+      const types = [
+        () => makeMCQ(`In a right triangle, sides are ${t[0]} and ${t[1]}. Find the hypotenuse.`, `${t[2]}`, [`${t[0]+t[1]}`, `${t[2]+1}`, '10'], 'a² + b² = c²', `${t[0]}² + ${t[1]}² = ${t[2]}²`),
+        () => makeMCQ(`In a right triangle, the hypotenuse is ${t[2]} and one side is ${t[0]}. Find the other side.`, `${t[1]}`, [`${t[2]-t[0]}`, `${t[1]-1}`, '5'], 'c² - a² = b²', `${t[2]}² - ${t[0]}² = ${t[1]}²`)
+      ];
+      return pick(types)();
     },
   },
 
@@ -708,7 +703,7 @@ const TOPICS = {
     description: 'Add, subtract, multiply and divide fractions.',
     lessons: {
       foundation: [
-        { title: 'Adding Fractions', content: 'Find a common denominator, then add numerators.', example: '1/3 + 1/4 = 4/12 + 3/12 = 7/12' },
+        { title: 'Adding Fractions', visualId: 'math-fractions', content: 'Find a common denominator, then add numerators.', example: '1/3 + 1/4 = 4/12 + 3/12 = 7/12' },
         { title: 'Multiplying Fractions', content: 'Multiply numerators and denominators.', formula: 'a/b × c/d = ac/bd', example: '2/3 × 4/5 = 8/15' },
       ],
       higher: [
@@ -717,15 +712,21 @@ const TOPICS = {
       ],
     },
     generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const d1 = r(2, 6); const d2 = r(2, 6); const n1 = r(1, d1 - 1); const n2 = r(1, d2 - 1);
-        const rn = n1 * d2 + n2 * d1; const rd = d1 * d2; const g = gcd(rn, rd);
-        return { display: `${n1}/${d1} + ${n2}/${d2} = ?`, answer: `${rn/g}/${rd/g}`, answerType: 'fraction', hint: 'Common denominator', explanation: `= ${n1*d2}/${d1*d2} + ${n2*d1}/${d1*d2} = ${rn}/${rd} = ${rn/g}/${rd/g}`, placeholder: 'e.g. 7/12' };
-      } else {
-        const n1 = r(1, 5); const d1 = r(2, 6); const n2 = r(1, 5); const d2 = r(2, 6);
-        const rn = n1 * d2; const rd = d1 * n2; const g = gcd(rn, rd);
-        return { display: `${n1}/${d1} ÷ ${n2}/${d2} = ?`, answer: `${rn/g}/${rd/g}`, answerType: 'fraction', hint: 'Flip and multiply', explanation: `${n1}/${d1} × ${d2}/${n2} = ${rn}/${rd} = ${rn/g}/${rd/g}`, placeholder: 'e.g. 15/8' };
-      }
+      const d1 = r(2, 6); const d2 = r(2, 6);
+      const n1 = r(1, d1 - 1); const n2 = r(1, d2 - 1);
+      const common = d1 * d2;
+      const numSum = (n1 * d2) + (n2 * d1);
+      const commonGcd = gcd(numSum, common);
+      
+      const types = [
+        () => makeMCQ(`${n1}/${d1} + ${n2}/${d2}`, `${numSum/commonGcd}/${common/commonGcd}`, [`${n1+n2}/${d1+d2}`, `${numSum}/${common + 1}`, '1/2'], 'Find a common denominator first.', `${numSum/commonGcd}/${common/commonGcd}`),
+        () => {
+           const multNum = n1 * n2; const multDen = d1 * d2;
+           const multGcd = gcd(multNum, multDen);
+           return makeMCQ(`${n1}/${d1} × ${n2}/${d2}`, `${multNum/multGcd}/${multDen/multGcd}`, [`${n1+n2}/${d1+d2}`, '1/10', '0'], 'Multiply top with top, bottom with bottom.', `${multNum/multGcd}/${multDen/multGcd}`);
+        }
+      ];
+      return pick(types)();
     },
     fractionInput: true,
     inputHint: 'Type fractions as a/b (e.g. 7/12). Always simplify your answer.',
@@ -855,7 +856,7 @@ const TOPICS = {
     category: 'Geometry',
     description: 'Using compasses to bisect angles and lines.',
     lessons: {
-      foundation: [{ title: 'Bisecting an Angle', content: 'Place compass on the vertex. Draw an arc crossing both lines. From these two points, draw two more arcs inside the angle. Draw a line from the vertex through where the arcs cross.' }],
+      foundation: [{ title: 'Bisecting an Angle', visualId: 'math-polygons', content: 'Place compass on the vertex. Draw an arc crossing both lines. From these two points, draw two more arcs inside the angle. Draw a line from the vertex through where the arcs cross.' }],
       higher: [{ title: 'Loci', content: 'The angle bisector is the locus of points equidistant from two intersecting lines.' }]
     },
     generateQuestion: () => makeMCQ('What tool is essential for an accurate angle bisector?', 'Compass', ['Protractor only', 'Ruler only', 'Set square'], 'Used to draw arcs', 'A compass is required to draw the intersecting arcs accurately.')
@@ -891,16 +892,20 @@ const TOPICS = {
     }
   },
 
-  'averages-grouped-frequency': {
-    title: 'Averages from Grouped Data',
-    emoji: '📊',
-    category: 'Statistics',
-    description: 'Estimating the mean from grouped frequency tables.',
-    lessons: {
-      foundation: [{ title: 'Midpoints', content: 'To find the estimated mean, you must first find the midpoint of each class/group.' }],
-      higher: [{ title: 'Estimated Mean', content: 'Mean = Sum of (Midpoint × Frequency) ÷ Total Frequency.' }]
-    },
-    generateQuestion: () => makeMCQ('Why is the mean from a grouped frequency table called an "Estimate"?', 'Exact data values are lost in the groups', ['It uses rounded numbers', 'Frequencies are guessed', 'You randomly sample items'], 'You don\'t know exactly', 'Because individual data points are grouped into classes, you assume they sit at the midpoint.')
+    generateQuestion: () => {
+       const freqs = [r(2, 6), r(3, 10), r(1, 5)];
+       const midpoints = [5, 15, 25];
+       const totalF = freqs.reduce((a,b) => a+b, 0);
+       const sumFX = freqs.reduce((total, f, i) => total + (f * midpoints[i]), 0);
+       const mean = (sumFX / totalF).toFixed(1);
+       return { 
+         display: `Estimated Mean Calculation:\nSums: (5×${freqs[0]}) + (15×${freqs[1]}) + (25×${freqs[2]})\nTotal Frequency: ${totalF}\nWhat is the estimated mean?`, 
+         answer: mean, 
+         answerType: 'number',
+         hint: 'Σ(fx) / Σf',
+         explanation: `Total fx = ${sumFX}. Total frequency = ${totalF}. Mean = ${sumFX}/${totalF} = ${mean}`
+       };
+    }
   },
 
   'bounds': {
@@ -985,7 +990,7 @@ const TOPICS = {
     description: 'Highest Common Factor & Lowest Common Multiple using Venn diagrams or lists.',
     lessons: {
       foundation: [{ title: 'LCM', content: 'Lowest Common Multiple: the smallest number in both times tables. LCM of 4 & 6 = 12.' }],
-      higher: [{ title: 'Prime Factor Trees', content: 'Find HCF by multiplying overlapping prime factors in a Venn diagram. Find LCM by multiplying all numbers in the diagram.' }]
+      higher: [{ title: 'Prime Factor Trees', visualId: 'math-venn', content: 'Find HCF by multiplying overlapping prime factors in a Venn diagram. Find LCM by multiplying all numbers in the diagram.' }]
     },
     generateQuestion: () => {
       const a = pick([4, 6, 8]); const b = pick([10, 12, 14]);
@@ -1050,31 +1055,25 @@ const TOPICS = {
     }
   },
 
-  'percentages-calc': {
-    title: 'Percentages (Calc)',
-    emoji: '％',
-    category: 'Number',
-    description: 'Reverse percentages and compound interest using multipliers.',
-    lessons: {
-      foundation: [{ title: 'Multipliers', content: 'To increase by 15%, multiply by 1.15. To decrease by 20%, multiply by 0.80.' }],
-      higher: [{ title: 'Compound Interest', content: 'Amount = Principal × (Multiplier)^Years. E.g. £500 at 3% for 4 years = 500 × 1.03⁴.' }]
-    },
-    generateQuestion: () => makeMCQ('What is the decimal multiplier to DECREASE a value by 12%?', '0.88', ['1.12', '0.12', '1.88'], '100% - 12%', '100 - 12 = 88%. This makes the multiplier 0.88.')
+    generateQuestion: () => {
+       const principal = r(1, 10) * 100;
+       const rate = r(1, 6);
+       const multiplier = (1 + rate / 100).toFixed(2);
+       return makeMCQ(`To increase £${principal} by ${rate}% per year, what multiplier is used?`, `${multiplier}`, [`${rate}`, `${(rate/100).toFixed(2)}`, `${(1 - rate/100).toFixed(2)}`], 'Add the rate to 100% and convert to decimal.', `${multiplier}`);
+    }
   },
 
-  'pie-charts': {
-    title: 'Pie Charts',
-    emoji: '🍕',
-    category: 'Statistics',
-    description: 'Drawing and interpreting pie charts using angles.',
-    lessons: {
-      foundation: [{ title: 'Drawing Pie Charts', content: 'Angles in a circle add up to 360°. Find the multiplier by dividing 360° by the total frequency.' }],
-      higher: [{ title: 'Comparing Pie Charts', content: 'You can only compare proportions using pie charts! You cannot compare total numbers unless total frequencies are given.' }]
-    },
     generateQuestion: () => {
-      const tot = pick([36, 72, 120]);
-      const freq = pick([5, 10, 15]);
-      return { display: `Total frequency is ${tot}.\nWe want to draw a category with frequency ${freq}.\nHow many degrees?`, answer: (360 / tot) * freq, answerType: 'number' };
+       const total = pick([36, 72, 120, 180, 240]);
+       const freq = pick([5, 10, 15, 20]);
+       const angle = (360 / total) * freq;
+       return { 
+         display: `Total data frequency = ${total}.\nA category has frequency ${freq}.\nHow many degrees (°) is the slice?`, 
+         answer: angle, 
+         answerType: 'number',
+         hint: '(360 / Total) × Frequency',
+         explanation: `Multiplier = 360 / ${total} = ${360/total} per unit.\nAngle = ${360/total} × ${freq} = ${angle}°`
+       };
     }
   },
 
@@ -1120,7 +1119,7 @@ const TOPICS = {
     category: 'Number',
     description: 'Calculating large numbers using the x10^x button on calcs.',
     lessons: {
-      foundation: [{ title: 'Writing Standard Form', content: 'A number between 1 and 10, multiplied by a power of 10. E.g. 4500 = 4.5 × 10³.' }],
+      foundation: [{ title: 'Writing Standard Form', visualId: 'math-standard-form', content: 'A number between 1 and 10, multiplied by a power of 10. E.g. 4500 = 4.5 × 10³.' }],
       higher: [{ title: 'Calculator Buttons', content: 'Use the [EXP] or [×10^x] button on your calculator, NOT the regular multiply button, when doing standard form calculations.' }]
     },
     generateQuestion: () => makeMCQ('Which value is correct Standard Form?', '3.4 × 10⁵', ['34 × 10⁴', '0.34 × 10⁶', '3.4³'], 'Front number must be 1 ≤ x < 10', 'The number in front must be between 1 and 9.99.')

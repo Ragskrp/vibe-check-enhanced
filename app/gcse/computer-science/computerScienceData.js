@@ -45,12 +45,28 @@ export const TOPICS = {
         const types = [
           () => makeMCQ('What is decomposition?', 'Breaking a problem down into smaller parts', ['Removing unnecessary details', 'Finding patterns', 'Writing code'], 'Think about decomposing organic matter (breaking down).', 'Decomposition breaks complex problems down to make them manageable.'),
           () => makeMCQ('What is abstraction?', 'Removing unnecessary details', ['Breaking problems down', 'Converting data types', 'Finding errors'], 'Subtracting the useless stuff.', 'Abstraction filters out non-essential characteristics.'),
+          () => {
+             const prob = pick(['baking a complex cake', 'programming a 3D video game', 'building a bicycle', 'planning a massive holiday']);
+             return makeMCQ(`Breaking down the process of ${prob} into smaller, manageable sub-tasks is an example of what?`, 'Decomposition', ['Abstraction', 'Pattern Recognition', 'Algorithmic efficiency'], 'You are splitting a large task into small ones.', 'Decomposition is taking a complex whole and breaking it down into achievable parts.');
+          },
+          () => {
+             const ignore = pick(['the exact color of a car', 'the manufacturer of a bicycle entirely', 'the specific names of players in a general physics engine']);
+             return makeMCQ(`When modelling a system, deciding to ignore ${ignore} because it isn't relevant to the core logic is an example of what?`, 'Abstraction', ['Decomposition', 'Pattern Matching', 'Input Sanitisation'], 'You are removing details.', 'Abstraction hides or removes complex details that do not matter to the main problem.');
+          }
         ];
         return pick(types)();
       } else {
         const types = [
           () => makeMCQ('What is the purpose of input sanitisation?', 'To clean data and prevent security attacks', ['To convert data types', 'To make code run faster', 'To find syntax errors'], 'Like hand sanitiser kills germs.', 'Input sanitisation strips malicious or invalid characters before processing.'),
-          () => makeMCQ('What is casting?', 'Changing one data type into another', ['Removing details', 'Joining two strings', 'Testing a program'], 'E.g., int("7")', 'Casting forces data to become a new type, like float to integer.'),
+          () => {
+             const dt1 = pick(['String', 'Float', 'Char']);
+             const dt2 = pick(['Integer', 'Boolean', 'Double']);
+             return makeMCQ(`A programmer explicitly converts a variable stored as a ${dt1} into a ${dt2}. What is this process called?`, 'Casting', ['Sanitising', 'Parsing', 'Decomposing'], 'Think of "casting" iron into a new mold.', 'Casting forces the data type of a variable to change to a new specific type.');
+          },
+          () => {
+             const attack = pick(['SQL injection', 'Cross-site scripting (XSS)', 'buffer overflow']);
+             return makeMCQ(`Removing unauthorized symbols from user inputs helps prevent which type of vulnerability?`, 'SQL injection', ['Logic errors', 'Syntax errors', 'Infinite loops'], 'Hackers use special characters to break database queries.', 'Input sanitisation protects systems against code injection attacks like SQLi.');
+          }
         ];
         return pick(types)();
       }
@@ -146,7 +162,7 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Flowchart Symbols', content: 'Oval = Start/End. Parallelogram = Input/Output. Rectangle = Process. Diamond = Decision (Requires Yes/No lines).' }
+        { title: 'Flowchart Symbols', visualId: 'cs-flowchart', content: 'Oval = Start/End. Parallelogram = Input/Output. Rectangle = Process. Diamond = Decision (Requires Yes/No lines).' }
       ],
       higher: [
         { title: 'Translating Real Scenarios', content: 'Flowcharts visually represent selection (diamonds) and iteration (arrows looping back up to a previous stage) to map complex systems.' }
@@ -155,7 +171,15 @@ export const TOPICS = {
     generateQuestion: (tier) => {
       const q1 = () => makeMCQ('In a flowchart, what shape represents a Decision?', 'Diamond', ['Rectangle', 'Parallelogram', 'Oval'], 'A bright jewel splits light.', 'Decisions branch off via Yes/No paths so they use diamond shapes.');
       const q2 = () => makeMCQ('What does a parallelogram represent in a flowchart?', 'Input/Output', ['Process', 'Start/Stop', 'Decision'], 'Data coming in or out.', 'Parallelograms represent getting input or outputting data.');
-      return pick([q1, q2])();
+      const q3 = () => {
+         const act = pick(['calculating the sum of two numbers', 'formatting a string', 'changing a variables value']);
+         return makeMCQ(`If an algorithm is ${act}, which flowchart symbol must be used?`, 'Rectangle', ['Diamond', 'Oval', 'Parallelogram'], 'It is a pure process taking place.', 'A rectangle block in a flowchart is used strictly for internal processes or calculations.');
+      };
+      const q4 = () => {
+         const check = pick(['checking if health == 0', 'checking if a user is logged in', 'determining if an age is >= 18']);
+         return makeMCQ(`A flowchart is ${check}. Which symbol determines the path?`, 'Diamond', ['Rectangle', 'Parallelogram', 'Circle'], 'It decides between true and false.', 'A diamond represents a decision boolean causing branch selection.');
+      };
+      return pick([q1, q2, q3, q4])();
     },
   },
 
@@ -219,10 +243,27 @@ export const TOPICS = {
         const types = [
           () => makeMCQ('What programming construct uses IF/ELSE statements?', 'Selection', ['Sequence', 'Iteration', 'Casting'], 'You "select" a pathway.', 'Selection alters the flow to choose specific blocks of code.'),
           () => makeMCQ('What does "Iteration" mean?', 'Looping code', ['Running code from top to bottom', 'Making a decision', 'Finding an error'], 'Iterating refers to repeating.', 'Iteration involves FOR or WHILE loops to repeat actions.'),
+          () => {
+             const codeType = pick(['A WHILE loop checking a password', 'A FOR loop printing 10 numbers']);
+             return makeMCQ(`What programming construct is demonstrated by: ${codeType}?`, 'Iteration', ['Selection', 'Sequence', 'Declaration'], 'It repeats over and over.', 'Loops are synonymous with iteration.');
+          }
         ];
         return pick(types)();
       } else {
-        return makeMCQ('If a nested inner loop runs 4 times, and the outer loop runs X times. If the total executions are 20, what is X?', '5', ['16', '24', '6'], '20 = 4 * X', 'Outer loop (5) multiplied by Inner loop (4) equals 20 iterations.');
+        const types = [
+           () => {
+             const inner = r(3, 7);
+             const outer = r(2, 5);
+             return makeMCQ(`If a nested inner loop runs ${inner} times, and the outer loop runs ${outer} times, how many times total does the inner code execute?`, `${inner * outer}`, [`${inner + outer}`, `${inner}`, `${outer}`], `${inner} * ${outer}`, `Outer loop (${outer}) multiplied by Inner loop (${inner}) equals ${inner * outer} iterations.`);
+           },
+           () => {
+             const t1 = pick(['count-controlled', 'condition-controlled']);
+             const res = t1 === 'count-controlled' ? 'FOR loop' : 'WHILE loop';
+             const wrg = t1 === 'count-controlled' ? ['WHILE loop', 'IF statement', 'SWITCH statement'] : ['FOR loop', 'IF statement', 'DO statement'];
+             return makeMCQ(`Which construct is strictly referred to as a ${t1} iteration?`, res, wrg, `Depends on if it counts rigidly or loops until a state changes.`, `A FOR loop is purely count-controlled, a WHILE loop runs until a condition is broken.`);
+           }
+        ];
+        return pick(types)();
       }
     },
   },
@@ -296,7 +337,7 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Logic Gates', content: 'AND: Output is True ONLY if both inputs are True. OR: Output is True if AT LEAST ONE input is True. NOT: Reverses the input.' },
+        { title: 'Logic Gates', visualId: 'cs-logic-gates', content: 'AND: Output is True ONLY if both inputs are True. OR: Output is True if AT LEAST ONE input is True. NOT: Reverses the input.' },
         { title: 'Truth Tables', content: 'Mathematical tables showing all possible input combinations (0s and 1s) and the resulting output for a logic circuit.' }
       ],
       higher: [
@@ -308,10 +349,30 @@ export const TOPICS = {
         const types = [
           () => makeMCQ('Which logic gate outputs True ONLY if BOTH inputs are True?', 'AND', ['OR', 'NOT', 'XOR'], 'Both conditions must be met.', 'The AND gate requires a 1 on Input A and a 1 on Input B to output 1.'),
           () => makeMCQ('If the input to a NOT gate is 1, what is the output?', '0', ['1', '-1', 'True'], 'It reverses the truth.', 'NOT inverts logical states.'),
+          () => {
+             const inputA = pick(['1', '0']);
+             const inputB = inputA === '1' ? '0' : '1';
+             return makeMCQ(`If Input A is ${inputA} and Input B is ${inputB}, what is the output of an OR gate?`, '1', ['0', '-1', 'Null'], 'An OR gate requires AT LEAST one input to be 1.', `Since one of the inputs is 1, the OR gate evaluates to 1.`);
+          }
         ];
         return pick(types)();
       } else {
-        return makeMCQ('Evaluate: True AND (False OR True)', 'True', ['False', 'Error', 'Null'], 'Work through the brackets first.', '(False OR True) evaluates to True. True AND True evaluates to True.');
+        const types = [
+           () => {
+              const b1 = pick(['True', 'False']);
+              const b2 = pick(['True', 'False']);
+              const ans = (b1 === 'True' && b2 === 'True') ? 'True' : 'False';
+              const wrg = ans === 'True' ? 'False' : 'True';
+              return makeMCQ(`Evaluate: ${b1} AND (False OR ${b2})`, ans, [wrg, 'Error', 'Null'], 'Work through the brackets first.', `False OR ${b2} is ${b2}. Then ${b1} AND ${b2} is ${ans}.`);
+           },
+           () => {
+              const x = pick(['1', '0']);
+              const ans = x === '1' ? '0' : '1';
+              const wrg = ans === '1' ? '0' : '1';
+              return makeMCQ(`Evaluate a NOT gate applied twice in a row to the input ${x} (e.g. NOT(NOT(${x}))).`, x, [ans, '-1', 'Error'], 'It flips, then flips back.', `A double negation returns the original state. Output is ${x}.`);
+           }
+        ];
+        return pick(types)();
       }
     },
   },
