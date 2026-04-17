@@ -30,12 +30,17 @@ export const TOPICS = {
     description: 'Sole traders, Partnerships, Ltd, and Plc structures.',
     lessons: {
       foundation: [
-        { title: 'Sole Trader', content: 'A business owned and run by one person. Easy to set up but has UNLIMITED LIABILITY (the owner is responsible for all debts).' },
-        { title: 'Partnership', content: 'Owned by 2-20 people. Shared responsibility and capital, but also has unlimited liability.' },
+        { title: 'Sole Trader', content: 'A business owned and run by ONE person. Easy to set up but has UNLIMITED LIABILITY.', example: 'Local hairdresser or plumber.' },
+        { title: 'Partnership', content: 'Owned by 2-20 people. Shared responsibility and capital. Also usually has unlimited liability.', tip: 'A Partnership Agreement document is vital to avoid arguments!' },
+        { title: 'Unlimited Liability', content: 'The owner is legally the same as the business. They are personally responsible for all debts.', tip: 'Personal assets like your house could be taken to pay business bills.' },
+        { title: 'Choosing a Name', content: 'Sole traders and partnerships usually trade under their own name or a "Trading As" (T/A) name.' }
       ],
       higher: [
-        { title: 'Private Limited Company (Ltd)', content: 'Owned by shareholders (often family/friends). Shares cannot be sold on the stock exchange. Has LIMITED LIABILITY.' },
-        { title: 'Public Limited Company (Plc)', content: 'Shares are sold to the general public on the Stock Exchange. Can raise massive capital but risks hostile takeovers.' },
+        { title: 'Private Limited Company (Ltd)', content: 'Owned by shareholders (family/friends). Shares are NOT sold publicly. Has LIMITED LIABILITY.', tip: 'Ltds must register with Companies House and produce annual accounts.' },
+        { title: 'Public Limited Company (Plc)', content: 'Shares are sold to the general public on the Stock Exchange. Can raise huge capital but risks hostile takeovers.' },
+        { title: 'Franchising', content: 'Buying the right to use an established brand (e.g. McDonald\'s). Franchisee pays a fee and royalties to the Franchisor.', tip: 'Lower risk than starting from scratch, but less freedom.' },
+        { title: 'Non-Profit / Social Enterprises', content: 'Businesses that aim to help society or the environment rather than just making profit for owners.', example: 'The Big Issue or a local charity shop.' },
+        { title: 'Limited Liability', content: 'The company has a separate legal identity. Shareholders only lose the money they invested.', tip: 'This is the biggest advantage of being an Ltd or Plc!' }
       ],
     },
     generateQuestion: () => {
@@ -60,9 +65,13 @@ export const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Who are Stakeholders?', visualId: 'bus-stakeholders', content: 'Anyone with an interest in the business: Employees, Customers, Suppliers, Local Community, and Government.' },
+        { title: 'Internal Stakeholders', content: 'People INSIDE the business, like the owners and the employees.' },
+        { title: 'External Stakeholders', content: 'People OUTSIDE the business, like the customers, the local community, and the bank.' }
       ],
       higher: [
-        { title: 'Stakeholder Conflict', content: 'Different groups want different things. Owners want high profit (higher prices), while Customers want low prices.' },
+        { title: 'Stakeholder Conflict', content: 'Different groups want different things. Owners want high profit (higher prices), while Customers want low prices.', tip: 'Compromise is often needed to keep all groups happy.' },
+        { title: 'Pressure Groups', content: 'Groups like Greenpeace that influence business decisions by organising boycotts or protests to force social change.', example: 'Protesting against a business for using too much plastic packaging.' },
+        { title: 'Government Influence', content: 'The govt affects business through laws (minimum wage), taxes (VAT), and grants.', tip: 'Governments want businesses to grow to provide jobs and tax revenue.' }
       ],
     },
     generateQuestion: () => {
@@ -88,11 +97,14 @@ export const TOPICS = {
     description: 'Job and Flow production methods.',
     lessons: {
       foundation: [
-        { title: 'Job Production', content: 'Making unique, one-off items to a customer\'s specific requirements (e.g., a wedding cake or bridge).' },
-        { title: 'Flow Production', visualId: 'bus-supply-chain', content: 'Continuous production of identical items in large quantities (e.g., cans of cola or pens).' },
+        { title: 'Job Production', content: 'Making unique, one-off items to a specific customer requirement.', example: 'A bespoke wedding dress or a luxury custom guitar.' },
+        { title: 'Flow Production', visualId: 'bus-supply-chain', content: 'Continuous production of identical items on an assembly line.', example: 'Cans of Coca-Cola or Bic pens.', tip: 'High start-up costs for machinery but low cost per item (economies of scale).' },
+        { title: 'Batch Production', content: 'Making a specific group (batch) of identical products, then switching to a different batch.', example: 'A bakery making 50 loaves of white bread, then 50 loaves of brown bread.' }
       ],
       higher: [
-        { title: 'Lean Production', content: 'Focuses on reducing waste and increasing efficiency. Just-in-Time (JIT) is a common lean method.' },
+        { title: 'Lean Production', content: 'Reducing waste (time, materials, movement) to improve efficiency. JIT (Just-in-Time) is a key part of this.', tip: 'JIT means holding very little stock, so it saves on storage costs.' },
+        { title: 'Quality Control vs Assurance', content: 'Control: Checking the final product at the end. Assurance: Checking quality at every stage of production.', tip: 'Assurance reduces waste as errors are found earlier.' },
+        { title: 'Technology in Operations', content: 'CAD (Computer Aided Design) and CAM (Computer Aided Manufacture) speed up production and improve precision.' }
       ],
     },
     generateQuestion: () => {
@@ -169,10 +181,14 @@ export const TOPICS = {
     description: 'Financial and non-financial ways to motivate staff.',
     lessons: {
       foundation: [
-        { title: 'Financial Methods', content: 'Salary (fixed monthly), Wages (hourly), Commission (per sale), and Profit Sharing.' },
+        { title: 'Financial Methods', content: 'Salary (fixed monthly), Wages (hourly), Commission (paid per sale), and Profit Sharing.' },
+        { title: 'Commission', content: 'An extra payment based on how many sales an employee makes. Great for motivating sales teams.', example: 'A car salesman getting £100 for every car sold.' },
+        { title: 'Fringe Benefits', content: 'Non-cash perks given to staff.', example: 'Free gym membership, company car, or private healthcare.' }
       ],
       higher: [
-        { title: 'Non-Financial Methods', content: 'Job rotation, job enrichment, and fringe benefits (perks like free gym or car).' },
+        { title: 'Non-Financial Methods', content: 'Job rotation, job enrichment, and job enlargement. Giving staff more responsibility and variety.', tip: 'These focus on "Intrinsic Motivation"—making the work itself satisfying.' },
+        { title: 'Motivation Theorists', content: 'Maslow (Hierarchy of Needs) and Herzberg (Two-Factor Theory: Hygiene vs Motivators).', tip: 'Higher tier exams often ask how a manager might apply Maslow to their team.' },
+        { title: 'Autonomy', content: 'Giving employees freedom to make their own decisions. This is part of the "Modern" approach to motivation.' }
       ],
     },
     generateQuestion: () => {

@@ -34,11 +34,16 @@ const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Animal vs Plant Cells', content: 'Both have a nucleus, cytoplasm, cell membrane, mitochondria, and ribosomes. ONLY plant cells have a cell wall, chloroplasts, and a permanent vacuole.' },
-        { title: 'Bacterial Cells', content: 'Prokaryotic cells (bacteria) are smaller. They lack a true nucleus; instead they have a single circular strand of DNA and plasmids.' },
+        { title: 'Bacterial Cells', content: 'Prokaryotic cells (bacteria) are much smaller. They lack a true nucleus; instead they have a single circular strand of DNA and small rings called plasmids.' },
+        { title: 'Organelle Functions', content: 'Nucleus (controls cell), Mitochondria (respiration), Ribosomes (protein synthesis), Chloroplasts (photosynthesis).' },
+        { title: 'Cell Specialisation', content: 'Cells are adapted for their function. E.g., sperm cells have a tail for swimming, nerve cells are long to carry signals.' },
       ],
       higher: [
-        { title: 'Microscopy', formula: 'Magnification = Image size ÷ Real size', example: 'Image = 10mm, Mag = ×100\nReal size = 10/100 = 0.1mm' },
-        { title: 'Cell Cycle & Mitosis', content: 'Cells divide in a series of stages. DNA is doubled, chromosomes are pulled apart, and the cell divides into two identical daughter cells.' },
+        { title: 'Microscopy', formula: 'Magnification = Image size ÷ Real size', example: 'Image = 10mm, Mag = ×100\nReal size = 10/100 = 0.1mm', tip: 'Always ensure your units (mm, μm) match before dividing!' },
+        { title: 'Cell Cycle & Mitosis', content: 'Stage 1: Cell grows and DNA replicates. Stage 2 (Mitosis): Chromosomes pull apart. Stage 3: Cytoplasm divides into two identical daughter cells.' },
+        { title: 'Binary Fission', content: 'How bacteria multiply. They can divide once every 20 minutes if conditions are right.', formula: 'Total cells = 2ⁿ (n = number of divisions)' },
+        { title: 'Stem Cells', content: 'Undifferentiated cells that can become any type of cell. Found in human embryos and adult bone marrow.', tip: 'Plant stem cells are found in meristems and can differentiate throughout the plant\'s life.' },
+        { title: 'Diffusion & Osmosis', content: 'Diffusion: movement of particles from high to low concentration. Osmosis: diffusion of water through a semi-permeable membrane.' },
       ],
     },
     generateQuestion: (tier) => {
@@ -79,12 +84,17 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'Digestive Enzymes', content: 'Amylase breaks down starch to sugars. Protease breaks down proteins to amino acids. Lipase breaks down lipids to fatty acids and glycerol.' },
-        { title: 'The Heart', content: 'The heart is a double pump. The right side pumps blood to the lungs; the left side pumps blood to the rest of the body.' },
+        { title: 'Digestive Enzymes', content: 'Amylase (Carbohydrase) → Sugars. Protease → Amino Acids. Lipase → Glycerol and Fatty Acids.' },
+        { title: 'The Heart', content: 'A double pump. Right side pumps to lungs (deoxygenated), left side pumps to body (oxygenated). Left ventricle has thicker walls for higher pressure.' },
+        { title: 'Blood Components', content: 'Red blood cells (carry oxygen), White blood cells (fight infection), Platelets (clotting), Plasma (liquid transport).' },
+        { title: 'Enzyme Action', content: 'The Lock and Key Theory: The active site of an enzyme is a specific shape and only fits one substrate.', tip: 'High temperatures or pH changes can denature enzymes!' }
       ],
       higher: [
-        { title: 'Blood Vessels', content: 'Arteries carry blood away (thick walls). Veins carry blood in (valves). Capillaries exchange materials (one cell thick).' },
-        { title: 'Plant Transport', content: 'Xylem transports water and minerals up the stem. Phloem transports dissolved sugars (translocation).' },
+        { title: 'Blood Vessels', content: 'Arteries: thick walls, elastic (high pressure). Veins: thin walls, have VALVES (low pressure). Capillaries: one cell thick for diffusion.' },
+        { title: 'Plant Transport (Xylem)', content: 'Transports water and minerals ONE WAY from roots to leaves. Made of dead hollow cells strengthened with lignin.', tip: 'Powered by the transpiration stream.' },
+        { title: 'Plant Transport (Phloem)', content: 'Transports dissolved sugars (food) in BOTH directions. This process is called TRANSLOCATION.', example: 'Sugars move from leaves to growing fruits or storage organs.' },
+        { title: 'Transpiration', content: 'The loss of water vapour through the stomata of leaves. Factors: light intensity, temperature, air flow, and humidity.', tip: 'Potometers can be used to measure the rate of transpiration.' },
+        { title: 'Bile', content: 'Made in the liver, stored in the gall bladder. It neutralises stomach acid and EMULSIFIES fats to increase their surface area for lipase.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -109,12 +119,17 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'Pathogens', content: 'Microorganisms that cause infectious disease. Can be viruses, bacteria, protists, or fungi.' },
-        { title: 'White Blood Cells', content: 'Defend the body by ingesting pathogens (phagocytosis), producing antibodies, and producing antitoxins.' },
+        { title: 'Pathogens', content: 'Microorganisms that cause infectious disease. Examples: Viruses, Bacteria, Protists, and Fungi.' },
+        { title: 'White Blood Cells', content: 'Defend by: 1. Ingesting pathogens (phagocytosis). 2. Producing antibodies. 3. Producing antitoxins.' },
+        { title: 'Viral Diseases', content: 'Measles, HIV, and Tobacco Mosaic Virus (TMV) are important examples for GCSE.', tip: 'Viruses replicate INSIDE cells, making them hard to treat.' },
+        { title: 'Bacterial Diseases', content: 'Salmonella and Gonorrhoea. Treated with antibiotics which kill the bacteria.' }
       ],
       higher: [
-        { title: 'Vaccination', content: 'Injecting small quantities of dead or inactive pathogen. Stimulates white blood cells to produce antibodies. Grants immunity.' },
-        { title: 'Antibiotics', content: 'Medicines that help cure bacterial disease by killing infective bacteria inside the body. They CANNOT kill viruses.' },
+        { title: 'Vaccination', content: 'Introducing small quantities of dead or inactive pathogens to stimulate antibody production. If the real pathogen enters, white blood cells respond rapidly.' },
+        { title: 'Monoclonal Antibodies', content: 'Antibodies produced from a single clone of cells. Used in pregnancy tests and for targeting specific cancer cells.', tip: 'They are specific to one binding site on an antigen.' },
+        { title: 'Antibiotic Resistance', content: 'Mutations mean some bacteria survive treatment. They replicate, spreading the resistant strain.', tip: 'Crucial to finish the full course of antibiotics!' },
+        { title: 'Drug Discovery', content: 'Drugs traditionally come from plants (e.g. Digitalis from foxgloves, Aspirin from willow) and fungi (Penicillin). New drugs are tested for toxicity, efficacy, and dose.' },
+        { title: 'Plant Defences', content: 'Physical (cell walls), Chemical (antibacterial chemicals), and Mechanical (thorns or hairs) to deter herbivores and pathogens.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -138,12 +153,17 @@ const TOPICS = {
     backLabel: 'Back to Science',
     lessons: {
       foundation: [
-        { title: 'Food Chains', content: 'Producer → Primary Consumer → Secondary Consumer → Predator. Arrows show the direction of energy transfer.' },
-        { title: 'Abiotic & Biotic', content: 'Abiotic = Non-living factors (light, temperature). Biotic = Living factors (predators, pathogens).' },
+        { title: 'Food Chains', content: 'Producer → Primary Consumer → Secondary Consumer. Arrows show the direction of ENERGY and BIOMASS transfer.' },
+        { title: 'Abiotic & Biotic', content: 'Abiotic (Non-living): light, temp, water. Biotic (Living): food availability, predators, new pathogens.', tip: 'Stable communities have a balance between all factors.' },
+        { title: 'Competition', content: 'Plants compete for light, space, water, and minerals. Animals compete for food, territory, and mates.' },
+        { title: 'Sampling', content: 'Quadrats used for slow/fixed organisms. Transects used to see how distribution changes along a line.', tip: 'Random sampling is vital to avoid bias.' }
       ],
       higher: [
-        { title: 'Carbon Cycle', content: 'Photosynthesis removes CO2. Respiration and combustion release CO2 back into the atmosphere.' },
-        { title: 'Biodiversity', content: 'The variety of all the different species of organisms. Higher biodiversity means a more stable ecosystem.' },
+        { title: 'Carbon Cycle', content: 'CO2 removed by photosynthesis. CO2 returned by respiration, decomposition, and combustion of fossil fuels.' },
+        { title: 'Water Cycle', content: 'Evaporation, condensation, precipitation, and transpiration work together to move water globally.' },
+        { title: 'Trophic Levels', content: 'Level 1: Producers. Level 2: Herbivores. Level 3: Carnivores. Level 4: Top predators (Apex).', tip: 'Pyramids of biomass always get narrower at the top!' },
+        { title: 'Energy Transfer', content: 'Only about 10% of biomass is transferred to the next level. Lost via waste, movement, and maintaining body temp.', formula: 'Efficiency = (Output biom / Input biom) x 100' },
+        { title: 'Biodiversity', content: 'High biodiversity ensures stability. Threatened by pollution, global warming, and deforestation.' }
       ],
     },
     generateQuestion: (tier) => {

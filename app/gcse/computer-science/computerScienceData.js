@@ -32,12 +32,16 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Decomposition & Abstraction', content: 'Decomposition means breaking down a complex problem into smaller, manageable parts. Abstraction removes unnecessary details to focus on important points.' },
-        { title: 'Pattern Recognition', content: 'Finding similarities or patterns within problems to simplify coding and apply existing solutions.' }
+        { title: 'Decomposition', content: 'Breaking down a complex problem into smaller, manageable sub-problems.', example: 'To code a game, you break it into: Graphics, Player Movement, Scoring, and Sound.' },
+        { title: 'Abstraction', content: 'Removing unnecessary details to focus on the essential features.', example: 'A map is an abstraction of a city—it ignores every single tree to show just the roads.' },
+        { title: 'Pattern Recognition', content: 'Finding similarities between problems to reuse solutions.', tip: 'If you have solved "sorting names", you can use the same logic for "sorting prices".' },
+        { title: 'Algorithmic Thinking', content: 'Creating a step-by-step set of rules to solve any problem of a similar type.' }
       ],
       higher: [
-        { title: 'Input Sanitisation', content: 'Cleaning up input data (e.g., removing special characters) to prevent malicious code injection like SQL injection.' },
-        { title: 'Casting', content: 'Casting changes a data type from one form to another, for example, converting a String "5" to an Integer 5.' }
+        { title: 'Input Sanitisation', content: 'Cleaning data inputs to prevent security attacks like SQL injection. This involves removing special characters like ; or --.' },
+        { title: 'Validation vs Verification', content: 'Validation: Does the data follow the rules (e.g. is it a number)? Verification: Is the data actually correct (e.g. double-entry)?' },
+        { title: 'Casting', content: 'Changing a variable from one data type to another.', example: 'int("5") converts a String to an Integer.' },
+        { title: 'Defensive Programming', content: 'Writing code that anticipates and handles errors or malicious inputs before they crash the system.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -107,10 +111,13 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Linear Search', content: 'Checks every single item in a list one by one until the target is found. Very simple, but slow for huge lists. Works on unsorted data.' }
+        { title: 'Linear Search', content: 'Checks every item in a list one-by-one until the target is found. Works on UNSORTED lists.', tip: 'Simple to code, but very slow for large amounts of data.' },
+        { title: 'How it works', content: '1. Start at index 0. 2. Is it the target? 3. If no, move to next. 4. If yes, stop. 5. If end reached, not found.' }
       ],
       higher: [
-        { title: 'Binary Search', content: 'Finds the middle item. If it matches, great! If the target is smaller, discard the right half. If greater, discard the left half. Repeat. Note: ONLY works on SORTED lists.' }
+        { title: 'Binary Search', content: 'Continually splits a SORTED list in half. Much faster than linear search for large datasets.', tip: 'Data MUST be in order first!' },
+        { title: 'The Process', content: '1. Compare middle item. 2. Too small? Discard left. 3. Too big? Discard right. 4. Repat with the remaining half.' },
+        { title: 'Efficiency', content: 'Linear search is O(n) - time increases group-wise. Binary search is O(log n) - much more efficient.', tip: 'In a list of 1,000,000 items, Binary takes max 20 steps, Linear could take 1,000,000!' }
       ],
     },
     generateQuestion: (tier) => {
@@ -132,11 +139,14 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Bubble Sort', content: 'Compares adjacent items and swaps them if they are in the wrong order. "Bubbles" the largest items to the end.' },
-        { title: 'Insertion Sort', content: 'Takes items one by one and inserts them into their correct position within an already sorted section of the list.' }
+        { title: 'Bubble Sort', content: 'Compares adjacent items and swaps them if out of order. Repeats until a full pass occurs with no swaps.' },
+        { title: 'Insertion Sort', content: 'Takes each item and "inserts" it into the correct position in a sorted sub-list.', example: 'Excellent for small lists or lists that are already mostly sorted.' },
+        { title: 'Which to use?', content: 'Bubble is easy to code but inefficient. Insertion is better for small data.' }
       ],
       higher: [
-        { title: 'Merge Sort', content: 'A divide-and-conquer algorithm. Splits the list in half continuously until individual items remain, then merges them back together in order. Extremely efficient for large datasets.' }
+        { title: 'Merge Sort', content: 'A "Divide and Conquer" algorithm. Splits list down to individual items, then merges them back together in order.' },
+        { title: 'Algorithm Efficiency', content: 'Merge Sort is O(n log n). This is much faster than Bubble Sort\'s O(n²) for large lists.' },
+        { title: 'Recursion', content: 'Merge sort often uses recursion (a function calling itself) to handle the repeated splitting of the list.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -197,11 +207,14 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Variables & Assignment', content: 'A variable is a named memory location that stores data which can change while the program runs. The "=" operator assigns data to a variable.' },
-        { title: 'Data Types', content: 'Integer (whole numbers), Real/Float (decimals), Boolean (True/False), and String (text data).' }
+        { title: 'Variables', content: 'A named memory location holding data that CAN change.', example: 'score = 10' },
+        { title: 'Constants', content: 'A named memory location holding data that CANNOT change while program runs.', example: 'PI = 3.14', tip: 'Using constants makes code easier to update!' },
+        { title: 'Data Types', content: 'Integer (Whole), Real/Float (Decimal), Boolean (True/False), Character (one symbol), String (Text).' }
       ],
       higher: [
-        { title: 'Arithmetic Operators', content: '+ (Add), - (Subtract), * (Multiply), / (Divide). Also MOD (Remainder) and DIV/Floor (Integer division without remainder).' }
+        { title: 'Arithmetic Operators', content: '+, -, *, /. Also MOD (remainder) and DIV (integer division).', example: '10 MOD 3 = 1\n10 DIV 3 = 3' },
+        { title: 'String Manipulation', content: '.length (counts letters), .upper (UPPERCASE), .lower (lowercase), .substring(start, length).' },
+        { title: 'Logical Operators', content: '== (Equal to), != (Not equal), < (Less than), > (Greater than).', tip: 'Assignment is one "=" symbol, comparison is two "==" symbols.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -408,11 +421,15 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'The Basics', content: 'SQL (Structured Query Language). SELECT: Chooses which fields to display. FROM: Chooses the table. WHERE: Filters the records based on a condition.' },
-        { title: 'Wildcards', content: 'Using the asterisk (*) in "SELECT *" tells the database to retrieve ALL fields (columns) from a table.' }
+        { title: 'The SQL Basics', content: 'SQL (Structured Query Language). SELECT: Columns. FROM: Table. WHERE: Filter.' },
+        { title: 'Wildcards', content: 'SELECT * means select ALL columns from the table.' },
+        { title: 'Searching Text', content: 'Use LIKE with % to find partial matches.', example: 'WHERE Name LIKE "A%" finds all names starting with A.' }
       ],
       higher: [
-        { title: 'Logical Database Queries', content: 'You combine constraints with AND/OR. For example: `WHERE Age >= 16 AND Grade = "A"`.' }
+        { title: 'Complex Queries', content: 'Use AND/OR to combine multiple WHERE conditions.', example: 'WHERE Price > 10 AND Stock < 5' },
+        { title: 'Updating Data', content: 'UPDATE table SET column = value WHERE condition.', tip: 'Always include the WHERE clause or you\'ll update every row!' },
+        { title: 'Inserting & Deleting', content: 'INSERT INTO table VALUES (...). DELETE FROM table WHERE condition.' },
+        { title: 'Sorting Results', content: 'ORDER BY column ASC/DESC allows you to sort your output.', example: 'SELECT * FROM games ORDER BY price DESC' }
       ],
     },
     generateQuestion: (tier) => {
