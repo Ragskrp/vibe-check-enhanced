@@ -249,6 +249,7 @@ export default function LessonCards({ cards, accentColor = '#00e5a0', onComplete
         </button>
       </div>
     </div>
+  );
 }
 
 function CardVisualizer({ id, accentColor }) {

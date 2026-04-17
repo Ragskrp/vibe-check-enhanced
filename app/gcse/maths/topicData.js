@@ -891,7 +891,15 @@ const TOPICS = {
       return { display: `Trapezium parallel sides: ${a}cm, ${b}cm.\nHeight: ${h}cm.\nArea?`, answer: 0.5 * (a + b) * h, answerType: 'number' };
     }
   },
-
+  'estimated-mean-calc': {
+    title: 'Estimated Mean (Calc)',
+    emoji: '🧮',
+    category: 'Statistics',
+    description: 'Calculate an estimate of the mean from grouped data using midpoints.',
+    lessons: {
+      foundation: [{ title: 'Midpoints', content: 'Use the middle value of each class.' }],
+      higher: [{ title: 'Σfx / Σf', content: 'Multiply midpoints by frequencies and sum them.' }]
+    },
     generateQuestion: () => {
        const freqs = [r(2, 6), r(3, 10), r(1, 5)];
        const midpoints = [5, 15, 25];
@@ -1054,7 +1062,15 @@ const TOPICS = {
       return { display: 'Convert 3 m² into cm².', answer: 30000, answerType: 'number' };
     }
   },
-
+  'compound-interest-calc': {
+    title: 'Compound Interest (Calc)',
+    emoji: '📈',
+    category: 'Number',
+    description: 'Using multipliers to calculate compound interest over time.',
+    lessons: {
+      foundation: [{ title: 'Multipliers', content: 'Increase by 5% is × 1.05.' }],
+      higher: [{ title: 'n years', content: 'Formula: P × (multiplier)ⁿ' }]
+    },
     generateQuestion: () => {
        const principal = r(1, 10) * 100;
        const rate = r(1, 6);
@@ -1063,6 +1079,15 @@ const TOPICS = {
     }
   },
 
+  'pie-charts-calc': {
+    title: 'Pie Charts (Calc)',
+    emoji: '🍕',
+    category: 'Statistics',
+    description: 'Calculate angles for pie chart slices using a multiplier.',
+    lessons: {
+      foundation: [{ title: 'Multiplier', content: '360 ÷ Total Frequency.' }],
+      higher: [{ title: 'Angles', content: 'Frequency × Multiplier.' }]
+    },
     generateQuestion: () => {
        const total = pick([36, 72, 120, 180, 240]);
        const freq = pick([5, 10, 15, 20]);

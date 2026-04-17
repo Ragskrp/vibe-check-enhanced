@@ -71,7 +71,7 @@ Most games follow this lifecycle:
 - **Global Metadata**: Defined in `app/layout.js`.
 - **Dynamic Metadata**: Each game folder typically has its own `layout.js` or `page.js` with `generateMetadata`.
 - **Indexing**: `app/robots.js` and `app/sitemap.js` are used for search engine crawling.
-- **Canonicalization**: Enforced via `next.config.mjs` and middleware for `www` and `https` consistency.
+- **Canonicalization**: Enforced via `next.config.mjs` and `proxy.js` for `www` and `https` consistency.
 
 ---
 
