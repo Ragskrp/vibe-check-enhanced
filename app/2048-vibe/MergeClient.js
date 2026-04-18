@@ -13,7 +13,7 @@ export default function MergeClient() {
         <PreRollAd
           adClient="ca-pub-7832965089021505"
           adSlot="7171012882"
-          countdownSeconds={5}
+          countdownSeconds={3}
           gameName="Merge Vibe"
           onComplete={() => setGameReady(true)}
         />

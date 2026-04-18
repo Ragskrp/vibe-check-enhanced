@@ -16,7 +16,7 @@ import { Zap, Play, Loader2 } from 'lucide-react';
 export default function PreRollAd({ 
   adClient = "ca-pub-7832965089021505", 
   adSlot = "7171012882", 
-  countdownSeconds = 5, 
+  countdownSeconds = 3, 
   gameName = "the game",
   onComplete 
 }) {
@@ -25,7 +25,7 @@ export default function PreRollAd({
   const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
-    console.log(`PreRollAd mounted for: ${gameName}`);
+    console.log(`%c GATEWAY ACTIVE: ${gameName} `, 'background: #ff2d78; color: #fff; font-weight: bold;');
     // Start countdown
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
