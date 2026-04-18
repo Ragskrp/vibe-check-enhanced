@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const GRAVITY = 0.45;
-const JUMP = -7;
+const GRAVITY = 0.35;
+const JUMP = -6;
 const PIPE_SPEED = 5;
 const PIPE_WIDTH = 60;
 const PIPE_GAP = 180;
@@ -16,7 +16,7 @@ export default function FlappyGame() {
   
   // Difficulty scaling
   const [currentSpeed, setCurrentSpeed] = useState(3.5);
-  const [currentGap, setCurrentGap] = useState(240);
+  const [currentGap, setCurrentGap] = useState(260);
   
   const [birdPos, setBirdPos] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
@@ -42,10 +42,10 @@ export default function FlappyGame() {
     setBirdPos(dim.h / 2);
     setBirdVelocity(0);
     setScore(0);
-    setCurrentSpeed(3.2); // Slower start
-    setCurrentGap(240);
+    setCurrentSpeed(2.6); // Even slower start
+    setCurrentGap(260);
     setPipes([
-      { x: dim.w + 200, topHeight: 200, passed: false } // First pipe further away
+      { x: dim.w + 600, topHeight: 200, passed: false } // First pipe way further away
     ]);
   };
 
@@ -74,8 +74,8 @@ export default function FlappyGame() {
     // Update difficulty based on score
     // Every 5 points, speed up and tighten gap
     const level = Math.floor(score / 5);
-    const targetSpeed = Math.min(3.2 + level * 0.3, 6.5);
-    const targetGap = Math.max(240 - level * 8, 160);
+    const targetSpeed = Math.min(2.6 + level * 0.25, 6.0);
+    const targetGap = Math.max(260 - level * 10, 170);
     
     // Smoothly transition difficulty (optional but nice)
     if (currentSpeed < targetSpeed) setCurrentSpeed(s => s + 0.01);
@@ -103,7 +103,7 @@ export default function FlappyGame() {
     // Add new pipe
     const lastPipe = newPipes[newPipes.length - 1];
     // Distance between pipes also decreases as speed increases to maintain rhythm
-    const pipeDistance = Math.max(300 - (score * 2), 240);
+    const pipeDistance = Math.max(450 - (score * 4), 280);
     
     if (lastPipe && lastPipe.x < dim.w - pipeDistance) {
       const minPipeHeight = 50;
@@ -115,8 +115,14 @@ export default function FlappyGame() {
     // Remove off-screen pipes
     newPipes = newPipes.filter(p => p.x + PIPE_WIDTH > 0);
 
-    // Collision detection & Scoring
-    const birdBox = { x: 50, y: newPos, w: BIRD_SIZE, h: BIRD_SIZE };
+    // Collision detection with 'Player-Friendly' hitbox (smaller than visual)
+    const padding = 8;
+    const birdBox = { 
+      x: 50 + padding, 
+      y: newPos + padding, 
+      w: BIRD_SIZE - padding * 2, 
+      h: BIRD_SIZE - padding * 2 
+    };
     
     for (let i = 0; i < newPipes.length; i++) {
         let p = newPipes[i];
