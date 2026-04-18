@@ -112,7 +112,7 @@ const FAQ_SECTIONS = [
     faqs: [
       {
         q: 'How do I report a bug or issue?',
-        a: 'Use the Contact page or email ragskrpreddy@gmail.com with a description of the issue, the game affected, and your device/browser info.'
+        a: 'Use the Contact page or email support@vibemenow.uk with a description of the issue, the game affected, and your device/browser info.'
       },
       {
         q: 'Can I suggest a new game?',
@@ -232,6 +232,18 @@ export default function FAQPage() {
           </Link>
         </div>
       </div>
+      <footer style={{ 
+        maxWidth: '800px', 
+        margin: '64px auto 32px auto', 
+        padding: '32px', 
+        borderTop: '1px solid rgba(255,255,255,0.08)',
+        textAlign: 'center'
+      }}>
+        <h4 style={{ color: '#fff', fontSize: '18px', marginBottom: '12px' }}>Student Safety & Privacy</h4>
+        <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.6' }}>
+          Our GCSE tools are designed for effective learning without personal data collection. We do not knowingly collect information from children under 13. Parents or teachers with questions can reach us at <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff' }}>support@vibemenow.uk</a>.
+        </p>
+      </footer>
     </div>
   );
 }

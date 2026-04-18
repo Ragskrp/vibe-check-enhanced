@@ -6,7 +6,7 @@ export async function POST(req) {
     const name = payload?.name?.trim();
     const email = payload?.email?.trim();
     const query = payload?.query?.trim();
-    const targetEmail = process.env.CONTACT_EMAIL || 'ragskrpreddy@gmail.com';
+    const targetEmail = process.env.CONTACT_EMAIL || 'support@vibemenow.uk';
     const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
 
     if (!name || !email || !query) {

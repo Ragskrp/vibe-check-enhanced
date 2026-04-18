@@ -67,6 +67,19 @@ export default function GCSELayout({ children }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {children}
+      <footer style={{ 
+        maxWidth: '800px', 
+        margin: '64px auto 32px auto', 
+        padding: '32px', 
+        borderTop: '1px solid rgba(255,255,255,0.08)',
+        textAlign: 'center',
+        fontFamily: 'system-ui, sans-serif'
+      }}>
+        <h4 style={{ color: '#fff', fontSize: '18px', marginBottom: '12px', fontWeight: 700 }}>Student Safety & Privacy</h4>
+        <p style={{ color: '#888', fontSize: '14px', lineHeight: '1.7' }}>
+          Our GCSE tools are designed for effective learning without personal data collection. We do not knowingly collect information from children under 13 (COPPA) or under 18 in the UK. Parents or teachers with questions can reach us at <a href="mailto:support@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>support@vibemenow.uk</a>.
+        </p>
+      </footer>
     </>
   );
 }

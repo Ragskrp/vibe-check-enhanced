@@ -48,19 +48,28 @@ export default function PrivacyPage() {
             In multiplayer modes, we use Google Firebase for real-time data synchronization. This data (e.g., room codes and game scores) is transient and does not contain personal information. We do not store this data longer than necessary for the completion of your game session.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. GDPR & CCPA Compliance</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. GDPR & UK GDPR Compliance</h2>
           <p>
-            If you are a resident of the European Economic Area (EEA) or California, you have certain data protection rights. Because we do not store &quot;Personal Data" in the traditional sense (no names or emails), we fulfill our obligations by:
+            If you are a resident of the European Economic Area (EEA) or the United Kingdom (UK), you have certain data protection rights under the General Data Protection Regulation (GDPR) and the UK GDPR. Because we do not store &quot;Personal Data&quot; in the traditional sense (no names or emails), we fulfill our obligations by:
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
             <li style={{ marginBottom: '8px' }}>Minimizing data collection to the absolute necessary technical requirements.</li>
             <li style={{ marginBottom: '8px' }}>Providing clear information on third-party tracking (AdSense).</li>
-            <li>Allowing you to clear your local game data at any time through your browser settings.</li>
+            <li style={{ marginBottom: '8px' }}>Allowing you to clear your local game data at any time through your browser settings.</li>
+            <li>Registering with the Information Commissioner&#39;s Office (ICO) as required for UK publishers.</li>
           </ul>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Contact Us</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Children&#39;s Data (COPPA & UK GDPR)</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
+            VIBEMENOW includes educational sections (GCSE) that may be accessed by children. We do not knowingly collect, store, or share any personal information from children under the age of 13 in the US (COPPA) or under 18 in the UK/EU without parental consent.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            If you are a parent or guardian and believe your child has provided personal data on our site, please contact us immediately so we can take appropriate action to remove such information.
+          </p>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>7. Contact Us</h2>
+          <p>
+            If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>support@vibemenow.uk</a> or via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
           </p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import FlappyGame from './FlappyGame';
 
@@ -11,7 +12,7 @@ export const metadata = {
     url: '/flappy-vibe',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
@@ -46,11 +47,34 @@ export default function FlappyVibePage() {
           </ul>
         </div>
 
-        <p>
-          Flappy Vibe is one of the simplest pages on the site. The challenge comes from timing,
-          not from complicated rules. It is best used as a short arcade-style score chase rather
-          than a long session.
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>The Core Mechanics</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Flappy Vibe is designed as a minimalist arcade experience. Unlike heavy games that require long tutorials, it relies on a single input: the "flap." The difficulty comes from managing the bird's momentum and gravity, which pulls you down as soon as you stop tapping. 
         </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Why Arcade Games are Addictive</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Short-session games like Flappy Vibe are addictive because they provide immediate feedback. When you hit a pipe, you know exactly what went wrong, and the &quot;Try Again&quot; button is only a click away. This cycle of play-failure-retry creates a &quot;just one more go&quot; loop that makes the hours fly by.
+        </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          If you enjoy social games and quizzes, you might also like these:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+          </Link>
+          <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
+          </Link>
+          <Link href="/2048-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
+          </Link>
+        </div>
       </article>
 
       <div style={{ marginTop: 40 }}>

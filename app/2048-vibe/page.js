@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import MergeGame from './MergeGame';
 import AdBanner from '../components/AdBanner';
 
@@ -10,7 +11,7 @@ export const metadata = {title: 'Merge Vibe (2048) | VIBEMENOW',
     url: '/2048-vibe',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
@@ -53,6 +54,25 @@ export default function VibeMergePage() {
             <h4 style={{ color: '#ff2d78', marginBottom: '8px' }}>🎯 Forward Planning</h4>
             <p style={{ fontSize: '15px', color: '#999', lineHeight: '1.6' }}>Great players don&apos;t just think about their next move—they think three moves ahead, building discipline and patience.</p>
           </div>
+        </div>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Ready for another challenge? Try these puzzle and reaction games:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+          </Link>
+          <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
+          </Link>
+          <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Clicker</div>
+          </Link>
         </div>
       </article>
 

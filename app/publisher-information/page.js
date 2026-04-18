@@ -85,8 +85,8 @@ export default function PublisherInformationPage() {
             </p>
             <p style={{ color: '#aaa', marginBottom: 0 }}>
               <strong style={{ color: '#fff' }}>Contact:</strong>{' '}
-              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-                ragskrpreddy@gmail.com
+              <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                support@vibemenow.uk
               </a>
             </p>
           </div>

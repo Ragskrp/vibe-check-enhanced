@@ -36,7 +36,13 @@ export default function sitemap() {
     'vibe-clicker',
     '2048-vibe',
     'flappy-vibe',
-    'whack-a-vibe'
+    'whack-a-vibe',
+    'reaction-arena',
+    'drawing-dash',
+    'quiz-arena',
+    'memory-arena',
+    'odd-one-out',
+    'poll-party'
   ].map(game => ({
     url: `${baseUrl}/${game}`,
     lastModified,

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import AdBanner from '../components/AdBanner';
 import ReactionArenaGame from './ReactionArenaGame';
 
 export const metadata = {title: 'Reaction Arena | VIBEMENOW',
@@ -9,7 +11,7 @@ export const metadata = {title: 'Reaction Arena | VIBEMENOW',
     url: '/reaction-arena',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
@@ -21,6 +23,7 @@ export default function ReactionArenaPage() {
   return (
     <>
       <ReactionArenaGame />
+      <AdBanner />
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Reaction Arena: A Comprehensive Guide to Boosting Your Reflexes</h2>
         
@@ -40,7 +43,26 @@ export default function ReactionArenaPage() {
         </ul>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>The Science of Human Reflexes</h3>
-        <p>When the screen turns green in Reaction Arena, a complex biological chain reaction occurs. Photons enter your retina, sending electrical signals through the optic nerve to your brain&apos;s visual cortex. The brain processes this signal, recognizes the rule (&quot;green means go"), and sends a command down your spinal cord to the muscles in your hand to contract. The fact that the human body can execute this massive physiological operation in under a quarter of a second is nothing short of miraculous. Practicing games like Reaction Arena helps myelinate these specific nerve pathways. Myelin is the fatty sheath that insulates nerve fibers; thicker myelin means faster signal conduction. So by playing repeatedly, you are literally rewiring your hardware for peak performance.</p>
+        <p style={{ marginBottom: '32px' }}>When the screen turns green in Reaction Arena, a complex biological chain reaction occurs. Photons enter your retina, sending electrical signals through the optic nerve to your brain&apos;s visual cortex. The brain processes this signal, recognizes the rule (&quot;green means go"), and sends a command down your spinal cord to the muscles in your hand to contract. The fact that the human body can execute this massive physiological operation in under a quarter of a second is nothing short of miraculous. Practicing games like Reaction Arena helps myelinate these specific nerve pathways. Myelin is the fatty sheath that insulates nerve fibers; thicker myelin means faster signal conduction. So by playing repeatedly, you are literally rewiring your hardware for peak performance.</p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Think you have the fastest hands? Test your skills in these other reaction and arcade games:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+          </Link>
+          <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Clicker</div>
+          </Link>
+          <Link href="/2048-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
+          </Link>
+        </div>
       </article>
     </>
   );

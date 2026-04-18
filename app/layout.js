@@ -118,6 +118,11 @@ export default function RootLayout({ children }) {
       <body className="grid-bg" suppressHydrationWarning>
         <SiteLayout>{children}</SiteLayout>
         <CookieConsent />
+        <noscript>
+          <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: '#ded895', color: '#000', padding: '10px', textAlign: 'center', zIndex: 9999, fontSize: '13px', fontWeight: '700' }}>
+            This site uses cookies for analytics and ads. By continuing to browse, you agree to our use of cookies.
+          </div>
+        </noscript>
       </body>
     </html>
   );

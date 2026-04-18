@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import QuizArenaGame from './QuizArenaGame';
 
 export const metadata = {
@@ -12,7 +13,7 @@ export const metadata = {
     canonical: '/quiz-arena',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 
@@ -44,7 +45,26 @@ export default function QuizArenaPage() {
         </ul>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>Cognitive Benefits of Playing Trivia Daily</h3>
-        <p>Engaging in daily trivia sessions like Quiz Arena is one of the most accessible ways to maintain cognitive health. It forces the brain to constantly build and strengthen neural pathways related to information retrieval. Psychologists note that regular trivia engagement can delay cognitive decline by keeping the hippocampus highly active. Furthermore, it aids in neuroplasticity—the ability of the brain to form new connections—by forcing you to link abstract facts across different categories. Every round you play isn&apos;t just a pursuit of a high score; it's a legitimate, high-intensity workout for your mind.</p>
+        <p style={{ marginBottom: '32px' }}>Engaging in daily trivia sessions like Quiz Arena is one of the most accessible ways to maintain cognitive health. It forces the brain to constantly build and strengthen neural pathways related to information retrieval. Psychologists note that regular trivia engagement can delay cognitive decline by keeping the hippocampus highly active. Furthermore, it aids in neuroplasticity—the ability of the brain to form new connections—by forcing you to link abstract facts across different categories. Every round you play isn&apos;t just a pursuit of a high score; it's a legitimate, high-intensity workout for your mind.</p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Think you&apos;re a trivia expert? Prove it in these other VIBEMENOW knowledge challenges:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/vibe-quiz" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>💎</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Quiz</div>
+          </Link>
+          <Link href="/geography-guesser" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🌍</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Geography Guesser</div>
+          </Link>
+          <Link href="/wordvibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>📝</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>WordVibe</div>
+          </Link>
+        </div>
       </article>
     </>
   );

@@ -70,8 +70,8 @@ export default function ContactPage() {
             <div><strong style={{ color: '#fff' }}>Site:</strong> VIBEMENOW</div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
               <Mail size={14} color="#00d4ff" />
-              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-                ragskrpreddy@gmail.com
+              <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                support@vibemenow.uk
               </a>
             </div>
           </div>
@@ -110,8 +110,8 @@ export default function ContactPage() {
               }}
             >
               For the fastest response, email{' '}
-              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-                ragskrpreddy@gmail.com
+              <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                support@vibemenow.uk
               </a>
               . The form below works only when server-side forwarding is enabled.
             </div>

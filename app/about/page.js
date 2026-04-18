@@ -88,8 +88,8 @@ export default function AboutPage() {
             </p>
             <p style={{ marginBottom: 0, color: '#aaa' }}>
               <strong style={{ color: '#fff' }}>Contact:</strong>{' '}
-              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-                ragskrpreddy@gmail.com
+              <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                support@vibemenow.uk
               </a>
             </p>
           </div>
@@ -175,8 +175,8 @@ export default function AboutPage() {
             </h3>
             <p style={{ marginBottom: '24px', color: '#aaa' }}>
               Use the contact page or email{' '}
-              <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-                ragskrpreddy@gmail.com
+              <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+                support@vibemenow.uk
               </a>{' '}
               for bug reports, moderation issues, site feedback, or general questions about the project.
             </p>

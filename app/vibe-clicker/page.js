@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import VibeClickerGame from './VibeClickerGame';
 
@@ -11,7 +12,7 @@ export const metadata = {
     url: '/vibe-clicker',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
@@ -46,10 +47,29 @@ export default function VibeClickerPage() {
           </ul>
         </div>
 
-        <p>
+        <p style={{ marginBottom: '32px' }}>
           Vibe Clicker is an idle experiment rather than a deep sim. It is useful if you want a
           page that rewards short check-ins, visible number growth, and simple upgrade choices.
         </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          If you enjoy watching the numbers grow, try our other puzzle and arcade collections:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/2048-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
+          </Link>
+          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+          </Link>
+          <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
+          </Link>
+        </div>
       </article>
 
       <div style={{ marginTop: 40 }}>

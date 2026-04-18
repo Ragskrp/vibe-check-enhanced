@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DrawingDashGame from './DrawingDashGame';
 
 export const metadata = {title: 'Drawing Dash | VIBEMENOW',
@@ -9,7 +10,7 @@ export const metadata = {title: 'Drawing Dash | VIBEMENOW',
     url: '/drawing-dash',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
@@ -40,7 +41,26 @@ export default function DrawingDashPage() {
         </ul>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>The Cognitive Benefits of Visual Games</h3>
-        <p>Beyond the laughs, playing Drawing Dash actually provides significant cognitive benefits. It trains heavily in &quot;visual-spatial reasoning" and "concept representation." When you are forced to boil a complex idea down to down to five strokes of a virtual pen, you are practicing high-level abstract thinking. For guessers, the game improves rapid pattern recognition and lateral thinking. It forces the brain to make logical leaps based on incomplete information—a psychological process known as "gestalt." Thus, while you might feel like you&apos;re just drawing goofy stick figures, you're actually giving your brain's creative and analytical centers an excellent workout.</p>
+        <p style={{ marginBottom: '32px' }}>Beyond the laughs, playing Drawing Dash actually provides significant cognitive benefits. It trains heavily in &quot;visual-spatial reasoning" and "concept representation." When you are forced to boil a complex idea down to down to five strokes of a virtual pen, you are practicing high-level abstract thinking. For guessers, the game improves rapid pattern recognition and lateral thinking. It forces the brain to make logical leaps based on incomplete information—a psychological process known as "gestalt." Thus, while you might feel like you&apos;re just drawing goofy stick figures, you're actually giving your brain's creative and analytical centers an excellent workout.</p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Love drawing and social challenges? Try these other multiplayer and creative games:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <Link href="/emoji-iq" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>💡</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Emoji IQ</div>
+          </Link>
+          <Link href="/poll-party" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🗳️</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Poll Party</div>
+          </Link>
+          <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
+          </Link>
+        </div>
       </article>
     </>
   );
