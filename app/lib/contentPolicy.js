@@ -28,7 +28,7 @@ const BLOCKED_TERMS = [
 ];
 
 function normalizeText(value = '') {
-  return value.normalize('NFKC').replace(/\s+/g, ' ').trim();
+  return value.normalize('NFKC').replace(/\s+/g, ' ');
 }
 
 export function sanitizePlayerName(value = '') {
@@ -54,7 +54,7 @@ export function hasBlockedTerm(value = '') {
 }
 
 export function validatePlayerName(value = '') {
-  if (!value || value.length < 2) {
+  if (!value || value.trim().length < 2) {
     return 'Enter a nickname with at least 2 characters.';
   }
 
@@ -66,7 +66,7 @@ export function validatePlayerName(value = '') {
 }
 
 export function validateFreeText(value = '') {
-  if (!value) {
+  if (!value || !value.trim()) {
     return 'Please enter a response.';
   }
 

@@ -75,7 +75,7 @@ const CHAR_SIZE  = 40;
 const GROUND_H   = 70;
 const GAP        = 210;
 const PIPE_DIST  = 340;
-const BASE_SPEED = 2.6;
+const BASE_SPEED = 3.1;
 
 // ─── STARS for space-like backgrounds ───
 function generateStars(count) {

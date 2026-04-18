@@ -110,7 +110,19 @@ export default function EmojiIQGame() {
   if (!mounted) return <div className="game-container" style={{ minHeight: '600px' }} />;
 
   const totalQuestions = 50;
-  const puzzle = PUZZLES[currentIndex % PUZZLES.length];
+  const rawPuzzle = PUZZLES[currentIndex % PUZZLES.length];
+
+  // Shuffle options deterministically per puzzle index so the answer isn't always at the same position
+  const shuffledOptions = (() => {
+    const opts = [...rawPuzzle.options];
+    // Fisher-Yates using the puzzle index as a seed offset
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = (currentIndex * 7 + i * 3) % (i + 1);
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    return opts;
+  })();
+  const puzzle = { ...rawPuzzle, options: shuffledOptions };
 
   const handleSelect = (option) => {
     if (selected !== null) return;
