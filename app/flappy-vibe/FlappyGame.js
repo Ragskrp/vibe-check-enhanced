@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 // Constants for that classic snappy feel
-const GRAVITY = 0.5;
+const GRAVITY = 0.45;
 const JUMP = -8;
 const PIPE_WIDTH = 65;
 const BIRD_SIZE = 38;
@@ -15,8 +15,8 @@ export default function FlappyGame() {
   const [highScore, setHighScore] = useState(0);
   
   // Difficulty & Movement state
-  const [currentSpeed, setCurrentSpeed] = useState(3.5);
-  const [currentGap, setCurrentGap] = useState(170);
+  const [currentSpeed, setCurrentSpeed] = useState(3.0);
+  const [currentGap, setCurrentGap] = useState(195);
   const [birdPos, setBirdPos] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
   const [birdRotation, setBirdRotation] = useState(0);
@@ -44,8 +44,8 @@ export default function FlappyGame() {
     setBirdVelocity(0);
     setBirdRotation(0);
     setScore(0);
-    setCurrentSpeed(3.2);
-    setCurrentGap(175);
+    setCurrentSpeed(3.0);
+    setCurrentGap(195);
     setPipes([]);
   };
 
@@ -121,7 +121,7 @@ export default function FlappyGame() {
     // Update pipes
     let newPipes = pipes.map(p => ({ ...p, x: p.x - currentSpeed }));
     const lastPipe = newPipes[newPipes.length - 1];
-    const pipeDistance = 280; // Fixed distance for classic rhythm
+    const pipeDistance = 330; // More breathing room
     
     if (lastPipe && lastPipe.x < dim.w - pipeDistance) {
       const minPipeHeight = 80;

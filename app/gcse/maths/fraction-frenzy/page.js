@@ -159,17 +159,7 @@ const generateQuestion = (tier) => {
 
 const GAME_DURATION = 60;
 
-import AdGateway from '../../../components/AdGateway';
-
 export default function FractionFrenzy() {
-  return (
-    <AdGateway gameName="Fraction Frenzy">
-      <FractionFrenzyContent />
-    </AdGateway>
-  );
-}
-
-function FractionFrenzyContent() {
   const [phase, setPhase] = useState('menu');
   const [mode, setMode] = useState('test');
   const [tier, setTier] = useState('foundation');
