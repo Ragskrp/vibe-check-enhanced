@@ -62,6 +62,48 @@ const SCENARIOS = [
   { a: "Live in a world with dinosaurs", b: "Live in a world with dragons", aPct: 62 },
   { a: "Be a spy", b: "Be an astronaut", aPct: 53 },
   { a: "Spend the day with your favorite celebrity", b: "Spend the day with your future self", aPct: 41 },
+  { a: "Have a tail", b: "Have horns", aPct: 35 },
+  { a: "Never have to do dishes", b: "Never have to do laundry", aPct: 62 },
+  { a: "Be able to summon any object with your mind", b: "Be able to teleport anywhere", aPct: 48 },
+  { a: "Always have sand in your shoes", b: "Always have a popcorn kernel in your teeth", aPct: 22 },
+  { a: "Be the first person to visit Mars", b: "Be the person who solves world hunger", aPct: 74 },
+  { a: "Have skin that changes color with your emotions", b: "Have a tattoo that updates your status", aPct: 29 },
+  { a: "Only be able to crawl", b: "Only be able to walk backwards", aPct: 41 },
+  { a: "Live in a home made of gingerbread", b: "Live in a home made of LEGO", aPct: 56 },
+  { a: "Control the weather", b: "Talk to plants", aPct: 63 },
+  { a: "Always have to wear a tuxedo", b: "Always have to wear a swimsuit", aPct: 45 },
+  { a: "Be a legendary warrior in the past", b: "Be a famous scientist in the future", aPct: 52 },
+  { a: "Have teeth for hair", b: "Have hair for teeth", aPct: 12 },
+  { a: "Always find a parking spot", b: "Always have the exact change", aPct: 58 },
+  { a: "Be able to run at 100mph", b: "Be able to jump 50 feet high", aPct: 49 },
+  { a: "A world with no electricity", b: "A world with no internet", aPct: 37 },
+  { a: "Be an expert at chess", b: "Be an expert at poker", aPct: 44 },
+  { a: "Have a magic wand", b: "Have a lightsaber", aPct: 61 },
+  { a: "Always have a cold pillow", b: "Always have warm towels", aPct: 68 },
+  { a: "Only speak in rhymes", b: "Only speak in questions", aPct: 25 },
+  { a: "Be a ghost", b: "Be a vampire", aPct: 47 },
+  { a: "Have a third eye", b: "Have a third arm", aPct: 31 },
+  { a: "Live in a library", b: "Live in a museum", aPct: 54 },
+  { a: "Always have perfect hair", b: "Always have perfect skin", aPct: 59 },
+  { a: "Only use a flip phone", b: "Only use a desktop computer", aPct: 42 },
+  { a: "Be able to change your age at will", b: "Be able to change your height at will", aPct: 65 },
+  { a: "Have a personal robot", b: "Have a magic carpet", aPct: 51 },
+  { a: "Always win every board game", b: "Always win every video game", aPct: 38 },
+  { a: "Never get stuck in traffic", b: "Never wait in line", aPct: 72 },
+  { a: "Have a house that rotates", b: "Have a house that floats", aPct: 46 },
+  { a: "Be able to grow any plant instantly", b: "Be able to fix any machine instantly", aPct: 57 },
+  { a: "Live in a world where it's always cloudy", b: "Live in a world where it's always sunny", aPct: 81 },
+  { a: "Have the power of super strength", b: "Have the power of super speed", aPct: 53 },
+  { a: "Be a master of disguise", b: "Be a master of escape", aPct: 49 },
+  { a: "Only be able to whisper", b: "Only be able to shout", aPct: 34 },
+  { a: "Have a pocket dimension", b: "Have a bag of holding", aPct: 55 },
+  { a: "Be able to read in the dark", b: "Be able to see through walls", aPct: 62 },
+  { a: "Only eat breakfast food", b: "Only eat dinner food", aPct: 48 },
+  { a: "Have a pet dragon", b: "Have a pet phoenix", aPct: 67 },
+  { a: "Be able to duplicate yourself", b: "Be able to shapeshift", aPct: 71 },
+  { a: "Have 10 siblings", b: "Be an only child", aPct: 39 },
+  { a: "Always have a perfectly clean house", b: "Always have a perfectly clean car", aPct: 83 },
+  { a: "Win a million dollars today", b: "Win ten million dollars in 10 years", aPct: 41 },
 ];
 
 import GameEndScreen from '../components/GameEndScreen';
@@ -75,8 +117,13 @@ export default function WouldYouRatherGame() {
 
   useEffect(() => {
     setMounted(true);
-    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 10);
-    setGameScenarios(shuffled);
+    // Fisher-Yates Shuffle for better randomization
+    const array = [...SCENARIOS];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    setGameScenarios(array.slice(0, 10));
   }, []);
 
   if (!mounted || gameScenarios.length === 0) return <div className="game-container" style={{ minHeight: '500px' }} />;
@@ -105,8 +152,12 @@ export default function WouldYouRatherGame() {
   };
 
   const resetGame = () => {
-    const shuffled = [...SCENARIOS].sort(() => Math.random() - 0.5).slice(0, 10);
-    setGameScenarios(shuffled);
+    const array = [...SCENARIOS];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    setGameScenarios(array.slice(0, 10));
     setCurrentIndex(0);
     setSelected(null);
     setTotalPlayed(0);
