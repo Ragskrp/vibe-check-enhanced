@@ -80,9 +80,6 @@ export default function FlappyVibePage() {
         </div>
       </article>
 
-      <div style={{ marginTop: 40 }}>
-        <AdBanner format="rectangle" />
-      </div>
     </div>
   );
 }

@@ -1,321 +1,742 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
-// Constants for that classic snappy feel
-const GRAVITY = 0.45;
-const JUMP = -8;
-const PIPE_WIDTH = 65;
-const BIRD_SIZE = 38;
-const GROUND_HEIGHT = 100;
+// ─── THEME WORLDS (unlock as you score) ───
+const THEMES = [
+  {
+    name: 'Dreamy Sky',
+    skyTop: '#87CEEB', skyBottom: '#dff6ff',
+    ground: '#8BC34A', groundStripe: '#689F38',
+    obstacle: ['#A5D6A7', '#66BB6A'], rim: '#43A047',
+    glow: 'rgba(102,187,106,0.35)',
+    bgLayers: [
+      { items: ['☁️','☁️','☁️','🌤️'], speed: 0.3, y: [10,18,30,12], size: [40,32,36,28] },
+      { items: ['🕊️','🦅'], speed: 0.6, y: [20,35], size: [22,20] },
+    ],
+    particles: ['✨','💫','⭐'],
+    accent: '#4CAF50',
+  },
+  {
+    name: 'Enchanted Forest',
+    skyTop: '#1b5e20', skyBottom: '#a5d6a7',
+    ground: '#5D4037', groundStripe: '#4E342E',
+    obstacle: ['#8D6E63', '#5D4037'], rim: '#3E2723',
+    glow: 'rgba(141,110,99,0.35)',
+    bgLayers: [
+      { items: ['🌲','🌳','🌲','🌳','🌲'], speed: 0.4, y: [55,50,60,52,58], size: [38,42,36,40,34] },
+      { items: ['🦋','🌸','🍃','🌻'], speed: 0.7, y: [15,25,35,45], size: [18,16,14,20] },
+    ],
+    particles: ['🍃','🌸','🦋'],
+    accent: '#81C784',
+  },
+  {
+    name: 'Neon City',
+    skyTop: '#0a0a1a', skyBottom: '#1a1a3e',
+    ground: '#222', groundStripe: '#333',
+    obstacle: ['#00d4ff', '#0060ff'], rim: '#00b0ff',
+    glow: 'rgba(0,212,255,0.5)',
+    bgLayers: [
+      { items: ['🏢','🏙️','🏗️','🏢','🏙️'], speed: 0.35, y: [45,40,50,48,42], size: [42,48,36,40,44] },
+      { items: ['💎','⚡','🔮','💜'], speed: 0.8, y: [10,20,30,15], size: [16,14,16,14] },
+    ],
+    particles: ['⚡','💎','💜'],
+    accent: '#00d4ff',
+  },
+  {
+    name: 'Cosmic Space',
+    skyTop: '#05001a', skyBottom: '#1a0040',
+    ground: '#2d0060', groundStripe: '#1a0040',
+    obstacle: ['#e040fb', '#7c4dff'], rim: '#ea80fc',
+    glow: 'rgba(224,64,251,0.5)',
+    bgLayers: [
+      { items: ['🪐','🌙','🛸','🤖'], speed: 0.25, y: [12,25,40,55], size: [36,28,30,32] },
+      { items: ['⭐','✨','⭐','✨','⭐','✨'], speed: 0.5, y: [8,18,28,38,50,60], size: [10,8,12,9,11,8] },
+    ],
+    particles: ['🌟','💫','✨'],
+    accent: '#e040fb',
+  },
+];
+
+const CHARACTERS = [
+  { emoji: '🐦', name: 'Birdy', trail: '✨' },
+  { emoji: '🤖', name: 'Robo', trail: '⚡' },
+  { emoji: '🚀', name: 'Rocket', trail: '🔥' },
+  { emoji: '🦋', name: 'Flutter', trail: '🌸' },
+  { emoji: '🐱', name: 'Kitty', trail: '💖' },
+  { emoji: '🦄', name: 'Unicorn', trail: '🌈' },
+];
+
+// ─── PHYSICS (forgiving, fun) ───
+const GRAVITY    = 0.38;
+const JUMP       = -7.2;
+const PIPE_WIDTH = 58;
+const CHAR_SIZE  = 40;
+const GROUND_H   = 70;
+const GAP        = 210;
+const PIPE_DIST  = 340;
+const BASE_SPEED = 2.6;
+
+// ─── STARS for space-like backgrounds ───
+function generateStars(count) {
+  return Array.from({ length: count }, () => ({
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    s: Math.random() * 2 + 1,
+    o: Math.random() * 0.6 + 0.4,
+    d: Math.random() * 3 + 2,
+  }));
+}
 
 export default function FlappyGame() {
-  const [gameState, setGameState] = useState('START'); // START, READY, PLAYING, GAMEOVER
+  const [screen, setScreen] = useState('menu'); // menu | playing | gameover
+  const [charIdx, setCharIdx] = useState(0);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  
-  // Difficulty & Movement state
-  const [currentSpeed, setCurrentSpeed] = useState(3.0);
-  const [currentGap, setCurrentGap] = useState(195);
-  const [birdPos, setBirdPos] = useState(300);
-  const [birdVelocity, setBirdVelocity] = useState(0);
-  const [birdRotation, setBirdRotation] = useState(0);
+  const [birdY, setBirdY] = useState(250);
+  const [vel, setVel] = useState(0);
+  const [rot, setRot] = useState(0);
   const [pipes, setPipes] = useState([]);
   const [groundX, setGroundX] = useState(0);
-  const [bgX, setBgX] = useState(0);
-  
-  const gameAreaRef = useRef(null);
-  const requestRef = useRef();
-  
-  const [dim, setDim] = useState({ w: 400, h: 600 });
+  const [bgOffset, setBgOffset] = useState(0);
+  const [particles, setParticles] = useState([]);
+  const [trail, setTrail] = useState([]);
+  const [milestone, setMilestone] = useState(null);
+  const [shakeTimer, setShakeTimer] = useState(0);
 
+  const areaRef = useRef(null);
+  const scoreRef = useRef(0);
+  const starsRef = useRef(generateStars(50));
+  const frameRef = useRef(0);
+
+  const dim = { w: 400, h: 650 };
+  const themeIdx = Math.min(Math.floor(scoreRef.current / 10), THEMES.length - 1);
+  const theme = THEMES[themeIdx];
+  const char = CHARACTERS[charIdx];
+
+  // ─── High score persistence ───
   useEffect(() => {
-    if (gameAreaRef.current) {
-      setDim({
-        w: gameAreaRef.current.clientWidth,
-        h: gameAreaRef.current.clientHeight
-      });
-    }
+    try {
+      const saved = localStorage.getItem('flappy-vibe-high');
+      if (saved) setHighScore(parseInt(saved, 10));
+    } catch {}
   }, []);
 
-  const startGame = () => {
-    setGameState('READY');
-    setBirdPos(dim.h / 2 - 50);
-    setBirdVelocity(0);
-    setBirdRotation(0);
+  // ─── Start / Restart ───
+  const startGame = useCallback(() => {
+    setScreen('playing');
+    setBirdY(dim.h / 2 - 60);
+    setVel(0);
+    setRot(0);
     setScore(0);
-    setCurrentSpeed(3.0);
-    setCurrentGap(195);
-    setPipes([]);
-  };
+    scoreRef.current = 0;
+    setPipes([{ x: dim.w + 200, topH: 180, passed: false }]);
+    setParticles([]);
+    setTrail([]);
+    setMilestone(null);
+    setShakeTimer(0);
+    frameRef.current = 0;
+  }, [dim.h, dim.w]);
 
-  const startPlaying = () => {
-    setGameState('PLAYING');
-    setPipes([
-      { x: dim.w + 400, topHeight: 200, passed: false }
-    ]);
-  };
-
-  const jump = () => {
-    if (gameState === 'PLAYING') {
-      setBirdVelocity(JUMP);
-    } else if (gameState === 'READY') {
-      startPlaying();
-      setBirdVelocity(JUMP);
-    } else if (gameState === 'START' || gameState === 'GAMEOVER') {
+  // ─── Flap ───
+  const flap = useCallback(() => {
+    if (screen === 'playing') {
+      setVel(JUMP);
+    } else if (screen === 'menu' || screen === 'gameover') {
       startGame();
+      setVel(JUMP);
     }
-  };
+  }, [screen, startGame]);
 
+  // ─── Input handlers ───
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.code === 'Space' || e.code === 'ArrowUp') {
-        e.preventDefault();
-        jump();
-      }
+    const kd = (e) => {
+      if (e.code === 'Space' || e.code === 'ArrowUp') { e.preventDefault(); flap(); }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState, birdPos]);
+    window.addEventListener('keydown', kd);
+    return () => window.removeEventListener('keydown', kd);
+  }, [flap]);
 
-  const updateGame = () => {
-    if (gameState === 'START') return;
+  // ─── Spawn particles ───
+  const spawnParticles = useCallback((x, y, count = 5) => {
+    const newP = Array.from({ length: count }, () => ({
+      id: Math.random(),
+      x: x + (Math.random() - 0.5) * 30,
+      y: y + (Math.random() - 0.5) * 30,
+      vx: (Math.random() - 0.5) * 3,
+      vy: (Math.random() - 0.5) * 3 - 1.5,
+      life: 1,
+      emoji: theme.particles[Math.floor(Math.random() * theme.particles.length)],
+    }));
+    setParticles(prev => [...prev.slice(-20), ...newP]);
+  }, [theme.particles]);
 
-    // Movement that happens even in READY state (ground/bg scrolling)
-    if (gameState !== 'GAMEOVER') {
-        setGroundX(prev => (prev - currentSpeed) % 24);
-        setBgX(prev => (prev - currentSpeed * 0.3) % 400);
-    }
+  // ─── Game Loop ───
+  useEffect(() => {
+    if (screen !== 'playing') return;
 
-    if (gameState === 'READY') {
-        // Hover effect in ready state
-        setBirdPos(dim.h / 2 - 50 + Math.sin(Date.now() / 200) * 10);
-    }
+    const loop = () => {
+      frameRef.current++;
 
-    if (gameState !== 'PLAYING') return;
+      // Background parallax
+      setGroundX(prev => (prev - BASE_SPEED) % 48);
+      setBgOffset(prev => prev + BASE_SPEED);
 
-    // Physics
-    let newVelocity = birdVelocity + GRAVITY;
-    let newPos = birdPos + newVelocity;
-    
-    // Rotation logic: Tilt up on jump, slowly face dive as it falls
-    let newRotation = birdRotation;
-    if (newVelocity < 0) {
-        newRotation = -25; // Snap up
-    } else {
-        newRotation = Math.min(newRotation + 4, 90); // Gradually dive down
-    }
+      // Bird physics
+      setBirdY(prev => {
+        const newVel = vel + GRAVITY;
+        const newY = prev + newVel;
+        setVel(newVel);
 
-    // Floor collision (Ground)
-    if (newPos >= dim.h - GROUND_HEIGHT - BIRD_SIZE) {
-      newPos = dim.h - GROUND_HEIGHT - BIRD_SIZE;
-      setGameState('GAMEOVER');
-      if (score > highScore) setHighScore(score);
-    }
-    // Ceiling
-    if (newPos <= 0) {
-      newPos = 0;
-      newVelocity = 0;
-    }
+        // Rotation
+        if (newVel < 0) setRot(-25);
+        else setRot(r => Math.min(r + 3, 70));
 
-    // Update pipes
-    let newPipes = pipes.map(p => ({ ...p, x: p.x - currentSpeed }));
-    const lastPipe = newPipes[newPipes.length - 1];
-    const pipeDistance = 330; // More breathing room
-    
-    if (lastPipe && lastPipe.x < dim.w - pipeDistance) {
-      const minPipeHeight = 80;
-      const maxPipeHeight = dim.h - GROUND_HEIGHT - currentGap - minPipeHeight;
-      const topHeight = Math.floor(Math.random() * (maxPipeHeight - minPipeHeight + 1) + minPipeHeight);
-      newPipes.push({ x: dim.w, topHeight, passed: false });
-    }
-    newPipes = newPipes.filter(p => p.x + PIPE_WIDTH > -50);
+        // Ground collision
+        if (newY >= dim.h - GROUND_H - CHAR_SIZE) {
+          gameOver();
+          return dim.h - GROUND_H - CHAR_SIZE;
+        }
+        // Ceiling
+        if (newY <= 0) { setVel(0); return 0; }
+        return newY;
+      });
 
-    // Collision Detection (Player friendly hitbox)
-    const padding = 6;
-    const birdBox = { 
-      x: 60 + padding, 
-      y: newPos + padding, 
-      w: BIRD_SIZE - padding * 2, 
-      h: BIRD_SIZE - padding * 2 
-    };
-    
-    for (let i = 0; i < newPipes.length; i++) {
-        let p = newPipes[i];
-        const topPipeBox = { x: p.x, y: 0, w: PIPE_WIDTH, h: p.topHeight };
-        const bottomY = p.topHeight + currentGap;
-        const bottomPipeBox = { x: p.x, y: bottomY, w: PIPE_WIDTH, h: dim.h - GROUND_HEIGHT - bottomY };
+      // Trail
+      setTrail(prev => {
+        const newTrail = prev.map(t => ({ ...t, life: t.life - 0.04 })).filter(t => t.life > 0);
+        if (frameRef.current % 3 === 0) {
+          newTrail.push({ id: Math.random(), x: 60, y: birdY + CHAR_SIZE / 2, life: 1 });
+        }
+        return newTrail.slice(-15);
+      });
 
-        const isCollision = (r1, r2) => (
-            r1.x < r2.x + r2.w && r1.x + r1.w > r2.x &&
-            r1.y < r2.y + r2.h && r1.y + r1.w > r2.y
-        );
+      // Pipes
+      setPipes(prev => {
+        let updated = prev.map(p => ({ ...p, x: p.x - BASE_SPEED }));
 
-        if (isCollision(birdBox, topPipeBox) || isCollision(birdBox, bottomPipeBox)) {
-            setGameState('GAMEOVER');
-            if (score > highScore) setHighScore(score);
-            return;
+        // Spawn new pipe
+        const last = updated[updated.length - 1];
+        if (last && last.x < dim.w - PIPE_DIST) {
+          const minH = 70;
+          const maxH = dim.h - GROUND_H - GAP - minH;
+          const topH = Math.floor(Math.random() * (maxH - minH) + minH);
+          updated.push({ x: dim.w + 20, topH, passed: false });
         }
 
-        if (p.x + PIPE_WIDTH < birdBox.x && !p.passed) {
-            setScore(s => s + 1);
+        // Remove offscreen
+        updated = updated.filter(p => p.x + PIPE_WIDTH > -20);
+
+        // Collision & scoring
+        const pad = 7;
+        const bBox = { x: 60 + pad, y: birdY + pad, w: CHAR_SIZE - pad * 2, h: CHAR_SIZE - pad * 2 };
+
+        for (const p of updated) {
+          const topBox = { x: p.x, y: 0, w: PIPE_WIDTH, h: p.topH };
+          const botY = p.topH + GAP;
+          const botBox = { x: p.x, y: botY, w: PIPE_WIDTH, h: dim.h - GROUND_H - botY };
+
+          const hit = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+
+          if (hit(bBox, topBox) || hit(bBox, botBox)) {
+            gameOver();
+            return prev;
+          }
+
+          if (p.x + PIPE_WIDTH < bBox.x && !p.passed) {
             p.passed = true;
-        }
-    }
+            const newScore = scoreRef.current + 1;
+            scoreRef.current = newScore;
+            setScore(newScore);
+            spawnParticles(60 + CHAR_SIZE, birdY, 8);
 
-    setBirdPos(newPos);
-    setBirdVelocity(newVelocity);
-    setBirdRotation(newRotation);
-    setPipes(newPipes);
+            // Milestone check
+            if (newScore % 10 === 0 && newScore <= 40) {
+              const nextTheme = THEMES[Math.min(Math.floor(newScore / 10), THEMES.length - 1)];
+              setMilestone(nextTheme.name);
+              setTimeout(() => setMilestone(null), 2500);
+            }
+          }
+        }
+        return updated;
+      });
+
+      // Particles decay
+      setParticles(prev => prev.map(p => ({
+        ...p,
+        x: p.x + p.vx,
+        y: p.y + p.vy,
+        life: p.life - 0.025,
+      })).filter(p => p.life > 0));
+
+      // Shake decay
+      setShakeTimer(prev => Math.max(prev - 1, 0));
+    };
+
+    const id = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(id);
+  });
+
+  const gameOver = useCallback(() => {
+    setScreen('gameover');
+    setShakeTimer(10);
+    if (scoreRef.current > highScore) {
+      setHighScore(scoreRef.current);
+      try { localStorage.setItem('flappy-vibe-high', String(scoreRef.current)); } catch {}
+    }
+  }, [highScore]);
+
+  // ─── Render: Background Layers ───
+  const renderBgLayers = () => {
+    return theme.bgLayers.map((layer, li) => (
+      <div key={li} style={{ position: 'absolute', top: 0, left: 0, width: '200%', height: '100%', zIndex: 2 + li }}>
+        {layer.items.map((item, i) => {
+          const totalW = dim.w * 2;
+          const spacing = totalW / layer.items.length;
+          const rawX = (spacing * i - bgOffset * layer.speed) % totalW;
+          const x = rawX < -50 ? rawX + totalW : rawX;
+          return (
+            <span key={i} style={{
+              position: 'absolute',
+              left: x,
+              top: `${layer.y[i % layer.y.length]}%`,
+              fontSize: layer.size[i % layer.size.length],
+              opacity: 0.7,
+              filter: li === 0 ? 'blur(0.5px)' : 'none',
+              transition: 'opacity 0.3s',
+            }}>{item}</span>
+          );
+        })}
+      </div>
+    ));
   };
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(updateGame);
-    return () => cancelAnimationFrame(requestRef.current);
-  });
+  // ─── Render: Stars (for dark themes) ───
+  const renderStars = () => {
+    if (themeIdx < 2) return null;
+    return starsRef.current.map((s, i) => (
+      <div key={i} style={{
+        position: 'absolute',
+        left: `${s.x}%`,
+        top: `${s.y}%`,
+        width: s.s, height: s.s,
+        borderRadius: '50%',
+        background: '#fff',
+        opacity: s.o * (0.5 + 0.5 * Math.sin(frameRef.current / (s.d * 10))),
+        zIndex: 1,
+      }} />
+    ));
+  };
+
+  // ─── MENU SCREEN ───
+  if (screen === 'menu') {
+    return (
+      <div style={{
+        width: '100%', maxWidth: 400, margin: '0 auto',
+        borderRadius: 24, overflow: 'hidden',
+        background: `linear-gradient(180deg, ${THEMES[0].skyTop}, ${THEMES[0].skyBottom})`,
+        border: '3px solid rgba(255,255,255,0.15)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+      }}>
+        <div style={{
+          padding: '40px 24px', textAlign: 'center',
+          minHeight: 500,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          position: 'relative',
+        }}>
+          {/* Floating bg emojis */}
+          {['☁️','🌤️','🕊️','☁️'].map((e, i) => (
+            <span key={i} style={{
+              position: 'absolute',
+              top: `${15 + i * 15}%`,
+              left: `${10 + i * 22}%`,
+              fontSize: 28 + i * 4,
+              opacity: 0.3,
+              animation: `float ${3 + i}s ease-in-out infinite alternate`,
+            }}>{e}</span>
+          ))}
+
+          <div style={{ fontSize: 72, marginBottom: 8, animation: 'float 2s ease-in-out infinite alternate' }}>
+            {CHARACTERS[charIdx].emoji}
+          </div>
+          <h2 style={{
+            fontSize: 36, fontWeight: 900, color: '#fff',
+            textShadow: '0 4px 20px rgba(0,0,0,0.3)',
+            marginBottom: 4, letterSpacing: '-0.02em',
+          }}>FLAPPY VIBE</h2>
+          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, marginBottom: 28 }}>
+            Tap to fly through 4 worlds!
+          </p>
+
+          {/* Character picker */}
+          <div style={{
+            display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 28,
+            flexWrap: 'wrap',
+          }}>
+            {CHARACTERS.map((c, i) => (
+              <button key={i} onClick={() => setCharIdx(i)} style={{
+                width: 48, height: 48, borderRadius: 14,
+                background: i === charIdx
+                  ? 'rgba(255,255,255,0.3)'
+                  : 'rgba(255,255,255,0.08)',
+                border: i === charIdx
+                  ? '2px solid rgba(255,255,255,0.7)'
+                  : '2px solid rgba(255,255,255,0.1)',
+                fontSize: 24, cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.2s',
+                backdropFilter: 'blur(8px)',
+                transform: i === charIdx ? 'scale(1.15)' : 'scale(1)',
+              }}>{c.emoji}</button>
+            ))}
+          </div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>
+            Playing as <strong style={{ color: '#fff' }}>{CHARACTERS[charIdx].name}</strong>
+          </div>
+
+          <button onClick={startGame} style={{
+            padding: '16px 48px', fontSize: 20, fontWeight: 800,
+            background: 'rgba(255,255,255,0.2)',
+            backdropFilter: 'blur(12px)',
+            border: '2px solid rgba(255,255,255,0.35)',
+            borderRadius: 16, color: '#fff', cursor: 'pointer',
+            transition: 'all 0.2s',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+            letterSpacing: '0.05em',
+          }}
+            onMouseOver={e => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.background = 'rgba(255,255,255,0.3)'; }}
+            onMouseOut={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
+          >▶ PLAY</button>
+
+          {highScore > 0 && (
+            <div style={{
+              marginTop: 20, fontSize: 13, color: 'rgba(255,255,255,0.5)',
+              display: 'flex', alignItems: 'center', gap: 6,
+            }}>🏆 Best: <strong style={{ color: '#ffe600' }}>{highScore}</strong></div>
+          )}
+
+          {/* World preview */}
+          <div style={{
+            marginTop: 24, display: 'flex', gap: 6, justifyContent: 'center',
+          }}>
+            {THEMES.map((t, i) => (
+              <div key={i} style={{
+                width: 36, height: 36, borderRadius: 10,
+                background: `linear-gradient(180deg, ${t.skyTop}, ${t.skyBottom})`,
+                border: '1.5px solid rgba(255,255,255,0.15)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 14, opacity: 0.8,
+              }} title={t.name}>{t.emoji || '🌍'}</div>
+            ))}
+          </div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 6 }}>
+            Worlds unlock every 10 points
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-12px); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  // ─── GAME / GAMEOVER SCREEN ───
+  const shakeX = shakeTimer > 0 ? (Math.random() - 0.5) * 8 : 0;
+  const shakeY = shakeTimer > 0 ? (Math.random() - 0.5) * 8 : 0;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', userSelect: 'none' }}>
-      <div 
-        ref={gameAreaRef}
-        onClick={jump}
+      <div
+        ref={areaRef}
+        onClick={flap}
         style={{
-          width: '100%',
-          maxWidth: '400px',
-          height: '600px',
-          background: '#4ec0ca',
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: '24px',
-          border: '8px solid #333',
+          width: '100%', maxWidth: 400, height: 650,
+          background: `linear-gradient(180deg, ${theme.skyTop}, ${theme.skyBottom})`,
+          position: 'relative', overflow: 'hidden',
+          borderRadius: 24,
+          border: '3px solid rgba(255,255,255,0.1)',
           cursor: 'pointer',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
+          boxShadow: `0 20px 60px rgba(0,0,0,0.4), inset 0 0 80px ${theme.glow}`,
+          transform: `translate(${shakeX}px, ${shakeY}px)`,
+          transition: 'background 1.5s ease',
         }}
       >
-        {/* Sky Background (Parallax) */}
+        {/* Stars */}
+        {renderStars()}
+
+        {/* Background layers */}
+        {renderBgLayers()}
+
+        {/* Score */}
         <div style={{
-            position: 'absolute', bottom: GROUND_HEIGHT, left: `${bgX}px`, width: '800px', height: '150px',
-            background: 'linear-gradient(to top, #71c5cf, #4ec0ca)',
-            opacity: 0.5, zIndex: 1
-        }} />
-        
-        {/* Large Score Counter */}
-        <div style={{
-            position: 'absolute', top: '50px', left: 0, right: 0, textAlign: 'center',
-            fontSize: '80px', fontWeight: 900, color: '#fff', zIndex: 30,
-            textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5)',
-            fontFamily: 'monospace'
+          position: 'absolute', top: 40, left: 0, right: 0,
+          textAlign: 'center', zIndex: 30,
+          fontSize: 64, fontWeight: 900,
+          color: '#fff',
+          textShadow: `0 4px 0 rgba(0,0,0,0.2), 0 0 30px ${theme.glow}`,
+          fontFamily: 'system-ui, sans-serif',
+          letterSpacing: '-0.03em',
         }}>
-            {gameState !== 'START' && score}
+          {score}
         </div>
 
-        {/* Bird */}
+        {/* Current world indicator */}
         <div style={{
-          position: 'absolute',
-          left: '60px',
-          top: `${birdPos}px`,
-          width: `${BIRD_SIZE}px`,
-          height: `${BIRD_SIZE}px`,
-          fontSize: '32px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transform: `rotate(${birdRotation}deg)`,
-          zIndex: 25,
-          textShadow: '0 2px 10px rgba(0,0,0,0.2)'
+          position: 'absolute', top: 12, right: 12, zIndex: 30,
+          padding: '4px 10px', borderRadius: 10,
+          background: 'rgba(0,0,0,0.25)',
+          backdropFilter: 'blur(8px)',
+          fontSize: 11, color: 'rgba(255,255,255,0.7)',
+          fontWeight: 700,
         }}>
-          {birdVelocity < 0 ? '🐦' : '🐤'}
+          {theme.name}
         </div>
 
-        {/* Pipes */}
-        {pipes.map((p, i) => (
-          <div key={i} style={{ zIndex: 10 }}>
-            {/* Top Pipe */}
+        {/* Milestone popup */}
+        {milestone && (
+          <div style={{
+            position: 'absolute', top: '30%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 50,
+            textAlign: 'center',
+            animation: 'milestoneIn 0.5s ease-out',
+          }}>
             <div style={{
-              position: 'absolute', left: `${p.x}px`, top: 0,
-              width: `${PIPE_WIDTH}px`, height: `${p.topHeight}px`,
-              background: '#73bf2e', border: '3px solid #543847', borderRadius: '0 0 4px 4px',
-              boxShadow: 'inset -8px 0 0 rgba(0,0,0,0.1)'
+              padding: '16px 28px', borderRadius: 20,
+              background: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(12px)',
+              border: '2px solid rgba(255,255,255,0.2)',
             }}>
-              <div style={{ // Top Pipe Rim
-                position: 'absolute', bottom: 0, left: '-4px', width: `${PIPE_WIDTH + 8}px`, height: '26px',
-                background: '#73bf2e', border: '3px solid #543847', borderRadius: '4px'
-              }} />
-            </div>
-            {/* Bottom Pipe */}
-            <div style={{
-              position: 'absolute', left: `${p.x}px`, top: `${p.topHeight + currentGap}px`,
-              width: `${PIPE_WIDTH}px`, height: `${dim.h - GROUND_HEIGHT - (p.topHeight + currentGap)}px`,
-              background: '#73bf2e', border: '3px solid #543847', borderRadius: '4px 4px 0 0',
-              boxShadow: 'inset -8px 0 0 rgba(0,0,0,0.1)'
-            }}>
-              <div style={{ // Bottom Pipe Rim
-                position: 'absolute', top: 0, left: '-4px', width: `${PIPE_WIDTH + 8}px`, height: '26px',
-                background: '#73bf2e', border: '3px solid #543847', borderRadius: '4px'
-              }} />
+              <div style={{ fontSize: 28, marginBottom: 4 }}>🌍</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: '#fff' }}>World Unlocked!</div>
+              <div style={{ fontSize: 13, color: theme.accent, fontWeight: 700 }}>{milestone}</div>
             </div>
           </div>
+        )}
+
+        {/* Trail */}
+        {trail.map(t => (
+          <span key={t.id} style={{
+            position: 'absolute',
+            left: t.x - 6,
+            top: t.y - 6,
+            fontSize: 12,
+            opacity: t.life * 0.6,
+            zIndex: 9,
+            pointerEvents: 'none',
+            filter: `blur(${(1 - t.life) * 2}px)`,
+          }}>{char.trail}</span>
         ))}
+
+        {/* Particles */}
+        {particles.map(p => (
+          <span key={p.id} style={{
+            position: 'absolute',
+            left: p.x,
+            top: p.y,
+            fontSize: 16,
+            opacity: p.life,
+            zIndex: 35,
+            pointerEvents: 'none',
+            transform: `scale(${p.life})`,
+          }}>{p.emoji}</span>
+        ))}
+
+        {/* Bird / Character */}
+        <div style={{
+          position: 'absolute',
+          left: 60,
+          top: birdY,
+          width: CHAR_SIZE, height: CHAR_SIZE,
+          fontSize: 34,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transform: `rotate(${rot}deg)`,
+          zIndex: 20,
+          filter: `drop-shadow(0 4px 8px rgba(0,0,0,0.3))`,
+          transition: 'transform 0.08s ease-out',
+        }}>
+          {char.emoji}
+        </div>
+
+        {/* Pipes / Obstacles */}
+        {pipes.map((p, i) => {
+          const botY = p.topH + GAP;
+          return (
+            <div key={i} style={{ zIndex: 10 }}>
+              {/* Top obstacle */}
+              <div style={{
+                position: 'absolute', left: p.x, top: 0,
+                width: PIPE_WIDTH, height: p.topH,
+                background: `linear-gradient(180deg, ${theme.obstacle[0]}, ${theme.obstacle[1]})`,
+                borderRadius: '0 0 8px 8px',
+                boxShadow: `inset -6px 0 12px rgba(0,0,0,0.15), 4px 0 16px ${theme.glow}`,
+              }}>
+                {/* Rim */}
+                <div style={{
+                  position: 'absolute', bottom: -2, left: -5,
+                  width: PIPE_WIDTH + 10, height: 20,
+                  background: `linear-gradient(180deg, ${theme.obstacle[0]}, ${theme.rim})`,
+                  borderRadius: 6,
+                  boxShadow: `0 4px 8px ${theme.glow}`,
+                }} />
+              </div>
+              {/* Bottom obstacle */}
+              <div style={{
+                position: 'absolute', left: p.x, top: botY,
+                width: PIPE_WIDTH, height: dim.h - GROUND_H - botY,
+                background: `linear-gradient(180deg, ${theme.obstacle[1]}, ${theme.obstacle[0]})`,
+                borderRadius: '8px 8px 0 0',
+                boxShadow: `inset -6px 0 12px rgba(0,0,0,0.15), 4px 0 16px ${theme.glow}`,
+              }}>
+                <div style={{
+                  position: 'absolute', top: -2, left: -5,
+                  width: PIPE_WIDTH + 10, height: 20,
+                  background: `linear-gradient(180deg, ${theme.rim}, ${theme.obstacle[1]})`,
+                  borderRadius: 6,
+                  boxShadow: `0 -4px 8px ${theme.glow}`,
+                }} />
+              </div>
+            </div>
+          );
+        })}
 
         {/* Ground */}
         <div style={{
-            position: 'absolute', bottom: 0, left: 0, width: '100%', height: `${GROUND_HEIGHT}px`,
-            background: '#ded895', borderTop: '4px solid #543847', zIndex: 20
+          position: 'absolute', bottom: 0, left: 0,
+          width: '100%', height: GROUND_H,
+          background: theme.ground,
+          borderTop: `3px solid ${theme.groundStripe}`,
+          zIndex: 15,
         }}>
-            <div style={{
-                width: '200%', height: '16px', background: '#9ce659',
-                backgroundImage: 'repeating-linear-gradient(45deg, #73bf2e, #73bf2e 12px, #9ce659 12px, #9ce659 24px)',
-                position: 'absolute', top: 0, left: `${groundX}px`
-            }} />
+          <div style={{
+            width: '200%', height: 12,
+            backgroundImage: `repeating-linear-gradient(90deg, ${theme.groundStripe}, ${theme.groundStripe} 24px, ${theme.ground} 24px, ${theme.ground} 48px)`,
+            position: 'absolute', top: 0,
+            left: groundX,
+          }} />
         </div>
 
-        {/* START UI */}
-        {gameState === 'START' && (
+        {/* GAMEOVER Overlay */}
+        {screen === 'gameover' && (
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 50
+            background: 'rgba(0,0,0,0.55)',
+            backdropFilter: 'blur(6px)',
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center',
+            zIndex: 60,
+            animation: 'fadeIn 0.3s ease-out',
           }}>
-            <h1 style={{ color: '#fff', fontSize: '48px', fontWeight: 900, marginBottom: '30px', textShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>FLAPPY VIBE</h1>
-            <div style={{ fontSize: '100px', marginBottom: '40px', animate: 'bounce 2s infinite' }}>🐦</div>
-            <button className="btn-primary" onClick={startGame} style={{ fontSize: '24px', padding: '16px 40px' }}>PLAY</button>
+            <div style={{
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(16px)',
+              border: '2px solid rgba(255,255,255,0.15)',
+              borderRadius: 24, padding: '32px 40px',
+              textAlign: 'center',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.3)',
+              maxWidth: 300, width: '85%',
+            }}>
+              <div style={{ fontSize: 48, marginBottom: 8 }}>
+                {score >= 40 ? '🏆' : score >= 20 ? '🌟' : score >= 10 ? '⭐' : '💫'}
+              </div>
+              <h2 style={{
+                color: '#fff', fontSize: 28, fontWeight: 900,
+                marginBottom: 16,
+              }}>
+                {score >= 40 ? 'LEGENDARY!' : score >= 20 ? 'AMAZING!' : score >= 10 ? 'GREAT!' : 'GAME OVER'}
+              </h2>
+
+              <div style={{
+                display: 'grid', gridTemplateColumns: '1fr 1fr',
+                gap: 12, marginBottom: 24,
+              }}>
+                <div style={{
+                  padding: '12px', borderRadius: 14,
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                }}>
+                  <div style={{ fontSize: 28, fontWeight: 900, color: '#fff' }}>{score}</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>SCORE</div>
+                </div>
+                <div style={{
+                  padding: '12px', borderRadius: 14,
+                  background: 'rgba(255,230,0,0.06)',
+                  border: '1px solid rgba(255,230,0,0.15)',
+                }}>
+                  <div style={{ fontSize: 28, fontWeight: 900, color: '#ffe600' }}>{highScore}</div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>BEST</div>
+                </div>
+              </div>
+
+              {/* World reached */}
+              <div style={{
+                padding: '8px 14px', borderRadius: 12,
+                background: `linear-gradient(135deg, ${theme.skyTop}40, ${theme.skyBottom}40)`,
+                border: `1px solid ${theme.accent}30`,
+                marginBottom: 20,
+                fontSize: 12, color: theme.accent, fontWeight: 700,
+              }}>
+                🌍 Reached: {theme.name}
+              </div>
+
+              <button onClick={() => { startGame(); setVel(JUMP); }} style={{
+                width: '100%', padding: '14px',
+                fontSize: 18, fontWeight: 800,
+                background: 'rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(8px)',
+                border: '2px solid rgba(255,255,255,0.25)',
+                borderRadius: 14, color: '#fff',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                letterSpacing: '0.05em',
+              }}
+                onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.25)'}
+                onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
+              >🔄 PLAY AGAIN</button>
+            </div>
           </div>
         )}
 
-        {/* READY UI */}
-        {gameState === 'READY' && (
-            <div style={{
-                position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-                textAlign: 'center', zIndex: 40
-            }}>
-                <div style={{ color: '#fff', fontSize: '24px', fontWeight: 900, textShadow: '2px 2px 0 #000' }}>GET READY</div>
-                <div style={{ fontSize: '80px', marginTop: '20px' }}>🖱️</div>
-            </div>
-        )}
-
-        {/* GAMEOVER UI */}
-        {gameState === 'GAMEOVER' && (
+        {/* Tap hint at start */}
+        {screen === 'playing' && score === 0 && pipes.length > 0 && pipes[0].x > dim.w - 50 && (
           <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0,0,0,0.4)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 60
+            position: 'absolute', top: '55%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            textAlign: 'center', zIndex: 40,
+            animation: 'pulse 1.5s ease-in-out infinite',
           }}>
+            <div style={{ fontSize: 48, marginBottom: 8 }}>👆</div>
             <div style={{
-                background: '#f5f1da', padding: '30px', borderRadius: '16px', border: '4px solid #543847',
-                textAlign: 'center', boxShadow: '0 10px 0 rgba(0,0,0,0.2)'
-            }}>
-                <h2 style={{ color: '#e86101', fontSize: '32px', fontWeight: 900, marginBottom: '16px' }}>GAME OVER</h2>
-                <div style={{ display: 'flex', justifyContent: 'space-around', gap: '20px', marginBottom: '24px' }}>
-                    <div>
-                        <div style={{ fontSize: '12px', color: '#888' }}>SCORE</div>
-                        <div style={{ fontSize: '32px', fontWeight: 900, color: '#333' }}>{score}</div>
-                    </div>
-                    <div>
-                        <div style={{ fontSize: '12px', color: '#888' }}>BEST</div>
-                        <div style={{ fontSize: '32px', fontWeight: 900, color: '#333' }}>{highScore}</div>
-                    </div>
-                </div>
-                <button className="btn-primary" onClick={startGame} style={{ width: '100%', background: '#ff8a00' }}>RESTART</button>
-            </div>
+              fontSize: 14, fontWeight: 700,
+              color: 'rgba(255,255,255,0.8)',
+              textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+            }}>Tap to fly!</div>
           </div>
         )}
       </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); }
+        }
+        @keyframes milestoneIn {
+          from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+          to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        @keyframes float {
+          from { transform: translateY(0px); }
+          to { transform: translateY(-12px); }
+        }
+      `}</style>
     </div>
   );
 }
