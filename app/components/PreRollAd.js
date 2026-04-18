@@ -22,8 +22,10 @@ export default function PreRollAd({
 }) {
   const [timeLeft, setTimeLeft] = useState(countdownSeconds);
   const [adLoaded, setAdLoaded] = useState(false);
+  const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
+    console.log(`PreRollAd mounted for: ${gameName}`);
     // Start countdown
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -46,7 +48,7 @@ export default function PreRollAd({
     }
 
     return () => clearInterval(timer);
-  }, []);
+  }, [gameName]);
 
   const handleStart = () => {
     if (timeLeft === 0) {
@@ -56,6 +58,7 @@ export default function PreRollAd({
 
   return (
     <div 
+      id="preroll-gateway"
       style={{
         position: 'fixed',
         inset: 0,
@@ -114,18 +117,27 @@ export default function PreRollAd({
           boxShadow: '0 20px 40px rgba(0,0,0,0.5)'
         }}
       >
-        {!adLoaded && (
-          <div style={{ position: 'absolute', color: '#333', fontSize: '12px', textAlign: 'center' }}>
-            <Loader2 className="animate-spin" size={24} style={{ marginBottom: '8px', margin: '0 auto' }} />
-            Loading Ad...
+        {isDev ? (
+          <div style={{ textAlign: 'center', color: '#555' }}>
+            <div style={{ fontSize: '14px', fontWeight: 800, marginBottom: '8px' }}>ADSENSE PLACEHOLDER</div>
+            <div style={{ fontSize: '11px', opacity: 0.6 }}>Slot: {adSlot}</div>
           </div>
+        ) : (
+          <>
+            {!adLoaded && (
+              <div style={{ position: 'absolute', color: '#333', fontSize: '12px', textAlign: 'center' }}>
+                <Loader2 className="animate-spin" size={24} style={{ marginBottom: '8px', margin: '0 auto' }} />
+                Loading Ad...
+              </div>
+            )}
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'block', width: '300px', height: '250px' }}
+              data-ad-client={adClient}
+              data-ad-slot={adSlot}
+            />
+          </>
         )}
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block', width: '300px', height: '250px' }}
-          data-ad-client={adClient}
-          data-ad-slot={adSlot}
-        />
       </div>
 
       {/* Action Area */}
