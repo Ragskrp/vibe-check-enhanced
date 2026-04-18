@@ -482,4 +482,3 @@ function EquationRushContent() {
     </div>
   );
 }
-}

@@ -474,4 +474,3 @@ function AngleSnapperContent() {
     </div>
   );
 }
-}
