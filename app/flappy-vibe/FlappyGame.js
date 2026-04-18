@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const GRAVITY = 0.6;
-const JUMP = -8;
+const GRAVITY = 0.45;
+const JUMP = -7;
 const PIPE_SPEED = 5;
 const PIPE_WIDTH = 60;
 const PIPE_GAP = 180;
@@ -16,7 +16,7 @@ export default function FlappyGame() {
   
   // Difficulty scaling
   const [currentSpeed, setCurrentSpeed] = useState(3.5);
-  const [currentGap, setCurrentGap] = useState(220);
+  const [currentGap, setCurrentGap] = useState(240);
   
   const [birdPos, setBirdPos] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
@@ -42,8 +42,8 @@ export default function FlappyGame() {
     setBirdPos(dim.h / 2);
     setBirdVelocity(0);
     setScore(0);
-    setCurrentSpeed(3.8); // Slightly faster than idle but easy
-    setCurrentGap(220);
+    setCurrentSpeed(3.2); // Slower start
+    setCurrentGap(240);
     setPipes([
       { x: dim.w + 200, topHeight: 200, passed: false } // First pipe further away
     ]);
@@ -74,8 +74,8 @@ export default function FlappyGame() {
     // Update difficulty based on score
     // Every 5 points, speed up and tighten gap
     const level = Math.floor(score / 5);
-    const targetSpeed = Math.min(3.8 + level * 0.4, 6.5);
-    const targetGap = Math.max(220 - level * 10, 155);
+    const targetSpeed = Math.min(3.2 + level * 0.3, 6.5);
+    const targetGap = Math.max(240 - level * 8, 160);
     
     // Smoothly transition difficulty (optional but nice)
     if (currentSpeed < targetSpeed) setCurrentSpeed(s => s + 0.01);
@@ -217,9 +217,9 @@ export default function FlappyGame() {
             <div style={{ // Bottom Pipe
               position: 'absolute',
               left: `${p.x}px`,
-              top: `${p.topHeight + PIPE_GAP}px`,
+              top: `${p.topHeight + currentGap}px`,
               width: `${PIPE_WIDTH}px`,
-              height: `${dim.h - (p.topHeight + PIPE_GAP)}px`,
+              height: `${dim.h - (p.topHeight + currentGap)}px`,
               background: 'linear-gradient(to right, #00d4ff, #0088ff)',
               borderRadius: '10px 10px 0 0',
               border: '2px solid #0055ff',

@@ -221,7 +221,8 @@ export default function MergeGame() {
           aspectRatio: '1/1',
           borderRadius: '16px',
           padding: '12px',
-          position: 'relative'
+          position: 'relative',
+          touchAction: 'none'
         }}
       >
         {gameOver && (
