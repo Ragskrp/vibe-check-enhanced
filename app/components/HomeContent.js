@@ -75,7 +75,8 @@ const GAMES = [
     path: '/quiz-arena',
     tag: 'Multiplayer',
     color: '#00d4ff',
-    category: 'multiplayer'
+    category: 'multiplayer',
+    isNew: true
   },
   {
     emoji: '⚡',
@@ -84,7 +85,8 @@ const GAMES = [
     path: '/reaction-arena',
     tag: 'Multiplayer',
     color: '#ff2d78',
-    category: 'multiplayer'
+    category: 'multiplayer',
+    isNew: true
   },
   {
     emoji: '👁️',
@@ -120,7 +122,8 @@ const GAMES = [
     path: '/drawing-dash',
     tag: 'Multiplayer',
     color: '#00d4ff',
-    category: 'multiplayer'
+    category: 'multiplayer',
+    isNew: true
   },
   {
     emoji: '🌍',
@@ -358,6 +361,26 @@ export default function HomeContent() {
                   >
                     {game.tag}
                   </span>
+                  {game.isNew && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '12px',
+                        right: '12px',
+                        background: '#00ff94',
+                        color: '#000',
+                        fontSize: '10px',
+                        fontWeight: 900,
+                        padding: '4px 8px',
+                        borderRadius: '999px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        boxShadow: '0 4px 12px rgba(0, 255, 148, 0.3)'
+                      }}
+                    >
+                      New
+                    </span>
+                  )}
                 </div>
               </Link>
             ))

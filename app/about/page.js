@@ -203,13 +203,47 @@ export default function AboutPage() {
           >
             <Heart size={24} /> Who Runs VIBEMENOW
           </h2>
-          <p style={{ marginBottom: '24px' }}>
-            VIBEMENOW is built and maintained by <strong>Raghavendra Reddy</strong>, a web developer
-            and game design enthusiast based in the UK. The project started as an experiment
-            in creating lightweight browser games that load fast and work on any device, and
-            has since grown into a full collection of 18+ original games, educational articles,
-            and expert strategy guides.
-          </p>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '32px',
+              padding: '32px',
+              background: 'rgba(255,255,255,0.02)',
+              borderRadius: '32px',
+              border: '1px solid rgba(255,255,255,0.08)',
+              marginBottom: '32px',
+              textAlign: 'left'
+            }}
+          >
+            <div style={{ flexShrink: 0 }}>
+              <img 
+                src="/publisher.jpg" 
+                alt="Raghavendra Reddy" 
+                style={{ 
+                  width: '120px', 
+                  height: '120px', 
+                  borderRadius: '24px', 
+                  objectFit: 'cover', 
+                  border: '3px solid #b14aed',
+                  boxShadow: '0 8px 24px rgba(177, 74, 237, 0.2)'
+                }} 
+              />
+            </div>
+            <div style={{ flex: 1 }}>
+              <p style={{ margin: 0, color: '#eee', lineHeight: '1.7' }}>
+                VIBEMENOW is built and maintained by <strong>Raghavendra Reddy</strong>, a web developer
+                and game design enthusiast based in the UK. With a background in building interactive digital 
+                experiences, Raghavendra started this project as an experiment in creating lightweight, 
+                high-performance games that load instantly on any device.
+              </p>
+              <p style={{ marginTop: '16px', marginBottom: 0, color: '#888', fontSize: '15px' }}>
+                Every game on the platform is an original creation focusing on pedagogical clarity and 
+                user engagement, often drawing inspiration from cognitive science and effective learning patterns.
+              </p>
+            </div>
+          </div>
           <p style={{ marginBottom: '24px' }}>
             Every game on the platform is an original creation of the VIBEMENOW team. The blog
             and guides section draws on published research in cognitive science, educational

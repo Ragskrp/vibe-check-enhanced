@@ -71,12 +71,7 @@ export default function SiteLayout({ children }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      {/* Animated Ticker */}
-      <div className="ticker-wrap">
-        <span className="ticker-text">
-          🎓 NEW: GCSE REVISION • ⚡ EQUATION RUSH • 🥧 FRACTION FRENZY • 📐 ANGLE SNAPPER • ✨ VIBE CLICKER • 🎮 MERGE VIBE • 🕊️ FLAPPY VIBE • 🔨 WHACK-A-VIBE • 🔥 NEW DAILY WORD DROP • ✨ TAKE THE VIBE QUIZ • 😈 WOULD U RATHER • 🎯 VIBE OR DIE • 😂 EMOJI IQ • 🔥 HOT TAKES • ⚡ REACTION ARENA • 👁️ ODD ONE OUT • 🧠 MEMORY ARENA • 🗳️ POLL PARTY • 🎨 DRAWING DASH • 🌍 GEO GUESSER • SHARE YOUR SCORE •
-        </span>
-      </div>
+      {/* Ticker removed as requested */}
 
       {/* Sticky Header */}
       <header className="site-header">
@@ -185,8 +180,8 @@ export default function SiteLayout({ children }) {
           </div>
           <div style={{ marginTop: '12px', fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>
             Publisher: VIBEMENOW • Contact:{' '}
-            <a href="mailto:ragskrpreddy@gmail.com" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
-              ragskrpreddy@gmail.com
+            <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>
+              support@vibemenow.uk
             </a>
           </div>
           <div style={{ marginTop: '16px', fontSize: '12px', color: 'rgba(255,255,255,0.25)' }}>
