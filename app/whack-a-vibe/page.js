@@ -1,5 +1,6 @@
 import AdBanner from '../components/AdBanner';
 import WhackGame from './WhackGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Whack-a-Vibe | VIBEMENOW',
@@ -26,7 +27,9 @@ export default function WhackVibePage() {
         <p style={{ color: '#888', fontSize: 16 }}>Hit the bad targets, avoid the good ones, and beat the 30 second timer.</p>
       </div>
 
-      <WhackGame />
+      <AdGateway gameName="Whack-a-Vibe">
+        <WhackGame />
+      </AdGateway>
 
       <article
         className="seo-guide"

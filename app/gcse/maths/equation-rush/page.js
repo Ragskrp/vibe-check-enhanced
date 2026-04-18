@@ -92,7 +92,17 @@ const generateQuestion = (tier) => {
 
 const GAME_DURATION = 60;
 
+import AdGateway from '../../../../components/AdGateway';
+
 export default function EquationRush() {
+  return (
+    <AdGateway gameName="Equation Rush">
+      <EquationRushContent />
+    </AdGateway>
+  );
+}
+
+function EquationRushContent() {
   const [phase, setPhase] = useState('menu'); // menu | playing | practice | results
   const [mode, setMode] = useState('test'); // test | practice
   const [tier, setTier] = useState('foundation');
@@ -471,4 +481,5 @@ export default function EquationRush() {
       </div>
     </div>
   );
+}
 }

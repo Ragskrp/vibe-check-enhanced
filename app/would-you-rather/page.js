@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import WouldYouRatherGame from './WouldYouRatherGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Would You Rather | Impossible Choices Game',
@@ -23,7 +24,9 @@ export const dynamic = 'force-dynamic';
 export default function WouldYouRatherPage() {
   return (
     <>
-      <WouldYouRatherGame />
+      <AdGateway gameName="Would You Rather">
+        <WouldYouRatherGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

@@ -1,4 +1,5 @@
 import VibeOrDieGame from './VibeOrDieGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Vibe or Die | Reaction Speed Game',
@@ -16,7 +17,9 @@ export const metadata = {
 export default function VibeOrDiePage() {
   return (
     <>
-      <VibeOrDieGame />
+      <AdGateway gameName="Vibe or Die">
+        <VibeOrDieGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

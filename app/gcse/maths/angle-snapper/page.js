@@ -196,7 +196,17 @@ function AngleDiagram({ question }) {
 
 const GAME_DURATION = 60;
 
+import AdGateway from '../../../../components/AdGateway';
+
 export default function AngleSnapper() {
+  return (
+    <AdGateway gameName="Angle Snapper">
+      <AngleSnapperContent />
+    </AdGateway>
+  );
+}
+
+function AngleSnapperContent() {
   const [phase, setPhase] = useState('menu');
   const [mode, setMode] = useState('test');
   const [tier, setTier] = useState('foundation');
@@ -463,4 +473,5 @@ export default function AngleSnapper() {
       </div>
     </div>
   );
+}
 }

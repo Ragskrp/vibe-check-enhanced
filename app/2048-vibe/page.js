@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import MergeClient from './MergeClient';
+import AdGateway from '../components/AdGateway';
 import AdBanner from '../components/AdBanner';
 
 export const metadata = {title: 'Merge Vibe (2048) | VIBEMENOW',
@@ -26,7 +27,9 @@ export default function VibeMergePage() {
         <p style={{ color: '#888', fontSize: 16 }}>Use Arrow Keys (or Swipe on mobile) to merge tiles. Reach 2048 to win!</p>
       </div>
       
-      <MergeClient />
+      <AdGateway gameName="Merge Vibe">
+        <MergeClient />
+      </AdGateway>
 
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '64px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.7', fontFamily: 'system-ui, sans-serif' }}>
         <h2 style={{ color: '#ff2d78', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>Merge Vibe: Mastering the Art of 2048</h2>

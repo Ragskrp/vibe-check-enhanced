@@ -1,5 +1,6 @@
 import AdBanner from '../components/AdBanner';
 import VocabGame from './VocabGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Vocab Vibe | Vocabulary Match Game',
@@ -21,7 +22,9 @@ export const dynamic = 'force-dynamic';
 export default function VocabMatchPage() {
   return (
     <div className="page-container">
-      <VocabGame />
+      <AdGateway gameName="Vocab Vibe">
+        <VocabGame />
+      </AdGateway>
 
       <article
         className="seo-guide"

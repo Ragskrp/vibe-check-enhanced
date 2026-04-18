@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import VibeClickerGame from './VibeClickerGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Vibe Clicker | VIBEMENOW',
@@ -27,7 +28,9 @@ export default function VibeClickerPage() {
         <p style={{ color: '#888', fontSize: 16 }}>Click to generate points, then invest in upgrades and automation.</p>
       </div>
 
-      <VibeClickerGame />
+      <AdGateway gameName="Vibe Clicker">
+        <VibeClickerGame />
+      </AdGateway>
 
       <article
         className="seo-guide"

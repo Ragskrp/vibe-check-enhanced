@@ -1,4 +1,5 @@
 import GeographyGuesserGame from './GeographyGuesserGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Geography Guesser | Flag Recognition Game',
@@ -16,7 +17,9 @@ export const dynamic = 'force-dynamic';
 export default function GeographyGuesserPage() {
   return (
     <>
-      <GeographyGuesserGame />
+      <AdGateway gameName="Geography Guesser">
+        <GeographyGuesserGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import QuizArenaGame from './QuizArenaGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Quiz Arena — Trivia Challenge',
@@ -25,7 +26,9 @@ export const dynamic = 'force-dynamic';
 export default function QuizArenaPage() {
   return (
     <>
-      <QuizArenaGame />
+      <AdGateway gameName="Quiz Arena">
+        <QuizArenaGame />
+      </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Quiz Arena: The Ultimate Guide to Mastering Trivia Challenges</h2>
         

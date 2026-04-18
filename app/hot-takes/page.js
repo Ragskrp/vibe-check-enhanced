@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HotTakesGame from './HotTakesGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Hot Takes | Vote on Opinions',
@@ -19,7 +20,9 @@ export const dynamic = 'force-dynamic';
 export default function HotTakesPage() {
   return (
     <>
-      <HotTakesGame />
+      <AdGateway gameName="Hot Takes">
+        <HotTakesGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

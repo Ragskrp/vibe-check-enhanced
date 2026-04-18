@@ -13,7 +13,17 @@ const GAME_DURATION = 60;
  * Props:
  *   config: { title, emoji, color, description, lessons, generateQuestion, inputHint?, fractionInput? }
  */
+import AdGateway from '../../components/AdGateway';
+
 export default function TopicGame({ config }) {
+  return (
+    <AdGateway gameName={config.title}>
+      <TopicGameContent config={config} />
+    </AdGateway>
+  );
+}
+
+function TopicGameContent({ config }) {
   const [phase, setPhase] = useState('menu');
   const [mode, setMode] = useState('test');
   const [tier, setTier] = useState('foundation');
@@ -334,4 +344,5 @@ export default function TopicGame({ config }) {
       </div>
     </div>
   );
+}
 }

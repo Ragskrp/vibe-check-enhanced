@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import DrawingDashGame from './DrawingDashGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {title: 'Drawing Dash | VIBEMENOW',
   description: 'The ultimate real-time drawing and guessing battle. Pick up the brush and see if your friends can guess your vibe!',
@@ -21,7 +22,9 @@ export const dynamic = 'force-dynamic';
 export default function DrawingDashPage() {
   return (
     <>
-      <DrawingDashGame />
+      <AdGateway gameName="Drawing Dash">
+        <DrawingDashGame />
+      </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Drawing Dash: The Ultimate Guide to Visual Communication Games</h2>
         

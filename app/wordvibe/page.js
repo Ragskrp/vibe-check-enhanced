@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import WordVibeClient from './WordVibeClient';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'WordVibe | 5-Letter Word Game',
@@ -17,7 +18,9 @@ export const metadata = {
 export default function WordVibePage() {
   return (
     <>
-      <WordVibeClient />
+      <AdGateway gameName="WordVibe">
+        <WordVibeClient />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

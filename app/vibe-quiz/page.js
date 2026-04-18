@@ -1,4 +1,5 @@
 import VibeQuizGame from './VibeQuizGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Vibe Quiz | Personality-Style Browser Quiz',
@@ -16,7 +17,9 @@ export const metadata = {
 export default function VibeQuizPage() {
   return (
     <>
-      <VibeQuizGame />
+      <AdGateway gameName="Vibe Quiz">
+        <VibeQuizGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

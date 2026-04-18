@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import FlappyClient from './FlappyClient';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Flappy Vibe | VIBEMENOW',
@@ -27,7 +28,9 @@ export default function FlappyVibePage() {
         <p style={{ color: '#888', fontSize: 16 }}>Tap, click, or press Space to fly. Avoid the pipes and stay alive.</p>
       </div>
 
-      <FlappyClient />
+      <AdGateway gameName="Flappy Vibe">
+        <FlappyClient />
+      </AdGateway>
 
       <article
         className="seo-guide"

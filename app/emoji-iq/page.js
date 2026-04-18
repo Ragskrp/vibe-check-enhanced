@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import EmojiIQGame from './EmojiIQGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {
   title: 'Emoji IQ | Guess the Emoji Puzzle',
@@ -17,7 +18,9 @@ export const metadata = {
 export default function EmojiIQPage() {
   return (
     <>
-      <EmojiIQGame />
+      <AdGateway gameName="Emoji IQ">
+        <EmojiIQGame />
+      </AdGateway>
       <article
         className="seo-guide"
         style={{

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import ReactionArenaGame from './ReactionArenaGame';
+import AdGateway from '../components/AdGateway';
 
 export const metadata = {title: 'Reaction Arena | VIBEMENOW',
   description: 'Multiplayer fast-reflex battle. Challenge your friends to see who can react the fastest!',
@@ -22,7 +23,9 @@ export const dynamic = 'force-dynamic';
 export default function ReactionArenaPage() {
   return (
     <>
-      <ReactionArenaGame />
+      <AdGateway gameName="Reaction Arena">
+        <ReactionArenaGame />
+      </AdGateway>
       <AdBanner />
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Reaction Arena: A Comprehensive Guide to Boosting Your Reflexes</h2>
