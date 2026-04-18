@@ -159,7 +159,7 @@ const generateQuestion = (tier) => {
 
 const GAME_DURATION = 60;
 
-import AdGateway from '../../../../components/AdGateway';
+import AdGateway from '../../../components/AdGateway';
 
 export default function FractionFrenzy() {
   return (
