@@ -8,8 +8,6 @@ export default function ContactPage() {
   const [status, setStatus] = useState('idle'); // idle, loading, success, unavailable, error
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
     query: ''
   });
 
@@ -22,16 +20,20 @@ export default function ContactPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: 'Anonymous User',
+          email: 'no-reply@vibemenow.uk',
+          query: formData.query,
+        }),
       });
 
       const data = await res.json();
 
-      if (res.ok) {
-        setStatus('success');
-        setMessage(data.message || 'Your message has been sent.');
-        setFormData({ name: '', email: '', query: '' });
-      } else if (res.status === 503) {
+        if (res.ok) {
+          setStatus('success');
+          setMessage(data.message || 'Your message has been sent.');
+          setFormData({ query: '' });
+        } else if (res.status === 503) {
         setStatus('unavailable');
         setMessage(data.message || 'Direct email is the fastest way to reach us right now.');
       } else {
@@ -116,38 +118,18 @@ export default function ContactPage() {
               . The form below works only when server-side forwarding is enabled.
             </div>
 
-            <div>
-              <label style={{ display: 'block', color: '#555', fontSize: '13px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
-                Full Name
-              </label>
-              <input 
-                type="text"
-                required
-                placeholder="How should we call you?"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                style={{ 
-                  width: '100%', padding: '12px', borderRadius: '12px', background: '#0a0a0f', 
-                  border: '2px solid #1a1a2e', color: '#fff', fontSize: '15px' 
-                }}
-              />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', color: '#555', fontSize: '13px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
-                Email Address
-              </label>
-              <input 
-                type="email"
-                required
-                placeholder="Where should we reply?"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                style={{ 
-                  width: '100%', padding: '12px', borderRadius: '12px', background: '#0a0a0f', 
-                  border: '2px solid #1a1a2e', color: '#fff', fontSize: '15px' 
-                }}
-              />
+            <div
+              style={{
+                padding: '14px 16px',
+                borderRadius: '14px',
+                background: 'rgba(255, 45, 120, 0.05)',
+                border: '1px solid rgba(255, 45, 120, 0.18)',
+                color: '#ffb5d0',
+                fontSize: '13px',
+                lineHeight: '1.6',
+              }}
+            >
+              <strong>Anonymous Portal:</strong> We do not collect names or emails via this form. If you require a direct reply, please email us at <strong>support@vibemenow.uk</strong> instead.
             </div>
 
             <div>

@@ -9,16 +9,9 @@ export async function POST(req) {
     const targetEmail = process.env.CONTACT_EMAIL || 'support@vibemenow.uk';
     const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
 
-    if (!name || !email || !query) {
+    if (!query) {
       return NextResponse.json(
-        { success: false, error: 'Please complete every field before sending your message.' },
-        { status: 400 }
-      );
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return NextResponse.json(
-        { success: false, error: 'Please enter a valid email address.' },
+        { success: false, error: 'Please enter your query before sending.' },
         { status: 400 }
       );
     }

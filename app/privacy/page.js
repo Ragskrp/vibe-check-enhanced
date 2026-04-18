@@ -54,9 +54,8 @@ export default function PrivacyPage() {
           </p>
           <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
             <li style={{ marginBottom: '8px' }}>Minimizing data collection to the absolute necessary technical requirements.</li>
-            <li style={{ marginBottom: '8px' }}>Providing clear information on third-party tracking (AdSense).</li>
-            <li style={{ marginBottom: '8px' }}>Allowing you to clear your local game data at any time through your browser settings.</li>
-            <li>Registering with the Information Commissioner&#39;s Office (ICO) as required for UK publishers.</li>
+            <li style={{ marginBottom: '8px' }}>Provision of clear information on third-party tracking (AdSense).</li>
+            <li>Allowing you to clear your local game data at any time through your browser settings.</li>
           </ul>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Children&#39;s Data (COPPA & UK GDPR)</h2>
