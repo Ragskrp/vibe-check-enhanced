@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import WordVibeGame from './WordVibeGame';
+import WordVibeClient from './WordVibeClient';
 
 export const metadata = {
   title: 'WordVibe | 5-Letter Word Game',
@@ -17,7 +17,7 @@ export const metadata = {
 export default function WordVibePage() {
   return (
     <>
-      <WordVibeGame />
+      <WordVibeClient />
       <article
         className="seo-guide"
         style={{
