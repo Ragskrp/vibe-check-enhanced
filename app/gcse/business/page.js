@@ -3,21 +3,15 @@
 import Link from 'next/link';
 import { ArrowRight, Flame, Trophy, Briefcase } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
-import { useState, useEffect } from 'react';
 import { getTopicsByCategory } from './businessData';
+import useStoredStats from '../components/useStoredStats';
 
 const CATEGORY_ORDER = ['Real World', 'Operations', 'Human Resources'];
 const CATEGORY_COLORS = { 'Real World': '#ff6b35', 'Operations': '#00d4ff', 'Human Resources': '#00ff94' };
 
 export default function BusinessHub() {
-  const [stats, setStats] = useState(null);
+  const stats = useStoredStats('gcse-business-stats');
   const topicsByCategory = getTopicsByCategory();
-
-  useEffect(() => {
-    try {
-      setStats(JSON.parse(localStorage.getItem('gcse-business-stats') || 'null'));
-    } catch {}
-  }, []);
 
   return (
     <div className="game-container" style={{ maxWidth: 900 }}>

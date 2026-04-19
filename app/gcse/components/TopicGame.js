@@ -8,6 +8,48 @@ import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap } from 
 
 const GAME_DURATION = 60;
 
+function getSubjectMeta(config) {
+  if (config.hubPath === '/gcse/science' || ['Biology', 'Chemistry', 'Physics'].includes(config.category)) {
+    return {
+      badge: 'GCSE Science',
+      hubPath: '/gcse/science',
+      backLabel: 'Back to Science',
+      statsKey: 'gcse-science-stats',
+    };
+  }
+
+  if (
+    config.hubPath === '/gcse/computer-science' ||
+    ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'].includes(config.category)
+  ) {
+    return {
+      badge: 'GCSE Computer Science',
+      hubPath: '/gcse/computer-science',
+      backLabel: 'Back to Computer Science',
+      statsKey: 'gcse-compsci-stats',
+    };
+  }
+
+  if (
+    config.hubPath === '/gcse/business' ||
+    ['Real World', 'Operations', 'Human Resources'].includes(config.category)
+  ) {
+    return {
+      badge: 'GCSE Business',
+      hubPath: '/gcse/business',
+      backLabel: 'Back to Business',
+      statsKey: 'gcse-business-stats',
+    };
+  }
+
+  return {
+    badge: 'GCSE Maths',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    statsKey: 'gcse-maths-stats',
+  };
+}
+
 /**
  * Shared GCSE topic game engine.
  * Props:
@@ -31,6 +73,7 @@ export default function TopicGame({ config }) {
   const timerRef = useRef(null);
 
   const accent = config.color || '#00e5a0';
+  const subjectMeta = getSubjectMeta(config);
 
   const nextQuestion = useCallback(() => {
     setQuestion(config.generateQuestion(tier));
@@ -55,14 +98,14 @@ export default function TopicGame({ config }) {
   useEffect(() => {
     if (phase === 'results') {
       try {
-        const existing = JSON.parse(localStorage.getItem('gcse-maths-stats') || '{}');
-        localStorage.setItem('gcse-maths-stats', JSON.stringify({
+        const existing = JSON.parse(localStorage.getItem(subjectMeta.statsKey) || '{}');
+        localStorage.setItem(subjectMeta.statsKey, JSON.stringify({
           totalPlays: (existing.totalPlays || 0) + 1,
           bestStreak: Math.max(existing.bestStreak || 0, bestStreak),
         }));
       } catch {}
     }
-  }, [phase, bestStreak]);
+  }, [phase, bestStreak, subjectMeta.statsKey]);
 
   const checkAnswer = (userInput, q) => {
     const trimmed = userInput.trim();
@@ -94,14 +137,10 @@ export default function TopicGame({ config }) {
 
   // ===== MENU =====
   if (phase === 'menu') {
-    const isCompSci = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'].includes(config.category);
-    const parentCategory = isCompSci ? 'GCSE Computer Science' :
-                           config.category === 'Biology' || config.category === 'Chemistry' || config.category === 'Physics' ? 'GCSE Science' : 'GCSE Maths';
-
     return (
       <div className="game-container" style={{ textAlign: 'center' }}>
         <div className="animate-fade-in">
-          <div className="game-badge">{parentCategory}</div>
+          <div className="game-badge">{subjectMeta.badge}</div>
           <h1 className="game-title" style={{ color: accent }}>{config.emoji} {config.title}</h1>
           <p className="game-subtitle">{config.description}</p>
 
@@ -329,7 +368,7 @@ export default function TopicGame({ config }) {
               <button onClick={() => startGame('practice')} className="btn-outline" style={{ borderColor: accent, color: accent }}><BookOpen size={16} /> Practice</button>
             </>
           )}
-          <Link href={config.hubPath || '/gcse/maths'}><button className="btn-outline">{config.backLabel || 'Back to Maths'}</button></Link>
+          <Link href={config.hubPath || subjectMeta.hubPath}><button className="btn-outline">{config.backLabel || subjectMeta.backLabel}</button></Link>
         </div>
       </div>
     </div>

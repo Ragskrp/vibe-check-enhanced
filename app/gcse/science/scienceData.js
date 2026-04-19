@@ -37,6 +37,8 @@ const TOPICS = {
         { title: 'Bacterial Cells', content: 'Prokaryotic cells (bacteria) are much smaller. They lack a true nucleus; instead they have a single circular strand of DNA and small rings called plasmids.' },
         { title: 'Organelle Functions', content: 'Nucleus (controls cell), Mitochondria (respiration), Ribosomes (protein synthesis), Chloroplasts (photosynthesis).' },
         { title: 'Cell Specialisation', content: 'Cells are adapted for their function. E.g., sperm cells have a tail for swimming, nerve cells are long to carry signals.' },
+        { title: 'Light Microscopes', content: 'Use light and lenses to form an enlarged image of a specimen. Can see individual cells and large sub-cellular structures like nuclei.' },
+        { title: 'Electron Microscopes', content: 'Use electrons to form an image. Have higher magnification and resolution than light microscopes. Can see tiny sub-cellular structures like ribosomes and mitochondria.' }
       ],
       higher: [
         { title: 'Microscopy', formula: 'Magnification = Image size ÷ Real size', example: 'Image = 10mm, Mag = ×100\nReal size = 10/100 = 0.1mm', tip: 'Always ensure your units (mm, μm) match before dividing!' },
@@ -44,6 +46,8 @@ const TOPICS = {
         { title: 'Binary Fission', content: 'How bacteria multiply. They can divide once every 20 minutes if conditions are right.', formula: 'Total cells = 2ⁿ (n = number of divisions)' },
         { title: 'Stem Cells', content: 'Undifferentiated cells that can become any type of cell. Found in human embryos and adult bone marrow.', tip: 'Plant stem cells are found in meristems and can differentiate throughout the plant\'s life.' },
         { title: 'Diffusion & Osmosis', content: 'Diffusion: movement of particles from high to low concentration. Osmosis: diffusion of water through a semi-permeable membrane.' },
+        { title: 'Active Transport', content: 'Moves substances against the concentration gradient (low to high). Requires ENERGY from respiration.', example: 'Root hair cells absorbing minerals; glucose absorption in the gut.' },
+        { title: 'Exchanging Substances', content: 'Specialized exchange surfaces (alveoli in lungs, villi in small intestine) have large surface areas, thin membranes, and good blood supply for efficiency.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -87,14 +91,18 @@ const TOPICS = {
         { title: 'Digestive Enzymes', content: 'Amylase (Carbohydrase) → Sugars. Protease → Amino Acids. Lipase → Glycerol and Fatty Acids.' },
         { title: 'The Heart', content: 'A double pump. Right side pumps to lungs (deoxygenated), left side pumps to body (oxygenated). Left ventricle has thicker walls for higher pressure.' },
         { title: 'Blood Components', content: 'Red blood cells (carry oxygen), White blood cells (fight infection), Platelets (clotting), Plasma (liquid transport).' },
-        { title: 'Enzyme Action', content: 'The Lock and Key Theory: The active site of an enzyme is a specific shape and only fits one substrate.', tip: 'High temperatures or pH changes can denature enzymes!' }
+        { title: 'Enzyme Action', content: 'The Lock and Key Theory: The active site of an enzyme is a specific shape and only fits one substrate.', tip: 'High temperatures or pH changes can denature enzymes!' },
+        { title: 'The Heart Rate', content: 'Controlled by a group of cells in the right atrium wall that act as a pacemaker.', tip: 'Artificial pacemakers are used to correct irregularities in heart rate.' },
+        { title: 'Coronary Heart Disease', content: 'Layers of fatty material build up inside coronary arteries, narrowing them. This reduces blood flow and oxygen to the heart muscle.', tip: 'Stents and statins are common medical treatments.' }
       ],
       higher: [
         { title: 'Blood Vessels', content: 'Arteries: thick walls, elastic (high pressure). Veins: thin walls, have VALVES (low pressure). Capillaries: one cell thick for diffusion.' },
         { title: 'Plant Transport (Xylem)', content: 'Transports water and minerals ONE WAY from roots to leaves. Made of dead hollow cells strengthened with lignin.', tip: 'Powered by the transpiration stream.' },
         { title: 'Plant Transport (Phloem)', content: 'Transports dissolved sugars (food) in BOTH directions. This process is called TRANSLOCATION.', example: 'Sugars move from leaves to growing fruits or storage organs.' },
         { title: 'Transpiration', content: 'The loss of water vapour through the stomata of leaves. Factors: light intensity, temperature, air flow, and humidity.', tip: 'Potometers can be used to measure the rate of transpiration.' },
-        { title: 'Bile', content: 'Made in the liver, stored in the gall bladder. It neutralises stomach acid and EMULSIFIES fats to increase their surface area for lipase.' }
+        { title: 'Bile', content: 'Made in the liver, stored in the gall bladder. It neutralises stomach acid and EMULSIFIES fats to increase their surface area for lipase.' },
+        { title: 'Food Tests', content: 'Benedict’s (Sugar: Blue → Red), Iodine (Starch: Orange → Black), Biuret (Protein: Blue → Purple), Sudan III (Lipids: Red layer).', tip: 'Remember you must heat the Benedict\'s solution!' },
+        { title: 'Metabolism', content: 'The sum of all the reactions in a cell or the body. Energy from respiration is used for enzyme-controlled processes of synthesis.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -122,7 +130,9 @@ const TOPICS = {
         { title: 'Pathogens', content: 'Microorganisms that cause infectious disease. Examples: Viruses, Bacteria, Protists, and Fungi.' },
         { title: 'White Blood Cells', content: 'Defend by: 1. Ingesting pathogens (phagocytosis). 2. Producing antibodies. 3. Producing antitoxins.' },
         { title: 'Viral Diseases', content: 'Measles, HIV, and Tobacco Mosaic Virus (TMV) are important examples for GCSE.', tip: 'Viruses replicate INSIDE cells, making them hard to treat.' },
-        { title: 'Bacterial Diseases', content: 'Salmonella and Gonorrhoea. Treated with antibiotics which kill the bacteria.' }
+        { title: 'Bacterial Diseases', content: 'Salmonella and Gonorrhoea. Treated with antibiotics which kill the bacteria.' },
+        { title: 'Preventing Infection', content: 'Hand washing, destroying vectors (like mosquitoes), isolation of the sick, and vaccination are key methods to stop spread.' },
+        { title: 'Physical Barriers', content: 'Skin (barrier), Nose (mucus/hairs), Trachea/Bronchi (cilia/mucus), Stomach (hydrochloric acid).' }
       ],
       higher: [
         { title: 'Vaccination', content: 'Introducing small quantities of dead or inactive pathogens to stimulate antibody production. If the real pathogen enters, white blood cells respond rapidly.' },
@@ -163,7 +173,9 @@ const TOPICS = {
         { title: 'Water Cycle', content: 'Evaporation, condensation, precipitation, and transpiration work together to move water globally.' },
         { title: 'Trophic Levels', content: 'Level 1: Producers. Level 2: Herbivores. Level 3: Carnivores. Level 4: Top predators (Apex).', tip: 'Pyramids of biomass always get narrower at the top!' },
         { title: 'Energy Transfer', content: 'Only about 10% of biomass is transferred to the next level. Lost via waste, movement, and maintaining body temp.', formula: 'Efficiency = (Output biom / Input biom) x 100' },
-        { title: 'Biodiversity', content: 'High biodiversity ensures stability. Threatened by pollution, global warming, and deforestation.' }
+        { title: 'Biodiversity', content: 'High biodiversity ensures stability. Threatened by pollution, global warming, and deforestation.' },
+        { title: 'Human Impact', content: 'Land use (farming, mining, waste) reduces habitat. Peat bog destruction releases CO2 and reduces biodiversity.', tip: 'Conservation efforts include breeding programs and protected habitats.' },
+        { title: 'Environmental Change', content: 'Temperature, water availability, and atmospheric gases can change the distribution of species.', example: 'Bird migration patterns shifting due to global warming.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -191,10 +203,14 @@ const TOPICS = {
       foundation: [
         { title: 'The Atom', visualId: 'sci-atomic-model', content: 'Protons (+1 charge, mass 1), Neutrons (0 charge, mass 1), Electrons (-1 charge, very small mass). Protons & neutrons are in the nucleus.' },
         { title: 'Atomic Number', content: 'The number of protons in an atom. In neutral atoms, the number of electrons equals the number of protons.' },
+        { title: 'Mass Number', content: 'The total number of protons and neutrons in the nucleus of an atom.', formula: 'Mass = Protons + Neutrons' },
+        { title: 'Plum Pudding Model', content: 'Initially atoms were thought to be spheres of positive charge with tiny negative electrons stuck in them.', tip: 'Disproved by Rutherford\'s alpha particle scattering experiment.' }
       ],
       higher: [
         { title: 'Isotopes', content: 'Atoms of the same element with the same number of protons but a DIFFERENT number of neutrons (different mass number).' },
         { title: 'Periodic Table Trends', content: 'Group number = number of outer electrons. Group 1 (alkali metals) get more reactive going down. Group 7 (halogens) get less reactive going down.' },
+        { title: 'History of Periodic Table', content: 'Mendeleev left GAPS for yet-to-be-discovered elements and switched items based on properties rather than just atomic mass.', tip: 'Early tables were incomplete and ordered by atomic weight.' },
+        { title: 'Noble Gases (Group 0)', content: 'Unreactive non-metals with a full outer shell of electrons. Boiling points increase as you go down the group.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -238,10 +254,14 @@ const TOPICS = {
       foundation: [
         { title: 'Ionic Bonding', content: 'Between metals and non-metals. Electrons are TRANSFERRED. Oppositely charged ions are strongly attracted by electrostatic forces.' },
         { title: 'Covalent Bonding', content: 'Between non-metals. Electrons are SHARED to get a full outer shell.' },
+        { title: 'Small Molecules', content: 'Low melting/boiling points because of weak intermolecular forces between molecules.', tip: 'The covalent bonds INSIDE the molecule are strong, but the forces BETWEEN them are weak.' },
+        { title: 'Polymers', content: 'Very large molecules where atoms are linked by strong covalent bonds. Intermolecular forces are relatively strong so they are solids at room temp.' }
       ],
       higher: [
         { title: 'Giant Covalent Structures', content: 'Diamond: carbon bonded to 4 others, extremely hard, no free electrons. Graphite: bonded to 3, in layers, conducts electricity because of delocalised electrons.' },
         { title: 'Metallic Bonding', content: 'Positive metal ions in a "sea" of delocalised electrons. These free electrons allow metals to conduct heat and electricity.' },
+        { title: 'Alloys', content: 'A mixture of two or more elements, at least one of which is a metal. Harder than pure metals because different sized atoms distort the layers, making them harder to slide.' },
+        { title: 'Fullerenes & Nanotubes', content: 'Molecules of carbon with hollow shapes. Graphene is a single layer of graphite one atom thick.', tip: 'Buckminsterfullerene (C60) was the first fullerene to be discovered.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -309,10 +329,13 @@ const TOPICS = {
       foundation: [
         { title: 'Today\'s Atmosphere', content: 'Approximately 80% Nitrogen, 20% Oxygen, and small proportions of other gases like argon, CO2, and water vapour.' },
         { title: 'Early Atmosphere', content: 'Formed by intense volcanic activity. Mainly CO2 with little or no oxygen.' },
+        { title: 'Ocean Formation', content: 'As the Earth cooled, water vapour condensed to form oceans. CO2 dissolved in the water and carbonates were precipitated as sediments.', tip: 'This was the first major step in reducing CO2 levels.' }
       ],
       higher: [
         { title: 'Evolution of Atmosphere', content: 'Algae and plants evolved and decreased CO2 by photosynthesis, while increasing Oxygen. CO2 was also locked up in sedimentary rocks and fossil fuels.' },
         { title: 'Greenhouse Effect', content: 'Greenhouse gases (CO2, methane, water vapour) absorb long wavelength radiation reflected off the Earth, keeping the planet warm.' },
+        { title: 'Carbon Footprint', content: 'The total amount of carbon dioxide and other greenhouse gases emitted over the full life cycle of a product, service, or event.' },
+        { title: 'Atmospheric Pollutants', content: 'Combustion of fuels releases CO2, water vapour, carbon monoxide, sulfur dioxide, and oxides of nitrogen.', tip: 'Carbon monoxide is toxic, colorless, and odorless—making it very dangerous!' }
       ],
     },
     generateQuestion: (tier) => {
@@ -341,6 +364,8 @@ const TOPICS = {
       foundation: [
         { title: 'Energy Stores', content: 'Kinetic, gravitational, chemical, elastic, magnetic, electrostatic, nuclear, and thermal energy stores.' },
         { title: 'Conservation of Energy', content: 'Energy cannot be created or destroyed, only transferred usefully, stored, or dissipated (wasted as heat).' },
+        { title: 'Dissipated Energy', content: 'Wasted energy that spreads out into the surroundings, usually as thermal energy stores.', tip: 'Lubrication and thermal insulation help reduce dissipation.' },
+        { title: 'Energy Resources', content: 'Renewable (wind, solar, tidal) vs Non-renewable (coal, oil, gas, nuclear).', tip: 'Renewables never run out but can be unreliable (e.g. no wind).' }
       ],
       higher: [
         { title: 'Kinetic Energy', formula: 'Ek = ½ m v²', example: 'm=2kg, v=3m/s:\nEk = 0.5 × 2 × 3² = 9 J' },
@@ -392,6 +417,8 @@ const TOPICS = {
       foundation: [
         { title: 'V = I R', visualId: 'sci-circuit-symbols', content: 'Potential difference = Current × Resistance.', formula: 'V = I × R\n(Volts = Amps × Ohms)' },
         { title: 'Series Circuits', content: 'Current (I) is the same everywhere. Potential Difference (V) is shared across components.' },
+        { title: 'Resistance Factors', content: 'Resistance increases with the length of a wire and decreases with thickness.', tip: 'Think of water flowing through a pipe!' },
+        { title: 'LDRs and Thermistors', content: 'LDR resistance falls in light. Thermistor resistance falls when hot.', tip: 'LDR = Bright light, Low resistance. Thermistor = High temp, Low resistance.' }
       ],
       higher: [
         { title: 'Parallel Circuits', content: 'Current (I) splits down different branches. Potential Difference (V) is the SAME across all branches.' },

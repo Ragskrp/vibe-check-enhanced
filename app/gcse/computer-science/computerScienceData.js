@@ -35,13 +35,15 @@ export const TOPICS = {
         { title: 'Decomposition', content: 'Breaking down a complex problem into smaller, manageable sub-problems.', example: 'To code a game, you break it into: Graphics, Player Movement, Scoring, and Sound.' },
         { title: 'Abstraction', content: 'Removing unnecessary details to focus on the essential features.', example: 'A map is an abstraction of a city—it ignores every single tree to show just the roads.' },
         { title: 'Pattern Recognition', content: 'Finding similarities between problems to reuse solutions.', tip: 'If you have solved "sorting names", you can use the same logic for "sorting prices".' },
-        { title: 'Algorithmic Thinking', content: 'Creating a step-by-step set of rules to solve any problem of a similar type.' }
+        { title: 'Algorithmic Thinking', content: 'Creating a step-by-step set of rules to solve any problem of a similar type.' },
+        { title: 'Problem Solving Flow', content: 'Usually: 1. Decompose the problem, 2. Use Abstraction to simplify, 3. Find Patterns, 4. Write the Algorithm.', tip: 'Logical steps lead to better code!' }
       ],
       higher: [
         { title: 'Input Sanitisation', content: 'Cleaning data inputs to prevent security attacks like SQL injection. This involves removing special characters like ; or --.' },
         { title: 'Validation vs Verification', content: 'Validation: Does the data follow the rules (e.g. is it a number)? Verification: Is the data actually correct (e.g. double-entry)?' },
         { title: 'Casting', content: 'Changing a variable from one data type to another.', example: 'int("5") converts a String to an Integer.' },
-        { title: 'Defensive Programming', content: 'Writing code that anticipates and handles errors or malicious inputs before they crash the system.' }
+        { title: 'Defensive Programming', content: 'Writing code that anticipates and handles errors or malicious inputs before they crash the system.' },
+        { title: 'Code Refactoring', content: 'Restructuring existing computer code—changing the factoring—without changing its external behavior.', tip: 'Makes code more efficient and easier to read.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -88,10 +90,12 @@ export const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Pseudocode', content: 'Pseudocode is a way of writing algorithms that resembles programming languages but uses English-like syntax, making it easy for humans to read.' },
-        { title: 'Dry Runs', content: 'A dry run is stepping through an algorithm manually to trace its execution and understand its behaviour before coding.' }
+        { title: 'Dry Runs', content: 'A dry run is stepping through an algorithm manually to trace its execution and understand its behaviour before coding.' },
+        { title: 'Standard Pseudocode Symbols', content: 'Commonly used symbols include ← for assignment, == for comparison, and indenting for loops/if-statements.' }
       ],
       higher: [
-        { title: 'Trace Tables', content: 'Trace tables track the value of variables step-by-step as an algorithm executes. This helps spot exactly where logic goes wrong.' }
+        { title: 'Trace Tables', content: 'Trace tables track the value of variables step-by-step as an algorithm executes. This helps spot exactly where logic goes wrong.' },
+        { title: 'Logic Error Detection', content: 'If a trace table reveals that a variable has an unexpected value at a certain point, you have found a logic error.', tip: 'A powerful tool for debugging complex loops.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -209,12 +213,14 @@ export const TOPICS = {
       foundation: [
         { title: 'Variables', content: 'A named memory location holding data that CAN change.', example: 'score = 10' },
         { title: 'Constants', content: 'A named memory location holding data that CANNOT change while program runs.', example: 'PI = 3.14', tip: 'Using constants makes code easier to update!' },
-        { title: 'Data Types', content: 'Integer (Whole), Real/Float (Decimal), Boolean (True/False), Character (one symbol), String (Text).' }
+        { title: 'Data Types', content: 'Integer (Whole), Real/Float (Decimal), Boolean (True/False), Character (one symbol), String (Text).' },
+        { title: 'Choosing Data Types', content: 'Always pick the most efficient data type. Use Boolean for Yes/No to save memory.', tip: 'Using the correct type prevents logic errors during calculation.' }
       ],
       higher: [
         { title: 'Arithmetic Operators', content: '+, -, *, /. Also MOD (remainder) and DIV (integer division).', example: '10 MOD 3 = 1\n10 DIV 3 = 3' },
         { title: 'String Manipulation', content: '.length (counts letters), .upper (UPPERCASE), .lower (lowercase), .substring(start, length).' },
-        { title: 'Logical Operators', content: '== (Equal to), != (Not equal), < (Less than), > (Greater than).', tip: 'Assignment is one "=" symbol, comparison is two "==" symbols.' }
+        { title: 'Logical Operators', content: '== (Equal to), != (Not equal), < (Less than), > (Greater than).', tip: 'Assignment is one "=" symbol, comparison is two "==" symbols.' },
+        { title: 'Concatenation', content: 'Joining two or more strings together to create a new string.', example: '"Hello" + " " + "World" = "Hello World"' }
       ],
     },
     generateQuestion: (tier) => {
@@ -245,10 +251,12 @@ export const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Sequence & Selection', content: 'Sequence: Running code line-by-line from top to bottom. Selection: Making decisions using IF, ELSE, and ELIF statements.' },
-        { title: 'Iteration', content: 'Iteration means looping. FOR loops repeat a set number of times (count-controlled). WHILE loops repeat until a condition is met (condition-controlled).' }
+        { title: 'Iteration', content: 'Iteration means looping. FOR loops repeat a set number of times (count-controlled). WHILE loops repeat until a condition is met (condition-controlled).' },
+        { title: 'Infinite Loops', content: 'A loop that never ends because the condition is always true. Usually a bug!', tip: 'Ensure your WHILE loop condition can actually become false!' }
       ],
       higher: [
-        { title: 'Nested Loops', content: 'Running a loop inside another loop. If the outer loop runs 3 times, and the inner runs 5 times, the code inside the inner loop runs 15 times total.' }
+        { title: 'Nested Loops', content: 'Running a loop inside another loop. If the outer loop runs 3 times, and the inner runs 5 times, the code inside the inner loop runs 15 times total.' },
+        { title: 'Coordinate Systems', content: 'Nested loops are perfect for traversing 2D grids (rows and columns).', tip: 'The outer loop usually handles rows, the inner handles columns.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -321,10 +329,12 @@ export const TOPICS = {
     backLabel: 'Back to Computer Science',
     lessons: {
       foundation: [
-        { title: 'Arrays (1D)', content: 'An array stores multiple items of the SAME data type under one identifier/name. You access items using an Index, which usually starts at 0.' }
+        { title: 'Arrays (1D)', content: 'An array stores multiple items of the SAME data type under one identifier/name. You access items using an Index, which usually starts at 0.' },
+        { title: 'Array Length', content: 'The number of elements stored in an array. Most languages provide a .length or len() function.', example: 'animals = ["cat", "dog"]. length is 2.' }
       ],
       higher: [
-        { title: 'Traversing & 2D Arrays', content: 'Traversing means using a loop to visit every item in the array sequentially. A 2D array is an array of arrays (like a grid with rows and columns).' }
+        { title: 'Traversing & 2D Arrays', content: 'Traversing means using a loop to visit every item in the array sequentially. A 2D array is an array of arrays (like a grid with rows and columns).' },
+        { title: 'Row-Major Order', content: 'In 2D arrays, we usually access items as array[row][column].', example: 'grid[0][1] is the first row, second column.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -423,13 +433,15 @@ export const TOPICS = {
       foundation: [
         { title: 'The SQL Basics', content: 'SQL (Structured Query Language). SELECT: Columns. FROM: Table. WHERE: Filter.' },
         { title: 'Wildcards', content: 'SELECT * means select ALL columns from the table.' },
-        { title: 'Searching Text', content: 'Use LIKE with % to find partial matches.', example: 'WHERE Name LIKE "A%" finds all names starting with A.' }
+        { title: 'Searching Text', content: 'Use LIKE with % to find partial matches.', example: 'WHERE Name LIKE "A%" finds all names starting with A.' },
+        { title: 'Relational Databases', content: 'A database where tables are linked together using Primary and Foreign Keys.' }
       ],
       higher: [
         { title: 'Complex Queries', content: 'Use AND/OR to combine multiple WHERE conditions.', example: 'WHERE Price > 10 AND Stock < 5' },
         { title: 'Updating Data', content: 'UPDATE table SET column = value WHERE condition.', tip: 'Always include the WHERE clause or you\'ll update every row!' },
         { title: 'Inserting & Deleting', content: 'INSERT INTO table VALUES (...). DELETE FROM table WHERE condition.' },
-        { title: 'Sorting Results', content: 'ORDER BY column ASC/DESC allows you to sort your output.', example: 'SELECT * FROM games ORDER BY price DESC' }
+        { title: 'Sorting Results', content: 'ORDER BY column ASC/DESC allows you to sort your output.', example: 'SELECT * FROM games ORDER BY price DESC' },
+        { title: 'Data Redundancy', content: 'Storing the same piece of data multiple times. Databases aim to reduce this to save space and prevent errors.' }
       ],
     },
     generateQuestion: (tier) => {

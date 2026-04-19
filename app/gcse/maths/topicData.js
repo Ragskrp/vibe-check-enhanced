@@ -40,14 +40,18 @@ const TOPICS = {
         { title: 'Dividing Powers', content: 'When dividing powers with the same base, subtract the indices.', formula: 'aᵐ ÷ aⁿ = aᵐ⁻ⁿ', example: '5⁷ ÷ 5³ = 5⁴ = 625' },
         { title: 'Power of Zero', content: 'Any number raised to the power of 0 equals 1.', formula: 'a⁰ = 1', example: '7⁰ = 1\n100⁰ = 1', tip: 'This works for ANY non-zero number.' },
         { title: 'Power of One', content: 'Any number to the power of 1 is just the number itself.', formula: 'a¹ = a', example: '15¹ = 15' },
-        { title: 'Common Mistake', content: 'Index laws ONLY work when the base (the big number) is the same.', tip: 'You cannot simplify 2³ × 5² using index laws!' }
+        { title: 'Common Mistake', content: 'Index laws ONLY work when the base (the big number) is the same.', tip: 'You cannot simplify 2³ × 5² using index laws!' },
+        { title: 'Base 10 Powers', content: 'Powers of 10 follow a simple pattern: 10ⁿ is 1 followed by n zeros.', example: '10³ = 1000\n10⁶ = 1,000,000', tip: 'Count the zeros to find the power!' },
+        { title: 'Squaring and Cubing', content: 'Index 2 means square (multiply by itself once). Index 3 means cube (multiply by itself twice).', formula: 'x² = x × x, x³ = x × x × x', example: '5³ = 5 × 5 × 5 = 125' }
       ],
       higher: [
         { title: 'Negative Indices', content: 'A negative index means the reciprocal (1 over) the positive power.', formula: 'a⁻ⁿ = 1/aⁿ', example: '2⁻³ = 1/2³ = 1/8' },
         { title: 'Fractional Indices (Roots)', content: 'The denominator is the root, the numerator is the power.', formula: 'a^(1/n) = ⁿ√a', example: '9^(1/2) = √9 = 3\n64^(1/3) = ³√64 = 4' },
         { title: 'Complex Fractional Indices', content: 'Apply the root first (bottom number), then the power (top number).', formula: 'a^(m/n) = (ⁿ√a)ᵐ', example: '27^(2/3) = (³√27)² = 3² = 9' },
         { title: 'Power of a Power', content: 'When raising a power to another power, multiply the indices.', formula: '(aᵐ)ⁿ = aᵐˣⁿ', example: '(2³)⁴ = 2¹² = 4096' },
-        { title: 'Fractional Bases', content: 'Apply the power to both numerator and denominator.', example: '(2/3)⁻² = (3/2)² = 9/4' }
+        { title: 'Fractional Bases', content: 'Apply the power to both numerator and denominator.', example: '(2/3)⁻² = (3/2)² = 9/4' },
+        { title: 'Combining Laws', content: 'In complex questions, follow BIDMAS. Apply power-to-power first, then multiply/divide.', example: '(x²)³ × x⁴ = x⁶ × x⁴ = x¹⁰' },
+        { title: 'Base Conversion', content: 'Sometimes you need to change the base to use index laws.', example: '9⁴ = (3²)⁴ = 3⁸', tip: 'Recognise powers of 2, 3, 5, and 10!' }
       ],
     },
     generateQuestion: (tier) => {
@@ -85,12 +89,16 @@ const TOPICS = {
         { title: 'Factor Trees', content: 'Split the number into factors, then split those until only primes (circles) remain.', tip: 'Multiply all the circled primes to check your answer!' },
         { title: 'HCF (Highest Common Factor)', content: 'The largest number that divides into both numbers.', example: 'HCF of 12 & 18 is 6.' },
         { title: 'LCM (Lowest Common Multiple)', content: 'The smallest number in both times tables.', example: 'LCM of 4 & 6 is 12.' },
+        { title: 'Prime Numbers', content: 'A number with exactly two factors: 1 and itself.', example: '2, 3, 5, 7, 11, 13, 17, 19...', tip: '1 is NOT a prime number! 2 is the ONLY even prime.' },
+        { title: 'Checking with Multiplication', content: 'To check your prime factorisation, multiply all the primes together. It should equal the original number.', example: '2² × 3 × 5 = 4 × 3 × 5 = 60 ✓' }
       ],
       higher: [
         { title: 'Venn Diagram Method', visualId: 'math-venn', content: 'Put prime factors in a Venn diagram. HCF is the intersection (center). LCM is the union (everything inside).', example: '12: 2, 2, 3\n18: 2, 3, 3\nMiddle: 2, 3 (HCF=6)\nOuter: 2 & 3 (LCM=2×2×3×3=36)' },
         { title: 'Product of Primes', content: 'Write any number as a product of its prime factors using index notation.', formula: '360 = 2³ × 3² × 5', example: '360 ÷ 2 = 180... keeps going until 1.' },
         { title: 'HCF × LCM Rule', content: 'For any two numbers a and b: HCF × LCM = a × b.', formula: 'HCF × LCM = Product of Numbers', example: 'a=6, b=10\nHCF=2, LCM=30\n2 × 30 = 60; 6 × 10 = 60 ✓' },
-        { title: 'Exam Tip', content: 'If asked for HCF of large numbers, always use the Venn Diagram method to avoid missing factors.' }
+        { title: 'Exam Tip', content: 'If asked for HCF of large numbers, always use the Venn Diagram method to avoid missing factors.' },
+        { title: 'HCF of Three Numbers', content: 'Find the prime factors of all three. The HCF is the product of primes shared by ALL three lists.', example: '12, 18, 30: All share a 2 and a 3. HCF = 6.' },
+        { title: 'Problem Solving', content: 'HCF is used for "cutting into equal pieces". LCM is used for "when things happen at the same time again".', tip: 'Look for keywords like "smallest length" (LCM) or "biggest possible" (HCF).' }
       ],
     },
     generateQuestion: (tier) => {
@@ -144,14 +152,16 @@ const TOPICS = {
         { title: 'What is Standard Form?', content: 'A number written as a × 10ⁿ, where 1 ≤ a < 10 and n is an integer.', formula: 'a × 10ⁿ  (1 ≤ a < 10)', example: '3500 = 3.5 × 10³\n0.006 = 6 × 10⁻³' },
         { title: 'Large Numbers', content: 'Count how many places the decimal point moves to the LEFT. This is your positive power.', example: '45000 → 4.5 × 10⁴' },
         { title: 'Small Numbers', content: 'Count how many places the decimal point moves to the RIGHT. This is your negative power.', example: '0.0032 → 3.2 × 10⁻³', tip: 'Small numbers = negative powers.' },
-        { title: 'The Rule of A', content: 'The leading number MUST be between 1 and 10. 12 × 10³ is NOT in standard form.', tip: 'Always check if your final answer is between 1 and 10!' }
+        { title: 'The Rule of A', content: 'The leading number MUST be between 1 and 10. 12 × 10³ is NOT in standard form.', tip: 'Always check if your final answer is between 1 and 10!' },
+        { title: 'Comparing Sizes', content: 'First compare the powers of 10. If the powers are the same, compare the leading numbers.', example: '2 × 10⁵ > 9 × 10⁴ because 10⁵ is larger than 10⁴.' }
       ],
       higher: [
         { title: 'Multiplication', content: 'Multiply the numbers and add the powers of 10.', formula: '(A × 10ᵃ) × (B × 10ᵇ) = (A×B) × 10ᵃ⁺ᵇ', example: '(3 × 10⁴) × (2 × 10³) = 6 × 10⁷' },
         { title: 'Division', content: 'Divide the numbers and subtract the powers of 10.', formula: '(A × 10ᵃ) ÷ (B × 10ᵇ) = (A/B) × 10ᵃ⁻ᵇ', example: '(8 × 10⁶) ÷ (2 × 10²) = 4 × 10⁴' },
         { title: 'Addition & Subtraction', content: 'Convert both numbers to the SAME power of 10 before adding or subtracting.', example: '(3 × 10⁴) + (5 × 10³) = (30 × 10³) + (5 × 10³) = 35 × 10³ = 3.5 × 10⁴' },
         { title: 'Adjusting the Answer', content: 'If your calculation result isn\'t between 1 and 10, shift the decimal and adjust the power.', example: '20 × 10⁵ = 2 × 10⁶' },
-        { title: 'Negative Powers in Division', content: 'Be careful: subtracting a negative power means ADDING.', example: '10⁵ ÷ 10⁻³ = 10⁸' }
+        { title: 'Negative Powers in Division', content: 'Be careful: subtracting a negative power means ADDING.', example: '10⁵ ÷ 10⁻³ = 10⁸' },
+        { title: 'Standard Form on Calcs', content: 'Use the ×10ˣ or EXP button. Be careful with brackets during division!', tip: 'If your calc says 5.2E04, it means 5.2 × 10⁴.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -184,13 +194,15 @@ const TOPICS = {
         { title: 'Decimal Places (d.p.)', content: 'Look at the digit directly after your cut-off. If 5 or more, round the previous digit UP.', example: '3.47 to 1 d.p. → 3.5\n0.124 to 2 d.p. → 0.12' },
         { title: '1 Significant Figure (s.f.)', content: 'Keep only the first non-zero digit. Zeros at the start don\'t count!', example: '382 → 400\n0.0068 → 0.007' },
         { title: 'Estimating Calculations', content: 'Round every number to 1 significant figure first, then calculate.', formula: 'Round → Calculate', example: 'Estimate 39 × 5.1\n≈ 40 × 5 = 200' },
-        { title: 'Money Estimates', content: 'Real-world checks: Usually round costs to the nearest whole pound.', tip: 'If you round UP, your estimate will be higher than the real answer.' }
+        { title: 'Money Estimates', content: 'Real-world checks: Usually round costs to the nearest whole pound.', tip: 'If you round UP, your estimate will be higher than the real answer.' },
+        { title: 'Significant Figures vs Decimals', content: 's.f. counts from the first non-zero digit. d.p. counts from the decimal point.', example: '0.0053 is 2 s.f. but 4 d.p.' }
       ],
       higher: [
         { title: 'Rounding in Division', content: 'Round each number to 1 s.f. before dividing.', example: 'Estimate 412 ÷ 19 \n≈ 400 ÷ 20 = 20' },
         { title: 'Estimating Complex Expressions', content: 'Follow BIDMAS: Brackets, Indices, Division/Multiplication, then Addition/Subtraction.', example: 'Estimate (48.7 × 11.2) ÷ 4.9\n≈ (50 × 10) ÷ 5 = 100' },
         { title: 'Deciding Accuracy', content: 'If a question specifies "reasonable accuracy", 1 or 2 s.f. is usually target.', tip: 'Always show your rounded numbers so the examiner knows how you estimated!' },
-        { title: 'Upper/Lower Estimates', content: 'To get the MAXIMUM estimate for a fraction, use the Upper Bound for the top and Lower Bound for the bottom.' }
+        { title: 'Upper/Lower Estimates', content: 'To get the MAXIMUM estimate for a fraction, use the Upper Bound for the top and Lower Bound for the bottom.' },
+        { title: 'Reasonableness', content: 'After estimating, ask: "Does this answer make sense?" If you estimated 40 × 5, the answer should be near 200, not 2000.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -221,13 +233,15 @@ const TOPICS = {
         { title: 'What Are Bounds?', content: 'A range where the true value lies. The Lower Bound (LB) is the smallest possible value; the Upper Bound (UB) is the first value that rounds into the next category.', formula: 'LB ≤ x < UB', example: '5.3 cm (to 1 d.p.)\nLB = 5.25, UB = 5.35' },
         { title: 'Finding LB and UB', content: 'Add and subtract HALF the degree of accuracy.', tip: 'If rounded to nearest 10, accuracy is 10. Half is 5. So +/- 5.' },
         { title: 'Error Interval Notation', content: 'Always uses a ≤ for the lower bound and a < for the upper bound.', formula: 'LB ≤ x < UB', example: '120 rounded to nearest 10:\n115 ≤ x < 125' },
-        { title: 'Truncation', content: 'Truncating is different from rounding. Truncating to 1 d.p. means simply "cutting off" the extra digits.', example: '5.39 truncated to 1 d.p. is 5.3 (LB=5.3, UB=5.4)' }
+        { title: 'Truncation', content: 'Truncating is different from rounding. Truncating to 1 d.p. means simply "cutting off" the extra digits.', example: '5.39 truncated to 1 d.p. is 5.3 (LB=5.3, UB=5.4)' },
+        { title: 'Half-Unit Rule', content: 'The range is always ± half of the rounding unit.', example: 'To nearest 0.1 → ± 0.05\nTo nearest 100 → ± 50' }
       ],
       higher: [
         { title: 'Bounds in Area', content: 'Max Area = UB_length × UB_width. Min Area = LB_length × LB_width.', example: 'l=5.3, w=3.1 (both 1 d.p.)\nMax = 5.35 × 3.15 = 16.8525' },
         { title: 'Bounds in Fractions', content: 'To get the MAX result: Max ÷ Min. To get the MIN result: Min ÷ Max.', formula: 'Upper = UB_top / LB_bottom\nLower = LB_top / UB_bottom', tip: 'This is the most common Higher tier exam question on bounds!' },
         { title: 'Significant Figure Bounds', content: 'If a number is 400 to 1 s.f., the degree of accuracy is 100. Half is 50.', example: 'LB = 350, UB = 450' },
-        { title: 'Complex Calculation Bounds', content: 'Calculate each part separately using its specific bound, then combine using the rules of arithmetic.' }
+        { title: 'Complex Calculation Bounds', content: 'Calculate each part separately using its specific bound, then combine using the rules of arithmetic.' },
+        { title: 'Bounds in Subtraction', content: 'To get the MAX difference: UB_first − LB_second. To get the MIN difference: LB_first − UB_second.', tip: 'Think: "Biggest minus Smallest = Maximum gap".' }
       ],
     },
     generateQuestion: (tier) => {
@@ -259,10 +273,14 @@ const TOPICS = {
       foundation: [
         { title: 'The Product Rule', content: 'If there are m ways to do one thing and n ways to do another, the total number of outcomes is m × n.', formula: 'Total = m × n', example: '3 shirts and 4 trousers:\nTotal outfits = 3 × 4 = 12' },
         { title: 'Multiple Choices', content: 'Extend the rule: just keep multiplying for each additional choice.', example: '3 starters, 5 mains, 4 desserts:\nTotal meals = 3 × 5 × 4 = 60' },
+        { title: 'Making Lists', content: 'You can check your answer by listing pairs (e.g., S1T1, S1T2...), but the product rule is much faster.', tip: 'Good for small sets!' },
+        { title: 'Tree Diagrams', content: 'Each branch represents a choice. Total outcomes = total branches at the end.' }
       ],
       higher: [
         { title: 'Codes and Passwords', content: 'Each position in a code has a number of choices. Multiply them all.', example: '4-digit PIN (digits 0-9):\n10 × 10 × 10 × 10 = 10,000' },
         { title: 'Without Repetition', content: 'If items cannot be reused, the choices reduce by 1 each time.', example: '3-letter code from 26 letters (no repeats):\n26 × 25 × 24 = 15,600' },
+        { title: 'Arranging Items', content: 'The number of ways to arrange n distinct items is n!', formula: 'n! = n × (n-1) × ... × 1', example: 'Ways to arrange 5 books = 5 × 4 × 3 × 2 × 1 = 120' },
+        { title: 'Fixed Positions', content: 'If some choices are fixed (e.g. "code must start with A"), that position only has 1 choice.', example: '4-letter code starting with A: 1 × 26 × 26 × 26' }
       ],
     },
     generateQuestion: (tier) => {
@@ -291,13 +309,15 @@ const TOPICS = {
         { title: 'Expanding Single Brackets', content: 'Multiply the term outside by EVERYTHING inside.', formula: 'a(b + c) = ab + ac', example: '3(x + 4) = 3x + 12\n-2(5y - 3) = -10y + 6' },
         { title: 'Collecting Like Terms', content: 'Combine parts with identical letters and powers.', example: '3x + 2y + 5x - y = 8x + y' },
         { title: 'Negative Terms', content: 'Be extremely careful with negatives when expanding.', tip: 'A negative outside times a negative inside becomes POSITIVE.' },
-        { title: 'Multi-term Brackets', content: 'The rule is the same regardless of how many terms are inside.', example: '5(x + y - z) = 5x + 5y - 5z' }
+        { title: 'Multi-term Brackets', content: 'The rule is the same regardless of how many terms are inside.', example: '5(x + y - z) = 5x + 5y - 5z' },
+        { title: 'Algebraic Terms Outside', content: 'When a variable is outside, remember x × x = x².', example: 'x(x + 3) = x² + 3x' }
       ],
       higher: [
         { title: 'Double Brackets (FOIL)', content: 'First, Outer, Inner, Last.', formula: '(a+b)(c+d) = ac + ad + bc + bd', example: '(x + 3)(x + 5) = x² + 8x + 15' },
         { title: 'Triple Brackets', content: 'Expand two brackets first, then multiply the result by the third.', tip: 'Do it in steps to avoid losing terms!' },
         { title: 'Difference of Two Squares (DOTS)', content: 'Middle terms cancel out. Always gives x² - n².', formula: '(x+a)(x-a) = x² - a²', example: '(x+5)(x-5) = x² - 25' },
-        { title: 'Squaring a Bracket', content: 'It means multiplying it by itself. (x+3)² is NOT x²+9.', formula: '(a+b)² = a² + 2ab + b²', example: '(x+3)² = (x+3)(x+3) = x² + 6x + 9' }
+        { title: 'Squaring a Bracket', content: 'It means multiplying it by itself. (x+3)² is NOT x²+9.', formula: '(a+b)² = a² + 2ab + b²', example: '(x+3)² = (x+3)(x+3) = x² + 6x + 9' },
+        { title: 'Negative Coefficients', content: 'Be careful with (x−3)². It expands to x² − 6x + 9.', tip: 'The constant term is always positive when squaring a real bracket!' }
       ],
     },
     generateQuestion: (tier) => {
@@ -328,10 +348,12 @@ const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Common Factor', content: 'Find the highest common factor of all terms and put it outside a bracket.', formula: 'ab + ac = a(b + c)', example: '6x + 12 = 6(x + 2)\n4x² + 8x = 4x(x + 2)' },
+        { title: 'Fully Factorise', content: 'Examiners want the HIGHEST common factor. 2(2x+4) is factorised, but 4(x+2) is FULLY factorised.', tip: 'Always check if the terms inside the bracket still have a common factor.' }
       ],
       higher: [
         { title: 'Factorising Quadratics', content: 'Find two numbers that multiply to give c and add to give b in x² + bx + c.', formula: 'x² + bx + c = (x + p)(x + q)\nwhere p × q = c and p + q = b', example: 'x² + 7x + 12\nNumbers: 3 and 4 (3×4=12, 3+4=7)\n= (x + 3)(x + 4)' },
         { title: 'Difference of Two Squares', content: 'If the expression is a² − b², it factorises to (a+b)(a−b).', formula: 'a² − b² = (a + b)(a − b)', example: 'x² − 25 = (x + 5)(x − 5)\n4x² − 9 = (2x + 3)(2x − 3)' },
+        { title: 'Quadratics with a > 1', content: 'For ax² + bx + c where a > 1, use the "split the middle" method or trial and improvement.', example: '2x² + 5x + 3 = (2x + 3)(x + 1)' }
       ],
     },
     generateQuestion: (tier) => {
@@ -358,13 +380,15 @@ const TOPICS = {
       foundation: [
         { title: 'Basic Substitution', content: 'Replace the letter with the number, then calculate.', example: 'If a = 3, find 2a + 5\n= 2(3) + 5 = 11' },
         { title: 'Negative Numbers', content: 'Use brackets when substituting negatives to keep the sign safe.', example: 'If x = -2, 3x becomes 3(-2) = -6' },
-        { title: 'Squared Values', content: 'Square the value before multiplying by other coefficients.', tip: 'Calculate powers before addition/subtraction!' }
+        { title: 'Squared Values', content: 'Square the value before multiplying by other coefficients.', tip: 'Calculate powers before addition/subtraction!' },
+        { title: 'Using Brackets', content: 'On a calculator, always put your substituted number in brackets.', example: 'If x = -2, type (-2)² not -2².' }
       ],
       higher: [
         { title: 'With Negative Square Powers', content: 'Squaring a negative always gives a POSITIVE result.', example: 'If x = -2, x² = (-2)² = 4', tip: 'Common error alert: -2² is -4 on many calcs, but (-2)² is 4!' },
         { title: 'Kinematics Formulae', content: 'Substitute values into physics-style equations like v = u + at.', example: 'u=5, a=2, t=3:\nv = 5 + (2×3) = 11' },
         { title: 'Subject of the Formula', content: 'Sometimes you must substitute, THEN solve for a different variable.', example: 'y = 2x + 1. If y=9, what is x?\n9 = 2x + 1 → 2x = 8 → x = 4' },
-        { title: 'Fractional Substitution', content: 'Carefully calculate the numerator and denominator separately before dividing.' }
+        { title: 'Fractional Substitution', content: 'Carefully calculate the numerator and denominator separately before dividing.' },
+        { title: 'Rearranging First', content: 'Sometimes it is easier to simplify or rearrange an expression before substituting the values in.', tip: 'Always check if you can simplify first!' }
       ],
     },
     generateQuestion: (tier) => {

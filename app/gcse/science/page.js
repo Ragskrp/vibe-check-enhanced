@@ -3,21 +3,15 @@
 import Link from 'next/link';
 import { ArrowRight, Flame, Trophy, Beaker } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
-import { useState, useEffect } from 'react';
 import { getTopicsByCategory } from './scienceData';
+import useStoredStats from '../components/useStoredStats';
 
 const CATEGORY_ORDER = ['Biology', 'Chemistry', 'Physics'];
 const CATEGORY_COLORS = { Biology: '#00ff94', Chemistry: '#00d4ff', Physics: '#b14aed' };
 
 export default function ScienceHub() {
-  const [stats, setStats] = useState(null);
+  const stats = useStoredStats('gcse-science-stats');
   const topicsByCategory = getTopicsByCategory();
-
-  useEffect(() => {
-    try {
-      setStats(JSON.parse(localStorage.getItem('gcse-science-stats') || 'null'));
-    } catch {}
-  }, []);
 
   return (
     <div className="game-container" style={{ maxWidth: 900 }}>

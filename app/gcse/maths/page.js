@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { ArrowRight, Flame, Trophy, Calculator } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
-import { useState, useEffect } from 'react';
 import { getTopicsByCategory } from './topicData';
+import useStoredStats from '../components/useStoredStats';
 
 // Branded featured games (existing custom pages)
 const FEATURED = [
@@ -17,14 +17,8 @@ const CATEGORY_ORDER = ['Number', 'Algebra', 'Geometry', 'Statistics'];
 const CATEGORY_COLORS = { Number: '#00e5a0', Algebra: '#00d4ff', Geometry: '#b14aed', Statistics: '#ff6b35' };
 
 export default function MathsHub() {
-  const [stats, setStats] = useState(null);
+  const stats = useStoredStats('gcse-maths-stats');
   const topicsByCategory = getTopicsByCategory();
-
-  useEffect(() => {
-    try {
-      setStats(JSON.parse(localStorage.getItem('gcse-maths-stats') || 'null'));
-    } catch {}
-  }, []);
 
   return (
     <div className="game-container" style={{ maxWidth: 900 }}>

@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { ArrowRight, Flame, Trophy, Cpu } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
-import { useState, useEffect } from 'react';
 import { getTopicsByCategory } from './computerScienceData';
+import useStoredStats from '../components/useStoredStats';
 
 const CATEGORY_ORDER = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
 const CATEGORY_COLORS = { 
@@ -14,14 +14,8 @@ const CATEGORY_COLORS = {
 };
 
 export default function ComputerScienceHub() {
-  const [stats, setStats] = useState(null);
+  const stats = useStoredStats('gcse-compsci-stats');
   const topicsByCategory = getTopicsByCategory();
-
-  useEffect(() => {
-    try {
-      setStats(JSON.parse(localStorage.getItem('gcse-compsci-stats') || 'null'));
-    } catch {}
-  }, []);
 
   return (
     <div className="game-container" style={{ maxWidth: 900 }}>

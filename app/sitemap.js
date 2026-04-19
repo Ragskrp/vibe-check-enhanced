@@ -1,3 +1,8 @@
+import { getAllTopicSlugs as getBusinessTopicSlugs } from './gcse/business/businessData';
+import { getAllTopicSlugs as getComputerScienceTopicSlugs } from './gcse/computer-science/computerScienceData';
+import { getAllTopicSlugs as getMathsTopicSlugs } from './gcse/maths/topicData';
+import { getAllTopicSlugs as getScienceTopicSlugs } from './gcse/science/scienceData';
+
 export default function sitemap() {
   const baseUrl = 'https://vibemenow.uk';
   const lastModified = new Date();
@@ -90,41 +95,17 @@ export default function sitemap() {
   }));
 
   // GCSE Revision Routes — auto-generated
-  const mathsSlugs = [
-    'laws-of-indices', 'prime-factors', 'standard-form', 'estimating', 'error-intervals',
-    'product-rule-counting', 'expanding-simplifying', 'factorising', 'substitution',
-    'setting-up-equations', 'straight-line-graphs', 'angles-polygons', 'angles-parallel-lines',
-    'area-2d-shapes', 'bearings', 'pythagoras-theorem', 'volume', 'surface-area',
-    'plans-elevations', 'percentages', 'fractions-operations', 'recurring-decimals',
-    'converting-fdp', 'frequency-polygons', 'parallel-perpendicular-lines',
-    'angle-bisectors', 'area-money-problems', 'area-2d-shapes-calc',
-    'averages-grouped-frequency', 'bounds', 'changing-subject',
-    'distance-time-graphs', 'expanding-factorising-calc', 'factorising-quadratics',
-    'fractions-calc', 'hcf-lcm', 'histograms', 'iteration', 'laws-of-indices-calc',
-    'metric-conversions', 'percentages-calc', 'pie-charts', 'rounding',
-    'scatter-graphs', 'sectors', 'standard-form-calc', 'substitution-calc',
-    'surds', 'surface-area-cones', 'two-way-tables'
-  ];
-  
-  const scienceSlugs = [
-    'cell-biology', 'organisation', 'infection-and-response', 'ecology',
-    'atomic-structure-periodic', 'bonding-properties', 'quantitative-chemistry', 
-    'chemical-analysis', 'chemistry-of-atmosphere', 'using-resources',
-    'energy', 'electricity', 'particle-model', 'atomic-physics', 'magnetism',
-  ];
-
-  const computerScienceSlugs = [
-    'computational-thinking', 'programming-fundamentals', 'programming-constructs',
-    'errors-in-programming', 'algorithms-tracing', 'searching-algorithms',
-    'sorting-algorithms', 'flowcharts-algorithm-design', 'boolean-logic',
-    'mathematical-logic-in-programs', 'data-structures', 'databases-sql'
-  ];
+  const mathsSlugs = getMathsTopicSlugs();
+  const scienceSlugs = getScienceTopicSlugs();
+  const computerScienceSlugs = getComputerScienceTopicSlugs();
+  const businessSlugs = getBusinessTopicSlugs();
 
   const gcsePages = [
     { url: `${baseUrl}/gcse`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/maths`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/computer-science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/business`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/maths/equation-rush`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/fraction-frenzy`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/angle-snapper`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
@@ -142,6 +123,12 @@ export default function sitemap() {
     })),
     ...computerScienceSlugs.map(slug => ({
       url: `${baseUrl}/gcse/computer-science/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    ...businessSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/business/${slug}`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.7,

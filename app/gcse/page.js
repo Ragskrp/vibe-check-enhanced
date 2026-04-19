@@ -86,7 +86,7 @@ export default function GCSEHub() {
           margin: '0 0 16px',
           lineHeight: 1.1,
         }}>
-          Revision that doesn't{' '}
+          Revision that doesn&apos;t{' '}
           <span style={{
             background: 'linear-gradient(135deg, #00e5a0, #00d4ff)',
             WebkitBackgroundClip: 'text',
