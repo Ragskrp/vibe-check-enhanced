@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
 import { BookOpen, TrendingUp, Clock, Target, ArrowRight, GraduationCap, Zap } from 'lucide-react';
+import PageValueSection from '../components/PageValueSection';
 
 const SUBJECTS = [
   {
@@ -44,16 +45,6 @@ const SUBJECTS = [
     topics: 12,
     tools: 12,
     available: true,
-  },
-  {
-    emoji: '🌍',
-    title: 'Geography',
-    desc: 'Map skills, case studies, and quick-fire knowledge checks.',
-    path: '#',
-    color: '#ff6b35',
-    topics: 0,
-    tools: 0,
-    available: false,
   },
 ];
 
@@ -287,6 +278,22 @@ export default function GCSEHub() {
           </button>
         </Link>
       </section>
+
+      <PageValueSection
+        title="What Makes This GCSE Area High-Value"
+        summary="This GCSE area is structured around active practice, spaced repetition, and short sessions that are easy to repeat. It is designed for revision quality, not time-on-page."
+        points={[
+          { label: 'Clear subject navigation', text: 'Each subject hub groups topics by exam-relevant categories so students can revise with intent.' },
+          { label: 'Low-friction practice', text: 'No login barriers and fast loading tools make it easier to run short daily revision loops.' },
+          { label: 'Progress orientation', text: 'Streak and session tracking supports consistency across multiple study days.' },
+        ]}
+        checklist={[
+          'Pick one subject and complete a short focused session.',
+          'Track one weak area and revisit it the next day.',
+          'Use timed modes only after accuracy improves.',
+        ]}
+      />
     </div>
   );
 }
+

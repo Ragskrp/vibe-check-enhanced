@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import WouldYouRatherGame from './WouldYouRatherGame';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'Would You Rather | Impossible Choices Game',
@@ -90,6 +91,23 @@ export default function WouldYouRatherPage() {
           </Link>
         </div>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="Why This Format Still Has Practical Value"
+          summary="Forced-choice games can improve decision framing and trade-off thinking when prompts are used carefully."
+          points={[
+            { label: 'Trade-off reasoning', text: 'Players practice comparing competing downsides instead of looking for perfect options.' },
+            { label: 'Discussion quality', text: 'Debating choices helps explain reasoning, assumptions, and values with others.' },
+            { label: 'Fast replayability', text: 'Quick rounds support repeated social sessions without setup friction.' },
+          ]}
+          checklist={[
+            'Ask why each option feels better or worse.',
+            'Compare how choices change in group vs solo play.',
+            'Use outcome splits for discussion, not correctness.',
+          ]}
+        />
+      </div>
     </>
   );
 }

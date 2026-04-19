@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import EmojiIQGame from './EmojiIQGame';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'Emoji IQ | Guess the Emoji Puzzle',
@@ -85,6 +86,23 @@ export default function EmojiIQPage() {
           </Link>
         </div>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="Extract More Value From Emoji Puzzles"
+          summary="Emoji clues can train flexible language thinking when you shift between literal meaning, phonetic hints, and cultural references."
+          points={[
+            { label: 'Lateral interpretation', text: 'The same icon may stand for an object, sound, letter, or concept depending on clue context.' },
+            { label: 'Pattern memory', text: 'Frequent clue styles become easier to decode with repeated short sessions.' },
+            { label: 'Social reasoning', text: 'Comparing different guesses often reveals alternate valid interpretation paths.' },
+          ]}
+          checklist={[
+            'Read clues out loud to test phonetic patterns.',
+            'Check answer length before committing.',
+            'Keep a list of recurring icon patterns.',
+          ]}
+        />
+      </div>
     </>
   );
 }

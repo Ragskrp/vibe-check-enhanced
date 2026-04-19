@@ -1,5 +1,6 @@
 import VibeQuizGame from './VibeQuizGame';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'Vibe Quiz | Personality-Style Browser Quiz',
@@ -64,6 +65,23 @@ export default function VibeQuizPage() {
           readable result card at the end.
         </p>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="Use Quiz Results As Reflection Prompts"
+          summary="This quiz is for entertainment, but it still works best when you reflect on answer patterns instead of only reading the final label."
+          points={[
+            { label: 'Pattern over one-off result', text: 'Retakes with changed choices show which question clusters influence outcome categories.' },
+            { label: 'Conversation starter value', text: 'Result cards are useful prompts for discussion, not personality diagnosis.' },
+            { label: 'Fast low-friction format', text: 'Short completion time makes it suitable for repeat play without user fatigue.' },
+          ]}
+          checklist={[
+            'Compare two runs with different choices.',
+            'Check which question type shifts your result most.',
+            'Treat outcomes as prompts, not fixed identity labels.',
+          ]}
+        />
+      </div>
     </>
   );
 }

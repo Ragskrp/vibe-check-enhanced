@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import WordVibeClient from './WordVibeClient';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'WordVibe | 5-Letter Word Game',
@@ -95,6 +96,23 @@ export default function WordVibePage() {
           </Link>
         </div>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="Play WordVibe As A Skill Builder"
+          summary="This puzzle format improves deduction quality when guesses are used to maximize information rather than chase one immediate answer."
+          points={[
+            { label: 'Information-first openings', text: 'Early guesses should cover common vowels and high-frequency consonants to narrow the search space.' },
+            { label: 'Constraint tracking', text: 'Color feedback helps remove invalid positions and letters quickly when interpreted systematically.' },
+            { label: 'Repeatable improvement', text: 'Short rounds make it easy to practice strategy and compare better decision paths over time.' },
+          ]}
+          checklist={[
+            'Use an opener with broad letter coverage.',
+            'Avoid repeating rejected letters in early turns.',
+            'Use one probe guess when many similar answers remain.',
+          ]}
+        />
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import VibeOrDieGame from './VibeOrDieGame';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'Vibe or Die | Reaction Speed Game',
@@ -64,6 +65,23 @@ export default function VibeOrDiePage() {
           and come back later if you want to compare how consistent you are.
         </p>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="Measure Progress The Right Way"
+          summary="Reaction tests are useful as self-benchmark tools when conditions are kept consistent."
+          points={[
+            { label: 'Consistency over peak score', text: 'Median results across multiple runs are more meaningful than one outlier fast click.' },
+            { label: 'Hardware-aware interpretation', text: 'Device input delay and refresh rate affect final numbers, so compare like-for-like setups.' },
+            { label: 'Focus training effect', text: 'Short repeated rounds can improve readiness and sustained attention.' },
+          ]}
+          checklist={[
+            'Use the same device for comparison.',
+            'Track average of 5 runs, not one run.',
+            'Take short pauses to avoid anticipation clicks.',
+          ]}
+        />
+      </div>
     </>
   );
 }

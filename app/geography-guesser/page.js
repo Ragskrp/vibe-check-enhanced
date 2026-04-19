@@ -1,5 +1,6 @@
 import GeographyGuesserGame from './GeographyGuesserGame';
 import AdGateway from '../components/AdGateway';
+import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
   title: 'Geography Guesser | Flag Recognition Game',
@@ -64,6 +65,23 @@ export default function GeographyGuesserPage() {
           better recognition usually comes from seeing the same patterns several times in short sessions.
         </p>
       </article>
+
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+        <PageValueSection
+          title="How To Get Real Learning Value From This Game"
+          summary="Treat each round as retrieval practice. The goal is not only score, but faster flag recognition and fewer repeated confusion pairs."
+          points={[
+            { label: 'Pattern-first strategy', text: 'Classify by shape blocks, cross styles, stripe direction, and emblem position before guessing.' },
+            { label: 'Error correction loop', text: 'Record the 3 flags you miss most and revisit them after every session.' },
+            { label: 'Short repeat sessions', text: 'Two 5-minute rounds with review usually outperform one long unstructured round.' },
+          ]}
+          checklist={[
+            'Group misses by region or flag structure.',
+            'Review confusion pairs before the next session.',
+            'Track progress weekly, not per single run.',
+          ]}
+        />
+      </div>
     </>
   );
 }

@@ -5,6 +5,7 @@ import { ArrowRight, Flame, Trophy, Calculator } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './topicData';
 import useStoredStats from '../components/useStoredStats';
+import PageValueSection from '../../components/PageValueSection';
 
 // Branded featured games (existing custom pages)
 const FEATURED = [
@@ -111,6 +112,21 @@ export default function MathsHub() {
         <div style={{ marginTop: 32 }}>
           <AdBanner format="horizontal" />
         </div>
+
+        <PageValueSection
+          title="Use This Maths Hub For High-Value Revision"
+          summary="This hub is built for active recall, not passive reading. Use one focused category, complete short sessions, and track weak areas with repeat attempts."
+          points={[
+            { label: 'Exam-targeted practice', text: 'Each topic is mapped to GCSE maths areas including Number, Algebra, Geometry, and Statistics.' },
+            { label: 'Fast feedback loop', text: 'Short rounds show mistakes quickly so you can correct methods before bad habits lock in.' },
+            { label: 'Retention by repetition', text: 'Returning to the same topic after 24-48 hours improves long-term recall more than one long cram session.' },
+          ]}
+          checklist={[
+            'Pick one category and complete 2-3 topics per session.',
+            'Note any formula errors and repeat the same topic once.',
+            'Move to timed tools only after accuracy is stable.',
+          ]}
+        />
       </div>
     </div>
   );

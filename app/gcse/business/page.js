@@ -5,6 +5,7 @@ import { ArrowRight, Flame, Trophy, Briefcase } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './businessData';
 import useStoredStats from '../components/useStoredStats';
+import PageValueSection from '../../components/PageValueSection';
 
 const CATEGORY_ORDER = ['Real World', 'Operations', 'Human Resources'];
 const CATEGORY_COLORS = { 'Real World': '#ff6b35', 'Operations': '#00d4ff', 'Human Resources': '#00ff94' };
@@ -77,6 +78,21 @@ export default function BusinessHub() {
         <div style={{ marginTop: 40 }}>
           <AdBanner format="horizontal" />
         </div>
+
+        <PageValueSection
+          title="Make Business Revision More Useful"
+          summary="For business topics, speed matters less than reasoning. Use short rounds to practice definitions, then test whether you can apply them to real business scenarios."
+          points={[
+            { label: 'AQA-focused content', text: 'Topics reflect real-world enterprise, operations, and human resources language used in GCSE Business papers.' },
+            { label: 'Application over memorization', text: 'Question sets are strongest when you explain why a concept matters in a decision context.' },
+            { label: 'High-frequency retrieval', text: 'Frequent mini rounds improve confidence with command words and key terms under pressure.' },
+          ]}
+          checklist={[
+            'Revise one category and record two key terms.',
+            'Apply each term to a real business example.',
+            'Repeat weak topics before starting a new category.',
+          ]}
+        />
       </div>
     </div>
   );

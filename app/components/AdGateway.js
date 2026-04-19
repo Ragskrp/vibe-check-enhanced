@@ -4,7 +4,12 @@ import { useState } from 'react';
 import PreRollAd from './PreRollAd';
 
 export default function AdGateway({ gameName, children }) {
+  const prerollEnabled = process.env.NEXT_PUBLIC_ENABLE_PREROLL_ADS === 'true';
   const [gameReady, setGameReady] = useState(false);
+
+  if (!prerollEnabled) {
+    return children;
+  }
 
   return (
     <>

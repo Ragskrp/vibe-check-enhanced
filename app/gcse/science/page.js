@@ -5,6 +5,7 @@ import { ArrowRight, Flame, Trophy, Beaker } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './scienceData';
 import useStoredStats from '../components/useStoredStats';
+import PageValueSection from '../../components/PageValueSection';
 
 const CATEGORY_ORDER = ['Biology', 'Chemistry', 'Physics'];
 const CATEGORY_COLORS = { Biology: '#00ff94', Chemistry: '#00d4ff', Physics: '#b14aed' };
@@ -77,6 +78,21 @@ export default function ScienceHub() {
         <div style={{ marginTop: 40 }}>
           <AdBanner format="horizontal" />
         </div>
+
+        <PageValueSection
+          title="How To Revise Science Efficiently Here"
+          summary="This section works best when you alternate topic retrieval and concept review. Use short rounds to find weak concepts, then revisit related lesson points before testing again."
+          points={[
+            { label: 'Specification-aligned topics', text: 'Biology, Chemistry, and Physics topics follow GCSE exam style and common misconceptions.' },
+            { label: 'Foundation and higher support', text: 'Tier options let you practice at the right difficulty instead of wasting time on mismatched questions.' },
+            { label: 'Practical memory gains', text: 'Frequent short recall rounds improve confidence in definitions, equations, and required practical ideas.' },
+          ]}
+          checklist={[
+            'Start with one subject strand and complete 10-15 minutes.',
+            'Write down two mistakes and one corrected rule.',
+            'Re-test the same topic tomorrow before moving on.',
+          ]}
+        />
       </div>
     </div>
   );

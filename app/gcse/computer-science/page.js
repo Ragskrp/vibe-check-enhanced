@@ -5,6 +5,7 @@ import { ArrowRight, Flame, Trophy, Cpu } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './computerScienceData';
 import useStoredStats from '../components/useStoredStats';
+import PageValueSection from '../../components/PageValueSection';
 
 const CATEGORY_ORDER = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
 const CATEGORY_COLORS = { 
@@ -81,6 +82,21 @@ export default function ComputerScienceHub() {
         <div style={{ marginTop: 40 }}>
           <AdBanner format="horizontal" />
         </div>
+
+        <PageValueSection
+          title="Get Better Outcomes From Comp Sci Revision"
+          summary="Use this hub to build understanding in small chunks: algorithm logic, programming constructs, then data and logic topics. Focus on errors you can explain, not just correct guesses."
+          points={[
+            { label: 'Core OCR topic flow', text: 'The sequence helps move from computational thinking to code logic and then data structures/databases.' },
+            { label: 'Exam-style precision', text: 'Short question loops improve accuracy in keyword-heavy definitions and step-by-step algorithm tracing.' },
+            { label: 'Debugging mindset', text: 'Practice rounds encourage identifying why answers fail, which directly improves written responses in exams.' },
+          ]}
+          checklist={[
+            'Complete one category and review mistakes immediately.',
+            'Say the rule out loud before the next question.',
+            'Repeat difficult topics until confidence is consistent.',
+          ]}
+        />
       </div>
     </div>
   );

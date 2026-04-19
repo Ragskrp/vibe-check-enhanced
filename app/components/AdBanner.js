@@ -19,21 +19,35 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   const isLoaded = useRef(false);
   const pathname = usePathname();
 
+  // Keep banners on content-rich routes while avoiding gameplay-heavy screens.
   const adEnabledRoutes = new Set([
     '/',
-    '/2048-vibe',
-    '/emoji-iq',
-    '/flappy-vibe',
-    '/geography-guesser',
-    '/hot-takes',
-    '/vibe-clicker',
-    '/vibe-quiz',
-    '/vibeordie',
-    '/whack-a-vibe',
-    '/wordvibe',
-    '/would-you-rather',
+    '/about',
+    '/faq',
+    '/contact',
+    '/blog',
+    '/guides',
+    '/gcse',
+    '/gcse/maths',
+    '/gcse/science',
+    '/gcse/computer-science',
+    '/gcse/business',
+    '/publisher-information',
+    '/editorial-policy',
+    '/community-guidelines',
+    '/privacy',
+    '/terms',
+    '/disclaimer',
   ]);
-  const adsBlocked = !adEnabledRoutes.has(pathname) && !pathname.startsWith('/gcse');
+
+  const adEnabledPrefixes = [
+    '/blog/',
+    '/guides/',
+  ];
+
+  const isEnabledByExactRoute = adEnabledRoutes.has(pathname);
+  const isEnabledByPrefix = adEnabledPrefixes.some((prefix) => pathname.startsWith(prefix));
+  const adsBlocked = !(isEnabledByExactRoute || isEnabledByPrefix);
 
   useEffect(() => {
     if (isLoaded.current) return;
