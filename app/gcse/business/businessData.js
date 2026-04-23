@@ -183,12 +183,14 @@ export const TOPICS = {
       foundation: [
         { title: 'Financial Methods', content: 'Salary (fixed monthly), Wages (hourly), Commission (paid per sale), and Profit Sharing.' },
         { title: 'Commission', content: 'An extra payment based on how many sales an employee makes. Great for motivating sales teams.', example: 'A car salesman getting £100 for every car sold.' },
-        { title: 'Fringe Benefits', content: 'Non-cash perks given to staff.', example: 'Free gym membership, company car, or private healthcare.' }
+        { title: 'Fringe Benefits', content: 'Non-cash perks given to staff.', example: 'Free gym membership, company car, or private healthcare.' },
+        { title: 'Overtime', content: 'Working extra hours for a higher rate of pay (e.g. time-and-a-half).', tip: 'Helps businesses cope with sudden increases in demand.' }
       ],
       higher: [
         { title: 'Non-Financial Methods', content: 'Job rotation, job enrichment, and job enlargement. Giving staff more responsibility and variety.', tip: 'These focus on "Intrinsic Motivation"—making the work itself satisfying.' },
         { title: 'Motivation Theorists', content: 'Maslow (Hierarchy of Needs) and Herzberg (Two-Factor Theory: Hygiene vs Motivators).', tip: 'Higher tier exams often ask how a manager might apply Maslow to their team.' },
-        { title: 'Autonomy', content: 'Giving employees freedom to make their own decisions. This is part of the "Modern" approach to motivation.' }
+        { title: 'Autonomy', content: 'Giving employees freedom to make their own decisions. This is part of the "Modern" approach to motivation.' },
+        { title: 'Job Enrichment', content: 'Giving employees more complex and challenging tasks to make their work more meaningful.', tip: 'Reduces staff turnover and improves quality.' }
       ],
     },
     generateQuestion: () => {
@@ -198,6 +200,155 @@ export const TOPICS = {
       ];
       return pick(types)();
     },
+  },
+
+  // ==============================================================
+  // 3.2 MARKETING
+  // ==============================================================
+
+  'marketing-mix': {
+    title: 'The Marketing Mix (4Ps)',
+    emoji: '📣',
+    color: '#00d4ff',
+    category: 'Marketing',
+    description: 'Product, Price, Place, and Promotion.',
+    lessons: {
+      foundation: [
+        { title: 'Product', content: 'The good or service being sold. Must meet customer needs.', tip: 'Think about features, design, and packaging.' },
+        { title: 'Price', content: 'How much customers pay. Needs to be competitive but profitable.' },
+        { title: 'Place', content: 'Where the product is sold and how it gets to the customer (distribution).', example: 'Online, local shops, or wholesalers.' },
+        { title: 'Promotion', content: 'How customers are made aware of the product.', example: 'Social media ads, TV commercials, or billboards.' }
+      ],
+      higher: [
+        { title: 'Price Skimming', content: 'Setting a high initial price for a new, unique product then lowering it over time.', example: 'New games consoles or smartphones.' },
+        { title: 'Penetration Pricing', content: 'Setting a low price initially to attract customers and gain market share.', tip: 'Used for new products in a crowded market.' },
+        { title: 'The Product Life Cycle', content: 'Introduction, Growth, Maturity, and Decline. Extension strategies can keep a product alive longer.', tip: 'Extension strategies include rebranding or finding new markets.' },
+        { title: 'Branding', content: 'Creating a unique identity that distinguishes a product from competitors.', tip: 'A strong brand allows for higher prices (premium pricing).' }
+      ],
+    },
+    generateQuestion: () => makeMCQ('Which "P" refers to how a product gets to the customer?', 'Place', ['Price', 'Product', 'Promotion'], 'Distribution channels.', 'Place covers where the product is sold and the logistics of the supply chain.')
+  },
+
+  'market-research': {
+    title: 'Market Research',
+    emoji: '🔍',
+    color: '#00d4ff',
+    category: 'Marketing',
+    description: 'Primary and secondary research methods.',
+    lessons: {
+      foundation: [
+        { title: 'Primary Research', content: 'Gathering NEW data first-hand.', example: 'Surveys, interviews, or focus groups.' },
+        { title: 'Secondary Research', content: 'Using data that ALREADY exists.', example: 'Internet articles, government reports, or competitor websites.' },
+        { title: 'Quantitative Data', content: 'Data that can be measured in numbers.', example: '70% of people like chocolate.' },
+        { title: 'Qualitative Data', content: 'Data about opinions and feelings.', example: 'Customers feel the product is "too expensive".' }
+      ],
+      higher: [
+        { title: 'Target Market', content: 'The specific group of customers a business aims its products at.', tip: 'Market segmentation uses age, income, location, and lifestyle.' },
+        { title: 'Market Segmentation', content: 'Dividing the market into smaller groups with similar characteristics.', tip: 'Helps businesses tailor their marketing mix effectively.' },
+        { title: 'Bias in Research', content: 'When research results are skewed because of leading questions or a small sample size.', tip: 'Try to use a large, representative sample to avoid bias.' }
+      ],
+    },
+    generateQuestion: () => makeMCQ('Which is an example of Secondary Research?', 'Reading a market report online', ['Doing a street survey', 'Interviewing a customer', 'Hosting a focus group'], 'Data that already exists.', 'Secondary research uses information previously gathered by someone else.')
+  },
+
+  // ==============================================================
+  // 3.5 FINANCE
+  // ==============================================================
+
+  'sources-of-finance': {
+    title: 'Sources of Finance',
+    emoji: '💰',
+    color: '#00ff94',
+    category: 'Finance',
+    description: 'How businesses raise money for growth and operations.',
+    lessons: {
+      foundation: [
+        { title: 'Short-Term Finance', content: 'Needed for day-to-day costs. Examples include Overdrafts and Trade Credit.' },
+        { title: 'Long-Term Finance', content: 'Needed for big investments like machinery. Examples include Bank Loans and Personal Savings.' },
+        { title: 'Trade Credit', content: 'Buying now and paying later (usually 30-90 days). Helps with cash flow but can be risky if you go over the limit.' }
+      ],
+      higher: [
+        { title: 'Share Capital', content: 'Selling shares in a company to raise funds. No interest to pay, but you lose some control.', tip: 'Only available to Ltds and Plcs.' },
+        { title: 'Venture Capital', content: 'Money invested by professionals in return for a share of the business.', example: 'Investors on Dragon\'s Den.' },
+        { title: 'Retained Profit', content: 'Profit kept in the business rather than paid to owners. The "cheapest" source of finance as there is no interest.' }
+      ],
+    },
+    generateQuestion: () => makeMCQ('What is the "cheapest" source of finance with no interest?', 'Retained Profit', ['Bank Loan', 'Overdraft', 'Share Capital'], 'Money you already have.', 'Retained profit belongs to the business, so there is no interest or loss of control.')
+  },
+
+  'break-even': {
+    title: 'Break-Even',
+    emoji: '⚖️',
+    color: '#00ff94',
+    category: 'Finance',
+    description: 'Calculating the point where a business makes no profit and no loss.',
+    lessons: {
+      foundation: [
+        { title: 'Fixed Costs', content: 'Costs that do NOT change with output.', example: 'Rent, salaries, and insurance.' },
+        { title: 'Variable Costs', content: 'Costs that change directly with production.', example: 'Raw materials and packaging.' },
+        { title: 'Total Costs', formula: 'Total Costs = Fixed Costs + Variable Costs' },
+        { title: 'Revenue', formula: 'Revenue = Price × Quantity Sold' }
+      ],
+      higher: [
+        { title: 'Break-Even Point', formula: 'BEP = Fixed Costs / (Price - Variable Cost per unit)', tip: 'The (Price - VC) part is called the "Contribution".' },
+        { title: 'Margin of Safety', content: 'The difference between actual sales and the break-even point.', formula: 'Margin = Actual Sales - Break-Even Sales', tip: 'A large margin of safety reduces risk.' },
+        { title: 'Using Break-Even Charts', content: 'Interpreting where the total cost and revenue lines cross. This point is the Break-Even point.' }
+      ],
+    },
+    generateQuestion: () => {
+      const fc = 1000; const price = 20; const vc = 10;
+      return { 
+        display: `Fixed Costs = £${fc}. Price = £${price}. Var Cost = £${vc}. What is the Break-Even point in units?`, 
+        answer: fc / (price - vc), 
+        hint: 'FC / (Price - VC)',
+        explanation: `${fc} / (${price} - ${vc}) = ${fc} / 10 = ${fc / 10} units.`
+      };
+    }
+  },
+
+  'external-influences': {
+    title: 'External Influences',
+    emoji: '🌍',
+    color: '#ff6b35',
+    category: 'Real World',
+    description: 'Interest rates, exchange rates, inflation, and legislation.',
+    lessons: {
+      foundation: [
+        { title: 'Legislation (Laws)', content: 'Businesses must follow laws on Consumer Rights (quality goods), Employment (minimum wage), and Health & Safety.' },
+        { title: 'The Economic Climate', content: 'The overall state of the economy. Affects how much money customers have to spend.' },
+        { title: 'Inflation', content: 'The rate at which prices rise. High inflation means costs for businesses go up, and customer spending power goes down.' }
+      ],
+      higher: [
+        { title: 'Interest Rates', content: 'The cost of borrowing money. High rates mean expensive loans (less growth) and customers saving more (less spending).', tip: 'Low interest rates encourage businesses to borrow and invest in new equipment.' },
+        { title: 'Exchange Rates (SPICED)', content: 'Strong Pound Imports Cheaper Exports Dearer. This affects businesses that trade internationally.', tip: 'A strong pound helps importers but hurts exporters!' },
+        { title: 'Unemployment', content: 'High unemployment means more people looking for work (lower wages) but fewer people with money to spend (lower sales).' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('What does "SPICED" stand for in exchange rates?', 'Strong Pound Imports Cheaper Exports Dearer', ['Small Profits In Cheap Electronic Devices', 'Strong Pounds Increase Cost Every Day', 'Standard Price In Certain Every Day'], 'Think about imports and exports.', 'SPICED is the mnemonic for the effects of a strong currency.');
+    }
+  },
+
+  'business-finance-docs': {
+    title: 'Financial Documents',
+    emoji: '📄',
+    color: '#00ff94',
+    category: 'Finance',
+    description: 'Cash flow forecasts, Profit & Loss, and Balance Sheets.',
+    lessons: {
+      foundation: [
+        { title: 'Cash Flow Forecast', content: 'A prediction of money coming IN and going OUT of the business over a period of time.', tip: 'Net Cash Flow = Inflow - Outflow.' },
+        { title: 'Opening & Closing Balances', content: 'Opening: Money at the start of the month. Closing: Money at the end of the month.', formula: 'Closing = Opening + Net Cash Flow' }
+      ],
+      higher: [
+        { title: 'Profit vs Cash', content: 'A business can be profitable but still run out of cash (e.g. if customers haven\'t paid yet). "Profit is sanity, Cash is reality."', tip: 'Profit = Total Revenue - Total Costs.' },
+        { title: 'Income Statement (P&L)', content: 'Shows if a business made a profit over a year. Includes Gross Profit and Net Profit.', formula: 'Gross Profit = Revenue - Cost of Sales' },
+        { title: 'Balance Sheet', content: 'A "snapshot" of what the business OWNS (Assets) and what it OWES (Liabilities) at a single point in time.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('Opening Balance = £1000. Net Cash Flow = £500. What is the Closing Balance?', '£1500', ['£500', '£1000', '£2000'], 'Add them together.', '1000 + 500 = 1500.');
+    }
   }
 };
 

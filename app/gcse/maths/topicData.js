@@ -348,7 +348,9 @@ const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Common Factor', content: 'Find the highest common factor of all terms and put it outside a bracket.', formula: 'ab + ac = a(b + c)', example: '6x + 12 = 6(x + 2)\n4x² + 8x = 4x(x + 2)' },
-        { title: 'Fully Factorise', content: 'Examiners want the HIGHEST common factor. 2(2x+4) is factorised, but 4(x+2) is FULLY factorised.', tip: 'Always check if the terms inside the bracket still have a common factor.' }
+        { title: 'Fully Factorise', content: 'Examiners want the HIGHEST common factor. 2(2x+4) is factorised, but 4(x+2) is FULLY factorised.', tip: 'Always check if the terms inside the bracket still have a common factor.' },
+        { title: 'Checking with Expansion', content: 'You can check your factorisation by multiplying the brackets out again.', tip: 'If you don\'t get your original expression, something went wrong!' },
+        { title: 'Letters as Factors', content: 'Sometimes the common factor is a letter or both a number and a letter.', example: '5x² - 10x = 5x(x - 2)' }
       ],
       higher: [
         { title: 'Factorising Quadratics', content: 'Find two numbers that multiply to give c and add to give b in x² + bx + c.', formula: 'x² + bx + c = (x + p)(x + q)\nwhere p × q = c and p + q = b', example: 'x² + 7x + 12\nNumbers: 3 and 4 (3×4=12, 3+4=7)\n= (x + 3)(x + 4)' },
@@ -417,11 +419,17 @@ const TOPICS = {
     lessons: {
       foundation: [
         { title: 'Forming Equations', content: 'Translate words into algebra: "a number" = x, "three more" = + 3, "twice" = 2x.', example: '"I think of a number, double it and add 5. The answer is 17."\n2x + 5 = 17' },
-        { title: 'Solving', content: 'Use inverse operations to find x.', example: '2x + 5 = 17\n2x = 12\nx = 6' },
+        { title: 'Solving (2 Steps)', content: 'Use inverse operations to find x. Do the addition/subtraction first!', example: '2x + 5 = 17\n2x = 12\nx = 6' },
+        { title: 'Variable on Both Sides', content: 'Collect all x terms on one side (the side with more x) and numbers on the other.', example: '5x + 3 = 2x + 12\n3x + 3 = 12\n3x = 9 → x = 3' },
+        { title: 'Equations with Brackets', content: 'Expand the brackets first, then solve as normal.', example: '3(x + 4) = 18\n3x + 12 = 18\n3x = 6 → x = 2' },
+        { title: 'Balancing Method', content: 'Whatever you do to one side, you MUST do to the other side to keep it equal.', tip: 'Think of a pair of scales.' }
       ],
       higher: [
         { title: 'Equations from Shapes', content: 'Use properties like "angles in a triangle = 180°" to form equations.', example: 'Angles: x, 2x, 3x\nx + 2x + 3x = 180\n6x = 180\nx = 30' },
-        { title: 'Equations with Fractions', content: 'Multiply through by the denominator to clear fractions.', example: 'x/3 + 2 = 5\nx/3 = 3\nx = 9' },
+        { title: 'Equations with Fractions', content: 'Multiply through by the common denominator to clear all fractions.', example: 'x/3 + x/2 = 10\nMultiply by 6: 2x + 3x = 60\n5x = 60 → x = 12' },
+        { title: 'Solving Quadratics by Factorising', content: 'Set the equation to zero, factorise, then find the x values that make each bracket zero.', formula: '(x+p)(x+q) = 0 → x = -p or x = -q', example: 'x² - 5x + 6 = 0\n(x-2)(x-3) = 0 → x=2 or x=3' },
+        { title: 'The Quadratic Formula', content: 'Used when you can\'t factorise. Always round to given accuracy.', formula: 'x = [-b ± √(b² - 4ac)] / 2a', tip: 'Be careful with the -b if b is already negative!' },
+        { title: 'Iterative Methods', content: 'Use a formula repeatedly to find increasingly accurate approximations for a root.', tip: 'Often used with a calculator ANS button.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -450,10 +458,16 @@ const TOPICS = {
       foundation: [
         { title: 'y = mx + c', visualId: 'math-gradients', content: 'm is the gradient (steepness) and c is the y-intercept (where the line crosses the y-axis).', formula: 'y = mx + c', example: 'y = 3x + 2\nGradient = 3, y-intercept = 2' },
         { title: 'Finding the Gradient', content: 'Gradient = rise ÷ run = change in y ÷ change in x.', formula: 'm = (y₂ − y₁) / (x₂ − x₁)', example: 'Points (1, 3) and (3, 7):\nm = (7−3)/(3−1) = 4/2 = 2' },
+        { title: 'Drawing from a Table', content: 'Substitute x values into the equation to find y values, then plot the points.', tip: 'Always pick simple x values like -1, 0, 1, 2.' },
+        { title: 'x = a and y = b', content: 'x = a is a VERTICAL line through a. y = b is a HORIZONTAL line through b.', example: 'x = 3 is a vertical line.' },
+        { title: 'Intercepts', content: 'x-intercept is where y=0. y-intercept is where x=0.' }
       ],
       higher: [
         { title: 'Finding the Equation', content: 'If you know the gradient and a point, substitute into y = mx + c to find c.', example: 'Gradient 2, passes through (3, 8):\n8 = 2(3) + c\nc = 2\ny = 2x + 2' },
-        { title: 'Parallel & Perpendicular', content: 'Parallel lines have the same gradient. Perpendicular lines have gradients that multiply to −1.', formula: 'Parallel: m₁ = m₂\nPerpendicular: m₁ × m₂ = −1', example: 'Line: y = 3x + 1\nParallel: m = 3\nPerpendicular: m = −1/3' },
+        { title: 'Parallel Lines', content: 'Lines are parallel if they have the SAME gradient.', example: 'y = 2x + 5 and y = 2x - 3 are parallel.' },
+        { title: 'Perpendicular Lines', content: 'Parallel lines have gradients that multiply to −1. (Negative reciprocal).', formula: 'm₁ × m₂ = −1', example: 'Line: y = 3x + 1\nPerpendicular: m = −1/3' },
+        { title: 'Real World Graphs', content: 'The gradient represents the rate of change (e.g. speed on a distance-time graph).', tip: 'Check the units on the axes!' },
+        { title: 'Midpoints & Lengths', content: 'Find the midpoint between two points by averaging the x and y coordinates.', formula: 'Midpoint = [(x1+x2)/2 , (y1+y2)/2]' }
       ],
     },
     generateQuestion: (tier) => {
@@ -523,9 +537,14 @@ const TOPICS = {
         { title: 'Alternate Angles (Z)', content: 'Alternate angles are equal. They form a Z shape between parallel lines.', formula: 'Alternate angles are equal', example: 'Angle = 65° → Alternate = 65°' },
         { title: 'Corresponding Angles (F)', content: 'Corresponding angles are equal. They form an F shape.', formula: 'Corresponding angles are equal', example: 'Angle = 110° → Corresponding = 110°' },
         { title: 'Co-interior Angles (C)', content: 'Co-interior (allied) angles add up to 180°. They form a C or U shape.', formula: 'Co-interior add to 180°', example: 'Angle = 70° → Co-interior = 110°' },
+        { title: 'Vertically Opposite', content: 'Angles opposite each other when two lines cross are ALWAYS equal.' },
+        { title: 'Angles on a Point', content: 'Angles around a point add up to 360°.' }
       ],
       higher: [
         { title: 'Multi-Step Problems', content: 'Combine angle rules: use alternate, corresponding, vertically opposite, and angles on a line together.', example: 'If angle a = 55° (alternate)\nAngle b = 180° − 55° = 125° (straight line)' },
+        { title: 'Proofs', content: 'You may be asked to prove that lines are parallel by showing that alternate or corresponding angles are equal.', tip: 'Always state the full reason (e.g. "Alternate angles are equal").' },
+        { title: 'Geometric Reasonings', content: 'In Higher tier, you often need to provide a chain of reasons for every step in an angle calculation.' },
+        { title: 'Parallel Lines in Shapes', content: 'Parallel lines properties often appear inside parallelograms, rhombuses and trapezia.' }
       ],
     },
     generateQuestion: (tier) => {
@@ -1122,13 +1141,26 @@ const TOPICS = {
     }
   },
   'compound-interest-calc': {
-    title: 'Compound Interest (Calc)',
+    title: 'Compound Interest',
     emoji: '📈',
+    color: '#00ff94',
     category: 'Number',
-    description: 'Using multipliers to calculate compound interest over time.',
+    description: 'Using multipliers to calculate compound interest and exponential growth.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'Multipliers', content: 'Increase by 5% is × 1.05.' }],
-      higher: [{ title: 'n years', content: 'Formula: P × (multiplier)ⁿ' }]
+      foundation: [
+        { title: 'Multipliers', content: 'Transform a percentage increase into a decimal multiplier.', example: 'Increase by 5% → 100% + 5% = 105% → × 1.05.\nDecrease by 10% → 100% - 10% = 90% → × 0.9' },
+        { title: 'Step-by-Step Method', content: 'For a 2-year increase, multiply the principal by the multiplier, then multiply the result by the multiplier again.', tip: 'Good for checking your answer manually!' },
+        { title: 'Simple vs Compound', content: 'Simple interest only pays on the original amount. Compound interest pays on the NEW total every year.', tip: 'Compound interest grows much faster!' },
+        { title: 'Reverse Percentages', content: 'To find the original value AFTER a change, divide by the multiplier.', example: 'Sale price £90 (10% off) → 90 ÷ 0.9 = £100 original.' }
+      ],
+      higher: [
+        { title: 'The Power Formula', content: 'Calculate compound interest for many years in one step.', formula: 'Total = P × (multiplier)ⁿ', example: '£1000 for 5 years at 3%:\n1000 × 1.03⁵ = £1159.27' },
+        { title: 'Exponential Decay', content: 'Use a multiplier less than 1 to model things losing value over time (depreciation).', example: 'Car losing 20% value per year for 3 years: P × 0.8³' },
+        { title: 'Financial Interest Problems', content: 'Interest is often calculated monthly or quarterly. The period (n) must match the interest rate frequency.', tip: 'N is the total number of times the interest is applied.' },
+        { title: 'Comparing Deals', content: 'Work out the final amount for two different interest options to see which is the better deal over a set number of years.' }
+      ],
     },
     generateQuestion: () => {
        const principal = r(1, 10) * 100;
@@ -1164,11 +1196,24 @@ const TOPICS = {
   'rounding': {
     title: 'Rounding & Sig Figs',
     emoji: '🎯',
+    color: '#ff2d78',
     category: 'Number',
     description: 'Rounding to decimal places and significant figures.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'Decimal Places (d.p.)', content: 'Look at the digit directly after your cut-off. If 5 or more, round UP.' }],
-      higher: [{ title: 'Significant Figures (s.f.)', content: 'The first significant figure is the first NON-ZERO digit from the left. Zeros at the start don\'t count!' }]
+      foundation: [
+        { title: 'Decimal Places (d.p.)', content: 'Count the digits AFTER the decimal point. Look at the next digit to decide whether to round up.', example: '3.1415 to 2 d.p. → 3.14 (the next digit 1 is less than 5).' },
+        { title: 'Rounding Up', content: 'If the next digit is 5, 6, 7, 8, or 9, add 1 to your target digit.', example: '7.86 to 1 d.p. → 7.9' },
+        { title: 'Nearest Unit', content: 'Rounding to the nearest whole number, ten, hundred, etc.', example: '382 to nearest 10 → 380\n382 to nearest 100 → 400' },
+        { title: 'Large Numbers', content: 'When rounding to nearest 10/100, replace the dropped digits with zeros to keep the size correct!', tip: '382 rounded to nearest 100 is NOT 4!' }
+      ],
+      higher: [
+        { title: 'Significant Figures (s.f.)', content: 'The first significant figure is the first NON-ZERO digit from the left. Zeros at the start don\'t count!', example: '0.00456 to 2 s.f. → 0.0046' },
+        { title: 'Zero as Significant', content: 'Once you start counting s.f., all zeros AFTER that are significant.', example: '5.03 is 3 s.f. Zeros in the middle or at the end count if they follow a non-zero digit.' },
+        { title: 'Scientific Notation Link', content: 'Significant figures are related to Standard Form. 3.4 × 10⁵ is 2 s.f.', tip: 'Exam papers usually expect answers to 2 or 3 s.f. unless stated otherwise.' },
+        { title: 'Estimation Consistency', content: 'Always round to 1 s.f. when estimating a calculation result.', tip: 'Consistency in rounding prevents compounding errors.' }
+      ],
     },
     generateQuestion: () => makeMCQ('Round 0.0456 to 2 significant figures', '0.046', ['0.05', '0.04', '0.045'], 'Find the first non-zero', 'The 4 is the 1st s.f., the 5 is the 2nd. The 6 rounds the 5 up to 6 ➔ 0.046.')
   },
@@ -1176,11 +1221,23 @@ const TOPICS = {
   'scatter-graphs': {
     title: 'Scatter Graphs',
     emoji: '📈',
+    color: '#ffe600',
     category: 'Statistics',
     description: 'Lines of best fit and correlation.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'Correlation', content: 'Positive correlation goes up. Negative goes down. No correlation has no pattern.' }],
-      higher: [{ title: 'Line of Best Fit', content: 'A straight line drawn through the middle of the plots, with roughly equal numbers of points on both sides. Extrapolating (going beyond the data) is unreliable.' }]
+      foundation: [
+        { title: 'Correlation', content: 'Positive correlation goes up. Negative goes down. No correlation has no pattern.', tip: 'The closer the points are to a straight line, the stronger the correlation.' },
+        { title: 'Line of Best Fit', content: 'A straight line drawn through the middle of the plots, with roughly equal numbers of points on both sides.', tip: 'Always use a ruler!' },
+        { title: 'Outliers', content: 'Points that don\'t fit the general trend. They should be ignored when drawing the line of best fit.' },
+        { title: 'Reading from the Line', content: 'Use your line of best fit to estimate one value given another (Interpolation).' }
+      ],
+      higher: [
+        { title: 'Interpolation vs Extrapolation', content: 'Interpolation (estimating inside your data range) is reliable. Extrapolation (going beyond the range) is risky and often unreliable.', tip: 'Reasons for unreliability: trends might change or have physical limits.' },
+        { title: 'Causation vs Correlation', content: 'Just because two things are correlated doesn\'t mean one CAUSES the other.', example: 'Ice cream sales and shark attacks are correlated, but both are caused by hot weather!' },
+        { title: 'Equation of Best Fit', content: 'Sometimes you might be asked to find the equation (y = mx + c) of your trend line.' }
+      ]
     },
     generateQuestion: () => makeMCQ('Why is it risky to estimate a value far outside the range of the scatter graph data?', 'Extrapolation is unreliable', ['The line bends', 'It causes negative correlation', 'The calculator will break'], 'Going beyond the bounds', 'This is called extrapolation. The established trend might not continue beyond the collected data.')
   },
@@ -1188,11 +1245,23 @@ const TOPICS = {
   'sectors': {
     title: 'Area & Arc of Sectors',
     emoji: '🍰',
+    color: '#00d4ff',
     category: 'Geometry',
     description: 'Calculating arc lengths and sector areas of circles.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'Fractions of a Circle', content: 'If the angle is 90°, it is 90/360 or 1/4 of the circle. Calculate the full circle area/circumference, then multiply by the fraction.' }],
-      higher: [{ title: 'Formulas', content: 'Arc Length = (θ/360) × π × d.\nSector Area = (θ/360) × π × r².' }]
+      foundation: [
+        { title: 'Fractions of a Circle', content: 'If the angle is 90°, it is 90/360 or 1/4 of the circle. Calculate the full circle area, then multiply by the fraction.', example: 'Full area 40, angle 90° → Sector area = 10.' },
+        { title: 'Semicircles & Quadrants', content: 'A semicircle is half a circle (180°). A quadrant is a quarter (90°).', tip: 'These are the most common sectors in foundation exams!' },
+        { title: 'Perimeter of a Sector', content: 'The total boundary: arc length + TWO radii. Don\'t forget the straight edges!', example: 'Arc 10cm, Radius 5cm → Perimeter = 20cm.' }
+      ],
+      higher: [
+        { title: 'Arc Length Formula', formula: 'L = (θ / 360) × π × d', tip: 'Use d = 2r.' },
+        { title: 'Sector Area Formula', formula: 'A = (θ / 360) × π × r²', example: 'r=6, θ=60°: (60/360) × 36π = 6π ≈ 18.8 cm²' },
+        { title: 'Segments (Tricky!)', content: 'Area of segment = Area of sector − Area of triangle.', tip: 'Often requires trigonometry (1/2 ab sin C) to find the triangle area.' },
+        { title: 'Working Backwards', content: 'Given the sector area and radius, find the angle by rearranging the formula.', example: 'θ = (Area × 360) / (πr²)' }
+      ],
     },
     generateQuestion: () => makeMCQ('What is the formula for the AREA of a sector?', '(Angle/360) × πr²', ['(Angle/360) × πd', 'πr² ÷ Angle', 'πd ÷ 360'], 'Fraction of circle area', 'It is the fraction of the full circle (Angle/360) multiplied by the circle area formula (πr²).')
   },
@@ -1224,11 +1293,24 @@ const TOPICS = {
   'surds': {
     title: 'Surds',
     emoji: '√',
+    color: '#ff6b35',
     category: 'Number',
     description: 'Simplifying surds and rationalising denominators.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'What is a Surd?', content: 'A root that cannot be written as a whole number or simple fraction. e.g. √2. (√9 is NOT a surd because it equals 3).' }],
-      higher: [{ title: 'Rationalising Denominators', content: 'If there is a √x on the bottom of a fraction, multiply top and bottom by √x to get rid of it!' }]
+      foundation: [
+        { title: 'What is a Surd?', content: 'A root that cannot be written as a whole number or simple fraction. e.g. √2.', tip: '√9 is NOT a surd because it equals 3 (it is a rational number).' },
+        { title: 'Multiplying Surds', formula: '√a × √b = √ab', example: '√2 × √3 = √6' },
+        { title: 'Dividing Surds', formula: '√a ÷ √b = √(a / b)', example: '√10 ÷ √2 = √5' },
+        { title: 'Squares and Roots', content: 'Squaring a square root cancels it out!', example: '(√7)² = 7' }
+      ],
+      higher: [
+        { title: 'Simplifying Surds', content: 'Find a square factor (4, 9, 16, 25...) and take its root out.', example: '√75 = √(25 × 3) = √25 × √3 = 5√3' },
+        { title: 'Adding/Subtracting', content: 'You can only combine "like" surds. 5√2 + 3√2 = 8√2.', tip: 'Always simplify before adding/subtracting!' },
+        { title: 'Rationalising Denominators', content: 'Multiply top and bottom by the root to remove it from the bottom.', example: '1 / √2 = (1 × √2) / (√2 × √2) = √2 / 2' },
+        { title: 'Expanding Surd Brackets', content: 'Use FOIL just like algebra.', example: '(2 + √3)(2 - √3) = 4 - 2√3 + 2√3 - 3 = 1' }
+      ],
     },
     generateQuestion: () => makeMCQ('Simplify: √12', '2√3', ['3√2', '4√3', '6'], 'Look for a square factor', '√12 = √(4 × 3) = √4 × √3 = 2√3.')
   },
@@ -1248,15 +1330,343 @@ const TOPICS = {
   'two-way-tables': {
     title: 'Two-Way Tables',
     emoji: '🧮',
+    color: '#ff2d78',
     category: 'Statistics',
     description: 'Extracting and filling probability tables linking two variables.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
     lessons: {
-      foundation: [{ title: 'Totals Check', content: 'The totals of the rows must add up perfectly to the grand total, and the totals of the columns must do exactly the same.' }],
-      higher: [{ title: 'Conditional Probability', content: 'Watch out for questions saying "Given that...". This means you only look at one specific row or column, not the grand total!' }]
+      foundation: [
+        { title: 'The Layout', content: 'A grid that compares two categories (e.g. Boys/Girls vs Bus/Walk/Car).' },
+        { title: 'Totals Check', content: 'The totals of the rows must add up perfectly to the grand total, and the totals of the columns must do exactly the same.', tip: 'Always start with the rows/columns where only one box is missing.' },
+        { title: 'Finding Probabilities', content: 'Probability = (Cell Value) / (Grand Total).', example: '10 boys walk out of 50 total students → 10/50 = 1/5.' }
+      ],
+      higher: [
+        { title: 'Conditional Probability', content: 'Watch out for questions saying "Given that...". This means you only look at one specific row or column, not the grand total!', tip: 'The denominator changes!' },
+        { title: 'Combined Categories', content: 'You may need to add multiple cells together before dividing by the total.' },
+        { title: 'Setting Up from Words', content: 'Read the story carefully and fill in the known values. Usually, you have to find several "hidden" values to solve the final part.' }
+      ],
     },
     generateQuestion: () => {
       const a = r(10, 20); const b = r(5, 15);
       return { display: `Row total is 40.\nOne cell is ${a}, the second is ${b}.\nWhat is the third cell?`, answer: 40 - a - b, answerType: 'number' };
+    }
+  },
+
+  'simultaneous-equations': {
+    title: 'Simultaneous Equations',
+    emoji: '🔗',
+    color: '#00ff94',
+    category: 'Algebra',
+    description: 'Find the values of x and y that satisfy two equations at once.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Method of Elimination', content: 'Add or subtract the equations to get rid of one variable.', example: 'Eq1: x+y=10, Eq2: x-y=2\nAdd them: 2x = 12 → x = 6. Then 6+y=10 → y=4.' },
+        { title: 'Scaling Equations', content: 'If the coefficients don\'t match, multiply one or both equations by a number so they do.', example: '3x + y = 11, x + 2y = 7\nMultiply Eq1 by 2: 6x + 2y = 22. Now subtract Eq2!' },
+        { title: 'Same Sign Subtract (SSS)', content: 'If the matching coefficients have the same sign (e.g. both +2y), SUBTRACT the equations. If signs are different, ADD.', tip: 'SSS = Same Sign Subtract.' }
+      ],
+      higher: [
+        { title: 'Substitution Method', content: 'Rearrange one equation to make x or y the subject, then substitute it into the other.', tip: 'Best used when one x or y is already "on its own".' },
+        { title: 'Quadratic & Linear', content: 'One equation is a straight line, one is a circle or curve. Always use substitution.', example: 'y = x² and y = x+2\nx² = x + 2 → x² - x - 2 = 0' },
+        { title: 'Graphical Solution', content: 'The solutions are the coordinates (x, y) where the two lines INTERSECT.' },
+        { title: 'Word Problems', content: 'Set up two equations from a scenario (e.g. 2 adults and 3 children cost £25) and solve to find individual prices.' }
+      ],
+    },
+    generateQuestion: () => {
+      const x = r(2, 6); const y = r(1, 4);
+      const a = r(1, 3); const b = 1; const c1 = a * x + b * y;
+      const d = 1; const e = -1; const c2 = d * x + e * y;
+      return { 
+        display: `Solve:\n${a}x + y = ${c1}\nx - y = ${c2}\nFind x`, 
+        answer: x, 
+        hint: 'Add the equations together', 
+        explanation: `Summing them: (${a}x + x) + (y - y) = ${c1} + ${c2}\n${a+1}x = ${c1+c2}\nx = ${(c1+c2)/(a+1)}`
+      };
+    }
+  },
+
+  'pythagoras-trig': {
+    title: 'Pythagoras & SOHCAHTOA',
+    emoji: '📐',
+    color: '#00d4ff',
+    category: 'Geometry',
+    description: 'Calculate lengths and angles in right-angled triangles.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Pythagoras\' Theorem', formula: 'a² + b² = c²', content: 'c is always the hypotenuse (the longest side).', example: 'Sides 3 and 4: 3² + 4² = 25. √25 = 5.' },
+        { title: 'Finding a Shorter Side', content: 'Subtract the squares: c² - a² = b².', example: 'Hyp=13, side=5: 169 - 25 = 144. √144 = 12.' },
+        { title: 'Trigonometry (SOH CAH TOA)', content: 'Links angles and sides. Label sides: Opposite (from angle), Adjacent (next to), Hypotenuse (longest).', formula: 'sin θ = O/H, cos θ = A/H, tan θ = O/A' },
+        { title: 'Finding a Length', content: 'Pick Sin, Cos, or Tan based on what you have and what you want. Rearrange the formula.', tip: 'Use the trig triangles if you find rearranging hard!' }
+      ],
+      higher: [
+        { title: 'Finding an Angle', content: 'Use the inverse trig buttons (sin⁻¹, cos⁻¹, tan⁻¹).', example: 'sin θ = 0.5 → θ = sin⁻¹(0.5) = 30°' },
+        { title: 'Pythagoras in 3D', content: 'Apply a² + b² + c² = d² to find diagonals across rooms or pyramids.', example: 'Box 3x4x12: √(3²+4²+12²) = √169 = 13.' },
+        { title: 'Exact Trig Values', content: 'You must memorize sin/cos/tan for 0, 30, 45, 60, 90.', tip: 'sin 30 = 0.5, cos 60 = 0.5, tan 45 = 1.' },
+        { title: 'Trig Graphs', content: 'Know the shapes of Sine, Cosine, and Tangent waves from 0° to 360°.' }
+      ],
+    },
+    generateQuestion: () => {
+       const a = 3; const b = 4;
+       return makeMCQ('In a right triangle, sides are 3cm and 4cm. What is the hypotenuse?', '5cm', ['6cm', '7cm', '12cm'], '3² + 4² = x²', '9 + 16 = 25. √25 = 5.');
+    }
+  },
+
+  'vectors': {
+    title: 'Vectors',
+    emoji: '➗',
+    color: '#ff6b35',
+    category: 'Geometry',
+    description: 'Work with movement and direction as column vectors.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Column Vectors', content: 'Written as [x, y]. Top number is horizontal movement, bottom is vertical.', example: '[3, -2] means 3 right, 2 down.' },
+        { title: 'Adding & Subtracting', content: 'Just add/subtract the top numbers and the bottom numbers separately.', example: '[1, 2] + [3, 4] = [4, 6]' },
+        { title: 'Scalar Multipliers', content: 'Multiply both numbers by the scalar.', example: '3 × [2, 5] = [6, 15]' },
+        { title: 'Resultant Vectors', content: 'The single vector that replaces multiple movements. Geometrically, it\'s the "shortcut".' }
+      ],
+      higher: [
+        { title: 'Geometric Vectors', content: 'Vectors like a and b on a diagram. Go "the long way round" using known paths.', tip: 'Going against an arrow makes the vector negative!' },
+        { title: 'Midpoints & Ratios', content: 'Find points a fraction of the way along a line. E.g. M is the midpoint of AB: OM = OA + 0.5AB.' },
+        { title: 'Parallel Vectors', content: 'Vectors are parallel if one is a multiple of the other.', example: '[2, 3] is parallel to [4, 6] because [4, 6] = 2 × [2, 3].' },
+        { title: 'Collinear Points', content: 'To prove points A, B, and C lie on a straight line: show AB is parallel to BC and they share point B.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('If a = [2, 3] and b = [1, -5], what is a + b?', '[3, -2]', ['[3, 8]', '[1, 8]', '[2, -15]'], 'Add tops, add bottoms.', '[2+1, 3+(-5)] = [3, -2]');
+    }
+  },
+
+  'circle-theorems': {
+    title: 'Circle Theorems',
+    emoji: '⭕',
+    color: '#b14aed',
+    category: 'Geometry',
+    description: 'The geometric laws governing angles in circles.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Tangent & Radius', content: 'A tangent meets a radius at exactly 90°.', tip: 'Always look for the right angle if you see a line touching the edge!' },
+        { title: 'Two Tangents', content: 'Two tangents from the same external point to a circle are equal in length.' },
+        { title: 'Angles in a Semicircle', content: 'The angle in a semicircle is always 90°.', tip: 'If the hypotenuse is the diameter, the opposite angle is 90°.' }
+      ],
+      higher: [
+        { title: 'Angles at Center/Circumference', content: 'The angle at the center is TWICE the angle at the circumference.', tip: 'Look for an "arrowhead" shape.' },
+        { title: 'Cyclic Quadrilaterals', content: 'Opposite angles in a cyclic quadrilateral (all corners on the circle) add up to 180°.' },
+        { title: 'Alternate Segment Theorem', content: 'The angle between a tangent and its chord is equal to the angle in the alternate segment.', tip: 'This is usually the hardest theorem to spot!' },
+        { title: 'Same Segment', content: 'Angles in the same segment (from the same chord) are equal.', tip: 'Look for the "bowtie" or "butterfly" shape!' },
+        { title: 'Radius bisects Chord', content: 'A radius that is perpendicular to a chord bisects the chord (cuts it in half).' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('Angle at circumference is 40°. What is the angle at the center?', '80°', ['20°', '40°', '180°'], 'Center is double.', '40 × 2 = 80°.');
+    }
+  },
+
+  'probability-trees': {
+    title: 'Probability Trees',
+    emoji: '🌲',
+    color: '#ffe600',
+    category: 'Statistics',
+    description: 'Calculate probabilities of multiple events using tree diagrams.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'The Branches', content: 'Each set of branches from a point must add up to 1.', example: 'P(Rain) = 0.3 → P(No Rain) = 0.7' },
+        { title: 'Along the Branches', content: 'To find the probability of one event AND another, MULTIPLY along the branches.', example: '0.5 × 0.5 = 0.25' },
+        { title: 'Choosing Outcomes', content: 'Identify the specific end-points that satisfy the question (e.g. "at least one red").' }
+      ],
+      higher: [
+        { title: 'Dependent Events', content: 'The second set of branches changes based on the first outcome (e.g. picking without replacement).', tip: 'The denominator usually decrease by 1!' },
+        { title: 'At the End of Branches', content: 'To find the probability of one outcome OR another, ADD the results from the end of the trees.', formula: 'P(A or B) = P(A) + P(B)' },
+        { title: 'The "At Least One" Trick', content: 'P(At least one) = 1 − P(None). This is often much faster than adding many branches.', tip: 'Use this for "at least one 6" in three dice rolls.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('P(A) = 0.3, P(B) = 0.4. What is P(A and B)?', '0.12', ['0.7', '0.1', '0.5'], 'Multiply them.', '0.3 × 0.4 = 0.12');
+    }
+  },
+
+  'venn-diagrams': {
+    title: 'Venn Diagrams (Prob)',
+    emoji: '⭕',
+    color: '#ff2d78',
+    category: 'Statistics',
+    description: 'Using Venn diagrams to solve probability and set theory problems.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Intersection (A ∩ B)', content: 'The middle part where both things happen.', example: 'Students who like both Maths and Art.' },
+        { title: 'Union (A ∪ B)', content: 'Everything inside both circles. "A or B or both".' },
+        { title: 'Complement (A\')', content: 'Everything NOT in A.', tip: 'P(A) + P(A\') = 1.' }
+      ],
+      higher: [
+        { title: 'Conditional Venns', content: 'P(A|B) means "Probability of A GIVEN B". Your new total is only the people in circle B.', tip: 'P(A|B) = P(A ∩ B) / P(B)' },
+        { title: 'Three-Circle Venns', content: 'Handle overlapping groups for three categories. Always start from the very center (the intersection of all three) and work outwards.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('In a Venn, 5 are in the middle, 10 are in A only, 8 are in B only. How many in A union B?', '23', ['5', '15', '18'], '10 + 5 + 8', 'The union is everything inside both circles: 10 + 5 + 8 = 23.');
+    }
+  },
+
+  'surds-recurring': {
+    title: 'Surds & Recurring Decimals',
+    emoji: '√',
+    color: '#00d4ff',
+    category: 'Number',
+    description: 'Simplify surds, rationalise denominators, and convert recurring decimals.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Converting Recurring Decimals', content: 'Use algebra: let x = 0.777... then 10x = 7.777... Subtract x to get 9x = 7, so x = 7/9.', tip: 'The number of recurring digits tells you which power of 10 to multiply by.' },
+        { title: 'The Dot Notation', content: 'A dot over a number means it repeats forever. Dots over two numbers mean the whole block repeats.', example: '0.12̇3̇ = 0.1232323...' }
+      ],
+      higher: [
+        { title: 'Simplifying Surds', content: 'Find the largest square factor of the number inside the root.', formula: '√ab = √a × √b', example: '√12 = √4 × √3 = 2√3' },
+        { title: 'Multiplying Surds', content: 'Multiply the numbers inside the roots together.', example: '√2 × √8 = √16 = 4', tip: 'Always check if your result can be simplified further!' },
+        { title: 'Rationalising (Simple)', content: 'Multiply top and bottom by the surd to remove it from the denominator.', formula: '1/√a = √a / a', example: '5/√2 = 5√2 / 2' },
+        { title: 'Rationalising (Complex)', content: 'Multiply by the conjugate (reverse the sign).', formula: '1/(a + √b) × (a - √b)/(a - √b)', example: 'Sign swap: + becomes −. Middle terms cancel out!' }
+      ],
+    },
+    generateQuestion: () => {
+      const types = [
+        () => makeMCQ('Simplify √50', '5√2', ['2√5', '5√5', '10√5'], 'Find square factor 25.', '√50 = √25 × √2 = 5√2'),
+        () => makeMCQ('Convert 0.444... to a fraction', '4/9', ['4/10', '2/5', '4/99'], 'Use 10x - x.', '9x = 4 -> x = 4/9')
+      ];
+      return pick(types)();
+    }
+  },
+
+  'trigonometry': {
+    title: 'Trigonometry',
+    emoji: '📐',
+    color: '#ff2d78',
+    category: 'Geometry',
+    description: 'SOH CAH TOA, Sine rule, Cosine rule, and 3D applications.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Labeling the Sides', content: 'Hypotenuse (Longest, opposite 90°), Opposite (Across from the angle θ), Adjacent (Next to the angle θ).' },
+        { title: 'SOH CAH TOA', content: 'Sin θ = Opp/Hyp, Cos θ = Adj/Hyp, Tan θ = Opp/Adj.', tip: 'Use a mnemonic: Some Old Horses Can Always Hear Their Owners Approach.' },
+        { title: 'Finding a Side', content: 'Rearrange the formula and multiply or divide.', example: 'Opp = Hyp × Sin θ' },
+        { title: 'Finding an Angle', content: 'Use the inverse functions (sin⁻¹, cos⁻¹, tan⁻¹) on your calculator.', tip: 'Make sure your calculator is in DEGREES mode (D).' }
+      ],
+      higher: [
+        { title: 'The Sine Rule', formula: 'a/Sin A = b/Sin B = c/Sin C', tip: 'Use this when you have "opposite pairs" of sides and angles.' },
+        { title: 'The Cosine Rule (Side)', formula: 'a² = b² + c² − 2bc Cos A', tip: 'Use this when you have Side-Angle-Side (SAS).' },
+        { title: 'The Cosine Rule (Angle)', formula: 'Cos A = (b² + c² − a²) / 2bc' },
+        { title: 'Area of a Triangle', formula: 'Area = ½ab Sin C', tip: 'Works for any triangle, not just right-angled ones!' },
+        { title: 'Exact Trig Values', content: 'Learn: Sin 30 = 0.5, Cos 60 = 0.5, Tan 45 = 1.', tip: 'Often tested in non-calculator papers.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('In a right triangle, Opp=5, Hyp=10. What is Sin θ?', '0.5', ['2', '0.2', '1'], 'Opp/Hyp', '5/10 = 0.5');
+    }
+  },
+
+  'simultaneous-equations': {
+    title: 'Simultaneous Equations',
+    emoji: '📈',
+    color: '#00e5a0',
+    category: 'Algebra',
+    description: 'Solve two equations at the same time using elimination or substitution.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Elimination Method', content: 'Multiply one or both equations so one variable has the same coefficient. Then Add or Subtract to get rid of it.', tip: 'Same Signs Subtract (SSS), Different Signs Add.' },
+        { title: 'Substitution Method', content: 'Rearrange one equation for one variable (e.g. x = ...) and "plug it" into the other.', example: 'y = 2x, 3x + y = 10 -> 3x + 2x = 10' }
+      ],
+      higher: [
+        { title: 'Linear and Quadratic', content: 'Always use substitution. Express the linear as x = ... or y = ..., then substitute into the quadratic.', tip: 'Usually gives two pairs of answers (x₁, y₁) and (x₂, y₂).' },
+        { title: 'Graphical Solutions', content: 'The solution is the coordinates (x, y) where the two lines INTERSECT.', tip: 'Zoom in on the graph to find decimal solutions.' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('Solve: x + y = 10, x - y = 4. What is x?', '7', ['6', '5', '3'], 'Add the equations.', '2x = 14 -> x = 7');
+    }
+  },
+
+  'sequences': {
+    title: 'Sequences',
+    emoji: '🔢',
+    color: '#ffe600',
+    category: 'Algebra',
+    description: 'Linear (Arithmetic) and Quadratic sequences.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Linear Sequences (nth term)', content: 'The gap is constant. The formula is always "dn + c" where d is the difference.', example: '5, 8, 11... Gap is 3. nth term = 3n + 2' },
+        { title: 'Finding the Difference', content: 'Subtract the 1st term from the 2nd term.', tip: 'If the sequence goes down, the difference is negative!' }
+      ],
+      higher: [
+        { title: 'Quadratic Sequences', content: 'The SECOND difference is constant. The nth term involves n².', formula: 'an² + bn + c', tip: 'The second difference is equal to 2a.' },
+        { title: 'Geometric Sequences', content: 'Each term is multiplied by a common ratio.', example: '2, 6, 18, 54... (×3)' },
+        { title: 'Fibonacci-style', content: 'Each term is the sum of the two previous terms.', example: '1, 1, 2, 3, 5, 8...' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('Find nth term of: 4, 7, 10, 13...', '3n + 1', ['4n - 1', '3n + 4', 'n + 3'], 'Gap of 3.', '3n + 1 gives 4 when n=1.');
+    }
+  },
+
+  'vectors-basic': {
+    title: 'Vectors',
+    emoji: '↗️',
+    color: '#ff6b35',
+    category: 'Geometry',
+    description: 'Work with column vectors and vector geometry.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Column Vectors', content: 'Shows movement: top number is x (left/right), bottom is y (up/down).', example: '[3, -2] means 3 right, 2 down.' },
+        { title: 'Adding Vectors', content: 'Add the top numbers and add the bottom numbers separately.', example: '[1, 2] + [3, 4] = [4, 6]' },
+        { title: 'Multiplying by a Scalar', content: 'Multiply both components by the number outside.', example: '3 × [2, 1] = [6, 3]' }
+      ],
+      higher: [
+        { title: 'Vector Geometry', content: 'Find paths across a shape by following known vectors. `BA = −AB`.', tip: 'Going against the arrow means the vector becomes negative!' },
+        { title: 'Parallel Vectors', content: 'Two vectors are parallel if one is a multiple of the other.', example: '[1, 2] is parallel to [5, 10].' },
+        { title: 'Midpoints & Ratios', content: 'Use ratios to find parts of vectors (e.g. "P is 1/3 of the way along AB").' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('Vector a = [2, 3]. Find 2a.', '[4, 6]', ['[4, 3]', '[2, 6]', '[5, 5]'], 'Multiply both.', '[4, 6]');
+    }
+  },
+
+  'proportion': {
+    title: 'Direct & Inverse Proportion',
+    emoji: '⚖️',
+    color: '#b14aed',
+    category: 'Ratio',
+    description: 'Solve problems involving y ∝ x and y ∝ 1/x.',
+    hubPath: '/gcse/maths',
+    backLabel: 'Back to Maths',
+    lessons: {
+      foundation: [
+        { title: 'Direct Proportion', content: 'One value increases at the same rate as the other. y = kx.', example: '5 apples cost £1, so 10 apples cost £2.' },
+        { title: 'Inverse Proportion', content: 'As one value increases, the other DECREASES. y = k/x.', example: 'More builders on a job = less time taken.' }
+      ],
+      higher: [
+        { title: 'Proportion with Powers', content: 'y can be proportional to x², x³ or √x.', formula: 'y = kx²', example: 'Area of circle ∝ r²' },
+        { title: 'Finding k', content: 'Substitute values of x and y to find the constant of proportionality (k), then rewrite the formula.', tip: 'This is the first step in almost every proportion exam question!' }
+      ],
+    },
+    generateQuestion: () => {
+      return makeMCQ('y ∝ x. When x=2, y=10. What is k?', '5', ['2', '20', '0.2'], 'y = kx -> 10 = 2k', 'k = 5');
     }
   }
 };
