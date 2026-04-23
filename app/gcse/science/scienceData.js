@@ -889,6 +889,7 @@ const TOPICS = {
         () => makeMCQ('In a bar magnet, which direction do the magnetic field lines point?', 'From North to South', ['From South to North', 'Towards the center', 'Outwards in all directions'], 'N to S', 'Field lines always point from the North pole to the South pole.'),
         () => makeMCQ('What happens when two North poles are placed near each other?', 'They repel', ['They attract', 'Nothing happens', 'They spark'], 'Like poles', 'Like poles repel, opposite poles attract.'),
         () => makeMCQ('How can you make a solenoid (electromagnet) stronger?', 'Add an iron core', ['Use a wooden core', 'Decrease the current', 'Decrease the number of turns'], 'Iron is magnetic', 'Adding an iron core, increasing current, or adding more turns of wire increases strength.'),
+      ])();
     }
   },
 
