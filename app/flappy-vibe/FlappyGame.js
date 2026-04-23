@@ -67,15 +67,15 @@ const CHARACTERS = [
   { emoji: '🦄', name: 'Unicorn', trail: '🌈' },
 ];
 
-// ─── PHYSICS (forgiving, fun) ───
-const GRAVITY    = 0.38;
-const JUMP       = -7.2;
-const PIPE_WIDTH = 58;
+// ─── PHYSICS (Refined for better "feel") ───
+const GRAVITY    = 0.45;  // Increased for more weight
+const JUMP       = -8.2;  // Snappier jump
+const PIPE_WIDTH = 60;
 const CHAR_SIZE  = 40;
 const GROUND_H   = 70;
-const GAP        = 210;
-const PIPE_DIST  = 340;
-const BASE_SPEED = 3.1;
+const GAP        = 185;   // Slightly tighter for precision
+const PIPE_DIST  = 350;
+const BASE_SPEED = 3.5;   // Smoother speed
 
 // ─── STARS for space-like backgrounds ───
 function generateStars(count) {
@@ -103,6 +103,8 @@ export default function FlappyGame() {
   const [trail, setTrail] = useState([]);
   const [milestone, setMilestone] = useState(null);
   const [shakeTimer, setShakeTimer] = useState(0);
+  const [scale, setScale] = useState(1);
+  const [isMusicOn, setIsMusicOn] = useState(false);
 
   const areaRef = useRef(null);
   const scoreRef = useRef(0);
@@ -114,12 +116,26 @@ export default function FlappyGame() {
   const theme = THEMES[themeIdx];
   const char = CHARACTERS[charIdx];
 
-  // ─── High score persistence ───
+  // ─── High score & Responsiveness ───
   useEffect(() => {
     try {
       const saved = localStorage.getItem('flappy-vibe-high');
       if (saved) setHighScore(parseInt(saved, 10));
     } catch {}
+
+    const handleResize = () => {
+      if (!areaRef.current) return;
+      const parent = areaRef.current.parentElement;
+      const availableW = parent.clientWidth - 40;
+      const availableH = window.innerHeight - 200;
+      const scaleW = availableW / 400;
+      const scaleH = availableH / 650;
+      setScale(Math.min(scaleW, scaleH, 1.2)); // Cap scale at 1.2x
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // ─── Start / Restart ───
@@ -449,22 +465,79 @@ export default function FlappyGame() {
   const shakeY = shakeTimer > 0 ? (Math.random() - 0.5) * 8 : 0;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', userSelect: 'none' }}>
-      <div
-        ref={areaRef}
-        onClick={flap}
-        style={{
-          width: '100%', maxWidth: 400, height: 650,
-          background: `linear-gradient(180deg, ${theme.skyTop}, ${theme.skyBottom})`,
-          position: 'relative', overflow: 'hidden',
-          borderRadius: 24,
-          border: '3px solid rgba(255,255,255,0.1)',
-          cursor: 'pointer',
-          boxShadow: `0 20px 60px rgba(0,0,0,0.4), inset 0 0 80px ${theme.glow}`,
-          transform: `translate(${shakeX}px, ${shakeY}px)`,
-          transition: 'background 1.5s ease',
-        }}
-      >
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      userSelect: 'none',
+      width: '100%',
+      minHeight: '80vh',
+      justifyContent: 'center',
+      padding: '20px 0'
+    }}>
+      {/* Music Control */}
+      <div style={{
+        marginBottom: 20,
+        display: 'flex',
+        gap: 12,
+        alignItems: 'center',
+      }}>
+        <button 
+          onClick={() => setIsMusicOn(!isMusicOn)}
+          style={{
+            background: 'rgba(255,255,255,0.1)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            color: '#fff',
+            padding: '8px 16px',
+            borderRadius: 20,
+            cursor: 'pointer',
+            fontSize: 12,
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            backdropFilter: 'blur(10px)',
+          }}
+        >
+          {isMusicOn ? '🔊 Music On' : '🔇 Music Off'}
+        </button>
+        {isMusicOn && (
+          <audio autoPlay loop src="https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" />
+        )}
+      </div>
+
+      <div style={{
+        width: 400 * scale,
+        height: 650 * scale,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}>
+        <div style={{
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+          transition: 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'absolute',
+        }}>
+        <div
+          ref={areaRef}
+          onClick={flap}
+          style={{
+            width: 400, height: 650,
+            background: `linear-gradient(180deg, ${theme.skyTop}, ${theme.skyBottom})`,
+            position: 'relative', overflow: 'hidden',
+            borderRadius: 24,
+            border: '3px solid rgba(255,255,255,0.1)',
+            cursor: 'pointer',
+            boxShadow: `0 20px 60px rgba(0,0,0,0.4), inset 0 0 80px ${theme.glow}`,
+            transform: `translate(${shakeX}px, ${shakeY}px)`,
+            transition: 'background 1.5s ease',
+          }}
+        >
         {/* Stars */}
         {renderStars()}
 
@@ -718,8 +791,10 @@ export default function FlappyGame() {
           </div>
         )}
       </div>
+    </div>
+  </div>
 
-      <style>{`
+  <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.95); }
           to { opacity: 1; transform: scale(1); }
