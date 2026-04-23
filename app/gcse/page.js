@@ -4,114 +4,8 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
-
-// ── Streak particle system (8bit.ai inspired) ──────────────────────────────
-function StarCanvas() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let rafId;
-    let W = canvas.width = window.innerWidth;
-    let H = canvas.height = window.innerHeight;
-
-    // Streaks — diagonal light lines like 8bit.ai
-    const streaks = Array.from({ length: 60 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      len: Math.random() * 120 + 40,
-      speed: Math.random() * 1.2 + 0.4,
-      opacity: Math.random() * 0.4 + 0.05,
-      angle: -55 + Math.random() * 20, // diagonal angle in degrees
-      width: Math.random() * 1 + 0.3,
-    }));
-
-    // Stars — static points
-    const stars = Array.from({ length: 120 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.2 + 0.2,
-      opacity: Math.random() * 0.5 + 0.1,
-      pulse: Math.random() * Math.PI * 2,
-    }));
-
-    const resize = () => {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', resize);
-
-    let frame = 0;
-    const draw = () => {
-      frame++;
-      ctx.clearRect(0, 0, W, H);
-
-      // Draw stars
-      stars.forEach(s => {
-        const osc = Math.sin(s.pulse + frame * 0.012) * 0.2 + 0.8;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${s.opacity * osc})`;
-        ctx.fill();
-      });
-
-      // Draw streaks
-      streaks.forEach(s => {
-        const rad = (s.angle * Math.PI) / 180;
-        const dx = Math.cos(rad) * s.len;
-        const dy = Math.sin(rad) * s.len;
-
-        const grad = ctx.createLinearGradient(s.x, s.y, s.x + dx, s.y + dy);
-        grad.addColorStop(0, `rgba(255,255,255,0)`);
-        grad.addColorStop(0.5, `rgba(200,230,255,${s.opacity})`);
-        grad.addColorStop(1, `rgba(255,255,255,0)`);
-
-        ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(s.x + dx, s.y + dy);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = s.width;
-        ctx.stroke();
-
-        // Move streak diagonally
-        s.x += s.speed * Math.cos(rad) * 0.5;
-        s.y += s.speed * Math.sin(rad) * 0.5 + s.speed * 0.3;
-
-        // Reset when off screen
-        if (s.y > H + 50 || s.x > W + 50) {
-          s.x = Math.random() * W * 1.5 - W * 0.25;
-          s.y = -100;
-          s.opacity = Math.random() * 0.4 + 0.05;
-          s.len = Math.random() * 120 + 40;
-        }
-      });
-
-      rafId = requestAnimationFrame(draw);
-    };
-
-    draw();
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'fixed',
-        top: 0, left: 0,
-        width: '100%', height: '100%',
-        zIndex: 0,
-        pointerEvents: 'none',
-        opacity: 0.9,
-      }}
-    />
-  );
-}
+import SubjectCanvas from './components/SubjectCanvas';
+import SubjectIcon from './components/SubjectIcon';
 
 // ── Scroll-reveal hook ──────────────────────────────────────────────────────
 function useScrollReveal(threshold = 0.15) {
@@ -135,32 +29,32 @@ function useScrollReveal(threshold = 0.15) {
 // ── Data ────────────────────────────────────────────────────────────────────
 const SUBJECTS = [
   {
-    emoji: '🔢', title: 'Maths',
+    subjectId: 'maths', title: 'Maths',
     desc: 'Algebra, geometry, fractions, statistics. Full AQA & Edexcel curriculum.',
     path: '/gcse/maths', color: '#00e5a0', topics: 42,
   },
   {
-    emoji: '🔬', title: 'Science',
+    subjectId: 'science', title: 'Science',
     desc: 'Biology, Chemistry, and Physics. Triple & Combined award coverage.',
     path: '/gcse/science', color: '#00d4ff', topics: 48,
   },
   {
-    emoji: '💻', title: 'Computer Science',
+    subjectId: 'computer-science', title: 'Computer Science',
     desc: 'OCR J277: algorithms, logic, networking, and programming fundamentals.',
     path: '/gcse/computer-science', color: '#ff2d78', topics: 22,
   },
   {
-    emoji: '💼', title: 'Business',
+    subjectId: 'business', title: 'Business',
     desc: 'Finance, marketing, and operations aligned to AQA specification.',
     path: '/gcse/business', color: '#ffe600', topics: 18,
   },
   {
-    emoji: '✍️', title: 'English Language',
+    subjectId: 'english-language', title: 'English Language',
     desc: 'AQA reading analysis (AO1–AO4), creative and transactional writing.',
     path: '/gcse/english-language', color: '#ffe600', topics: 7,
   },
   {
-    emoji: '📚', title: 'English Literature',
+    subjectId: 'english-literature', title: 'English Literature',
     desc: 'Shakespeare, 19th Century Novels, Modern Drama and Poetry deep-dives.',
     path: '/gcse/english-literature', color: '#b14aed', topics: 15,
   },
@@ -177,7 +71,7 @@ export default function GCSEHub() {
 
   return (
     <>
-      <StarCanvas />
+      <SubjectCanvas accentColor="#00e5a0" />
 
       <div style={{ position: 'relative', zIndex: 1 }}>
 
@@ -518,19 +412,18 @@ function SubjectCell({ subject, delay, visible }) {
         }} />
       )}
 
-      {/* Top row: emoji + arrow */}
+      {/* Top row: icon + arrow */}
       <div style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
         marginBottom: 28,
       }}>
-        <span style={{
-          fontSize: 28,
+        <div style={{
           transition: 'transform 0.3s ease',
-          display: 'block',
           transform: hovered ? 'scale(1.1)' : 'scale(1)',
+          filter: `drop-shadow(0 0 16px ${subject.color}${hovered ? '80' : '00'})`,
         }}>
-          {subject.emoji}
-        </span>
+          <SubjectIcon subject={subject.subjectId} color={subject.color} size={48} />
+        </div>
         <span style={{
           fontSize: 18,
           color: hovered ? subject.color : 'rgba(255,255,255,0.12)',
