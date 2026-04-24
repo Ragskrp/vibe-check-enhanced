@@ -47,6 +47,14 @@ export const TOPICS = {
         { title: 'Embedded Systems', content: 'Computers built into larger devices (e.g. washing machines, microwaves). They are usually designed for one specific task and are very reliable.' }
       ],
     },
+    hacks: [
+      { title: 'MAR vs MDR', content: 'MAR (Memory Address Register) holds the WHERE (the address). MDR (Memory Data Register) holds the WHAT (the data itself). A comes before D, Address comes before Data.' },
+      { title: 'Clock Speed Trap', content: 'Clock speed (GHz) isn\'t everything. A CPU with 4 cores at 2GHz might be faster than a 1 core CPU at 3GHz for complex tasks!' }
+    ],
+    advanced: [
+      { title: 'The Von Neumann Bottleneck', content: 'Since data and instructions share the same bus, the CPU often has to wait for data to arrive from memory. This is called the "bottleneck" and is a major limit on computer speed.' },
+      { title: 'Pipelining', content: 'Modern CPUs don\'t just do one FDE cycle at a time. They start fetching the next instruction while the current one is being decoded, like an assembly line.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         return pick([
@@ -296,6 +304,14 @@ export const TOPICS = {
         { title: 'Maintainability', content: 'Writing code that is easy for others to understand. Use: Indentation, Comments, and Meaningful Variable names.', tip: 'Good luck reading code named `x = a + y` in 6 months!' }
       ],
     },
+    hacks: [
+      { title: 'Abstraction is Hiding', content: 'In an exam, remember: Abstraction is NOT deleting details; it is HIDING irrelevant ones. Like using a TV remote without knowing how the internal circuits work.' },
+      { title: 'Validation vs Verification', content: 'Validation: "Is it the right type?" (e.g. is it a number?). Verification: "Is it actually correct?" (e.g. is it the right password?).' }
+    ],
+    advanced: [
+      { title: 'Big O Notation', content: 'Computer scientists use "Big O" to describe how the time or space taken by an algorithm grows as the input size grows. O(1) is constant, O(n) is linear, and O(n²) is quadratic.' },
+      { title: 'The Halting Problem', content: 'Alan Turing proved that there are some problems that computers can NEVER solve, such as determining if a general program will ever stop or loop forever.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [

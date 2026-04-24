@@ -1,182 +1,138 @@
-'use client';
-
 import Link from 'next/link';
-import { ChevronLeft, Clock } from 'lucide-react';
+import { ArrowLeft, Book, Sparkles, History, Zap, Search, Globe, Smartphone, BookOpen, Quote } from 'lucide-react';
+import BlogArt from '@/app/blog/components/BlogArt';
 
-export default function HistoryOfWordGames() {
+export default function HistoryWordGamesPage() {
   return (
     <div className="page-container animate-fade-in">
-      <div style={{ marginBottom: 24 }}>
-        <Link
-          href="/blog"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            color: '#888',
-            fontSize: 13,
-            fontWeight: 700,
-            textDecoration: 'none',
-          }}
-        >
-          <ChevronLeft size={14} /> BACK TO BLOG
+      <nav style={{ marginBottom: 40 }}>
+        <Link href="/blog" className="nav-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+          <ArrowLeft size={16} /> Back to Blog
         </Link>
-      </div>
+      </nav>
 
-      <article className="card" style={{ maxWidth: 800, margin: '0 auto', padding: '48px 40px' }}>
-        <div style={{ marginBottom: 32 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-            <span style={{ fontSize: 36 }}>Words</span>
-            <span
-              style={{
-                fontSize: 11,
-                fontWeight: 800,
-                color: '#ff2d78',
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-              }}
-            >
-              Culture and Design
-            </span>
+      <article style={{ maxWidth: 900, margin: '0 auto' }}>
+        <header style={{ marginBottom: 56 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#ffd700', fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: 13 }}>
+            <History size={16} /> Cultural History
           </div>
-          <h1 className="game-title" style={{ textAlign: 'left', fontSize: 30, marginBottom: 12, lineHeight: 1.3 }}>
-            How Old Word-Game Ideas Still Shape <span style={{ color: '#ff2d78' }}>WordVibe</span>
+          <h1 className="hero-title" style={{ fontSize: 'calc(28px + 2vw)', lineHeight: 1.1, marginBottom: 24 }}>
+            The Archeology of Play: A <span>History</span> of Word Games
           </h1>
-          <div style={{ display: 'flex', gap: 16, fontSize: 13, color: '#555', flexWrap: 'wrap' }}>
-            <span>By the VIBEMENOW Editorial Team</span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <Clock size={12} /> 6 Min Read
-            </span>
-            <span>•</span>
-            <span>April 2026</span>
+          <p className="hero-desc" style={{ fontSize: 20, color: '#aaa', maxWidth: '100%', lineHeight: 1.6 }}>
+            From the stone-carved Sator Square of Pompeii to the viral green squares of Wordle, humans have always been obsessed with linguistic puzzles. Explore the 2,000-year evolution of the word game.
+          </p>
+        </header>
+
+        <figure style={{ marginBottom: 56, borderRadius: 32, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+          <div style={{ width: '100%', height: 500, position: 'relative' }}>
+             <BlogArt type="history-of-word-games" />
           </div>
-        </div>
+          <figcaption style={{ padding: '20px 32px', fontSize: 15, color: '#888', fontStyle: 'italic', textAlign: 'center', lineHeight: 1.6 }}>
+            The Sator Square: An ancient Roman palindrome that served as the world's first popular word puzzle and a magical talisman.
+          </figcaption>
+        </figure>
 
-        <div style={{ color: '#ccc', lineHeight: 1.85, fontSize: 16 }}>
-          <p style={{ marginBottom: 20, fontSize: 18, color: '#aaa', fontStyle: 'italic' }}>
-            Good word games rarely feel completely new. Most of them are smart recombinations of
-            older ideas: limited guesses, visible feedback, vocabulary recall, and the quiet
-            satisfaction of narrowing a problem down one letter at a time.
+        <section className="blog-content" style={{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}>
+          <p>
+            Language is often viewed as a tool for utility—a way to transfer data from one mind to another. But for as long as we have had words, we have had the urge to play with them. Word games are unique because they exist at the intersection of <strong>logic</strong> and <strong>creativity</strong>. They require the analytical precision of a mathematician and the intuitive flair of a poet.
           </p>
-
-          <p style={{ marginBottom: 20 }}>
-            That is also true of <strong>WordVibe</strong>. The game lives in a browser and uses a
-            modern interface, but its core appeal comes from traditions that are much older than
-            the web itself.
+          <p>
+            This journey begins not in a digital app store, but in the ash-covered ruins of Pompeii, where an ancient Roman carved a five-by-five grid that would puzzle historians for two millennia.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            Word Games Have Always Been About Constraint
-          </h2>
-          <p style={{ marginBottom: 20 }}>
-            The common thread across crosswords, tile games, newspaper puzzles, and modern web
-            formats is constraint. You do not have every letter. You do not have unlimited moves.
-            You have to work inside a small ruleset and make better decisions with partial
-            information.
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>The Sator Square: The First Palindrome</h2>
+          <p>
+            Found in sites across the Roman Empire, the <strong>Sator Square</strong> is a masterpiece of linguistic symmetry. It contains five Latin words: SATOR, AREPO, TENET, OPERA, and ROTAS. These words form a palindrome that can be read top-to-bottom, bottom-to-top, left-to-right, and right-to-left. 
           </p>
-          <p style={{ marginBottom: 20 }}>
-            That is why word games remain durable. Language itself is huge, but a puzzle turns it
-            into a manageable problem. Five letters. Six tries. One clue. One grid. One board.
-            That compression is what makes the challenge inviting rather than overwhelming.
+          <p>
+            For the Romans, this wasn't just a puzzle; it was a <strong>talisman</strong>. It was believed to have magical properties, capable of curing illnesses and protecting homes from fire. It represents the first time in recorded history where the <em>structure</em> of words was seen as having a power beyond their literal meaning.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            The Print Era Taught People to Love Slow Solving
-          </h2>
-          <p style={{ marginBottom: 20 }}>
-            Newspaper crosswords and magazine puzzles helped establish the rhythm that many digital
-            games still follow: stop for a few minutes, test an idea, erase, try again. Those
-            formats were not exciting because they were fast. They were satisfying because they
-            rewarded patience, pattern recognition, and memory.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            Even now, a browser word game works best when it preserves some of that feeling. The
-            player should sense progress, not chaos. Every guess should reduce uncertainty.
-          </p>
-
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            The Tile-Game Era Added Strategy
-          </h2>
-          <p style={{ marginBottom: 20 }}>
-            Board-based word games added another layer: efficiency. It was no longer enough to know
-            a word. You also had to decide when to spend good letters, when to play safely, and how
-            to leave yourself options for the next turn.
-          </p>
-          <p style={{ marginBottom: 20 }}>
-            That strategic habit still shows up in modern guessing games. In WordVibe, players
-            quickly learn that a guess is not just a guess. It is also an information-gathering
-            move. A strong opening word earns value even when it is wrong, because it helps shape
-            the next decision.
-          </p>
-
-          <div
-            style={{
-              padding: 20,
-              borderRadius: 16,
-              background: 'rgba(255, 45, 120, 0.05)',
-              border: '1px solid rgba(255, 45, 120, 0.15)',
-              margin: '24px 0',
-            }}
-          >
-            <p style={{ margin: 0, fontSize: 14, color: '#ffc0d6' }}>
-              One reason modern browser word games work so well is that they borrow the best part of
-              older formats: they let the player feel clever often.
+          <div style={{ padding: '40px', borderRadius: 32, background: 'rgba(255, 215, 0, 0.04)', border: '1px solid rgba(255, 215, 0, 0.1)', margin: '56px 0' }}>
+            <h3 style={{ color: '#ffd700', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
+              <Quote size={24} /> "The Sower Arepo Holds the Wheels"
+            </h3>
+            <p style={{ margin: 0, fontSize: 17, color: '#eee', fontStyle: 'italic' }}>
+              While the literal translation is debated, the Sator Square's endurance (appearing in Medieval cathedrals and Viking runestones) proves that the 'Puzzle Instinct' is a universal human trait.
             </p>
           </div>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            The Web Changed the Pace, Not the Core Appeal
-          </h2>
-          <p style={{ marginBottom: 20 }}>
-            Browser play removed friction. No pencil, no board, no setup, no waiting for an app
-            install. That made word games easier to revisit in short bursts. It also made feedback
-            more immediate. The grid can respond instantly, the keyboard can update live, and the
-            player can restart without ceremony.
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>The Victorian Era: Lewis Carroll and "Doublets"</h2>
+          <p>
+            Fast forward to the 19th century. The Victorian era was the golden age of the "parlor game." In 1877, Lewis Carroll, the author of *Alice in Wonderland*, invented a game called <strong>Doublets</strong> (now known as Word Ladders). 
           </p>
-          <p style={{ marginBottom: 20 }}>
-            What did not change is the underlying pleasure of moving from uncertainty to clarity.
-            That is the part worth preserving, and it is the part we try to keep visible in
-            WordVibe.
+          <p>
+            The challenge was simple: turn "COLD" into "WARM" by changing one letter at a time, with each step being a valid word (COLD -> CORD -> WORD -> WORM -> WARM). Carroll, a mathematician by trade, saw these games as more than entertainment; they were exercises in <strong>deductive logic</strong>. He believed that linguistic play could sharpen the mind for more "serious" scientific inquiry.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            What We Tried to Keep in WordVibe
-          </h2>
-          <p style={{ marginBottom: 20 }}>
-            From a site-design point of view, WordVibe is our attempt to keep the format lean. The
-            rules are short. The board is readable. The player can understand what happened after
-            each guess without reading a long manual. That is more important than novelty for its
-            own sake.
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>1913: The Birth of the Crossword</h2>
+          <p>
+            On December 21, 1913, Arthur Wynne, a journalist for the *New York World*, published what he called a "Word-Cross" puzzle. He didn't know he was starting a revolution. The game was an instant hit, providing a much-needed distraction for a world on the brink of World War I.
           </p>
-          <p style={{ marginBottom: 20 }}>
-            We also like that word games sit comfortably beside the rest of the site. They provide a
-            different tempo from reaction games or multiplayer rooms. A good games collection does
-            not need every page to feel the same; it needs each page to justify its place.
+          <p>
+            By the 1920s, the crossword had become a global craze. It was the first time that word games moved from the elite parlor rooms to the daily newspapers of the masses. The *New York Times*, however, resisted the trend for decades, calling crosswords a "primitive form of mental exercise," before finally relenting in 1942 as a way to provide relief from war news.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: 22, marginTop: 40, marginBottom: 16 }}>
-            Why the Format Still Lasts
-          </h2>
-          <p style={{ marginBottom: 24 }}>
-            Word games endure because language endures. People still enjoy testing recall, spotting
-            patterns, and finding the exact word that fits. The interface may evolve, but the
-            pleasure is recognisable across generations. That is less a trend than a design truth.
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 32, margin: '56px 0' }}>
+            <div className="card" style={{ padding: 32, background: 'rgba(255,255,255,0.02)' }}>
+              <Search style={{ color: '#00d4ff', marginBottom: 16 }} />
+              <h4 style={{ marginBottom: 12, fontSize: 20 }}>Cryptic Clues</h4>
+              <p style={{ fontSize: 15, color: '#888', margin: 0 }}>The British 'Cryptic' crossword added a layer of lateral thinking, requiring players to solve puns and anagrams to find the answers.</p>
+            </div>
+            <div className="card" style={{ padding: 32, background: 'rgba(255,255,255,0.02)' }}>
+              <Globe style={{ color: '#00ff94', marginBottom: 16 }} />
+              <h4 style={{ marginBottom: 12, fontSize: 20 }}>Scrabble Diplomacy</h4>
+              <p style={{ fontSize: 15, color: '#888', margin: 0 }}>Invented during the Great Depression, Scrabble became a way for families to connect during lean times, eventually becoming a global competitive sport.</p>
+            </div>
+          </div>
+
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>The Digital Revolution: From Hangman to Wordle</h2>
+          <p>
+            As computers entered our homes in the 80s and 90s, word games were among the first to be digitized. Simple games like <strong>Hangman</strong> and <strong>TextTwist</strong> proved that linguistic play didn't need high-end graphics to be addictive.
+          </p>
+          <p>
+            In 2021, the world was taken by storm by <strong>Wordle</strong>. Josh Wardle, a software engineer, created the game as a gift for his partner who loved word puzzles. Its success was a masterclass in modern psychology. By limiting the game to one puzzle per day, Wardle created <strong>scarcity</strong>. By allowing people to share their results via colored emoji grids, he created a <strong>shared social ritual</strong>.
           </p>
 
-          <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <Link href="/wordvibe">
-              <button className="btn-primary" style={{ fontSize: 16 }}>
-                Play WordVibe
-              </button>
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>Neuroscience: The Reward of the "Perfect Word"</h2>
+          <p>
+            Why do we find these games so satisfying? 2024 neuroimaging shows that solving a word puzzle activates <strong>Broca's Area</strong> (speech production) and the <strong>ventral striatum</strong> (the brain's reward center). 
+          </p>
+          <p>
+            When you find a difficult word in a game, your brain releases a burst of dopamine. This is the same chemical reward you get from eating a good meal or winning a race. Linguistic play is effectively "hacking" our evolutionary need to communicate, turning the mastery of language into a source of pleasure.
+          </p>
+
+          <div style={{ padding: '40px', borderRadius: 32, background: 'rgba(0, 212, 255, 0.04)', border: '1px solid rgba(0, 212, 255, 0.1)', margin: '56px 0' }}>
+            <h3 style={{ color: '#00d4ff', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
+              <Smartphone size={24} /> The VIBEMENOW Philosophy
+            </h3>
+            <p style={{ margin: 0, fontSize: 17, color: '#eee' }}>
+              We believe the future of word games lies in 'Adaptive Flow'. By using AI to match the difficulty of the game to your current vocabulary, we can ensure you are always in the 'Goldilocks Zone' of engagement—not so easy that it's boring, and not so hard that it's frustrating.
+            </p>
+          </div>
+
+          <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>Conclusion: The Endless Conversation</h2>
+          <p>
+            Word games are a testament to the versatility of the human mind. They show us that language is not a static set of rules, but a living, breathing playground. From the Sator Square to Wordle, these games have provided a bridge between cultures, generations, and technologies. As long as there are words, there will be humans eager to rearrange them, decode them, and play with them.
+          </p>
+        </section>
+
+        <footer style={{ marginTop: 80, padding: 56, borderRadius: 32, background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 212, 255, 0.05))', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+          <h3 style={{ fontSize: 24, marginBottom: 16 }}>Join the History of Play</h3>
+          <p style={{ color: '#888', marginBottom: 32, maxWidth: 500, margin: '0 auto 32px' }}>
+            Ready to test your linguistic logic? Try our modern takes on classic word puzzles and see where you fit in the timeline of play.
+          </p>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
+            <Link href="/" className="btn btn-primary" style={{ padding: '14px 40px' }}>
+              Play Word Games
+            </Link>
+            <Link href="/blog" className="btn btn-outline" style={{ padding: '14px 40px' }}>
+              Explore More History
             </Link>
           </div>
-        </div>
+        </footer>
       </article>
-
-      <div style={{ textAlign: 'center', marginTop: 40, color: '#555', fontSize: 12 }}>
-        <p>© 2026 VIBEMENOW (vibemenow.uk). Editorial commentary from the site team.</p>
-      </div>
     </div>
   );
 }

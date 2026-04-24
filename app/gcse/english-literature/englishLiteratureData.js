@@ -34,6 +34,14 @@ export const TOPICS = {
         { title: 'Kingship vs Tyranny', content: 'Contrast Duncan and Edward the Confessor (good kings) with Macbeth (a tyrant). What makes a ruler "holy" vs "evil"?' }
       ],
     },
+    hacks: [
+      { title: 'Contextual Glue', content: 'Avoid "bolt-on" history. Instead of just saying "King James liked witches," say "Shakespeare utilizes the witches to appeal to King James I\'s contemporary anxieties regarding the supernatural and the stability of the throne."' },
+      { title: 'The Turning Point', content: 'In any Macbeth essay, mention Act 3 Scene 4 (the banquet). This is the "peripeteia"—the point of no return where Macbeth\'s internal guilt becomes a public spectacle.' }
+    ],
+    advanced: [
+      { title: 'Chiasmus & Duality', content: 'The play opens with "Fair is foul and foul is fair." This is a chiasmus (A-B-B-A structure) which signals that the moral order of Scotland has been inverted. It suggests that appearances are deceptive throughout.' },
+      { title: 'The Uncanny', content: 'The Witches represent the "Uncanny"—something that is familiar yet strangely alien. Their "Equivocation" (speaking in half-truths) mirrors the way Macbeth lies to himself.' }
+    ],
     generateQuestion: () => {
       const types = [
         () => makeMCQ('Who said "Out, damned spot!"?', 'Lady Macbeth', ['Macbeth', 'Banquo', 'The Witches'], 'She is sleepwalking.', 'Lady Macbeth says this while trying to "wash" imaginary blood from her hands in Act 5.'),
@@ -135,6 +143,14 @@ export const TOPICS = {
         { title: 'Setting as Symbolism', content: 'Contrast Jekyll\'s grand house with the "sinister" back door that Hyde uses. They represent the two faces of London.' }
       ],
     },
+    hacks: [
+      { title: 'Analyze the Names', content: 'Jekyll comes from "Je" (French for "I") and "Kyll" (Kill). Hyde is a homophone for "Hide." Stevenson is literally telling us that Jekyll wants to "kill the I" (his ego) and Hyde is the part he wants to "hide" from society.' },
+      { title: 'The Fog of London', content: 'Mention the "Pathetic Fallacy" of the London fog. It doesn\'t just set a mood; it represents the moral obscurity and the secrets hidden within Victorian society.' }
+    ],
+    advanced: [
+      { title: 'The Gothic Double', content: 'Stevenson utilizes the trope of the "Doppelgänger." Hyde is not a separate person, but a "projection" of Jekyll\'s repressed desires. This critiques the hypocrisy of Victorian morality.' },
+      { title: 'Epistolary Logic', content: 'The novel uses an "Epistolary" structure (letters and documents). This creates a sense of objective scientific proof, making the supernatural elements feel more terrifyingly real to a 19th-century reader.' }
+    ],
     generateQuestion: () => makeMCQ('Which character is the "detective" figure in the novel?', 'Gabriel Utterson', ['Dr Lanyon', 'Mr Poole', 'Sir Danvers Carew'], 'He is a lawyer.', 'Mr Utterson is the rational, law-abiding friend who investigates the mystery of Hyde.')
   },
 
@@ -184,6 +200,14 @@ export const TOPICS = {
         { title: 'AO2: Structure: The Final Twist', content: 'The phone ringing at the end. Is the Inspector a ghost? Time traveler? Or a personification of conscience?', tip: 'Use the term "Anagnorisis"—the moment of realization/discovery.' }
       ],
     },
+    hacks: [
+      { title: 'The Ouspensky Theory', content: 'Priestley was fascinated by "Ouspensky’s theory of time"—the idea that we repeat our lives until we learn from our mistakes. The ending (the phone ringing again) suggests the Birlings are being given a second chance to change. Use this to explain the play\'s structure.' },
+      { title: 'Sheila as the Pupil', content: 'Track Sheila\'s language. At the start, she uses childish slang like "squiffy" and "mommy." By the end, she echoes the Inspector\'s sophisticated metaphors ("fire and blood and anguish"). She is the only character who truly "learns" the lesson.' }
+    ],
+    advanced: [
+      { title: 'The Seven Deadly Sins', content: 'Each member of the Birling family represents a specific "Deadly Sin." Mr Birling is Greed, Mrs Birling is Pride, Sheila is Envy, Eric is Lust/Gluttony, and Gerald is Lust. The Inspector acts as a divine judge exposing these sins.' },
+      { title: 'Stage Directions', content: 'Notice the lighting shift: "pink and intimate" at the start, then "brighter and harder" when the Inspector arrives. This symbolizes the "interrogation" of their comfortable lies by the harsh light of truth.' }
+    ],
     generateQuestion: () => makeMCQ('In what year is the play SET?', '1912', ['1945', '1918', '1939'], 'Before WWI.', 'The play was written in 1945 but set in 1912 to exploit dramatic irony about the future.')
   },
 

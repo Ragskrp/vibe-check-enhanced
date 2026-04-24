@@ -4,7 +4,7 @@ import { useState } from 'react';
 import PreRollAd from './PreRollAd';
 
 export default function AdGateway({ gameName, children }) {
-  const prerollEnabled = process.env.NEXT_PUBLIC_ENABLE_PREROLL_ADS === 'true';
+  const prerollEnabled = false; // Temporarily disabled for AdSense review
   const [gameReady, setGameReady] = useState(false);
 
   if (!prerollEnabled) {

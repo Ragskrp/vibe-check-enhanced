@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import AdBanner from '../../../components/AdBanner';
 import LessonCards from '../../components/LessonCards';
 import Link from 'next/link';
-import { Timer, Flame, Trophy, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap } from 'lucide-react';
+import { Timer, Flame, Trophy, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain } from 'lucide-react';
+import PedagogyBridge from '../../components/PedagogyBridge';
 
 // Lesson content for Algebra
 const ALGEBRA_LESSONS = {
@@ -433,6 +434,8 @@ export default function EquationRush() {
         )}
 
         <AdBanner format="rectangle" />
+
+        <PedagogyBridge type="metacognition" />
 
         {/* Suggest next step */}
         {mode === 'practice' && accuracy < 80 && (

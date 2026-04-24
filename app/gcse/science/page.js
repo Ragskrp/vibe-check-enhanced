@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Flame, Trophy } from 'lucide-react';
+import { Flame, Trophy, Beaker, Atom, Zap, Microscope, ArrowRight, Sparkles, Activity } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './scienceData';
 import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import PedagogyBridge from '../components/PedagogyBridge';
 
 const COLOR = '#00d4ff';
 const CATEGORY_ORDER = ['Biology', 'Chemistry', 'Physics'];
@@ -47,47 +48,75 @@ export default function ScienceHub() {
       <div style={{ position: 'relative', zIndex: 1 }}>
 
         {/* ── HERO ── */}
-        <section ref={hero.ref} style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 clamp(20px,5vw,100px)', maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ opacity: mounted ? 1 : 0, transform: mounted ? 'none' : 'translateY(20px)', transition: 'all 0.7s ease' }}>
-            <div style={{ marginBottom: 24 }}><SubjectIcon subject="science" color={COLOR} size={80} /></div>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter,sans-serif', marginBottom: 14 }}>GCSE Revision</div>
-            <h1 style={{ fontSize: 'clamp(44px,8vw,88px)', fontWeight: 300, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#fff', marginBottom: 20 }}>
-              Science.<br />
-              <span style={{ fontWeight: 700, background: `linear-gradient(135deg,#fff 40%,${COLOR} 100%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>All three.</span>
+        <section ref={hero.ref} style={{
+          minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+          padding: '0 clamp(20px,5vw,100px)', maxWidth: 1200, margin: '0 auto',
+        }}>
+          <div style={{ opacity: mounted ? 1 : 0, transform: mounted ? 'none' : 'translateY(30px)', transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)' }}>
+            <div style={{ marginBottom: 32, filter: `drop-shadow(0 0 20px ${COLOR}40)` }}>
+              <SubjectIcon subject="science" color={COLOR} size={100} />
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif', marginBottom: 16 }}>
+              Triple & Combined · GCSE Science
+            </div>
+            <h1 style={{ fontSize: 'clamp(48px,9vw,110px)', fontWeight: 200, lineHeight: 1.0, letterSpacing: '-0.04em', color: '#fff', marginBottom: 24 }}>
+              Empirical<br />
+              <span style={{ fontWeight: 800, background: `linear-gradient(135deg,#fff 30%,${COLOR} 100%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Foundations.</span>
             </h1>
-            <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 16, color: 'rgba(255,255,255,0.4)', maxWidth: 480, lineHeight: 1.75, marginBottom: 36 }}>
-              Biology, Chemistry, and Physics — interactive revision for both Foundation and Higher tiers.
+            <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 18, color: 'rgba(255,255,255,0.45)', maxWidth: 540, lineHeight: 1.8, marginBottom: 48, fontWeight: 300 }}>
+              Decode the universe. From cellular biology to quantum mechanics—interactive practice built for the modern scientist.
             </p>
-            {stats && (
-              <div style={{ display: 'inline-flex', gap: 24, padding: '10px 20px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
-                <span style={{ fontSize: 13, fontWeight: 700, color: '#ffe600', display: 'flex', alignItems: 'center', gap: 6 }}><Trophy size={13} /> {stats.totalPlays || 0} plays</span>
-                <span style={{ fontSize: 13, fontWeight: 700, color: '#ff6b35', display: 'flex', alignItems: 'center', gap: 6 }}><Flame size={13} /> {stats.bestStreak || 0} streak</span>
-              </div>
-            )}
+            
+            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'center' }}>
+               {stats && (
+                <div style={{ display: 'inline-flex', gap: 32, padding: '16px 24px', borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(10px)' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Experiments</span>
+                    <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}><Trophy size={16} color="#ffe600" /> {stats.totalPlays || 0}</span>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Best Streak</span>
+                    <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}><Flame size={16} color="#ff6b35" /> {stats.bestStreak || 0}</span>
+                  </div>
+                </div>
+              )}
+              <Link href="#topics" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: COLOR, color: '#000', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s', boxShadow: `0 10px 30px ${COLOR}40` }}>
+                   START REVISION →
+                </div>
+              </Link>
+            </div>
           </div>
         </section>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }} />
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
-        {/* ── TOPIC GRID by category ── */}
-        <section ref={grid.ref} style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,6vw,80px) clamp(20px,5vw,100px)' }}>
-          {CATEGORY_ORDER.map(cat => {
+        {/* ── SUBJECT GRID ── */}
+        <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 100px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 48 }}>
+            <Atom size={18} color="rgba(255,255,255,0.3)" />
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>Subject Strands</div>
+          </div>
+          {CATEGORY_ORDER.map((cat, catIdx) => {
             const topics = topicsByCategory[cat];
             if (!topics?.length) return null;
             const catColor = CATEGORY_COLORS[cat] || '#888';
             return (
-              <div key={cat} style={{ marginBottom: 56 }}>
-                <div style={{ marginBottom: 20, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
-                  <div>
-                    <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: catColor, marginBottom: 4 }}>{cat}</div>
-                    <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>{CATEGORY_DESCS[cat]}</p>
+              <div key={cat} style={{ marginBottom: 80, opacity: grid.visible ? 1 : 0, transform: grid.visible ? 'none' : 'translateY(20px)', transition: `all 0.8s ease ${catIdx * 0.1}s` }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24, borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: 16 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: catColor, boxShadow: `0 0 10px ${catColor}` }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#fff' }}>{cat}</div>
+                        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>{CATEGORY_DESCS[cat]}</div>
+                    </div>
                   </div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.18)', fontFamily: 'Inter,sans-serif', fontWeight: 700 }}>{topics.length} topics</div>
+                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', fontFamily: 'Inter,sans-serif', fontWeight: 600 }}>{topics.length} Modules</div>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(240px,1fr))', gap: 1, border: '1px solid rgba(255,255,255,0.06)', borderRadius: 2, overflow: 'hidden' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: 16 }}>
                   {topics.map((topic, idx) => (
                     <Link key={topic.slug} href={`/gcse/science/${topic.slug}`} style={{ textDecoration: 'none' }}>
-                      <TopicCell topic={topic} accentColor={catColor} delay={idx * 40} visible={grid.visible} />
+                      <TopicCell topic={topic} accentColor={catColor} delay={idx * 30} />
                     </Link>
                   ))}
                 </div>
@@ -96,37 +125,58 @@ export default function ScienceHub() {
           })}
         </section>
 
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 40px' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>
           <AdBanner format="horizontal" />
-          <PageValueSection
-            title="How To Revise Science Efficiently Here"
-            summary="Alternate topic retrieval and concept review. Use short rounds to find weak concepts, then revisit lesson points before testing again."
-            points={[
-              { label: 'Specification-aligned topics', text: 'Biology, Chemistry, and Physics follow GCSE exam style and common misconceptions.' },
-              { label: 'Foundation and higher support', text: 'Tier options let you practice at the right difficulty.' },
-              { label: 'Practical memory gains', text: 'Frequent short recall rounds improve confidence in definitions, equations, and required practicals.' },
-            ]}
-            checklist={['Start with one subject strand and do 10-15 minutes.', 'Write down two mistakes and one corrected rule.', 'Re-test the same topic tomorrow before moving on.']}
-          />
+          <div style={{ marginTop: 80 }}>
+            <PedagogyBridge type="cognitive-load" />
+            <PageValueSection
+              title="The Scientific Method of Revision"
+              summary="Science is built on evidence and logic. Your revision should be no different. Use structured recall to bridge the gap between understanding and application."
+              points={[
+                { label: 'Keyword Precision', text: 'GCSE Science mark schemes are notoriously strict on specific terminology. Our tools emphasize the correct scientific vocabulary.' },
+                { label: 'Equation Fluency', text: 'For Physics and Chemistry, being able to rearrange and apply formulas instantly is the difference between a grade 5 and a grade 9.' },
+                { label: 'Synoptic Thinking', text: 'We encourage linking concepts across strands—for example, how biological energy transfers relate to chemical thermodynamics.' },
+              ]}
+              checklist={['Practice required practicals by visualizing the variables (independent, dependent, control).', 'Test yourself on the unit conversions (e.g. kJ to J) until they are automatic.', 'Review the "Command Words" (Describe vs Explain) for every long-answer topic.']}
+            />
+          </div>
         </div>
       </div>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'); body{background:#000!important}
-        @keyframes cellIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { background: #000 !important; }
+        @keyframes cellReveal {
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
     </>
   );
 }
 
-function TopicCell({ topic, accentColor, delay, visible }) {
+function TopicCell({ topic, accentColor, delay }) {
   const [hov, setHov] = useState(false);
   return (
     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ padding: '18px 20px', borderRight: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: hov ? 'rgba(255,255,255,0.03)' : 'transparent', transition: 'background 0.25s', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, opacity: visible ? 1 : 0, animation: visible ? `cellIn 0.5s ease-out ${delay}ms both` : 'none' }}>
-      <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 14, fontWeight: 600, color: hov ? '#fff' : 'rgba(255,255,255,0.75)', marginBottom: 3, transition: 'color 0.2s' }}>{topic.title}</div>
-        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: 'Inter,sans-serif' }}>{topic.description}</div>
+      style={{ 
+        padding: '24px', 
+        borderRadius: 16,
+        background: hov ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.01)', 
+        border: `1px solid ${hov ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)'}`,
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', 
+        cursor: 'pointer', 
+        display: 'flex', 
+        flexDirection: 'column',
+        gap: 12,
+        animation: `cellReveal 0.6s ease-out ${delay}ms both`,
+        transform: hov ? 'translateY(-4px)' : 'translateY(0)',
+        boxShadow: hov ? `0 20px 40px rgba(0,0,0,0.4), 0 0 20px ${accentColor}10` : 'none'
+      }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ fontSize: 16, fontWeight: 700, color: hov ? '#fff' : 'rgba(255,255,255,0.85)', transition: 'color 0.2s' }}>{topic.title}</div>
+        <ArrowRight size={16} color={hov ? accentColor : 'rgba(255,255,255,0.1)'} style={{ transition: 'all 0.3s', transform: hov ? 'translateX(4px)' : 'none' }} />
       </div>
-      <span style={{ color: hov ? accentColor : 'rgba(255,255,255,0.12)', fontSize: 16, transition: 'color 0.25s', flexShrink: 0 }}>→</span>
+      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif', lineHeight: 1.5, fontWeight: 400 }}>{topic.description}</div>
     </div>
   );
 }

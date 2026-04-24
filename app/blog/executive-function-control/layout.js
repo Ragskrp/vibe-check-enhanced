@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "A grounded note on games that ask players to wait, switch rules, and manage attention under light pressure.",
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };

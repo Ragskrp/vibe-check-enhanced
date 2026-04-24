@@ -105,20 +105,20 @@ export default function GCSEHub() {
 
           {/* Massive headline — 8bit.ai style */}
           <h1 style={{
-            fontSize: 'clamp(44px, 8vw, 96px)',
-            fontWeight: 300,
-            lineHeight: 1.05,
-            letterSpacing: '-0.03em',
+            fontSize: 'clamp(56px, 10vw, 120px)',
+            fontWeight: 200,
+            lineHeight: 0.95,
+            letterSpacing: '-0.05em',
             color: '#ffffff',
-            marginBottom: 28,
-            maxWidth: 16 + 'ch',
+            marginBottom: 32,
+            maxWidth: 14 + 'ch',
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(24px)',
             transition: 'opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s',
           }}>
             Revision that{' '}
             <span style={{
-              fontWeight: 700,
+              fontWeight: 800,
               background: 'linear-gradient(135deg, #ffffff 40%, rgba(0,229,160,0.8) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -131,18 +131,18 @@ export default function GCSEHub() {
           {/* Body text */}
           <p style={{
             fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(15px, 2vw, 18px)',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.45)',
-            maxWidth: 480,
-            lineHeight: 1.75,
-            marginBottom: 48,
+            fontSize: 'clamp(17px, 2.2vw, 20px)',
+            fontWeight: 300,
+            color: 'rgba(255,255,255,0.4)',
+            maxWidth: 520,
+            lineHeight: 1.8,
+            marginBottom: 56,
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s',
           }}>
             Free, curriculum-aligned practice for all 6 core GCSE subjects.
-            No signup. No fluff. Just focused revision that sticks.
+            Rigorous, interactive, and engineered for high-fidelity retrieval.
           </p>
 
           {/* CTA row */}

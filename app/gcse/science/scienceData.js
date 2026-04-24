@@ -51,6 +51,14 @@ const TOPICS = {
         { title: 'Exchanging Substances', content: 'Specialized exchange surfaces (alveoli in lungs, villi in small intestine) have large surface areas, thin membranes, and good blood supply for efficiency.' }
       ],
     },
+    hacks: [
+      { title: 'The Unit Trap', content: 'Microscopy questions ALWAYS mix units. mm to μm: Multiply by 1000. μm to nm: Multiply by 1000. 1mm = 1000μm = 1,000,000nm.' },
+      { title: 'Magnification Memory', content: 'Use the I-AM triangle. I = Image Size, A = Actual Size, M = Magnification. Cover the one you want to find.' }
+    ],
+    advanced: [
+      { title: 'Size and Scale', content: 'Prokaryotic cells are typically 1-10 micrometers, while eukaryotic cells are 10-100 micrometers. This factor of 10 difference in size corresponds to a factor of 1000 difference in volume!' },
+      { title: 'Evolutionary Origin', content: 'Endosymbiotic theory suggests that mitochondria and chloroplasts were once free-living prokaryotic cells that were engulfed by larger cells, forming a symbiotic relationship.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
@@ -335,6 +343,14 @@ const TOPICS = {
         { title: 'Electronic Structure', content: 'Electrons orbit in shells. The 1st shell holds 2, the 2nd and 3rd hold 8.', example: 'Sodium (11) is 2, 8, 1.' }
       ],
     },
+    hacks: [
+      { title: 'Atomic vs Mass', content: 'Atomic is the SMALL number (Protons). Mass is the BIG number (Protons + Neutrons). Remember: Mass is "Massive".' },
+      { title: 'Groups vs Periods', content: 'Groups are columns (down). Periods are rows (across). Group number = Outer shell electrons.' }
+    ],
+    advanced: [
+      { title: 'Quantum Shells', content: 'While we teach shells as 2,8,8 at GCSE, they are actually made of sub-shells (s, p, d, f) with complex shapes. This explains why the Periodic Table is shaped the way it is.' },
+      { title: 'Shielding Effect', content: 'Reactivity in Group 1 increases down the group because extra shells "shield" the outer electron from the nucleus, making it easier to lose.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
@@ -663,6 +679,14 @@ const TOPICS = {
         { title: 'The National Grid', content: 'A system of cables and transformers. Step-up transformers increase voltage (reducing current/heat loss). Step-down transformers decrease voltage for homes.' }
       ],
     },
+    hacks: [
+      { title: 'Current vs Voltage', content: 'Think of current as the flow of water and voltage as the pressure. Resistance is a narrow pipe. High pressure (V) pushes more water (I) through!' },
+      { title: 'Parallel vs Series', content: 'In series, components are on one loop. In parallel, they have their own branches. If one bulb blows in series, they ALL go out.' }
+    ],
+    advanced: [
+      { title: 'Power and Efficiency', content: 'Power loss in cables is calculated as P = I²R. This is why the National Grid uses incredibly high voltages (up to 400,000V) to keep the current (I) very low and minimize heat loss.' },
+      { title: 'Alternating Current (AC)', content: 'AC is used for mains because it can be easily stepped up or down using transformers, which DC (Direct Current) cannot.' }
+    ],
     generateQuestion: (tier) => {
       const types = [
         () => makeMCQ('In V = I × R, what is V measured in?', 'Volts', ['Amps', 'Ohms', 'Joules'], 'Potential difference unit', 'V is Voltage / Potential difference, measured in Volts.'),

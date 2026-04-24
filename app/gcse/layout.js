@@ -4,21 +4,23 @@ export const metadata = {
     template: '%s | GCSE Revision | VIBEMENOW',
   },
   description:
-    'Free interactive GCSE revision tools and games. Master Maths, Science, and more with addictive practice sessions. No login required.',
+    'Free interactive GCSE revision tools and games. Master Maths, Science, English Literature, Computer Science, and Business with addictive practice sessions. No login required.',
   keywords: [
     'GCSE revision',
     'GCSE maths',
+    'GCSE science',
+    'GCSE english literature',
+    'GCSE computer science',
+    'GCSE business',
     'GCSE revision games',
     'free GCSE revision',
     'GCSE practice',
-    'maths revision games',
-    'GCSE online revision',
     'UK GCSE',
   ],
   openGraph: {
     title: 'GCSE Revision Games | VIBEMENOW',
     description:
-      'Interactive, addictive GCSE revision tools. Start with Maths — more subjects coming soon.',
+      'Interactive, curriculum-aligned GCSE revision tools for 6 core subjects. Start learning in seconds with no login required.',
     url: '/gcse',
     images: [
       {

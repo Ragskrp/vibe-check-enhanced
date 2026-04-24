@@ -43,6 +43,14 @@ export const TOPICS = {
         { title: 'Limited Liability', content: 'The company has a separate legal identity. Shareholders only lose the money they invested.', tip: 'This is the biggest advantage of being an Ltd or Plc!' }
       ],
     },
+    hacks: [
+      { title: 'The Liability Trick', content: 'If the name has "Ltd" or "Plc" in it, the liability is LIMITED. If it doesn\'t (Sole Trader/Partnership), it is UNLIMITED. Use this to quickly identify risks in case studies!' },
+      { title: 'Sole Trader vs Ltd', content: 'A Sole Trader is the business. An Ltd is a separate "legal person". This means the Ltd can own property and be sued in its own name.' }
+    ],
+    advanced: [
+      { title: 'Going Public', content: 'The transition from Ltd to Plc (an IPO) allows a company to raise millions, but it also means the original owners often lose control as they now answer to thousands of external shareholders.' },
+      { title: 'Hostile Takeovers', content: 'Because Plc shares are traded on the open market, a rival company can buy up more than 50% of the shares and take over the business against the current board\'s wishes.' }
+    ],
     generateQuestion: () => {
       const types = [
         () => makeMCQ('What is the main risk for a Sole Trader?', 'Unlimited Liability', ['Limited Liability', 'Dividend payments', 'Hostile takeover'], 'The owner and business are the same legal entity.', 'Unlimited liability means personal assets (like your house) could be seized to pay business debts.'),
@@ -193,6 +201,14 @@ export const TOPICS = {
         { title: 'Job Enrichment', content: 'Giving employees more complex and challenging tasks to make their work more meaningful.', tip: 'Reduces staff turnover and improves quality.' }
       ],
     },
+    hacks: [
+      { title: 'Intrinsic vs Extrinsic', content: 'Extrinsic motivation comes from OUTSIDE (money, bonuses). Intrinsic motivation comes from WITHIN (enjoyment, pride). Modern businesses focus on Intrinsic to keep staff long-term.' },
+      { title: 'Maslow Tip', content: 'In an exam, remember Maslow\'s Hierarchy is a pyramid. You can\'t motivate someone with "Self-Actualisation" if they are worried about their "Physiological" needs (pay/food).' }
+    ],
+    advanced: [
+      { title: 'The Hawthorne Effect', content: 'Research shows that employees are often motivated more by the feeling that their managers are taking an interest in them than by the actual physical conditions of their workplace.' },
+      { title: 'Taylors Scientific Management', content: 'An older theory that humans are purely motivated by money. While mostly replaced by modern ideas, it still applies in some factory and "gig economy" settings today.' }
+    ],
     generateQuestion: () => {
       const types = [
         () => makeMCQ('A salesperson earns £5 for every item they sell. This is called...', 'Commission', ['Salary', 'Wages', 'Fringe Benefit'], 'Paid per unit/sale.', 'Commission is a financial incentive based on sales performance.'),

@@ -162,6 +162,38 @@ export default function TopicGame({ config }) {
 
           <LessonCards cards={config.lessons[tier]} accentColor={accent} />
 
+          {config.hacks && (
+            <div style={{ margin: '24px 0', textAlign: 'left' }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#ff6b35', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Zap size={16} /> EXAM HACKS
+              </div>
+              <div style={{ display: 'grid', gap: 12 }}>
+                {config.hacks.map((hack, i) => (
+                  <div key={i} style={{ padding: '16px 20px', borderRadius: 16, background: 'rgba(255,107,53,0.04)', border: '1px solid rgba(255,107,53,0.15)' }}>
+                    <div style={{ fontWeight: 800, fontSize: 14, color: '#ff6b35', marginBottom: 4 }}>{hack.title}</div>
+                    <div style={{ fontSize: 13, color: '#aaa', lineHeight: 1.6 }}>{hack.content}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {config.advanced && (
+            <div style={{ margin: '24px 0', textAlign: 'left' }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#00d4ff', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Brain size={16} /> ADVANCED ANALYSIS
+              </div>
+              <div style={{ display: 'grid', gap: 12 }}>
+                {config.advanced.map((item, i) => (
+                  <div key={i} style={{ padding: '16px 20px', borderRadius: 16, background: 'rgba(0,212,255,0.04)', border: '1px solid rgba(0,212,255,0.15)' }}>
+                    <div style={{ fontWeight: 800, fontSize: 14, color: '#00d4ff', marginBottom: 4 }}>{item.title}</div>
+                    <div style={{ fontSize: 13, color: '#aaa', lineHeight: 1.6 }}>{item.content}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 8 }}>
             <button onClick={() => startGame('practice')} className="btn-outline" style={{ borderColor: accent, color: accent, fontSize: 16, padding: '14px 28px' }}>
               <BookOpen size={18} /> Practice Mode

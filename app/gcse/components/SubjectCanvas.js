@@ -129,6 +129,8 @@ export default function SubjectCanvas({ accentColor = '#00e5a0', streakCount = 6
         width: '100%', height: '100%',
         zIndex: 0,
         pointerEvents: 'none',
+        willChange: 'transform',
+        contain: 'strict'
       }}
     />
   );

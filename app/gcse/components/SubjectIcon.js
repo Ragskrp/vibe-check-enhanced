@@ -16,7 +16,11 @@ function MathsIcon({ color, size }) {
       <style>{`
         @keyframes rotHex { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes pulseIn { 0%,100%{opacity:1;r:3} 50%{opacity:0.5;r:4} }
-        .hexRot { animation: rotHex 12s linear infinite; transform-origin: 40px 40px; }
+        .hexRot { 
+          animation: rotHex 12s linear infinite; 
+          transform-origin: 40px 40px; 
+          will-change: transform;
+        }
       `}</style>
       {/* Outer rotating hexagon */}
       <polygon
@@ -55,9 +59,9 @@ function ScienceIcon({ color, size }) {
         @keyframes orb2 { from{transform:rotate(60deg)} to{transform:rotate(420deg)} }
         @keyframes orb3 { from{transform:rotate(120deg)} to{transform:rotate(480deg)} }
         @keyframes nucPulse { 0%,100%{r:5;opacity:1} 50%{r:7;opacity:0.7} }
-        .orbit1 { animation: orb1 4s linear infinite; transform-origin: 40px 40px; }
-        .orbit2 { animation: orb2 6s linear infinite; transform-origin: 40px 40px; }
-        .orbit3 { animation: orb3 8s linear infinite; transform-origin: 40px 40px; }
+        .orbit1 { animation: orb1 4s linear infinite; transform-origin: 40px 40px; will-change: transform; }
+        .orbit2 { animation: orb2 6s linear infinite; transform-origin: 40px 40px; will-change: transform; }
+        .orbit3 { animation: orb3 8s linear infinite; transform-origin: 40px 40px; will-change: transform; }
       `}</style>
       {/* Ellipse orbits */}
       <ellipse cx="40" cy="40" rx="30" ry="11" stroke={color} strokeWidth="1" opacity="0.25" />
@@ -232,8 +236,10 @@ export default function SubjectIcon({ subject, color = '#00e5a0', size = 72 }) {
     <div style={{
       width: size, height: size,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      filter: `drop-shadow(0 0 16px ${color}50)`,
+      filter: `drop-shadow(0 0 16px ${color}40)`,
       transition: 'filter 0.3s ease, transform 0.3s ease',
+      contain: 'layout paint',
+      pointerEvents: 'none'
     }}>
       <Icon color={color} size={size} />
     </div>

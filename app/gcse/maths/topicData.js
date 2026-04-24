@@ -54,6 +54,14 @@ const TOPICS = {
         { title: 'Base Conversion', content: 'Sometimes you need to change the base to use index laws.', example: '9⁴ = (3²)⁴ = 3⁸', tip: 'Recognise powers of 2, 3, 5, and 10!' }
       ],
     },
+    hacks: [
+      { title: 'The Bracket Trap', content: 'On your calculator, (-3)² = 9 but -3² = -9. If you are substituting a negative number into an index, ALWAYS put it in brackets.' },
+      { title: 'Zero is One', content: 'It sounds counter-intuitive, but any number (except 0) to the power of 0 is 1. x⁰ = 1. If you see a term without a power, its power is actually 1, not 0.' }
+    ],
+    advanced: [
+      { title: 'The Root Logic', content: 'A fractional index is just another way of writing a root. a^(1/n) is the nth root. The denominator (bottom) of the fraction "roots" the number down, while the numerator (top) "powers" it up.' },
+      { title: 'Exponential Growth', content: 'Indices are the basis of exponential growth. A small change in the index leads to a massive change in the result. This is why indices are used to model things like bacteria growth or viral spread.' }
+    ],
     generateQuestion: (tier) => {
       const types = [
         () => {
@@ -164,6 +172,14 @@ const TOPICS = {
         { title: 'Standard Form on Calcs', content: 'Use the ×10ˣ or EXP button. Be careful with brackets during division!', tip: 'If your calc says 5.2E04, it means 5.2 × 10⁴.' }
       ],
     },
+    hacks: [
+      { title: 'The Range Check', content: 'The number at the front (a) MUST be between 1 and 10. After every calculation, check your answer. If it\'s 45 × 10³, it is WRONG. It must be 4.5 × 10⁴.' },
+      { title: 'Calculator "E"', content: 'If your calculator screen shows "5.2 E 08", this is scientific notation for 5.2 × 10⁸. Don\'t write "E" in your exam; write "× 10".' }
+    ],
+    advanced: [
+      { title: 'Orders of Magnitude', content: 'Standard form is used to compare "Orders of Magnitude." A difference of 1 in the power of 10 means a 10x difference in size. 10⁸ is not twice as big as 10⁴; it is 10,000 times bigger.' },
+      { title: 'Scientific Precision', content: 'In physics and chemistry, standard form is essential for managing significant figures in extremely large (astronomical) or small (atomic) measurements.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
@@ -320,6 +336,14 @@ const TOPICS = {
         { title: 'Negative Coefficients', content: 'Be careful with (x−3)². It expands to x² − 6x + 9.', tip: 'The constant term is always positive when squaring a real bracket!' }
       ],
     },
+    hacks: [
+      { title: 'Double Bracket Danger', content: '(x + 3)² is NOT x² + 9. It is (x + 3)(x + 3), which expands to x² + 6x + 9. Never forget the middle term!' },
+      { title: 'Negative Expansion', content: 'When expanding -2(x - 5), remember that "minus times a minus is a plus." The result is -2x + 10.' }
+    ],
+    advanced: [
+      { title: 'The Area Model', content: 'Expanding brackets is just finding the area of a rectangle. (x + 3)(x + 5) can be visualized as a rectangle with sides of length (x+3) and (x+5). The four terms you get from FOIL are the areas of the four smaller rectangles inside.' },
+      { title: 'Pascal’s Triangle', content: 'For higher powers like (x + y)³, the coefficients (the numbers in front of the terms) follow the patterns in Pascal’s Triangle. This is the foundation of Binomial Expansion.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [

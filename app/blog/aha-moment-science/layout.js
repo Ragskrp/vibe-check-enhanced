@@ -2,7 +2,7 @@ export const metadata = {
   title: "The Science of 'Aha!' Moments | VIBEMENOW",
   description: "The sudden restructuring of perception and the surge of gamma waves during moments of insight.",
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
