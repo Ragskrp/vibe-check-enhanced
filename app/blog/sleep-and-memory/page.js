@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Moon, ZapOff, Activity, Clock, Shield } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -158,7 +160,7 @@ export default function SleepMemoryPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

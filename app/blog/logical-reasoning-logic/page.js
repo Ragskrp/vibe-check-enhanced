@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Target, Brain, ShieldAlert, Zap, Network, History, BookOpen, Search, CheckCircle, Scale, AlertOctagon, Cpu, Eye, Puzzle, FlaskConical, GitBranch } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -201,7 +203,7 @@ export default function LogicalReasoningPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

@@ -162,7 +162,7 @@ export default function ChessLogicPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

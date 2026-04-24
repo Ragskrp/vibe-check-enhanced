@@ -84,7 +84,7 @@ export default function HealthGamificationPage() {
             Humans are social creatures. Apps like <em>Strava</em> have turned the solitary act of running into a global competition. By creating "segments" and "leaderboards," Strava leverages <strong>Social Influence</strong> and <strong>Competition</strong> to push people to run harder and more often than they would on their own. 
           </p>
           <p>
-            When your peer group is active, you are more likely to be active. Gamification scales this "social contagion" effect, creating massive communities where healthy behavior is the primary currency of status.
+            When your peer group is active, you are more likely to be active. Gamification Scale this "social contagion" effect, creating massive communities where healthy behavior is the primary currency of status.
           </p>
 
           <div style={{ padding: '40px', borderRadius: 32, background: 'rgba(0, 212, 255, 0.04)', border: '1px solid rgba(0, 212, 255, 0.1)', margin: '56px 0' }}>

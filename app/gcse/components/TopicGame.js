@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import AdBanner from '../../components/AdBanner';
 import LessonCards from './LessonCards';
 import Link from 'next/link';
-import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap } from 'lucide-react';
+import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain } from 'lucide-react';
 
 const GAME_DURATION = 60;
 

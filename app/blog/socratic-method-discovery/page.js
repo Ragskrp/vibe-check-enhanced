@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Quote, HelpCircle, Lightbulb, Users, Brain, BookOpen, Compass, ShieldCheck, ChevronRight, CheckCircle, Info, Zap, MessageCircle, Scale, History } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -184,7 +186,7 @@ export default function SocraticMethodPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

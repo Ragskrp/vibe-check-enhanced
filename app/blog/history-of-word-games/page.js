@@ -60,10 +60,10 @@ export default function HistoryWordGamesPage() {
 
           <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>The Victorian Era: Lewis Carroll and "Doublets"</h2>
           <p>
-            Fast forward to the 19th century. The Victorian era was the golden age of the "parlor game." In 1877, Lewis Carroll, the author of *Alice in Wonderland*, invented a game called <strong>Doublets</strong> (now known as Word Ladders). 
+            Fast forward to the 19th century. The Victorian era was the golden age of the "parlor game." In 1877, Lewis Carroll, the author of <em>Alice in Wonderland</em>, invented a game called <strong>Doublets</strong> (now known as Word Ladders). 
           </p>
           <p>
-            The challenge was simple: turn "COLD" into "WARM" by changing one letter at a time, with each step being a valid word (COLD -> CORD -> WORD -> WORM -> WARM). Carroll, a mathematician by trade, saw these games as more than entertainment; they were exercises in <strong>deductive logic</strong>. He believed that linguistic play could sharpen the mind for more "serious" scientific inquiry.
+            The challenge was simple: turn "COLD" into "WARM" by changing one letter at a time, with each step being a valid word (COLD &rarr; CORD &rarr; WORD &rarr; WORM &rarr; WARM). Carroll, a mathematician by trade, saw these games as more than entertainment; they were exercises in <strong>deductive logic</strong>. He believed that linguistic play could sharpen the mind for more "serious" scientific inquiry.
           </p>
 
           <h2 style={{ color: '#fff', fontSize: 32, marginTop: 56, marginBottom: 24 }}>1913: The Birth of the Crossword</h2>

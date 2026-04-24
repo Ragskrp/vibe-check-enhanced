@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Sparkles, Brain, Zap, Target, History, Search, Heart, MessageCircle, Users, Lightbulb, Compass, Puzzle, Scales } from 'lucide-react';
+import { ArrowLeft, BookOpen, Sparkles, Brain, Zap, Target, History, Search, Heart, MessageCircle, Users, Lightbulb, Compass, Puzzle, Scale } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
 
 export default function P4CPage() {
@@ -106,7 +108,7 @@ export default function P4CPage() {
                 <p style={{ fontSize: 14, color: '#aaa', margin: 0 }}>The Education Endowment Foundation (EEF) found that P4C can boost reading and math scores by up to two months in a single year, particularly for disadvantaged students.</p>
              </div>
              <div style={{ padding: 32, borderRadius: 24, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                <Scales size={24} color="#ffd700" style={{ marginBottom: 16 }} />
+                <Scale size={24} color="#ffd700" style={{ marginBottom: 16 }} />
                 <h4 style={{ color: '#fff', marginBottom: 12 }}>Cognitive Dissonance</h4>
                 <p style={{ fontSize: 14, color: '#aaa', margin: 0 }}>P4C intentionally creates 'cognitive conflict,' forcing the brain to update its mental models and discard weak assumptions.</p>
              </div>
@@ -170,7 +172,7 @@ export default function P4CPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

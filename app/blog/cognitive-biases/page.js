@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, ShieldAlert, Scale, Anchor, AlertCircle, Compass, Cpu } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -176,7 +178,7 @@ export default function CognitiveBiasesPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

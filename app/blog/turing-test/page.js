@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Cpu, UserCheck, Code, Globe, MessageSquare } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -82,7 +84,7 @@ export default function TuringTestPage() {
              <div style={{ padding: 32, borderRadius: 24, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                 <MessageSquare size={24} color="#00ff94" style={{ marginBottom: 16 }} />
                 <h4 style={{ color: '#fff', marginBottom: 12 }}>ELIZA (1966)</h4>
-                <p style={{ fontSize: 14, color: '#aaa', margin: 0 }}>Created by Joseph Weizenbaum, ELIZA was a simple chatbot that mimicked a psychotherapist by reflecting user input ('I feel sad' -> 'Why do you feel sad?'). Users became deeply emotionally attached to it, revealing the 'ELIZA Effect'—our profound biological urge to anthropomorphize machines.</p>
+                <p style={{ fontSize: 14, color: '#aaa', margin: 0 }}>Created by Joseph Weizenbaum, ELIZA was a simple chatbot that mimicked a psychotherapist by reflecting user input ('I feel sad' &rarr; 'Why do you feel sad?'). Users became deeply emotionally attached to it, revealing the 'ELIZA Effect'—our profound biological urge to anthropomorphize machines.</p>
              </div>
              <div style={{ padding: 32, borderRadius: 24, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                 <UserCheck size={24} color="#ffd700" style={{ marginBottom: 16 }} />
@@ -168,7 +170,7 @@ export default function TuringTestPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

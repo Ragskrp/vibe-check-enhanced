@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Dice3, Sparkles, Brain, Zap, Target, History, Search, Scale, BarChart, TrendingUp, AlertTriangle, GitBranch, Shield, Coins } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -173,7 +175,7 @@ export default function ProbabilityPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }

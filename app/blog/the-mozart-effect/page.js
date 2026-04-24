@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Music, Volume2, Headphones, Activity, BookAudio } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
@@ -148,7 +150,7 @@ export default function MozartEffectPage() {
         </footer>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .blog-content p {
           margin-bottom: 28px;
         }
