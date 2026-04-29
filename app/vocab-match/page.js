@@ -39,7 +39,7 @@ export default function VocabMatchPage() {
       >
         <h1 style={{ color: '#fbbf24', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>
           About Vocab Vibe
-        </h2>
+        </h1>
 
         <p>
           Vocab Vibe is a matching game built around terms and definitions. You can use it as a

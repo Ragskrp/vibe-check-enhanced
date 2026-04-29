@@ -1,5 +1,3 @@
-'use client';
-
 export const metadata = {
   title: "Cognitive Biases | VIBEMENOW",
   description:
@@ -20,7 +18,6 @@ export const metadata = {
 };
 
 import Link from 'next/link';
-...
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, ShieldAlert, Scale, Anchor, AlertCircle, Compass, Cpu } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
 
