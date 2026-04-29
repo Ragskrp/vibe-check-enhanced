@@ -9,6 +9,8 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import GameSeoArticle from '../../components/GameSeoArticle';
+import { gcseSeoData } from '../../data/gcseSeoData';
 
 const COLOR = '#ff2d78';
 const CATEGORY_ORDER = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
@@ -129,6 +131,9 @@ export default function CompSciHub() {
               ]}
               checklist={['Practice conversion between Binary, Denary, and Hex until it is instantaneous.', 'Recall the 8 specific common cyber-security threats and their preventions.', 'Explain the difference between a Compiler and an Interpreter from memory.']}
             />
+            <div style={{ marginTop: 64 }}>
+              <GameSeoArticle {...gcseSeoData.computerScience} />
+            </div>
           </div>
         </div>
       </div>

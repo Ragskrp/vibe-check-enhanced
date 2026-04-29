@@ -10,6 +10,8 @@ import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
 import PedagogyBridge from '../components/PedagogyBridge';
+import GameSeoArticle from '../../components/GameSeoArticle';
+import { gcseSeoData } from '../../data/gcseSeoData';
 
 const COLOR = '#00d4ff';
 const CATEGORY_ORDER = ['Biology', 'Chemistry', 'Physics'];
@@ -139,6 +141,9 @@ export default function ScienceHub() {
               ]}
               checklist={['Practice required practicals by visualizing the variables (independent, dependent, control).', 'Test yourself on the unit conversions (e.g. kJ to J) until they are automatic.', 'Review the "Command Words" (Describe vs Explain) for every long-answer topic.']}
             />
+            <div style={{ marginTop: 64 }}>
+              <GameSeoArticle {...gcseSeoData.science} />
+            </div>
           </div>
         </div>
       </div>

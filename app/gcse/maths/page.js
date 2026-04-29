@@ -9,6 +9,8 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import GameSeoArticle from '../../components/GameSeoArticle';
+import { gcseSeoData } from '../../data/gcseSeoData';
 
 const COLOR = '#00e5a0';
 const FEATURED = [
@@ -151,6 +153,9 @@ export default function MathsHub() {
               ]}
               checklist={['Complete at least 3 topics per session to use the "Interleaving" strategy.', 'Track your "best streak" to maintain focus on accuracy over speed.', 'Return to failed topics within 48 hours for optimal retention.']}
             />
+            <div style={{ marginTop: 64 }}>
+              <GameSeoArticle {...gcseSeoData.maths} />
+            </div>
           </div>
         </div>
       </div>

@@ -18,20 +18,23 @@ export default function HomeEditorial() {
         What VIBEMENOW publishes
       </h2>
       <p>
-        VIBEMENOW is a small browser-game and learning site built around quick, original activities:
+        VIBEMENOW is a comprehensive browser-game and learning ecosystem built around quick, original activities:
         word puzzles, reflex challenges, social voting games, memory rounds, geography practice, and
-        GCSE revision tools. The aim is to make each page useful before it is monetized. A visitor
-        should be able to understand what the activity is, play it without creating an account, and
-        read enough context to decide whether it suits a quick break, a classroom warm-up, or a group
-        session with friends.
+        rigorous GCSE revision tools. Our foundational philosophy is that digital entertainment should not be empty calories. The aim is to make each page significantly useful before it is monetized. A visitor
+        should be able to understand the underlying cognitive mechanics of the activity, play it without creating an account, and
+        read enough pedagogical context to decide whether it suits a quick break, a classroom warm-up, or a group
+        session with friends. We believe in "micro-learning" — the idea that engaging with short, highly focused bursts of cognitively demanding tasks can improve neuroplasticity and daily focus.
       </p>
       <p>
-        The site is not a file-download directory, a scraped-games portal, or a collection of pages
-        made only to display advertising. Each game page includes its own explanation, strategy notes,
-        and links to related formats. The blog and guide sections add longer editorial material about
-        learning, memory, puzzles, decision-making, and healthy ways to use lightweight games. That
-        publisher layer matters because the playable tool is only part of the value; the surrounding
-        text helps visitors and crawlers understand the purpose of every route.
+        The internet is currently flooded with low-effort, auto-generated content. This site is unequivocally different. It is not a file-download directory, a scraped-games portal, or a collection of thin pages
+        made only to display advertising. Every single game, quiz, and learning module has been meticulously designed in-house to serve a specific educational or cognitive purpose. Each game page includes its own comprehensive explanation of its history, the behavioral psychology behind its core loop, strategy notes for mastery,
+        and links to related formats. 
+      </p>
+      <p>
+        The blog and guide sections add extensive, long-form editorial material about
+        learning science, memory retention, puzzles, decision-making theory, and healthy ways to use lightweight digital games to combat cognitive fatigue. That
+        publisher layer matters deeply because the playable tool is only one part of the value equation; the surrounding
+        text, detailed guides, and structured data help visitors, educators, and search crawlers understand the profound purpose behind every route on this platform. We are committed to transparency, educational rigor, and providing a premium user experience.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, margin: '28px 0' }}>
