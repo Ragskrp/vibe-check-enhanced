@@ -11,7 +11,7 @@ export const metadata = {
     url: '/poll-party',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Zap, LayoutGrid, ChevronRight } from 'lucide-react';
 import AdBanner from './AdBanner';
+import GameEditorialLayer from './GameEditorialLayer';
 
 const NAV_ITEMS = [
   { name: 'WordVibe', label: '🔤 WordVibe', path: '/wordvibe', category: 'daily' },
@@ -146,6 +147,8 @@ export default function SiteLayout({ children }) {
 
       {/* Main Content */}
       <main>{children}</main>
+
+      <GameEditorialLayer />
 
       {/* Bottom Ad Banner */}
       <AdBanner format="horizontal" />
