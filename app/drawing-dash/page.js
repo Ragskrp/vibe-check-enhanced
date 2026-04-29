@@ -9,6 +9,16 @@ export const metadata = {title: 'Drawing Dash | VIBEMENOW',
   },
   openGraph: {
     url: '/drawing-dash',
+    title: 'Drawing Dash | Social Drawing Game | VIBEMENOW',
+    description: 'Draw fast, guess faster, and laugh with friends in this live browser drawing challenge.',
+    images: [
+      {
+        url: '/og/drawing-dash.png',
+        width: 1200,
+        height: 630,
+        alt: 'Drawing Dash game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -26,7 +36,7 @@ export default function DrawingDashPage() {
         <DrawingDashGame />
       </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Drawing Dash: The Ultimate Guide to Visual Communication Games</h2>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>Drawing Dash: The Ultimate Guide to Visual Communication Games</h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>What makes Drawing Dash so addictive?</h3>
         <p>Drawing Dash is a fast-paced, highly interactive digital party game that tests your ability to quickly translate written words and abstract concepts into recognizable visual art. Unlike traditional, slow-paced art software, this game thrives on chaos, time limits, and the hilarious misunderstandings that inevitably happen when players are forced to draw under pressure. In an era dominated by text-based communication and perfectly curated photos, reverting to crude, frantic sketches provides a nostalgic and deeply entertaining way to connect with friends. You do not need to be a professional artist to excel at Drawing Dash—in fact, sometimes the funniest and most memorable rounds happen when players possess absolutely no artistic ability whatsoever.</p>

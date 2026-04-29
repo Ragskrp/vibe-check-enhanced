@@ -10,6 +10,16 @@ export const metadata = {title: 'Merge Vibe (2048) | VIBEMENOW',
   },
   openGraph: {
     url: '/2048-vibe',
+    title: 'Merge Vibe (2048) | Free Tile Merge Game | VIBEMENOW',
+    description: 'Slide and merge tiles in Merge Vibe, the 2048 puzzle game with a modern browser interface.',
+    images: [
+      {
+        url: '/og/2048-vibe.png',
+        width: 1200,
+        height: 630,
+        alt: 'Merge Vibe 2048 game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: true,

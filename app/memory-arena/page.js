@@ -9,6 +9,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/memory-arena',
+    title: 'Memory Arena | Multiplayer Memory Game | VIBEMENOW',
+    description: 'Copy the sequence and be the last player standing in this competitive memory challenge.',
+    images: [
+      {
+        url: '/og/memory-arena.png',
+        width: 1200,
+        height: 630,
+        alt: 'Memory Arena multiplayer game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: false,
@@ -35,9 +45,9 @@ export default function MemoryArenaPage() {
           fontFamily: 'system-ui, sans-serif' 
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           The Ultimate Guide: How to Play and Win Memory Arena
-        </h2>
+        </h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
           What is Memory Arena?

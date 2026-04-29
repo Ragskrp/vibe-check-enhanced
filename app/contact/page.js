@@ -2,21 +2,43 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Copy, Check, ExternalLink } from 'lucide-react';
+import { Mail, CheckCircle, AlertTriangle } from 'lucide-react';
 
 export default function ContactPage() {
-  const [copied, setCopied] = useState(false);
-  const email = 'support@vibemenow.uk';
+  const [form, setForm] = useState({
+    subject: '',
+    message: '',
+  });
+  const [status, setStatus] = useState({ loading: false, success: null, error: '' });
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus({ loading: true, success: null, error: '' });
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      setStatus({ loading: false, success: true, error: '' });
+      setForm({ subject: '', message: '' });
+    } else {
+      setStatus({ loading: false, success: false, error: result.error || 'Submission failed.' });
+    }
   };
 
   return (
     <div className="page-container animate-fade-in">
-      <div className="card" style={{ maxWidth: '700px', margin: '0 auto', padding: '60px 40px' }}>
+      <div className="card" style={{ maxWidth: '720px', margin: '0 auto', padding: '60px 40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div
             style={{
@@ -33,77 +55,84 @@ export default function ContactPage() {
             Get in <span style={{ color: '#00d4ff' }}>Touch</span>
           </h1>
           <p style={{ color: '#888', fontSize: '18px', maxWidth: '500px', margin: '0 auto' }}>
-            We prefer direct communication. Send us an email and we&apos;ll get back to you as soon as possible.
+            Send us a message directly and we&apos;ll respond as soon as possible.
+          </p>
+          <p style={{ color: '#aaa', fontSize: '14px', maxWidth: '600px', margin: '20px auto 0', lineHeight: 1.7 }}>
+            We only collect the message subject and content. No personal name or email address is required, so your privacy is protected and no additional GDPR contact data is stored.
           </p>
         </div>
 
-        <div
-          style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '24px',
-            padding: '32px',
-            textAlign: 'center',
-            marginBottom: '40px',
-          }}
-        >
-          <div style={{ color: '#555', fontSize: '13px', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Official Support Email
+        <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '20px' }}>
+          <div style={{ display: 'grid', gap: '16px' }}>
+            <label style={{ color: '#ccc', fontSize: '14px' }}>
+              Subject
+              <input
+                type="text"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                required
+                style={{
+                  width: '100%',
+                  marginTop: '8px',
+                  padding: '14px 16px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: 'rgba(255,255,255,0.04)',
+                  color: '#fff',
+                }}
+              />
+            </label>
+
+            <label style={{ color: '#ccc', fontSize: '14px' }}>
+              Message
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                style={{
+                  width: '100%',
+                  marginTop: '8px',
+                  padding: '14px 16px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: 'rgba(255,255,255,0.04)',
+                  color: '#fff',
+                }}
+              />
+            </label>
           </div>
-          <div 
-            style={{ 
-              fontSize: '28px', 
-              fontWeight: 800, 
-              color: '#fff', 
-              marginBottom: '24px',
-              wordBreak: 'break-all'
+
+          {status.success && (
+            <div style={{ padding: '18px', borderRadius: '18px', background: 'rgba(0,255,148,0.12)', color: '#b6ffca', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <CheckCircle size={20} /> Thank you — your message has been sent.
+            </div>
+          )}
+
+          {status.success === false && (
+            <div style={{ padding: '18px', borderRadius: '18px', background: 'rgba(255,85,85,0.12)', color: '#ffb6b6', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <AlertTriangle size={20} /> {status.error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={status.loading}
+            className="btn-primary"
+            style={{
+              padding: '18px 24px',
+              width: '100%',
+              borderRadius: '18px',
+              fontWeight: 700,
             }}
           >
-            {email}
-          </div>
+            {status.loading ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
 
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a 
-              href={`mailto:${email}`}
-              className="btn-primary"
-              style={{ padding: '14px 28px', display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
-            >
-              Open Mail Client <ExternalLink size={18} />
-            </a>
-            <button 
-              onClick={copyToClipboard}
-              className="btn-outline"
-              style={{ padding: '14px 28px', display: 'flex', alignItems: 'center', gap: '10px', minWidth: '160px', justifyContent: 'center' }}
-            >
-              {copied ? (
-                <>
-                  Copied! <Check size={18} color="#00ff94" />
-                </>
-              ) : (
-                <>
-                  Copy Email <Copy size={18} />
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-          <div style={{ padding: '24px', borderRadius: '20px', background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <h3 style={{ color: '#eee', fontSize: '16px', marginBottom: '8px' }}>Bug Reports</h3>
-            <p style={{ color: '#666', fontSize: '14px', margin: 0 }}>
-              Found a glitch in a game? Please include your device and browser type so we can fix it faster.
-            </p>
-          </div>
-          <div style={{ padding: '24px', borderRadius: '20px', background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <h3 style={{ color: '#eee', fontSize: '16px', marginBottom: '8px' }}>Business & Ads</h3>
-            <p style={{ color: '#666', fontSize: '14px', margin: 0 }}>
-              For partnership inquiries or questions about our advertising and editorial policies.
-            </p>
-          </div>
-        </div>
-
-        <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+        <div style={{ marginTop: '40px', paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
           <p style={{ color: '#555', fontSize: '14px' }}>
             Average response time: 24-48 hours. <br />
             Published by <strong style={{ color: '#777' }}>VIBEMENOW</strong>

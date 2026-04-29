@@ -11,6 +11,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/flappy-vibe',
+    title: 'Flappy Vibe | Browser Arcade Game | VIBEMENOW',
+    description: 'Tap, click, or press space to stay airborne and dodge obstacles in this browser arcade game.',
+    images: [
+      {
+        url: '/og/flappy-vibe.png',
+        width: 1200,
+        height: 630,
+        alt: 'Flappy Vibe browser game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: true,

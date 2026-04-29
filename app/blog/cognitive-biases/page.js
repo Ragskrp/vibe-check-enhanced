@@ -1,6 +1,26 @@
 'use client';
 
+export const metadata = {
+  title: "Cognitive Biases | VIBEMENOW",
+  description:
+    "Explore cognitive biases, judgment errors, and decision-making psychology on VIBEMENOW.",
+  openGraph: {
+    title: "Cognitive Biases | VIBEMENOW",
+    description:
+      "Explore cognitive biases, judgment errors, and decision-making psychology on VIBEMENOW.",
+    images: [
+      {
+        url: "/og/cognitive-biases.png",
+        width: 1200,
+        height: 630,
+        alt: "Cognitive Biases on VIBEMENOW",
+      },
+    ],
+  },
+};
+
 import Link from 'next/link';
+...
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, ShieldAlert, Scale, Anchor, AlertCircle, Compass, Cpu } from 'lucide-react';
 import BlogArt from '@/app/blog/components/BlogArt';
 

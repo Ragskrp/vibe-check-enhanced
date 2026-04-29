@@ -10,6 +10,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/whack-a-vibe',
+    title: 'Whack-a-Vibe | Reaction Timer Game | VIBEMENOW',
+    description: 'Hit the bad targets and avoid penalties in this fast-paced browser reaction challenge.',
+    images: [
+      {
+        url: '/og/whack-a-vibe.png',
+        width: 1200,
+        height: 630,
+        alt: 'Whack-a-Vibe game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: false,

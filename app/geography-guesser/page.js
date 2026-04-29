@@ -10,6 +10,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/geography-guesser',
+    title: 'Geography Guesser | Flag Recognition Game | VIBEMENOW',
+    description: 'Test your world flag knowledge in a fast browser game. Identify flags, build streaks, and improve recognition over time.',
+    images: [
+      {
+        url: '/og/geography-guesser.png',
+        width: 1200,
+        height: 630,
+        alt: 'Geography Guesser flag game on VIBEMENOW',
+      },
+    ],
   },
 };
 

@@ -13,6 +13,14 @@ export const metadata = {
     url: '/wordvibe',
     title: 'WordVibe | 5-Letter Word Game | VIBEMENOW',
     description: 'Play a fast 5-letter WordVibe round in your browser.',
+    images: [
+      {
+        url: '/og/wordvibe.png',
+        width: 1200,
+        height: 630,
+        alt: 'Play WordVibe on VIBEMENOW',
+      },
+    ],
   },
 };
 
@@ -33,9 +41,9 @@ export default function WordVibePage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           About WordVibe
-        </h2>
+        </h1>
 
         <p style={{ marginBottom: '24px' }}>
           WordVibe is a browser-based word puzzle built around one simple loop: guess a

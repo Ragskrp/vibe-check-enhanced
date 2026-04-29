@@ -9,8 +9,16 @@ export const metadata = {
     url: '/quiz-arena',
     title: 'Quiz Arena — Trivia Challenge | VIBEMENOW',
     description: 'Test your knowledge across 8 categories! 🏆 How high can you score?',
-  }
-  , alternates: {
+    images: [
+      {
+        url: '/og/quiz-arena.png',
+        width: 1200,
+        height: 630,
+        alt: 'Quiz Arena trivia challenge on VIBEMENOW',
+      },
+    ],
+  },
+  alternates: {
     canonical: '/quiz-arena',
   },
   robots: {
@@ -30,7 +38,7 @@ export default function QuizArenaPage() {
         <QuizArenaGame />
       </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Quiz Arena: The Ultimate Guide to Mastering Trivia Challenges</h2>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>Quiz Arena: The Ultimate Guide to Mastering Trivia Challenges</h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>The Undeniable Appeal of General Knowledge</h3>
         <p>Since the dawn of the traditional pub quiz, human beings have harbored an intense fascination with trivia. There is a profound psychological satisfaction in successfully pulling a highly specific, seemingly obscure fact from the deep recesses of your memory. Quiz Arena digitizes and streamlines this experience, offering an expansive database of questions spanning eight diverse categories: General Knowledge, Pop Culture, Science, Gaming, Movies, Music, Food, and Sports. Playing trivia is not just about showing off; it actually stimulates the brain&apos;s reward centers. When you correctly answer a difficult question, your brain releases a surge of dopamine. Conversely, when you get a question wrong and the correct answer is revealed, your brain experiences a &quot;curiosity gap," making you highly likely to retain that new piece of information permanently.</p>

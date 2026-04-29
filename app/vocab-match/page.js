@@ -10,7 +10,7 @@ export const metadata = {
     url: '/vocab-match',
     title: 'Vocab Vibe | Vocabulary Match Game | VIBEMENOW',
     description: 'Match words to meanings in solo play or a live room with friends.',
-    images: ['/og-image.png'],
+    images: ['/og/vocab-match.png'],
   },
   alternates: {
     canonical: '/vocab-match',
@@ -37,7 +37,7 @@ export default function VocabMatchPage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#fbbf24', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>
+        <h1 style={{ color: '#fbbf24', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>
           About Vocab Vibe
         </h2>
 

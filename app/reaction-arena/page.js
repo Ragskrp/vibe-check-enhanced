@@ -10,6 +10,16 @@ export const metadata = {title: 'Reaction Arena | VIBEMENOW',
   },
   openGraph: {
     url: '/reaction-arena',
+    title: 'Reaction Arena | Fast Reflex Multiplayer | VIBEMENOW',
+    description: 'Compete in fast-reflex multiplayer battles and test your reaction speed against other players.',
+    images: [
+      {
+        url: '/og/reaction-arena.png',
+        width: 1200,
+        height: 630,
+        alt: 'Reaction Arena quick reflex game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -28,7 +38,7 @@ export default function ReactionArenaPage() {
       </AdGateway>
       <AdBanner />
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>Reaction Arena: A Comprehensive Guide to Boosting Your Reflexes</h2>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>Reaction Arena: A Comprehensive Guide to Boosting Your Reflexes</h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>Welcome to the Ultimate Reflex Test</h3>
         <p>Reaction Arena is a high-speed, competitive reflex testing game designed to measure exactly how fast your brain can process visual information and send physical commands to your fingertips. In a world where split-second decisions matter—whether you&apos;re an esports competitor, a traditional athlete, or just someone looking to prove they have the fastest hands among their friends—understanding and improving your raw reaction time is incredibly valuable. Human beings rely constantly on rapid visual processing, yet it is a skill we rarely intentionally practice. Reaction Arena provides a sterile, precise environment to gauge your neural latency, stripping away complex game mechanics to focus solely on the mind-muscle connection. With its unpredictable timing and intense visual cues, this game separates the truly elite from the average player.</p>

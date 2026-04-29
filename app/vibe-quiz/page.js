@@ -9,6 +9,14 @@ export const metadata = {
     url: '/vibe-quiz',
     title: 'Vibe Quiz | Personality-Style Browser Quiz | VIBEMENOW',
     description: 'Answer a short set of questions and get a playful vibe result.',
+    images: [
+      {
+        url: '/og/vibe-quiz.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vibe Quiz personality browser quiz on VIBEMENOW',
+      },
+    ],
   },
   alternates: {
     canonical: '/vibe-quiz',
@@ -32,9 +40,9 @@ export default function VibeQuizPage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           About Vibe Quiz
-        </h2>
+        </h1>
 
         <p>
           Vibe Quiz is a short personality-style game that groups answers into playful result

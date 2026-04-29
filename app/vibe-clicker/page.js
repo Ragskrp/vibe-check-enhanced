@@ -11,6 +11,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/vibe-clicker',
+    title: 'Vibe Clicker | Idle Browser Game | VIBEMENOW',
+    description: 'Generate points, buy upgrades, and build idle production in this free browser clicker game.',
+    images: [
+      {
+        url: '/og/vibe-clicker.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vibe Clicker idle game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: true,

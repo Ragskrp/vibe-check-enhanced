@@ -1,4 +1,15 @@
-'use client';
+
+export const metadata = {
+  title: 'Terms of Service | VIBEMENOW',
+  description: 'Terms and conditions for using VIBEMENOW, including user conduct, privacy, and legal disclaimers.',
+  openGraph: {
+    url: '/terms',
+    images: ['/og/terms.png'],
+  },
+  alternates: {
+    canonical: '/terms',
+  },
+};
 
 import Link from 'next/link';
 

@@ -9,6 +9,16 @@ export const metadata = {
   },
   openGraph: {
     url: '/odd-one-out',
+    title: 'Odd One Out | Visual Perception Game | VIBEMENOW',
+    description: 'Spot the odd emoji or icon and beat the clock in this fast-paced visual game.',
+    images: [
+      {
+        url: '/og/odd-one-out.png',
+        width: 1200,
+        height: 630,
+        alt: 'Odd One Out visual game on VIBEMENOW',
+      },
+    ],
   },
   robots: {
     index: false,
@@ -35,9 +45,9 @@ export default function OddOneOutPage() {
           fontFamily: 'system-ui, sans-serif' 
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           Odd One Out: The Ultimate Guide to Visual Perception and Speed
-        </h2>
+        </h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
           The Challenge of Visual Discrimination

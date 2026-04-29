@@ -10,6 +10,7 @@ export const metadata = {
     url: '/would-you-rather',
     title: 'Would You Rather | Impossible Choices | VIBEMENOW',
     description: 'Choose between two awkward, funny, or impossible options.',
+    images: ['/og/would-you-rather.png'],
   },
   alternates: {
     canonical: '/would-you-rather',

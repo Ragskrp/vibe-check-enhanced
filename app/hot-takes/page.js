@@ -9,6 +9,7 @@ export const metadata = {
     url: '/hot-takes',
     title: 'Hot Takes | Vote on Opinions | VIBEMENOW',
     description: 'Choose a side and compare how other players voted.',
+    images: ['/og/hot-takes.png'],
   },
   alternates: {
     canonical: '/hot-takes',
@@ -34,9 +35,9 @@ export default function HotTakesPage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
           About Hot Takes
-        </h2>
+        </h1>
 
         <p style={{ marginBottom: '24px' }}>
           Hot Takes is a simple voting game. You read a short opinion, choose a side, and then

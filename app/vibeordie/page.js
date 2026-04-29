@@ -9,6 +9,14 @@ export const metadata = {
     url: '/vibeordie',
     title: 'Vibe or Die | Reaction Speed Game | VIBEMENOW',
     description: 'Wait for the signal and test your reaction speed.',
+    images: [
+      {
+        url: '/og/vibeordie.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vibe or Die reaction speed game on VIBEMENOW',
+      },
+    ],
   },
   alternates: {
     canonical: '/vibeordie',
@@ -32,9 +40,9 @@ export default function VibeOrDiePage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           About Vibe or Die
-        </h2>
+        </h1>
 
         <p>
           Vibe or Die is a straightforward reaction test. The page waits, the visual signal

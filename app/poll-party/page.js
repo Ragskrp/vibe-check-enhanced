@@ -35,9 +35,9 @@ export default function PollPartyPage() {
           fontFamily: 'system-ui, sans-serif' 
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
           Poll Party: The Ultimate Guide to Social Polling and Group Dynamics
-        </h2>
+        </h1>
         
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
           Why Social Polling Games Are So Engaging

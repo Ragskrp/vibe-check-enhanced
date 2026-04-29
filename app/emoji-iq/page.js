@@ -10,6 +10,14 @@ export const metadata = {
     url: '/emoji-iq',
     title: 'Emoji IQ | Guess the Emoji Puzzle | VIBEMENOW',
     description: 'Solve emoji clues using context, wordplay, and pattern recognition.',
+    images: [
+      {
+        url: '/og/emoji-iq.png',
+        width: 1200,
+        height: 630,
+        alt: 'Emoji IQ puzzle on VIBEMENOW',
+      },
+    ],
   },
   alternates: {
     canonical: '/emoji-iq',
@@ -33,9 +41,9 @@ export default function EmojiIQPage() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2em', marginBottom: '20px' }}>
+        <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
           About Emoji IQ
-        </h2>
+        </h1>
 
         <p style={{ marginBottom: '24px' }}>
           Emoji IQ turns familiar symbols into short puzzle clues. Some answers are literal, some

@@ -502,8 +502,8 @@ export default function FlappyGame() {
           {isMusicOn ? '🔊 Music On' : '🔇 Music Off'}
         </button>
         {isMusicOn && (
-          <audio autoPlay loop src="https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" />
-        )}
+  <audio loop src="https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" />
+)}
       </div>
 
       <div style={{

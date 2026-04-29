@@ -3,6 +3,10 @@
 import Link from 'next/link';
 
 export default function DisclaimerPage() {
+  // OG image for Disclaimer page
+  // (metadata block is likely in a different file, but if not present, add as needed)
+  // If metadata is missing, add at the top of the file
+  // If present elsewhere, skip
   return (
     <div className="page-container animate-fade-in">
       <div className="card" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px' }}>

@@ -8,6 +8,7 @@ export const metadata = {
   },
   openGraph: {
     url: '/editorial-policy',
+    images: ['/og/editorial-policy.png'],
   },
 };
 

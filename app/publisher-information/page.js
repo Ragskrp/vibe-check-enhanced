@@ -10,6 +10,7 @@ export const metadata = {
   },
   openGraph: {
     url: '/publisher-information',
+    images: ['/og/publisher-information.png'],
   },
 };
 
