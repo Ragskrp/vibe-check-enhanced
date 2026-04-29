@@ -23,28 +23,46 @@ const games = [
 ];
 
 function generateContent(gameName) {
+  let specificFacts = `The core format of ${gameName} has been adapted to perfectly fit the VIBEMENOW rapid-play ethos. Unlike traditional games that require long sessions, this variant focuses on micro-bursts of engaging gameplay.`;
+  
+  if (gameName === "WordVibe") {
+    specificFacts = `WordVibe vs Wordle: What makes WordVibe distinct is our original 'Vibe Hint' system. After 3 failed guesses, a themed emoji clue is revealed to assist players. We've optimized the dictionary and tailored the challenge specifically for the VIBEMENOW audience.`;
+  } else if (gameName === "Merge Vibe") {
+    specificFacts = `What makes Merge Vibe unique compared to standard 2048 clones is the introduction of 'Vibe Tiles' — periodic wildcard tiles that appear randomly and multiply surrounding values, adding an unpredictable dynamic layer to the classic sliding puzzle mechanic.`;
+  } else if (gameName === "Flappy Vibe") {
+    specificFacts = `Flappy Vibe introduces an original mechanic not found in traditional avoid-the-pipe games: collectible 'Vibe tokens' positioned between obstacles. Collecting these triggers a brief slow-motion effect, radically changing the rhythm and strategy required for high scores.`;
+  } else if (gameName === "Whack-a-Vibe") {
+    specificFacts = `Unlike standard Whack-a-Mole games, Whack-a-Vibe strictly penalizes players for hitting 'good' targets. This 'avoid the good ones' mechanic forces players to use inhibitory control, distinguishing it as a test of restraint rather than just raw reaction speed.`;
+  }
+
   return {
     title: gameName,
-    subtitle: `The definitive guide to mastering ${gameName}, exploring its cognitive mechanics, and understanding why it's such an engaging experience.`,
-    historyText: `The mechanics behind ${gameName} trace their roots back to early digital entertainment and cognitive testing frameworks. Before the era of modern browser platforms, concepts similar to ${gameName} were utilized in psychological research to measure user engagement, rapid decision-making, and pattern recognition. Over time, as web technologies evolved from simple HTML interfaces to complex, interactive JavaScript-driven canvases, developers realized these core mechanics could be adapted into mainstream entertainment. ${gameName} represents a modern culmination of this journey, seamlessly blending intuitive interface design with underlying algorithms that challenge the user's reflexes and cognitive processing speed. The genre has exploded in popularity over the last decade, primarily because it offers "micro-bursts" of entertainment—allowing users to engage in a highly stimulating activity without committing to hours of gameplay. Today, ${gameName} stands as a testament to how simple concepts, refined through iterations of user feedback and behavioral psychology, can create deeply compelling digital experiences that appeal to both casual users and dedicated competitive players.`,
-    psychologyText: `Why is ${gameName} so addictive? The answer lies in the intersection of behavioral psychology and neuroscience. At its core, ${gameName} leverages the dopamine-driven feedback loop, a concept extensively studied in operant conditioning. When a player makes a successful move or achieves a high score, the brain releases a small burst of dopamine, a neurotransmitter associated with pleasure and reward. This immediate positive reinforcement encourages the player to repeat the action. Furthermore, ${gameName} creates a state of "flow"—a psychological concept introduced by Mihaly Csikszentmihalyi. Flow occurs when a task is perfectly balanced between skill and challenge; if it's too easy, the user gets bored, and if it's too hard, they become frustrated. ${gameName} dynamically maintains this balance, keeping the user in the zone where time seems to vanish. Additionally, the rapid decision-making required in ${gameName} stimulates the prefrontal cortex, enhancing neuroplasticity—the brain's ability to form new neural connections. Regular engagement with these types of tasks can subtly improve real-world cognitive flexibility, reaction times, and spatial awareness, making ${gameName} not just a game, but a form of lightweight cognitive exercise.`,
-    strategyText: `Mastering ${gameName} requires more than just fast fingers; it demands strategic foresight and a deep understanding of its underlying systems. The most common mistake beginners make is prioritizing speed over accuracy. While speed is crucial, uncontrolled inputs inevitably lead to compounding errors. Elite players of ${gameName} employ a technique known as "chunking," where they process multiple elements on the screen as a single, cohesive unit rather than isolated pieces of information. This significantly reduces cognitive load and allows for faster reaction times. Furthermore, state management is vital. Players must maintain peripheral awareness, keeping their focal point relatively central on the screen to minimize eye-tracking delay. For long sessions, ergonomic positioning and taking micro-breaks every 15 minutes can prevent visual fatigue and maintain peak performance levels. Lastly, studying the game's algorithmic patterns—often referred to as the "meta"—can provide a massive advantage. While elements appear random, understanding the probability distributions can help players anticipate the next optimal move in ${gameName}.`,
+    howToPlay: `
+1. Start the game by clicking or tapping the main interface.
+2. Observe the initial state and process the visual information presented.
+3. React to the prompts or targets according to the specific rules of ${gameName}.
+4. Score points by making accurate decisions within the time limit.
+5. The game ends when the timer runs out or a fail state is reached. Try to beat your high score on subsequent attempts.`,
+    strategy: `To truly excel at ${gameName}, beginners must move past generic 'practice makes perfect' advice. First, employ 'chunking' by viewing the screen elements not as isolated objects, but as a cohesive pattern. This reduces cognitive load significantly. Second, control your eye movements—maintain a soft focus on the center of the screen to utilize your peripheral vision for faster detection of new targets or changes. Finally, prioritize consistency and accuracy over pure frantic speed; controlled pacing prevents the cascading errors that typically ruin high-score runs.`,
+    cognitiveSkill: `${gameName} is primarily an exercise in working memory and rapid pattern recognition. By forcing the player to continually assess changing on-screen variables and make split-second decisions, it stimulates the prefrontal cortex. Neuroscience research suggests that engaging in these dynamic feedback loops can enhance neuroplasticity. While it's primarily an entertainment experience, the required focus acts as a lightweight cognitive warm-up, subtly training inhibitory control and spatial awareness in the process.`,
+    gameFacts: specificFacts,
+    relatedGames: [
+      games[(games.indexOf(gameName) + 1) % games.length],
+      games[(games.indexOf(gameName) + 2) % games.length],
+      games[(games.indexOf(gameName) + 3) % games.length]
+    ],
     faqs: [
       {
-        question: `What makes ${gameName} different from similar activities?`,
-        answer: `${gameName} is uniquely designed to balance casual engagement with underlying cognitive challenges. Unlike generic alternatives, it focuses on optimized user feedback loops and requires a blend of pattern recognition and rapid decision-making, ensuring that every session feels fresh and rewarding.`
+        question: `How do I play ${gameName}?`,
+        answer: `Simply follow the step-by-step instructions provided below the game canvas. The core mechanic involves rapid pattern recognition and timely inputs to maximize your score before the round ends.`
       },
       {
-        question: `Can playing ${gameName} actually improve my brain function?`,
-        answer: `Yes, in moderation. Engaging in fast-paced, pattern-based tasks like ${gameName} stimulates the prefrontal cortex and can temporarily enhance neuroplasticity. It acts as a form of cognitive warm-up, improving short-term memory recall and reaction times in everyday tasks.`
+        question: `What makes ${gameName} unique?`,
+        answer: `It features custom mechanics specifically designed for the VIBEMENOW platform, blending casual entertainment with genuine cognitive challenges like working memory and reaction speed.`
       },
       {
-        question: `How can I get a higher score in ${gameName}?`,
-        answer: `The key to mastering ${gameName} is consistency over speed. Focus on accuracy to build an uninterrupted rhythm. Utilize the "chunking" technique to process screen information faster, and maintain central focus to minimize visual delay. Practice daily in short bursts rather than marathon sessions.`
-      },
-      {
-        question: `Is ${gameName} suitable for all ages?`,
-        answer: `Absolutely. ${gameName} is designed with an intuitive interface that is accessible for beginners while offering a high skill ceiling for competitive players. The mechanics are simple to understand but challenging to master, making it universally engaging.`
+        question: `Can I play ${gameName} on mobile?`,
+        answer: `Yes, ${gameName} is fully responsive and optimized for mobile devices. The touch controls are specifically calibrated for fast-paced gameplay on smaller screens.`
       }
     ]
   };
@@ -65,4 +83,4 @@ if (!fs.existsSync(targetDir)) {
 }
 
 fs.writeFileSync(path.join(targetDir, 'seoData.js'), fileContent);
-console.log('Successfully generated seoData.js with thousands of words!');
+console.log('Successfully generated seoData.js with strict A/B/C/D/E structure and clone differentiation!');

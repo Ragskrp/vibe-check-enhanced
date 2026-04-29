@@ -1,4 +1,5 @@
 import Script from "next/script";
+import AnalyticsAndAds from "./components/AnalyticsAndAds";
 import CookieConsent from "./components/CookieConsent";
 import SiteLayout from "./components/SiteLayout";
 import "./globals.css";
@@ -104,29 +105,7 @@ export default function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="VIBEMENOW" />
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
-          crossOrigin="anonymous"
-        />
-                <Script
-          id="ga4"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <Script
-          id="ga4-inline"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CJ1V3EJL7M', { page_path: window.location.pathname });
-            `,
-          }}
-        />
+        <AnalyticsAndAds />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -135,11 +114,6 @@ export default function RootLayout({ children }) {
       <body className="grid-bg" suppressHydrationWarning>
         <SiteLayout>{children}</SiteLayout>
         <CookieConsent />
-        <noscript>
-          <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: '#ded895', color: '#000', padding: '10px', textAlign: 'center', zIndex: 9999, fontSize: '13px', fontWeight: '700' }}>
-            This site uses cookies for analytics and ads. By continuing to browse, you agree to our use of cookies.
-          </div>
-        </noscript>
       </body>
     </html>
   );

@@ -13,62 +13,77 @@ export default function PrivacyPage() {
         
         <div style={{ color: '#ccc', lineHeight: '1.6', fontSize: '14px' }}>
           <p style={{ marginBottom: '20px' }}>
-            Last Updated: April 14, 2026
+            Last Updated: April 29, 2026
           </p>
 
-          <p style={{ marginBottom: '20px' }}>
-            VIBEMENOW (&quot;we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website. By using VIBEMENOW, you agree to the terms of this policy.
-          </p>
-
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Personal Information Collection</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Who we are (Data Controller)</h2>
           <p>
-            VIBEMENOW is designed as a &quot;No-Registration" platform. We do not require you to provide a name, email address, or physical address to access our games. We do not maintain user accounts or profiles that link specifically to your real-world identity.
+            Publisher: VIBEMENOW, operated by Raghavendra Reddy<br />
+            Address: London Bridge, London, United Kingdom<br />
+            Contact: <a href="mailto:privacy@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>privacy@vibemenow.uk</a><br />
+            <em>Note: As a UK-based publisher, VIBEMENOW processes data under UK GDPR.</em>
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. Technical Data & Cookies</h2>
-          <p>
-            Like most websites, we collect non-identifying technical data to ensure our games run smoothly. This includes your IP address (anonymized where possible), browser type, device type, and operating system.
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            We use <strong>Cookies</strong> to enhance your experience. Cookies are small files stored on your device that help us remember your game progress and high scores locally.
-          </p>
-
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. Google AdSense & Personalized Advertising</h2>
-          <p>
-            We use Google AdSense to serve advertisements on our site. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to VIBEMENOW and other websites on the internet.
-          </p>
-          <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '8px' }}>Google&apos;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites.</li>
-            <li style={{ marginBottom: '8px' }}>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Google&apos;s Ads Settings</a>.</li>
-            <li>Alternatively, you can opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>www.aboutads.info</a>.</li>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>2. What personal data we collect and why</h2>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Essential Technical Data:</strong> IP address (anonymised), browser type, device type. Legal basis: Legitimate Interests.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Game state:</strong> Local storage only, never transmitted to our servers. Legal basis: Contract/Service delivery.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Multiplayer sessions:</strong> Temporary room codes and display names via Firebase. Legal basis: Contract (deleted within 24 hours of session end).</li>
+            <li style={{ marginBottom: '8px' }}><strong>Analytics:</strong> Page views, session duration via Google Analytics. Legal basis: Consent.</li>
+            <li><strong>Advertising:</strong> Google AdSense advertising cookies for personalized ads. Legal basis: Consent.</li>
           </ul>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Data Handling (Firebase & Multiplayer)</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. Cookies and consent</h2>
+          <p>We use three categories of cookies:</p>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Essential:</strong> Required for the site to function.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Analytics:</strong> Help us understand how visitors use the site.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Advertising:</strong> Used by Google AdSense to serve personalized ads.</li>
+          </ul>
           <p>
-            In multiplayer modes, we use Google Firebase for real-time data synchronization. This data (e.g., room codes and game scores) is transient and does not contain personal information. We do not store this data longer than necessary for the completion of your game session.
+            Non-essential cookies (Analytics and Advertising) only fire after your explicit consent. You can withdraw or modify your consent at any time by clicking the "Cookie Settings" link in the footer of any page.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. GDPR & UK GDPR Compliance</h2>
-          <p>
-            If you are a resident of the European Economic Area (EEA) or the United Kingdom (UK), you have certain data protection rights under the General Data Protection Regulation (GDPR) and the UK GDPR. Because we do not store &quot;Personal Data&quot; in the traditional sense (no names or emails), we fulfill our obligations by:
-          </p>
-          <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '8px' }}>Minimizing data collection to the absolute necessary technical requirements.</li>
-            <li style={{ marginBottom: '8px' }}>Provision of clear information on third-party tracking (AdSense).</li>
-            <li>Allowing you to clear your local game data at any time through your browser settings.</li>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Third-party processors</h2>
+          <p>We use the following third-party processors:</p>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Google LLC (AdSense, Analytics, Firebase):</strong> Processes analytics and advertising data based on your consent, and handles transient multiplayer room data. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Read Google's Privacy Policy</a>.</li>
           </ul>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Children&#39;s Data (COPPA & UK GDPR)</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. Data retention periods</h2>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}><strong>Session data:</strong> Deleted at session end (within 24 hours).</li>
+            <li style={{ marginBottom: '8px' }}><strong>Analytics data:</strong> Retained by Google per their standard retention settings (26 months by default).</li>
+            <li style={{ marginBottom: '8px' }}><strong>Local game state:</strong> Stored in user's browser, user-controlled.</li>
+            <li><strong>Log data:</strong> Purged within 30 days.</li>
+          </ul>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Your rights under UK GDPR</h2>
+          <p>You have the following rights regarding your personal data:</p>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li>Right to access your data</li>
+            <li>Right to rectification</li>
+            <li>Right to erasure ("right to be forgotten")</li>
+            <li>Right to restrict processing</li>
+            <li>Right to data portability</li>
+            <li>Right to object to processing</li>
+            <li>Right to withdraw consent at any time</li>
+          </ul>
+          <p>To exercise these rights, please email us at <a href="mailto:privacy@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>privacy@vibemenow.uk</a>.</p>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>7. Supervisory authority</h2>
           <p>
-            VIBEMENOW includes educational sections (GCSE) that may be accessed by children. We do not knowingly collect, store, or share any personal information from children under the age of 13 in the US (COPPA) or under 18 in the UK/EU without parental consent.
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            If you are a parent or guardian and believe your child has provided personal data on our site, please contact us immediately so we can take appropriate action to remove such information.
+            You have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>ico.org.uk</a>.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>7. Contact Us</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>8. Changes to this policy</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>support@vibemenow.uk</a> or via our <Link href="/contact" style={{ color: '#00ff94', textDecoration: 'underline' }}>Contact Form</Link>.
+            We will notify users of material changes by updating the 'Last Updated' date at the top of this page.
+          </p>
+
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>9. Contact</h2>
+          <p>
+            For privacy-related inquiries, please contact <a href="mailto:privacy@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>privacy@vibemenow.uk</a>. For general support, contact <a href="mailto:support@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>support@vibemenow.uk</a>.
           </p>
         </div>
       </div>

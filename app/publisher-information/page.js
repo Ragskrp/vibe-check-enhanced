@@ -84,6 +84,9 @@ export default function PublisherInformationPage() {
             <p style={{ color: '#aaa', marginBottom: '8px' }}>
               <strong style={{ color: '#fff' }}>Publisher:</strong> Raghavendra Reddy
             </p>
+            <p style={{ color: '#aaa', marginBottom: '8px' }}>
+              <strong style={{ color: '#fff' }}>Address:</strong> London Bridge, London, United Kingdom
+            </p>
             <p style={{ color: '#aaa', marginBottom: 0 }}>
               <strong style={{ color: '#fff' }}>Contact:</strong>{' '}
               <a href="mailto:support@vibemenow.uk" style={{ color: '#00d4ff', textDecoration: 'underline' }}>

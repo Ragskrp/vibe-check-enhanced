@@ -4,6 +4,8 @@ import { getAllTopicSlugs as getMathsTopicSlugs } from './gcse/maths/topicData';
 import { getAllTopicSlugs as getScienceTopicSlugs } from './gcse/science/scienceData';
 
 export default function sitemap() {
+  // NOTE: The sitemap must be manually submitted to Google Search Console. 
+  // This cannot be automated in code.
   const baseUrl = 'https://vibemenow.uk';
   const lastModified = new Date();
 

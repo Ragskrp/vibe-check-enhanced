@@ -1,11 +1,13 @@
 import FaqSchema from './FaqSchema';
+import Link from 'next/link';
 
 export default function GameSeoArticle({
   title,
-  subtitle,
-  historyText,
-  psychologyText,
-  strategyText,
+  howToPlay,
+  strategy,
+  cognitiveSkill,
+  gameFacts,
+  relatedGames,
   faqs,
 }) {
   return (
@@ -22,25 +24,29 @@ export default function GameSeoArticle({
     >
       <FaqSchema faqs={faqs} />
 
-      <h2 style={{ color: '#00d4ff', fontSize: '2.5em', marginBottom: '8px', fontWeight: 900 }}>
+      <h2 style={{ color: '#00d4ff', fontSize: '2.5em', marginBottom: '32px', fontWeight: 900 }}>
         The Comprehensive Guide to {title}
       </h2>
-      {subtitle && (
-        <p style={{ fontSize: '1.2em', color: '#888', marginBottom: '32px' }}>
-          {subtitle}
-        </p>
-      )}
 
-      {historyText && (
+      {howToPlay && (
         <section style={{ marginBottom: '40px' }}>
           <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>
-            Origins and Evolution
+            How to Play
           </h3>
-          <p style={{ fontSize: '1.05em' }}>{historyText}</p>
+          <p style={{ fontSize: '1.05em', whiteSpace: 'pre-wrap' }}>{howToPlay}</p>
         </section>
       )}
 
-      {psychologyText && (
+      {strategy && (
+        <section style={{ marginBottom: '40px' }}>
+          <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>
+            Strategy & Tips
+          </h3>
+          <p style={{ fontSize: '1.05em' }}>{strategy}</p>
+        </section>
+      )}
+
+      {cognitiveSkill && (
         <section
           style={{
             padding: '32px',
@@ -51,18 +57,38 @@ export default function GameSeoArticle({
           }}
         >
           <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>
-            The Psychology Behind the Mechanics
+            The Cognitive Skill This Game Trains
           </h3>
-          <p style={{ fontSize: '1.05em', margin: 0 }}>{psychologyText}</p>
+          <p style={{ fontSize: '1.05em', margin: 0 }}>{cognitiveSkill}</p>
         </section>
       )}
 
-      {strategyText && (
+      {gameFacts && (
         <section style={{ marginBottom: '40px' }}>
           <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>
-            Mastery and Strategy
+            Game Facts & Variants
           </h3>
-          <p style={{ fontSize: '1.05em' }}>{strategyText}</p>
+          <p style={{ fontSize: '1.05em' }}>{gameFacts}</p>
+        </section>
+      )}
+
+      {relatedGames && relatedGames.length > 0 && (
+        <section style={{ marginBottom: '40px' }}>
+          <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>
+            Related Games on VIBEMENOW
+          </h3>
+          <ul style={{ display: 'flex', gap: '16px', listStyle: 'none', padding: 0 }}>
+            {relatedGames.map((game, i) => {
+              const slug = '/' + game.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
+              return (
+                <li key={i}>
+                  <Link href={slug} style={{ color: '#00ff94', textDecoration: 'underline', fontSize: '1.1em' }}>
+                    {game}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </section>
       )}
 

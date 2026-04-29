@@ -146,7 +146,33 @@ export default function SiteLayout({ children }) {
       )}
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main>
+        {[
+          '/hot-takes', 
+          '/would-you-rather', 
+          '/poll-party', 
+          '/drawing-dash', 
+          '/quiz-arena', 
+          '/reaction-arena', 
+          '/vocab-match'
+        ].includes(pathname) && (
+          <div style={{
+            maxWidth: 800,
+            margin: '20px auto 0',
+            padding: '12px 20px',
+            background: 'rgba(255, 212, 0, 0.05)',
+            border: '1px solid rgba(255, 212, 0, 0.2)',
+            borderRadius: '12px',
+            color: '#ffdd00',
+            fontSize: '13px',
+            textAlign: 'center',
+            lineHeight: 1.5
+          }}>
+            <strong>Notice:</strong> This game includes player-submitted content. Content is moderated per our <Link href="/community-guidelines" style={{ color: '#fff', textDecoration: 'underline' }}>Community Guidelines</Link>. VIBEMENOW is not responsible for content submitted by other players.
+          </div>
+        )}
+        {children}
+      </main>
 
       <GameEditorialLayer />
 
@@ -177,8 +203,24 @@ export default function SiteLayout({ children }) {
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
             <Link href="/disclaimer">Disclaimer</Link>
+            <button 
+              onClick={() => window.dispatchEvent(new Event('open_cookie_preferences'))}
+              style={{ background: 'transparent', border: 'none', color: '#888', cursor: 'pointer', padding: 0, font: 'inherit', textAlign: 'left' }}
+              className="cookie-settings-btn"
+            >
+              Cookie Settings
+            </button>
           </div>
-          <div className="footer-tagline">
+          <div className="footer-socials" style={{ marginTop: '24px', display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <a href="https://x.com/vibemenow_uk" target="_blank" rel="noopener noreferrer" style={{ color: '#888', transition: 'color 0.2s' }} aria-label="Twitter/X">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <style jsx>{`
+            .cookie-settings-btn:hover { color: #fff !important; text-decoration: underline; }
+            .footer-socials a:hover { color: #fff !important; }
+          `}</style>
+          <div className="footer-tagline" style={{ marginTop: '24px' }}>
             Play daily • Share with friends • Come back tomorrow for new vibes ⚡
           </div>
           <div style={{ marginTop: '12px', fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>

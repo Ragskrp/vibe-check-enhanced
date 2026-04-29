@@ -133,9 +133,10 @@ export default function ContactPage() {
         </form>
 
         <div style={{ marginTop: '40px', paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
-          <p style={{ color: '#555', fontSize: '14px' }}>
+          <p style={{ color: '#555', fontSize: '14px', lineHeight: '1.6' }}>
             Average response time: 24-48 hours. <br />
-            Published by <strong style={{ color: '#777' }}>VIBEMENOW</strong>
+            Published by <strong style={{ color: '#777' }}>VIBEMENOW</strong><br />
+            London Bridge, London, United Kingdom
           </p>
           <Link href="/" style={{ color: '#00d4ff', fontSize: '14px', textDecoration: 'none', marginTop: '16px', display: 'inline-block' }}>
             ← Back to Games
