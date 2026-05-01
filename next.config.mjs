@@ -1,4 +1,5 @@
 const nextConfig = {
+    trailingSlash: false,
     transpilePackages: [
         'three', 
         '@react-three/fiber',

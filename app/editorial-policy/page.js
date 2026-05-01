@@ -29,7 +29,7 @@ export default function EditorialPolicyPage() {
 
         <div style={{ color: '#ccc', lineHeight: '1.75', fontSize: '15px' }}>
           <p style={{ marginBottom: '20px' }}>
-            Last Updated: April 8, 2026
+            Last Updated: May 1, 2026
           </p>
 
           <p style={{ marginBottom: '20px' }}>
@@ -40,16 +40,18 @@ export default function EditorialPolicyPage() {
 
           <h2 style={sectionTitleStyle}>1. What We Publish</h2>
           <p>
-            VIBEMENOW publishes original browser games, game instructions, strategy guides, and blog articles related to casual play,
-            digital culture, and short-form gaming. Our goal is to publish content that helps someone play a game, understand how it
-            works, or learn something useful about the topic without needing to leave and search again.
+            VIBEMENOW publishes original browser games, game instructions, strategy guides, 
+            blog articles, and tech news reports focused on AI, hardware, and digital policy. 
+            Our goal is to provide a mix of interactive play and substantive analysis that 
+            helps visitors understand the digital landscape without needing to leave and search again.
           </p>
 
           <h2 style={sectionTitleStyle}>2. How Pages Are Created</h2>
           <p>
-            We aim to write from direct use of the site itself. For game pages, that means playing the game, checking the controls,
-            verifying the rules shown on the page, and updating the surrounding copy when mechanics change. For guides and articles,
-            we aim to publish material that adds explanation, context, or interpretation rather than repeating generic summaries.
+            We aim to write from direct experience and research. For game pages, that means 
+            playing and verifying mechanics. For tech news and guides, we aim to publish 
+            original analysis, industry benchmarks, and synthesized research that adds 
+            clear interpretation rather than repeating generic summaries.
           </p>
 
           <h2 style={sectionTitleStyle}>3. Originality Standard</h2>

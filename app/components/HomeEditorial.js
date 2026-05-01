@@ -18,12 +18,13 @@ export default function HomeEditorial() {
         What VIBEMENOW publishes
       </h2>
       <p>
-        VIBEMENOW is a comprehensive browser-game and learning ecosystem built around quick, original activities:
-        word puzzles, reflex challenges, social voting games, memory rounds, geography practice, and
-        rigorous GCSE revision tools. Our foundational philosophy is that digital entertainment should not be empty calories. The aim is to make each page significantly useful before it is monetized. A visitor
-        should be able to understand the underlying cognitive mechanics of the activity, play it without creating an account, and
-        read enough pedagogical context to decide whether it suits a quick break, a classroom warm-up, or a group
-        session with friends. We believe in "micro-learning" — the idea that engaging with short, highly focused bursts of cognitively demanding tasks can improve neuroplasticity and daily focus.
+        VIBEMENOW is a comprehensive browser-game and tech analysis ecosystem built around quick, original activities:
+        word puzzles, reflex challenges, social voting games, memory rounds, geography practice, 
+        rigorous GCSE revision tools, and in-depth tech news reports. Our foundational philosophy 
+        is that digital entertainment and information should not be empty calories. The aim is to 
+        make each page significantly useful before it is monetized. A visitor should be able to 
+        understand the underlying cognitive mechanics of an activity, play it without creating an account, 
+        or catch up on the latest shifts in AI and hardware through our dedicated tech news desk.
       </p>
       <p>
         The internet is currently flooded with low-effort, auto-generated content. This site is unequivocally different. It is not a file-download directory, a scraped-games portal, or a collection of thin pages
@@ -31,10 +32,12 @@ export default function HomeEditorial() {
         and links to related formats. 
       </p>
       <p>
-        The blog and guide sections add extensive, long-form editorial material about
-        learning science, memory retention, puzzles, decision-making theory, and healthy ways to use lightweight digital games to combat cognitive fatigue. That
-        publisher layer matters deeply because the playable tool is only one part of the value equation; the surrounding
-        text, detailed guides, and structured data help visitors, educators, and search crawlers understand the profound purpose behind every route on this platform. We are committed to transparency, educational rigor, and providing a premium user experience.
+        The blog, tech news, and guide sections add extensive, long-form editorial material about
+        learning science, memory retention, AI shifts, hardware advances, and healthy ways to use 
+        lightweight digital tools to combat cognitive fatigue. That publisher layer matters deeply 
+        because the playable tool is only one part of the value equation; the surrounding
+        text, detailed analysis, and structured data help visitors, educators, and search 
+        crawlers understand the profound purpose behind every route on this platform.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, margin: '28px 0' }}>

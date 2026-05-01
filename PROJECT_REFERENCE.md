@@ -19,7 +19,8 @@ This document serves as the primary technical reference for AI agents and develo
 ```text
 /
 ├── app/                    # Next.js App Router (Main Logic & Routes)
-│   ├── [game-name]/        # Individual game routes (e.g., wordvibe, 2048-vibe)
+│   ├── blog/               # General-interest commentary & educational notes
+│   ├── tech-news/          # Standalone tech news section (AI, hardware, policy)
 │   ├── components/         # Shared UI components
 │   │   ├── SiteLayout.js   # Global structure (Nav, Footer, Content Wrapper)
 │   │   ├── GameEndScreen.js# Universal game result handler
@@ -89,4 +90,4 @@ Most games follow this lifecycle:
 - **Environment Variables**: Requires Firebase keys for full functionality in local dev.
 
 ---
-*Created on 2026-04-14 - Reference this file before making structural changes.*
+*Last updated on 2026-05-01 - Reference this file before making structural changes.*

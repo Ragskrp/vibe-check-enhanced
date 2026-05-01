@@ -1,4 +1,4 @@
-'use client';
+
 
 const pick = (arr) => arr[Math.floor(arr.length * Math.random())];
 
@@ -188,3 +188,5 @@ export const getTopicsByCategory = () => {
   });
   return categories;
 };
+
+export const getAllTopicSlugs = () => Object.keys(TOPICS);

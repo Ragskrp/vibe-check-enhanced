@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         
         <div style={{ color: '#ccc', lineHeight: '1.6', fontSize: '14px' }}>
           <p style={{ marginBottom: '20px' }}>
-            Last Updated: April 29, 2026
+            Last Updated: May 1, 2026
           </p>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>1. Who we are (Data Controller)</h2>

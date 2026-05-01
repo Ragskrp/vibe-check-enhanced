@@ -12,8 +12,8 @@ const FAQ_SECTIONS = [
         a: 'No. Every game on VIBEMENOW is designed to work without registration, login, or app installation. You can open any page and start playing immediately.'
       },
       {
-        q: 'How many games are available?',
-        a: 'VIBEMENOW currently offers 18+ original browser games across categories including daily puzzles, reaction tests, multiplayer rooms, arcade classics, and educational quizzes.'
+        q: 'How many games and articles are available?',
+        a: 'VIBEMENOW offers 18+ original games, several in-depth educational guides, and a dedicated tech news section (Tech Pulse) covering AI, hardware, and digital policy.'
       },
       {
         q: 'Are the games free to play?',
@@ -92,8 +92,8 @@ const FAQ_SECTIONS = [
     color: '#ff2d78',
     faqs: [
       {
-        q: 'Are the blog articles based on real research?',
-        a: 'Our long-form articles are written with reference to published research and reputable institutions, but they should be read as general educational commentary rather than formal academic or medical advice.'
+        q: 'Are the blog and tech news articles based on real research?',
+        a: 'Our long-form articles and tech news reports are written with reference to published research, industry benchmarks, and reputable institutions. They are intended for educational and general interest purposes.'
       },
       {
         q: 'Are quiz results or personality labels scientific?',
@@ -101,7 +101,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Who writes the content?',
-        a: 'All content is created and reviewed by the VIBEMENOW team. Educational articles are researched and written with reference to published academic literature.'
+        a: 'All content is created and reviewed by the VIBEMENOW editorial team. We do not use auto-generated filler or clickbait.'
       },
     ]
   },

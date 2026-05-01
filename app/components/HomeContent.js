@@ -457,6 +457,17 @@ export default function HomeContent() {
             </p>
           </Link>
           <Link
+            href="/tech-news"
+            className="card"
+            style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}
+          >
+            <div style={{ fontSize: 32, marginBottom: 12 }}>⚡</div>
+            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8, color: '#fff' }}>Tech Pulse</h3>
+            <p style={{ color: '#888', fontSize: 13 }}>
+              Read original analysis and news about AI, hardware, and digital policy.
+            </p>
+          </Link>
+          <Link
             href="/publisher-information"
             className="card"
             style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}
@@ -565,7 +576,7 @@ export default function HomeContent() {
         }}
       >
         <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 24, color: '#fff' }}>
-          Games, Learning, and <span style={{ color: '#ff2d78' }}>Research Notes</span>
+          Games, Learning, and <span style={{ color: '#ff2d78' }}>Tech Analysis</span>
         </h2>
         <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15 }}>
           <p style={{ marginBottom: 20 }}>
@@ -576,10 +587,9 @@ export default function HomeContent() {
             replaces medical, educational, or professional support.
           </p>
           <p style={{ marginBottom: 20 }}>
-            That is why the site separates play pages, long-form articles, and policy pages.
+            That is why the site separates play pages, long-form articles, tech news, and policy pages.
             The games are built to be useful on their own, the blog gives room for broader
-            commentary, and the editorial pages explain how we review claims, update content,
-            and think about monetization and user trust.
+            commentary, and our tech news desk covers the latest shifts in AI and digital policy.
           </p>
           <p style={{ marginBottom: 20 }}>
             At VIBEMENOW, we design games with these principles in mind. Word puzzles like
@@ -629,11 +639,11 @@ export default function HomeContent() {
 
         <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15, marginBottom: 20 }}>
           <p>
-            Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> explores
-            these topics in more depth and pairs them with notes about how the games are built
-            and maintained. From the
+            Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> and 
+            <Link href="/tech-news" style={{ color: '#00d4ff', textDecoration: 'underline' }}> tech news</Link> sections
+            explore these topics in more depth. From the
             <Link href="/blog/spacing-effect-memory" style={{ color: '#00d4ff', textDecoration: 'underline' }}> spacing effect in memory consolidation</Link> to
-            the <Link href="/blog/aha-moment-science" style={{ color: '#00d4ff', textDecoration: 'underline' }}>neuroscience of &quot;Aha!&quot; moments</Link>,
+            the latest <Link href="/tech-news/openai-gpt5-reasoning-leap" style={{ color: '#00d4ff', textDecoration: 'underline' }}>shifts in AI reasoning</Link>,
             we aim to add context without presenting entertainment pages as clinical advice or
             formal research papers.
           </p>

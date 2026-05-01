@@ -1,7 +1,10 @@
 import { getAllTopicSlugs as getBusinessTopicSlugs } from './gcse/business/businessData';
 import { getAllTopicSlugs as getComputerScienceTopicSlugs } from './gcse/computer-science/computerScienceData';
+import { getAllTopicSlugs as getEnglishLanguageTopicSlugs } from './gcse/english-language/englishLanguageData';
+import { getAllTopicSlugs as getEnglishLiteratureTopicSlugs } from './gcse/english-literature/englishLiteratureData';
 import { getAllTopicSlugs as getMathsTopicSlugs } from './gcse/maths/topicData';
 import { getAllTopicSlugs as getScienceTopicSlugs } from './gcse/science/scienceData';
+import { getAllArticleSlugs as getTechNewsSlugs } from './tech-news/techNewsData';
 
 export default function sitemap() {
   // NOTE: The sitemap must be manually submitted to Google Search Console. 
@@ -101,6 +104,8 @@ export default function sitemap() {
   const scienceSlugs = getScienceTopicSlugs();
   const computerScienceSlugs = getComputerScienceTopicSlugs();
   const businessSlugs = getBusinessTopicSlugs();
+  const englishLanguageSlugs = getEnglishLanguageTopicSlugs();
+  const englishLiteratureSlugs = getEnglishLiteratureTopicSlugs();
 
   const gcsePages = [
     { url: `${baseUrl}/gcse`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
@@ -108,6 +113,8 @@ export default function sitemap() {
     { url: `${baseUrl}/gcse/science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/computer-science`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/business`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/english-language`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/gcse/english-literature`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/gcse/maths/equation-rush`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/fraction-frenzy`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/gcse/maths/angle-snapper`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
@@ -135,7 +142,31 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.7,
     })),
+    ...englishLanguageSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/english-language/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    ...englishLiteratureSlugs.map(slug => ({
+      url: `${baseUrl}/gcse/english-literature/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
   ];
 
-  return [...corePages, ...games, ...blogPosts, ...guides, ...gcsePages];
+
+  const techNewsSlugs = getTechNewsSlugs();
+  const techNewsPages = [
+    { url: `${baseUrl}/tech-news`, lastModified, changeFrequency: 'daily', priority: 0.8 },
+    ...techNewsSlugs.map(slug => ({
+      url: `${baseUrl}/tech-news/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+  ];
+
+  return [...corePages, ...games, ...blogPosts, ...guides, ...gcsePages, ...techNewsPages];
 }

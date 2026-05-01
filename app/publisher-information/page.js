@@ -111,8 +111,8 @@ export default function PublisherInformationPage() {
             </h2>
             <p style={{ color: '#aaa', lineHeight: '1.8', marginBottom: 0 }}>
               VIBEMENOW publishes original browser games, supporting help pages, short guides,
-              and blog articles about play, puzzles, learning, and digital culture. The main
-              focus of the site is playable interactive content rather than article-only traffic.
+              blog articles, and tech news about AI, hardware, and digital culture. The main
+              focus of the site is playable interactive content alongside high-quality tech analysis.
             </p>
           </div>
 
@@ -194,6 +194,9 @@ export default function PublisherInformationPage() {
             </Link>
             <Link href="/blog" className="btn-outline" style={{ textAlign: 'center' }}>
               Blog
+            </Link>
+            <Link href="/tech-news" className="btn-outline" style={{ textAlign: 'center' }}>
+              Tech News
             </Link>
           </div>
         </div>
