@@ -9,6 +9,34 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'musk-v-altman-tech-trial-week-1',
+    title: 'Musk v. Altman: The "Tech Trial of the Century" Just Had Its Most Dramatic Week Yet',
+    excerpt: 'Elon Musk spent three days on the stand arguing "you can\'t just steal a charity." Week 1 in Oakland was billionaires behaving badly at scale. It was wild.',
+    category: 'Digital Culture',
+    date: 'May 3, 2026',
+    readTime: '8 min read',
+    featured: true,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg/1280px-Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg',
+  },
+  {
+    slug: 'meta-acquires-ari-humanoid-robotics',
+    title: 'Meta Just Bought Its Way Deeper Into the Robot Race — and It\'s Not Playing Around',
+    excerpt: 'Mark Zuckerberg quietly closed the acquisition of Assured Robot Intelligence (ARI) this weekend. Meta is officially in the humanoid robot arms race.',
+    category: 'Robotics',
+    date: 'May 3, 2026',
+    readTime: '7 min read',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png',
+  },
+  {
+    slug: 'roblox-safety-overhaul-financial-impact',
+    title: 'Roblox Did the Right Thing for Children — and the Market Punished It Hard',
+    excerpt: 'Roblox shares plummeted 18% after the company prioritized child safety over growth. It\'s a billion-dollar lesson in the cost of accountability.',
+    category: 'Digital Culture',
+    date: 'May 3, 2026',
+    readTime: '6 min read',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Roblox_logo.svg/1280px-Roblox_logo.svg.png',
+  },
+  {
     slug: 'apple-memory-crunch-ai-demand',
     title: 'Apple Rings the Alarm: The Global Memory Crunch Is Coming for Your Wallet',
     excerpt: 'AI-driven demand is draining global memory supply faster than manufacturers can scale. Tim Cook warns of significantly higher costs (scary, I know).',

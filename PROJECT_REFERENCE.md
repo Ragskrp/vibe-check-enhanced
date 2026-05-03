@@ -35,7 +35,7 @@ This document serves as the primary technical reference for AI agents and develo
 ├── public/                 # Static assets (images, icons, manifest.json)
 ├── next.config.mjs         # Next.js configuration (redirects, headers)
 ├── package.json            # Dependencies and scripts
-└── scripts/ (root files)   # Maintenance scripts (fix-metadata.js, check-errors.js)
+└── scripts/                # Maintenance scripts (bulk SEO, OG image generation)
 ```
 
 ---
@@ -72,14 +72,14 @@ Most games follow this lifecycle:
 - **Global Metadata**: Defined in `app/layout.js`.
 - **Dynamic Metadata**: Each game folder typically has its own `layout.js` or `page.js` with `generateMetadata`.
 - **Indexing**: `app/robots.js` and `app/sitemap.js` are used for search engine crawling.
-- **Canonicalization**: Enforced via `next.config.mjs` and `proxy.js` for `www` and `https` consistency.
+- **Canonicalization**: Enforced via `next.config.mjs` for `www` and `https` consistency.
 
 ---
 
 ## 🛠️ Development Workflow
 - **Standard Command**: `npm run dev`
 - **Linting**: `next lint` (configured in `eslint.config.mjs`)
-- **Fixing Metadata**: Run `node fix-metadata.js` or `node update-metadata.js` for bulk SEO updates.
+- **Fixing Metadata**: Run `node scripts/fix-metadata.js` or `node scripts/update-metadata.js` for bulk SEO updates.
 
 ---
 
