@@ -38,9 +38,9 @@ export default function MetaRoboticsAcquisitionPage() {
         </header>
 
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" 
-          alt="Meta Platforms Inc. logo — expanding into physical AI" 
-          style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', padding: '40px 0' }}
+          src="/tech-news/meta-robots.jpg" 
+          alt="Meta Humanoid Robotics - Physical AI" 
+          style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />
 
         <section className="blog-content" style={{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}>

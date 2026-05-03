@@ -38,9 +38,9 @@ export default function RobloxSafetyImpactPage() {
         </header>
 
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Roblox_logo.svg/1280px-Roblox_logo.svg.png" 
-          alt="Roblox logo — prioritizing child safety over growth" 
-          style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', padding: '40px 0' }}
+          src="/tech-news/roblox-safety.jpg" 
+          alt="Roblox Child Safety and Trust" 
+          style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />
 
         <section className="blog-content" style={{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}>

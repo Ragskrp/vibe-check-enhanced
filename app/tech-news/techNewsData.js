@@ -16,7 +16,7 @@ export const ARTICLES = [
     date: 'May 3, 2026',
     readTime: '8 min read',
     featured: true,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg/1280px-Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg',
+    image: '/tech-news/musk-trial.jpg',
   },
   {
     slug: 'meta-acquires-ari-humanoid-robotics',
@@ -25,7 +25,7 @@ export const ARTICLES = [
     category: 'Robotics',
     date: 'May 3, 2026',
     readTime: '7 min read',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png',
+    image: '/tech-news/meta-robots.jpg',
   },
   {
     slug: 'roblox-safety-overhaul-financial-impact',
@@ -34,7 +34,7 @@ export const ARTICLES = [
     category: 'Digital Culture',
     date: 'May 3, 2026',
     readTime: '6 min read',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Roblox_logo.svg/1280px-Roblox_logo.svg.png',
+    image: '/tech-news/roblox-safety.jpg',
   },
   {
     slug: 'apple-memory-crunch-ai-demand',
@@ -44,7 +44,7 @@ export const ARTICLES = [
     date: 'May 1, 2026',
     readTime: '6 min read',
     featured: true,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Swissbit_2GB_PC2-5300U-555.jpg/1280px-Swissbit_2GB_PC2-5300U-555.jpg',
+    image: '/tech-news/apple-crunch.jpg',
   },
   {
     slug: 'jal-humanoid-robots-airport-trial',

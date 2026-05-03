@@ -38,8 +38,8 @@ export default function AppleMemoryCrunchPage() {
         </header>
 
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Swissbit_2GB_PC2-5300U-555.jpg/1280px-Swissbit_2GB_PC2-5300U-555.jpg" 
-          alt="RAM memory chips — global shortage driven by AI demand" 
+          src="/tech-news/apple-crunch.jpg" 
+          alt="Global Silicon and Memory Crunch" 
           style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />
 

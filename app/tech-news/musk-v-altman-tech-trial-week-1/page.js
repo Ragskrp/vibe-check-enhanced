@@ -38,8 +38,8 @@ export default function MuskAltmanTrialPage() {
         </header>
 
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg/1280px-Ronald_V._Dellums_Federal_Building_Oakland_CA.jpg" 
-          alt="Ronald V. Dellums Federal Building in Oakland, California" 
+          src="/tech-news/musk-trial.jpg" 
+          alt="Musk v. Altman Tech Trial of the Century" 
           style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />
 
