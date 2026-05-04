@@ -29,6 +29,21 @@ const nextConfig = {
           destination: 'https://vibemenow.uk/:path*',
           permanent: true,
         },
+        {
+          source: '/vibe-or-die',
+          destination: '/vibeordie',
+          permanent: true,
+        },
+        {
+          source: '/vocab-vibe',
+          destination: '/vocab-match',
+          permanent: true,
+        },
+        {
+          source: '/merge-vibe',
+          destination: '/2048-vibe',
+          permanent: true,
+        },
       ];
     },
 };

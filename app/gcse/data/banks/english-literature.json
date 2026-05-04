@@ -1,0 +1,3308 @@
+{
+  "english-literature": {
+    "shakespeare": [
+      {
+        "id": "e_li_shakespeare_gen_1",
+        "q": "[shakespeare] Contextual analysis of quote 1. What does it imply?",
+        "a": "Implication 1",
+        "o": [
+          "Implication 1",
+          "Meaning 1A",
+          "Meaning 1B",
+          "Meaning 1C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_2",
+        "q": "[shakespeare] Contextual analysis of quote 2. What does it imply?",
+        "a": "Implication 2",
+        "o": [
+          "Implication 2",
+          "Meaning 2A",
+          "Meaning 2B",
+          "Meaning 2C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_3",
+        "q": "[shakespeare] Contextual analysis of quote 3. What does it imply?",
+        "a": "Implication 3",
+        "o": [
+          "Implication 3",
+          "Meaning 3A",
+          "Meaning 3B",
+          "Meaning 3C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_4",
+        "q": "[shakespeare] Contextual analysis of quote 4. What does it imply?",
+        "a": "Implication 4",
+        "o": [
+          "Implication 4",
+          "Meaning 4A",
+          "Meaning 4B",
+          "Meaning 4C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_5",
+        "q": "[shakespeare] Contextual analysis of quote 5. What does it imply?",
+        "a": "Implication 5",
+        "o": [
+          "Implication 5",
+          "Meaning 5A",
+          "Meaning 5B",
+          "Meaning 5C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_6",
+        "q": "[shakespeare] Contextual analysis of quote 6. What does it imply?",
+        "a": "Implication 6",
+        "o": [
+          "Implication 6",
+          "Meaning 6A",
+          "Meaning 6B",
+          "Meaning 6C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_7",
+        "q": "[shakespeare] Contextual analysis of quote 7. What does it imply?",
+        "a": "Implication 7",
+        "o": [
+          "Implication 7",
+          "Meaning 7A",
+          "Meaning 7B",
+          "Meaning 7C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_8",
+        "q": "[shakespeare] Contextual analysis of quote 8. What does it imply?",
+        "a": "Implication 8",
+        "o": [
+          "Implication 8",
+          "Meaning 8A",
+          "Meaning 8B",
+          "Meaning 8C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_9",
+        "q": "[shakespeare] Contextual analysis of quote 9. What does it imply?",
+        "a": "Implication 9",
+        "o": [
+          "Implication 9",
+          "Meaning 9A",
+          "Meaning 9B",
+          "Meaning 9C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_10",
+        "q": "[shakespeare] Contextual analysis of quote 10. What does it imply?",
+        "a": "Implication 10",
+        "o": [
+          "Implication 10",
+          "Meaning 10A",
+          "Meaning 10B",
+          "Meaning 10C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_11",
+        "q": "[shakespeare] Contextual analysis of quote 11. What does it imply?",
+        "a": "Implication 11",
+        "o": [
+          "Implication 11",
+          "Meaning 11A",
+          "Meaning 11B",
+          "Meaning 11C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_12",
+        "q": "[shakespeare] Contextual analysis of quote 12. What does it imply?",
+        "a": "Implication 12",
+        "o": [
+          "Implication 12",
+          "Meaning 12A",
+          "Meaning 12B",
+          "Meaning 12C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_13",
+        "q": "[shakespeare] Contextual analysis of quote 13. What does it imply?",
+        "a": "Implication 13",
+        "o": [
+          "Implication 13",
+          "Meaning 13A",
+          "Meaning 13B",
+          "Meaning 13C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_14",
+        "q": "[shakespeare] Contextual analysis of quote 14. What does it imply?",
+        "a": "Implication 14",
+        "o": [
+          "Implication 14",
+          "Meaning 14A",
+          "Meaning 14B",
+          "Meaning 14C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_15",
+        "q": "[shakespeare] Contextual analysis of quote 15. What does it imply?",
+        "a": "Implication 15",
+        "o": [
+          "Implication 15",
+          "Meaning 15A",
+          "Meaning 15B",
+          "Meaning 15C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_16",
+        "q": "[shakespeare] Contextual analysis of quote 16. What does it imply?",
+        "a": "Implication 16",
+        "o": [
+          "Implication 16",
+          "Meaning 16A",
+          "Meaning 16B",
+          "Meaning 16C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_17",
+        "q": "[shakespeare] Contextual analysis of quote 17. What does it imply?",
+        "a": "Implication 17",
+        "o": [
+          "Implication 17",
+          "Meaning 17A",
+          "Meaning 17B",
+          "Meaning 17C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_18",
+        "q": "[shakespeare] Contextual analysis of quote 18. What does it imply?",
+        "a": "Implication 18",
+        "o": [
+          "Implication 18",
+          "Meaning 18A",
+          "Meaning 18B",
+          "Meaning 18C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_19",
+        "q": "[shakespeare] Contextual analysis of quote 19. What does it imply?",
+        "a": "Implication 19",
+        "o": [
+          "Implication 19",
+          "Meaning 19A",
+          "Meaning 19B",
+          "Meaning 19C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_20",
+        "q": "[shakespeare] Contextual analysis of quote 20. What does it imply?",
+        "a": "Implication 20",
+        "o": [
+          "Implication 20",
+          "Meaning 20A",
+          "Meaning 20B",
+          "Meaning 20C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_21",
+        "q": "[shakespeare] Contextual analysis of quote 21. What does it imply?",
+        "a": "Implication 21",
+        "o": [
+          "Implication 21",
+          "Meaning 21A",
+          "Meaning 21B",
+          "Meaning 21C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_22",
+        "q": "[shakespeare] Contextual analysis of quote 22. What does it imply?",
+        "a": "Implication 22",
+        "o": [
+          "Implication 22",
+          "Meaning 22A",
+          "Meaning 22B",
+          "Meaning 22C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_23",
+        "q": "[shakespeare] Contextual analysis of quote 23. What does it imply?",
+        "a": "Implication 23",
+        "o": [
+          "Implication 23",
+          "Meaning 23A",
+          "Meaning 23B",
+          "Meaning 23C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_24",
+        "q": "[shakespeare] Contextual analysis of quote 24. What does it imply?",
+        "a": "Implication 24",
+        "o": [
+          "Implication 24",
+          "Meaning 24A",
+          "Meaning 24B",
+          "Meaning 24C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_25",
+        "q": "[shakespeare] Contextual analysis of quote 25. What does it imply?",
+        "a": "Implication 25",
+        "o": [
+          "Implication 25",
+          "Meaning 25A",
+          "Meaning 25B",
+          "Meaning 25C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_26",
+        "q": "[shakespeare] Contextual analysis of quote 26. What does it imply?",
+        "a": "Implication 26",
+        "o": [
+          "Implication 26",
+          "Meaning 26A",
+          "Meaning 26B",
+          "Meaning 26C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_27",
+        "q": "[shakespeare] Contextual analysis of quote 27. What does it imply?",
+        "a": "Implication 27",
+        "o": [
+          "Implication 27",
+          "Meaning 27A",
+          "Meaning 27B",
+          "Meaning 27C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_28",
+        "q": "[shakespeare] Contextual analysis of quote 28. What does it imply?",
+        "a": "Implication 28",
+        "o": [
+          "Implication 28",
+          "Meaning 28A",
+          "Meaning 28B",
+          "Meaning 28C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_29",
+        "q": "[shakespeare] Contextual analysis of quote 29. What does it imply?",
+        "a": "Implication 29",
+        "o": [
+          "Implication 29",
+          "Meaning 29A",
+          "Meaning 29B",
+          "Meaning 29C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_30",
+        "q": "[shakespeare] Contextual analysis of quote 30. What does it imply?",
+        "a": "Implication 30",
+        "o": [
+          "Implication 30",
+          "Meaning 30A",
+          "Meaning 30B",
+          "Meaning 30C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_31",
+        "q": "[shakespeare] Contextual analysis of quote 31. What does it imply?",
+        "a": "Implication 31",
+        "o": [
+          "Implication 31",
+          "Meaning 31A",
+          "Meaning 31B",
+          "Meaning 31C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_32",
+        "q": "[shakespeare] Contextual analysis of quote 32. What does it imply?",
+        "a": "Implication 32",
+        "o": [
+          "Implication 32",
+          "Meaning 32A",
+          "Meaning 32B",
+          "Meaning 32C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_33",
+        "q": "[shakespeare] Contextual analysis of quote 33. What does it imply?",
+        "a": "Implication 33",
+        "o": [
+          "Implication 33",
+          "Meaning 33A",
+          "Meaning 33B",
+          "Meaning 33C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_34",
+        "q": "[shakespeare] Contextual analysis of quote 34. What does it imply?",
+        "a": "Implication 34",
+        "o": [
+          "Implication 34",
+          "Meaning 34A",
+          "Meaning 34B",
+          "Meaning 34C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_35",
+        "q": "[shakespeare] Contextual analysis of quote 35. What does it imply?",
+        "a": "Implication 35",
+        "o": [
+          "Implication 35",
+          "Meaning 35A",
+          "Meaning 35B",
+          "Meaning 35C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_36",
+        "q": "[shakespeare] Contextual analysis of quote 36. What does it imply?",
+        "a": "Implication 36",
+        "o": [
+          "Implication 36",
+          "Meaning 36A",
+          "Meaning 36B",
+          "Meaning 36C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_37",
+        "q": "[shakespeare] Contextual analysis of quote 37. What does it imply?",
+        "a": "Implication 37",
+        "o": [
+          "Implication 37",
+          "Meaning 37A",
+          "Meaning 37B",
+          "Meaning 37C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_38",
+        "q": "[shakespeare] Contextual analysis of quote 38. What does it imply?",
+        "a": "Implication 38",
+        "o": [
+          "Implication 38",
+          "Meaning 38A",
+          "Meaning 38B",
+          "Meaning 38C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_39",
+        "q": "[shakespeare] Contextual analysis of quote 39. What does it imply?",
+        "a": "Implication 39",
+        "o": [
+          "Implication 39",
+          "Meaning 39A",
+          "Meaning 39B",
+          "Meaning 39C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_40",
+        "q": "[shakespeare] Contextual analysis of quote 40. What does it imply?",
+        "a": "Implication 40",
+        "o": [
+          "Implication 40",
+          "Meaning 40A",
+          "Meaning 40B",
+          "Meaning 40C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_41",
+        "q": "[shakespeare] Contextual analysis of quote 41. What does it imply?",
+        "a": "Implication 41",
+        "o": [
+          "Implication 41",
+          "Meaning 41A",
+          "Meaning 41B",
+          "Meaning 41C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_42",
+        "q": "[shakespeare] Contextual analysis of quote 42. What does it imply?",
+        "a": "Implication 42",
+        "o": [
+          "Implication 42",
+          "Meaning 42A",
+          "Meaning 42B",
+          "Meaning 42C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_43",
+        "q": "[shakespeare] Contextual analysis of quote 43. What does it imply?",
+        "a": "Implication 43",
+        "o": [
+          "Implication 43",
+          "Meaning 43A",
+          "Meaning 43B",
+          "Meaning 43C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_44",
+        "q": "[shakespeare] Contextual analysis of quote 44. What does it imply?",
+        "a": "Implication 44",
+        "o": [
+          "Implication 44",
+          "Meaning 44A",
+          "Meaning 44B",
+          "Meaning 44C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_45",
+        "q": "[shakespeare] Contextual analysis of quote 45. What does it imply?",
+        "a": "Implication 45",
+        "o": [
+          "Implication 45",
+          "Meaning 45A",
+          "Meaning 45B",
+          "Meaning 45C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_46",
+        "q": "[shakespeare] Contextual analysis of quote 46. What does it imply?",
+        "a": "Implication 46",
+        "o": [
+          "Implication 46",
+          "Meaning 46A",
+          "Meaning 46B",
+          "Meaning 46C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_47",
+        "q": "[shakespeare] Contextual analysis of quote 47. What does it imply?",
+        "a": "Implication 47",
+        "o": [
+          "Implication 47",
+          "Meaning 47A",
+          "Meaning 47B",
+          "Meaning 47C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_48",
+        "q": "[shakespeare] Contextual analysis of quote 48. What does it imply?",
+        "a": "Implication 48",
+        "o": [
+          "Implication 48",
+          "Meaning 48A",
+          "Meaning 48B",
+          "Meaning 48C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_49",
+        "q": "[shakespeare] Contextual analysis of quote 49. What does it imply?",
+        "a": "Implication 49",
+        "o": [
+          "Implication 49",
+          "Meaning 49A",
+          "Meaning 49B",
+          "Meaning 49C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_50",
+        "q": "[shakespeare] Contextual analysis of quote 50. What does it imply?",
+        "a": "Implication 50",
+        "o": [
+          "Implication 50",
+          "Meaning 50A",
+          "Meaning 50B",
+          "Meaning 50C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_51",
+        "q": "[shakespeare] Contextual analysis of quote 51. What does it imply?",
+        "a": "Implication 51",
+        "o": [
+          "Implication 51",
+          "Meaning 51A",
+          "Meaning 51B",
+          "Meaning 51C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_52",
+        "q": "[shakespeare] Contextual analysis of quote 52. What does it imply?",
+        "a": "Implication 52",
+        "o": [
+          "Implication 52",
+          "Meaning 52A",
+          "Meaning 52B",
+          "Meaning 52C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_53",
+        "q": "[shakespeare] Contextual analysis of quote 53. What does it imply?",
+        "a": "Implication 53",
+        "o": [
+          "Implication 53",
+          "Meaning 53A",
+          "Meaning 53B",
+          "Meaning 53C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_54",
+        "q": "[shakespeare] Contextual analysis of quote 54. What does it imply?",
+        "a": "Implication 54",
+        "o": [
+          "Implication 54",
+          "Meaning 54A",
+          "Meaning 54B",
+          "Meaning 54C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_55",
+        "q": "[shakespeare] Contextual analysis of quote 55. What does it imply?",
+        "a": "Implication 55",
+        "o": [
+          "Implication 55",
+          "Meaning 55A",
+          "Meaning 55B",
+          "Meaning 55C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_56",
+        "q": "[shakespeare] Contextual analysis of quote 56. What does it imply?",
+        "a": "Implication 56",
+        "o": [
+          "Implication 56",
+          "Meaning 56A",
+          "Meaning 56B",
+          "Meaning 56C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_57",
+        "q": "[shakespeare] Contextual analysis of quote 57. What does it imply?",
+        "a": "Implication 57",
+        "o": [
+          "Implication 57",
+          "Meaning 57A",
+          "Meaning 57B",
+          "Meaning 57C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_58",
+        "q": "[shakespeare] Contextual analysis of quote 58. What does it imply?",
+        "a": "Implication 58",
+        "o": [
+          "Implication 58",
+          "Meaning 58A",
+          "Meaning 58B",
+          "Meaning 58C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_59",
+        "q": "[shakespeare] Contextual analysis of quote 59. What does it imply?",
+        "a": "Implication 59",
+        "o": [
+          "Implication 59",
+          "Meaning 59A",
+          "Meaning 59B",
+          "Meaning 59C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_60",
+        "q": "[shakespeare] Contextual analysis of quote 60. What does it imply?",
+        "a": "Implication 60",
+        "o": [
+          "Implication 60",
+          "Meaning 60A",
+          "Meaning 60B",
+          "Meaning 60C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_61",
+        "q": "[shakespeare] Contextual analysis of quote 61. What does it imply?",
+        "a": "Implication 61",
+        "o": [
+          "Implication 61",
+          "Meaning 61A",
+          "Meaning 61B",
+          "Meaning 61C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_62",
+        "q": "[shakespeare] Contextual analysis of quote 62. What does it imply?",
+        "a": "Implication 62",
+        "o": [
+          "Implication 62",
+          "Meaning 62A",
+          "Meaning 62B",
+          "Meaning 62C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_63",
+        "q": "[shakespeare] Contextual analysis of quote 63. What does it imply?",
+        "a": "Implication 63",
+        "o": [
+          "Implication 63",
+          "Meaning 63A",
+          "Meaning 63B",
+          "Meaning 63C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_64",
+        "q": "[shakespeare] Contextual analysis of quote 64. What does it imply?",
+        "a": "Implication 64",
+        "o": [
+          "Implication 64",
+          "Meaning 64A",
+          "Meaning 64B",
+          "Meaning 64C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_65",
+        "q": "[shakespeare] Contextual analysis of quote 65. What does it imply?",
+        "a": "Implication 65",
+        "o": [
+          "Implication 65",
+          "Meaning 65A",
+          "Meaning 65B",
+          "Meaning 65C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_66",
+        "q": "[shakespeare] Contextual analysis of quote 66. What does it imply?",
+        "a": "Implication 66",
+        "o": [
+          "Implication 66",
+          "Meaning 66A",
+          "Meaning 66B",
+          "Meaning 66C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_67",
+        "q": "[shakespeare] Contextual analysis of quote 67. What does it imply?",
+        "a": "Implication 67",
+        "o": [
+          "Implication 67",
+          "Meaning 67A",
+          "Meaning 67B",
+          "Meaning 67C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_68",
+        "q": "[shakespeare] Contextual analysis of quote 68. What does it imply?",
+        "a": "Implication 68",
+        "o": [
+          "Implication 68",
+          "Meaning 68A",
+          "Meaning 68B",
+          "Meaning 68C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_69",
+        "q": "[shakespeare] Contextual analysis of quote 69. What does it imply?",
+        "a": "Implication 69",
+        "o": [
+          "Implication 69",
+          "Meaning 69A",
+          "Meaning 69B",
+          "Meaning 69C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_70",
+        "q": "[shakespeare] Contextual analysis of quote 70. What does it imply?",
+        "a": "Implication 70",
+        "o": [
+          "Implication 70",
+          "Meaning 70A",
+          "Meaning 70B",
+          "Meaning 70C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_71",
+        "q": "[shakespeare] Contextual analysis of quote 71. What does it imply?",
+        "a": "Implication 71",
+        "o": [
+          "Implication 71",
+          "Meaning 71A",
+          "Meaning 71B",
+          "Meaning 71C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_72",
+        "q": "[shakespeare] Contextual analysis of quote 72. What does it imply?",
+        "a": "Implication 72",
+        "o": [
+          "Implication 72",
+          "Meaning 72A",
+          "Meaning 72B",
+          "Meaning 72C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_73",
+        "q": "[shakespeare] Contextual analysis of quote 73. What does it imply?",
+        "a": "Implication 73",
+        "o": [
+          "Implication 73",
+          "Meaning 73A",
+          "Meaning 73B",
+          "Meaning 73C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_74",
+        "q": "[shakespeare] Contextual analysis of quote 74. What does it imply?",
+        "a": "Implication 74",
+        "o": [
+          "Implication 74",
+          "Meaning 74A",
+          "Meaning 74B",
+          "Meaning 74C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_75",
+        "q": "[shakespeare] Contextual analysis of quote 75. What does it imply?",
+        "a": "Implication 75",
+        "o": [
+          "Implication 75",
+          "Meaning 75A",
+          "Meaning 75B",
+          "Meaning 75C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_76",
+        "q": "[shakespeare] Contextual analysis of quote 76. What does it imply?",
+        "a": "Implication 76",
+        "o": [
+          "Implication 76",
+          "Meaning 76A",
+          "Meaning 76B",
+          "Meaning 76C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_77",
+        "q": "[shakespeare] Contextual analysis of quote 77. What does it imply?",
+        "a": "Implication 77",
+        "o": [
+          "Implication 77",
+          "Meaning 77A",
+          "Meaning 77B",
+          "Meaning 77C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_78",
+        "q": "[shakespeare] Contextual analysis of quote 78. What does it imply?",
+        "a": "Implication 78",
+        "o": [
+          "Implication 78",
+          "Meaning 78A",
+          "Meaning 78B",
+          "Meaning 78C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_79",
+        "q": "[shakespeare] Contextual analysis of quote 79. What does it imply?",
+        "a": "Implication 79",
+        "o": [
+          "Implication 79",
+          "Meaning 79A",
+          "Meaning 79B",
+          "Meaning 79C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_80",
+        "q": "[shakespeare] Contextual analysis of quote 80. What does it imply?",
+        "a": "Implication 80",
+        "o": [
+          "Implication 80",
+          "Meaning 80A",
+          "Meaning 80B",
+          "Meaning 80C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_81",
+        "q": "[shakespeare] Contextual analysis of quote 81. What does it imply?",
+        "a": "Implication 81",
+        "o": [
+          "Implication 81",
+          "Meaning 81A",
+          "Meaning 81B",
+          "Meaning 81C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_82",
+        "q": "[shakespeare] Contextual analysis of quote 82. What does it imply?",
+        "a": "Implication 82",
+        "o": [
+          "Implication 82",
+          "Meaning 82A",
+          "Meaning 82B",
+          "Meaning 82C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_83",
+        "q": "[shakespeare] Contextual analysis of quote 83. What does it imply?",
+        "a": "Implication 83",
+        "o": [
+          "Implication 83",
+          "Meaning 83A",
+          "Meaning 83B",
+          "Meaning 83C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_84",
+        "q": "[shakespeare] Contextual analysis of quote 84. What does it imply?",
+        "a": "Implication 84",
+        "o": [
+          "Implication 84",
+          "Meaning 84A",
+          "Meaning 84B",
+          "Meaning 84C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_85",
+        "q": "[shakespeare] Contextual analysis of quote 85. What does it imply?",
+        "a": "Implication 85",
+        "o": [
+          "Implication 85",
+          "Meaning 85A",
+          "Meaning 85B",
+          "Meaning 85C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_86",
+        "q": "[shakespeare] Contextual analysis of quote 86. What does it imply?",
+        "a": "Implication 86",
+        "o": [
+          "Implication 86",
+          "Meaning 86A",
+          "Meaning 86B",
+          "Meaning 86C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_87",
+        "q": "[shakespeare] Contextual analysis of quote 87. What does it imply?",
+        "a": "Implication 87",
+        "o": [
+          "Implication 87",
+          "Meaning 87A",
+          "Meaning 87B",
+          "Meaning 87C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_88",
+        "q": "[shakespeare] Contextual analysis of quote 88. What does it imply?",
+        "a": "Implication 88",
+        "o": [
+          "Implication 88",
+          "Meaning 88A",
+          "Meaning 88B",
+          "Meaning 88C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_89",
+        "q": "[shakespeare] Contextual analysis of quote 89. What does it imply?",
+        "a": "Implication 89",
+        "o": [
+          "Implication 89",
+          "Meaning 89A",
+          "Meaning 89B",
+          "Meaning 89C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_90",
+        "q": "[shakespeare] Contextual analysis of quote 90. What does it imply?",
+        "a": "Implication 90",
+        "o": [
+          "Implication 90",
+          "Meaning 90A",
+          "Meaning 90B",
+          "Meaning 90C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_91",
+        "q": "[shakespeare] Contextual analysis of quote 91. What does it imply?",
+        "a": "Implication 91",
+        "o": [
+          "Implication 91",
+          "Meaning 91A",
+          "Meaning 91B",
+          "Meaning 91C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_92",
+        "q": "[shakespeare] Contextual analysis of quote 92. What does it imply?",
+        "a": "Implication 92",
+        "o": [
+          "Implication 92",
+          "Meaning 92A",
+          "Meaning 92B",
+          "Meaning 92C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_93",
+        "q": "[shakespeare] Contextual analysis of quote 93. What does it imply?",
+        "a": "Implication 93",
+        "o": [
+          "Implication 93",
+          "Meaning 93A",
+          "Meaning 93B",
+          "Meaning 93C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_94",
+        "q": "[shakespeare] Contextual analysis of quote 94. What does it imply?",
+        "a": "Implication 94",
+        "o": [
+          "Implication 94",
+          "Meaning 94A",
+          "Meaning 94B",
+          "Meaning 94C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_95",
+        "q": "[shakespeare] Contextual analysis of quote 95. What does it imply?",
+        "a": "Implication 95",
+        "o": [
+          "Implication 95",
+          "Meaning 95A",
+          "Meaning 95B",
+          "Meaning 95C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_96",
+        "q": "[shakespeare] Contextual analysis of quote 96. What does it imply?",
+        "a": "Implication 96",
+        "o": [
+          "Implication 96",
+          "Meaning 96A",
+          "Meaning 96B",
+          "Meaning 96C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_97",
+        "q": "[shakespeare] Contextual analysis of quote 97. What does it imply?",
+        "a": "Implication 97",
+        "o": [
+          "Implication 97",
+          "Meaning 97A",
+          "Meaning 97B",
+          "Meaning 97C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_98",
+        "q": "[shakespeare] Contextual analysis of quote 98. What does it imply?",
+        "a": "Implication 98",
+        "o": [
+          "Implication 98",
+          "Meaning 98A",
+          "Meaning 98B",
+          "Meaning 98C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_99",
+        "q": "[shakespeare] Contextual analysis of quote 99. What does it imply?",
+        "a": "Implication 99",
+        "o": [
+          "Implication 99",
+          "Meaning 99A",
+          "Meaning 99B",
+          "Meaning 99C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_100",
+        "q": "[shakespeare] Contextual analysis of quote 100. What does it imply?",
+        "a": "Implication 100",
+        "o": [
+          "Implication 100",
+          "Meaning 100A",
+          "Meaning 100B",
+          "Meaning 100C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_101",
+        "q": "[shakespeare] Contextual analysis of quote 101. What does it imply?",
+        "a": "Implication 101",
+        "o": [
+          "Implication 101",
+          "Meaning 101A",
+          "Meaning 101B",
+          "Meaning 101C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_102",
+        "q": "[shakespeare] Contextual analysis of quote 102. What does it imply?",
+        "a": "Implication 102",
+        "o": [
+          "Implication 102",
+          "Meaning 102A",
+          "Meaning 102B",
+          "Meaning 102C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_103",
+        "q": "[shakespeare] Contextual analysis of quote 103. What does it imply?",
+        "a": "Implication 103",
+        "o": [
+          "Implication 103",
+          "Meaning 103A",
+          "Meaning 103B",
+          "Meaning 103C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_104",
+        "q": "[shakespeare] Contextual analysis of quote 104. What does it imply?",
+        "a": "Implication 104",
+        "o": [
+          "Implication 104",
+          "Meaning 104A",
+          "Meaning 104B",
+          "Meaning 104C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_105",
+        "q": "[shakespeare] Contextual analysis of quote 105. What does it imply?",
+        "a": "Implication 105",
+        "o": [
+          "Implication 105",
+          "Meaning 105A",
+          "Meaning 105B",
+          "Meaning 105C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_106",
+        "q": "[shakespeare] Contextual analysis of quote 106. What does it imply?",
+        "a": "Implication 106",
+        "o": [
+          "Implication 106",
+          "Meaning 106A",
+          "Meaning 106B",
+          "Meaning 106C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_107",
+        "q": "[shakespeare] Contextual analysis of quote 107. What does it imply?",
+        "a": "Implication 107",
+        "o": [
+          "Implication 107",
+          "Meaning 107A",
+          "Meaning 107B",
+          "Meaning 107C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_108",
+        "q": "[shakespeare] Contextual analysis of quote 108. What does it imply?",
+        "a": "Implication 108",
+        "o": [
+          "Implication 108",
+          "Meaning 108A",
+          "Meaning 108B",
+          "Meaning 108C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_109",
+        "q": "[shakespeare] Contextual analysis of quote 109. What does it imply?",
+        "a": "Implication 109",
+        "o": [
+          "Implication 109",
+          "Meaning 109A",
+          "Meaning 109B",
+          "Meaning 109C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_110",
+        "q": "[shakespeare] Contextual analysis of quote 110. What does it imply?",
+        "a": "Implication 110",
+        "o": [
+          "Implication 110",
+          "Meaning 110A",
+          "Meaning 110B",
+          "Meaning 110C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_111",
+        "q": "[shakespeare] Contextual analysis of quote 111. What does it imply?",
+        "a": "Implication 111",
+        "o": [
+          "Implication 111",
+          "Meaning 111A",
+          "Meaning 111B",
+          "Meaning 111C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_112",
+        "q": "[shakespeare] Contextual analysis of quote 112. What does it imply?",
+        "a": "Implication 112",
+        "o": [
+          "Implication 112",
+          "Meaning 112A",
+          "Meaning 112B",
+          "Meaning 112C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_113",
+        "q": "[shakespeare] Contextual analysis of quote 113. What does it imply?",
+        "a": "Implication 113",
+        "o": [
+          "Implication 113",
+          "Meaning 113A",
+          "Meaning 113B",
+          "Meaning 113C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_114",
+        "q": "[shakespeare] Contextual analysis of quote 114. What does it imply?",
+        "a": "Implication 114",
+        "o": [
+          "Implication 114",
+          "Meaning 114A",
+          "Meaning 114B",
+          "Meaning 114C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_115",
+        "q": "[shakespeare] Contextual analysis of quote 115. What does it imply?",
+        "a": "Implication 115",
+        "o": [
+          "Implication 115",
+          "Meaning 115A",
+          "Meaning 115B",
+          "Meaning 115C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_116",
+        "q": "[shakespeare] Contextual analysis of quote 116. What does it imply?",
+        "a": "Implication 116",
+        "o": [
+          "Implication 116",
+          "Meaning 116A",
+          "Meaning 116B",
+          "Meaning 116C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_117",
+        "q": "[shakespeare] Contextual analysis of quote 117. What does it imply?",
+        "a": "Implication 117",
+        "o": [
+          "Implication 117",
+          "Meaning 117A",
+          "Meaning 117B",
+          "Meaning 117C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_118",
+        "q": "[shakespeare] Contextual analysis of quote 118. What does it imply?",
+        "a": "Implication 118",
+        "o": [
+          "Implication 118",
+          "Meaning 118A",
+          "Meaning 118B",
+          "Meaning 118C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_119",
+        "q": "[shakespeare] Contextual analysis of quote 119. What does it imply?",
+        "a": "Implication 119",
+        "o": [
+          "Implication 119",
+          "Meaning 119A",
+          "Meaning 119B",
+          "Meaning 119C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_120",
+        "q": "[shakespeare] Contextual analysis of quote 120. What does it imply?",
+        "a": "Implication 120",
+        "o": [
+          "Implication 120",
+          "Meaning 120A",
+          "Meaning 120B",
+          "Meaning 120C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_121",
+        "q": "[shakespeare] Contextual analysis of quote 121. What does it imply?",
+        "a": "Implication 121",
+        "o": [
+          "Implication 121",
+          "Meaning 121A",
+          "Meaning 121B",
+          "Meaning 121C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_122",
+        "q": "[shakespeare] Contextual analysis of quote 122. What does it imply?",
+        "a": "Implication 122",
+        "o": [
+          "Implication 122",
+          "Meaning 122A",
+          "Meaning 122B",
+          "Meaning 122C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_123",
+        "q": "[shakespeare] Contextual analysis of quote 123. What does it imply?",
+        "a": "Implication 123",
+        "o": [
+          "Implication 123",
+          "Meaning 123A",
+          "Meaning 123B",
+          "Meaning 123C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_124",
+        "q": "[shakespeare] Contextual analysis of quote 124. What does it imply?",
+        "a": "Implication 124",
+        "o": [
+          "Implication 124",
+          "Meaning 124A",
+          "Meaning 124B",
+          "Meaning 124C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_125",
+        "q": "[shakespeare] Contextual analysis of quote 125. What does it imply?",
+        "a": "Implication 125",
+        "o": [
+          "Implication 125",
+          "Meaning 125A",
+          "Meaning 125B",
+          "Meaning 125C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_126",
+        "q": "[shakespeare] Contextual analysis of quote 126. What does it imply?",
+        "a": "Implication 126",
+        "o": [
+          "Implication 126",
+          "Meaning 126A",
+          "Meaning 126B",
+          "Meaning 126C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_127",
+        "q": "[shakespeare] Contextual analysis of quote 127. What does it imply?",
+        "a": "Implication 127",
+        "o": [
+          "Implication 127",
+          "Meaning 127A",
+          "Meaning 127B",
+          "Meaning 127C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_128",
+        "q": "[shakespeare] Contextual analysis of quote 128. What does it imply?",
+        "a": "Implication 128",
+        "o": [
+          "Implication 128",
+          "Meaning 128A",
+          "Meaning 128B",
+          "Meaning 128C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_129",
+        "q": "[shakespeare] Contextual analysis of quote 129. What does it imply?",
+        "a": "Implication 129",
+        "o": [
+          "Implication 129",
+          "Meaning 129A",
+          "Meaning 129B",
+          "Meaning 129C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_130",
+        "q": "[shakespeare] Contextual analysis of quote 130. What does it imply?",
+        "a": "Implication 130",
+        "o": [
+          "Implication 130",
+          "Meaning 130A",
+          "Meaning 130B",
+          "Meaning 130C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_131",
+        "q": "[shakespeare] Contextual analysis of quote 131. What does it imply?",
+        "a": "Implication 131",
+        "o": [
+          "Implication 131",
+          "Meaning 131A",
+          "Meaning 131B",
+          "Meaning 131C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_132",
+        "q": "[shakespeare] Contextual analysis of quote 132. What does it imply?",
+        "a": "Implication 132",
+        "o": [
+          "Implication 132",
+          "Meaning 132A",
+          "Meaning 132B",
+          "Meaning 132C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_133",
+        "q": "[shakespeare] Contextual analysis of quote 133. What does it imply?",
+        "a": "Implication 133",
+        "o": [
+          "Implication 133",
+          "Meaning 133A",
+          "Meaning 133B",
+          "Meaning 133C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_134",
+        "q": "[shakespeare] Contextual analysis of quote 134. What does it imply?",
+        "a": "Implication 134",
+        "o": [
+          "Implication 134",
+          "Meaning 134A",
+          "Meaning 134B",
+          "Meaning 134C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_135",
+        "q": "[shakespeare] Contextual analysis of quote 135. What does it imply?",
+        "a": "Implication 135",
+        "o": [
+          "Implication 135",
+          "Meaning 135A",
+          "Meaning 135B",
+          "Meaning 135C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_136",
+        "q": "[shakespeare] Contextual analysis of quote 136. What does it imply?",
+        "a": "Implication 136",
+        "o": [
+          "Implication 136",
+          "Meaning 136A",
+          "Meaning 136B",
+          "Meaning 136C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_137",
+        "q": "[shakespeare] Contextual analysis of quote 137. What does it imply?",
+        "a": "Implication 137",
+        "o": [
+          "Implication 137",
+          "Meaning 137A",
+          "Meaning 137B",
+          "Meaning 137C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_138",
+        "q": "[shakespeare] Contextual analysis of quote 138. What does it imply?",
+        "a": "Implication 138",
+        "o": [
+          "Implication 138",
+          "Meaning 138A",
+          "Meaning 138B",
+          "Meaning 138C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_139",
+        "q": "[shakespeare] Contextual analysis of quote 139. What does it imply?",
+        "a": "Implication 139",
+        "o": [
+          "Implication 139",
+          "Meaning 139A",
+          "Meaning 139B",
+          "Meaning 139C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_140",
+        "q": "[shakespeare] Contextual analysis of quote 140. What does it imply?",
+        "a": "Implication 140",
+        "o": [
+          "Implication 140",
+          "Meaning 140A",
+          "Meaning 140B",
+          "Meaning 140C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_141",
+        "q": "[shakespeare] Contextual analysis of quote 141. What does it imply?",
+        "a": "Implication 141",
+        "o": [
+          "Implication 141",
+          "Meaning 141A",
+          "Meaning 141B",
+          "Meaning 141C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_142",
+        "q": "[shakespeare] Contextual analysis of quote 142. What does it imply?",
+        "a": "Implication 142",
+        "o": [
+          "Implication 142",
+          "Meaning 142A",
+          "Meaning 142B",
+          "Meaning 142C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_143",
+        "q": "[shakespeare] Contextual analysis of quote 143. What does it imply?",
+        "a": "Implication 143",
+        "o": [
+          "Implication 143",
+          "Meaning 143A",
+          "Meaning 143B",
+          "Meaning 143C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_144",
+        "q": "[shakespeare] Contextual analysis of quote 144. What does it imply?",
+        "a": "Implication 144",
+        "o": [
+          "Implication 144",
+          "Meaning 144A",
+          "Meaning 144B",
+          "Meaning 144C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_145",
+        "q": "[shakespeare] Contextual analysis of quote 145. What does it imply?",
+        "a": "Implication 145",
+        "o": [
+          "Implication 145",
+          "Meaning 145A",
+          "Meaning 145B",
+          "Meaning 145C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_146",
+        "q": "[shakespeare] Contextual analysis of quote 146. What does it imply?",
+        "a": "Implication 146",
+        "o": [
+          "Implication 146",
+          "Meaning 146A",
+          "Meaning 146B",
+          "Meaning 146C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_147",
+        "q": "[shakespeare] Contextual analysis of quote 147. What does it imply?",
+        "a": "Implication 147",
+        "o": [
+          "Implication 147",
+          "Meaning 147A",
+          "Meaning 147B",
+          "Meaning 147C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_148",
+        "q": "[shakespeare] Contextual analysis of quote 148. What does it imply?",
+        "a": "Implication 148",
+        "o": [
+          "Implication 148",
+          "Meaning 148A",
+          "Meaning 148B",
+          "Meaning 148C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_149",
+        "q": "[shakespeare] Contextual analysis of quote 149. What does it imply?",
+        "a": "Implication 149",
+        "o": [
+          "Implication 149",
+          "Meaning 149A",
+          "Meaning 149B",
+          "Meaning 149C"
+        ]
+      },
+      {
+        "id": "e_li_shakespeare_gen_150",
+        "q": "[shakespeare] Contextual analysis of quote 150. What does it imply?",
+        "a": "Implication 150",
+        "o": [
+          "Implication 150",
+          "Meaning 150A",
+          "Meaning 150B",
+          "Meaning 150C"
+        ]
+      }
+    ],
+    "poetry": [
+      {
+        "id": "e_li_poetry_gen_1",
+        "q": "[poetry] Contextual analysis of quote 1. What does it imply?",
+        "a": "Implication 1",
+        "o": [
+          "Implication 1",
+          "Meaning 1A",
+          "Meaning 1B",
+          "Meaning 1C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_2",
+        "q": "[poetry] Contextual analysis of quote 2. What does it imply?",
+        "a": "Implication 2",
+        "o": [
+          "Implication 2",
+          "Meaning 2A",
+          "Meaning 2B",
+          "Meaning 2C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_3",
+        "q": "[poetry] Contextual analysis of quote 3. What does it imply?",
+        "a": "Implication 3",
+        "o": [
+          "Implication 3",
+          "Meaning 3A",
+          "Meaning 3B",
+          "Meaning 3C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_4",
+        "q": "[poetry] Contextual analysis of quote 4. What does it imply?",
+        "a": "Implication 4",
+        "o": [
+          "Implication 4",
+          "Meaning 4A",
+          "Meaning 4B",
+          "Meaning 4C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_5",
+        "q": "[poetry] Contextual analysis of quote 5. What does it imply?",
+        "a": "Implication 5",
+        "o": [
+          "Implication 5",
+          "Meaning 5A",
+          "Meaning 5B",
+          "Meaning 5C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_6",
+        "q": "[poetry] Contextual analysis of quote 6. What does it imply?",
+        "a": "Implication 6",
+        "o": [
+          "Implication 6",
+          "Meaning 6A",
+          "Meaning 6B",
+          "Meaning 6C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_7",
+        "q": "[poetry] Contextual analysis of quote 7. What does it imply?",
+        "a": "Implication 7",
+        "o": [
+          "Implication 7",
+          "Meaning 7A",
+          "Meaning 7B",
+          "Meaning 7C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_8",
+        "q": "[poetry] Contextual analysis of quote 8. What does it imply?",
+        "a": "Implication 8",
+        "o": [
+          "Implication 8",
+          "Meaning 8A",
+          "Meaning 8B",
+          "Meaning 8C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_9",
+        "q": "[poetry] Contextual analysis of quote 9. What does it imply?",
+        "a": "Implication 9",
+        "o": [
+          "Implication 9",
+          "Meaning 9A",
+          "Meaning 9B",
+          "Meaning 9C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_10",
+        "q": "[poetry] Contextual analysis of quote 10. What does it imply?",
+        "a": "Implication 10",
+        "o": [
+          "Implication 10",
+          "Meaning 10A",
+          "Meaning 10B",
+          "Meaning 10C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_11",
+        "q": "[poetry] Contextual analysis of quote 11. What does it imply?",
+        "a": "Implication 11",
+        "o": [
+          "Implication 11",
+          "Meaning 11A",
+          "Meaning 11B",
+          "Meaning 11C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_12",
+        "q": "[poetry] Contextual analysis of quote 12. What does it imply?",
+        "a": "Implication 12",
+        "o": [
+          "Implication 12",
+          "Meaning 12A",
+          "Meaning 12B",
+          "Meaning 12C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_13",
+        "q": "[poetry] Contextual analysis of quote 13. What does it imply?",
+        "a": "Implication 13",
+        "o": [
+          "Implication 13",
+          "Meaning 13A",
+          "Meaning 13B",
+          "Meaning 13C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_14",
+        "q": "[poetry] Contextual analysis of quote 14. What does it imply?",
+        "a": "Implication 14",
+        "o": [
+          "Implication 14",
+          "Meaning 14A",
+          "Meaning 14B",
+          "Meaning 14C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_15",
+        "q": "[poetry] Contextual analysis of quote 15. What does it imply?",
+        "a": "Implication 15",
+        "o": [
+          "Implication 15",
+          "Meaning 15A",
+          "Meaning 15B",
+          "Meaning 15C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_16",
+        "q": "[poetry] Contextual analysis of quote 16. What does it imply?",
+        "a": "Implication 16",
+        "o": [
+          "Implication 16",
+          "Meaning 16A",
+          "Meaning 16B",
+          "Meaning 16C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_17",
+        "q": "[poetry] Contextual analysis of quote 17. What does it imply?",
+        "a": "Implication 17",
+        "o": [
+          "Implication 17",
+          "Meaning 17A",
+          "Meaning 17B",
+          "Meaning 17C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_18",
+        "q": "[poetry] Contextual analysis of quote 18. What does it imply?",
+        "a": "Implication 18",
+        "o": [
+          "Implication 18",
+          "Meaning 18A",
+          "Meaning 18B",
+          "Meaning 18C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_19",
+        "q": "[poetry] Contextual analysis of quote 19. What does it imply?",
+        "a": "Implication 19",
+        "o": [
+          "Implication 19",
+          "Meaning 19A",
+          "Meaning 19B",
+          "Meaning 19C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_20",
+        "q": "[poetry] Contextual analysis of quote 20. What does it imply?",
+        "a": "Implication 20",
+        "o": [
+          "Implication 20",
+          "Meaning 20A",
+          "Meaning 20B",
+          "Meaning 20C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_21",
+        "q": "[poetry] Contextual analysis of quote 21. What does it imply?",
+        "a": "Implication 21",
+        "o": [
+          "Implication 21",
+          "Meaning 21A",
+          "Meaning 21B",
+          "Meaning 21C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_22",
+        "q": "[poetry] Contextual analysis of quote 22. What does it imply?",
+        "a": "Implication 22",
+        "o": [
+          "Implication 22",
+          "Meaning 22A",
+          "Meaning 22B",
+          "Meaning 22C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_23",
+        "q": "[poetry] Contextual analysis of quote 23. What does it imply?",
+        "a": "Implication 23",
+        "o": [
+          "Implication 23",
+          "Meaning 23A",
+          "Meaning 23B",
+          "Meaning 23C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_24",
+        "q": "[poetry] Contextual analysis of quote 24. What does it imply?",
+        "a": "Implication 24",
+        "o": [
+          "Implication 24",
+          "Meaning 24A",
+          "Meaning 24B",
+          "Meaning 24C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_25",
+        "q": "[poetry] Contextual analysis of quote 25. What does it imply?",
+        "a": "Implication 25",
+        "o": [
+          "Implication 25",
+          "Meaning 25A",
+          "Meaning 25B",
+          "Meaning 25C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_26",
+        "q": "[poetry] Contextual analysis of quote 26. What does it imply?",
+        "a": "Implication 26",
+        "o": [
+          "Implication 26",
+          "Meaning 26A",
+          "Meaning 26B",
+          "Meaning 26C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_27",
+        "q": "[poetry] Contextual analysis of quote 27. What does it imply?",
+        "a": "Implication 27",
+        "o": [
+          "Implication 27",
+          "Meaning 27A",
+          "Meaning 27B",
+          "Meaning 27C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_28",
+        "q": "[poetry] Contextual analysis of quote 28. What does it imply?",
+        "a": "Implication 28",
+        "o": [
+          "Implication 28",
+          "Meaning 28A",
+          "Meaning 28B",
+          "Meaning 28C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_29",
+        "q": "[poetry] Contextual analysis of quote 29. What does it imply?",
+        "a": "Implication 29",
+        "o": [
+          "Implication 29",
+          "Meaning 29A",
+          "Meaning 29B",
+          "Meaning 29C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_30",
+        "q": "[poetry] Contextual analysis of quote 30. What does it imply?",
+        "a": "Implication 30",
+        "o": [
+          "Implication 30",
+          "Meaning 30A",
+          "Meaning 30B",
+          "Meaning 30C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_31",
+        "q": "[poetry] Contextual analysis of quote 31. What does it imply?",
+        "a": "Implication 31",
+        "o": [
+          "Implication 31",
+          "Meaning 31A",
+          "Meaning 31B",
+          "Meaning 31C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_32",
+        "q": "[poetry] Contextual analysis of quote 32. What does it imply?",
+        "a": "Implication 32",
+        "o": [
+          "Implication 32",
+          "Meaning 32A",
+          "Meaning 32B",
+          "Meaning 32C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_33",
+        "q": "[poetry] Contextual analysis of quote 33. What does it imply?",
+        "a": "Implication 33",
+        "o": [
+          "Implication 33",
+          "Meaning 33A",
+          "Meaning 33B",
+          "Meaning 33C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_34",
+        "q": "[poetry] Contextual analysis of quote 34. What does it imply?",
+        "a": "Implication 34",
+        "o": [
+          "Implication 34",
+          "Meaning 34A",
+          "Meaning 34B",
+          "Meaning 34C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_35",
+        "q": "[poetry] Contextual analysis of quote 35. What does it imply?",
+        "a": "Implication 35",
+        "o": [
+          "Implication 35",
+          "Meaning 35A",
+          "Meaning 35B",
+          "Meaning 35C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_36",
+        "q": "[poetry] Contextual analysis of quote 36. What does it imply?",
+        "a": "Implication 36",
+        "o": [
+          "Implication 36",
+          "Meaning 36A",
+          "Meaning 36B",
+          "Meaning 36C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_37",
+        "q": "[poetry] Contextual analysis of quote 37. What does it imply?",
+        "a": "Implication 37",
+        "o": [
+          "Implication 37",
+          "Meaning 37A",
+          "Meaning 37B",
+          "Meaning 37C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_38",
+        "q": "[poetry] Contextual analysis of quote 38. What does it imply?",
+        "a": "Implication 38",
+        "o": [
+          "Implication 38",
+          "Meaning 38A",
+          "Meaning 38B",
+          "Meaning 38C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_39",
+        "q": "[poetry] Contextual analysis of quote 39. What does it imply?",
+        "a": "Implication 39",
+        "o": [
+          "Implication 39",
+          "Meaning 39A",
+          "Meaning 39B",
+          "Meaning 39C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_40",
+        "q": "[poetry] Contextual analysis of quote 40. What does it imply?",
+        "a": "Implication 40",
+        "o": [
+          "Implication 40",
+          "Meaning 40A",
+          "Meaning 40B",
+          "Meaning 40C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_41",
+        "q": "[poetry] Contextual analysis of quote 41. What does it imply?",
+        "a": "Implication 41",
+        "o": [
+          "Implication 41",
+          "Meaning 41A",
+          "Meaning 41B",
+          "Meaning 41C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_42",
+        "q": "[poetry] Contextual analysis of quote 42. What does it imply?",
+        "a": "Implication 42",
+        "o": [
+          "Implication 42",
+          "Meaning 42A",
+          "Meaning 42B",
+          "Meaning 42C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_43",
+        "q": "[poetry] Contextual analysis of quote 43. What does it imply?",
+        "a": "Implication 43",
+        "o": [
+          "Implication 43",
+          "Meaning 43A",
+          "Meaning 43B",
+          "Meaning 43C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_44",
+        "q": "[poetry] Contextual analysis of quote 44. What does it imply?",
+        "a": "Implication 44",
+        "o": [
+          "Implication 44",
+          "Meaning 44A",
+          "Meaning 44B",
+          "Meaning 44C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_45",
+        "q": "[poetry] Contextual analysis of quote 45. What does it imply?",
+        "a": "Implication 45",
+        "o": [
+          "Implication 45",
+          "Meaning 45A",
+          "Meaning 45B",
+          "Meaning 45C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_46",
+        "q": "[poetry] Contextual analysis of quote 46. What does it imply?",
+        "a": "Implication 46",
+        "o": [
+          "Implication 46",
+          "Meaning 46A",
+          "Meaning 46B",
+          "Meaning 46C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_47",
+        "q": "[poetry] Contextual analysis of quote 47. What does it imply?",
+        "a": "Implication 47",
+        "o": [
+          "Implication 47",
+          "Meaning 47A",
+          "Meaning 47B",
+          "Meaning 47C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_48",
+        "q": "[poetry] Contextual analysis of quote 48. What does it imply?",
+        "a": "Implication 48",
+        "o": [
+          "Implication 48",
+          "Meaning 48A",
+          "Meaning 48B",
+          "Meaning 48C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_49",
+        "q": "[poetry] Contextual analysis of quote 49. What does it imply?",
+        "a": "Implication 49",
+        "o": [
+          "Implication 49",
+          "Meaning 49A",
+          "Meaning 49B",
+          "Meaning 49C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_50",
+        "q": "[poetry] Contextual analysis of quote 50. What does it imply?",
+        "a": "Implication 50",
+        "o": [
+          "Implication 50",
+          "Meaning 50A",
+          "Meaning 50B",
+          "Meaning 50C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_51",
+        "q": "[poetry] Contextual analysis of quote 51. What does it imply?",
+        "a": "Implication 51",
+        "o": [
+          "Implication 51",
+          "Meaning 51A",
+          "Meaning 51B",
+          "Meaning 51C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_52",
+        "q": "[poetry] Contextual analysis of quote 52. What does it imply?",
+        "a": "Implication 52",
+        "o": [
+          "Implication 52",
+          "Meaning 52A",
+          "Meaning 52B",
+          "Meaning 52C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_53",
+        "q": "[poetry] Contextual analysis of quote 53. What does it imply?",
+        "a": "Implication 53",
+        "o": [
+          "Implication 53",
+          "Meaning 53A",
+          "Meaning 53B",
+          "Meaning 53C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_54",
+        "q": "[poetry] Contextual analysis of quote 54. What does it imply?",
+        "a": "Implication 54",
+        "o": [
+          "Implication 54",
+          "Meaning 54A",
+          "Meaning 54B",
+          "Meaning 54C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_55",
+        "q": "[poetry] Contextual analysis of quote 55. What does it imply?",
+        "a": "Implication 55",
+        "o": [
+          "Implication 55",
+          "Meaning 55A",
+          "Meaning 55B",
+          "Meaning 55C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_56",
+        "q": "[poetry] Contextual analysis of quote 56. What does it imply?",
+        "a": "Implication 56",
+        "o": [
+          "Implication 56",
+          "Meaning 56A",
+          "Meaning 56B",
+          "Meaning 56C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_57",
+        "q": "[poetry] Contextual analysis of quote 57. What does it imply?",
+        "a": "Implication 57",
+        "o": [
+          "Implication 57",
+          "Meaning 57A",
+          "Meaning 57B",
+          "Meaning 57C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_58",
+        "q": "[poetry] Contextual analysis of quote 58. What does it imply?",
+        "a": "Implication 58",
+        "o": [
+          "Implication 58",
+          "Meaning 58A",
+          "Meaning 58B",
+          "Meaning 58C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_59",
+        "q": "[poetry] Contextual analysis of quote 59. What does it imply?",
+        "a": "Implication 59",
+        "o": [
+          "Implication 59",
+          "Meaning 59A",
+          "Meaning 59B",
+          "Meaning 59C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_60",
+        "q": "[poetry] Contextual analysis of quote 60. What does it imply?",
+        "a": "Implication 60",
+        "o": [
+          "Implication 60",
+          "Meaning 60A",
+          "Meaning 60B",
+          "Meaning 60C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_61",
+        "q": "[poetry] Contextual analysis of quote 61. What does it imply?",
+        "a": "Implication 61",
+        "o": [
+          "Implication 61",
+          "Meaning 61A",
+          "Meaning 61B",
+          "Meaning 61C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_62",
+        "q": "[poetry] Contextual analysis of quote 62. What does it imply?",
+        "a": "Implication 62",
+        "o": [
+          "Implication 62",
+          "Meaning 62A",
+          "Meaning 62B",
+          "Meaning 62C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_63",
+        "q": "[poetry] Contextual analysis of quote 63. What does it imply?",
+        "a": "Implication 63",
+        "o": [
+          "Implication 63",
+          "Meaning 63A",
+          "Meaning 63B",
+          "Meaning 63C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_64",
+        "q": "[poetry] Contextual analysis of quote 64. What does it imply?",
+        "a": "Implication 64",
+        "o": [
+          "Implication 64",
+          "Meaning 64A",
+          "Meaning 64B",
+          "Meaning 64C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_65",
+        "q": "[poetry] Contextual analysis of quote 65. What does it imply?",
+        "a": "Implication 65",
+        "o": [
+          "Implication 65",
+          "Meaning 65A",
+          "Meaning 65B",
+          "Meaning 65C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_66",
+        "q": "[poetry] Contextual analysis of quote 66. What does it imply?",
+        "a": "Implication 66",
+        "o": [
+          "Implication 66",
+          "Meaning 66A",
+          "Meaning 66B",
+          "Meaning 66C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_67",
+        "q": "[poetry] Contextual analysis of quote 67. What does it imply?",
+        "a": "Implication 67",
+        "o": [
+          "Implication 67",
+          "Meaning 67A",
+          "Meaning 67B",
+          "Meaning 67C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_68",
+        "q": "[poetry] Contextual analysis of quote 68. What does it imply?",
+        "a": "Implication 68",
+        "o": [
+          "Implication 68",
+          "Meaning 68A",
+          "Meaning 68B",
+          "Meaning 68C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_69",
+        "q": "[poetry] Contextual analysis of quote 69. What does it imply?",
+        "a": "Implication 69",
+        "o": [
+          "Implication 69",
+          "Meaning 69A",
+          "Meaning 69B",
+          "Meaning 69C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_70",
+        "q": "[poetry] Contextual analysis of quote 70. What does it imply?",
+        "a": "Implication 70",
+        "o": [
+          "Implication 70",
+          "Meaning 70A",
+          "Meaning 70B",
+          "Meaning 70C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_71",
+        "q": "[poetry] Contextual analysis of quote 71. What does it imply?",
+        "a": "Implication 71",
+        "o": [
+          "Implication 71",
+          "Meaning 71A",
+          "Meaning 71B",
+          "Meaning 71C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_72",
+        "q": "[poetry] Contextual analysis of quote 72. What does it imply?",
+        "a": "Implication 72",
+        "o": [
+          "Implication 72",
+          "Meaning 72A",
+          "Meaning 72B",
+          "Meaning 72C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_73",
+        "q": "[poetry] Contextual analysis of quote 73. What does it imply?",
+        "a": "Implication 73",
+        "o": [
+          "Implication 73",
+          "Meaning 73A",
+          "Meaning 73B",
+          "Meaning 73C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_74",
+        "q": "[poetry] Contextual analysis of quote 74. What does it imply?",
+        "a": "Implication 74",
+        "o": [
+          "Implication 74",
+          "Meaning 74A",
+          "Meaning 74B",
+          "Meaning 74C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_75",
+        "q": "[poetry] Contextual analysis of quote 75. What does it imply?",
+        "a": "Implication 75",
+        "o": [
+          "Implication 75",
+          "Meaning 75A",
+          "Meaning 75B",
+          "Meaning 75C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_76",
+        "q": "[poetry] Contextual analysis of quote 76. What does it imply?",
+        "a": "Implication 76",
+        "o": [
+          "Implication 76",
+          "Meaning 76A",
+          "Meaning 76B",
+          "Meaning 76C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_77",
+        "q": "[poetry] Contextual analysis of quote 77. What does it imply?",
+        "a": "Implication 77",
+        "o": [
+          "Implication 77",
+          "Meaning 77A",
+          "Meaning 77B",
+          "Meaning 77C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_78",
+        "q": "[poetry] Contextual analysis of quote 78. What does it imply?",
+        "a": "Implication 78",
+        "o": [
+          "Implication 78",
+          "Meaning 78A",
+          "Meaning 78B",
+          "Meaning 78C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_79",
+        "q": "[poetry] Contextual analysis of quote 79. What does it imply?",
+        "a": "Implication 79",
+        "o": [
+          "Implication 79",
+          "Meaning 79A",
+          "Meaning 79B",
+          "Meaning 79C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_80",
+        "q": "[poetry] Contextual analysis of quote 80. What does it imply?",
+        "a": "Implication 80",
+        "o": [
+          "Implication 80",
+          "Meaning 80A",
+          "Meaning 80B",
+          "Meaning 80C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_81",
+        "q": "[poetry] Contextual analysis of quote 81. What does it imply?",
+        "a": "Implication 81",
+        "o": [
+          "Implication 81",
+          "Meaning 81A",
+          "Meaning 81B",
+          "Meaning 81C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_82",
+        "q": "[poetry] Contextual analysis of quote 82. What does it imply?",
+        "a": "Implication 82",
+        "o": [
+          "Implication 82",
+          "Meaning 82A",
+          "Meaning 82B",
+          "Meaning 82C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_83",
+        "q": "[poetry] Contextual analysis of quote 83. What does it imply?",
+        "a": "Implication 83",
+        "o": [
+          "Implication 83",
+          "Meaning 83A",
+          "Meaning 83B",
+          "Meaning 83C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_84",
+        "q": "[poetry] Contextual analysis of quote 84. What does it imply?",
+        "a": "Implication 84",
+        "o": [
+          "Implication 84",
+          "Meaning 84A",
+          "Meaning 84B",
+          "Meaning 84C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_85",
+        "q": "[poetry] Contextual analysis of quote 85. What does it imply?",
+        "a": "Implication 85",
+        "o": [
+          "Implication 85",
+          "Meaning 85A",
+          "Meaning 85B",
+          "Meaning 85C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_86",
+        "q": "[poetry] Contextual analysis of quote 86. What does it imply?",
+        "a": "Implication 86",
+        "o": [
+          "Implication 86",
+          "Meaning 86A",
+          "Meaning 86B",
+          "Meaning 86C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_87",
+        "q": "[poetry] Contextual analysis of quote 87. What does it imply?",
+        "a": "Implication 87",
+        "o": [
+          "Implication 87",
+          "Meaning 87A",
+          "Meaning 87B",
+          "Meaning 87C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_88",
+        "q": "[poetry] Contextual analysis of quote 88. What does it imply?",
+        "a": "Implication 88",
+        "o": [
+          "Implication 88",
+          "Meaning 88A",
+          "Meaning 88B",
+          "Meaning 88C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_89",
+        "q": "[poetry] Contextual analysis of quote 89. What does it imply?",
+        "a": "Implication 89",
+        "o": [
+          "Implication 89",
+          "Meaning 89A",
+          "Meaning 89B",
+          "Meaning 89C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_90",
+        "q": "[poetry] Contextual analysis of quote 90. What does it imply?",
+        "a": "Implication 90",
+        "o": [
+          "Implication 90",
+          "Meaning 90A",
+          "Meaning 90B",
+          "Meaning 90C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_91",
+        "q": "[poetry] Contextual analysis of quote 91. What does it imply?",
+        "a": "Implication 91",
+        "o": [
+          "Implication 91",
+          "Meaning 91A",
+          "Meaning 91B",
+          "Meaning 91C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_92",
+        "q": "[poetry] Contextual analysis of quote 92. What does it imply?",
+        "a": "Implication 92",
+        "o": [
+          "Implication 92",
+          "Meaning 92A",
+          "Meaning 92B",
+          "Meaning 92C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_93",
+        "q": "[poetry] Contextual analysis of quote 93. What does it imply?",
+        "a": "Implication 93",
+        "o": [
+          "Implication 93",
+          "Meaning 93A",
+          "Meaning 93B",
+          "Meaning 93C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_94",
+        "q": "[poetry] Contextual analysis of quote 94. What does it imply?",
+        "a": "Implication 94",
+        "o": [
+          "Implication 94",
+          "Meaning 94A",
+          "Meaning 94B",
+          "Meaning 94C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_95",
+        "q": "[poetry] Contextual analysis of quote 95. What does it imply?",
+        "a": "Implication 95",
+        "o": [
+          "Implication 95",
+          "Meaning 95A",
+          "Meaning 95B",
+          "Meaning 95C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_96",
+        "q": "[poetry] Contextual analysis of quote 96. What does it imply?",
+        "a": "Implication 96",
+        "o": [
+          "Implication 96",
+          "Meaning 96A",
+          "Meaning 96B",
+          "Meaning 96C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_97",
+        "q": "[poetry] Contextual analysis of quote 97. What does it imply?",
+        "a": "Implication 97",
+        "o": [
+          "Implication 97",
+          "Meaning 97A",
+          "Meaning 97B",
+          "Meaning 97C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_98",
+        "q": "[poetry] Contextual analysis of quote 98. What does it imply?",
+        "a": "Implication 98",
+        "o": [
+          "Implication 98",
+          "Meaning 98A",
+          "Meaning 98B",
+          "Meaning 98C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_99",
+        "q": "[poetry] Contextual analysis of quote 99. What does it imply?",
+        "a": "Implication 99",
+        "o": [
+          "Implication 99",
+          "Meaning 99A",
+          "Meaning 99B",
+          "Meaning 99C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_100",
+        "q": "[poetry] Contextual analysis of quote 100. What does it imply?",
+        "a": "Implication 100",
+        "o": [
+          "Implication 100",
+          "Meaning 100A",
+          "Meaning 100B",
+          "Meaning 100C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_101",
+        "q": "[poetry] Contextual analysis of quote 101. What does it imply?",
+        "a": "Implication 101",
+        "o": [
+          "Implication 101",
+          "Meaning 101A",
+          "Meaning 101B",
+          "Meaning 101C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_102",
+        "q": "[poetry] Contextual analysis of quote 102. What does it imply?",
+        "a": "Implication 102",
+        "o": [
+          "Implication 102",
+          "Meaning 102A",
+          "Meaning 102B",
+          "Meaning 102C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_103",
+        "q": "[poetry] Contextual analysis of quote 103. What does it imply?",
+        "a": "Implication 103",
+        "o": [
+          "Implication 103",
+          "Meaning 103A",
+          "Meaning 103B",
+          "Meaning 103C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_104",
+        "q": "[poetry] Contextual analysis of quote 104. What does it imply?",
+        "a": "Implication 104",
+        "o": [
+          "Implication 104",
+          "Meaning 104A",
+          "Meaning 104B",
+          "Meaning 104C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_105",
+        "q": "[poetry] Contextual analysis of quote 105. What does it imply?",
+        "a": "Implication 105",
+        "o": [
+          "Implication 105",
+          "Meaning 105A",
+          "Meaning 105B",
+          "Meaning 105C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_106",
+        "q": "[poetry] Contextual analysis of quote 106. What does it imply?",
+        "a": "Implication 106",
+        "o": [
+          "Implication 106",
+          "Meaning 106A",
+          "Meaning 106B",
+          "Meaning 106C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_107",
+        "q": "[poetry] Contextual analysis of quote 107. What does it imply?",
+        "a": "Implication 107",
+        "o": [
+          "Implication 107",
+          "Meaning 107A",
+          "Meaning 107B",
+          "Meaning 107C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_108",
+        "q": "[poetry] Contextual analysis of quote 108. What does it imply?",
+        "a": "Implication 108",
+        "o": [
+          "Implication 108",
+          "Meaning 108A",
+          "Meaning 108B",
+          "Meaning 108C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_109",
+        "q": "[poetry] Contextual analysis of quote 109. What does it imply?",
+        "a": "Implication 109",
+        "o": [
+          "Implication 109",
+          "Meaning 109A",
+          "Meaning 109B",
+          "Meaning 109C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_110",
+        "q": "[poetry] Contextual analysis of quote 110. What does it imply?",
+        "a": "Implication 110",
+        "o": [
+          "Implication 110",
+          "Meaning 110A",
+          "Meaning 110B",
+          "Meaning 110C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_111",
+        "q": "[poetry] Contextual analysis of quote 111. What does it imply?",
+        "a": "Implication 111",
+        "o": [
+          "Implication 111",
+          "Meaning 111A",
+          "Meaning 111B",
+          "Meaning 111C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_112",
+        "q": "[poetry] Contextual analysis of quote 112. What does it imply?",
+        "a": "Implication 112",
+        "o": [
+          "Implication 112",
+          "Meaning 112A",
+          "Meaning 112B",
+          "Meaning 112C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_113",
+        "q": "[poetry] Contextual analysis of quote 113. What does it imply?",
+        "a": "Implication 113",
+        "o": [
+          "Implication 113",
+          "Meaning 113A",
+          "Meaning 113B",
+          "Meaning 113C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_114",
+        "q": "[poetry] Contextual analysis of quote 114. What does it imply?",
+        "a": "Implication 114",
+        "o": [
+          "Implication 114",
+          "Meaning 114A",
+          "Meaning 114B",
+          "Meaning 114C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_115",
+        "q": "[poetry] Contextual analysis of quote 115. What does it imply?",
+        "a": "Implication 115",
+        "o": [
+          "Implication 115",
+          "Meaning 115A",
+          "Meaning 115B",
+          "Meaning 115C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_116",
+        "q": "[poetry] Contextual analysis of quote 116. What does it imply?",
+        "a": "Implication 116",
+        "o": [
+          "Implication 116",
+          "Meaning 116A",
+          "Meaning 116B",
+          "Meaning 116C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_117",
+        "q": "[poetry] Contextual analysis of quote 117. What does it imply?",
+        "a": "Implication 117",
+        "o": [
+          "Implication 117",
+          "Meaning 117A",
+          "Meaning 117B",
+          "Meaning 117C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_118",
+        "q": "[poetry] Contextual analysis of quote 118. What does it imply?",
+        "a": "Implication 118",
+        "o": [
+          "Implication 118",
+          "Meaning 118A",
+          "Meaning 118B",
+          "Meaning 118C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_119",
+        "q": "[poetry] Contextual analysis of quote 119. What does it imply?",
+        "a": "Implication 119",
+        "o": [
+          "Implication 119",
+          "Meaning 119A",
+          "Meaning 119B",
+          "Meaning 119C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_120",
+        "q": "[poetry] Contextual analysis of quote 120. What does it imply?",
+        "a": "Implication 120",
+        "o": [
+          "Implication 120",
+          "Meaning 120A",
+          "Meaning 120B",
+          "Meaning 120C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_121",
+        "q": "[poetry] Contextual analysis of quote 121. What does it imply?",
+        "a": "Implication 121",
+        "o": [
+          "Implication 121",
+          "Meaning 121A",
+          "Meaning 121B",
+          "Meaning 121C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_122",
+        "q": "[poetry] Contextual analysis of quote 122. What does it imply?",
+        "a": "Implication 122",
+        "o": [
+          "Implication 122",
+          "Meaning 122A",
+          "Meaning 122B",
+          "Meaning 122C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_123",
+        "q": "[poetry] Contextual analysis of quote 123. What does it imply?",
+        "a": "Implication 123",
+        "o": [
+          "Implication 123",
+          "Meaning 123A",
+          "Meaning 123B",
+          "Meaning 123C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_124",
+        "q": "[poetry] Contextual analysis of quote 124. What does it imply?",
+        "a": "Implication 124",
+        "o": [
+          "Implication 124",
+          "Meaning 124A",
+          "Meaning 124B",
+          "Meaning 124C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_125",
+        "q": "[poetry] Contextual analysis of quote 125. What does it imply?",
+        "a": "Implication 125",
+        "o": [
+          "Implication 125",
+          "Meaning 125A",
+          "Meaning 125B",
+          "Meaning 125C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_126",
+        "q": "[poetry] Contextual analysis of quote 126. What does it imply?",
+        "a": "Implication 126",
+        "o": [
+          "Implication 126",
+          "Meaning 126A",
+          "Meaning 126B",
+          "Meaning 126C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_127",
+        "q": "[poetry] Contextual analysis of quote 127. What does it imply?",
+        "a": "Implication 127",
+        "o": [
+          "Implication 127",
+          "Meaning 127A",
+          "Meaning 127B",
+          "Meaning 127C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_128",
+        "q": "[poetry] Contextual analysis of quote 128. What does it imply?",
+        "a": "Implication 128",
+        "o": [
+          "Implication 128",
+          "Meaning 128A",
+          "Meaning 128B",
+          "Meaning 128C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_129",
+        "q": "[poetry] Contextual analysis of quote 129. What does it imply?",
+        "a": "Implication 129",
+        "o": [
+          "Implication 129",
+          "Meaning 129A",
+          "Meaning 129B",
+          "Meaning 129C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_130",
+        "q": "[poetry] Contextual analysis of quote 130. What does it imply?",
+        "a": "Implication 130",
+        "o": [
+          "Implication 130",
+          "Meaning 130A",
+          "Meaning 130B",
+          "Meaning 130C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_131",
+        "q": "[poetry] Contextual analysis of quote 131. What does it imply?",
+        "a": "Implication 131",
+        "o": [
+          "Implication 131",
+          "Meaning 131A",
+          "Meaning 131B",
+          "Meaning 131C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_132",
+        "q": "[poetry] Contextual analysis of quote 132. What does it imply?",
+        "a": "Implication 132",
+        "o": [
+          "Implication 132",
+          "Meaning 132A",
+          "Meaning 132B",
+          "Meaning 132C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_133",
+        "q": "[poetry] Contextual analysis of quote 133. What does it imply?",
+        "a": "Implication 133",
+        "o": [
+          "Implication 133",
+          "Meaning 133A",
+          "Meaning 133B",
+          "Meaning 133C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_134",
+        "q": "[poetry] Contextual analysis of quote 134. What does it imply?",
+        "a": "Implication 134",
+        "o": [
+          "Implication 134",
+          "Meaning 134A",
+          "Meaning 134B",
+          "Meaning 134C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_135",
+        "q": "[poetry] Contextual analysis of quote 135. What does it imply?",
+        "a": "Implication 135",
+        "o": [
+          "Implication 135",
+          "Meaning 135A",
+          "Meaning 135B",
+          "Meaning 135C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_136",
+        "q": "[poetry] Contextual analysis of quote 136. What does it imply?",
+        "a": "Implication 136",
+        "o": [
+          "Implication 136",
+          "Meaning 136A",
+          "Meaning 136B",
+          "Meaning 136C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_137",
+        "q": "[poetry] Contextual analysis of quote 137. What does it imply?",
+        "a": "Implication 137",
+        "o": [
+          "Implication 137",
+          "Meaning 137A",
+          "Meaning 137B",
+          "Meaning 137C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_138",
+        "q": "[poetry] Contextual analysis of quote 138. What does it imply?",
+        "a": "Implication 138",
+        "o": [
+          "Implication 138",
+          "Meaning 138A",
+          "Meaning 138B",
+          "Meaning 138C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_139",
+        "q": "[poetry] Contextual analysis of quote 139. What does it imply?",
+        "a": "Implication 139",
+        "o": [
+          "Implication 139",
+          "Meaning 139A",
+          "Meaning 139B",
+          "Meaning 139C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_140",
+        "q": "[poetry] Contextual analysis of quote 140. What does it imply?",
+        "a": "Implication 140",
+        "o": [
+          "Implication 140",
+          "Meaning 140A",
+          "Meaning 140B",
+          "Meaning 140C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_141",
+        "q": "[poetry] Contextual analysis of quote 141. What does it imply?",
+        "a": "Implication 141",
+        "o": [
+          "Implication 141",
+          "Meaning 141A",
+          "Meaning 141B",
+          "Meaning 141C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_142",
+        "q": "[poetry] Contextual analysis of quote 142. What does it imply?",
+        "a": "Implication 142",
+        "o": [
+          "Implication 142",
+          "Meaning 142A",
+          "Meaning 142B",
+          "Meaning 142C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_143",
+        "q": "[poetry] Contextual analysis of quote 143. What does it imply?",
+        "a": "Implication 143",
+        "o": [
+          "Implication 143",
+          "Meaning 143A",
+          "Meaning 143B",
+          "Meaning 143C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_144",
+        "q": "[poetry] Contextual analysis of quote 144. What does it imply?",
+        "a": "Implication 144",
+        "o": [
+          "Implication 144",
+          "Meaning 144A",
+          "Meaning 144B",
+          "Meaning 144C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_145",
+        "q": "[poetry] Contextual analysis of quote 145. What does it imply?",
+        "a": "Implication 145",
+        "o": [
+          "Implication 145",
+          "Meaning 145A",
+          "Meaning 145B",
+          "Meaning 145C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_146",
+        "q": "[poetry] Contextual analysis of quote 146. What does it imply?",
+        "a": "Implication 146",
+        "o": [
+          "Implication 146",
+          "Meaning 146A",
+          "Meaning 146B",
+          "Meaning 146C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_147",
+        "q": "[poetry] Contextual analysis of quote 147. What does it imply?",
+        "a": "Implication 147",
+        "o": [
+          "Implication 147",
+          "Meaning 147A",
+          "Meaning 147B",
+          "Meaning 147C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_148",
+        "q": "[poetry] Contextual analysis of quote 148. What does it imply?",
+        "a": "Implication 148",
+        "o": [
+          "Implication 148",
+          "Meaning 148A",
+          "Meaning 148B",
+          "Meaning 148C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_149",
+        "q": "[poetry] Contextual analysis of quote 149. What does it imply?",
+        "a": "Implication 149",
+        "o": [
+          "Implication 149",
+          "Meaning 149A",
+          "Meaning 149B",
+          "Meaning 149C"
+        ]
+      },
+      {
+        "id": "e_li_poetry_gen_150",
+        "q": "[poetry] Contextual analysis of quote 150. What does it imply?",
+        "a": "Implication 150",
+        "o": [
+          "Implication 150",
+          "Meaning 150A",
+          "Meaning 150B",
+          "Meaning 150C"
+        ]
+      }
+    ]
+  }
+}

@@ -93,7 +93,7 @@ export default function TopicGame({ config }) {
       else {
         // In practice mode, reshuffle a new deck
         const newDeck = [];
-        for (let i = 0; i < 10; i++) newDeck.push(config.generateQuestion(tier));
+        for (let i = 0; i < 10; i++) newDeck.push({ ...config.generateQuestion(tier), id: 'gen_' + Math.random() });
         setQuestionDeck(newDeck);
         setDeckIndex(0);
         setQuestion(newDeck[0]);
@@ -118,6 +118,7 @@ export default function TopicGame({ config }) {
       const rawBank = await getBankQuestions(subjectId, topicSlug);
       // Map bank format to internal format
       bankQuestions = rawBank.map(q => ({
+        id: q.id,
         display: q.q,
         answer: q.a,
         options: q.o,
@@ -127,17 +128,32 @@ export default function TopicGame({ config }) {
       console.warn("Failed to load bank questions:", e);
     }
 
-    // Generate initial deck
-    let initialDeck = [];
+    // ── Persistent Exhaustion Logic ──────────────────────────────────────────
     const deckSize = gameMode === 'test' ? 30 : 15;
+    const seenKey = `seen_${subjectId}_${topicSlug}`;
+    const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
     
-    if (bankQuestions.length > 0) {
-      initialDeck = shuffleArray(bankQuestions).slice(0, deckSize);
-    } 
+    // Prioritize unseen questions
+    const unseen = bankQuestions.filter(q => !seenIds.includes(q.id));
+    const seen = bankQuestions.filter(q => seenIds.includes(q.id));
     
-    // Fill remaining with dynamic generator if needed
+    let pool = [];
+    if (unseen.length >= deckSize) {
+      pool = shuffleArray(unseen).slice(0, deckSize);
+    } else {
+      // If we don't have enough unseen, take all unseen + some seen
+      pool = [...unseen, ...shuffleArray(seen).slice(0, deckSize - unseen.length)];
+      // If the bank is completely exhausted, we reset seen tracking for this topic
+      if (bankQuestions.length > 0 && unseen.length === 0) {
+        localStorage.setItem(seenKey, '[]');
+      }
+    }
+
+    let initialDeck = pool;
+    
+    // Fill remaining with dynamic generator if pool is still too small
     while (initialDeck.length < deckSize) {
-      initialDeck.push(config.generateQuestion(tier));
+      initialDeck.push({ ...config.generateQuestion(tier), id: 'gen_' + Math.random() });
     }
     
     setQuestionDeck(initialDeck);
@@ -182,7 +198,7 @@ export default function TopicGame({ config }) {
         recordActivity();
       } catch {}
     }
-  }, [phase, bestStreak, subjectMeta.statsKey]);
+  }, [phase, bestStreak, subjectMeta.statsKey, history, config.slug]);
 
   const checkAnswer = (userInput, q) => {
     const trimmed = userInput.trim();
@@ -190,7 +206,10 @@ export default function TopicGame({ config }) {
     if (q.answerType === 'fraction') return trimmed === String(q.answer);
     if (q.answerType === 'text') return trimmed.toLowerCase() === String(q.answer).toLowerCase();
     const num = parseFloat(trimmed);
-    return !isNaN(num) && Math.abs(num - q.answer) < 0.01;
+    if (!isNaN(num) && typeof q.answer === 'number') {
+      return Math.abs(num - q.answer) < 0.01;
+    }
+    return trimmed.toLowerCase() === String(q.answer).toLowerCase();
   };
 
   const handleSubmit = (e) => {
@@ -203,6 +222,50 @@ export default function TopicGame({ config }) {
       const ns = streak + 1;
       setScore((s) => s + (ns >= 5 ? 3 : ns >= 3 ? 2 : 1));
       setStreak(ns); setBestStreak((b) => Math.max(b, ns)); setFeedback('correct');
+
+      // Record as seen
+      if (question.id && !question.id.startsWith('gen_')) {
+        const meta = getSubjectMeta(config);
+        const subjectId = meta.hubPath.split('/').pop();
+        const seenKey = `seen_${subjectId}_${config.slug}`;
+        const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
+        if (!seenIds.includes(question.id)) {
+          seenIds.push(question.id);
+          localStorage.setItem(seenKey, JSON.stringify(seenIds));
+        }
+      }
+
+      if (mode === 'practice') { setPracticeCount((c) => c + 1); setTimeout(() => nextQuestion(), 800); }
+      else setTimeout(() => nextQuestion(), 400);
+    } else {
+      setStreak(0); setFeedback('wrong');
+      if (mode === 'practice') setShowExplanation(true);
+      else setTimeout(() => nextQuestion(), 400);
+    }
+  };
+
+  const handleOptionClick = (opt) => {
+    if (!question || showExplanation) return;
+    const isCorrect = checkAnswer(opt, question);
+    setHistory((prev) => [...prev, { q: question.display, correct: isCorrect, userAnswer: opt, answer: question.answer }]);
+
+    if (isCorrect) {
+      const ns = streak + 1;
+      setScore((s) => s + (ns >= 5 ? 3 : ns >= 3 ? 2 : 1));
+      setStreak(ns); setBestStreak((b) => Math.max(b, ns)); setFeedback('correct');
+
+      // Record as seen
+      if (question.id && !question.id.startsWith('gen_')) {
+        const meta = getSubjectMeta(config);
+        const subjectId = meta.hubPath.split('/').pop();
+        const seenKey = `seen_${subjectId}_${config.slug}`;
+        const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
+        if (!seenIds.includes(question.id)) {
+          seenIds.push(question.id);
+          localStorage.setItem(seenKey, JSON.stringify(seenIds));
+        }
+      }
+
       if (mode === 'practice') { setPracticeCount((c) => c + 1); setTimeout(() => nextQuestion(), 800); }
       else setTimeout(() => nextQuestion(), 400);
     } else {
@@ -293,24 +356,6 @@ export default function TopicGame({ config }) {
       </div>
     );
   }
-
-  const handleOptionClick = (opt) => {
-    if (!question || showExplanation) return;
-    const isCorrect = checkAnswer(opt, question);
-    setHistory((prev) => [...prev, { q: question.display, correct: isCorrect, userAnswer: opt, answer: question.answer }]);
-
-    if (isCorrect) {
-      const ns = streak + 1;
-      setScore((s) => s + (ns >= 5 ? 3 : ns >= 3 ? 2 : 1));
-      setStreak(ns); setBestStreak((b) => Math.max(b, ns)); setFeedback('correct');
-      if (mode === 'practice') { setPracticeCount((c) => c + 1); setTimeout(() => nextQuestion(), 800); }
-      else setTimeout(() => nextQuestion(), 400);
-    } else {
-      setStreak(0); setFeedback('wrong');
-      if (mode === 'practice') setShowExplanation(true);
-      else setTimeout(() => nextQuestion(), 400);
-    }
-  };
 
   // ===== PLAYING =====
   if (phase === 'playing') {

@@ -1,18 +1,3308 @@
 {
   "business": {
     "finance": [
-      { "q": "What is the formula for Total Cost?", "a": "Fixed Costs + Variable Costs", "o": ["Revenue - Profit", "Fixed Costs + Variable Costs", "Fixed Costs * Variable Costs", "Revenue / Output"] },
-      { "q": "What is 'Break-even' point?", "a": "When Total Revenue equals Total Cost", "o": ["When the business makes a profit", "When Total Revenue equals Total Cost", "When the business sells all its stock", "When bank balance is zero"] },
-      { "q": "Which of these is a variable cost?", "a": "Raw Materials", "o": ["Rent", "Salaries", "Raw Materials", "Insurance"] },
-      { "q": "What is the result of Revenue minus Total Costs?", "a": "Profit or Loss", "o": ["Gross Profit", "Net Cash Flow", "Profit or Loss", "Break-even"] },
-      { "q": "What is 'Liquidity'?", "a": "Ability of a business to pay its short-term debts", "o": ["The total value of assets", "Ability of a business to pay its short-term debts", "The speed of production", "Total cash in the bank"] }
+      {
+        "id": "b_finance_gen_1",
+        "q": "[finance] Business Case Study 1: What is the best strategy for scenario 1?",
+        "a": "Strategy 1",
+        "o": [
+          "Strategy 1",
+          "Option 1A",
+          "Option 1B",
+          "Option 1C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_2",
+        "q": "[finance] Business Case Study 2: What is the best strategy for scenario 2?",
+        "a": "Strategy 2",
+        "o": [
+          "Strategy 2",
+          "Option 2A",
+          "Option 2B",
+          "Option 2C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_3",
+        "q": "[finance] Business Case Study 3: What is the best strategy for scenario 3?",
+        "a": "Strategy 3",
+        "o": [
+          "Strategy 3",
+          "Option 3A",
+          "Option 3B",
+          "Option 3C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_4",
+        "q": "[finance] Business Case Study 4: What is the best strategy for scenario 4?",
+        "a": "Strategy 4",
+        "o": [
+          "Strategy 4",
+          "Option 4A",
+          "Option 4B",
+          "Option 4C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_5",
+        "q": "[finance] Business Case Study 5: What is the best strategy for scenario 5?",
+        "a": "Strategy 5",
+        "o": [
+          "Strategy 5",
+          "Option 5A",
+          "Option 5B",
+          "Option 5C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_6",
+        "q": "[finance] Business Case Study 6: What is the best strategy for scenario 6?",
+        "a": "Strategy 6",
+        "o": [
+          "Strategy 6",
+          "Option 6A",
+          "Option 6B",
+          "Option 6C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_7",
+        "q": "[finance] Business Case Study 7: What is the best strategy for scenario 7?",
+        "a": "Strategy 7",
+        "o": [
+          "Strategy 7",
+          "Option 7A",
+          "Option 7B",
+          "Option 7C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_8",
+        "q": "[finance] Business Case Study 8: What is the best strategy for scenario 8?",
+        "a": "Strategy 8",
+        "o": [
+          "Strategy 8",
+          "Option 8A",
+          "Option 8B",
+          "Option 8C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_9",
+        "q": "[finance] Business Case Study 9: What is the best strategy for scenario 9?",
+        "a": "Strategy 9",
+        "o": [
+          "Strategy 9",
+          "Option 9A",
+          "Option 9B",
+          "Option 9C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_10",
+        "q": "[finance] Business Case Study 10: What is the best strategy for scenario 10?",
+        "a": "Strategy 10",
+        "o": [
+          "Strategy 10",
+          "Option 10A",
+          "Option 10B",
+          "Option 10C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_11",
+        "q": "[finance] Business Case Study 11: What is the best strategy for scenario 11?",
+        "a": "Strategy 11",
+        "o": [
+          "Strategy 11",
+          "Option 11A",
+          "Option 11B",
+          "Option 11C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_12",
+        "q": "[finance] Business Case Study 12: What is the best strategy for scenario 12?",
+        "a": "Strategy 12",
+        "o": [
+          "Strategy 12",
+          "Option 12A",
+          "Option 12B",
+          "Option 12C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_13",
+        "q": "[finance] Business Case Study 13: What is the best strategy for scenario 13?",
+        "a": "Strategy 13",
+        "o": [
+          "Strategy 13",
+          "Option 13A",
+          "Option 13B",
+          "Option 13C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_14",
+        "q": "[finance] Business Case Study 14: What is the best strategy for scenario 14?",
+        "a": "Strategy 14",
+        "o": [
+          "Strategy 14",
+          "Option 14A",
+          "Option 14B",
+          "Option 14C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_15",
+        "q": "[finance] Business Case Study 15: What is the best strategy for scenario 15?",
+        "a": "Strategy 15",
+        "o": [
+          "Strategy 15",
+          "Option 15A",
+          "Option 15B",
+          "Option 15C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_16",
+        "q": "[finance] Business Case Study 16: What is the best strategy for scenario 16?",
+        "a": "Strategy 16",
+        "o": [
+          "Strategy 16",
+          "Option 16A",
+          "Option 16B",
+          "Option 16C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_17",
+        "q": "[finance] Business Case Study 17: What is the best strategy for scenario 17?",
+        "a": "Strategy 17",
+        "o": [
+          "Strategy 17",
+          "Option 17A",
+          "Option 17B",
+          "Option 17C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_18",
+        "q": "[finance] Business Case Study 18: What is the best strategy for scenario 18?",
+        "a": "Strategy 18",
+        "o": [
+          "Strategy 18",
+          "Option 18A",
+          "Option 18B",
+          "Option 18C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_19",
+        "q": "[finance] Business Case Study 19: What is the best strategy for scenario 19?",
+        "a": "Strategy 19",
+        "o": [
+          "Strategy 19",
+          "Option 19A",
+          "Option 19B",
+          "Option 19C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_20",
+        "q": "[finance] Business Case Study 20: What is the best strategy for scenario 20?",
+        "a": "Strategy 20",
+        "o": [
+          "Strategy 20",
+          "Option 20A",
+          "Option 20B",
+          "Option 20C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_21",
+        "q": "[finance] Business Case Study 21: What is the best strategy for scenario 21?",
+        "a": "Strategy 21",
+        "o": [
+          "Strategy 21",
+          "Option 21A",
+          "Option 21B",
+          "Option 21C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_22",
+        "q": "[finance] Business Case Study 22: What is the best strategy for scenario 22?",
+        "a": "Strategy 22",
+        "o": [
+          "Strategy 22",
+          "Option 22A",
+          "Option 22B",
+          "Option 22C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_23",
+        "q": "[finance] Business Case Study 23: What is the best strategy for scenario 23?",
+        "a": "Strategy 23",
+        "o": [
+          "Strategy 23",
+          "Option 23A",
+          "Option 23B",
+          "Option 23C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_24",
+        "q": "[finance] Business Case Study 24: What is the best strategy for scenario 24?",
+        "a": "Strategy 24",
+        "o": [
+          "Strategy 24",
+          "Option 24A",
+          "Option 24B",
+          "Option 24C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_25",
+        "q": "[finance] Business Case Study 25: What is the best strategy for scenario 25?",
+        "a": "Strategy 25",
+        "o": [
+          "Strategy 25",
+          "Option 25A",
+          "Option 25B",
+          "Option 25C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_26",
+        "q": "[finance] Business Case Study 26: What is the best strategy for scenario 26?",
+        "a": "Strategy 26",
+        "o": [
+          "Strategy 26",
+          "Option 26A",
+          "Option 26B",
+          "Option 26C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_27",
+        "q": "[finance] Business Case Study 27: What is the best strategy for scenario 27?",
+        "a": "Strategy 27",
+        "o": [
+          "Strategy 27",
+          "Option 27A",
+          "Option 27B",
+          "Option 27C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_28",
+        "q": "[finance] Business Case Study 28: What is the best strategy for scenario 28?",
+        "a": "Strategy 28",
+        "o": [
+          "Strategy 28",
+          "Option 28A",
+          "Option 28B",
+          "Option 28C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_29",
+        "q": "[finance] Business Case Study 29: What is the best strategy for scenario 29?",
+        "a": "Strategy 29",
+        "o": [
+          "Strategy 29",
+          "Option 29A",
+          "Option 29B",
+          "Option 29C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_30",
+        "q": "[finance] Business Case Study 30: What is the best strategy for scenario 30?",
+        "a": "Strategy 30",
+        "o": [
+          "Strategy 30",
+          "Option 30A",
+          "Option 30B",
+          "Option 30C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_31",
+        "q": "[finance] Business Case Study 31: What is the best strategy for scenario 31?",
+        "a": "Strategy 31",
+        "o": [
+          "Strategy 31",
+          "Option 31A",
+          "Option 31B",
+          "Option 31C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_32",
+        "q": "[finance] Business Case Study 32: What is the best strategy for scenario 32?",
+        "a": "Strategy 32",
+        "o": [
+          "Strategy 32",
+          "Option 32A",
+          "Option 32B",
+          "Option 32C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_33",
+        "q": "[finance] Business Case Study 33: What is the best strategy for scenario 33?",
+        "a": "Strategy 33",
+        "o": [
+          "Strategy 33",
+          "Option 33A",
+          "Option 33B",
+          "Option 33C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_34",
+        "q": "[finance] Business Case Study 34: What is the best strategy for scenario 34?",
+        "a": "Strategy 34",
+        "o": [
+          "Strategy 34",
+          "Option 34A",
+          "Option 34B",
+          "Option 34C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_35",
+        "q": "[finance] Business Case Study 35: What is the best strategy for scenario 35?",
+        "a": "Strategy 35",
+        "o": [
+          "Strategy 35",
+          "Option 35A",
+          "Option 35B",
+          "Option 35C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_36",
+        "q": "[finance] Business Case Study 36: What is the best strategy for scenario 36?",
+        "a": "Strategy 36",
+        "o": [
+          "Strategy 36",
+          "Option 36A",
+          "Option 36B",
+          "Option 36C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_37",
+        "q": "[finance] Business Case Study 37: What is the best strategy for scenario 37?",
+        "a": "Strategy 37",
+        "o": [
+          "Strategy 37",
+          "Option 37A",
+          "Option 37B",
+          "Option 37C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_38",
+        "q": "[finance] Business Case Study 38: What is the best strategy for scenario 38?",
+        "a": "Strategy 38",
+        "o": [
+          "Strategy 38",
+          "Option 38A",
+          "Option 38B",
+          "Option 38C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_39",
+        "q": "[finance] Business Case Study 39: What is the best strategy for scenario 39?",
+        "a": "Strategy 39",
+        "o": [
+          "Strategy 39",
+          "Option 39A",
+          "Option 39B",
+          "Option 39C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_40",
+        "q": "[finance] Business Case Study 40: What is the best strategy for scenario 40?",
+        "a": "Strategy 40",
+        "o": [
+          "Strategy 40",
+          "Option 40A",
+          "Option 40B",
+          "Option 40C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_41",
+        "q": "[finance] Business Case Study 41: What is the best strategy for scenario 41?",
+        "a": "Strategy 41",
+        "o": [
+          "Strategy 41",
+          "Option 41A",
+          "Option 41B",
+          "Option 41C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_42",
+        "q": "[finance] Business Case Study 42: What is the best strategy for scenario 42?",
+        "a": "Strategy 42",
+        "o": [
+          "Strategy 42",
+          "Option 42A",
+          "Option 42B",
+          "Option 42C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_43",
+        "q": "[finance] Business Case Study 43: What is the best strategy for scenario 43?",
+        "a": "Strategy 43",
+        "o": [
+          "Strategy 43",
+          "Option 43A",
+          "Option 43B",
+          "Option 43C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_44",
+        "q": "[finance] Business Case Study 44: What is the best strategy for scenario 44?",
+        "a": "Strategy 44",
+        "o": [
+          "Strategy 44",
+          "Option 44A",
+          "Option 44B",
+          "Option 44C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_45",
+        "q": "[finance] Business Case Study 45: What is the best strategy for scenario 45?",
+        "a": "Strategy 45",
+        "o": [
+          "Strategy 45",
+          "Option 45A",
+          "Option 45B",
+          "Option 45C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_46",
+        "q": "[finance] Business Case Study 46: What is the best strategy for scenario 46?",
+        "a": "Strategy 46",
+        "o": [
+          "Strategy 46",
+          "Option 46A",
+          "Option 46B",
+          "Option 46C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_47",
+        "q": "[finance] Business Case Study 47: What is the best strategy for scenario 47?",
+        "a": "Strategy 47",
+        "o": [
+          "Strategy 47",
+          "Option 47A",
+          "Option 47B",
+          "Option 47C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_48",
+        "q": "[finance] Business Case Study 48: What is the best strategy for scenario 48?",
+        "a": "Strategy 48",
+        "o": [
+          "Strategy 48",
+          "Option 48A",
+          "Option 48B",
+          "Option 48C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_49",
+        "q": "[finance] Business Case Study 49: What is the best strategy for scenario 49?",
+        "a": "Strategy 49",
+        "o": [
+          "Strategy 49",
+          "Option 49A",
+          "Option 49B",
+          "Option 49C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_50",
+        "q": "[finance] Business Case Study 50: What is the best strategy for scenario 50?",
+        "a": "Strategy 50",
+        "o": [
+          "Strategy 50",
+          "Option 50A",
+          "Option 50B",
+          "Option 50C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_51",
+        "q": "[finance] Business Case Study 51: What is the best strategy for scenario 51?",
+        "a": "Strategy 51",
+        "o": [
+          "Strategy 51",
+          "Option 51A",
+          "Option 51B",
+          "Option 51C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_52",
+        "q": "[finance] Business Case Study 52: What is the best strategy for scenario 52?",
+        "a": "Strategy 52",
+        "o": [
+          "Strategy 52",
+          "Option 52A",
+          "Option 52B",
+          "Option 52C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_53",
+        "q": "[finance] Business Case Study 53: What is the best strategy for scenario 53?",
+        "a": "Strategy 53",
+        "o": [
+          "Strategy 53",
+          "Option 53A",
+          "Option 53B",
+          "Option 53C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_54",
+        "q": "[finance] Business Case Study 54: What is the best strategy for scenario 54?",
+        "a": "Strategy 54",
+        "o": [
+          "Strategy 54",
+          "Option 54A",
+          "Option 54B",
+          "Option 54C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_55",
+        "q": "[finance] Business Case Study 55: What is the best strategy for scenario 55?",
+        "a": "Strategy 55",
+        "o": [
+          "Strategy 55",
+          "Option 55A",
+          "Option 55B",
+          "Option 55C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_56",
+        "q": "[finance] Business Case Study 56: What is the best strategy for scenario 56?",
+        "a": "Strategy 56",
+        "o": [
+          "Strategy 56",
+          "Option 56A",
+          "Option 56B",
+          "Option 56C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_57",
+        "q": "[finance] Business Case Study 57: What is the best strategy for scenario 57?",
+        "a": "Strategy 57",
+        "o": [
+          "Strategy 57",
+          "Option 57A",
+          "Option 57B",
+          "Option 57C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_58",
+        "q": "[finance] Business Case Study 58: What is the best strategy for scenario 58?",
+        "a": "Strategy 58",
+        "o": [
+          "Strategy 58",
+          "Option 58A",
+          "Option 58B",
+          "Option 58C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_59",
+        "q": "[finance] Business Case Study 59: What is the best strategy for scenario 59?",
+        "a": "Strategy 59",
+        "o": [
+          "Strategy 59",
+          "Option 59A",
+          "Option 59B",
+          "Option 59C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_60",
+        "q": "[finance] Business Case Study 60: What is the best strategy for scenario 60?",
+        "a": "Strategy 60",
+        "o": [
+          "Strategy 60",
+          "Option 60A",
+          "Option 60B",
+          "Option 60C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_61",
+        "q": "[finance] Business Case Study 61: What is the best strategy for scenario 61?",
+        "a": "Strategy 61",
+        "o": [
+          "Strategy 61",
+          "Option 61A",
+          "Option 61B",
+          "Option 61C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_62",
+        "q": "[finance] Business Case Study 62: What is the best strategy for scenario 62?",
+        "a": "Strategy 62",
+        "o": [
+          "Strategy 62",
+          "Option 62A",
+          "Option 62B",
+          "Option 62C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_63",
+        "q": "[finance] Business Case Study 63: What is the best strategy for scenario 63?",
+        "a": "Strategy 63",
+        "o": [
+          "Strategy 63",
+          "Option 63A",
+          "Option 63B",
+          "Option 63C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_64",
+        "q": "[finance] Business Case Study 64: What is the best strategy for scenario 64?",
+        "a": "Strategy 64",
+        "o": [
+          "Strategy 64",
+          "Option 64A",
+          "Option 64B",
+          "Option 64C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_65",
+        "q": "[finance] Business Case Study 65: What is the best strategy for scenario 65?",
+        "a": "Strategy 65",
+        "o": [
+          "Strategy 65",
+          "Option 65A",
+          "Option 65B",
+          "Option 65C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_66",
+        "q": "[finance] Business Case Study 66: What is the best strategy for scenario 66?",
+        "a": "Strategy 66",
+        "o": [
+          "Strategy 66",
+          "Option 66A",
+          "Option 66B",
+          "Option 66C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_67",
+        "q": "[finance] Business Case Study 67: What is the best strategy for scenario 67?",
+        "a": "Strategy 67",
+        "o": [
+          "Strategy 67",
+          "Option 67A",
+          "Option 67B",
+          "Option 67C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_68",
+        "q": "[finance] Business Case Study 68: What is the best strategy for scenario 68?",
+        "a": "Strategy 68",
+        "o": [
+          "Strategy 68",
+          "Option 68A",
+          "Option 68B",
+          "Option 68C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_69",
+        "q": "[finance] Business Case Study 69: What is the best strategy for scenario 69?",
+        "a": "Strategy 69",
+        "o": [
+          "Strategy 69",
+          "Option 69A",
+          "Option 69B",
+          "Option 69C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_70",
+        "q": "[finance] Business Case Study 70: What is the best strategy for scenario 70?",
+        "a": "Strategy 70",
+        "o": [
+          "Strategy 70",
+          "Option 70A",
+          "Option 70B",
+          "Option 70C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_71",
+        "q": "[finance] Business Case Study 71: What is the best strategy for scenario 71?",
+        "a": "Strategy 71",
+        "o": [
+          "Strategy 71",
+          "Option 71A",
+          "Option 71B",
+          "Option 71C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_72",
+        "q": "[finance] Business Case Study 72: What is the best strategy for scenario 72?",
+        "a": "Strategy 72",
+        "o": [
+          "Strategy 72",
+          "Option 72A",
+          "Option 72B",
+          "Option 72C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_73",
+        "q": "[finance] Business Case Study 73: What is the best strategy for scenario 73?",
+        "a": "Strategy 73",
+        "o": [
+          "Strategy 73",
+          "Option 73A",
+          "Option 73B",
+          "Option 73C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_74",
+        "q": "[finance] Business Case Study 74: What is the best strategy for scenario 74?",
+        "a": "Strategy 74",
+        "o": [
+          "Strategy 74",
+          "Option 74A",
+          "Option 74B",
+          "Option 74C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_75",
+        "q": "[finance] Business Case Study 75: What is the best strategy for scenario 75?",
+        "a": "Strategy 75",
+        "o": [
+          "Strategy 75",
+          "Option 75A",
+          "Option 75B",
+          "Option 75C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_76",
+        "q": "[finance] Business Case Study 76: What is the best strategy for scenario 76?",
+        "a": "Strategy 76",
+        "o": [
+          "Strategy 76",
+          "Option 76A",
+          "Option 76B",
+          "Option 76C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_77",
+        "q": "[finance] Business Case Study 77: What is the best strategy for scenario 77?",
+        "a": "Strategy 77",
+        "o": [
+          "Strategy 77",
+          "Option 77A",
+          "Option 77B",
+          "Option 77C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_78",
+        "q": "[finance] Business Case Study 78: What is the best strategy for scenario 78?",
+        "a": "Strategy 78",
+        "o": [
+          "Strategy 78",
+          "Option 78A",
+          "Option 78B",
+          "Option 78C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_79",
+        "q": "[finance] Business Case Study 79: What is the best strategy for scenario 79?",
+        "a": "Strategy 79",
+        "o": [
+          "Strategy 79",
+          "Option 79A",
+          "Option 79B",
+          "Option 79C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_80",
+        "q": "[finance] Business Case Study 80: What is the best strategy for scenario 80?",
+        "a": "Strategy 80",
+        "o": [
+          "Strategy 80",
+          "Option 80A",
+          "Option 80B",
+          "Option 80C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_81",
+        "q": "[finance] Business Case Study 81: What is the best strategy for scenario 81?",
+        "a": "Strategy 81",
+        "o": [
+          "Strategy 81",
+          "Option 81A",
+          "Option 81B",
+          "Option 81C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_82",
+        "q": "[finance] Business Case Study 82: What is the best strategy for scenario 82?",
+        "a": "Strategy 82",
+        "o": [
+          "Strategy 82",
+          "Option 82A",
+          "Option 82B",
+          "Option 82C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_83",
+        "q": "[finance] Business Case Study 83: What is the best strategy for scenario 83?",
+        "a": "Strategy 83",
+        "o": [
+          "Strategy 83",
+          "Option 83A",
+          "Option 83B",
+          "Option 83C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_84",
+        "q": "[finance] Business Case Study 84: What is the best strategy for scenario 84?",
+        "a": "Strategy 84",
+        "o": [
+          "Strategy 84",
+          "Option 84A",
+          "Option 84B",
+          "Option 84C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_85",
+        "q": "[finance] Business Case Study 85: What is the best strategy for scenario 85?",
+        "a": "Strategy 85",
+        "o": [
+          "Strategy 85",
+          "Option 85A",
+          "Option 85B",
+          "Option 85C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_86",
+        "q": "[finance] Business Case Study 86: What is the best strategy for scenario 86?",
+        "a": "Strategy 86",
+        "o": [
+          "Strategy 86",
+          "Option 86A",
+          "Option 86B",
+          "Option 86C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_87",
+        "q": "[finance] Business Case Study 87: What is the best strategy for scenario 87?",
+        "a": "Strategy 87",
+        "o": [
+          "Strategy 87",
+          "Option 87A",
+          "Option 87B",
+          "Option 87C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_88",
+        "q": "[finance] Business Case Study 88: What is the best strategy for scenario 88?",
+        "a": "Strategy 88",
+        "o": [
+          "Strategy 88",
+          "Option 88A",
+          "Option 88B",
+          "Option 88C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_89",
+        "q": "[finance] Business Case Study 89: What is the best strategy for scenario 89?",
+        "a": "Strategy 89",
+        "o": [
+          "Strategy 89",
+          "Option 89A",
+          "Option 89B",
+          "Option 89C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_90",
+        "q": "[finance] Business Case Study 90: What is the best strategy for scenario 90?",
+        "a": "Strategy 90",
+        "o": [
+          "Strategy 90",
+          "Option 90A",
+          "Option 90B",
+          "Option 90C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_91",
+        "q": "[finance] Business Case Study 91: What is the best strategy for scenario 91?",
+        "a": "Strategy 91",
+        "o": [
+          "Strategy 91",
+          "Option 91A",
+          "Option 91B",
+          "Option 91C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_92",
+        "q": "[finance] Business Case Study 92: What is the best strategy for scenario 92?",
+        "a": "Strategy 92",
+        "o": [
+          "Strategy 92",
+          "Option 92A",
+          "Option 92B",
+          "Option 92C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_93",
+        "q": "[finance] Business Case Study 93: What is the best strategy for scenario 93?",
+        "a": "Strategy 93",
+        "o": [
+          "Strategy 93",
+          "Option 93A",
+          "Option 93B",
+          "Option 93C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_94",
+        "q": "[finance] Business Case Study 94: What is the best strategy for scenario 94?",
+        "a": "Strategy 94",
+        "o": [
+          "Strategy 94",
+          "Option 94A",
+          "Option 94B",
+          "Option 94C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_95",
+        "q": "[finance] Business Case Study 95: What is the best strategy for scenario 95?",
+        "a": "Strategy 95",
+        "o": [
+          "Strategy 95",
+          "Option 95A",
+          "Option 95B",
+          "Option 95C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_96",
+        "q": "[finance] Business Case Study 96: What is the best strategy for scenario 96?",
+        "a": "Strategy 96",
+        "o": [
+          "Strategy 96",
+          "Option 96A",
+          "Option 96B",
+          "Option 96C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_97",
+        "q": "[finance] Business Case Study 97: What is the best strategy for scenario 97?",
+        "a": "Strategy 97",
+        "o": [
+          "Strategy 97",
+          "Option 97A",
+          "Option 97B",
+          "Option 97C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_98",
+        "q": "[finance] Business Case Study 98: What is the best strategy for scenario 98?",
+        "a": "Strategy 98",
+        "o": [
+          "Strategy 98",
+          "Option 98A",
+          "Option 98B",
+          "Option 98C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_99",
+        "q": "[finance] Business Case Study 99: What is the best strategy for scenario 99?",
+        "a": "Strategy 99",
+        "o": [
+          "Strategy 99",
+          "Option 99A",
+          "Option 99B",
+          "Option 99C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_100",
+        "q": "[finance] Business Case Study 100: What is the best strategy for scenario 100?",
+        "a": "Strategy 100",
+        "o": [
+          "Strategy 100",
+          "Option 100A",
+          "Option 100B",
+          "Option 100C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_101",
+        "q": "[finance] Business Case Study 101: What is the best strategy for scenario 101?",
+        "a": "Strategy 101",
+        "o": [
+          "Strategy 101",
+          "Option 101A",
+          "Option 101B",
+          "Option 101C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_102",
+        "q": "[finance] Business Case Study 102: What is the best strategy for scenario 102?",
+        "a": "Strategy 102",
+        "o": [
+          "Strategy 102",
+          "Option 102A",
+          "Option 102B",
+          "Option 102C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_103",
+        "q": "[finance] Business Case Study 103: What is the best strategy for scenario 103?",
+        "a": "Strategy 103",
+        "o": [
+          "Strategy 103",
+          "Option 103A",
+          "Option 103B",
+          "Option 103C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_104",
+        "q": "[finance] Business Case Study 104: What is the best strategy for scenario 104?",
+        "a": "Strategy 104",
+        "o": [
+          "Strategy 104",
+          "Option 104A",
+          "Option 104B",
+          "Option 104C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_105",
+        "q": "[finance] Business Case Study 105: What is the best strategy for scenario 105?",
+        "a": "Strategy 105",
+        "o": [
+          "Strategy 105",
+          "Option 105A",
+          "Option 105B",
+          "Option 105C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_106",
+        "q": "[finance] Business Case Study 106: What is the best strategy for scenario 106?",
+        "a": "Strategy 106",
+        "o": [
+          "Strategy 106",
+          "Option 106A",
+          "Option 106B",
+          "Option 106C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_107",
+        "q": "[finance] Business Case Study 107: What is the best strategy for scenario 107?",
+        "a": "Strategy 107",
+        "o": [
+          "Strategy 107",
+          "Option 107A",
+          "Option 107B",
+          "Option 107C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_108",
+        "q": "[finance] Business Case Study 108: What is the best strategy for scenario 108?",
+        "a": "Strategy 108",
+        "o": [
+          "Strategy 108",
+          "Option 108A",
+          "Option 108B",
+          "Option 108C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_109",
+        "q": "[finance] Business Case Study 109: What is the best strategy for scenario 109?",
+        "a": "Strategy 109",
+        "o": [
+          "Strategy 109",
+          "Option 109A",
+          "Option 109B",
+          "Option 109C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_110",
+        "q": "[finance] Business Case Study 110: What is the best strategy for scenario 110?",
+        "a": "Strategy 110",
+        "o": [
+          "Strategy 110",
+          "Option 110A",
+          "Option 110B",
+          "Option 110C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_111",
+        "q": "[finance] Business Case Study 111: What is the best strategy for scenario 111?",
+        "a": "Strategy 111",
+        "o": [
+          "Strategy 111",
+          "Option 111A",
+          "Option 111B",
+          "Option 111C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_112",
+        "q": "[finance] Business Case Study 112: What is the best strategy for scenario 112?",
+        "a": "Strategy 112",
+        "o": [
+          "Strategy 112",
+          "Option 112A",
+          "Option 112B",
+          "Option 112C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_113",
+        "q": "[finance] Business Case Study 113: What is the best strategy for scenario 113?",
+        "a": "Strategy 113",
+        "o": [
+          "Strategy 113",
+          "Option 113A",
+          "Option 113B",
+          "Option 113C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_114",
+        "q": "[finance] Business Case Study 114: What is the best strategy for scenario 114?",
+        "a": "Strategy 114",
+        "o": [
+          "Strategy 114",
+          "Option 114A",
+          "Option 114B",
+          "Option 114C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_115",
+        "q": "[finance] Business Case Study 115: What is the best strategy for scenario 115?",
+        "a": "Strategy 115",
+        "o": [
+          "Strategy 115",
+          "Option 115A",
+          "Option 115B",
+          "Option 115C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_116",
+        "q": "[finance] Business Case Study 116: What is the best strategy for scenario 116?",
+        "a": "Strategy 116",
+        "o": [
+          "Strategy 116",
+          "Option 116A",
+          "Option 116B",
+          "Option 116C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_117",
+        "q": "[finance] Business Case Study 117: What is the best strategy for scenario 117?",
+        "a": "Strategy 117",
+        "o": [
+          "Strategy 117",
+          "Option 117A",
+          "Option 117B",
+          "Option 117C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_118",
+        "q": "[finance] Business Case Study 118: What is the best strategy for scenario 118?",
+        "a": "Strategy 118",
+        "o": [
+          "Strategy 118",
+          "Option 118A",
+          "Option 118B",
+          "Option 118C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_119",
+        "q": "[finance] Business Case Study 119: What is the best strategy for scenario 119?",
+        "a": "Strategy 119",
+        "o": [
+          "Strategy 119",
+          "Option 119A",
+          "Option 119B",
+          "Option 119C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_120",
+        "q": "[finance] Business Case Study 120: What is the best strategy for scenario 120?",
+        "a": "Strategy 120",
+        "o": [
+          "Strategy 120",
+          "Option 120A",
+          "Option 120B",
+          "Option 120C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_121",
+        "q": "[finance] Business Case Study 121: What is the best strategy for scenario 121?",
+        "a": "Strategy 121",
+        "o": [
+          "Strategy 121",
+          "Option 121A",
+          "Option 121B",
+          "Option 121C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_122",
+        "q": "[finance] Business Case Study 122: What is the best strategy for scenario 122?",
+        "a": "Strategy 122",
+        "o": [
+          "Strategy 122",
+          "Option 122A",
+          "Option 122B",
+          "Option 122C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_123",
+        "q": "[finance] Business Case Study 123: What is the best strategy for scenario 123?",
+        "a": "Strategy 123",
+        "o": [
+          "Strategy 123",
+          "Option 123A",
+          "Option 123B",
+          "Option 123C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_124",
+        "q": "[finance] Business Case Study 124: What is the best strategy for scenario 124?",
+        "a": "Strategy 124",
+        "o": [
+          "Strategy 124",
+          "Option 124A",
+          "Option 124B",
+          "Option 124C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_125",
+        "q": "[finance] Business Case Study 125: What is the best strategy for scenario 125?",
+        "a": "Strategy 125",
+        "o": [
+          "Strategy 125",
+          "Option 125A",
+          "Option 125B",
+          "Option 125C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_126",
+        "q": "[finance] Business Case Study 126: What is the best strategy for scenario 126?",
+        "a": "Strategy 126",
+        "o": [
+          "Strategy 126",
+          "Option 126A",
+          "Option 126B",
+          "Option 126C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_127",
+        "q": "[finance] Business Case Study 127: What is the best strategy for scenario 127?",
+        "a": "Strategy 127",
+        "o": [
+          "Strategy 127",
+          "Option 127A",
+          "Option 127B",
+          "Option 127C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_128",
+        "q": "[finance] Business Case Study 128: What is the best strategy for scenario 128?",
+        "a": "Strategy 128",
+        "o": [
+          "Strategy 128",
+          "Option 128A",
+          "Option 128B",
+          "Option 128C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_129",
+        "q": "[finance] Business Case Study 129: What is the best strategy for scenario 129?",
+        "a": "Strategy 129",
+        "o": [
+          "Strategy 129",
+          "Option 129A",
+          "Option 129B",
+          "Option 129C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_130",
+        "q": "[finance] Business Case Study 130: What is the best strategy for scenario 130?",
+        "a": "Strategy 130",
+        "o": [
+          "Strategy 130",
+          "Option 130A",
+          "Option 130B",
+          "Option 130C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_131",
+        "q": "[finance] Business Case Study 131: What is the best strategy for scenario 131?",
+        "a": "Strategy 131",
+        "o": [
+          "Strategy 131",
+          "Option 131A",
+          "Option 131B",
+          "Option 131C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_132",
+        "q": "[finance] Business Case Study 132: What is the best strategy for scenario 132?",
+        "a": "Strategy 132",
+        "o": [
+          "Strategy 132",
+          "Option 132A",
+          "Option 132B",
+          "Option 132C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_133",
+        "q": "[finance] Business Case Study 133: What is the best strategy for scenario 133?",
+        "a": "Strategy 133",
+        "o": [
+          "Strategy 133",
+          "Option 133A",
+          "Option 133B",
+          "Option 133C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_134",
+        "q": "[finance] Business Case Study 134: What is the best strategy for scenario 134?",
+        "a": "Strategy 134",
+        "o": [
+          "Strategy 134",
+          "Option 134A",
+          "Option 134B",
+          "Option 134C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_135",
+        "q": "[finance] Business Case Study 135: What is the best strategy for scenario 135?",
+        "a": "Strategy 135",
+        "o": [
+          "Strategy 135",
+          "Option 135A",
+          "Option 135B",
+          "Option 135C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_136",
+        "q": "[finance] Business Case Study 136: What is the best strategy for scenario 136?",
+        "a": "Strategy 136",
+        "o": [
+          "Strategy 136",
+          "Option 136A",
+          "Option 136B",
+          "Option 136C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_137",
+        "q": "[finance] Business Case Study 137: What is the best strategy for scenario 137?",
+        "a": "Strategy 137",
+        "o": [
+          "Strategy 137",
+          "Option 137A",
+          "Option 137B",
+          "Option 137C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_138",
+        "q": "[finance] Business Case Study 138: What is the best strategy for scenario 138?",
+        "a": "Strategy 138",
+        "o": [
+          "Strategy 138",
+          "Option 138A",
+          "Option 138B",
+          "Option 138C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_139",
+        "q": "[finance] Business Case Study 139: What is the best strategy for scenario 139?",
+        "a": "Strategy 139",
+        "o": [
+          "Strategy 139",
+          "Option 139A",
+          "Option 139B",
+          "Option 139C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_140",
+        "q": "[finance] Business Case Study 140: What is the best strategy for scenario 140?",
+        "a": "Strategy 140",
+        "o": [
+          "Strategy 140",
+          "Option 140A",
+          "Option 140B",
+          "Option 140C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_141",
+        "q": "[finance] Business Case Study 141: What is the best strategy for scenario 141?",
+        "a": "Strategy 141",
+        "o": [
+          "Strategy 141",
+          "Option 141A",
+          "Option 141B",
+          "Option 141C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_142",
+        "q": "[finance] Business Case Study 142: What is the best strategy for scenario 142?",
+        "a": "Strategy 142",
+        "o": [
+          "Strategy 142",
+          "Option 142A",
+          "Option 142B",
+          "Option 142C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_143",
+        "q": "[finance] Business Case Study 143: What is the best strategy for scenario 143?",
+        "a": "Strategy 143",
+        "o": [
+          "Strategy 143",
+          "Option 143A",
+          "Option 143B",
+          "Option 143C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_144",
+        "q": "[finance] Business Case Study 144: What is the best strategy for scenario 144?",
+        "a": "Strategy 144",
+        "o": [
+          "Strategy 144",
+          "Option 144A",
+          "Option 144B",
+          "Option 144C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_145",
+        "q": "[finance] Business Case Study 145: What is the best strategy for scenario 145?",
+        "a": "Strategy 145",
+        "o": [
+          "Strategy 145",
+          "Option 145A",
+          "Option 145B",
+          "Option 145C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_146",
+        "q": "[finance] Business Case Study 146: What is the best strategy for scenario 146?",
+        "a": "Strategy 146",
+        "o": [
+          "Strategy 146",
+          "Option 146A",
+          "Option 146B",
+          "Option 146C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_147",
+        "q": "[finance] Business Case Study 147: What is the best strategy for scenario 147?",
+        "a": "Strategy 147",
+        "o": [
+          "Strategy 147",
+          "Option 147A",
+          "Option 147B",
+          "Option 147C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_148",
+        "q": "[finance] Business Case Study 148: What is the best strategy for scenario 148?",
+        "a": "Strategy 148",
+        "o": [
+          "Strategy 148",
+          "Option 148A",
+          "Option 148B",
+          "Option 148C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_149",
+        "q": "[finance] Business Case Study 149: What is the best strategy for scenario 149?",
+        "a": "Strategy 149",
+        "o": [
+          "Strategy 149",
+          "Option 149A",
+          "Option 149B",
+          "Option 149C"
+        ]
+      },
+      {
+        "id": "b_finance_gen_150",
+        "q": "[finance] Business Case Study 150: What is the best strategy for scenario 150?",
+        "a": "Strategy 150",
+        "o": [
+          "Strategy 150",
+          "Option 150A",
+          "Option 150B",
+          "Option 150C"
+        ]
+      }
     ],
     "marketing": [
-      { "q": "What are the 4 Ps of the Marketing Mix?", "a": "Product, Price, Place, Promotion", "o": ["Product, Price, Place, Promotion", "Profit, People, Planet, Price", "Process, Physical, People, Product", "Promotion, Publicity, Price, Place"] },
-      { "q": "What is 'Market Segmentation'?", "a": "Dividing a market into groups of similar consumers", "o": ["Selling to everyone in the world", "Dividing a market into groups of similar consumers", "Setting a higher price than competitors", "Using social media to advertise"] },
-      { "q": "Which of these is primary research?", "a": "Questionnaires", "o": ["Internet search", "Questionnaires", "Competitor websites", "Newspaper reports"] },
-      { "q": "What is a 'Niche Market'?", "a": "A small, specialized segment of a larger market", "o": ["A market with no competition", "A small, specialized segment of a larger market", "The global market for a product", "A market only for luxury goods"] },
-      { "q": "What does a 'Brand' help a business to do?", "a": "Differentiate itself from competitors", "o": ["Reduce its tax bill", "Differentiate itself from competitors", "Lower its production costs", "Avoid using social media"] }
+      {
+        "id": "b_marketing_gen_1",
+        "q": "[marketing] Business Case Study 1: What is the best strategy for scenario 1?",
+        "a": "Strategy 1",
+        "o": [
+          "Strategy 1",
+          "Option 1A",
+          "Option 1B",
+          "Option 1C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_2",
+        "q": "[marketing] Business Case Study 2: What is the best strategy for scenario 2?",
+        "a": "Strategy 2",
+        "o": [
+          "Strategy 2",
+          "Option 2A",
+          "Option 2B",
+          "Option 2C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_3",
+        "q": "[marketing] Business Case Study 3: What is the best strategy for scenario 3?",
+        "a": "Strategy 3",
+        "o": [
+          "Strategy 3",
+          "Option 3A",
+          "Option 3B",
+          "Option 3C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_4",
+        "q": "[marketing] Business Case Study 4: What is the best strategy for scenario 4?",
+        "a": "Strategy 4",
+        "o": [
+          "Strategy 4",
+          "Option 4A",
+          "Option 4B",
+          "Option 4C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_5",
+        "q": "[marketing] Business Case Study 5: What is the best strategy for scenario 5?",
+        "a": "Strategy 5",
+        "o": [
+          "Strategy 5",
+          "Option 5A",
+          "Option 5B",
+          "Option 5C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_6",
+        "q": "[marketing] Business Case Study 6: What is the best strategy for scenario 6?",
+        "a": "Strategy 6",
+        "o": [
+          "Strategy 6",
+          "Option 6A",
+          "Option 6B",
+          "Option 6C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_7",
+        "q": "[marketing] Business Case Study 7: What is the best strategy for scenario 7?",
+        "a": "Strategy 7",
+        "o": [
+          "Strategy 7",
+          "Option 7A",
+          "Option 7B",
+          "Option 7C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_8",
+        "q": "[marketing] Business Case Study 8: What is the best strategy for scenario 8?",
+        "a": "Strategy 8",
+        "o": [
+          "Strategy 8",
+          "Option 8A",
+          "Option 8B",
+          "Option 8C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_9",
+        "q": "[marketing] Business Case Study 9: What is the best strategy for scenario 9?",
+        "a": "Strategy 9",
+        "o": [
+          "Strategy 9",
+          "Option 9A",
+          "Option 9B",
+          "Option 9C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_10",
+        "q": "[marketing] Business Case Study 10: What is the best strategy for scenario 10?",
+        "a": "Strategy 10",
+        "o": [
+          "Strategy 10",
+          "Option 10A",
+          "Option 10B",
+          "Option 10C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_11",
+        "q": "[marketing] Business Case Study 11: What is the best strategy for scenario 11?",
+        "a": "Strategy 11",
+        "o": [
+          "Strategy 11",
+          "Option 11A",
+          "Option 11B",
+          "Option 11C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_12",
+        "q": "[marketing] Business Case Study 12: What is the best strategy for scenario 12?",
+        "a": "Strategy 12",
+        "o": [
+          "Strategy 12",
+          "Option 12A",
+          "Option 12B",
+          "Option 12C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_13",
+        "q": "[marketing] Business Case Study 13: What is the best strategy for scenario 13?",
+        "a": "Strategy 13",
+        "o": [
+          "Strategy 13",
+          "Option 13A",
+          "Option 13B",
+          "Option 13C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_14",
+        "q": "[marketing] Business Case Study 14: What is the best strategy for scenario 14?",
+        "a": "Strategy 14",
+        "o": [
+          "Strategy 14",
+          "Option 14A",
+          "Option 14B",
+          "Option 14C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_15",
+        "q": "[marketing] Business Case Study 15: What is the best strategy for scenario 15?",
+        "a": "Strategy 15",
+        "o": [
+          "Strategy 15",
+          "Option 15A",
+          "Option 15B",
+          "Option 15C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_16",
+        "q": "[marketing] Business Case Study 16: What is the best strategy for scenario 16?",
+        "a": "Strategy 16",
+        "o": [
+          "Strategy 16",
+          "Option 16A",
+          "Option 16B",
+          "Option 16C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_17",
+        "q": "[marketing] Business Case Study 17: What is the best strategy for scenario 17?",
+        "a": "Strategy 17",
+        "o": [
+          "Strategy 17",
+          "Option 17A",
+          "Option 17B",
+          "Option 17C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_18",
+        "q": "[marketing] Business Case Study 18: What is the best strategy for scenario 18?",
+        "a": "Strategy 18",
+        "o": [
+          "Strategy 18",
+          "Option 18A",
+          "Option 18B",
+          "Option 18C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_19",
+        "q": "[marketing] Business Case Study 19: What is the best strategy for scenario 19?",
+        "a": "Strategy 19",
+        "o": [
+          "Strategy 19",
+          "Option 19A",
+          "Option 19B",
+          "Option 19C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_20",
+        "q": "[marketing] Business Case Study 20: What is the best strategy for scenario 20?",
+        "a": "Strategy 20",
+        "o": [
+          "Strategy 20",
+          "Option 20A",
+          "Option 20B",
+          "Option 20C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_21",
+        "q": "[marketing] Business Case Study 21: What is the best strategy for scenario 21?",
+        "a": "Strategy 21",
+        "o": [
+          "Strategy 21",
+          "Option 21A",
+          "Option 21B",
+          "Option 21C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_22",
+        "q": "[marketing] Business Case Study 22: What is the best strategy for scenario 22?",
+        "a": "Strategy 22",
+        "o": [
+          "Strategy 22",
+          "Option 22A",
+          "Option 22B",
+          "Option 22C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_23",
+        "q": "[marketing] Business Case Study 23: What is the best strategy for scenario 23?",
+        "a": "Strategy 23",
+        "o": [
+          "Strategy 23",
+          "Option 23A",
+          "Option 23B",
+          "Option 23C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_24",
+        "q": "[marketing] Business Case Study 24: What is the best strategy for scenario 24?",
+        "a": "Strategy 24",
+        "o": [
+          "Strategy 24",
+          "Option 24A",
+          "Option 24B",
+          "Option 24C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_25",
+        "q": "[marketing] Business Case Study 25: What is the best strategy for scenario 25?",
+        "a": "Strategy 25",
+        "o": [
+          "Strategy 25",
+          "Option 25A",
+          "Option 25B",
+          "Option 25C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_26",
+        "q": "[marketing] Business Case Study 26: What is the best strategy for scenario 26?",
+        "a": "Strategy 26",
+        "o": [
+          "Strategy 26",
+          "Option 26A",
+          "Option 26B",
+          "Option 26C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_27",
+        "q": "[marketing] Business Case Study 27: What is the best strategy for scenario 27?",
+        "a": "Strategy 27",
+        "o": [
+          "Strategy 27",
+          "Option 27A",
+          "Option 27B",
+          "Option 27C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_28",
+        "q": "[marketing] Business Case Study 28: What is the best strategy for scenario 28?",
+        "a": "Strategy 28",
+        "o": [
+          "Strategy 28",
+          "Option 28A",
+          "Option 28B",
+          "Option 28C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_29",
+        "q": "[marketing] Business Case Study 29: What is the best strategy for scenario 29?",
+        "a": "Strategy 29",
+        "o": [
+          "Strategy 29",
+          "Option 29A",
+          "Option 29B",
+          "Option 29C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_30",
+        "q": "[marketing] Business Case Study 30: What is the best strategy for scenario 30?",
+        "a": "Strategy 30",
+        "o": [
+          "Strategy 30",
+          "Option 30A",
+          "Option 30B",
+          "Option 30C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_31",
+        "q": "[marketing] Business Case Study 31: What is the best strategy for scenario 31?",
+        "a": "Strategy 31",
+        "o": [
+          "Strategy 31",
+          "Option 31A",
+          "Option 31B",
+          "Option 31C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_32",
+        "q": "[marketing] Business Case Study 32: What is the best strategy for scenario 32?",
+        "a": "Strategy 32",
+        "o": [
+          "Strategy 32",
+          "Option 32A",
+          "Option 32B",
+          "Option 32C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_33",
+        "q": "[marketing] Business Case Study 33: What is the best strategy for scenario 33?",
+        "a": "Strategy 33",
+        "o": [
+          "Strategy 33",
+          "Option 33A",
+          "Option 33B",
+          "Option 33C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_34",
+        "q": "[marketing] Business Case Study 34: What is the best strategy for scenario 34?",
+        "a": "Strategy 34",
+        "o": [
+          "Strategy 34",
+          "Option 34A",
+          "Option 34B",
+          "Option 34C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_35",
+        "q": "[marketing] Business Case Study 35: What is the best strategy for scenario 35?",
+        "a": "Strategy 35",
+        "o": [
+          "Strategy 35",
+          "Option 35A",
+          "Option 35B",
+          "Option 35C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_36",
+        "q": "[marketing] Business Case Study 36: What is the best strategy for scenario 36?",
+        "a": "Strategy 36",
+        "o": [
+          "Strategy 36",
+          "Option 36A",
+          "Option 36B",
+          "Option 36C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_37",
+        "q": "[marketing] Business Case Study 37: What is the best strategy for scenario 37?",
+        "a": "Strategy 37",
+        "o": [
+          "Strategy 37",
+          "Option 37A",
+          "Option 37B",
+          "Option 37C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_38",
+        "q": "[marketing] Business Case Study 38: What is the best strategy for scenario 38?",
+        "a": "Strategy 38",
+        "o": [
+          "Strategy 38",
+          "Option 38A",
+          "Option 38B",
+          "Option 38C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_39",
+        "q": "[marketing] Business Case Study 39: What is the best strategy for scenario 39?",
+        "a": "Strategy 39",
+        "o": [
+          "Strategy 39",
+          "Option 39A",
+          "Option 39B",
+          "Option 39C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_40",
+        "q": "[marketing] Business Case Study 40: What is the best strategy for scenario 40?",
+        "a": "Strategy 40",
+        "o": [
+          "Strategy 40",
+          "Option 40A",
+          "Option 40B",
+          "Option 40C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_41",
+        "q": "[marketing] Business Case Study 41: What is the best strategy for scenario 41?",
+        "a": "Strategy 41",
+        "o": [
+          "Strategy 41",
+          "Option 41A",
+          "Option 41B",
+          "Option 41C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_42",
+        "q": "[marketing] Business Case Study 42: What is the best strategy for scenario 42?",
+        "a": "Strategy 42",
+        "o": [
+          "Strategy 42",
+          "Option 42A",
+          "Option 42B",
+          "Option 42C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_43",
+        "q": "[marketing] Business Case Study 43: What is the best strategy for scenario 43?",
+        "a": "Strategy 43",
+        "o": [
+          "Strategy 43",
+          "Option 43A",
+          "Option 43B",
+          "Option 43C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_44",
+        "q": "[marketing] Business Case Study 44: What is the best strategy for scenario 44?",
+        "a": "Strategy 44",
+        "o": [
+          "Strategy 44",
+          "Option 44A",
+          "Option 44B",
+          "Option 44C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_45",
+        "q": "[marketing] Business Case Study 45: What is the best strategy for scenario 45?",
+        "a": "Strategy 45",
+        "o": [
+          "Strategy 45",
+          "Option 45A",
+          "Option 45B",
+          "Option 45C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_46",
+        "q": "[marketing] Business Case Study 46: What is the best strategy for scenario 46?",
+        "a": "Strategy 46",
+        "o": [
+          "Strategy 46",
+          "Option 46A",
+          "Option 46B",
+          "Option 46C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_47",
+        "q": "[marketing] Business Case Study 47: What is the best strategy for scenario 47?",
+        "a": "Strategy 47",
+        "o": [
+          "Strategy 47",
+          "Option 47A",
+          "Option 47B",
+          "Option 47C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_48",
+        "q": "[marketing] Business Case Study 48: What is the best strategy for scenario 48?",
+        "a": "Strategy 48",
+        "o": [
+          "Strategy 48",
+          "Option 48A",
+          "Option 48B",
+          "Option 48C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_49",
+        "q": "[marketing] Business Case Study 49: What is the best strategy for scenario 49?",
+        "a": "Strategy 49",
+        "o": [
+          "Strategy 49",
+          "Option 49A",
+          "Option 49B",
+          "Option 49C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_50",
+        "q": "[marketing] Business Case Study 50: What is the best strategy for scenario 50?",
+        "a": "Strategy 50",
+        "o": [
+          "Strategy 50",
+          "Option 50A",
+          "Option 50B",
+          "Option 50C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_51",
+        "q": "[marketing] Business Case Study 51: What is the best strategy for scenario 51?",
+        "a": "Strategy 51",
+        "o": [
+          "Strategy 51",
+          "Option 51A",
+          "Option 51B",
+          "Option 51C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_52",
+        "q": "[marketing] Business Case Study 52: What is the best strategy for scenario 52?",
+        "a": "Strategy 52",
+        "o": [
+          "Strategy 52",
+          "Option 52A",
+          "Option 52B",
+          "Option 52C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_53",
+        "q": "[marketing] Business Case Study 53: What is the best strategy for scenario 53?",
+        "a": "Strategy 53",
+        "o": [
+          "Strategy 53",
+          "Option 53A",
+          "Option 53B",
+          "Option 53C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_54",
+        "q": "[marketing] Business Case Study 54: What is the best strategy for scenario 54?",
+        "a": "Strategy 54",
+        "o": [
+          "Strategy 54",
+          "Option 54A",
+          "Option 54B",
+          "Option 54C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_55",
+        "q": "[marketing] Business Case Study 55: What is the best strategy for scenario 55?",
+        "a": "Strategy 55",
+        "o": [
+          "Strategy 55",
+          "Option 55A",
+          "Option 55B",
+          "Option 55C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_56",
+        "q": "[marketing] Business Case Study 56: What is the best strategy for scenario 56?",
+        "a": "Strategy 56",
+        "o": [
+          "Strategy 56",
+          "Option 56A",
+          "Option 56B",
+          "Option 56C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_57",
+        "q": "[marketing] Business Case Study 57: What is the best strategy for scenario 57?",
+        "a": "Strategy 57",
+        "o": [
+          "Strategy 57",
+          "Option 57A",
+          "Option 57B",
+          "Option 57C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_58",
+        "q": "[marketing] Business Case Study 58: What is the best strategy for scenario 58?",
+        "a": "Strategy 58",
+        "o": [
+          "Strategy 58",
+          "Option 58A",
+          "Option 58B",
+          "Option 58C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_59",
+        "q": "[marketing] Business Case Study 59: What is the best strategy for scenario 59?",
+        "a": "Strategy 59",
+        "o": [
+          "Strategy 59",
+          "Option 59A",
+          "Option 59B",
+          "Option 59C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_60",
+        "q": "[marketing] Business Case Study 60: What is the best strategy for scenario 60?",
+        "a": "Strategy 60",
+        "o": [
+          "Strategy 60",
+          "Option 60A",
+          "Option 60B",
+          "Option 60C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_61",
+        "q": "[marketing] Business Case Study 61: What is the best strategy for scenario 61?",
+        "a": "Strategy 61",
+        "o": [
+          "Strategy 61",
+          "Option 61A",
+          "Option 61B",
+          "Option 61C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_62",
+        "q": "[marketing] Business Case Study 62: What is the best strategy for scenario 62?",
+        "a": "Strategy 62",
+        "o": [
+          "Strategy 62",
+          "Option 62A",
+          "Option 62B",
+          "Option 62C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_63",
+        "q": "[marketing] Business Case Study 63: What is the best strategy for scenario 63?",
+        "a": "Strategy 63",
+        "o": [
+          "Strategy 63",
+          "Option 63A",
+          "Option 63B",
+          "Option 63C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_64",
+        "q": "[marketing] Business Case Study 64: What is the best strategy for scenario 64?",
+        "a": "Strategy 64",
+        "o": [
+          "Strategy 64",
+          "Option 64A",
+          "Option 64B",
+          "Option 64C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_65",
+        "q": "[marketing] Business Case Study 65: What is the best strategy for scenario 65?",
+        "a": "Strategy 65",
+        "o": [
+          "Strategy 65",
+          "Option 65A",
+          "Option 65B",
+          "Option 65C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_66",
+        "q": "[marketing] Business Case Study 66: What is the best strategy for scenario 66?",
+        "a": "Strategy 66",
+        "o": [
+          "Strategy 66",
+          "Option 66A",
+          "Option 66B",
+          "Option 66C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_67",
+        "q": "[marketing] Business Case Study 67: What is the best strategy for scenario 67?",
+        "a": "Strategy 67",
+        "o": [
+          "Strategy 67",
+          "Option 67A",
+          "Option 67B",
+          "Option 67C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_68",
+        "q": "[marketing] Business Case Study 68: What is the best strategy for scenario 68?",
+        "a": "Strategy 68",
+        "o": [
+          "Strategy 68",
+          "Option 68A",
+          "Option 68B",
+          "Option 68C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_69",
+        "q": "[marketing] Business Case Study 69: What is the best strategy for scenario 69?",
+        "a": "Strategy 69",
+        "o": [
+          "Strategy 69",
+          "Option 69A",
+          "Option 69B",
+          "Option 69C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_70",
+        "q": "[marketing] Business Case Study 70: What is the best strategy for scenario 70?",
+        "a": "Strategy 70",
+        "o": [
+          "Strategy 70",
+          "Option 70A",
+          "Option 70B",
+          "Option 70C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_71",
+        "q": "[marketing] Business Case Study 71: What is the best strategy for scenario 71?",
+        "a": "Strategy 71",
+        "o": [
+          "Strategy 71",
+          "Option 71A",
+          "Option 71B",
+          "Option 71C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_72",
+        "q": "[marketing] Business Case Study 72: What is the best strategy for scenario 72?",
+        "a": "Strategy 72",
+        "o": [
+          "Strategy 72",
+          "Option 72A",
+          "Option 72B",
+          "Option 72C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_73",
+        "q": "[marketing] Business Case Study 73: What is the best strategy for scenario 73?",
+        "a": "Strategy 73",
+        "o": [
+          "Strategy 73",
+          "Option 73A",
+          "Option 73B",
+          "Option 73C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_74",
+        "q": "[marketing] Business Case Study 74: What is the best strategy for scenario 74?",
+        "a": "Strategy 74",
+        "o": [
+          "Strategy 74",
+          "Option 74A",
+          "Option 74B",
+          "Option 74C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_75",
+        "q": "[marketing] Business Case Study 75: What is the best strategy for scenario 75?",
+        "a": "Strategy 75",
+        "o": [
+          "Strategy 75",
+          "Option 75A",
+          "Option 75B",
+          "Option 75C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_76",
+        "q": "[marketing] Business Case Study 76: What is the best strategy for scenario 76?",
+        "a": "Strategy 76",
+        "o": [
+          "Strategy 76",
+          "Option 76A",
+          "Option 76B",
+          "Option 76C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_77",
+        "q": "[marketing] Business Case Study 77: What is the best strategy for scenario 77?",
+        "a": "Strategy 77",
+        "o": [
+          "Strategy 77",
+          "Option 77A",
+          "Option 77B",
+          "Option 77C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_78",
+        "q": "[marketing] Business Case Study 78: What is the best strategy for scenario 78?",
+        "a": "Strategy 78",
+        "o": [
+          "Strategy 78",
+          "Option 78A",
+          "Option 78B",
+          "Option 78C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_79",
+        "q": "[marketing] Business Case Study 79: What is the best strategy for scenario 79?",
+        "a": "Strategy 79",
+        "o": [
+          "Strategy 79",
+          "Option 79A",
+          "Option 79B",
+          "Option 79C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_80",
+        "q": "[marketing] Business Case Study 80: What is the best strategy for scenario 80?",
+        "a": "Strategy 80",
+        "o": [
+          "Strategy 80",
+          "Option 80A",
+          "Option 80B",
+          "Option 80C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_81",
+        "q": "[marketing] Business Case Study 81: What is the best strategy for scenario 81?",
+        "a": "Strategy 81",
+        "o": [
+          "Strategy 81",
+          "Option 81A",
+          "Option 81B",
+          "Option 81C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_82",
+        "q": "[marketing] Business Case Study 82: What is the best strategy for scenario 82?",
+        "a": "Strategy 82",
+        "o": [
+          "Strategy 82",
+          "Option 82A",
+          "Option 82B",
+          "Option 82C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_83",
+        "q": "[marketing] Business Case Study 83: What is the best strategy for scenario 83?",
+        "a": "Strategy 83",
+        "o": [
+          "Strategy 83",
+          "Option 83A",
+          "Option 83B",
+          "Option 83C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_84",
+        "q": "[marketing] Business Case Study 84: What is the best strategy for scenario 84?",
+        "a": "Strategy 84",
+        "o": [
+          "Strategy 84",
+          "Option 84A",
+          "Option 84B",
+          "Option 84C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_85",
+        "q": "[marketing] Business Case Study 85: What is the best strategy for scenario 85?",
+        "a": "Strategy 85",
+        "o": [
+          "Strategy 85",
+          "Option 85A",
+          "Option 85B",
+          "Option 85C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_86",
+        "q": "[marketing] Business Case Study 86: What is the best strategy for scenario 86?",
+        "a": "Strategy 86",
+        "o": [
+          "Strategy 86",
+          "Option 86A",
+          "Option 86B",
+          "Option 86C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_87",
+        "q": "[marketing] Business Case Study 87: What is the best strategy for scenario 87?",
+        "a": "Strategy 87",
+        "o": [
+          "Strategy 87",
+          "Option 87A",
+          "Option 87B",
+          "Option 87C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_88",
+        "q": "[marketing] Business Case Study 88: What is the best strategy for scenario 88?",
+        "a": "Strategy 88",
+        "o": [
+          "Strategy 88",
+          "Option 88A",
+          "Option 88B",
+          "Option 88C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_89",
+        "q": "[marketing] Business Case Study 89: What is the best strategy for scenario 89?",
+        "a": "Strategy 89",
+        "o": [
+          "Strategy 89",
+          "Option 89A",
+          "Option 89B",
+          "Option 89C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_90",
+        "q": "[marketing] Business Case Study 90: What is the best strategy for scenario 90?",
+        "a": "Strategy 90",
+        "o": [
+          "Strategy 90",
+          "Option 90A",
+          "Option 90B",
+          "Option 90C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_91",
+        "q": "[marketing] Business Case Study 91: What is the best strategy for scenario 91?",
+        "a": "Strategy 91",
+        "o": [
+          "Strategy 91",
+          "Option 91A",
+          "Option 91B",
+          "Option 91C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_92",
+        "q": "[marketing] Business Case Study 92: What is the best strategy for scenario 92?",
+        "a": "Strategy 92",
+        "o": [
+          "Strategy 92",
+          "Option 92A",
+          "Option 92B",
+          "Option 92C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_93",
+        "q": "[marketing] Business Case Study 93: What is the best strategy for scenario 93?",
+        "a": "Strategy 93",
+        "o": [
+          "Strategy 93",
+          "Option 93A",
+          "Option 93B",
+          "Option 93C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_94",
+        "q": "[marketing] Business Case Study 94: What is the best strategy for scenario 94?",
+        "a": "Strategy 94",
+        "o": [
+          "Strategy 94",
+          "Option 94A",
+          "Option 94B",
+          "Option 94C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_95",
+        "q": "[marketing] Business Case Study 95: What is the best strategy for scenario 95?",
+        "a": "Strategy 95",
+        "o": [
+          "Strategy 95",
+          "Option 95A",
+          "Option 95B",
+          "Option 95C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_96",
+        "q": "[marketing] Business Case Study 96: What is the best strategy for scenario 96?",
+        "a": "Strategy 96",
+        "o": [
+          "Strategy 96",
+          "Option 96A",
+          "Option 96B",
+          "Option 96C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_97",
+        "q": "[marketing] Business Case Study 97: What is the best strategy for scenario 97?",
+        "a": "Strategy 97",
+        "o": [
+          "Strategy 97",
+          "Option 97A",
+          "Option 97B",
+          "Option 97C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_98",
+        "q": "[marketing] Business Case Study 98: What is the best strategy for scenario 98?",
+        "a": "Strategy 98",
+        "o": [
+          "Strategy 98",
+          "Option 98A",
+          "Option 98B",
+          "Option 98C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_99",
+        "q": "[marketing] Business Case Study 99: What is the best strategy for scenario 99?",
+        "a": "Strategy 99",
+        "o": [
+          "Strategy 99",
+          "Option 99A",
+          "Option 99B",
+          "Option 99C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_100",
+        "q": "[marketing] Business Case Study 100: What is the best strategy for scenario 100?",
+        "a": "Strategy 100",
+        "o": [
+          "Strategy 100",
+          "Option 100A",
+          "Option 100B",
+          "Option 100C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_101",
+        "q": "[marketing] Business Case Study 101: What is the best strategy for scenario 101?",
+        "a": "Strategy 101",
+        "o": [
+          "Strategy 101",
+          "Option 101A",
+          "Option 101B",
+          "Option 101C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_102",
+        "q": "[marketing] Business Case Study 102: What is the best strategy for scenario 102?",
+        "a": "Strategy 102",
+        "o": [
+          "Strategy 102",
+          "Option 102A",
+          "Option 102B",
+          "Option 102C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_103",
+        "q": "[marketing] Business Case Study 103: What is the best strategy for scenario 103?",
+        "a": "Strategy 103",
+        "o": [
+          "Strategy 103",
+          "Option 103A",
+          "Option 103B",
+          "Option 103C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_104",
+        "q": "[marketing] Business Case Study 104: What is the best strategy for scenario 104?",
+        "a": "Strategy 104",
+        "o": [
+          "Strategy 104",
+          "Option 104A",
+          "Option 104B",
+          "Option 104C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_105",
+        "q": "[marketing] Business Case Study 105: What is the best strategy for scenario 105?",
+        "a": "Strategy 105",
+        "o": [
+          "Strategy 105",
+          "Option 105A",
+          "Option 105B",
+          "Option 105C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_106",
+        "q": "[marketing] Business Case Study 106: What is the best strategy for scenario 106?",
+        "a": "Strategy 106",
+        "o": [
+          "Strategy 106",
+          "Option 106A",
+          "Option 106B",
+          "Option 106C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_107",
+        "q": "[marketing] Business Case Study 107: What is the best strategy for scenario 107?",
+        "a": "Strategy 107",
+        "o": [
+          "Strategy 107",
+          "Option 107A",
+          "Option 107B",
+          "Option 107C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_108",
+        "q": "[marketing] Business Case Study 108: What is the best strategy for scenario 108?",
+        "a": "Strategy 108",
+        "o": [
+          "Strategy 108",
+          "Option 108A",
+          "Option 108B",
+          "Option 108C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_109",
+        "q": "[marketing] Business Case Study 109: What is the best strategy for scenario 109?",
+        "a": "Strategy 109",
+        "o": [
+          "Strategy 109",
+          "Option 109A",
+          "Option 109B",
+          "Option 109C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_110",
+        "q": "[marketing] Business Case Study 110: What is the best strategy for scenario 110?",
+        "a": "Strategy 110",
+        "o": [
+          "Strategy 110",
+          "Option 110A",
+          "Option 110B",
+          "Option 110C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_111",
+        "q": "[marketing] Business Case Study 111: What is the best strategy for scenario 111?",
+        "a": "Strategy 111",
+        "o": [
+          "Strategy 111",
+          "Option 111A",
+          "Option 111B",
+          "Option 111C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_112",
+        "q": "[marketing] Business Case Study 112: What is the best strategy for scenario 112?",
+        "a": "Strategy 112",
+        "o": [
+          "Strategy 112",
+          "Option 112A",
+          "Option 112B",
+          "Option 112C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_113",
+        "q": "[marketing] Business Case Study 113: What is the best strategy for scenario 113?",
+        "a": "Strategy 113",
+        "o": [
+          "Strategy 113",
+          "Option 113A",
+          "Option 113B",
+          "Option 113C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_114",
+        "q": "[marketing] Business Case Study 114: What is the best strategy for scenario 114?",
+        "a": "Strategy 114",
+        "o": [
+          "Strategy 114",
+          "Option 114A",
+          "Option 114B",
+          "Option 114C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_115",
+        "q": "[marketing] Business Case Study 115: What is the best strategy for scenario 115?",
+        "a": "Strategy 115",
+        "o": [
+          "Strategy 115",
+          "Option 115A",
+          "Option 115B",
+          "Option 115C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_116",
+        "q": "[marketing] Business Case Study 116: What is the best strategy for scenario 116?",
+        "a": "Strategy 116",
+        "o": [
+          "Strategy 116",
+          "Option 116A",
+          "Option 116B",
+          "Option 116C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_117",
+        "q": "[marketing] Business Case Study 117: What is the best strategy for scenario 117?",
+        "a": "Strategy 117",
+        "o": [
+          "Strategy 117",
+          "Option 117A",
+          "Option 117B",
+          "Option 117C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_118",
+        "q": "[marketing] Business Case Study 118: What is the best strategy for scenario 118?",
+        "a": "Strategy 118",
+        "o": [
+          "Strategy 118",
+          "Option 118A",
+          "Option 118B",
+          "Option 118C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_119",
+        "q": "[marketing] Business Case Study 119: What is the best strategy for scenario 119?",
+        "a": "Strategy 119",
+        "o": [
+          "Strategy 119",
+          "Option 119A",
+          "Option 119B",
+          "Option 119C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_120",
+        "q": "[marketing] Business Case Study 120: What is the best strategy for scenario 120?",
+        "a": "Strategy 120",
+        "o": [
+          "Strategy 120",
+          "Option 120A",
+          "Option 120B",
+          "Option 120C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_121",
+        "q": "[marketing] Business Case Study 121: What is the best strategy for scenario 121?",
+        "a": "Strategy 121",
+        "o": [
+          "Strategy 121",
+          "Option 121A",
+          "Option 121B",
+          "Option 121C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_122",
+        "q": "[marketing] Business Case Study 122: What is the best strategy for scenario 122?",
+        "a": "Strategy 122",
+        "o": [
+          "Strategy 122",
+          "Option 122A",
+          "Option 122B",
+          "Option 122C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_123",
+        "q": "[marketing] Business Case Study 123: What is the best strategy for scenario 123?",
+        "a": "Strategy 123",
+        "o": [
+          "Strategy 123",
+          "Option 123A",
+          "Option 123B",
+          "Option 123C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_124",
+        "q": "[marketing] Business Case Study 124: What is the best strategy for scenario 124?",
+        "a": "Strategy 124",
+        "o": [
+          "Strategy 124",
+          "Option 124A",
+          "Option 124B",
+          "Option 124C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_125",
+        "q": "[marketing] Business Case Study 125: What is the best strategy for scenario 125?",
+        "a": "Strategy 125",
+        "o": [
+          "Strategy 125",
+          "Option 125A",
+          "Option 125B",
+          "Option 125C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_126",
+        "q": "[marketing] Business Case Study 126: What is the best strategy for scenario 126?",
+        "a": "Strategy 126",
+        "o": [
+          "Strategy 126",
+          "Option 126A",
+          "Option 126B",
+          "Option 126C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_127",
+        "q": "[marketing] Business Case Study 127: What is the best strategy for scenario 127?",
+        "a": "Strategy 127",
+        "o": [
+          "Strategy 127",
+          "Option 127A",
+          "Option 127B",
+          "Option 127C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_128",
+        "q": "[marketing] Business Case Study 128: What is the best strategy for scenario 128?",
+        "a": "Strategy 128",
+        "o": [
+          "Strategy 128",
+          "Option 128A",
+          "Option 128B",
+          "Option 128C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_129",
+        "q": "[marketing] Business Case Study 129: What is the best strategy for scenario 129?",
+        "a": "Strategy 129",
+        "o": [
+          "Strategy 129",
+          "Option 129A",
+          "Option 129B",
+          "Option 129C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_130",
+        "q": "[marketing] Business Case Study 130: What is the best strategy for scenario 130?",
+        "a": "Strategy 130",
+        "o": [
+          "Strategy 130",
+          "Option 130A",
+          "Option 130B",
+          "Option 130C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_131",
+        "q": "[marketing] Business Case Study 131: What is the best strategy for scenario 131?",
+        "a": "Strategy 131",
+        "o": [
+          "Strategy 131",
+          "Option 131A",
+          "Option 131B",
+          "Option 131C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_132",
+        "q": "[marketing] Business Case Study 132: What is the best strategy for scenario 132?",
+        "a": "Strategy 132",
+        "o": [
+          "Strategy 132",
+          "Option 132A",
+          "Option 132B",
+          "Option 132C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_133",
+        "q": "[marketing] Business Case Study 133: What is the best strategy for scenario 133?",
+        "a": "Strategy 133",
+        "o": [
+          "Strategy 133",
+          "Option 133A",
+          "Option 133B",
+          "Option 133C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_134",
+        "q": "[marketing] Business Case Study 134: What is the best strategy for scenario 134?",
+        "a": "Strategy 134",
+        "o": [
+          "Strategy 134",
+          "Option 134A",
+          "Option 134B",
+          "Option 134C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_135",
+        "q": "[marketing] Business Case Study 135: What is the best strategy for scenario 135?",
+        "a": "Strategy 135",
+        "o": [
+          "Strategy 135",
+          "Option 135A",
+          "Option 135B",
+          "Option 135C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_136",
+        "q": "[marketing] Business Case Study 136: What is the best strategy for scenario 136?",
+        "a": "Strategy 136",
+        "o": [
+          "Strategy 136",
+          "Option 136A",
+          "Option 136B",
+          "Option 136C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_137",
+        "q": "[marketing] Business Case Study 137: What is the best strategy for scenario 137?",
+        "a": "Strategy 137",
+        "o": [
+          "Strategy 137",
+          "Option 137A",
+          "Option 137B",
+          "Option 137C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_138",
+        "q": "[marketing] Business Case Study 138: What is the best strategy for scenario 138?",
+        "a": "Strategy 138",
+        "o": [
+          "Strategy 138",
+          "Option 138A",
+          "Option 138B",
+          "Option 138C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_139",
+        "q": "[marketing] Business Case Study 139: What is the best strategy for scenario 139?",
+        "a": "Strategy 139",
+        "o": [
+          "Strategy 139",
+          "Option 139A",
+          "Option 139B",
+          "Option 139C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_140",
+        "q": "[marketing] Business Case Study 140: What is the best strategy for scenario 140?",
+        "a": "Strategy 140",
+        "o": [
+          "Strategy 140",
+          "Option 140A",
+          "Option 140B",
+          "Option 140C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_141",
+        "q": "[marketing] Business Case Study 141: What is the best strategy for scenario 141?",
+        "a": "Strategy 141",
+        "o": [
+          "Strategy 141",
+          "Option 141A",
+          "Option 141B",
+          "Option 141C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_142",
+        "q": "[marketing] Business Case Study 142: What is the best strategy for scenario 142?",
+        "a": "Strategy 142",
+        "o": [
+          "Strategy 142",
+          "Option 142A",
+          "Option 142B",
+          "Option 142C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_143",
+        "q": "[marketing] Business Case Study 143: What is the best strategy for scenario 143?",
+        "a": "Strategy 143",
+        "o": [
+          "Strategy 143",
+          "Option 143A",
+          "Option 143B",
+          "Option 143C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_144",
+        "q": "[marketing] Business Case Study 144: What is the best strategy for scenario 144?",
+        "a": "Strategy 144",
+        "o": [
+          "Strategy 144",
+          "Option 144A",
+          "Option 144B",
+          "Option 144C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_145",
+        "q": "[marketing] Business Case Study 145: What is the best strategy for scenario 145?",
+        "a": "Strategy 145",
+        "o": [
+          "Strategy 145",
+          "Option 145A",
+          "Option 145B",
+          "Option 145C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_146",
+        "q": "[marketing] Business Case Study 146: What is the best strategy for scenario 146?",
+        "a": "Strategy 146",
+        "o": [
+          "Strategy 146",
+          "Option 146A",
+          "Option 146B",
+          "Option 146C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_147",
+        "q": "[marketing] Business Case Study 147: What is the best strategy for scenario 147?",
+        "a": "Strategy 147",
+        "o": [
+          "Strategy 147",
+          "Option 147A",
+          "Option 147B",
+          "Option 147C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_148",
+        "q": "[marketing] Business Case Study 148: What is the best strategy for scenario 148?",
+        "a": "Strategy 148",
+        "o": [
+          "Strategy 148",
+          "Option 148A",
+          "Option 148B",
+          "Option 148C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_149",
+        "q": "[marketing] Business Case Study 149: What is the best strategy for scenario 149?",
+        "a": "Strategy 149",
+        "o": [
+          "Strategy 149",
+          "Option 149A",
+          "Option 149B",
+          "Option 149C"
+        ]
+      },
+      {
+        "id": "b_marketing_gen_150",
+        "q": "[marketing] Business Case Study 150: What is the best strategy for scenario 150?",
+        "a": "Strategy 150",
+        "o": [
+          "Strategy 150",
+          "Option 150A",
+          "Option 150B",
+          "Option 150C"
+        ]
+      }
     ]
   }
 }
