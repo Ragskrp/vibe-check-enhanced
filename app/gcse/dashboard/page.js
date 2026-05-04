@@ -101,8 +101,10 @@ export default function MissionControl() {
               <h2 style={{ fontSize: 22, fontWeight: 800, margin: 0 }}>Subject Mastery</h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 20 }}>
-              {Object.entries(stats.subjectBreakdown).map(([name, data]) => (
-                <Link key={name} href={`/gcse/${name.toLowerCase().replace(' ', '-')}`} style={{ textDecoration: 'none' }}>
+              {Object.entries(stats.subjectBreakdown).map(([name, data]) => {
+                const linkName = name === 'English' ? 'english-literature' : name.toLowerCase().replace(' ', '-');
+                return (
+                  <Link key={name} href={`/gcse/${linkName}`} style={{ textDecoration: 'none' }}>
                   <div style={{ 
                     padding: '24px', borderRadius: 24, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.3s'

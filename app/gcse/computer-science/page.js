@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Flame, Trophy, Cpu, Code, Network, Database, ArrowRight, Binary, Terminal, Activity } from 'lucide-react';
+import { Flame, Trophy, Cpu, Code, Network, Database, ArrowRight, Binary, Terminal, Activity, Zap } from 'lucide-react';
 import AdBanner from '../../components/AdBanner';
 import { getTopicsByCategory } from './computerScienceData';
 import useStoredStats from '../components/useStoredStats';
