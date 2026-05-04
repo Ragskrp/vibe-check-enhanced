@@ -2,20 +2,30 @@
 
 import { useSyncExternalStore } from 'react';
 
-function readStoredStats(storageKey) {
-  if (typeof window === 'undefined') return null;
-
-  try {
-    return JSON.parse(window.localStorage.getItem(storageKey) || 'null');
-  } catch {
-    return null;
-  }
+function subscribe(callback) {
+  window.addEventListener('storage', callback);
+  // Custom event for local updates
+  window.addEventListener('gcse_stats_updated', callback);
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener('gcse_stats_updated', callback);
+  };
 }
 
 export default function useStoredStats(storageKey) {
   return useSyncExternalStore(
-    () => () => {},
-    () => readStoredStats(storageKey),
-    () => null,
+    subscribe,
+    () => {
+      if (typeof window === 'undefined') return null;
+      return window.localStorage.getItem(storageKey);
+    },
+    () => null
   );
+}
+
+// Helper to update stats and notify listeners
+export function updateStoredStats(key, data) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(key, JSON.stringify(data));
+  window.dispatchEvent(new CustomEvent('gcse_stats_updated'));
 }

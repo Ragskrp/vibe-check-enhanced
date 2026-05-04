@@ -75,6 +75,7 @@ export default function TopicGame({ config }) {
   const [deckIndex, setDeckIndex] = useState(0);
   const inputRef = useRef(null);
   const timerRef = useRef(null);
+  const hasSavedRef = useRef(false);
 
   const accent = config.color || '#00e5a0';
   const subjectMeta = getSubjectMeta(config);
@@ -104,6 +105,7 @@ export default function TopicGame({ config }) {
   const startGame = async (gameMode) => {
     setMode(gameMode); setPhase('playing'); setScore(0); setStreak(0);
     setBestStreak(0); setTimeLeft(GAME_DURATION); setHistory([]); setPracticeCount(0);
+    hasSavedRef.current = false;
     
     // Determine subject and topic
     const meta = getSubjectMeta(config);
@@ -153,7 +155,8 @@ export default function TopicGame({ config }) {
   }, [phase, mode]);
 
   useEffect(() => {
-    if (phase === 'results') {
+    if (phase === 'results' && !hasSavedRef.current) {
+      hasSavedRef.current = true;
       try {
         const existing = JSON.parse(localStorage.getItem(subjectMeta.statsKey) || '{}');
         const accuracy = history.length > 0 ? (history.filter(h => h.correct).length / history.length) : 0;
