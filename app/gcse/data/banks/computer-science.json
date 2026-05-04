@@ -1,0 +1,40 @@
+{
+  "computer-science": {
+    "systems-architecture": [
+      { "q": "Which register holds the address of the next instruction to be fetched?", "a": "Program Counter", "o": ["MAR", "MDR", "Accumulator", "Program Counter"] },
+      { "q": "What is the function of the ALU?", "a": "Perform logical and arithmetic operations", "o": ["Control the flow of data", "Store temporary data", "Perform logical and arithmetic operations", "Fetch instructions from memory"] },
+      { "q": "Which part of the CPU coordinates all of its activities?", "a": "Control Unit", "o": ["ALU", "Control Unit", "Registers", "Cache"] },
+      { "q": "What does MAR stand for?", "a": "Memory Address Register", "o": ["Main Access Register", "Memory Address Register", "Memory Access Router", "Main Address Record"] },
+      { "q": "What is the purpose of the Accumulator?", "a": "Store results of ALU calculations", "o": ["Store results of ALU calculations", "Hold the current instruction", "Point to the next memory address", "Manage input/output devices"] },
+      { "q": "What happens during the 'Fetch' stage of the FDE cycle?", "a": "Instruction moved from RAM to CPU", "o": ["Instruction decoded by CU", "Instruction moved from RAM to CPU", "ALU performs calculation", "Result saved to memory"] },
+      { "q": "Which of these increases CPU performance?", "a": "Increasing Clock Speed", "o": ["Increasing RAM size", "Increasing Clock Speed", "Decreasing Cache size", "Increasing Hard Drive space"] },
+      { "q": "What is an 'Embedded System'?", "a": "Computer system within a larger mechanical device", "o": ["System used only for gaming", "Computer system within a larger mechanical device", "Computer with no internal storage", "Software that runs on a web browser"] },
+      { "q": "Which register holds the data that has just been fetched from memory?", "a": "MDR", "o": ["MAR", "MDR", "PC", "ACC"] },
+      { "q": "Why is Cache memory used?", "a": "To provide fast access to frequently used data", "o": ["To store large files permanently", "To provide fast access to frequently used data", "To increase the total RAM capacity", "To manage the power supply"] }
+    ],
+    "memory-storage": [
+      { "q": "Is RAM volatile or non-volatile?", "a": "Volatile", "o": ["Volatile", "Non-volatile"] },
+      { "q": "Which of these is secondary storage?", "a": "Solid State Drive", "o": ["RAM", "Cache", "ROM", "Solid State Drive"] },
+      { "q": "What is the main difference between Magnetic and Solid State storage?", "a": "SSD has no moving parts", "o": ["Magnetic is faster", "SSD is cheaper per GB", "SSD has no moving parts", "Magnetic is more durable"] },
+      { "q": "What is Virtual Memory used for?", "a": "Extending RAM using space on the hard drive", "o": ["Making the CPU run faster", "Extending RAM using space on the hard drive", "Storing the BIOS", "Protecting against viruses"] },
+      { "q": "Which storage type is best for a portable device like a tablet?", "a": "Solid State", "o": ["Magnetic", "Optical", "Solid State", "Cloud"] },
+      { "q": "How many bits are in a byte?", "a": "8", "o": ["4", "8", "16", "32"] },
+      { "q": "What is the capacity of a standard CD-ROM?", "a": "700MB", "o": ["700MB", "4.7GB", "25GB", "100MB"] },
+      { "q": "Which of these is an example of Optical storage?", "a": "Blu-ray Disc", "o": ["Flash Drive", "Hard Disk", "Blu-ray Disc", "SD Card"] },
+      { "q": "What is the primary function of ROM?", "a": "Store boot-up instructions (BIOS)", "o": ["Store user files", "Store boot-up instructions (BIOS)", "Temporary data storage for CPU", "Manage the network connection"] },
+      { "q": "Convert 2 Kilobytes into bytes.", "a": "2048", "o": ["2000", "2048", "1024", "4096"] }
+    ],
+    "networks": [
+      { "q": "What does LAN stand for?", "a": "Local Area Network", "o": ["Large Access Network", "Local Area Network", "Linked Area Node", "Large Area Network"] },
+      { "q": "Which protocol is used to send emails?", "a": "SMTP", "o": ["HTTP", "FTP", "SMTP", "POP3"] },
+      { "q": "What is the purpose of a Router?", "a": "Forward data packets between networks", "o": ["Store website files", "Connect devices within a LAN", "Forward data packets between networks", "Convert digital signals to analog"] },
+      { "q": "Which layer of the TCP/IP stack handles routing?", "a": "Internet Layer", "o": ["Application Layer", "Transport Layer", "Internet Layer", "Link Layer"] },
+      { "q": "What is a 'Star Topology'?", "a": "All devices connect to a central switch", "o": ["All devices connect in a line", "All devices connect to a central switch", "Every device connects to every other device", "Devices connect in a circular ring"] },
+      { "q": "What does DNS stand for?", "a": "Domain Name System", "o": ["Data Network Server", "Domain Name System", "Digital Node Service", "Distributed Name System"] },
+      { "q": "Which frequency is common for Wi-Fi?", "a": "2.4GHz", "o": ["2.4GHz", "50Hz", "10MHz", "100GHz"] },
+      { "q": "What is the function of the NIC?", "a": "Allow a device to connect to a network", "o": ["Encrypt data for security", "Manage the computer's memory", "Allow a device to connect to a network", "Cool the CPU"] },
+      { "q": "Which protocol ensures reliable data transfer over a network?", "a": "TCP", "o": ["IP", "TCP", "UDP", "HTTP"] },
+      { "q": "What is an IP Address?", "a": "A unique numerical label for each device on a network", "o": ["The physical address of a computer", "A unique numerical label for each device on a network", "The password for a Wi-Fi network", "The name of a website"] }
+    ]
+  }
+}

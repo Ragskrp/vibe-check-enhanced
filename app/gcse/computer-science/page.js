@@ -11,10 +11,12 @@ import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
 import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
+import { getStreakData } from '../utils/streakLogic';
+import MasteryMap from '../components/MasteryMap';
 
 const COLOR = '#ff2d78';
-const CATEGORY_ORDER = ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
-const CATEGORY_COLORS = { 'Algorithms & Thinking': '#ff2d78', 'Programming Concepts': '#00d4ff', 'Logic & Data': '#b14aed' };
+const CATEGORY_ORDER = ['Computer Systems', 'Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
+const CATEGORY_COLORS = { 'Computer Systems': '#7d47ff', 'Algorithms & Thinking': '#ff2d78', 'Programming Concepts': '#00d4ff', 'Logic & Data': '#b14aed' };
 
 function useScrollReveal(threshold = 0.1) {
   const ref = useRef(null);
@@ -33,6 +35,7 @@ export default function CompSciHub() {
   const [mounted, setMounted] = useState(false);
   const stats = useStoredStats('gcse-compsci-stats');
   const topicsByCategory = getTopicsByCategory();
+  const streakData = getStreakData();
   const hero = useScrollReveal(0.05);
   const grid = useScrollReveal(0.05);
 
@@ -71,11 +74,26 @@ export default function CompSciHub() {
                     <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}><Trophy size={16} color="#ffe600" /> {stats.totalPlays || 0}</span>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Best Streak</span>
-                    <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}><Flame size={16} color="#ff6b35" /> {stats.bestStreak || 0}</span>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Daily Streak</span>
+                    <span style={{ fontSize: 18, fontWeight: 800, color: '#ff6b35', display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <Flame size={16} color={streakData.activeToday ? '#ff6b35' : 'rgba(255,255,255,0.2)'} /> 
+                      {streakData.currentStreak || 0}
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>High Score</span>
+                    <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <Zap size={16} color="#00d4ff" /> 
+                      {stats.bestStreak || 0}
+                    </span>
                   </div>
                 </div>
               )}
+              <Link href="/gcse/computer-science/mock-exam" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                   FULL MOCK EXAM
+                </div>
+              </Link>
               <Link href="#topics" style={{ textDecoration: 'none' }}>
                 <div style={{ padding: '16px 32px', borderRadius: 8, background: COLOR, color: '#000', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s', boxShadow: `0 10px 30px ${COLOR}40` }}>
                    BOOT REVISION →
@@ -86,6 +104,15 @@ export default function CompSciHub() {
         </section>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY MAP ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '40px clamp(20px,5vw,100px) 0' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-compsci-stats" 
+            accentColor={COLOR} 
+          />
+        </section>
 
         {/* ── TOPIC GRID ── */}
         <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 100px' }}>

@@ -1,0 +1,40 @@
+{
+  "science": {
+    "biology": [
+      { "q": "What is the function of the mitochondria?", "a": "Aerobic respiration", "o": ["Protein synthesis", "Aerobic respiration", "Photosynthesis", "Store DNA"] },
+      { "q": "Which of these is a prokaryotic cell?", "a": "Bacteria", "o": ["Animal cell", "Plant cell", "Bacteria", "Fungi"] },
+      { "q": "What is the magnification formula?", "a": "Image size / Real size", "o": ["Real size / Image size", "Image size * Real size", "Image size / Real size", "Real size + Image size"] },
+      { "q": "In which part of the cell does photosynthesis occur?", "a": "Chloroplasts", "o": ["Mitochondria", "Nucleus", "Ribosomes", "Chloroplasts"] },
+      { "q": "What is the process by which cells become specialized?", "a": "Differentiation", "o": ["Mitosis", "Meiosis", "Differentiation", "Diffusion"] },
+      { "q": "Which organelle contains genetic material?", "a": "Nucleus", "o": ["Cytoplasm", "Cell Membrane", "Nucleus", "Vacuole"] },
+      { "q": "What is osmosis?", "a": "Diffusion of water across a semi-permeable membrane", "o": ["Movement of glucose into cells", "Diffusion of water across a semi-permeable membrane", "Active transport of ions", "Gas exchange in the lungs"] },
+      { "q": "How many chromosomes are in a human body cell?", "a": "46", "o": ["23", "46", "92", "12"] },
+      { "q": "What is produced during anaerobic respiration in yeast?", "a": "Ethanol and CO2", "o": ["Lactic acid", "Ethanol and CO2", "Glucose and Oxygen", "Water and Oxygen"] },
+      { "q": "Which enzyme breaks down starch into sugars?", "a": "Amylase", "o": ["Protease", "Lipase", "Amylase", "Catalase"] }
+    ],
+    "chemistry": [
+      { "q": "What is the atomic number of an element?", "a": "Number of protons", "o": ["Number of neutrons", "Number of protons", "Mass of the atom", "Total protons and neutrons"] },
+      { "q": "Which group of the periodic table contains the Noble Gases?", "a": "Group 0", "o": ["Group 1", "Group 7", "Group 0", "Group 8"] },
+      { "q": "What type of bonding occurs between two non-metals?", "a": "Covalent", "o": ["Ionic", "Covalent", "Metallic", "Hydrogen"] },
+      { "q": "What is the pH of a neutral solution?", "a": "7", "o": ["1", "7", "14", "0"] },
+      { "q": "What is an isotope?", "a": "Atoms of same element with different number of neutrons", "o": ["Atoms with different number of protons", "Atoms of same element with different number of neutrons", "Atoms that have gained electrons", "Atoms with no charge"] },
+      { "q": "Which subatomic particle has a negative charge?", "a": "Electron", "o": ["Proton", "Neutron", "Electron", "Nucleus"] },
+      { "q": "What is the relative mass of a proton?", "a": "1", "o": ["0", "1", "1/1840", "2"] },
+      { "q": "In an ionic bond, what happens to the electrons?", "a": "Transferred from metal to non-metal", "o": ["Shared between atoms", "Transferred from metal to non-metal", "Delocalized in a sea", "Stay with their original atoms"] },
+      { "q": "Which state of matter has a fixed volume but no fixed shape?", "a": "Liquid", "o": ["Solid", "Liquid", "Gas", "Plasma"] },
+      { "q": "What is the test for Oxygen gas?", "a": "Relights a glowing splint", "o": ["Squeaky pop with a lit splint", "Turns limewater cloudy", "Relights a glowing splint", "Bleaches damp litmus paper"] }
+    ],
+    "physics": [
+      { "q": "What is the unit of power?", "a": "Watt", "o": ["Joule", "Watt", "Ampere", "Volt"] },
+      { "q": "Equation for kinetic energy?", "a": "0.5 * m * v²", "o": ["m * g * h", "0.5 * m * v²", "F * d", "P * t"] },
+      { "q": "What is the standard voltage of UK mains electricity?", "a": "230V", "o": ["110V", "230V", "400V", "12V"] },
+      { "q": "Which state of matter has the highest density usually?", "a": "Solid", "o": ["Solid", "Liquid", "Gas"] },
+      { "q": "What does a step-up transformer do?", "a": "Increases voltage, decreases current", "o": ["Increases current, decreases voltage", "Increases voltage, decreases current", "Changes DC to AC", "Stores electrical energy"] },
+      { "q": "What is the unit of resistance?", "a": "Ohm", "o": ["Amp", "Volt", "Ohm", "Coulomb"] },
+      { "q": "Which color of visible light has the longest wavelength?", "a": "Red", "o": ["Blue", "Red", "Violet", "Green"] },
+      { "q": "What type of wave is sound?", "a": "Longitudinal", "o": ["Transverse", "Longitudinal", "Electromagnetic", "Mechanical"] },
+      { "q": "Which subatomic particle is emitted in Alpha radiation?", "a": "Helium nucleus", "o": ["Electron", "Positron", "Helium nucleus", "Photon"] },
+      { "q": "Formula for work done?", "a": "Force * Distance", "o": ["Force / Area", "Force * Distance", "Mass * Acceleration", "Power / Time"] }
+    ]
+  }
+}

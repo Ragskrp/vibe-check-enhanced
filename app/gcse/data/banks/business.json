@@ -1,0 +1,18 @@
+{
+  "business": {
+    "finance": [
+      { "q": "What is the formula for Total Cost?", "a": "Fixed Costs + Variable Costs", "o": ["Revenue - Profit", "Fixed Costs + Variable Costs", "Fixed Costs * Variable Costs", "Revenue / Output"] },
+      { "q": "What is 'Break-even' point?", "a": "When Total Revenue equals Total Cost", "o": ["When the business makes a profit", "When Total Revenue equals Total Cost", "When the business sells all its stock", "When bank balance is zero"] },
+      { "q": "Which of these is a variable cost?", "a": "Raw Materials", "o": ["Rent", "Salaries", "Raw Materials", "Insurance"] },
+      { "q": "What is the result of Revenue minus Total Costs?", "a": "Profit or Loss", "o": ["Gross Profit", "Net Cash Flow", "Profit or Loss", "Break-even"] },
+      { "q": "What is 'Liquidity'?", "a": "Ability of a business to pay its short-term debts", "o": ["The total value of assets", "Ability of a business to pay its short-term debts", "The speed of production", "Total cash in the bank"] }
+    ],
+    "marketing": [
+      { "q": "What are the 4 Ps of the Marketing Mix?", "a": "Product, Price, Place, Promotion", "o": ["Product, Price, Place, Promotion", "Profit, People, Planet, Price", "Process, Physical, People, Product", "Promotion, Publicity, Price, Place"] },
+      { "q": "What is 'Market Segmentation'?", "a": "Dividing a market into groups of similar consumers", "o": ["Selling to everyone in the world", "Dividing a market into groups of similar consumers", "Setting a higher price than competitors", "Using social media to advertise"] },
+      { "q": "Which of these is primary research?", "a": "Questionnaires", "o": ["Internet search", "Questionnaires", "Competitor websites", "Newspaper reports"] },
+      { "q": "What is a 'Niche Market'?", "a": "A small, specialized segment of a larger market", "o": ["A market with no competition", "A small, specialized segment of a larger market", "The global market for a product", "A market only for luxury goods"] },
+      { "q": "What does a 'Brand' help a business to do?", "a": "Differentiate itself from competitors", "o": ["Reduce its tax bill", "Differentiate itself from competitors", "Lower its production costs", "Avoid using social media"] }
+    ]
+  }
+}

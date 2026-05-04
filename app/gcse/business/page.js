@@ -74,6 +74,11 @@ export default function BusinessHub() {
                   </div>
                 </div>
               )}
+              <Link href="/gcse/business/mock-exam" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                   FULL MOCK EXAM
+                </div>
+              </Link>
               <Link href="#topics" style={{ textDecoration: 'none' }}>
                 <div style={{ padding: '16px 32px', borderRadius: 8, background: COLOR, color: '#000', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s', boxShadow: `0 10px 30px ${COLOR}40` }}>
                    PRACTICE ENTERPRISE →

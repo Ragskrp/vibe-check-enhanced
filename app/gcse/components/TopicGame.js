@@ -5,6 +5,8 @@ import AdBanner from '../../components/AdBanner';
 import LessonCards from './LessonCards';
 import Link from 'next/link';
 import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain } from 'lucide-react';
+import { recordActivity } from '../utils/streakLogic';
+import { getBankQuestions, shuffleArray } from '../utils/questionBankLoader';
 
 const GAME_DURATION = 60;
 
@@ -69,6 +71,8 @@ export default function TopicGame({ config }) {
   const [history, setHistory] = useState([]);
   const [showExplanation, setShowExplanation] = useState(false);
   const [practiceCount, setPracticeCount] = useState(0);
+  const [questionDeck, setQuestionDeck] = useState([]);
+  const [deckIndex, setDeckIndex] = useState(0);
   const inputRef = useRef(null);
   const timerRef = useRef(null);
 
@@ -76,15 +80,68 @@ export default function TopicGame({ config }) {
   const subjectMeta = getSubjectMeta(config);
 
   const nextQuestion = useCallback(() => {
-    setQuestion(config.generateQuestion(tier));
-    setInput(''); setFeedback(null); setShowExplanation(false);
-    setTimeout(() => inputRef.current?.focus(), 50);
-  }, [tier, config]);
+    if (deckIndex < questionDeck.length - 1) {
+      const nextIdx = deckIndex + 1;
+      setDeckIndex(nextIdx);
+      setQuestion(questionDeck[nextIdx]);
+      setInput(''); setFeedback(null); setShowExplanation(false);
+      setTimeout(() => inputRef.current?.focus(), 50);
+    } else {
+      // Deck exhausted, results or reshuffle
+      if (mode === 'test') setPhase('results');
+      else {
+        // In practice mode, reshuffle a new deck
+        const newDeck = [];
+        for (let i = 0; i < 10; i++) newDeck.push(config.generateQuestion(tier));
+        setQuestionDeck(newDeck);
+        setDeckIndex(0);
+        setQuestion(newDeck[0]);
+        setInput(''); setFeedback(null); setShowExplanation(false);
+      }
+    }
+  }, [deckIndex, questionDeck, mode, tier, config]);
 
-  const startGame = (gameMode) => {
+  const startGame = async (gameMode) => {
     setMode(gameMode); setPhase('playing'); setScore(0); setStreak(0);
     setBestStreak(0); setTimeLeft(GAME_DURATION); setHistory([]); setPracticeCount(0);
-    nextQuestion();
+    
+    // Determine subject and topic
+    const meta = getSubjectMeta(config);
+    const subjectId = meta.hubPath.split('/').pop();
+    const topicSlug = config.slug;
+
+    // Load from Bank
+    let bankQuestions = [];
+    try {
+      const rawBank = await getBankQuestions(subjectId, topicSlug);
+      // Map bank format to internal format
+      bankQuestions = rawBank.map(q => ({
+        display: q.q,
+        answer: q.a,
+        options: q.o,
+        explanation: q.e || 'Correct answer: ' + q.a
+      }));
+    } catch (e) {
+      console.warn("Failed to load bank questions:", e);
+    }
+
+    // Generate initial deck
+    let initialDeck = [];
+    const deckSize = gameMode === 'test' ? 30 : 15;
+    
+    if (bankQuestions.length > 0) {
+      initialDeck = shuffleArray(bankQuestions).slice(0, deckSize);
+    } 
+    
+    // Fill remaining with dynamic generator if needed
+    while (initialDeck.length < deckSize) {
+      initialDeck.push(config.generateQuestion(tier));
+    }
+    
+    setQuestionDeck(initialDeck);
+    setDeckIndex(0);
+    setQuestion(initialDeck[0]);
+    setInput(''); setFeedback(null); setShowExplanation(false);
   };
 
   useEffect(() => {
@@ -99,10 +156,27 @@ export default function TopicGame({ config }) {
     if (phase === 'results') {
       try {
         const existing = JSON.parse(localStorage.getItem(subjectMeta.statsKey) || '{}');
-        localStorage.setItem(subjectMeta.statsKey, JSON.stringify({
+        const accuracy = history.length > 0 ? (history.filter(h => h.correct).length / history.length) : 0;
+        const topicKey = `topic_${config.slug || 'unknown'}`;
+        
+        const newStats = {
           totalPlays: (existing.totalPlays || 0) + 1,
           bestStreak: Math.max(existing.bestStreak || 0, bestStreak),
+        };
+
+        // Track per-topic mastery
+        if (!existing[topicKey]) existing[topicKey] = {};
+        if (accuracy >= 0.9 && history.length >= 5) {
+          existing[topicKey].mastered = true;
+        }
+        
+        localStorage.setItem(subjectMeta.statsKey, JSON.stringify({
+          ...existing,
+          ...newStats
         }));
+        
+        // Record global daily streak
+        recordActivity();
       } catch {}
     }
   }, [phase, bestStreak, subjectMeta.statsKey]);

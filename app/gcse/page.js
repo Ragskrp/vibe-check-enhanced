@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { Target, ChevronRight } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
 import SubjectCanvas from './components/SubjectCanvas';
@@ -173,6 +174,32 @@ export default function GCSEHub() {
           }}>
             6 subjects · 150+ topics · 0 logins required
           </div>
+        </section>
+ 
+        {/* ── MISSION CONTROL CTA ─────────────────────────────────────── */}
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 5vw, 100px) 60px' }}>
+          <Link href="/gcse/dashboard" style={{ textDecoration: 'none' }}>
+            <div style={{ 
+              padding: '32px', borderRadius: 24, background: 'rgba(0,212,255,0.05)', border: '1px solid rgba(0,212,255,0.15)',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, transition: 'all 0.3s'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                <div style={{ 
+                  width: 64, height: 64, borderRadius: 16, background: 'linear-gradient(135deg, #00d4ff, #ff2d78)', 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 30px rgba(0,212,255,0.3)'
+                }}>
+                  <Target size={32} color="#000" />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 4 }}>Enter Mission Control</h3>
+                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0 }}>Track your streaks, masteries, and achievements across all subjects.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#00d4ff', fontWeight: 800, fontSize: 14 }}>
+                GO TO DASHBOARD <ChevronRight size={18} />
+              </div>
+            </div>
+          </Link>
         </section>
 
         {/* ── Divider line ─────────────────────────────────────────── */}

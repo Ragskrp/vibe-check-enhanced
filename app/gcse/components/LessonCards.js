@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
+import BinaryConverter from './sandbox/BinaryConverter';
+import LogicGateLab from './sandbox/LogicGateLab';
+import SortingLab from './sandbox/SortingLab';
 
 /**
  * Reusable lesson card carousel for GCSE tools.
@@ -253,6 +256,10 @@ export default function LessonCards({ cards, accentColor = '#00e5a0', onComplete
 }
 
 function CardVisualizer({ id, accentColor }) {
+  if (id === 'cs-binary-lab') return <BinaryConverter />;
+  if (id === 'cs-logic-gate-lab') return <LogicGateLab />;
+  if (id === 'cs-sorting-lab') return <SortingLab />;
+
   if (id === 'cs-flowchart') {
     return (
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>

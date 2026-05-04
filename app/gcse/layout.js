@@ -60,6 +60,27 @@ export default function GCSELayout({ children }) {
       isAccessibleForFree: true,
       educationalLevel: 'GCSE',
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'GCSE Computer Science Revision',
+      description:
+        'Comprehensive OCR J277 aligned revision modules covering algorithms, binary, networking, and programming logic.',
+      provider: {
+        '@type': 'Organization',
+        name: 'VIBEMENOW',
+        url: 'https://vibemenow.uk',
+      },
+      isAccessibleForFree: true,
+      educationalLevel: 'GCSE',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOccupationalCredential',
+      name: 'GCSE Mock Exam Simulation',
+      description: 'Timed full-specification mock exams with 9-1 grade estimation.',
+      credentialCategory: 'Examination',
+    }
   ];
 
   return (
