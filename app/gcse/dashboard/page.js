@@ -122,7 +122,8 @@ export default function MissionControl() {
                     </div>
                   </div>
                 </Link>
-              ))}
+              );
+            })}
             </div>
           </section>
 
