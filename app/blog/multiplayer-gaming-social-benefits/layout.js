@@ -5,10 +5,7 @@ export const metadata = {
     url: '/blog/multiplayer-gaming-social-benefits',
     title: 'Multiplayer Games as Social Currency — VIBEMENOW Blog',
     description: 'How casual multiplayer gaming is becoming the primary social glue of the digital generation.',
-  },
-  alternates: {
-    canonical: '/blog/multiplayer-gaming-social-benefits',
-  },
+  }
 
 };
 

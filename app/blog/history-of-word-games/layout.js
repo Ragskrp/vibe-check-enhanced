@@ -5,10 +5,7 @@ export const metadata = {
     url: '/blog/history-of-word-games',
     title: 'The History of Word Games — VIBEMENOW Blog',
     description: 'From ancient Roman palindromes to daily online puzzlers — the fascinating cultural history of word games.',
-  },
-  alternates: {
-    canonical: '/blog/history-of-word-games',
-  },
+  }
 
 };
 

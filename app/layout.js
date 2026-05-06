@@ -16,9 +16,6 @@ export const metadata = {
     template: "%s | VIBEMENOW",
   },
   metadataBase: new URL("https://vibemenow.uk"),
-  alternates: {
-    canonical: "/",
-  },
   description:
     "Play original browser games, quick quizzes, and lightweight party modes on VIBEMENOW. No account required.",
   keywords: [

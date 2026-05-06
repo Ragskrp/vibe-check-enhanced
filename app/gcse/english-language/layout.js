@@ -2,9 +2,6 @@ export const metadata = {
   title: 'GCSE English Language Revision',
   description:
     'Free AQA GCSE English Language revision. Master reading analysis (AO1–AO4), creative writing, and transactional writing with interactive practice.',
-  alternates: {
-    canonical: '/gcse/english-language',
-  },
   openGraph: {
     title: 'GCSE English Language | VIBEMENOW',
     description:

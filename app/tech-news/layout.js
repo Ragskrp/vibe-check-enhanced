@@ -13,9 +13,6 @@ export const metadata = {
     'digital culture',
     'UK tech news',
   ],
-  alternates: {
-    canonical: '/tech-news',
-  },
   openGraph: {
     title: 'Tech News & Analysis | VIBEMENOW',
     description:

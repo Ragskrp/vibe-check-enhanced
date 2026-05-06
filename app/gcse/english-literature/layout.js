@@ -2,9 +2,6 @@ export const metadata = {
   title: 'GCSE English Literature Revision',
   description:
     'Free AQA GCSE English Literature revision. Shakespeare, 19th Century Novels, Modern Drama, and Poetry anthology deep-dives with interactive practice.',
-  alternates: {
-    canonical: '/gcse/english-literature',
-  },
   openGraph: {
     title: 'GCSE English Literature | VIBEMENOW',
     description:

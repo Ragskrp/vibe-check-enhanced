@@ -30,10 +30,7 @@ export const metadata = {
         alt: 'VIBEMENOW GCSE Revision',
       },
     ],
-  },
-  alternates: {
-    canonical: '/gcse',
-  },
+  }
 };
 
 export default function GCSELayout({ children }) {

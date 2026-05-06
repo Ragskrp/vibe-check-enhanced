@@ -5,10 +5,7 @@ export const metadata = {
     url: '/blog/screen-time-vs-game-time',
     title: 'Screen Time vs. Game Time — VIBEMENOW Blog',
     description: 'Why not all screen time is equal — the science of active vs. passive digital engagement.',
-  },
-  alternates: {
-    canonical: '/blog/screen-time-vs-game-time',
-  },
+  }
 
 };
 

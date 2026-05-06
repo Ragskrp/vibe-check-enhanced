@@ -5,10 +5,7 @@ export const metadata = {
     url: '/blog/emoji-communication-guide',
     title: 'The Complete Guide to Emoji Communication — VIBEMENOW Blog',
     description: 'How emojis evolved into a complex visual language used by billions — and what it means for digital literacy.',
-  },
-  alternates: {
-    canonical: '/blog/emoji-communication-guide',
-  },
+  }
 
 };
 
