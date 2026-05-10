@@ -117,7 +117,8 @@ export default function CompSciHub() {
           <MasteryMap 
             topics={Object.values(topicsByCategory).flat()} 
             statsKey="gcse-compsci-stats" 
-            accentColor={COLOR} 
+            accentColor={COLOR}
+            subjectId="computer-science"
           />
         </section>
 
