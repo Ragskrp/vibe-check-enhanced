@@ -68,14 +68,12 @@ def generate_article_content(title, summary, source_url):
     IMPORTANT: Return ONLY the JSON object. No extra text.
     """
     
-    # Try multiple models in case of 404 errors
+    # Try the next-gen models found in your diagnostic list
     models_to_try = [
-        'gemini-1.5-flash', 
-        'models/gemini-1.5-flash',
-        'gemini-1.5-flash-latest', 
-        'models/gemini-1.5-flash-latest',
-        'gemini-pro',
-        'models/gemini-pro'
+        'models/gemini-2.5-flash',
+        'models/gemini-2.0-flash',
+        'models/gemini-flash-latest',
+        'models/gemini-pro-latest'
     ]
     
     for model_name in models_to_try:
