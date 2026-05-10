@@ -1,5 +1,5 @@
 import { getTopicsByCategory } from '../historyData';
-import TopicGame from '../../components/TopicGame';
+import TopicClientWrapper from '../../components/TopicClientWrapper';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
@@ -37,18 +37,5 @@ export default async function HistoryTopicPage({ params }) {
     notFound();
   }
 
-  // Find category for styling context
-  const category = Object.keys(topicsByCategory).find(cat => 
-    topicsByCategory[cat].some(t => t.slug === params.topicSlug)
-  );
-
-  return (
-    <TopicGame 
-      topic={topic} 
-      subjectName="History" 
-      subjectSlug="history" 
-      accentColor={topic.color || '#ff6b35'}
-      categoryName={category}
-    />
-  );
+  return <TopicClientWrapper subject="history" topicSlug={topicSlug} />;
 }

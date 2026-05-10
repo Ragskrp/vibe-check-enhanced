@@ -1,5 +1,5 @@
 import { getTopicsByCategory } from '../geographyData';
-import TopicGame from '../../components/TopicGame';
+import TopicClientWrapper from '../../components/TopicClientWrapper';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
@@ -37,18 +37,5 @@ export default async function GeographyTopicPage({ params }) {
     notFound();
   }
 
-  // Find category for styling context
-  const category = Object.keys(topicsByCategory).find(cat => 
-    topicsByCategory[cat].some(t => t.slug === params.topicSlug)
-  );
-
-  return (
-    <TopicGame 
-      topic={topic} 
-      subjectName="Geography" 
-      subjectSlug="geography" 
-      accentColor={topic.color || '#ffe600'}
-      categoryName={category}
-    />
-  );
+  return <TopicClientWrapper subject="geography" topicSlug={topicSlug} />;
 }

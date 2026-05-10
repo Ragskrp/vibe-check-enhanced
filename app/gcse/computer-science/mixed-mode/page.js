@@ -1,6 +1,8 @@
 import { getTopicsByCategory } from '../computerScienceData';
 import MixedGame from '../../components/MixedGame';
 
+const toMixedTopic = ({ slug, title, color }) => ({ slug, title, color });
+
 export const metadata = {
   title: 'Computer Science Mixed Practice | VIBEMENOW',
   description: 'Practice a variety of GCSE Computer Science topics in one session. Interleaved retrieval for better memory retention.',
@@ -12,7 +14,7 @@ export const metadata = {
 export default function ComputerScienceMixedMode() {
   const topicsByCategory = getTopicsByCategory();
   const subjectsData = {
-    'computer-science': Object.values(topicsByCategory).flat()
+    'computer-science': Object.values(topicsByCategory).flat().map(toMixedTopic)
   };
 
   return (

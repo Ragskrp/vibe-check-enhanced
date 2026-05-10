@@ -1,6 +1,8 @@
 import { getTopicsByCategory } from '../geographyData';
 import MixedGame from '../../components/MixedGame';
 
+const toMixedTopic = ({ slug, title, color }) => ({ slug, title, color });
+
 export const metadata = {
   title: 'Geography Mixed Practice | VIBEMENOW',
   description: 'Practice a variety of GCSE Geography topics in one session. Interleaved retrieval for better memory retention.',
@@ -12,7 +14,7 @@ export const metadata = {
 export default function GeographyMixedMode() {
   const topicsByCategory = getTopicsByCategory();
   const subjectsData = {
-    'geography': Object.values(topicsByCategory).flat()
+    'geography': Object.values(topicsByCategory).flat().map(toMixedTopic)
   };
 
   return (

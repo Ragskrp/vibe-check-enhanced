@@ -1,5 +1,5 @@
 import { getAllTopicSlugs, TOPICS } from '../englishLanguageData';
-import TopicGame from '../../components/TopicGame';
+import TopicClientWrapper from '../../components/TopicClientWrapper';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
@@ -30,5 +30,5 @@ export default async function EnglishLanguageTopicPage({ params }) {
   
   if (!config) notFound();
 
-  return <TopicGame config={config} />;
+  return <TopicClientWrapper subject="english-language" topicSlug={topicSlug} />;
 }

@@ -1,6 +1,5 @@
 import { getTopicBySlug, getAllTopicSlugs } from '../businessData';
-import TopicGame from '../../components/TopicGame';
-import { notFound } from 'next/navigation';
+import TopicClientWrapper from '../../components/TopicClientWrapper';
 
 export async function generateMetadata({ params }) {
   const { topic: topicSlug } = await params;
@@ -26,9 +25,6 @@ export async function generateStaticParams() {
 
 export default async function BusinessTopicPage({ params }) {
   const { topic: topicSlug } = await params;
-  const config = getTopicBySlug(topicSlug);
   
-  if (!config) notFound();
-
-  return <TopicGame config={config} />;
+  return <TopicClientWrapper subject="business" topicSlug={topicSlug} />;
 }

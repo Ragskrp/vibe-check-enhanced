@@ -8,6 +8,8 @@ import { getTopicsByCategory as getEngLit } from '../../english-literature/engli
 import { getTopicsByCategory as getBusiness } from '../../business/businessData';
 import MixedGame from '../../components/MixedGame';
 
+const toMixedTopic = ({ slug, title, color }) => ({ slug, title, color });
+
 export const metadata = {
   title: 'Global Mixed Practice | GCSE Mastery | VIBEMENOW',
   description: 'The ultimate interleaved practice. Pulls questions from all GCSE subjects for maximum cognitive challenge.',
@@ -18,14 +20,14 @@ export const metadata = {
 
 export default function GlobalMixedMode() {
   const subjectsData = {
-    'maths': Object.values(getMaths()).flat(),
-    'science': Object.values(getScience()).flat(),
-    'computer-science': Object.values(getCS()).flat(),
-    'history': Object.values(getHistory()).flat(),
-    'geography': Object.values(getGeography()).flat(),
-    'english-language': Object.values(getEngLang()).flat(),
-    'english-literature': Object.values(getEngLit()).flat(),
-    'business': Object.values(getBusiness()).flat()
+    'maths': Object.values(getMaths()).flat().map(toMixedTopic),
+    'science': Object.values(getScience()).flat().map(toMixedTopic),
+    'computer-science': Object.values(getCS()).flat().map(toMixedTopic),
+    'history': Object.values(getHistory()).flat().map(toMixedTopic),
+    'geography': Object.values(getGeography()).flat().map(toMixedTopic),
+    'english-language': Object.values(getEngLang()).flat().map(toMixedTopic),
+    'english-literature': Object.values(getEngLit()).flat().map(toMixedTopic),
+    'business': Object.values(getBusiness()).flat().map(toMixedTopic)
   };
 
   return (
