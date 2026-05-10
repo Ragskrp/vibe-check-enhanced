@@ -17,7 +17,7 @@ import Script from 'next/script';
  */
 export default function AdBanner({ slot = '7171012882', format = 'auto', className = '' }) {
   const adRef = useRef(null);
-  const isLoaded = useRef(false);
+  const scriptInjected = useRef(false);
   const pathname = usePathname();
 
   // Keep banners on content-rich routes while avoiding gameplay-heavy screens.
@@ -39,11 +39,13 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     '/privacy',
     '/terms',
     '/disclaimer',
+    '/tech-news',
   ]);
 
   const adEnabledPrefixes = [
     '/blog/',
     '/guides/',
+    '/tech-news/',
   ];
 
   const isEnabledByExactRoute = adEnabledRoutes.has(pathname);
@@ -51,17 +53,62 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   const adsBlocked = !(isEnabledByExactRoute || isEnabledByPrefix);
 
   useEffect(() => {
-    if (isLoaded.current) return;
+    if (adsBlocked || scriptInjected.current || typeof window === 'undefined') return;
     
+    // Fallback for AdSense
     try {
-      if (typeof window !== 'undefined' && window.adsbygoogle) {
+      if (window.adsbygoogle) {
         window.adsbygoogle.push({});
-        isLoaded.current = true;
       }
-    } catch (e) {
-      // AdSense not loaded yet or ad blocker active
+    } catch (e) {}
+
+    // Adsterra Logic
+    const container = adRef.current;
+    if (!container) return;
+
+    if (format === 'rectangle' || format === 'horizontal') {
+      const config = document.createElement('script');
+      config.type = 'text/javascript';
+      const key = format === 'rectangle' ? 'f055390fdfc79f4ab56cb401696a3f5d' : '64a5fdeb6bf4cf0934af6231f80fb455';
+      const height = format === 'rectangle' ? 250 : 90;
+      const width = format === 'rectangle' ? 300 : 728;
+      
+      config.innerHTML = `
+        atOptions = {
+          'key' : '${key}',
+          'format' : 'iframe',
+          'height' : ${height},
+          'width' : ${width},
+          'params' : {}
+        };
+      `;
+      
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = `https://www.highperformanceformat.com/${key}/invoke.js`;
+      
+      container.appendChild(config);
+      container.appendChild(script);
+      scriptInjected.current = true;
+    } else {
+      // Native Banner
+      const script = document.createElement('script');
+      script.async = true;
+      script.setAttribute('data-cfasync', 'false');
+      script.src = "https://pl29408324.profitablecpmratenetwork.com/b87ec4964e8b91d4001fd5f3b6db90a7/invoke.js";
+      
+      const div = document.createElement('div');
+      div.id = "container-b87ec4964e8b91d4001fd5f3b6db90a7";
+      
+      container.appendChild(script);
+      container.appendChild(div);
+      scriptInjected.current = true;
     }
-  }, []);
+
+    return () => {
+      // Cleanup if necessary, though scripts are usually fine to stay
+    };
+  }, [adsBlocked, format]);
 
   if (adsBlocked) {
     return null;
@@ -70,20 +117,13 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   // In development, show a placeholder
   const isDev = process.env.NODE_ENV === 'development';
 
+  const minHeight = format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px';
+  const maxWidth = format === 'rectangle' ? '300px' : format === 'horizontal' ? '728px' : '100%';
+
   if (isDev) {
     return (
-      <div className={`ad-slot ${className}`} style={{
-        minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px',
-        border: '1px dashed #ccc',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: '1rem',
-        background: '#f9f9f9',
-        borderRadius: '8px'
-      }}>
-        <div>
+      <div className={`ad-slot ${className}`} style={{ minHeight, maxWidth }}>
+        <div style={{ padding: '20px' }}>
           📢 {format.toUpperCase()} AD SLOT <br/>
           <span style={{fontSize: '10px', opacity: 0.5}}>
             Provider: Adsterra ({format === 'rectangle' ? '300x250' : format === 'horizontal' ? '728x90' : 'Native'})
@@ -94,62 +134,17 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   }
 
   return (
-    <div className={`ad-slot ${className}`} ref={adRef} style={{ minHeight: format === 'rectangle' ? '250px' : '90px' }}>
-      {format === 'rectangle' ? (
-        <>
-          {/* Adsterra 300x250 Rectangle */}
-          <Script id={`adsterra-300x250-${slot}`} strategy="afterInteractive">
-            {`
-              window.atOptions = {
-                'key' : 'f055390fdfc79f4ab56cb401696a3f5d',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
-                'params' : {}
-              };
-            `}
-          </Script>
-          <Script 
-            id={`adsterra-300x250-invoke-${slot}`}
-            strategy="afterInteractive"
-            src="https://www.highperformanceformat.com/f055390fdfc79f4ab56cb401696a3f5d/invoke.js" 
-          />
-        </>
-      ) : format === 'horizontal' ? (
-        <>
-          {/* Adsterra 728x90 Leaderboard */}
-          <Script id={`adsterra-728x90-${slot}`} strategy="afterInteractive">
-            {`
-              window.atOptions = {
-                'key' : '64a5fdeb6bf4cf0934af6231f80fb455',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-              };
-            `}
-          </Script>
-          <Script 
-            id={`adsterra-728x90-invoke-${slot}`}
-            strategy="afterInteractive"
-            src="https://www.highperformanceformat.com/64a5fdeb6bf4cf0934af6231f80fb455/invoke.js" 
-          />
-        </>
-      ) : (
-        <>
-          {/* Adsterra Native Banner Integration */}
-          <Script 
-            id={`adsterra-native-${slot}`}
-            async="async" 
-            data-cfasync="false" 
-            src="https://pl29408324.profitablecpmratenetwork.com/b87ec4964e8b91d4001fd5f3b6db90a7/invoke.js"
-            strategy="lazyOnload"
-          />
-          <div id="container-b87ec4964e8b91d4001fd5f3b6db90a7"></div>
-        </>
-      )}
-
-      {/* AdSense (Hidden/Fallback) */}
+    <div 
+      className={`ad-slot ${className}`} 
+      ref={adRef} 
+      style={{ 
+        minHeight, 
+        maxWidth,
+        background: '#0a0a0f', // Dark background for ad area
+        border: 'none', // Remove border in production for cleaner look
+      }}
+    >
+      {/* Adsterra/AdSense will be injected here via useEffect */}
       <ins
         className="adsbygoogle"
         style={{ display: 'none' }}
@@ -161,3 +156,4 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     </div>
   );
 }
+
