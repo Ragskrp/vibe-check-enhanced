@@ -61,16 +61,35 @@ def generate_article_content(title, summary, source_url):
     IMPORTANT: Return ONLY the JSON object. No extra text.
     """
     
-    try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
-        # Clean up possible markdown code blocks
-        if text.startswith("```json"):
-            text = text[7:-3].strip()
-        return json.loads(text)
-    except Exception as e:
-        print(f"Error generating content for {title}: {e}")
-        return None
+    # Try multiple models in case of 404 errors
+    models_to_try = ['gemini-1.5-flash', 'gemini-1.5-flash-latest', 'gemini-pro']
+    
+    for model_name in models_to_try:
+        try:
+            print(f"Attempting generation with {model_name}...")
+            temp_model = genai.GenerativeModel(model_name)
+            response = temp_model.generate_content(prompt)
+            text = response.text.strip()
+            
+            # Clean up possible markdown code blocks
+            if text.startswith("```json"):
+                text = text[7:-3].strip()
+            elif text.startswith("```") and text.endswith("```"):
+                # Handle generic code blocks
+                lines = text.split('\n')
+                if len(lines) > 2:
+                    text = '\n'.join(lines[1:-1]).strip()
+                    
+            return json.loads(text)
+        except Exception as e:
+            if "404" in str(e):
+                print(f"Model {model_name} not found (404). Trying next...")
+                continue
+            else:
+                print(f"Error generating with {model_name}: {e}")
+                continue
+                
+    return None
 
 def create_article_page(slug, data):
     # Pre-escape single quotes for metadata
