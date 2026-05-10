@@ -1,4 +1,4 @@
-import { getTopicData, getAllTopicSlugs } from '../computerScienceData';
+import { getTopicBySlug, getAllTopicSlugs } from '../computerScienceData';
 
 export async function generateStaticParams() {
   return getAllTopicSlugs().map((slug) => ({ topic: slug }));
@@ -6,7 +6,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { topic } = await params;
-  const config = getTopicData(topic);
+  const config = getTopicBySlug(topic);
   if (!config) return {};
   return {
     title: `${config.title} — GCSE Computer Science Revision | VIBEMENOW`,
