@@ -10,6 +10,7 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 
 const COLOR = '#b14aed';
 const CATEGORY_COLORS = {
@@ -107,6 +108,19 @@ export default function EnglishLitHub() {
             </div>
           </div>
         </section>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(24px, 8vw, 120px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-english-lit-stats" 
+            accentColor={COLOR}
+            subjectId="english-literature"
+          />
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
         {/* ── AO MASTERY GRID ── */}
         <section style={{ maxWidth: 1400, margin: '0 auto', padding: '100px clamp(24px, 8vw, 120px)' }}>

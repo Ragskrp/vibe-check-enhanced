@@ -1,13 +1,33 @@
-'use client';
-
-import { use } from 'react';
-import { getTopicBySlug } from '../topicData';
+import { getTopicBySlug, getAllTopicSlugs } from '../topicData';
 import TopicGame from '../../components/TopicGame';
 import { notFound } from 'next/navigation';
 
-export default function TopicPage({ params }) {
-  const { topic } = use(params);
-  const config = getTopicBySlug(topic);
+export async function generateMetadata({ params }) {
+  const { topic: topicSlug } = await params;
+  const topic = getTopicBySlug(topicSlug);
+  
+  if (!topic) return { title: 'Topic Not Found | VIBEMENOW' };
+  
+  return {
+    title: `${topic.title} — GCSE Maths Revision | VIBEMENOW`,
+    description: `Master ${topic.title} with interactive games and flashcards. GCSE Maths curriculum-aligned practice.`,
+    alternates: {
+      canonical: `https://vibemenow.uk/gcse/maths/${topicSlug}`,
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const slugs = getAllTopicSlugs();
+  return slugs.map(slug => ({
+    topic: slug,
+  }));
+}
+
+export default async function MathsTopicPage({ params }) {
+  const { topic: topicSlug } = await params;
+  const config = getTopicBySlug(topicSlug);
+  
   if (!config) notFound();
 
   return <TopicGame config={config} />;

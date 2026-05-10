@@ -9,6 +9,7 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 
 const COLOR = '#ffe600';
 const CATEGORY_COLORS = { 'Real World': '#ff6b35', 'Operations': '#00d4ff', 'Human Resources': '#00ff94', 'Finance': '#ffe600' };
@@ -86,6 +87,18 @@ export default function BusinessHub() {
               </Link>
             </div>
           </div>
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-business-stats" 
+            accentColor={COLOR}
+            subjectId="business"
+          />
         </section>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />

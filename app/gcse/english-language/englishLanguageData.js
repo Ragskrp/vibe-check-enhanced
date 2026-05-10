@@ -189,4 +189,11 @@ export const getTopicsByCategory = () => {
   return categories;
 };
 
+export const getTopicBySlug = (slug) => {
+  if (!TOPICS[slug]) return null;
+  return { ...TOPICS[slug], slug };
+};
+
 export const getAllTopicSlugs = () => Object.keys(TOPICS);
+
+export default TOPICS;

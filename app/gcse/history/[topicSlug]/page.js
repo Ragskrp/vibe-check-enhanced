@@ -3,15 +3,19 @@ import TopicGame from '../../components/TopicGame';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }) {
+  const { topicSlug } = await params;
   const topicsByCategory = getTopicsByCategory();
   const allTopics = Object.values(topicsByCategory).flat();
-  const topic = allTopics.find(t => t.slug === params.topicSlug);
+  const topic = allTopics.find(t => t.slug === topicSlug);
   
   if (!topic) return { title: 'Topic Not Found | VIBEMENOW' };
   
   return {
     title: `${topic.title} — GCSE History Revision | VIBEMENOW`,
     description: `Free interactive revision for ${topic.title}. Flashcards, quizzes, and spaced repetition.`,
+    alternates: {
+      canonical: `https://vibemenow.uk/gcse/history/${topicSlug}`,
+    },
   };
 }
 
@@ -23,10 +27,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function HistoryTopicPage({ params }) {
+export default async function HistoryTopicPage({ params }) {
+  const { topicSlug } = await params;
   const topicsByCategory = getTopicsByCategory();
   const allTopics = Object.values(topicsByCategory).flat();
-  const topic = allTopics.find(t => t.slug === params.topicSlug);
+  const topic = allTopics.find(t => t.slug === topicSlug);
 
   if (!topic) {
     notFound();

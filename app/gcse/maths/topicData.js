@@ -1700,7 +1700,8 @@ const TOPICS = {
 // ============================================================
 
 export function getTopicBySlug(slug) {
-  return TOPICS[slug] || null;
+  if (!TOPICS[slug]) return null;
+  return { ...TOPICS[slug], slug };
 }
 
 export function getAllTopicSlugs() {

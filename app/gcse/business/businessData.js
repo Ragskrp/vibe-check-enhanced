@@ -377,7 +377,10 @@ export function getTopicsByCategory() {
   return cats;
 }
 
-export function getTopicBySlug(slug) { return TOPICS[slug] || null; }
+export function getTopicBySlug(slug) {
+  if (!TOPICS[slug]) return null;
+  return { ...TOPICS[slug], slug };
+}
 export function getAllTopicSlugs() { return Object.keys(TOPICS); }
 
 export default TOPICS;

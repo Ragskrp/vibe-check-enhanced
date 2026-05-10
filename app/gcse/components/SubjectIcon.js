@@ -219,6 +219,44 @@ function EnglishLitIcon({ color, size }) {
   );
 }
 
+// ── History: Animated scroll / quill ─────────────────────────────────────
+function HistoryIcon({ color, size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
+      <style>{`
+        @keyframes scrollUnroll { 0%{stroke-dashoffset: 40} 100%{stroke-dashoffset: 0} }
+        .scroll { stroke-dasharray: 40; animation: scrollUnroll 2s ease-out infinite; }
+      `}</style>
+      <path d="M20 20 H60 V60 H20 Z" stroke={color} strokeWidth="1.5" opacity="0.3" />
+      <path d="M20 25 H50" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <path d="M20 35 H60" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <path d="M20 45 H60" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <path d="M20 55 H40" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <circle cx="65" cy="20" r="4" stroke={color} strokeWidth="1.5" fill={`${color}20`} />
+      <circle cx="65" cy="60" r="4" stroke={color} strokeWidth="1.5" fill={`${color}20`} />
+    </svg>
+  );
+}
+
+// ── Geography: Animated rotating globe ──────────────────────────────────
+function GeographyIcon({ color, size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
+      <style>{`
+        @keyframes globeSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        .spin { animation: globeSpin 20s linear infinite; transform-origin: 40px 40px; }
+      `}</style>
+      <circle cx="40" cy="40" r="30" stroke={color} strokeWidth="1.5" opacity="0.3" />
+      <g className="spin">
+        <path d="M40 10 V70 M10 40 H70" stroke={color} strokeWidth="1" opacity="0.4" />
+        <ellipse cx="40" cy="40" rx="30" ry="12" stroke={color} strokeWidth="1" opacity="0.4" />
+        <ellipse cx="40" cy="40" rx="12" ry="30" stroke={color} strokeWidth="1" opacity="0.4" />
+      </g>
+      <path d="M25 25 Q30 30 20 40 T30 55" stroke={color} strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+    </svg>
+  );
+}
+
 // ── Map + export ─────────────────────────────────────────────────────────
 const ICON_MAP = {
   maths: MathsIcon,
@@ -227,21 +265,41 @@ const ICON_MAP = {
   business: BusinessIcon,
   'english-language': EnglishLangIcon,
   'english-literature': EnglishLitIcon,
+  history: HistoryIcon,
+  geography: GeographyIcon,
 };
 
-export default function SubjectIcon({ subject, color = '#00e5a0', size = 72 }) {
+export default function SubjectIcon({ subject, icon: IconProp, color = '#00e5a0', size = 72 }) {
   const Icon = ICON_MAP[subject];
-  if (!Icon) return null;
-  return (
-    <div style={{
-      width: size, height: size,
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      filter: `drop-shadow(0 0 16px ${color}40)`,
-      transition: 'filter 0.3s ease, transform 0.3s ease',
-      contain: 'layout paint',
-      pointerEvents: 'none'
-    }}>
-      <Icon color={color} size={size} />
-    </div>
-  );
+  
+  if (Icon) {
+    return (
+      <div style={{
+        width: size, height: size,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        filter: `drop-shadow(0 0 16px ${color}40)`,
+        transition: 'filter 0.3s ease, transform 0.3s ease',
+        contain: 'layout paint',
+        pointerEvents: 'none'
+      }}>
+        <Icon color={color} size={size} />
+      </div>
+    );
+  }
+
+  if (IconProp) {
+    const IconComponent = IconProp;
+    return (
+      <div style={{
+        width: size, height: size,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        color: color,
+        filter: `drop-shadow(0 0 16px ${color}40)`,
+      }}>
+        <IconComponent size={size * 0.8} />
+      </div>
+    );
+  }
+
+  return null;
 }

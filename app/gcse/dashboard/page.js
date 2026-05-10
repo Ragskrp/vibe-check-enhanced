@@ -9,20 +9,27 @@ import AchievementBadge from '../components/AchievementBadge';
 import ExamCountdown from '../components/ExamCountdown';
 import SuggestedTopicCard from '../components/SuggestedTopicCard';
 import { getDueTopics, strengthToColor } from '../utils/spacedRepetitionEngine';
+import { getTopicsByCategory as getMaths } from '../maths/topicData';
+import { getTopicsByCategory as getScience } from '../science/scienceData';
+import { getTopicsByCategory as getCS } from '../computer-science/computerScienceData';
+import { getTopicsByCategory as getHistory } from '../history/historyData';
+import { getTopicsByCategory as getGeography } from '../geography/geographyData';
+import { getTopicsByCategory as getEngLang } from '../english-language/englishLanguageData';
+import { getTopicsByCategory as getEngLit } from '../english-literature/englishLiteratureData';
+import { getTopicsByCategory as getBusiness } from '../business/businessData';
 
 const COLOR = '#00d4ff';
 
 // All reviewable topics across subjects
 const ALL_REVIEWABLE = [
-  { subjectId: 'maths', slug: 'algebra', title: 'Algebra', href: '/gcse/maths/algebra' },
-  { subjectId: 'maths', slug: 'fractions', title: 'Fractions', href: '/gcse/maths/fractions' },
-  { subjectId: 'maths', slug: 'geometry', title: 'Geometry', href: '/gcse/maths/geometry' },
-  { subjectId: 'maths', slug: 'statistics', title: 'Statistics', href: '/gcse/maths/statistics' },
-  { subjectId: 'computer-science', slug: 'algorithms', title: 'Algorithms', href: '/gcse/computer-science/algorithms' },
-  { subjectId: 'computer-science', slug: 'data-representation', title: 'Data Representation', href: '/gcse/computer-science/data-representation' },
-  { subjectId: 'science', slug: 'cells', title: 'Cells', href: '/gcse/science/cells' },
-  { subjectId: 'science', slug: 'forces', title: 'Forces', href: '/gcse/science/forces' },
-  { subjectId: 'science', slug: 'atomic-structure', title: 'Atomic Structure', href: '/gcse/science/atomic-structure' },
+  ...Object.values(getMaths()).flat().map(t => ({ ...t, subjectId: 'maths' })),
+  ...Object.values(getScience()).flat().map(t => ({ ...t, subjectId: 'science' })),
+  ...Object.values(getCS()).flat().map(t => ({ ...t, subjectId: 'computer-science' })),
+  ...Object.values(getHistory()).flat().map(t => ({ ...t, subjectId: 'history' })),
+  ...Object.values(getGeography()).flat().map(t => ({ ...t, subjectId: 'geography' })),
+  ...Object.values(getEngLang()).flat().map(t => ({ ...t, subjectId: 'english-language' })),
+  ...Object.values(getEngLit()).flat().map(t => ({ ...t, subjectId: 'english-literature' })),
+  ...Object.values(getBusiness()).flat().map(t => ({ ...t, subjectId: 'business' })),
 ];
 
 export default function MissionControl() {

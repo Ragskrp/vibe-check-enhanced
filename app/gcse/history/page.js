@@ -9,6 +9,7 @@ import { useAggregatedStats } from '../components/DashboardStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 import InteractiveActivity from '../components/InteractiveActivity';
 
 const COLOR = '#ff6b35';
@@ -93,6 +94,20 @@ export default function HistoryHub() {
             </Link>
           </div>
         </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-history-stats" 
+            accentColor={COLOR}
+            subjectId="history"
+          />
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
         {/* ── TOPIC GRID ── */}
         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>

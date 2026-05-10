@@ -95,3 +95,11 @@ export function getTopicsByCategory() {
     ]
   };
 }
+export function getTopicBySlug(slug) {
+  const all = Object.values(getTopicsByCategory()).flat();
+  return all.find(t => t.slug === slug) || null;
+}
+
+export function getAllTopicSlugs() {
+  return Object.values(getTopicsByCategory()).flat().map(t => t.slug);
+}

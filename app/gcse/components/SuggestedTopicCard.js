@@ -10,6 +10,10 @@ import { getTopicsByCategory as getScience } from '../science/scienceData';
 import { getTopicsByCategory as getCS } from '../computer-science/computerScienceData';
 import { getTopicsByCategory as getHistory } from '../history/historyData';
 import { getTopicsByCategory as getGeography } from '../geography/geographyData';
+import { getTopicsByCategory as getEngLang } from '../english-language/englishLanguageData';
+import { getTopicsByCategory as getEngLit } from '../english-literature/englishLiteratureData';
+import { getTopicsByCategory as getBusiness } from '../business/businessData';
+import { getSrsRecord } from '../utils/spacedRepetitionEngine';
 
 function getSubjectColor(subjectId) {
   const colors = {
@@ -32,7 +36,10 @@ export default function SuggestedTopicCard() {
       'science': Object.values(getScience()).flat(),
       'computer-science': Object.values(getCS()).flat(),
       'history': Object.values(getHistory()).flat(),
-      'geography': Object.values(getGeography()).flat()
+      'geography': Object.values(getGeography()).flat(),
+      'english-language': Object.values(getEngLang()).flat(),
+      'english-literature': Object.values(getEngLit()).flat(),
+      'business': Object.values(getBusiness()).flat()
     };
 
     let lowestDecayingTopic = null;
@@ -43,7 +50,8 @@ export default function SuggestedTopicCard() {
     // Scan all topics
     for (const [subjectId, topics] of Object.entries(subjectsData)) {
       for (const topic of topics) {
-        const memStr = getMemoryStrength(subjectId, topic.slug);
+        const record = getSrsRecord(subjectId, topic.slug);
+        const memStr = getMemoryStrength(record);
         
         if (memStr === 0) {
           // Unseen or completely forgotten

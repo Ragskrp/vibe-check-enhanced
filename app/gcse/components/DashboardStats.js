@@ -10,18 +10,28 @@ const SUBJECT_KEYS = {
   'English': 'gcse-english-stats'
 };
 
+import { useState, useEffect } from 'react';
+
+const SUBJECT_ORDER = ['Maths', 'Science', 'English', 'Computer Science', 'Business'];
+
 export function useAggregatedStats() {
+  const [mounted, setMounted] = useState(false);
   const streakData = getStreakData();
   
-  if (typeof window === 'undefined') {
-    return { globalStreak: 0, totalPlays: 0, totalMastered: 0, subjectBreakdown: {} };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return { globalStreak: 0, activeToday: false, totalPlays: 0, totalMastered: 0, subjectBreakdown: {} };
   }
 
   let totalPlays = 0;
   let totalMastered = 0;
   const subjectBreakdown = {};
 
-  Object.entries(SUBJECT_KEYS).forEach(([name, key]) => {
+  SUBJECT_ORDER.forEach(name => {
+    const key = SUBJECT_KEYS[name];
     try {
       const data = JSON.parse(localStorage.getItem(key) || '{}');
       const masteredInSubject = Object.keys(data).filter(k => k.startsWith('topic_') && data[k].mastered).length;

@@ -9,6 +9,7 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 
 const COLOR = '#ffe600';
 const CATEGORY_COLORS = {
@@ -85,6 +86,18 @@ export default function EnglishLanguageHub() {
               </Link>
             </div>
           </div>
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-english-lang-stats" 
+            accentColor={COLOR}
+            subjectId="english-language"
+          />
         </section>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />

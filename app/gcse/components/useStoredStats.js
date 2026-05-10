@@ -13,7 +13,7 @@ function subscribe(callback) {
 }
 
 export default function useStoredStats(storageKey) {
-  return useSyncExternalStore(
+  const stats = useSyncExternalStore(
     subscribe,
     () => {
       if (typeof window === 'undefined') return null;
@@ -21,6 +21,8 @@ export default function useStoredStats(storageKey) {
     },
     () => null
   );
+
+  return stats;
 }
 
 // Helper to update stats and notify listeners

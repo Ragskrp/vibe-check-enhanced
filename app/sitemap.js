@@ -5,6 +5,8 @@ import { getAllTopicSlugs as getEnglishLiteratureTopicSlugs } from './gcse/engli
 import { getAllTopicSlugs as getMathsTopicSlugs } from './gcse/maths/topicData';
 import { getAllTopicSlugs as getScienceTopicSlugs } from './gcse/science/scienceData';
 import { getAllArticleSlugs as getTechNewsSlugs } from './tech-news/techNewsData';
+import { getAllTopicSlugs as getHistoryTopicSlugs } from './gcse/history/historyData';
+import { getAllTopicSlugs as getGeographyTopicSlugs } from './gcse/geography/geographyData';
 
 export default function sitemap() {
   // NOTE: The sitemap must be manually submitted to Google Search Console. 
@@ -107,6 +109,8 @@ export default function sitemap() {
   const businessSlugs = getBusinessTopicSlugs();
   const englishLanguageSlugs = getEnglishLanguageTopicSlugs();
   const englishLiteratureSlugs = getEnglishLiteratureTopicSlugs();
+  const historySlugs = getHistoryTopicSlugs();
+  const geographySlugs = getGeographyTopicSlugs();
 
   const gcsePages = [
     { url: `${baseUrl}/gcse`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
@@ -155,6 +159,26 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.7,
     })),
+    { url: `${baseUrl}/gcse/history`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    ...historySlugs.map(slug => ({
+      url: `${baseUrl}/gcse/history/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    { url: `${baseUrl}/gcse/geography`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
+    ...geographySlugs.map(slug => ({
+      url: `${baseUrl}/gcse/geography/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    })),
+    { url: `${baseUrl}/gcse/dashboard/mixed-mode`, lastModified, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${baseUrl}/gcse/maths/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/gcse/science/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/gcse/computer-science/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/gcse/history/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/gcse/geography/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
   ];
 
 

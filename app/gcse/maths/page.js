@@ -9,6 +9,7 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
 import InteractiveActivity from '../components/InteractiveActivity';
@@ -117,6 +118,18 @@ export default function MathsHub() {
               </Link>
             ))}
           </div>
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-maths-stats" 
+            accentColor={COLOR}
+            subjectId="maths"
+          />
         </section>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />

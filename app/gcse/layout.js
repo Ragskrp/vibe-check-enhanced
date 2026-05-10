@@ -12,6 +12,8 @@ export const metadata = {
     'GCSE english literature',
     'GCSE computer science',
     'GCSE business',
+    'GCSE history',
+    'GCSE geography',
     'GCSE revision games',
     'free GCSE revision',
     'GCSE practice',
@@ -77,6 +79,24 @@ export default function GCSELayout({ children }) {
       name: 'GCSE Mock Exam Simulation',
       description: 'Timed full-specification mock exams with 9-1 grade estimation.',
       credentialCategory: 'Examination',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'GCSE History Revision',
+      description: 'Interactive History revision covering Medicine in Britain, Weimar Germany, and the Cold War.',
+      provider: { '@type': 'Organization', name: 'VIBEMENOW', url: 'https://vibemenow.uk' },
+      isAccessibleForFree: true,
+      educationalLevel: 'GCSE',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'GCSE Geography Revision',
+      description: 'Physical and human geography revision with case studies and interactive hazard sorting.',
+      provider: { '@type': 'Organization', name: 'VIBEMENOW', url: 'https://vibemenow.uk' },
+      isAccessibleForFree: true,
+      educationalLevel: 'GCSE',
     }
   ];
 

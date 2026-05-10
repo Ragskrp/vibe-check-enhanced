@@ -23,13 +23,16 @@ function getStellarGlow(strength, baseColor) {
 
 export default function MasteryMap({ topics, statsKey, subjectId, accentColor }) {
   const [srsData, setSrsData] = useState({});
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (!topics?.length) return;
     const data = {};
     topics.forEach(t => {
+      const record = getSrsRecord(subjectId || 'gcse', t.slug);
       data[t.slug] = {
-        strength: getMemoryStrength(subjectId || 'gcse', t.slug),
+        strength: getMemoryStrength(record),
       };
     });
     setSrsData(data);
@@ -41,6 +44,8 @@ export default function MasteryMap({ topics, statsKey, subjectId, accentColor })
     if (!categories[t.category]) categories[t.category] = [];
     categories[t.category].push(t);
   });
+
+  if (!mounted) return null;
 
   return (
     <div style={{ marginTop: '60px' }}>

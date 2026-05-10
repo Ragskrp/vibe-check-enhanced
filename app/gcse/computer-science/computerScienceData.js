@@ -1248,10 +1248,11 @@ export function getTopicsByCategory() {
   return grouped;
 }
 
-export function getAllTopicSlugs() {
-  return Object.keys(TOPICS);
+export function getTopicBySlug(slug) {
+  if (!TOPICS[slug]) return null;
+  return { ...TOPICS[slug], slug };
 }
 
-export function getTopicData(slug) {
-  return TOPICS[slug];
+export function getAllTopicSlugs() {
+  return Object.keys(TOPICS);
 }

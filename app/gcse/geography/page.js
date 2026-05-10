@@ -8,6 +8,7 @@ import { getTopicsByCategory } from './geographyData';
 import { useAggregatedStats } from '../components/DashboardStats';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 import InteractiveActivity from '../components/InteractiveActivity';
 
 const COLOR = '#ffe600';
@@ -84,6 +85,20 @@ export default function GeographyHub() {
             </Link>
           </div>
         </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-geography-stats" 
+            accentColor={COLOR}
+            subjectId="geography"
+          />
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
         {/* ── TOPIC GRID ── */}
         <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>

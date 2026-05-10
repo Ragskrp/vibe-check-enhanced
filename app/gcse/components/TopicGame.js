@@ -13,45 +13,31 @@ import { applyRating, resultToQuality, getMemoryStrength } from '../utils/spaced
 const GAME_DURATION = 60;
 
 function getSubjectMeta(config) {
-  if (config.hubPath === '/gcse/science' || ['Biology', 'Chemistry', 'Physics'].includes(config.category)) {
-    return {
-      badge: 'GCSE Science',
-      hubPath: '/gcse/science',
-      backLabel: 'Back to Science',
-      statsKey: 'gcse-science-stats',
-    };
+  const hub = config.hubPath || (config.subjectSlug ? `/gcse/${config.subjectSlug}` : '');
+
+  if (hub === '/gcse/science' || ['Biology', 'Chemistry', 'Physics'].includes(config.category)) {
+    return { badge: 'GCSE Science', hubPath: '/gcse/science', backLabel: 'Back to Science', statsKey: 'gcse-science-stats' };
+  }
+  if (hub === '/gcse/computer-science' || config.subjectSlug === 'computer-science' || ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'].includes(config.category)) {
+    return { badge: 'GCSE Computer Science', hubPath: '/gcse/computer-science', backLabel: 'Back to Computer Science', statsKey: 'gcse-compsci-stats' };
+  }
+  if (hub === '/gcse/business' || config.subjectSlug === 'business' || ['Real World', 'Operations', 'Human Resources'].includes(config.category)) {
+    return { badge: 'GCSE Business', hubPath: '/gcse/business', backLabel: 'Back to Business', statsKey: 'gcse-business-stats' };
+  }
+  if (hub === '/gcse/history' || config.subjectSlug === 'history') {
+    return { badge: 'GCSE History', hubPath: '/gcse/history', backLabel: 'Back to History', statsKey: 'gcse-history-stats' };
+  }
+  if (hub === '/gcse/geography' || config.subjectSlug === 'geography') {
+    return { badge: 'GCSE Geography', hubPath: '/gcse/geography', backLabel: 'Back to Geography', statsKey: 'gcse-geography-stats' };
+  }
+  if (hub === '/gcse/english-language' || config.subjectSlug === 'english-language') {
+    return { badge: 'GCSE English Language', hubPath: '/gcse/english-language', backLabel: 'Back to English Lang', statsKey: 'gcse-english-lang-stats' };
+  }
+  if (hub === '/gcse/english-literature' || config.subjectSlug === 'english-literature') {
+    return { badge: 'GCSE English Literature', hubPath: '/gcse/english-literature', backLabel: 'Back to English Lit', statsKey: 'gcse-english-lit-stats' };
   }
 
-  if (
-    config.hubPath === '/gcse/computer-science' ||
-    ['Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'].includes(config.category)
-  ) {
-    return {
-      badge: 'GCSE Computer Science',
-      hubPath: '/gcse/computer-science',
-      backLabel: 'Back to Computer Science',
-      statsKey: 'gcse-compsci-stats',
-    };
-  }
-
-  if (
-    config.hubPath === '/gcse/business' ||
-    ['Real World', 'Operations', 'Human Resources'].includes(config.category)
-  ) {
-    return {
-      badge: 'GCSE Business',
-      hubPath: '/gcse/business',
-      backLabel: 'Back to Business',
-      statsKey: 'gcse-business-stats',
-    };
-  }
-
-  return {
-    badge: 'GCSE Maths',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    statsKey: 'gcse-maths-stats',
-  };
+  return { badge: 'GCSE Maths', hubPath: '/gcse/maths', backLabel: 'Back to Maths', statsKey: 'gcse-maths-stats' };
 }
 
 /**
@@ -59,7 +45,10 @@ function getSubjectMeta(config) {
  * Props:
  *   config: { title, emoji, color, description, lessons, generateQuestion, inputHint?, fractionInput? }
  */
-export default function TopicGame({ config }) {
+export default function TopicGame({ config, topic, subjectName, subjectSlug, accentColor, categoryName }) {
+  // Support both legacy (topic) and new (config) prop patterns
+  const finalConfig = config || topic;
+  const [mounted, setMounted] = useState(false);
   const [phase, setPhase] = useState('menu');
   const [mode, setMode] = useState('test');
   const [tier, setTier] = useState('foundation');
@@ -82,8 +71,14 @@ export default function TopicGame({ config }) {
   const hasSavedRef = useRef(false);
   const bankRef = useRef([]);
 
-  const accent = config.color || '#00e5a0';
-  const subjectMeta = getSubjectMeta(config);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const accent = accentColor || finalConfig?.color || '#00e5a0';
+  const subjectMeta = getSubjectMeta({ subjectSlug, ...finalConfig });
+  const statsKey = subjectMeta.statsKey;
+  const stats = useStoredStats(statsKey);
 
   const nextQuestion = useCallback(() => {
     if (deckIndex < questionDeck.length - 1) {

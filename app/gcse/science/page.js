@@ -9,6 +9,7 @@ import useStoredStats from '../components/useStoredStats';
 import PageValueSection from '../../components/PageValueSection';
 import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
+import MasteryMap from '../components/MasteryMap';
 import PedagogyBridge from '../components/PedagogyBridge';
 import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
@@ -102,6 +103,18 @@ export default function ScienceHub() {
               </Link>
             </div>
           </div>
+        </section>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+
+        {/* ── MASTERY CONSTELLATION ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 80px' }}>
+          <MasteryMap 
+            topics={Object.values(topicsByCategory).flat()} 
+            statsKey="gcse-science-stats" 
+            accentColor={COLOR}
+            subjectId="science"
+          />
         </section>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
