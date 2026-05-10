@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import AdBanner from '../../components/AdBanner';
 import LessonCards from './LessonCards';
 import FlashcardMode from './FlashcardMode';
+import useStoredStats from './useStoredStats';
 import Link from 'next/link';
 import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain, Layers } from 'lucide-react';
 import { recordActivity } from '../utils/streakLogic';
