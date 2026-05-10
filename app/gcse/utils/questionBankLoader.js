@@ -10,6 +10,16 @@ const BANKS = {
 
 const loadedBanks = {};
 
+function isPlaceholderQuestion(question) {
+  const text = [
+    question?.q,
+    question?.a,
+    ...(question?.o || []),
+  ].filter(Boolean).join(' ');
+
+  return /Question variant|Feature \d+|Alt \d+|component \d+|concept \d+|reaction \d+/i.test(text);
+}
+
 export async function getBankQuestions(subject, topicSlug) {
   if (!BANKS[subject]) return [];
   
@@ -17,7 +27,8 @@ export async function getBankQuestions(subject, topicSlug) {
     loadedBanks[subject] = await BANKS[subject]();
   }
   
-  return loadedBanks[subject][subject]?.[topicSlug] || [];
+  const questions = loadedBanks[subject][subject]?.[topicSlug] || [];
+  return questions.filter((question) => !isPlaceholderQuestion(question));
 }
 
 /**

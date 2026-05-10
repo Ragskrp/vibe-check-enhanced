@@ -9,6 +9,70 @@ import { applyRating, resultToQuality, getMemoryStrength } from '../utils/spaced
 import AdBanner from '../../components/AdBanner';
 
 const GAME_DURATION = 180; // 3 minutes
+const DATA_LOADERS = {
+  'maths': () => import('../maths/topicData'),
+  'science': () => import('../science/scienceData'),
+  'computer-science': () => import('../computer-science/computerScienceData'),
+  'business': () => import('../business/businessData'),
+  'english-language': () => import('../english-language/englishLanguageData'),
+  'english-literature': () => import('../english-literature/englishLiteratureData'),
+  'history': () => import('../history/historyData'),
+  'geography': () => import('../geography/geographyData'),
+};
+
+async function getTopicConfig(subjectId, topicSlug) {
+  const loader = DATA_LOADERS[subjectId];
+  if (!loader) return null;
+
+  const module = await loader();
+  if (module.getTopicBySlug) return module.getTopicBySlug(topicSlug);
+  if (module.TOPICS?.[topicSlug]) return { ...module.TOPICS[topicSlug], slug: topicSlug };
+  if (module.getTopicsByCategory) {
+    return Object.values(module.getTopicsByCategory()).flat().find((topic) => topic.slug === topicSlug) || null;
+  }
+  return null;
+}
+
+function mapQuestion(question, topic, subjectId, index) {
+  return {
+    id: question.id || `${subjectId}_${topic.slug}_${index}`,
+    display: question.q ?? question.display,
+    answer: question.a ?? question.answer,
+    options: question.o ?? question.options,
+    explanation: question.e ?? question.explanation,
+    topicTitle: topic.title,
+    subjectId,
+    topicSlug: topic.slug,
+    color: topic.color || getSubjectColor(subjectId),
+  };
+}
+
+async function getFallbackQuestions(subjectId, topic) {
+  const config = await getTopicConfig(subjectId, topic.slug);
+  if (!config) return [];
+
+  if (typeof config.generateQuestion === 'function') {
+    return Array.from({ length: 6 }, (_, index) => {
+      const generated = config.generateQuestion('higher');
+      return mapQuestion(
+        { ...generated, id: `${subjectId}_${topic.slug}_generated_${index}` },
+        { ...topic, title: config.title || topic.title, color: config.color || topic.color },
+        subjectId,
+        index
+      );
+    });
+  }
+
+  if (Array.isArray(config.quizzes)) {
+    return config.quizzes.map((question, index) => mapQuestion(question, { ...topic, ...config }, subjectId, index));
+  }
+
+  if (Array.isArray(config.flashcards)) {
+    return config.flashcards.map((card, index) => mapQuestion(card, { ...topic, ...config }, subjectId, index));
+  }
+
+  return [];
+}
 
 export default function MixedGame({ subjectsData, title, backLink, backLabel }) {
   const [phase, setPhase] = useState('menu');
@@ -42,17 +106,11 @@ export default function MixedGame({ subjectsData, title, backLink, backLabel }) 
           const memStr = getMemoryStrength(subjectId, topic.slug);
           const weight = memStr < 50 ? 3 : memStr < 80 ? 2 : 1;
 
-          const mapped = rawBank.map(q => ({
-            id: q.id,
-            display: q.q,
-            answer: q.a,
-            options: q.o,
-            explanation: q.e,
-            topicTitle: topic.title,
-            subjectId: subjectId,
-            topicSlug: topic.slug,
-            color: topic.color || getSubjectColor(subjectId)
-          }));
+          const mapped = rawBank.length
+            ? rawBank.map((q, index) => mapQuestion(q, topic, subjectId, index))
+            : await getFallbackQuestions(subjectId, topic);
+
+          if (!mapped.length) continue;
 
           // Add weighted copies to the pool
           for(let i = 0; i < weight; i++) {
