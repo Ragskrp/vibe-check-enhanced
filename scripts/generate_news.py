@@ -2,7 +2,7 @@ import os
 import re
 import json
 import feedparser
-import google.generativeai as genai
+from google import genai
 from datetime import datetime
 from slugify import slugify
 import requests
@@ -19,20 +19,20 @@ ARTICLES_DIR = "app/tech-news"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 MAX_ARTICLES_PER_RUN = 5
 
-# Initialize Gemini
-genai.configure(api_key=GEMINI_API_KEY)
+# Initialize modern Google GenAI Client
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 def list_available_models():
     print("--- AVAILABLE MODELS FOR THIS API KEY ---")
     try:
-        for m in genai.list_models():
-            if 'generateContent' in m.supported_generation_methods:
-                print(f"Model: {m.name}")
+        # Modern SDK uses different method to list models
+        for m in client.models.list():
+            print(f"Model: {m.name}")
     except Exception as e:
         print(f"ERROR listing models: {e}")
     print("-----------------------------------------")
 
-# List models at startup
+# List models at startup for diagnostics
 list_available_models()
 
 def get_existing_slugs():
@@ -68,38 +68,30 @@ def generate_article_content(title, summary, source_url):
     IMPORTANT: Return ONLY the JSON object. No extra text.
     """
     
-    # Try the next-gen models found in your diagnostic list
-    models_to_try = [
-        'models/gemini-2.5-flash',
-        'models/gemini-2.0-flash',
-        'models/gemini-flash-latest',
-        'models/gemini-pro-latest'
-    ]
+    # Modern SDK model selection
+    models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.0-flash-lite']
     
     for model_name in models_to_try:
         try:
             print(f"Attempting generation with {model_name}...")
-            temp_model = genai.GenerativeModel(model_name)
-            response = temp_model.generate_content(prompt)
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt
+            )
             text = response.text.strip()
             
-            # Clean up possible markdown code blocks
+            # Clean up markdown code blocks if AI included them
             if text.startswith("```json"):
                 text = text[7:-3].strip()
             elif text.startswith("```") and text.endswith("```"):
-                # Handle generic code blocks
                 lines = text.split('\n')
                 if len(lines) > 2:
                     text = '\n'.join(lines[1:-1]).strip()
                     
             return json.loads(text)
         except Exception as e:
-            if "404" in str(e):
-                print(f"Model {model_name} not found (404). Trying next...")
-                continue
-            else:
-                print(f"Error generating with {model_name}: {e}")
-                continue
+            print(f"Error generating with {model_name}: {e}")
+            continue
                 
     return None
 
@@ -216,10 +208,15 @@ def update_data_file(slug, data):
     date: '{datetime.now().strftime('%B %d, %Y')}',
     readTime: '{data['readTime']}',
     image: 'https://source.unsplash.com/featured/?{data['image']}',
+    featured: true,
   }},
 """
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
+    
+    # Remove existing featured: true flags to ensure only the latest is featured
+    content = content.replace("featured: true,", "")
+    content = content.replace("featured: true", "")
     
     # Insert at the beginning of ARTICLES array
     insertion_point = content.find("export const ARTICLES = [")
