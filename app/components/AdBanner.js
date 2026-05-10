@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 
 /**
  * Google AdSense Banner Component
@@ -72,19 +73,86 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   if (isDev) {
     return (
       <div className={`ad-slot ${className}`} style={{
-        minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px'
+        minHeight: format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px',
+        border: '1px dashed #ccc',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '1rem',
+        background: '#f9f9f9',
+        borderRadius: '8px'
       }}>
-        📢 AD SPACE — {slot.toUpperCase()} ({format}) <br/>
-        <span style={{fontSize: '10px', opacity: 0.5}}>(ca-pub-7832965089021505)</span>
+        <div>
+          📢 {format.toUpperCase()} AD SLOT <br/>
+          <span style={{fontSize: '10px', opacity: 0.5}}>
+            Provider: Adsterra ({format === 'rectangle' ? '300x250' : format === 'horizontal' ? '728x90' : 'Native'})
+          </span>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className={`ad-slot ${className}`} ref={adRef}>
+    <div className={`ad-slot ${className}`} ref={adRef} style={{ minHeight: format === 'rectangle' ? '250px' : '90px' }}>
+      {format === 'rectangle' ? (
+        <>
+          {/* Adsterra 300x250 Rectangle */}
+          <Script id={`adsterra-300x250-${slot}`} strategy="afterInteractive">
+            {`
+              window.atOptions = {
+                'key' : 'f055390fdfc79f4ab56cb401696a3f5d',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            `}
+          </Script>
+          <Script 
+            id={`adsterra-300x250-invoke-${slot}`}
+            strategy="afterInteractive"
+            src="https://www.highperformanceformat.com/f055390fdfc79f4ab56cb401696a3f5d/invoke.js" 
+          />
+        </>
+      ) : format === 'horizontal' ? (
+        <>
+          {/* Adsterra 728x90 Leaderboard */}
+          <Script id={`adsterra-728x90-${slot}`} strategy="afterInteractive">
+            {`
+              window.atOptions = {
+                'key' : '64a5fdeb6bf4cf0934af6231f80fb455',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            `}
+          </Script>
+          <Script 
+            id={`adsterra-728x90-invoke-${slot}`}
+            strategy="afterInteractive"
+            src="https://www.highperformanceformat.com/64a5fdeb6bf4cf0934af6231f80fb455/invoke.js" 
+          />
+        </>
+      ) : (
+        <>
+          {/* Adsterra Native Banner Integration */}
+          <Script 
+            id={`adsterra-native-${slot}`}
+            async="async" 
+            data-cfasync="false" 
+            src="https://pl29408324.profitablecpmratenetwork.com/b87ec4964e8b91d4001fd5f3b6db90a7/invoke.js"
+            strategy="lazyOnload"
+          />
+          <div id="container-b87ec4964e8b91d4001fd5f3b6db90a7"></div>
+        </>
+      )}
+
+      {/* AdSense (Hidden/Fallback) */}
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'none' }}
         data-ad-client="ca-pub-7832965089021505"
         data-ad-slot={slot}
         data-ad-format={format === 'auto' ? 'auto' : undefined}

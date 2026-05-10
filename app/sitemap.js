@@ -45,7 +45,7 @@ export default function sitemap() {
     'geography-guesser',
     'vibe-clicker',
     '2048-vibe',
-    'flappy-vibe',
+    'gravity-dash',
     'whack-a-vibe',
     'reaction-arena',
     'drawing-dash',

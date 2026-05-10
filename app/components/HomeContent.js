@@ -154,9 +154,9 @@ const GAMES = [
   },
   {
     emoji: '🕊️',
-    title: 'Flappy Vibe',
+    title: 'Gravity Dash',
     desc: 'Tap to stay in the air and squeeze through the gaps.',
-    path: '/flappy-vibe',
+    path: '/gravity-dash',
     tag: 'Arcade',
     color: '#00ff94',
     category: 'solo'

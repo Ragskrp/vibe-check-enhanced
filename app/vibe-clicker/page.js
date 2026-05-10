@@ -74,9 +74,9 @@ export default function VibeClickerPage() {
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
             <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
           </Link>
-          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+          <Link href="/gravity-dash" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Gravity Dash</div>
           </Link>
           <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>

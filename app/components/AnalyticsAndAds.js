@@ -26,12 +26,21 @@ export default function AnalyticsAndAds() {
   return (
     <>
       {consent?.advertising && (
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
-          crossOrigin="anonymous"
-        />
+        <>
+          {/* AdSense (Keep for now) */}
+          <Script
+            id="adsbygoogle-init"
+            strategy="afterInteractive"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
+            crossOrigin="anonymous"
+          />
+          {/* Adsterra Social Bar - Instant Approval Alternative */}
+          <Script
+            id="adsterra-social-bar"
+            strategy="lazyOnload"
+            src="https://pl29408323.profitablecpmratenetwork.com/45/5d/51/455d5174d55b0eaec902ce55f4ff5e0d.js"
+          />
+        </>
       )}
       {consent?.analytics && (
         <>

@@ -30,6 +30,7 @@ export default function MockExam({ subjectData, accentColor, hubPath, backLabel,
       try {
         const rawBank = await getBankQuestions(subjectId, topic.slug);
         allBankQuestions.push(...rawBank.map(q => ({
+          id: q.id,
           display: q.q,
           answer: q.a,
           options: q.o,
@@ -40,18 +41,33 @@ export default function MockExam({ subjectData, accentColor, hubPath, backLabel,
       }
     }
 
-    // Shuffle and pick
-    let initialDeck = [];
-    if (allBankQuestions.length >= QUESTION_COUNT) {
-      initialDeck = shuffleArray(allBankQuestions).slice(0, QUESTION_COUNT);
+    // Shuffle and pick with unseen tracking
+    const seenKey = `seen_mock_${subjectId}`;
+    let seenIds = [];
+    try { seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]'); } catch(e){}
+    
+    const unseen = allBankQuestions.filter(q => !seenIds.includes(q.id));
+    const seen = allBankQuestions.filter(q => seenIds.includes(q.id));
+
+    let pool = [];
+    if (unseen.length >= QUESTION_COUNT) {
+      pool = shuffleArray(unseen).slice(0, QUESTION_COUNT);
     } else {
+      pool = [...unseen, ...shuffleArray(seen).slice(0, QUESTION_COUNT - unseen.length)];
+      if (allBankQuestions.length > 0 && unseen.length === 0) {
+        try { localStorage.setItem(seenKey, '[]'); } catch(e){}
+      }
+    }
+
+    let initialDeck = pool;
+    if (initialDeck.length < QUESTION_COUNT) {
       // Fallback: fill with generator
-      initialDeck = [...allBankQuestions];
       while (initialDeck.length < QUESTION_COUNT) {
         const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)];
         initialDeck.push({
           ...randomTopic.generateQuestion('higher'),
-          topicTitle: randomTopic.title
+          topicTitle: randomTopic.title,
+          id: 'gen_' + Math.random()
         });
       }
     }
@@ -83,6 +99,20 @@ export default function MockExam({ subjectData, accentColor, hubPath, backLabel,
     setIsComplete(true);
     // Record activity for streak
     recordActivity();
+    
+    // Record seen mock questions
+    const subjectId = hubPath.split('/').pop();
+    const seenKey = `seen_mock_${subjectId}`;
+    try {
+      const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
+      questions.forEach(q => {
+        if (q.id && !q.id.startsWith('gen_') && !seenIds.includes(q.id)) {
+          seenIds.push(q.id);
+        }
+      });
+      localStorage.setItem(seenKey, JSON.stringify(seenIds));
+    } catch(e){}
+
     // Save to stats
     try {
       const existing = JSON.parse(localStorage.getItem(statsKey) || '{}');

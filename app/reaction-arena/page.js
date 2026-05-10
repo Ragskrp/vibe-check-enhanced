@@ -63,9 +63,9 @@ export default function ReactionArenaPage() {
           Think you have the fastest hands? Test your skills in these other reaction and arcade games:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-          <Link href="/flappy-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+          <Link href="/gravity-dash" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Flappy Vibe</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Gravity Dash</div>
           </Link>
           <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>

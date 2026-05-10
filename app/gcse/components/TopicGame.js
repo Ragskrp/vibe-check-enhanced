@@ -76,6 +76,7 @@ export default function TopicGame({ config }) {
   const inputRef = useRef(null);
   const timerRef = useRef(null);
   const hasSavedRef = useRef(false);
+  const bankRef = useRef([]);
 
   const accent = config.color || '#00e5a0';
   const subjectMeta = getSubjectMeta(config);
@@ -91,9 +92,23 @@ export default function TopicGame({ config }) {
       // Deck exhausted, results or reshuffle
       if (mode === 'test') setPhase('results');
       else {
-        // In practice mode, reshuffle a new deck
+        // In practice mode, pull more unseen from bank or fallback
+        const meta = getSubjectMeta(config);
+        const subjectId = meta.hubPath.split('/').pop();
+        const seenKey = `seen_${subjectId}_${config.slug}`;
+        const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
+        
+        const unseenBank = bankRef.current.filter(q => !seenIds.includes(q.id));
         const newDeck = [];
-        for (let i = 0; i < 10; i++) newDeck.push({ ...config.generateQuestion(tier), id: 'gen_' + Math.random() });
+        if (unseenBank.length > 0) {
+          const toAdd = shuffleArray(unseenBank).slice(0, 15);
+          newDeck.push(...toAdd);
+        }
+        
+        while (newDeck.length < 15) {
+          newDeck.push({ ...config.generateQuestion(tier), id: 'gen_' + Math.random() });
+        }
+        
         setQuestionDeck(newDeck);
         setDeckIndex(0);
         setQuestion(newDeck[0]);
@@ -124,6 +139,7 @@ export default function TopicGame({ config }) {
         options: q.o,
         explanation: q.e || 'Correct answer: ' + q.a
       }));
+      bankRef.current = bankQuestions;
     } catch (e) {
       console.warn("Failed to load bank questions:", e);
     }

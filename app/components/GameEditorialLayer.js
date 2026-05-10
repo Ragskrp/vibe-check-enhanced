@@ -152,7 +152,7 @@ const GAME_CONTENT = {
       'A good run alternates between active clicking and upgrade planning. Players can compare whether early automation, multipliers, or manual boosts produce better growth. The page explains that loop so the experience reads as a playable incremental game with strategy, not a thin screen of buttons.',
     ],
     tips: ['Compare upgrade cost against future return.', 'Buy multipliers before long idle stretches.', 'Reset expectations as growth speeds up.'],
-    related: [['/2048-vibe', 'Merge Vibe'], ['/whack-a-vibe', 'Whack-a-Vibe'], ['/flappy-vibe', 'Flappy Vibe']],
+    related: [['/2048-vibe', 'Merge Vibe'], ['/whack-a-vibe', 'Whack-a-Vibe'], ['/gravity-dash', 'Gravity Dash']],
   },
   '/2048-vibe': {
     title: 'Merge Vibe editorial notes',
@@ -162,11 +162,11 @@ const GAME_CONTENT = {
       'Players improve by choosing a corner plan and sticking with it until the board forces a change. Random swiping can work for early tiles, but later rounds punish clutter. The page gives visitors enough context to understand the strategy loop and why repeated attempts feel meaningfully different.',
     ],
     tips: ['Keep the largest tile anchored.', 'Preserve open spaces whenever possible.', 'Avoid reversing your board plan too often.'],
-    related: [['/wordvibe', 'WordVibe'], ['/vibe-clicker', 'Vibe Clicker'], ['/flappy-vibe', 'Flappy Vibe']],
+    related: [['/wordvibe', 'WordVibe'], ['/vibe-clicker', 'Vibe Clicker'], ['/gravity-dash', 'Gravity Dash']],
   },
-  '/flappy-vibe': {
-    title: 'Flappy Vibe editorial notes',
-    description: 'Flappy Vibe is a timing game about rhythm, spacing, and recovery.',
+  '/gravity-dash': {
+    title: 'Gravity Dash editorial notes',
+    description: 'Gravity Dash is a timing game about rhythm, spacing, and recovery.',
     details: [
       'The challenge in a flappy-style game is not constant tapping; it is rhythm control. Players must read the gap, tap early enough to correct height, and avoid overreacting after a near miss. That makes each attempt a small lesson in timing and momentum.',
       'A practical strategy is to watch the next opening rather than the character itself. The character’s position matters, but the gap tells the player what adjustment is needed. Short restarts keep frustration low and make improvement visible as players learn the rhythm of the obstacles.',
@@ -182,7 +182,7 @@ const GAME_CONTENT = {
       'The best players do not simply click everywhere. They keep their eyes moving, wait long enough to confirm the target, and avoid losing points through rushed mistakes. The page supports that learning loop with short rounds that make it easy to test whether a calmer strategy beats frantic tapping.',
     ],
     tips: ['Confirm the target before clicking.', 'Keep your cursor near the centre when possible.', 'Value accuracy over one risky extra hit.'],
-    related: [['/vibeordie', 'Vibe or Die'], ['/reaction-arena', 'Reaction Arena'], ['/flappy-vibe', 'Flappy Vibe']],
+    related: [['/vibeordie', 'Vibe or Die'], ['/reaction-arena', 'Reaction Arena'], ['/gravity-dash', 'Gravity Dash']],
   },
 };
 
