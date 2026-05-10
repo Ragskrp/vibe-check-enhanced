@@ -9,6 +9,56 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'the-instax-wide-400-builds-on-instant-photographys-simplicity-and-stretches-it-literally',
+    title: 'Go Wide or Go Home: Why Instax\'s New Beast Is Your Next Must-Have',
+    excerpt: 'In a world obsessed with pixels and AI, Fujifilm\'s new Instax Wide 400 is shaking things up by going gloriously analog and extra wide. It\'s a chunky, retro-cool camera promising authentic, tangible memories for a generation hungry for more than just digital feeds.',
+    category: 'Digital Culture',
+    date: 'May 10, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?Instax Wide 400 camera friends group',
+  },
+
+  {
+    slug: 'gm-agrees-to-pay-12-75m-in-california-driver-privacy-settlement',
+    title: 'GM\'s $12.75M Privacy Pay-Up: What Your Smart Car REALLY Knows About You',
+    excerpt: 'General Motors just settled a massive privacy case in California for $12.75 million, signaling a huge shift in how our connected cars handle our data. This isn\'t just about GM; it\'s a wake-up call for every driver plugged into the future.',
+    category: 'Cybersecurity',
+    date: 'May 10, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?smart car data privacy',
+  },
+
+  {
+    slug: 'fintech-startup-parker-files-for-bankruptcy',
+    title: 'Wild Ride Ends: Parker\'s Bankruptcy Is a Huge Wake-Up Call for Fintech',
+    excerpt: 'Corporate credit card darling Parker just went belly-up, a shocking collapse for a well-funded fintech startup. This isn\'t just another tech casualty; it\'s a stark reminder of the volatile forces shaping the future of finance.',
+    category: 'Startups',
+    date: 'May 10, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?fintech bankruptcy',
+  },
+
+  {
+    slug: 'so-youve-heard-these-ai-terms-and-nodded-along-lets-fix-that',
+    title: 'Level Up Your Lingo: Cracking the Wild World of AI Terms',
+    excerpt: 'AI jargon hitting different? Don\'t stress, VIBEMENOW is here to decode the essential terms like Generative AI, LLMs, and even \'hallucinations\' so you can navigate this tech beast like a pro. Get ready to sound smart and understand the future.',
+    category: 'AI',
+    date: 'May 10, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?abstract AI data',
+  },
+
+  {
+    slug: 'voice-ai-in-india-is-hard-wispr-flow-is-betting-on-it-anyway',
+    title: 'Hinglish Hype: Wispr Flow\'s Wild Bet on Cracking Indian Voice AI',
+    excerpt: 'Voice AI has always struggled with India\'s diverse linguistic landscape, but Wispr Flow is making a huge bet on Hinglish. Their accelerated growth proves that speaking the local lingo might just be the key to unlocking a massive digital future.',
+    category: 'AI',
+    date: 'May 10, 2026',
+    readTime: '3 min read',
+    image: 'https://source.unsplash.com/featured/?india voice ai',
+  },
+
+  {
     slug: 'disney-q2-2026-earnings-josh-damaro',
     title: 'Disney\'s New CEO Walks Into His First Earnings Call — and Delivers a 7% Rally',
     excerpt: 'Josh D\'Amaro delivers one of Disney\'s cleanest quarters in recent memory, sending the stock up 7%.',
