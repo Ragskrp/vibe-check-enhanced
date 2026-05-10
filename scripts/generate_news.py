@@ -194,11 +194,18 @@ def update_data_file(slug, data):
             f.write(new_content)
 
 def main():
+    print("--- Starting Tech News Generation ---")
     if not GEMINI_API_KEY:
-        print("GEMINI_API_KEY not found in environment variables.")
+        print("ERROR: GEMINI_API_KEY not found in environment variables.")
         return
 
-    existing_slugs = get_existing_slugs()
+    try:
+        existing_slugs = get_existing_slugs()
+        print(f"Found {len(existing_slugs)} existing articles.")
+    except Exception as e:
+        print(f"ERROR: Could not read existing slugs: {e}")
+        return
+
     processed_count = 0
 
     for feed_url in RSS_FEEDS:
@@ -206,7 +213,12 @@ def main():
             break
             
         print(f"Fetching feed: {feed_url}")
-        feed = feedparser.parse(feed_url)
+        try:
+            feed = feedparser.parse(feed_url)
+            print(f"Feed '{feed.feed.get('title', 'Unknown')}' has {len(feed.entries)} entries.")
+        except Exception as e:
+            print(f"ERROR: Failed to parse feed {feed_url}: {e}")
+            continue
         
         for entry in feed.entries:
             if processed_count >= MAX_ARTICLES_PER_RUN:
@@ -216,18 +228,29 @@ def main():
             slug = slugify(title)
             
             if slug in existing_slugs:
+                print(f"Skipping (Already exists): {slug}")
                 continue
                 
-            print(f"Generating article for: {title}")
+            print(f"--- Generating: {title} ---")
             summary = entry.get("summary", title)
             article_data = generate_article_content(title, summary, entry.link)
             
             if article_data:
-                create_article_page(slug, article_data)
-                update_data_file(slug, article_data)
-                existing_slugs.add(slug)
-                processed_count += 1
-                print(f"Successfully created: {slug}")
+                try:
+                    create_article_page(slug, article_data)
+                    update_data_file(slug, article_data)
+                    existing_slugs.add(slug)
+                    processed_count += 1
+                    print(f"SUCCESS: Created article and updated index for '{slug}'")
+                except Exception as e:
+                    print(f"ERROR: Failed to save article '{slug}': {e}")
+            else:
+                print(f"WARNING: Gemini failed to generate content for '{title}'")
+
+    if processed_count == 0:
+        print("Done. No new articles were found or generated today.")
+    else:
+        print(f"Done. Successfully generated {processed_count} new articles.")
 
 if __name__ == "__main__":
     main()
