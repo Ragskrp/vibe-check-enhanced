@@ -68,16 +68,21 @@ def generate_article_content(title, summary, source_url):
         return None
 
 def create_article_page(slug, data):
+    # Pre-escape single quotes for metadata to avoid SyntaxError in f-strings
+    excerpt_escaped = data['excerpt'].replace("'", "\\'")
+    title_escaped = data['title'].replace("'", "\\'")
+    content_html = data['content_html']
+    
     # Use existing template structure
     template = f"""import Link from 'next/link';
 import {{ ArrowLeft, Zap }} from 'lucide-react';
 
 export const metadata = {{
-  title: '{data['title']} | Tech Pulse',
-  description: '{data['excerpt'].replace("'", "\\'")}',
+  title: '{title_escaped} | Tech Pulse',
+  description: '{excerpt_escaped}',
   openGraph: {{
-    title: '{data['title']}',
-    description: '{data['excerpt'].replace("'", "\\'")}',
+    title: '{title_escaped}',
+    description: '{excerpt_escaped}',
     type: 'article',
     url: '/tech-news/{slug}',
   }},
@@ -89,7 +94,7 @@ export const metadata = {{
 export default function GeneratedArticlePage() {{
   return (
     <div className="page-container animate-fade-in">
-      <nav style={{ marginBottom: 40 }}>
+      <nav style={{{{ marginBottom: 40 }}}}>
         <Link href="/tech-news" className="nav-link" style={{{{ display: 'inline-flex', alignItems: 'center', gap: 8 }}}}>
           <ArrowLeft size={16} /> Back to Tech Pulse
         </Link>
@@ -115,7 +120,7 @@ export default function GeneratedArticlePage() {{
         </img>
 
         <section className="blog-content" style={{{{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}}}
-          dangerouslySetInnerHTML={{{{ __html: `{data['content_html']}` }}}}
+          dangerouslySetInnerHTML={{{{ __html: `{content_html}` }}}}
         />
 
         <footer style={{{{ marginTop: 64, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.1)' }}}}>
@@ -150,10 +155,13 @@ export default function GeneratedArticlePage() {{
         f.write(template)
 
 def update_data_file(slug, data):
+    title_escaped = data['title'].replace("'", "\\'")
+    excerpt_escaped = data['excerpt'].replace("'", "\\'")
+    
     new_article = f"""  {{
     slug: '{slug}',
-    title: '{data['title'].replace("'", "\\'")}',
-    excerpt: '{data['excerpt'].replace("'", "\\'")}',
+    title: '{title_escaped}',
+    excerpt: '{excerpt_escaped}',
     category: '{data['category']}',
     date: '{datetime.now().strftime('%B %d, %Y')}',
     readTime: '{data['readTime']}',
