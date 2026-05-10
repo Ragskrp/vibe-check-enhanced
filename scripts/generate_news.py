@@ -68,91 +68,105 @@ def generate_article_content(title, summary, source_url):
         return None
 
 def create_article_page(slug, data):
-    # Pre-escape single quotes for metadata to avoid SyntaxError in f-strings
+    # Pre-escape single quotes for metadata
     excerpt_escaped = data['excerpt'].replace("'", "\\'")
     title_escaped = data['title'].replace("'", "\\'")
-    content_html = data['content_html']
     
-    # Use existing template structure
-    template = f"""import Link from 'next/link';
-import {{ ArrowLeft, Zap }} from 'lucide-react';
+    # Use a raw string for the template and replace placeholders
+    # This avoids f-string escaping issues with JSX curly braces
+    template = """import Link from 'next/link';
+import { ArrowLeft, Zap } from 'lucide-react';
 
-export const metadata = {{
-  title: '{title_escaped} | Tech Pulse',
-  description: '{excerpt_escaped}',
-  openGraph: {{
-    title: '{title_escaped}',
-    description: '{excerpt_escaped}',
+export const metadata = {
+  title: '[TITLE_ESCAPED] | Tech Pulse',
+  description: '[EXCERPT_ESCAPED]',
+  openGraph: {
+    title: '[TITLE_ESCAPED]',
+    description: '[EXCERPT_ESCAPED]',
     type: 'article',
-    url: '/tech-news/{slug}',
-  }},
-  alternates: {{
-    canonical: '/tech-news/{slug}',
-  }},
-}};
+    url: '/tech-news/[SLUG]',
+  },
+  alternates: {
+    canonical: '/tech-news/[SLUG]',
+  },
+};
 
-export default function GeneratedArticlePage() {{
+export default function GeneratedArticlePage() {
   return (
     <div className="page-container animate-fade-in">
-      <nav style={{{{ marginBottom: 40 }}}}>
-        <Link href="/tech-news" className="nav-link" style={{{{ display: 'inline-flex', alignItems: 'center', gap: 8 }}}}>
+      <nav style={{ marginBottom: 40 }}>
+        <Link href="/tech-news" className="nav-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
           <ArrowLeft size={16} /> Back to Tech Pulse
         </Link>
       </nav>
 
-      <article style={{{{ maxWidth: 800, margin: '0 auto' }}}}>
-        <header style={{{{ marginBottom: 56 }}}}>
-          <div style={{{{ display: 'flex', alignItems: 'center', gap: 12, color: '#00d4ff', fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: 13 }}}}>
-            <Zap size={16} /> {data['category']}
+      <article style={{ maxWidth: 800, margin: '0 auto' }}>
+        <header style={{ marginBottom: 56 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#00d4ff', fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: 13 }}>
+            <Zap size={16} /> [CATEGORY]
           </div>
-          <h1 className="hero-title" style={{{{ fontSize: 'calc(32px + 2vw)', lineHeight: 1.1, marginBottom: 24 }}}}>
-            {data['title']}
+          <h1 className="hero-title" style={{ fontSize: 'calc(32px + 2vw)', lineHeight: 1.1, marginBottom: 24 }}>
+            [TITLE]
           </h1>
-          <p className="hero-desc" style={{{{ fontSize: 20, color: '#aaa', lineHeight: 1.6 }}}}>
-            {data['excerpt']}
+          <p className="hero-desc" style={{ fontSize: 20, color: '#aaa', lineHeight: 1.6 }}>
+            [EXCERPT]
           </p>
         </header>
 
         <img 
-          src={`https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200&q={data['image']}`} 
-          alt="{data['title']}" 
-          style={{{{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}}}>
-        </img>
-
-        <section className="blog-content" style={{{{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}}}
-          dangerouslySetInnerHTML={{{{ __html: `{content_html}` }}}}
+          src={`https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200&q=[IMAGE_KEYWORD]`} 
+          alt="[TITLE]" 
+          style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />
 
-        <footer style={{{{ marginTop: 64, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.1)' }}}}>
-          <div style={{{{ marginBottom: 24 }}}}>
-            <h4 style={{{{ color: '#fff', fontSize: 14, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}}}>Sources & Citations</h4>
-            <div style={{{{ display: 'flex', flexWrap: 'wrap', gap: 12, fontSize: 13, color: '#888' }}}}>
-              {", ".join([f"<span>{s}</span>" for s in data['sources']])}
+        <section className="blog-content" style={{ fontSize: 18, lineHeight: 1.8, color: '#ddd' }}
+          dangerouslySetInnerHTML={{ __html: `[CONTENT_HTML]` }}
+        />
+
+        <footer style={{ marginTop: 64, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div style={{ marginBottom: 24 }}>
+            <h4 style={{ color: '#fff', fontSize: 14, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Sources & Citations</h4>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, fontSize: 13, color: '#888' }}>
+              [SOURCES_HTML]
             </div>
           </div>
-          <div style={{{{ display: 'flex', alignItems: 'center', gap: 16 }}}}>
-             <div style={{{{ width: 48, height: 48, borderRadius: '50%', background: 'linear-gradient(135deg, #00d4ff, #b14aed)' }}}} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+             <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'linear-gradient(135deg, #00d4ff, #b14aed)' }} />
              <div>
-               <div style={{{{ fontWeight: 700, color: '#fff' }}}}>VIBEMENOW Editorial</div>
-               <div style={{{{ color: '#888', fontSize: 13 }}}}>AI News Desk • {datetime.now().strftime('%B %d, %Y')}</div>
+               <div style={{ fontWeight: 700, color: '#fff' }}>VIBEMENOW Editorial</div>
+               <div style={{ color: '#888', fontSize: 13 }}>AI News Desk • [DATE]</div>
              </div>
           </div>
         </footer>
       </article>
 
-      <style>{{`
-        .blog-content p {{ margin-bottom: 24px; }}
-        .blog-content h2 {{ color: #fff; font-size: 28px; margin-top: 48px; margin-bottom: 20px; }}
-        .blog-content ul {{ padding-left: 20px; margin-bottom: 24px; list-style-type: disc; }}
-        .blog-content li {{ margin-bottom: 12px; }}
-      `}}</style>
+      <style>{`
+        .blog-content p { margin-bottom: 24px; }
+        .blog-content h2 { color: #fff; font-size: 28px; margin-top: 48px; margin-bottom: 20px; }
+        .blog-content ul { padding-left: 20px; margin-bottom: 24px; list-style-type: disc; }
+        .blog-content li { margin-bottom: 12px; }
+      `}</style>
     </div>
   );
-}}
+}
 """
+    sources_html = ", ".join([f"<span>{s}</span>" for s in data['sources']])
+    current_date = datetime.now().strftime('%B %d, %Y')
+    
+    final_content = template.replace("[TITLE_ESCAPED]", title_escaped)\
+                           .replace("[EXCERPT_ESCAPED]", excerpt_escaped)\
+                           .replace("[SLUG]", slug)\
+                           .replace("[CATEGORY]", data['category'])\
+                           .replace("[TITLE]", data['title'])\
+                           .replace("[EXCERPT]", data['excerpt'])\
+                           .replace("[IMAGE_KEYWORD]", data['image'])\
+                           .replace("[CONTENT_HTML]", data['content_html'])\
+                           .replace("[SOURCES_HTML]", sources_html)\
+                           .replace("[DATE]", current_date)
+    
     os.makedirs(f"{ARTICLES_DIR}/{slug}", exist_ok=True)
     with open(f"{ARTICLES_DIR}/{slug}/page.js", 'w', encoding='utf-8') as f:
-        f.write(template)
+        f.write(final_content)
 
 def update_data_file(slug, data):
     title_escaped = data['title'].replace("'", "\\'")
