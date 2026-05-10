@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Target, ChevronRight } from 'lucide-react';
+import { Target, ChevronRight, Activity, Zap, Brain, Lightbulb, Calculator, Terminal } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
 import SubjectCanvas from './components/SubjectCanvas';
@@ -43,6 +43,16 @@ const SUBJECTS = [
     subjectId: 'computer-science', title: 'Computer Science',
     desc: 'OCR J277: algorithms, logic, networking, and programming fundamentals.',
     path: '/gcse/computer-science', color: '#ff2d78', topics: 22,
+  },
+  {
+    subjectId: 'history', title: 'History',
+    desc: 'Edexcel/AQA narrative recall: Medicine, Weimar Germany, Early Elizabeth, Cold War.',
+    path: '/gcse/history', color: '#ff6b35', topics: 24,
+  },
+  {
+    subjectId: 'geography', title: 'Geography',
+    desc: 'Physical processes, human environments, and critical case studies mapped to AQA.',
+    path: '/gcse/geography', color: '#ffe600', topics: 20,
   },
   {
     subjectId: 'business', title: 'Business',
@@ -177,7 +187,7 @@ export default function GCSEHub() {
         </section>
  
         {/* ── MISSION CONTROL CTA ─────────────────────────────────────── */}
-        <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 5vw, 100px) 60px' }}>
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 5vw, 100px) 40px' }}>
           <Link href="/gcse/dashboard" style={{ textDecoration: 'none' }}>
             <div style={{ 
               padding: '32px', borderRadius: 24, background: 'rgba(0,212,255,0.05)', border: '1px solid rgba(0,212,255,0.15)',
@@ -200,6 +210,37 @@ export default function GCSEHub() {
               </div>
             </div>
           </Link>
+        </section>
+
+        {/* ── INTERACTIVE LABS SHOWCASE ────────────────────────────────── */}
+        <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 5vw, 100px) 60px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+            <Activity size={18} color="#00e5a0" />
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#00e5a0', fontFamily: 'Inter, sans-serif' }}>New: Active Discovery Labs</div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
+            <Link href="/gcse/computer-science#lab" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', transition: 'all 0.3s' }}>
+                <Terminal size={32} color="#ff2d78" style={{ marginBottom: 16 }} />
+                <h4 style={{ color: '#fff', fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Logic Simulators</h4>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>Interactive XOR/AND gates and Big O complexity sorters for Paper 2.</p>
+              </div>
+            </Link>
+            <Link href="/gcse/maths#lab" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', transition: 'all 0.3s' }}>
+                <Calculator size={32} color="#00e5a0" style={{ marginBottom: 16 }} />
+                <h4 style={{ color: '#fff', fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Visual Geometry</h4>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>Angle mastery tools and fraction/decimal matching challenges.</p>
+              </div>
+            </Link>
+            <Link href="/gcse/science#lab" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', transition: 'all 0.3s' }}>
+                <Lightbulb size={32} color="#ffe600" style={{ marginBottom: 16 }} />
+                <h4 style={{ color: '#fff', fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Physics Circuitry</h4>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>Live circuit builders and biology cell structure identification.</p>
+              </div>
+            </Link>
+          </div>
         </section>
 
         {/* ── Divider line ─────────────────────────────────────────── */}
@@ -280,10 +321,10 @@ export default function GCSEHub() {
             gap: 48,
           }}>
             {[
-              { stat: '2 min', label: 'Per session', desc: 'Short bursts. Easy to repeat daily.', color: '#00e5a0' },
-              { stat: '150+', label: 'Topics', desc: 'Every spec point covered across 6 subjects.', color: '#00d4ff' },
-              { stat: '0', label: 'Logins', desc: 'No accounts. No friction. Just start.', color: '#ff2d78' },
-              { stat: '100%', label: 'Free', desc: 'Everything you see here costs nothing.', color: '#ffe600' },
+              { stat: '2 min', label: 'Per session', desc: 'Quick-fire retrieval for busy students.', color: '#00e5a0' },
+              { stat: '150+', label: 'Topics', desc: 'Mapped to UK GCSE exam specifications.', color: '#00d4ff' },
+              { stat: '0', label: 'Logins', desc: 'No accounts, no stress, just learning.', color: '#ff2d78' },
+              { stat: '100%', label: 'Free', desc: 'Completely free revision for parents and pupils.', color: '#ffe600' },
             ].map((item, idx) => (
               <div
                 key={item.label}

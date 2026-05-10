@@ -12,6 +12,9 @@ import SubjectIcon from '../components/SubjectIcon';
 import PedagogyBridge from '../components/PedagogyBridge';
 import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
+import InteractiveActivity from '../components/InteractiveActivity';
+import InteractiveVisualizer from '../components/InteractiveVisualizer';
+import { Lightbulb } from 'lucide-react';
 
 const COLOR = '#00d4ff';
 const CATEGORY_ORDER = ['Biology', 'Chemistry', 'Physics'];
@@ -82,8 +85,13 @@ export default function ScienceHub() {
                   </div>
                 </div>
               )}
+              <Link href="/gcse/science/mixed-mode" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'rgba(0,212,255,0.1)', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                   MIXED PRACTICE
+                </div>
+              </Link>
               <Link href="/gcse/science/mock-exam" style={{ textDecoration: 'none' }}>
-                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid rgba(255,255,255,0.2)`, color: '#fff', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
                    FULL MOCK EXAM
                 </div>
               </Link>
@@ -99,7 +107,7 @@ export default function ScienceHub() {
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
         {/* ── SUBJECT GRID ── */}
-        <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 100px' }}>
+        <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 48 }}>
             <Atom size={18} color="rgba(255,255,255,0.3)" />
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>Subject Strands</div>
@@ -130,6 +138,66 @@ export default function ScienceHub() {
               </div>
             );
           })}
+        </section>
+
+        {/* ── SCIENCE DISCOVERY LAB ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
+            <Lightbulb size={18} color="#00e5a0" />
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#00e5a0', fontFamily: 'Inter,sans-serif' }}>Science Discovery Lab</div>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+
+            {/* Tool 1: Physics Circuit Simulator */}
+            <InteractiveVisualizer
+              type="circuit"
+              accentColor="#ffe600"
+              data={{
+                title: 'Physics: Circuit Lab',
+                fact: 'A series circuit has only one path for current. An open switch breaks the circuit — no current flows, so the bulb goes out.'
+              }}
+            />
+
+            {/* Tool 2: Biology Cell Organelle Match */}
+            <InteractiveActivity
+              type="match"
+              accentColor="#00e5a0"
+              data={{
+                title: 'Biology: Cell Organelles',
+                instruction: 'Match each organelle to its primary function.',
+                left: [
+                  { id: '1', label: 'Nucleus' },
+                  { id: '2', label: 'Mitochondria' },
+                  { id: '3', label: 'Ribosome' },
+                  { id: '4', label: 'Chloroplast' }
+                ],
+                right: [
+                  { id: 'a', label: 'Photosynthesis' },
+                  { id: 'b', label: 'Genetic Control' },
+                  { id: 'c', label: 'Protein Synthesis' },
+                  { id: 'd', label: 'Energy Release (ATP)' }
+                ],
+                pairs: { '1': 'b', '2': 'd', '3': 'c', '4': 'a' }
+              }}
+            />
+
+            {/* Tool 3: Chemistry True / False */}
+            <InteractiveActivity
+              type="true-false"
+              accentColor="#00d4ff"
+              data={{
+                title: 'Chemistry: True or False?',
+                instruction: 'Test your atomic structure and bonding knowledge.',
+                statements: [
+                  { id: 'c1', statement: 'An atom with more protons than electrons is positively charged.', correct: true, explanation: 'Losing electrons creates a positive ion (cation) — protons now outnumber electrons.' },
+                  { id: 'c2', statement: 'Ionic bonds form between two non-metal atoms.', correct: false, explanation: 'Ionic bonds form between a metal and a non-metal. Two non-metals form covalent bonds.' },
+                  { id: 'c3', statement: 'The atomic number equals the number of protons in the nucleus.', correct: true, explanation: 'Atomic number = proton number. This defines which element it is.' },
+                  { id: 'c4', statement: 'All isotopes of an element have the same mass number.', correct: false, explanation: 'Isotopes have the same atomic number (protons) but different mass numbers (different neutron count).' },
+                ]
+              }}
+            />
+          </div>
         </section>
 
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>

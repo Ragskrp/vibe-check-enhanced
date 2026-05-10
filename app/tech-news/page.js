@@ -1,22 +1,42 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Cpu, Clock, ArrowRight, TrendingUp, Zap, Filter } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { Cpu, Clock, ArrowRight, TrendingUp, Zap, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ARTICLES, CATEGORIES } from './techNewsData';
 import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
 
+const ITEMS_PER_PAGE = 10;
+
 export default function TechNewsHub() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [hoveredSlug, setHoveredSlug] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const featured = ARTICLES.find(a => a.featured) || ARTICLES[0];
+  const featured = useMemo(() => ARTICLES.find(a => a.featured) || ARTICLES[0], []);
   const categoryNames = ['All', ...Object.keys(CATEGORIES)];
 
-  const filtered = activeFilter === 'All'
-    ? ARTICLES
-    : ARTICLES.filter(a => a.category === activeFilter);
+  const filtered = useMemo(() => {
+    return activeFilter === 'All'
+      ? ARTICLES
+      : ARTICLES.filter(a => a.category === activeFilter);
+  }, [activeFilter]);
+
+  // Pagination Logic
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedArticles = filtered.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleFilterChange = (cat) => {
+    setActiveFilter(cat);
+    setCurrentPage(1); // Reset to first page on filter change
+  };
 
   return (
     <div className="page-container animate-fade-in">
@@ -48,88 +68,90 @@ export default function TechNewsHub() {
         </p>
       </section>
 
-      {/* ── FEATURED ── */}
-      <section style={{ maxWidth: 900, margin: '0 auto 48px auto' }}>
-        <Link href={`/tech-news/${featured.slug}`} style={{ textDecoration: 'none' }}>
-          <div
-            onMouseEnter={() => setHoveredSlug(featured.slug)}
-            onMouseLeave={() => setHoveredSlug(null)}
-            style={{
-              padding: '48px 40px',
-              borderRadius: 24,
-              cursor: 'pointer',
-              background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(255, 45, 120, 0.04))',
-              border: `1px solid ${hoveredSlug === featured.slug ? 'rgba(0, 212, 255, 0.25)' : 'rgba(255,255,255,0.06)'}`,
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.3s ease',
-              transform: hoveredSlug === featured.slug ? 'translateY(-2px)' : 'none',
-              boxShadow: hoveredSlug === featured.slug ? '0 20px 60px rgba(0, 212, 255, 0.08)' : 'none',
-            }}
-          >
-            {/* Accent glow */}
-            <div style={{
-              position: 'absolute', top: -80, right: -80,
-              width: 200, height: 200, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)',
-              pointerEvents: 'none',
-            }} />
-
+      {/* ── FEATURED (Only on Page 1 of "All") ── */}
+      {currentPage === 1 && activeFilter === 'All' && (
+        <section style={{ maxWidth: 900, margin: '0 auto 48px auto' }}>
+          <Link href={`/tech-news/${featured.slug}`} style={{ textDecoration: 'none' }}>
             <div
+              onMouseEnter={() => setHoveredSlug(featured.slug)}
+              onMouseLeave={() => setHoveredSlug(null)}
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '4px 12px',
-                borderRadius: 999,
-                background: `${CATEGORIES[featured.category]?.color || '#00d4ff'}15`,
-                color: CATEGORIES[featured.category]?.color || '#00d4ff',
-                fontSize: 12,
-                fontWeight: 700,
-                marginBottom: 16,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
+                padding: '48px 40px',
+                borderRadius: 24,
+                cursor: 'pointer',
+                background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(255, 45, 120, 0.04))',
+                border: `1px solid ${hoveredSlug === featured.slug ? 'rgba(0, 212, 255, 0.25)' : 'rgba(255,255,255,0.06)'}`,
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                transform: hoveredSlug === featured.slug ? 'translateY(-2px)' : 'none',
+                boxShadow: hoveredSlug === featured.slug ? '0 20px 60px rgba(0, 212, 255, 0.08)' : 'none',
               }}
             >
-              <TrendingUp size={12} /> Breaking
-            </div>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24 }}>
+              {/* Accent glow */}
               <div style={{
-                fontSize: 56, lineHeight: 1, flexShrink: 0,
-                background: 'rgba(255,255,255,0.03)',
-                borderRadius: 20, padding: '16px 18px',
-              }}>
-                {CATEGORIES[featured.category]?.emoji || '📰'}
+                position: 'absolute', top: -80, right: -80,
+                width: 200, height: 200, borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)',
+                pointerEvents: 'none',
+              }} />
+
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '4px 12px',
+                  borderRadius: 999,
+                  background: `${CATEGORIES[featured.category]?.color || '#00d4ff'}15`,
+                  color: CATEGORIES[featured.category]?.color || '#00d4ff',
+                  fontSize: 12,
+                  fontWeight: 700,
+                  marginBottom: 16,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <TrendingUp size={12} /> Breaking
               </div>
-              <div>
-                <h2 style={{ fontSize: 26, fontWeight: 800, color: '#f0f0f0', marginBottom: 12, lineHeight: 1.3 }}>
-                  {featured.title}
-                </h2>
-                <p style={{ color: '#999', fontSize: 15, lineHeight: 1.6, marginBottom: 16 }}>
-                  {featured.excerpt}
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 13, color: '#555' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Clock size={14} /> {featured.readTime}
-                  </span>
-                  <span>{featured.date}</span>
-                  <span
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 4,
-                      color: '#00d4ff',
-                      fontWeight: 700,
-                    }}
-                  >
-                    Read Analysis <ArrowRight size={14} />
-                  </span>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24 }}>
+                <div style={{
+                  fontSize: 56, lineHeight: 1, flexShrink: 0,
+                  background: 'rgba(255,255,255,0.03)',
+                  borderRadius: 20, padding: '16px 18px',
+                }}>
+                  {CATEGORIES[featured.category]?.emoji || '📰'}
+                </div>
+                <div>
+                  <h2 style={{ fontSize: 26, fontWeight: 800, color: '#f0f0f0', marginBottom: 12, lineHeight: 1.3 }}>
+                    {featured.title}
+                  </h2>
+                  <p style={{ color: '#999', fontSize: 15, lineHeight: 1.6, marginBottom: 16 }}>
+                    {featured.excerpt}
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 13, color: '#555' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <Clock size={14} /> {featured.readTime}
+                    </span>
+                    <span>{featured.date}</span>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 4,
+                        color: '#00d4ff',
+                        fontWeight: 700,
+                      }}
+                    >
+                      Read Analysis <ArrowRight size={14} />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Link>
-      </section>
+          </Link>
+        </section>
+      )}
 
       {/* ── FILTER TABS ── */}
       <section style={{ maxWidth: 900, margin: '0 auto 32px auto' }}>
@@ -144,7 +166,7 @@ export default function TechNewsHub() {
             return (
               <button
                 key={cat}
-                onClick={() => setActiveFilter(cat)}
+                onClick={() => handleFilterChange(cat)}
                 style={{
                   padding: '6px 14px',
                   borderRadius: 999,
@@ -170,9 +192,10 @@ export default function TechNewsHub() {
       <section style={{ maxWidth: 900, margin: '0 auto' }}>
         <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f0f0f0', marginBottom: 24 }}>
           {activeFilter === 'All' ? 'Latest Stories' : activeFilter}
+          {totalPages > 1 && <span style={{ fontSize: 14, color: '#555', marginLeft: 12, fontWeight: 500 }}>Page {currentPage} of {totalPages}</span>}
         </h2>
         <div style={{ display: 'grid', gap: 20 }}>
-          {filtered.length === 0 && (
+          {paginatedArticles.length === 0 && (
             <div style={{
               padding: 48, textAlign: 'center', color: '#555', fontSize: 14,
               border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 20,
@@ -180,7 +203,7 @@ export default function TechNewsHub() {
               No articles in this category yet. Check back soon.
             </div>
           )}
-          {filtered.map((article) => {
+          {paginatedArticles.map((article) => {
             const catMeta = CATEGORIES[article.category] || { color: '#888', emoji: '📰' };
             const isHovered = hoveredSlug === article.slug;
             return (
@@ -257,6 +280,76 @@ export default function TechNewsHub() {
             );
           })}
         </div>
+
+        {/* ── PAGINATION CONTROLS ── */}
+        {totalPages > 1 && (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, marginTop: 40 }}>
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              style={{
+                padding: '10px 20px',
+                borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+                color: currentPage === 1 ? '#444' : '#fff',
+                cursor: currentPage === 1 ? 'default' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 14,
+                fontWeight: 600,
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <ChevronLeft size={18} /> Previous
+            </button>
+            
+            <div style={{ display: 'flex', gap: 8 }}>
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => handlePageChange(i + 1)}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 12,
+                    border: `1px solid ${currentPage === i + 1 ? '#00d4ff' : 'rgba(255,255,255,0.06)'}`,
+                    background: currentPage === i + 1 ? 'rgba(0, 212, 255, 0.1)' : 'rgba(255,255,255,0.02)',
+                    color: currentPage === i + 1 ? '#00d4ff' : '#888',
+                    cursor: 'pointer',
+                    fontSize: 14,
+                    fontWeight: 700,
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              style={{
+                padding: '10px 20px',
+                borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+                color: currentPage === totalPages ? '#444' : '#fff',
+                cursor: currentPage === totalPages ? 'default' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 14,
+                fontWeight: 600,
+                transition: 'all 0.2s ease',
+              }}
+            >
+              Next <ChevronRight size={18} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* ── AD ── */}

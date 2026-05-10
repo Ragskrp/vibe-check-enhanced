@@ -23,7 +23,8 @@ const NAV_ITEMS = [
   { name: 'GeoGuesser', label: '🌍 Geo Guesser', path: '/geography-guesser', category: 'solo' },
   { name: 'VibeClicker', label: '👆 Vibe Clicker', path: '/vibe-clicker', category: 'solo' },
   { name: 'MergeVibe', label: '🎮 Merge Vibe', path: '/2048-vibe', category: 'solo' },
-  { name: 'FlappyVibe', label: '🕊️ Gravity Dash', path: '/gravity-dash', category: 'solo' },
+  { name: 'RicochetStrike', label: '📐 Ricochet Strike', path: '/ricochet-strike', category: 'solo' },
+  { name: 'FlappyVibe', label: '🚀 Neon Strike', path: '/gravity-dash', category: 'solo' },
   { name: 'WhackVibe', label: '🔨 Whack-a-Vibe', path: '/whack-a-vibe', category: 'solo' },
 ];
 

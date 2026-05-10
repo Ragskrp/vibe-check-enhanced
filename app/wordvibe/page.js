@@ -4,15 +4,15 @@ import AdGateway from '../components/AdGateway';
 import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
-  title: 'WordVibe | 5-Letter Word Game',
-  description: 'Guess the 5-letter word in 6 tries. WordVibe is a free browser word puzzle you can play in seconds.',
+  title: 'WordVibe | Daily 5-Letter Word Challenge | VIBEMENOW',
+  description: 'Sharpen your mind with WordVibe. A free daily word puzzle to boost your vocabulary and focus. No login, just instant mental clarity.',
   alternates: {
     canonical: '/wordvibe',
   },
   openGraph: {
     url: '/wordvibe',
-    title: 'WordVibe | 5-Letter Word Game | VIBEMENOW',
-    description: 'Play a fast 5-letter WordVibe round in your browser.',
+    title: 'WordVibe | Daily Mental Reset | VIBEMENOW',
+    description: 'Sharpen your focus and solve the daily word puzzle in seconds.',
     images: [
       {
         url: '/og/wordvibe.png',
@@ -42,13 +42,14 @@ export default function WordVibePage() {
         }}
       >
         <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
-          About WordVibe
+          WordVibe: Your Daily Mental Reset
         </h1>
 
-        <p style={{ marginBottom: '24px' }}>
-          WordVibe is a browser-based word puzzle built around one simple loop: guess a
-          five-letter answer in six attempts. Each guess gives you immediate feedback, so the
-          game works best when you treat it as a deduction puzzle rather than a spelling test.
+        <p style={{ marginBottom: '24px', fontSize: '1.1em' }}>
+          Stop the scroll and sharpen your focus. WordVibe is more than a puzzle—it\'s a 
+          five-minute workout for your brain. Whether you\'re on your commute or taking 
+          a coffee break, WordVibe gives you a clean, rhythmic deduction challenge that 
+          clears the mental fog and expands your vocabulary.
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>

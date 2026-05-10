@@ -3,10 +3,12 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import AdBanner from '../../components/AdBanner';
 import LessonCards from './LessonCards';
+import FlashcardMode from './FlashcardMode';
 import Link from 'next/link';
-import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain } from 'lucide-react';
+import { Timer, Flame, RotateCcw, ArrowRight, ChevronDown, BookOpen, Zap, Brain, Layers } from 'lucide-react';
 import { recordActivity } from '../utils/streakLogic';
 import { getBankQuestions, shuffleArray } from '../utils/questionBankLoader';
+import { applyRating, resultToQuality, getMemoryStrength } from '../utils/spacedRepetitionEngine';
 
 const GAME_DURATION = 60;
 
@@ -70,9 +72,11 @@ export default function TopicGame({ config }) {
   const [feedback, setFeedback] = useState(null);
   const [history, setHistory] = useState([]);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [stepIndex, setStepIndex] = useState(0);
   const [practiceCount, setPracticeCount] = useState(0);
   const [questionDeck, setQuestionDeck] = useState([]);
   const [deckIndex, setDeckIndex] = useState(0);
+  const [flashcards, setFlashcards] = useState([]);
   const inputRef = useRef(null);
   const timerRef = useRef(null);
   const hasSavedRef = useRef(false);
@@ -116,6 +120,27 @@ export default function TopicGame({ config }) {
       }
     }
   }, [deckIndex, questionDeck, mode, tier, config]);
+
+  const startFlashcards = async () => {
+    const meta = getSubjectMeta(config);
+    const subjectId = meta.hubPath.split('/').pop();
+    let cards = [];
+    try {
+      const rawBank = await getBankQuestions(subjectId, config.slug);
+      cards = rawBank.map((q, i) => ({
+        id: q.id || `fc_${i}`,
+        front: q.q,
+        back: q.a + (q.e ? `\n\n${q.e}` : ''),
+        hint: q.hint || null,
+      }));
+    } catch {}
+    if (!cards.length && config.lessons) {
+      const allLessons = [...(config.lessons.foundation || []), ...(config.lessons.higher || [])];
+      cards = allLessons.map((l, i) => ({ id: `lesson_${i}`, front: l.title, back: l.content }));
+    }
+    setFlashcards(cards);
+    setPhase('flashcard');
+  };
 
   const startGame = async (gameMode) => {
     setMode(gameMode); setPhase('playing'); setScore(0); setStreak(0);
@@ -238,24 +263,23 @@ export default function TopicGame({ config }) {
       const ns = streak + 1;
       setScore((s) => s + (ns >= 5 ? 3 : ns >= 3 ? 2 : 1));
       setStreak(ns); setBestStreak((b) => Math.max(b, ns)); setFeedback('correct');
-
+      // SRS: record correct answer
+      if (config.slug) { try { const meta = getSubjectMeta(config); applyRating(meta.hubPath.split('/').pop(), config.slug, 5); } catch {} }
       // Record as seen
       if (question.id && !question.id.startsWith('gen_')) {
         const meta = getSubjectMeta(config);
         const subjectId = meta.hubPath.split('/').pop();
         const seenKey = `seen_${subjectId}_${config.slug}`;
         const seenIds = JSON.parse(localStorage.getItem(seenKey) || '[]');
-        if (!seenIds.includes(question.id)) {
-          seenIds.push(question.id);
-          localStorage.setItem(seenKey, JSON.stringify(seenIds));
-        }
+        if (!seenIds.includes(question.id)) { seenIds.push(question.id); localStorage.setItem(seenKey, JSON.stringify(seenIds)); }
       }
-
       if (mode === 'practice') { setPracticeCount((c) => c + 1); setTimeout(() => nextQuestion(), 800); }
       else setTimeout(() => nextQuestion(), 400);
     } else {
       setStreak(0); setFeedback('wrong');
-      if (mode === 'practice') setShowExplanation(true);
+      // SRS: record failed answer
+      if (config.slug) { try { const meta = getSubjectMeta(config); applyRating(meta.hubPath.split('/').pop(), config.slug, 1); } catch {} }
+      if (mode === 'practice') { setShowExplanation(true); setStepIndex(0); }
       else setTimeout(() => nextQuestion(), 400);
     }
   };
@@ -357,6 +381,9 @@ export default function TopicGame({ config }) {
             <button onClick={() => startGame('test')} className="btn-primary" style={{ fontSize: 16, background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, color: '#000' }}>
               <Zap size={18} /> Timed Test
             </button>
+            <button onClick={startFlashcards} className="btn-outline" style={{ borderColor: '#ffe600', color: '#ffe600', fontSize: 16, padding: '14px 28px' }}>
+              <Layers size={18} /> Flashcards
+            </button>
           </div>
           <div style={{ fontSize: 12, color: '#555', marginBottom: 24 }}>
             Practice = no timer, with hints &bull; Test = 60 seconds, score-based
@@ -422,11 +449,29 @@ export default function TopicGame({ config }) {
 
         {showExplanation && (
           <div style={{ padding: '16px 20px', borderRadius: 14, marginBottom: 16, background: 'rgba(255,230,0,0.06)', border: '1px solid rgba(255,230,0,0.2)' }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#ffe600', marginBottom: 6 }}>✗ Incorrect — The answer is {question?.answer}{question?.unit || ''}</div>
-            <div style={{ fontSize: 14, color: '#ccc', lineHeight: 1.7, whiteSpace: 'pre-line' }}>{question?.explanation}</div>
-            <button onClick={() => { setPracticeCount((c) => c + 1); nextQuestion(); }} className="btn-outline" style={{ marginTop: 12, borderColor: accent, color: accent }}>
-              Next Question →
-            </button>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#ffe600', marginBottom: 10 }}>✗ Incorrect — The answer is <span style={{ color: '#fff' }}>{question?.answer}{question?.unit || ''}</span></div>
+            {/* Step-by-step solution reveal */}
+            {question?.steps?.length > 0 ? (
+              <div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12 }}>
+                  {question.steps.slice(0, stepIndex + 1).map((step, i) => (
+                    <div key={i} style={{ padding: '8px 12px', borderRadius: 8, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', fontSize: 13, color: '#ccc', lineHeight: 1.6 }}>
+                      <span style={{ color: '#ffe600', fontWeight: 700, marginRight: 8 }}>Step {i + 1}:</span>{step}
+                    </div>
+                  ))}
+                </div>
+                {stepIndex < question.steps.length - 1 ? (
+                  <button onClick={() => setStepIndex(s => s + 1)} className="btn-outline" style={{ borderColor: '#ffe600', color: '#ffe600', marginRight: 10 }}>Next Step →</button>
+                ) : (
+                  <button onClick={() => { setPracticeCount((c) => c + 1); nextQuestion(); setStepIndex(0); }} className="btn-outline" style={{ borderColor: accent, color: accent }}>Got it — Next Question →</button>
+                )}
+              </div>
+            ) : (
+              <div>
+                <div style={{ fontSize: 14, color: '#ccc', lineHeight: 1.7, whiteSpace: 'pre-line', marginBottom: 12 }}>{question?.explanation}</div>
+                <button onClick={() => { setPracticeCount((c) => c + 1); nextQuestion(); }} className="btn-outline" style={{ borderColor: accent, color: accent }}>Next Question →</button>
+              </div>
+            )}
           </div>
         )}
 
@@ -439,6 +484,26 @@ export default function TopicGame({ config }) {
                 </button>
               ))}
             </div>
+          ) : question.answerType === 'cloze' ? (
+            /* Cloze (fill-in-the-blank) render */
+            <form onSubmit={handleSubmit}>
+              <div style={{ fontSize: 18, fontWeight: 600, color: '#ccc', lineHeight: 1.8, marginBottom: 12 }}>
+                {question.display.split('___').map((part, i, arr) => (
+                  <span key={i}>{part}{i < arr.length - 1 && (
+                    <input
+                      ref={i === 0 ? inputRef : null}
+                      type="text" value={input} onChange={(e) => setInput(e.target.value)}
+                      style={{ display: 'inline-block', width: '140px', background: 'rgba(255,255,255,0.08)', border: `2px solid ${accent}60`, borderRadius: 8, padding: '4px 10px', color: '#fff', fontSize: 16, fontWeight: 700, textAlign: 'center', margin: '0 4px' }}
+                      autoFocus
+                    />
+                  )}
+                  </span>
+                ))}
+              </div>
+              <button type="submit" className="btn-primary" style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, color: '#000', width: '100%' }}>
+                Check Answer <ArrowRight size={18} />
+              </button>
+            </form>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', gap: 12 }}>
               <input ref={inputRef}
@@ -467,6 +532,29 @@ export default function TopicGame({ config }) {
             <button onClick={() => setPhase('results')} className="btn-outline" style={{ fontSize: 13 }}>Finish Practice & See Results</button>
           </div>
         )}
+      </div>
+    );
+  }
+
+  // ===== FLASHCARD MODE =====
+  if (phase === 'flashcard') {
+    const meta = getSubjectMeta(config);
+    const subjectId = meta.hubPath.split('/').pop();
+    return (
+      <div className="game-container">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
+          <h2 style={{ fontSize: 18, fontWeight: 800, color: '#fff', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Layers size={20} color="#ffe600" /> Flashcard Mode
+          </h2>
+          <button onClick={() => setPhase('menu')} style={{ padding: '8px 16px', borderRadius: 10, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#888', fontWeight: 700, cursor: 'pointer', fontSize: 13 }}>← Exit</button>
+        </div>
+        <FlashcardMode
+          cards={flashcards}
+          subjectId={subjectId}
+          topicSlug={config.slug || 'unknown'}
+          accentColor={accent}
+          onExit={() => setPhase('menu')}
+        />
       </div>
     );
   }

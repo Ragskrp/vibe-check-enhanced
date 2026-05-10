@@ -11,6 +11,8 @@ import SubjectCanvas from '../components/SubjectCanvas';
 import SubjectIcon from '../components/SubjectIcon';
 import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
+import InteractiveActivity from '../components/InteractiveActivity';
+import InteractiveVisualizer from '../components/InteractiveVisualizer';
 
 const COLOR = '#00e5a0';
 const FEATURED = [
@@ -81,8 +83,13 @@ export default function MathsHub() {
                   </div>
                 </div>
               )}
+              <Link href="/gcse/maths/mixed-mode" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'rgba(0,229,160,0.1)', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                   MIXED PRACTICE
+                </div>
+              </Link>
               <Link href="/gcse/maths/mock-exam" style={{ textDecoration: 'none' }}>
-                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid rgba(255,255,255,0.2)`, color: '#fff', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
                    FULL MOCK EXAM
                 </div>
               </Link>
@@ -115,7 +122,7 @@ export default function MathsHub() {
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
 
         {/* ── TOPIC GRID ── */}
-        <section ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 100px' }}>
+        <section ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 48 }}>
             <Binary size={18} color="rgba(255,255,255,0.3)" />
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>Full Curriculum</div>
@@ -143,6 +150,52 @@ export default function MathsHub() {
               </div>
             );
           })}
+        </section>
+
+        {/* ── MATHS DISCOVERY LAB ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
+            <Calculator size={18} color={COLOR} />
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: COLOR, fontFamily: 'Inter,sans-serif' }}>Maths Discovery Lab</div>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+            {/* Tool 1: Angle Mastery */}
+            <InteractiveVisualizer
+              type="angle"
+              accentColor="#ffe600"
+              data={{
+                title: 'Angle Mastery',
+                targetAngle: 130,
+                fact: 'This is an obtuse angle (between 90° and 180°). Angles on a straight line always sum to 180°.'
+              }}
+            />
+
+            {/* Tool 2: y = mx + c Graph Explorer */}
+            <InteractiveVisualizer
+              type="graph"
+              accentColor={COLOR}
+              data={{
+                title: 'y = mx + c Explorer',
+              }}
+            />
+
+            {/* Tool 3: True / False — Number Properties */}
+            <InteractiveActivity
+              type="true-false"
+              accentColor={COLOR}
+              data={{
+                title: 'Number Properties: True or False?',
+                instruction: 'Test your knowledge of core number facts.',
+                statements: [
+                  { id: 't1', statement: 'Every even number is divisible by 4.', correct: false, explanation: 'Only even numbers divisible by 4 are divisible by 4, e.g. 6 is even but 6 ÷ 4 = 1.5.' },
+                  { id: 't2', statement: 'A square number always has an odd number of factors.', correct: true, explanation: 'Square numbers have an odd number of factors because one factor (the square root) pairs with itself.' },
+                  { id: 't3', statement: 'π (pi) is a rational number.', correct: false, explanation: 'Pi is irrational — it cannot be expressed as a fraction p/q.' },
+                  { id: 't4', statement: 'The product of two prime numbers is always even.', correct: false, explanation: 'e.g. 3 × 5 = 15, which is odd. Only true if one of the primes is 2.' },
+                ]
+              }}
+            />
+          </div>
         </section>
 
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>

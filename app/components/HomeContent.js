@@ -8,70 +8,70 @@ const GAMES = [
   {
     emoji: '🔤',
     title: 'WordVibe',
-    desc: '5-letter word challenge. Guess it in 6 tries.',
+    desc: 'The ultimate daily mental reset. Sharpen your focus and beat the 5-letter puzzle.',
     path: '/wordvibe',
-    tag: 'Word',
+    tag: 'Daily Puzzle',
     color: '#00d4ff',
     category: 'solo'
   },
   {
     emoji: '🎯',
     title: 'Vibe or Die',
-    desc: 'Reaction test with one job: click when the signal appears.',
+    desc: 'Test your reflexes against the world. One click determines your ranking. Can you stay calm?',
     path: '/vibeordie',
-    tag: 'Reaction',
+    tag: 'Reflex Test',
     color: '#ff2d78',
     category: 'solo'
   },
   {
     emoji: '😂',
     title: 'Emoji IQ',
-    desc: 'Decode emoji puzzles using context, wordplay, and common phrases.',
+    desc: 'Unlock your lateral thinking. Decipher cryptic emoji chains and prove your cultural wit.',
     path: '/emoji-iq',
-    tag: 'Brain',
+    tag: 'Brain Game',
     color: '#ffe600',
     category: 'daily'
   },
   {
     emoji: '🔠',
     title: 'Vocab Vibe',
-    desc: 'Match words to meanings in solo play or a live room with friends.',
+    desc: 'Expand your vocabulary without the effort. Fast-paced word matching for curious minds.',
     path: '/vocab-match',
-    tag: 'Multiplayer',
+    tag: 'Word Training',
     color: '#fbbf24',
     category: 'daily'
   },
   {
     emoji: '🔥',
     title: 'Hot Takes',
-    desc: 'Vote agree or disagree and see how other players split.',
+    desc: 'Join the national conversation. Vote on the internet\'s most divisive opinions.',
     path: '/hot-takes',
-    tag: 'Opinion',
+    tag: 'Live Poll',
     color: '#ff6b35',
     category: 'daily'
   },
   {
     emoji: '✨',
     title: 'Vibe Quiz',
-    desc: 'A playful personality-style quiz with shareable results.',
+    desc: 'Discover your digital aura. A personality deep-dive designed for sharing.',
     path: '/vibe-quiz',
-    tag: 'Quiz',
+    tag: 'Personality',
     color: '#b14aed',
     category: 'daily'
   },
   {
     emoji: '😈',
     title: 'Would U Rather',
-    desc: 'Pick between two awkward, funny, or impossible choices.',
+    desc: 'Face the impossible. Pick your path through awkward and hilarious dilemmas.',
     path: '/would-you-rather',
-    tag: 'Social',
+    tag: 'Social Choice',
     color: '#00ff94',
     category: 'daily'
   },
   {
     emoji: '🏆',
     title: 'Quiz Arena',
-    desc: 'Create a room and race through multiplayer trivia rounds.',
+    desc: 'Dominate the leaderboard. Real-time multiplayer trivia for you and your friends.',
     path: '/quiz-arena',
     tag: 'Multiplayer',
     color: '#00d4ff',
@@ -81,7 +81,7 @@ const GAMES = [
   {
     emoji: '⚡',
     title: 'Reaction Arena',
-    desc: 'A room-based reflex battle built for fast rematches.',
+    desc: 'The ultimate showdown. A high-speed reflex battle where every millisecond counts.',
     path: '/reaction-arena',
     tag: 'Multiplayer',
     color: '#ff2d78',
@@ -91,7 +91,7 @@ const GAMES = [
   {
     emoji: '👁️',
     title: 'Odd One Out',
-    desc: 'Spot the hidden symbol before everyone else does.',
+    desc: 'Train your eagle eye. Spot the pattern break before the timer—or your friends—do.',
     path: '/odd-one-out',
     tag: 'Multiplayer',
     color: '#00ff94',
@@ -100,7 +100,7 @@ const GAMES = [
   {
     emoji: '🧠',
     title: 'Memory Arena',
-    desc: 'Room-based memory rounds where the last player standing wins.',
+    desc: 'Master your mind. Outlast the room in this high-stakes memory elimination.',
     path: '/memory-arena',
     tag: 'Multiplayer',
     color: '#b14aed',
@@ -109,7 +109,7 @@ const GAMES = [
   {
     emoji: '🗳️',
     title: 'Poll Party',
-    desc: 'Answer prompts, vote as a group, and see what lands.',
+    desc: 'Group therapy for the internet. Answer prompts, vote, and see where you land.',
     path: '/poll-party',
     tag: 'Multiplayer',
     color: '#ff6b35',
@@ -118,7 +118,7 @@ const GAMES = [
   {
     emoji: '🎨',
     title: 'Drawing Dash',
-    desc: 'One player draws while the room tries to guess the answer.',
+    desc: 'Express yourself at speed. A frantic race to draw and guess under pressure.',
     path: '/drawing-dash',
     tag: 'Multiplayer',
     color: '#00d4ff',
@@ -128,43 +128,53 @@ const GAMES = [
   {
     emoji: '🌍',
     title: 'Geo Guesser',
-    desc: 'Identify world flags and build a faster recognition streak.',
+    desc: 'Travel the world from your browser. Master flags and landmarks in seconds.',
     path: '/geography-guesser',
-    tag: 'Solo',
+    tag: 'Learning',
     color: '#00d4ff',
     category: 'solo'
   },
   {
     emoji: '👆',
     title: 'Vibe Clicker',
-    desc: 'Idle clicking game with upgrades, multipliers, and automation.',
+    desc: 'Satisfyingly addictive. Build your empire, unlock upgrades, and watch the numbers soar.',
     path: '/vibe-clicker',
-    tag: 'Idle',
+    tag: 'Idle Clicker',
     color: '#00d4ff',
     category: 'solo'
   },
   {
     emoji: '🎮',
-    title: 'Merge Vibe (2048)',
-    desc: 'Slide and merge tiles until the board starts to fight back.',
+    title: 'Merge Vibe',
+    desc: 'Clean, rhythmic puzzles. Slide, merge, and find your flow in this neon-lit grid.',
     path: '/2048-vibe',
     tag: 'Puzzle',
     color: '#ff2d78',
     category: 'solo'
   },
   {
-    emoji: '🕊️',
-    title: 'Gravity Dash',
-    desc: 'Tap to stay in the air and squeeze through the gaps.',
+    emoji: '📐',
+    title: 'Ricochet Strike',
+    desc: 'Tactical physics combat. Outsmart shielded drones with perfectly calculated bounces.',
+    path: '/ricochet-strike',
+    tag: 'Action',
+    color: '#ff2d78',
+    category: 'solo',
+    isNew: true
+  },
+  {
+    emoji: '🚀',
+    title: 'Neon Strike',
+    desc: 'High-octane deep space combat. Upgrade your weapons and survive the swarm.',
     path: '/gravity-dash',
-    tag: 'Arcade',
-    color: '#00ff94',
+    tag: 'Action',
+    color: '#00d4ff',
     category: 'solo'
   },
   {
     emoji: '🔨',
     title: 'Whack-a-Vibe',
-    desc: 'Hit the bad targets, avoid the good ones, beat the clock.',
+    desc: 'De-stress in seconds. A classic arcade test of speed and precision.',
     path: '/whack-a-vibe',
     tag: 'Reaction',
     color: '#f59e0b',
@@ -210,32 +220,32 @@ export default function HomeContent() {
             marginBottom: 8,
           }}
         >
-          Free browser games with no sign-up
+          No Accounts. No Downloads. Just Play.
         </div>
         <h1 className="hero-title">
           VIBE<span>MENOW</span>
         </h1>
         <p className="hero-desc">
-          A collection of original browser games you can open in seconds. Play a daily puzzle,
-          test your reflexes, or start a quick room with friends.
+          Kill the boredom, not the budget. Instant-access browser games for a mental reset, 
+          social rooms for your squad, and GCSE revision tools that actually work.
         </p>
 
         <div className="stats-row">
           <div className="stat-card">
             <div className="stat-number">{totalGames}</div>
-            <div className="stat-label">Games</div>
+            <div className="stat-label">Free Games</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">{multiplayerGames}</div>
             <div className="stat-label">Party Modes</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">No</div>
-            <div className="stat-label">Accounts</div>
+            <div className="stat-number">0</div>
+            <div className="stat-label">Logins Needed</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">Quick</div>
-            <div className="stat-label">Sessions</div>
+            <div className="stat-number">Instant</div>
+            <div className="stat-label">Playtime</div>
           </div>
         </div>
       </section>

@@ -152,26 +152,26 @@ const GAME_CONTENT = {
       'A good run alternates between active clicking and upgrade planning. Players can compare whether early automation, multipliers, or manual boosts produce better growth. The page explains that loop so the experience reads as a playable incremental game with strategy, not a thin screen of buttons.',
     ],
     tips: ['Compare upgrade cost against future return.', 'Buy multipliers before long idle stretches.', 'Reset expectations as growth speeds up.'],
-    related: [['/2048-vibe', 'Merge Vibe'], ['/whack-a-vibe', 'Whack-a-Vibe'], ['/gravity-dash', 'Gravity Dash']],
+    related: [['/2048-vibe', 'Merge Vibe'], ['/whack-a-vibe', 'Whack-a-Vibe'], ['/gravity-dash', 'Neon Strike']],
   },
   '/2048-vibe': {
     title: 'Merge Vibe editorial notes',
-    description: 'Merge Vibe adapts the classic tile-merging puzzle into a quick browser format.',
+    description: 'Merge Vibe is a neon-infused puzzle challenge where every swipe creates a visual ripple.',
     details: [
       'Tile merge games reward planning because every move changes the future board. The useful habit is to keep high-value tiles organised, preserve empty spaces, and avoid moves that scatter the board for a short-term merge. That gives the game more strategic depth than the simple swipe controls suggest.',
-      'Players improve by choosing a corner plan and sticking with it until the board forces a change. Random swiping can work for early tiles, but later rounds punish clutter. The page gives visitors enough context to understand the strategy loop and why repeated attempts feel meaningfully different.',
+      'The classic tile-merge format has been upgraded with a high-contrast neon palette and reactive animations. Players improve by choosing a corner plan and sticking with it until the board forces a change. Every merge creates a glowing "vibe" that adds to the visual momentum of the game, turning a strategic puzzle into a rhythmic experience.',
     ],
     tips: ['Keep the largest tile anchored.', 'Preserve open spaces whenever possible.', 'Avoid reversing your board plan too often.'],
-    related: [['/wordvibe', 'WordVibe'], ['/vibe-clicker', 'Vibe Clicker'], ['/gravity-dash', 'Gravity Dash']],
+    related: [['/wordvibe', 'WordVibe'], ['/vibe-clicker', 'Vibe Clicker'], ['/gravity-dash', 'Neon Strike']],
   },
   '/gravity-dash': {
-    title: 'Gravity Dash editorial notes',
-    description: 'Gravity Dash is a timing game about rhythm, spacing, and recovery.',
+    title: 'Neon Strike editorial notes',
+    description: 'Neon Strike is a high-octane space combat game about precision, upgrades, and swarm survival.',
     details: [
-      'The challenge in a flappy-style game is not constant tapping; it is rhythm control. Players must read the gap, tap early enough to correct height, and avoid overreacting after a near miss. That makes each attempt a small lesson in timing and momentum.',
-      'A practical strategy is to watch the next opening rather than the character itself. The character’s position matters, but the gap tells the player what adjustment is needed. Short restarts keep frustration low and make improvement visible as players learn the rhythm of the obstacles.',
+      'Top-down space combat is built around the balance of movement and firepower. In Neon Strike, the player must manage a 360-degree range of motion while identifying which weapon upgrade—Triple Shot, Beam, or Rapid Fire—best fits the current wave of drones. That makes the experience more than a simple shooter: it is a fast lesson in spatial awareness and resource priority.',
+      'The best way to survive the later swarms is to keep moving while leading your targets. Standing still makes the ship an easy target for homing drones, while constant rotation allows the player to sweep the field and collect power-ups efficiently. The page is designed for high-replay sessions where players can test different upgrade paths and compare their peak scores against the increasing difficulty curve.',
     ],
-    tips: ['Watch the next gap, not only your character.', 'Use small corrections instead of panic taps.', 'Take breaks after several failed runs.'],
+    tips: ['Keep moving to avoid homing swarms.', 'Prioritise weapon upgrades early in the round.', 'Use the screen boundaries to sweep drones into clusters.'],
     related: [['/vibeordie', 'Vibe or Die'], ['/whack-a-vibe', 'Whack-a-Vibe'], ['/2048-vibe', 'Merge Vibe']],
   },
   '/whack-a-vibe': {
@@ -182,7 +182,21 @@ const GAME_CONTENT = {
       'The best players do not simply click everywhere. They keep their eyes moving, wait long enough to confirm the target, and avoid losing points through rushed mistakes. The page supports that learning loop with short rounds that make it easy to test whether a calmer strategy beats frantic tapping.',
     ],
     tips: ['Confirm the target before clicking.', 'Keep your cursor near the centre when possible.', 'Value accuracy over one risky extra hit.'],
-    related: [['/vibeordie', 'Vibe or Die'], ['/reaction-arena', 'Reaction Arena'], ['/gravity-dash', 'Gravity Dash']],
+    related: [['/vibeordie', 'Vibe or Die'], ['/reaction-arena', 'Reaction Arena'], ['/gravity-dash', 'Neon Strike']],
+  },
+  '/ricochet-strike': {
+    title: 'Ricochet Strike editorial notes',
+    description: 'Ricochet Strike is a tactical physics shooter about angles, reflection, and anticipation.',
+    details: [
+      'The core value of a ricochet mechanic is that it forces the player to think two steps ahead. Instead of simply aiming at a target, the player must calculate the bounce path off the arena boundaries. This shifts the game from a pure reflex test into a spatial reasoning exercise, where the environment itself becomes a weapon.',
+      'Tactical depth is further enhanced by the inclusion of shielded drones. Since these enemies block direct frontal fire, the player must use the ricochet logic to bypass defenses. This encourages experimentation with different angles and teaches the importance of "leading" targets into the path of a bouncing projectile rather than chasing them directly.',
+    ],
+    tips: [
+      'Use the side walls to "bank" shots behind shielded enemies.',
+      'Bullets last for up to 4 bounces—clear clusters with a single well-aimed burst.',
+      'Stay near the center of the arena to maintain the widest range of shooting angles.'
+    ],
+    related: [['/gravity-dash', 'Neon Strike'], ['/vibeordie', 'Vibe or Die'], ['/2048-vibe', 'Merge Vibe']],
   },
 };
 

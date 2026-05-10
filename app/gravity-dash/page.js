@@ -4,21 +4,21 @@ import GravityClient from './GravityClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
-  title: 'Gravity Dash | VIBEMENOW',
-  description: 'Tap, click, or press space to switch gravity and dodge neon obstacles in this fast-paced browser arcade game.',
+  title: 'Neon Strike | Space Combat Arcade | VIBEMENOW',
+  description: 'Engage in high-octane deep space combat in Neon Strike. Pilot your ship, upgrade weapons, and survive the neon drone swarm.',
   alternates: {
     canonical: '/gravity-dash',
   },
   openGraph: {
     url: '/gravity-dash',
-    title: 'Gravity Dash | Browser Arcade Game | VIBEMENOW',
-    description: 'Tap, click, or press space to switch gravity and dodge neon obstacles in this fast-paced browser arcade game.',
+    title: 'Neon Strike | Deep Space Combat | VIBEMENOW',
+    description: 'Engage in high-octane deep space combat in Neon Strike. Pilot your ship, upgrade weapons, and survive the neon drone swarm.',
     images: [
       {
-        url: '/og/gravity-dash.png',
+        url: '/og/neon-strike.png',
         width: 1200,
         height: 630,
-        alt: 'Gravity Dash browser game on VIBEMENOW',
+        alt: 'Neon Strike space combat game on VIBEMENOW',
       },
     ],
   },
@@ -32,13 +32,13 @@ export default function GravityDashPage() {
   return (
     <div className="page-container">
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <h1 style={{ fontSize: 36, fontWeight: 900, color: '#00ff94', marginBottom: 8, marginTop: 32 }}>
-          GRAVITY DASH
+        <h1 style={{ fontSize: 48, fontWeight: 900, color: '#00d4ff', marginBottom: 8, marginTop: 32, textShadow: '0 0 20px #00d4ff' }}>
+          NEON STRIKE
         </h1>
-        <p style={{ color: '#888', fontSize: 16 }}>Tap, click, or press Space to switch gravity. Dodge the obstacles and stay alive.</p>
+        <p style={{ color: '#888', fontSize: 18 }}>Pilot your ship through the neon void. Survive the swarm.</p>
       </div>
 
-      <AdGateway gameName="Gravity Dash">
+      <AdGateway gameName="Neon Strike">
         <GravityClient />
       </AdGateway>
 
@@ -46,46 +46,46 @@ export default function GravityDashPage() {
         className="seo-guide"
         style={{ maxWidth: '800px', margin: '64px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.7', fontFamily: 'system-ui, sans-serif' }}
       >
-        <h2 style={{ color: '#00ff94', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>
-          About Gravity Dash
+        <h2 style={{ color: '#00d4ff', fontSize: '2.2em', marginBottom: '24px', fontWeight: 900 }}>
+          Mastering Neon Strike
         </h2>
 
-        <div className="card" style={{ padding: '32px', marginBottom: '40px', background: 'rgba(0, 255, 148, 0.03)', borderColor: 'rgba(0, 255, 148, 0.1)' }}>
-          <h3 style={{ color: '#fff', fontSize: '1.5em', marginBottom: '16px' }}>How to play</h3>
+        <div className="card" style={{ padding: '32px', marginBottom: '40px', background: 'rgba(0, 212, 255, 0.03)', borderColor: 'rgba(0, 212, 255, 0.1)' }}>
+          <h3 style={{ color: '#fff', fontSize: '1.5em', marginBottom: '16px' }}>Flight Manual</h3>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '12px' }}><strong>1. Tap to flip:</strong> each press switches your gravity from the floor to the ceiling.</li>
-            <li style={{ marginBottom: '12px' }}><strong>2. React fast:</strong> the speed increases as you progress, requiring lightning-fast reflexes.</li>
-            <li style={{ marginBottom: '12px' }}><strong>3. Dodge obstacles:</strong> avoid neon barriers by flipping at the perfect moment.</li>
-            <li style={{ marginBottom: '12px' }}><strong>4. Master the flow:</strong> find your rhythm in this synthwave runner.</li>
+            <li style={{ marginBottom: '12px' }}><strong>🚀 Movement:</strong> Use <strong>WASD</strong> or <strong>Arrow Keys</strong> to pilot your ship in any direction.</li>
+            <li style={{ marginBottom: '12px' }}><strong>🔥 Weapons:</strong> Press <strong>Space</strong> or <strong>Z</strong> to fire your primary laser.</li>
+            <li style={{ marginBottom: '12px' }}><strong>💎 Upgrades:</strong> Collect neon orbs to activate <strong>Triple Shot</strong>, <strong>Rapid Fire</strong>, or <strong>Energy Shields</strong>.</li>
+            <li style={{ marginBottom: '12px' }}><strong>👾 Survival:</strong> Drones get faster and tougher as your score increases. Stay mobile!</li>
           </ul>
         </div>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>The Core Mechanics</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>The Space Combat Engine</h3>
         <p style={{ marginBottom: '24px' }}>
-          Gravity Dash is a high-speed reaction game that strips away complex controls. Your only action is to switch gravity. By tapping, you instantly invert your vertical momentum, attaching to either the floor or the ceiling. The challenge lies in reading the upcoming obstacles and timing your flips perfectly.
+          Neon Strike is built on a high-performance physics engine designed for fluid, responsive space flight. Unlike static arcade shooters, your ship has momentum and tight handling, allowing for precision dodges through dense enemy clusters.
         </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Why Gravity Dash is Addictive</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Strategic Upgrades</h3>
         <p style={{ marginBottom: '24px' }}>
-          Unlike traditional jumpers, gravity-switching games feel incredibly fair because your actions are absolute. You aren't managing analog jump heights; you're making binary choices at high speeds. This creates a state of flow where muscle memory and reaction times take over.
+          Success in the deep void requires more than just fast reflexes. You must prioritize the right power-ups. The <strong>Energy Shield</strong> provides temporary invulnerability, while the <strong>Triple Shot</strong> allows you to clear wide paths through the swarm. Timing your pickups is the key to breaking the world record.
         </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Vibes</h3>
         <p style={{ marginBottom: '24px' }}>
-          If you enjoy fast-paced arcade games, you might also like these:
+          If you enjoy high-intensity arcade combat, check out these other challenges:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-          <Link href="/gravity-dash" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🚀</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Gravity Dash</div>
-          </Link>
           <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
             <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
           </Link>
-          <Link href="/2048-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
+          <Link href="/whack-a-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🔨</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Whack-a-Vibe</div>
+          </Link>
+          <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>
+            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Clicker</div>
           </Link>
         </div>
       </article>

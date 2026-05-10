@@ -3,12 +3,12 @@ import AdGateway from '../components/AdGateway';
 import PageValueSection from '../components/PageValueSection';
 
 export const metadata = {
-  title: 'Vibe or Die | Reaction Speed Game',
-  description: 'Test your reaction speed in a simple browser-based reflex game. Wait for the signal, then click as fast as you can.',
+  title: 'Vibe or Die | Reaction Time Test & Reflex Trainer | VIBEMENOW',
+  description: 'How fast are your reflexes? Test your reaction time in Vibe or Die. A high-stakes focus game with instant global rankings. No login required.',
   openGraph: {
     url: '/vibeordie',
-    title: 'Vibe or Die | Reaction Speed Game | VIBEMENOW',
-    description: 'Wait for the signal and test your reaction speed.',
+    title: 'Vibe or Die | Reflex Training | VIBEMENOW',
+    description: 'Wait for the signal, react instantly, and claim your place on the leaderboard.',
     images: [
       {
         url: '/og/vibeordie.png',
@@ -41,13 +41,15 @@ export default function VibeOrDiePage() {
         }}
       >
         <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
-          About Vibe or Die
+          Vibe or Die: Test Your Edge
         </h1>
 
-        <p>
-          Vibe or Die is a straightforward reaction test. The page waits, the visual signal
-          appears, and your job is to respond as quickly as possible. Because the rules are so
-          small, most of the challenge comes from timing and focus rather than memorization.
+        <p style={{ marginBottom: '24px', fontSize: '1.1em' }}>
+          In a world of distractions, how fast can you focus? Vibe or Die is the ultimate 
+          benchmark for your reflexes. Whether you\'re a competitive gamer looking to 
+          shave milliseconds off your response time or just want to prove your sharpness 
+          to your friends, Vibe or Die provides an instant, high-stakes arena for your 
+          reaction training.
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>

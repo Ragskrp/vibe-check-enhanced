@@ -13,6 +13,8 @@ import GameSeoArticle from '../../components/GameSeoArticle';
 import { gcseSeoData } from '../../data/gcseSeoData';
 import { getStreakData } from '../utils/streakLogic';
 import MasteryMap from '../components/MasteryMap';
+import InteractiveActivity from '../components/InteractiveActivity';
+import InteractiveVisualizer from '../components/InteractiveVisualizer';
 
 const COLOR = '#ff2d78';
 const CATEGORY_ORDER = ['Computer Systems', 'Algorithms & Thinking', 'Programming Concepts', 'Logic & Data'];
@@ -89,8 +91,13 @@ export default function CompSciHub() {
                   </div>
                 </div>
               )}
+              <Link href="/gcse/computer-science/mixed-mode" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'rgba(255,45,120,0.1)', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                   MIXED PRACTICE
+                </div>
+              </Link>
               <Link href="/gcse/computer-science/mock-exam" style={{ textDecoration: 'none' }}>
-                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid ${COLOR}`, color: COLOR, fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
+                <div style={{ padding: '16px 32px', borderRadius: 8, background: 'transparent', border: `2px solid rgba(255,255,255,0.2)`, color: '#fff', fontWeight: 800, fontSize: 14, letterSpacing: '0.05em', transition: 'all 0.2s' }}>
                    FULL MOCK EXAM
                 </div>
               </Link>
@@ -115,7 +122,7 @@ export default function CompSciHub() {
         </section>
 
         {/* ── TOPIC GRID ── */}
-        <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 100px' }}>
+        <section id="topics" ref={grid.ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '80px clamp(20px,5vw,100px) 40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 48 }}>
             <Terminal size={18} color="rgba(255,255,255,0.3)" />
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter,sans-serif' }}>Spec Domains</div>
@@ -143,6 +150,66 @@ export default function CompSciHub() {
               </div>
             );
           })}
+        </section>
+
+        {/* ── ACTIVE LAB ── */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
+            <Activity size={18} color={COLOR} />
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: COLOR, fontFamily: 'Inter,sans-serif' }}>Active Revision Lab</div>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+            {/* Tool 1: Big O Sort */}
+            <InteractiveActivity
+              type="sort"
+              accentColor={COLOR}
+              data={{
+                title: 'Algorithm Complexity Sort',
+                instruction: 'Drag and drop to sort Big O notations from FASTEST to SLOWEST.',
+                items: [
+                  { id: '1', label: 'O(1) — Constant' },
+                  { id: '2', label: 'O(log n) — Logarithmic' },
+                  { id: '3', label: 'O(n) — Linear' },
+                  { id: '4', label: 'O(n²) — Quadratic' }
+                ],
+                correctOrder: ['1', '2', '3', '4']
+              }}
+            />
+
+            {/* Tool 2: XOR Gate Simulator */}
+            <InteractiveVisualizer
+              type="logic"
+              accentColor="#00d4ff"
+              data={{
+                gate: 'XOR',
+                explanation: 'XOR output is 1 only when inputs differ. Used in half-adder circuits and encryption (XOR cipher). Two identical inputs always output 0.'
+              }}
+            />
+
+            {/* Tool 3: Networking Category Sort */}
+            <InteractiveActivity
+              type="category-sort"
+              accentColor={COLOR}
+              data={{
+                title: 'Networking: Classify Components',
+                instruction: 'Sort each component into the correct category.',
+                categories: [
+                  { id: 'hardware', label: 'Hardware', color: '#ff2d78' },
+                  { id: 'protocol', label: 'Protocol', color: '#00d4ff' },
+                  { id: 'threat', label: 'Security Threat', color: '#ffe600' },
+                ],
+                items: [
+                  { id: 'r1', label: 'Router', category: 'hardware' },
+                  { id: 'r2', label: 'HTTP', category: 'protocol' },
+                  { id: 'r3', label: 'Phishing', category: 'threat' },
+                  { id: 'r4', label: 'Switch', category: 'hardware' },
+                  { id: 'r5', label: 'TCP/IP', category: 'protocol' },
+                  { id: 'r6', label: 'Malware', category: 'threat' },
+                ]
+              }}
+            />
+          </div>
         </section>
 
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(20px,5vw,100px) 100px' }}>

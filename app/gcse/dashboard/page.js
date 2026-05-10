@@ -2,12 +2,28 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Flame, Trophy, Zap, ArrowRight, Home, Brain, Target, Star, ChevronRight } from 'lucide-react';
+import { Flame, Trophy, Zap, ArrowRight, Home, Brain, Target, Star, ChevronRight, RotateCcw, Clock } from 'lucide-react';
 import SubjectCanvas from '../components/SubjectCanvas';
 import { useAggregatedStats } from '../components/DashboardStats';
 import AchievementBadge from '../components/AchievementBadge';
+import ExamCountdown from '../components/ExamCountdown';
+import SuggestedTopicCard from '../components/SuggestedTopicCard';
+import { getDueTopics, strengthToColor } from '../utils/spacedRepetitionEngine';
 
 const COLOR = '#00d4ff';
+
+// All reviewable topics across subjects
+const ALL_REVIEWABLE = [
+  { subjectId: 'maths', slug: 'algebra', title: 'Algebra', href: '/gcse/maths/algebra' },
+  { subjectId: 'maths', slug: 'fractions', title: 'Fractions', href: '/gcse/maths/fractions' },
+  { subjectId: 'maths', slug: 'geometry', title: 'Geometry', href: '/gcse/maths/geometry' },
+  { subjectId: 'maths', slug: 'statistics', title: 'Statistics', href: '/gcse/maths/statistics' },
+  { subjectId: 'computer-science', slug: 'algorithms', title: 'Algorithms', href: '/gcse/computer-science/algorithms' },
+  { subjectId: 'computer-science', slug: 'data-representation', title: 'Data Representation', href: '/gcse/computer-science/data-representation' },
+  { subjectId: 'science', slug: 'cells', title: 'Cells', href: '/gcse/science/cells' },
+  { subjectId: 'science', slug: 'forces', title: 'Forces', href: '/gcse/science/forces' },
+  { subjectId: 'science', slug: 'atomic-structure', title: 'Atomic Structure', href: '/gcse/science/atomic-structure' },
+];
 
 export default function MissionControl() {
   const [mounted, setMounted] = useState(false);
@@ -46,7 +62,18 @@ export default function MissionControl() {
         </header>
 
         <main style={{ maxWidth: 1200, margin: '0 auto', padding: '60px clamp(20px, 5vw, 100px) 100px' }}>
-          
+
+          {/* EXAM COUNTDOWN */}
+          <section style={{ marginBottom: 32 }}>
+            <ExamCountdown accentColor={COLOR} />
+          </section>
+
+          {/* DUE FOR REVIEW QUEUE */}
+          <DueReviewQueue />
+
+          {/* SUGGESTED TOPIC CARD */}
+          <SuggestedTopicCard />
+
           {/* HERO STATS */}
           <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 60 }}>
             
@@ -92,6 +119,35 @@ export default function MissionControl() {
               </div>
             </div>
 
+          </section>
+
+          {/* GLOBAL MIXED PRACTICE BANNER */}
+          <section style={{ marginBottom: 80 }}>
+            <Link href="/gcse/dashboard/mixed-mode" style={{ textDecoration: 'none' }}>
+              <div style={{
+                padding: '40px', borderRadius: 32, background: 'linear-gradient(135deg, #00d4ff10, #ff2d7810)',
+                border: '1px solid rgba(0,212,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                transition: 'all 0.3s', cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = '#00d4ff'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(0,212,255,0.2)'; }}
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'linear-gradient(135deg, #00d4ff, #ff2d78)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Zap size={20} color="#000" />
+                    </div>
+                    <h2 style={{ fontSize: 24, fontWeight: 900, color: '#fff', margin: 0 }}>Global Interleaving Mode</h2>
+                  </div>
+                  <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', margin: 0, maxWidth: 600, lineHeight: 1.6 }}>
+                    Science proves interleaved practice builds stronger neural pathways. Launch a 3-minute gauntlet pulling questions from all active subjects.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 800, color: '#00d4ff' }}>
+                  START GAUNTLET <ArrowRight size={20} />
+                </div>
+              </div>
+            </Link>
           </section>
 
           {/* SUBJECT PROGRESS */}
@@ -187,9 +243,54 @@ export default function MissionControl() {
 }
 
 function getRank(mastered) {
-  if (mastered >= 20) return 'Academic Overseer';
-  if (mastered >= 10) return 'Scholar-Elite';
-  if (mastered >= 5) return 'Advanced Agent';
-  if (mastered >= 1) return 'Initiate';
-  return 'Trainee';
+  if (mastered >= 50) return '🏆 GCSE Champion';
+  if (mastered >= 30) return '💎 Diamond Scholar';
+  if (mastered >= 20) return '⭐ Academic Overseer';
+  if (mastered >= 10) return '🔥 Scholar-Elite';
+  if (mastered >= 5) return '⚡ Advanced Agent';
+  if (mastered >= 2) return '🧠 Initiate';
+  if (mastered >= 1) return '📘 Trainee';
+  return '🌱 New Recruit';
+}
+
+function DueReviewQueue() {
+  const [dueTopics, setDueTopics] = useState([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const due = getDueTopics(ALL_REVIEWABLE);
+    setDueTopics(due.slice(0, 5)); // Show up to 5
+  }, []);
+
+  if (!mounted || dueTopics.length === 0) return null;
+
+  return (
+    <section style={{ marginBottom: 40, padding: '24px 28px', borderRadius: 24, background: 'rgba(255,230,0,0.04)', border: '1px solid rgba(255,230,0,0.15)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+        <Clock size={18} color="#ffe600" />
+        <div>
+          <div style={{ fontSize: 14, fontWeight: 800, color: '#ffe600' }}>Today's Review Queue</div>
+          <div style={{ fontSize: 12, color: '#888' }}>These topics are due for spaced repetition review</div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+        {dueTopics.map(t => {
+          const color = strengthToColor(t.strength);
+          return (
+            <Link key={`${t.subjectId}_${t.slug}`} href={t.href || `/gcse/${t.subjectId}/${t.slug}`} style={{ textDecoration: 'none' }}>
+              <div style={{ padding: '10px 16px', borderRadius: 12, background: `${color}10`, border: `1px solid ${color}40`, display: 'flex', alignItems: 'center', gap: 10, transition: 'all 0.2s' }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: color, boxShadow: `0 0 8px ${color}` }} />
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#fff' }}>{t.title}</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color, textTransform: 'uppercase' }}>{t.strength}% strength</div>
+                </div>
+                <ChevronRight size={14} color={color} />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
