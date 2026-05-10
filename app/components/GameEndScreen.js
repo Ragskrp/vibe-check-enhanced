@@ -184,21 +184,59 @@ export default function GameEndScreen({
   const [recorded, setRecorded] = useState(false);
 
   useEffect(() => {
-    if (!recorded) {
-      const updatedStats = recordGame(gameId, score, maxScore);
-      setStats(updatedStats);
-      setRecorded(true);
-    }
+    const timer = setTimeout(() => {
+      const gameFacts = FACTS[gameId] || [];
+      if (gameFacts.length > 0) {
+        setFact(gameFacts[Math.floor(Math.random() * gameFacts.length)]);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [gameId]);
 
-    // Pick a random fact
-    const gameFacts = FACTS[gameId] || [];
-    if (gameFacts.length > 0) {
-      setFact(gameFacts[Math.floor(Math.random() * gameFacts.length)]);
+  useEffect(() => {
+    if (!recorded) {
+      const timer = setTimeout(() => {
+        const updatedStats = recordGame(gameId, score, maxScore);
+        setStats(updatedStats);
+        setRecorded(true);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [gameId, score, maxScore, recorded]);
 
   const relatedGames = RELATED_GAMES[gameId] || [];
   const guide = GAME_GUIDES[gameId];
+
+  const getGlobalInsight = () => {
+    if (!score) return null;
+    const ratio = maxScore ? score / maxScore : 0.8; // default to high if no max
+    if (ratio >= 0.9) return "TOP 5% OF VIBERS TODAY ⚡";
+    if (ratio >= 0.7) return "TOP 15% PERFORMANCE 💎";
+    if (ratio >= 0.5) return "ABOVE AVERAGE VIBES 🔥";
+    return "GREAT VIBES — KEEP GOING! 🚀";
+  };
+
+  const generateEmojiGrid = () => {
+    const ratio = maxScore ? score / maxScore : 0.8;
+    const totalBlocks = 10;
+    const filledBlocks = Math.round(ratio * totalBlocks);
+    const emptyBlocks = totalBlocks - filledBlocks;
+
+    // Choose emoji based on game accent color or default
+    const filledEmoji = '🟩';
+    const emptyEmoji = '⬛';
+
+    return Array(filledBlocks).fill(filledEmoji).join('') + Array(emptyBlocks).fill(emptyEmoji).join('');
+  };
+
+  const handleCopyToSocials = () => {
+    const grid = generateEmojiGrid();
+    const text = `🎮 VIBEMENOW: ${gameId.replace('-', ' ').toUpperCase()}\n\n${grid}\n✨ Score: ${score}${maxScore ? '/' + maxScore : ''}\n${getGlobalInsight()}\n\nPlay here: https://vibemenow.uk/${gameId}\n#VIBEMENOW #DailyGame`;
+
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Wordle-style result copied to clipboard! Share on Instagram, TikTok, or X.");
+    });
+  };
 
   return (
     <div className="game-container animate-fade-in" style={{ textAlign: 'center' }}>
@@ -213,12 +251,29 @@ export default function GameEndScreen({
 
         {children}
 
+        <div style={{
+          marginTop: 20,
+          padding: '12px',
+          borderRadius: '12px',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px dashed rgba(255,255,255,0.1)',
+          fontSize: '13px',
+          fontWeight: '700',
+          color: accentColor,
+          letterSpacing: '0.05em'
+        }}>
+          {getGlobalInsight()}
+        </div>
+
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 16 }}>
           {onShare && (
             <button className="share-btn" onClick={onShare}>
               <Share2 size={16} /> Share Score
             </button>
           )}
+          <button className="btn-outline" onClick={handleCopyToSocials} style={{ borderColor: accentColor, color: accentColor }}>
+            📸 Copy for Socials
+          </button>
           <button className="btn-outline" onClick={onPlayAgain}>
             <RotateCcw size={16} /> Play Again
           </button>

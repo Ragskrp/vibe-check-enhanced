@@ -2,6 +2,7 @@ import Script from "next/script";
 import AnalyticsAndAds from "./components/AnalyticsAndAds";
 import CookieConsent from "./components/CookieConsent";
 import SiteLayout from "./components/SiteLayout";
+import AmbientOrbs from "./components/AmbientOrbs";
 import "./globals.css";
 
 export const viewport = {
@@ -108,6 +109,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="grid-bg" suppressHydrationWarning>
+        <AmbientOrbs />
         <SiteLayout>{children}</SiteLayout>
         <CookieConsent />
       </body>

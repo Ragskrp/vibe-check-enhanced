@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Trophy, Sparkles, Users, TrendingUp, Search, X } from 'lucide-react';
+import LiveVibePulse from './LiveVibePulse';
+import VibeOfTheDay from './VibeOfTheDay';
+import DailyGoalTracker from './DailyGoalTracker';
 
 const GAMES = [
   {
@@ -210,6 +213,7 @@ export default function HomeContent() {
   return (
     <div className="page-container">
       <section className="hero-section animate-fade-in">
+        <LiveVibePulse />
         <div
           style={{
             fontSize: 12,
@@ -229,6 +233,9 @@ export default function HomeContent() {
           Kill the boredom, not the budget. Instant-access browser games for a mental reset, 
           social rooms for your squad, and GCSE revision tools that actually work.
         </p>
+
+        <VibeOfTheDay games={GAMES} />
+        <DailyGoalTracker />
 
         <div className="stats-row">
           <div className="stat-card">

@@ -13,7 +13,7 @@ import { getTopicsByCategory as getGeography } from '../geography/geographyData'
 import { getTopicsByCategory as getEngLang } from '../english-language/englishLanguageData';
 import { getTopicsByCategory as getEngLit } from '../english-literature/englishLiteratureData';
 import { getTopicsByCategory as getBusiness } from '../business/businessData';
-import { getSrsRecord } from '../utils/spacedRepetitionEngine';
+import { getSrsRecord, getDueTopics } from '../utils/spacedRepetitionEngine';
 
 function getSubjectColor(subjectId) {
   const colors = {
@@ -31,66 +31,53 @@ export default function SuggestedTopicCard() {
   const [suggestion, setSuggestion] = useState(null);
 
   useEffect(() => {
-    const subjectsData = {
-      'maths': Object.values(getMaths()).flat(),
-      'science': Object.values(getScience()).flat(),
-      'computer-science': Object.values(getCS()).flat(),
-      'history': Object.values(getHistory()).flat(),
-      'geography': Object.values(getGeography()).flat(),
-      'english-language': Object.values(getEngLang()).flat(),
-      'english-literature': Object.values(getEngLit()).flat(),
-      'business': Object.values(getBusiness()).flat()
-    };
+    const allTopics = [
+      ...Object.values(getMaths()).flat().map(t => ({ ...t, subjectId: 'maths' })),
+      ...Object.values(getScience()).flat().map(t => ({ ...t, subjectId: 'science' })),
+      ...Object.values(getCS()).flat().map(t => ({ ...t, subjectId: 'computer-science' })),
+      ...Object.values(getHistory()).flat().map(t => ({ ...t, subjectId: 'history' })),
+      ...Object.values(getGeography()).flat().map(t => ({ ...t, subjectId: 'geography' })),
+      ...Object.values(getEngLang()).flat().map(t => ({ ...t, subjectId: 'english-language' })),
+      ...Object.values(getEngLit()).flat().map(t => ({ ...t, subjectId: 'english-literature' })),
+      ...Object.values(getBusiness()).flat().map(t => ({ ...t, subjectId: 'business' })),
+    ];
 
-    let lowestDecayingTopic = null;
-    let lowestDecayingStrength = 101;
+    const dueTopics = getDueTopics(allTopics);
     
-    let anyUnseenTopic = null;
-
-    // Scan all topics
-    for (const [subjectId, topics] of Object.entries(subjectsData)) {
-      for (const topic of topics) {
-        const record = getSrsRecord(subjectId, topic.slug);
-        const memStr = getMemoryStrength(record);
-        
-        if (memStr === 0) {
-          // Unseen or completely forgotten
-          if (!anyUnseenTopic) {
-            anyUnseenTopic = { subjectId, topic };
-          }
-        } else if (memStr < lowestDecayingStrength && memStr < 100) {
-          // Has been studied, but is decaying
-          lowestDecayingStrength = memStr;
-          lowestDecayingTopic = { subjectId, topic, memStr };
-        }
+    let result = null;
+    if (dueTopics.length > 0) {
+      const topDue = dueTopics[0];
+      result = {
+        subjectId: topDue.subjectId,
+        topic: topDue,
+        memStr: topDue.strength,
+        type: 'critical',
+        message: 'Memory Critical: Review urgently to prevent forgetting.'
+      };
+    } else {
+      const unseen = allTopics.find(t => getMemoryStrength(getSrsRecord(t.subjectId, t.slug)) === 0);
+      if (unseen) {
+        result = {
+          subjectId: unseen.subjectId,
+          topic: unseen,
+          type: 'explore',
+          message: 'New Frontier: Expand your knowledge map.'
+        };
+      } else {
+        const randTopic = allTopics[Math.floor(Math.random() * allTopics.length)];
+        result = {
+          subjectId: randTopic.subjectId,
+          topic: randTopic,
+          type: 'mastery',
+          message: 'Maintain Mastery: Keep your neural pathways sharp.'
+        };
       }
     }
 
-    // Priority 1: Critical decay. Priority 2: Unseen. Priority 3: Random.
-    if (lowestDecayingTopic) {
-      setSuggestion({
-        ...lowestDecayingTopic,
-        type: 'critical',
-        message: 'Memory Critical: Review urgently to prevent forgetting.'
-      });
-    } else if (anyUnseenTopic) {
-      setSuggestion({
-        ...anyUnseenTopic,
-        type: 'explore',
-        message: 'New Frontier: Expand your knowledge map.'
-      });
-    } else {
-      // Pick random
-      const randSubj = Object.keys(subjectsData)[Math.floor(Math.random() * 5)];
-      const randTopic = subjectsData[randSubj][0];
-      setSuggestion({
-        subjectId: randSubj,
-        topic: randTopic,
-        type: 'mastery',
-        message: 'Maintain Mastery: Keep your neural pathways sharp.'
-      });
-    }
-
+    const timer = setTimeout(() => {
+      setSuggestion(result);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!suggestion) return null;
