@@ -117,13 +117,13 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
   // In development, show a placeholder
   const isDev = process.env.NODE_ENV === 'development';
 
-  const minHeight = format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px';
-  const maxWidth = format === 'rectangle' ? '300px' : format === 'horizontal' ? '728px' : '100%';
+  const adHeight = format === 'rectangle' ? '250px' : format === 'vertical' ? '600px' : '90px';
+  const adWidth = format === 'rectangle' ? '300px' : format === 'horizontal' ? '728px' : '100%';
 
   if (isDev) {
     return (
-      <div className={`ad-slot ${className}`} style={{ minHeight, maxWidth }}>
-        <div style={{ padding: '20px' }}>
+      <div className={`ad-slot ${className}`} style={{ height: adHeight, width: adWidth, maxWidth: '100%' }}>
+        <div style={{ padding: '10px' }}>
           📢 {format.toUpperCase()} AD SLOT <br/>
           <span style={{fontSize: '10px', opacity: 0.5}}>
             Provider: Adsterra ({format === 'rectangle' ? '300x250' : format === 'horizontal' ? '728x90' : 'Native'})
@@ -138,13 +138,13 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
       className={`ad-slot ${className}`} 
       ref={adRef} 
       style={{ 
-        minHeight, 
-        maxWidth,
-        background: '#0a0a0f', // Dark background for ad area
-        border: 'none', // Remove border in production for cleaner look
+        height: adHeight, 
+        width: adWidth,
+        maxWidth: '100%',
+        background: '#0a0a0f',
+        border: 'none',
       }}
     >
-      {/* Adsterra/AdSense will be injected here via useEffect */}
       <ins
         className="adsbygoogle"
         style={{ display: 'none' }}
@@ -156,4 +156,5 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     </div>
   );
 }
+
 
