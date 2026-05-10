@@ -148,6 +148,11 @@ export default function SiteLayout({ children }) {
         </nav>
       )}
 
+      {/* Top Ad Banner - High Viewability */}
+      <div style={{ maxWidth: 1200, margin: '10px auto', display: 'flex', justifyContent: 'center' }}>
+        <AdBanner format="horizontal" />
+      </div>
+
       {/* Main Content */}
       <main>
         {[
@@ -178,9 +183,6 @@ export default function SiteLayout({ children }) {
       </main>
 
       <GameEditorialLayer />
-
-      {/* Bottom Ad Banner */}
-      <AdBanner format="horizontal" />
 
       {/* Footer */}
       <footer className="site-footer">
