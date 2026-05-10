@@ -7,25 +7,9 @@ import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
 import SubjectCanvas from './components/SubjectCanvas';
 import SubjectIcon from './components/SubjectIcon';
-
-// ── Scroll-reveal hook ──────────────────────────────────────────────────────
-function useScrollReveal(threshold = 0.15) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-
-  return { ref, visible };
-}
+import DailyBrainTeaser from '../components/DailyBrainTeaser';
+import MasteryProgress from './components/MasteryProgress';
+import SuggestedTopicCard from './components/SuggestedTopicCard';
 
 // ── Data ────────────────────────────────────────────────────────────────────
 const SUBJECTS = [
@@ -74,11 +58,13 @@ const SUBJECTS = [
 // ── Main Component ──────────────────────────────────────────────────────────
 export default function GCSEHub() {
   const [mounted, setMounted] = useState(false);
-  const heroReveal = useScrollReveal(0.05);
-  const gridReveal = useScrollReveal(0.05);
-  const whyReveal = useScrollReveal(0.1);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -88,7 +74,6 @@ export default function GCSEHub() {
 
         {/* ── HERO ─────────────────────────────────────────────────── */}
         <section
-          ref={heroReveal.ref}
           style={{
             minHeight: '92vh',
             display: 'flex',
@@ -184,6 +169,12 @@ export default function GCSEHub() {
           }}>
             6 subjects · 150+ topics · 0 logins required
           </div>
+
+          <div style={{ marginTop: 64 }}>
+            <MasteryProgress />
+            <SuggestedTopicCard />
+            <DailyBrainTeaser />
+          </div>
         </section>
  
         {/* ── MISSION CONTROL CTA ─────────────────────────────────────── */}
@@ -251,7 +242,6 @@ export default function GCSEHub() {
 
         {/* ── SUBJECT GRID ─────────────────────────────────────────── */}
         <section
-          ref={gridReveal.ref}
           style={{
             maxWidth: 1100, margin: '0 auto',
             padding: 'clamp(60px, 8vw, 100px) clamp(20px, 5vw, 100px)',
@@ -259,8 +249,8 @@ export default function GCSEHub() {
         >
           <div style={{
             marginBottom: 48,
-            opacity: gridReveal.visible ? 1 : 0,
-            transform: gridReveal.visible ? 'translateY(0)' : 'translateY(20px)',
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.7s ease, transform 0.7s ease',
           }}>
             <div style={{
@@ -297,7 +287,7 @@ export default function GCSEHub() {
                 <SubjectCell
                   subject={subject}
                   delay={idx * 80}
-                  visible={gridReveal.visible}
+                  visible={mounted}
                 />
               </Link>
             ))}
@@ -309,7 +299,6 @@ export default function GCSEHub() {
 
         {/* ── WHY SECTION ─────────────────────────────────────────── */}
         <section
-          ref={whyReveal.ref}
           style={{
             maxWidth: 1100, margin: '0 auto',
             padding: 'clamp(60px, 8vw, 100px) clamp(20px, 5vw, 100px)',
@@ -329,8 +318,8 @@ export default function GCSEHub() {
               <div
                 key={item.label}
                 style={{
-                  opacity: whyReveal.visible ? 1 : 0,
-                  transform: whyReveal.visible ? 'translateY(0)' : 'translateY(24px)',
+                  opacity: mounted ? 1 : 0,
+                  transform: mounted ? 'translateY(0)' : 'translateY(24px)',
                   transition: `opacity 0.7s ease ${idx * 100}ms, transform 0.7s ease ${idx * 100}ms`,
                 }}
               >
