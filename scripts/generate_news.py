@@ -21,12 +21,19 @@ MAX_ARTICLES_PER_RUN = 5
 
 # Initialize Gemini
 genai.configure(api_key=GEMINI_API_KEY)
-# Try to use gemini-1.5-flash, fallback to gemini-pro if needed
-MODEL_NAME = 'gemini-1.5-flash'
-try:
-    model = genai.GenerativeModel(MODEL_NAME)
-except:
-    model = genai.GenerativeModel('gemini-pro')
+
+def list_available_models():
+    print("--- AVAILABLE MODELS FOR THIS API KEY ---")
+    try:
+        for m in genai.list_models():
+            if 'generateContent' in m.supported_generation_methods:
+                print(f"Model: {m.name}")
+    except Exception as e:
+        print(f"ERROR listing models: {e}")
+    print("-----------------------------------------")
+
+# List models at startup
+list_available_models()
 
 def get_existing_slugs():
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
@@ -62,7 +69,14 @@ def generate_article_content(title, summary, source_url):
     """
     
     # Try multiple models in case of 404 errors
-    models_to_try = ['gemini-1.5-flash', 'gemini-1.5-flash-latest', 'gemini-pro']
+    models_to_try = [
+        'gemini-1.5-flash', 
+        'models/gemini-1.5-flash',
+        'gemini-1.5-flash-latest', 
+        'models/gemini-1.5-flash-latest',
+        'gemini-pro',
+        'models/gemini-pro'
+    ]
     
     for model_name in models_to_try:
         try:
