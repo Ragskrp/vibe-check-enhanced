@@ -21,7 +21,12 @@ MAX_ARTICLES_PER_RUN = 5
 
 # Initialize Gemini
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Try to use gemini-1.5-flash, fallback to gemini-pro if needed
+MODEL_NAME = 'gemini-1.5-flash'
+try:
+    model = genai.GenerativeModel(MODEL_NAME)
+except:
+    model = genai.GenerativeModel('gemini-pro')
 
 def get_existing_slugs():
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
