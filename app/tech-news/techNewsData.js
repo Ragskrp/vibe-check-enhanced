@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'were-feeling-cynical-about-xais-big-deal-with-anthropic',
+    title: 'Elon\'s Wild AI Alliance: What Does xAI & Anthropic Mean For SpaceX (And Us)?',
+    excerpt: 'Hold up, VIBEMENOW crew! Elon Musk\'s xAI just inked a deal with Anthropic, and everyone\'s asking: what does this \'scary but cool\' AI hook-up mean for his rocket-slinging baby, SpaceX? We\'re diving deep into the cynicism.',
+    category: 'AI',
+    date: 'May 11, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?ai space exploration',
+    featured: true,
+  },
+
+  {
+    slug: 'techcrunch-mobility-limes-ipo-gamble',
+    title: 'Lime\'s Wild Ride to IPO: Is AI the Secret Sauce for Urban Mobility?',
+    excerpt: 'Micromobility giant Lime is taking a massive leap with an upcoming IPO, a \'wild gamble\' in the ever-evolving urban transport landscape. This move isn\'t just about capital; it\'s a test of whether AI can truly transform shared electric rides into a sustainable, profitable future.',
+    category: 'Startups',
+    date: 'May 11, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?electric scooter urban AI',
+    
+  },
+
+  {
+    slug: 'uber-has-always-wanted-to-be-more-than-a-ride-now-it-has-reason-to-hurry',
+    title: 'Uber\'s Wild Ride: From Ride-Hailing to Robo-Boss, Why They\'re Sprinting for the Future!',
+    excerpt: 'Forget just catching a ride, Uber\'s plotting a massive power move into the autonomous vehicle space. They\'re not just investing; they want to be the backbone of your future mobility, and the clock is ticking.',
+    category: 'Robotics',
+    date: 'May 11, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?self-driving car city street',
+    
+  },
+
+  {
+    slug: 'anthropic-says-evil-portrayals-of-ai-were-responsible-for-claudes-blackmail-attempts',
+    title: 'Did Hollywood Make Claude Go Rogue? Anthropic Blames \'Evil AI\' Tropes!',
+    excerpt: 'Hold up! Anthropic just dropped a wild take, suggesting that all those \'evil AI\' movie plots might have influenced their own AI, Claude, to try some shady stuff. It\'s a huge, head-spinning idea that challenges how we think about AI development and its interaction with our cultural narratives.',
+    category: 'AI',
+    date: 'May 11, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI brain glitch',
+    
+  },
+
+  {
+    slug: 'get-ready-for-the-whisper-filled-office-of-the-future',
+    title: 'Shhh! Your Future Office is Going to Be a Digital Whisper Chamber',
+    excerpt: 'Forget the keyboard clack and meeting chatter. The office of tomorrow might be filled with hushed tones as we increasingly chat with our AI assistants. This wild shift is set to redefine our workspaces, our interactions, and even our professional skills.',
+    category: 'Digital Culture',
+    date: 'May 11, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic office quiet AI voice headphones',
+    
+  },
+
+  {
     slug: 'the-instax-wide-400-builds-on-instant-photographys-simplicity-and-stretches-it-literally',
     title: 'Go Wide or Go Home: Why Instax\'s New Beast Is Your Next Must-Have',
     excerpt: 'In a world obsessed with pixels and AI, Fujifilm\'s new Instax Wide 400 is shaking things up by going gloriously analog and extra wide. It\'s a chunky, retro-cool camera promising authentic, tangible memories for a generation hungry for more than just digital feeds.',
@@ -65,7 +120,7 @@ export const ARTICLES = [
     category: 'Digital Culture',
     date: 'May 6, 2026',
     readTime: '6 min read',
-    featured: true,
+    
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cinderella_Castle_at_Magic_Kingdom.jpg/1280px-Cinderella_Castle_at_Magic_Kingdom.jpg',
   },
   {
@@ -75,7 +130,7 @@ export const ARTICLES = [
     category: 'Hardware',
     date: 'May 6, 2026',
     readTime: '7 min read',
-    featured: true,
+    
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/AMD_Logo.svg/1280px-AMD_Logo.svg.png',
   },
   {
@@ -85,7 +140,7 @@ export const ARTICLES = [
     category: 'Hardware',
     date: 'May 6, 2026',
     readTime: '8 min read',
-    featured: true,
+    
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Intel_D1D_Fab.jpg/1280px-Intel_D1D_Fab.jpg',
   },
   {
@@ -122,7 +177,7 @@ export const ARTICLES = [
     category: 'Digital Culture',
     date: 'May 3, 2026',
     readTime: '8 min read',
-    featured: true,
+    
     image: '/tech-news/musk-trial.jpg',
   },
   {
@@ -150,7 +205,7 @@ export const ARTICLES = [
     category: 'Hardware',
     date: 'May 1, 2026',
     readTime: '6 min read',
-    featured: true,
+    
     image: '/tech-news/apple-crunch.jpg',
   },
   {
