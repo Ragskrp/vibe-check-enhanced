@@ -57,7 +57,7 @@ export default function PrivacyPage() {
               <strong>Google LLC (AdSense, Analytics, Firebase):</strong> Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Ads Settings</a>. 
             </li>
             <li style={{ marginBottom: '8px' }}>
-              <strong>Third-Party Ad Networks:</strong> We may use other third-party advertising companies to serve ads when you visit our Website. These companies may use information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.
+              <strong>Advertising partners:</strong> VIBEMENOW currently uses Google AdSense for advertising. If we add another advertising partner in the future, we will update this policy before enabling that partner on the site.
             </li>
           </ul>
 

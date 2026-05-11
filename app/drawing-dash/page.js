@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import DrawingDashGame from './DrawingDashGame';
+import DrawingDashClient from './DrawingDashClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {title: 'Drawing Dash | VIBEMENOW',
@@ -26,14 +26,11 @@ export const metadata = {title: 'Drawing Dash | VIBEMENOW',
   },
 };
 
-export const dynamic = 'force-dynamic';
-
-
 export default function DrawingDashPage() {
   return (
     <>
       <AdGateway gameName="Drawing Dash">
-        <DrawingDashGame />
+        <DrawingDashClient />
       </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>Drawing Dash: The Ultimate Guide to Visual Communication Games</h1>

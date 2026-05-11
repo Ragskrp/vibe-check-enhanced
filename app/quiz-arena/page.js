@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import QuizArenaGame from './QuizArenaGame';
+import QuizArenaClient from './QuizArenaClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
@@ -28,14 +28,11 @@ export const metadata = {
 
 };
 
-export const dynamic = 'force-dynamic';
-
-
 export default function QuizArenaPage() {
   return (
     <>
       <AdGateway gameName="Quiz Arena">
-        <QuizArenaGame />
+        <QuizArenaClient />
       </AdGateway>
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>
         <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>Quiz Arena: The Ultimate Guide to Mastering Trivia Challenges</h1>

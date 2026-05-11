@@ -1,5 +1,5 @@
 import AdBanner from '../components/AdBanner';
-import VocabGame from './VocabGame';
+import VocabGameClient from './VocabGameClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
@@ -17,13 +17,11 @@ export const metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
-
 export default function VocabMatchPage() {
   return (
     <div className="page-container">
       <AdGateway gameName="Vocab Vibe">
-        <VocabGame />
+        <VocabGameClient />
       </AdGateway>
 
       <article

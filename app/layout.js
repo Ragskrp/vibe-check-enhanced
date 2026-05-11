@@ -97,6 +97,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/icon.png" />
         <link rel="apple-touch-icon" href="/icon.png" />
+        <meta name="google-adsense-account" content="ca-pub-7832965089021505" />
         <meta name="theme-color" content="#0a0a0f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />

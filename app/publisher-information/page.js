@@ -132,8 +132,8 @@ export default function PublisherInformationPage() {
             </h2>
             <p style={{ color: '#aaa', lineHeight: '1.8', marginBottom: 0 }}>
               The site uses Google AdSense to support free access. Ads are limited to selected
-              low-risk pages and are intentionally withheld from policy pages, contact pages,
-              guides, and multiplayer or community-sensitive routes.
+              content-rich pages and are intentionally withheld from policy pages, contact pages,
+              and multiplayer or community-sensitive routes.
             </p>
           </div>
         </div>

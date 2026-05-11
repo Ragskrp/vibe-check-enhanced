@@ -1,4 +1,4 @@
-import PollPartyGame from './PollPartyGame';
+import PollPartyClient from './PollPartyClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
@@ -16,13 +16,11 @@ export const metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
-
 export default function PollPartyPage() {
   return (
     <>
       <AdGateway gameName="Poll Party">
-        <PollPartyGame />
+        <PollPartyClient />
       </AdGateway>
       <article 
         className="seo-guide" 

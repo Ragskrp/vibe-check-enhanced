@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import AdBanner from '../components/AdBanner';
-import ReactionArenaGame from './ReactionArenaGame';
+import ReactionArenaClient from './ReactionArenaClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {title: 'Reaction Arena | VIBEMENOW',
@@ -27,14 +27,11 @@ export const metadata = {title: 'Reaction Arena | VIBEMENOW',
   },
 };
 
-export const dynamic = 'force-dynamic';
-
-
 export default function ReactionArenaPage() {
   return (
     <>
       <AdGateway gameName="Reaction Arena">
-        <ReactionArenaGame />
+        <ReactionArenaClient />
       </AdGateway>
       <AdBanner />
       <article className="seo-guide" style={{ maxWidth: '800px', margin: '40px auto', padding: '0 20px', color: '#ccc', lineHeight: '1.6', fontFamily: 'system-ui, sans-serif' }}>

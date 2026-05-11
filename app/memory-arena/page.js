@@ -1,4 +1,4 @@
-import MemoryArenaGame from './MemoryArenaGame';
+import MemoryArenaClient from './MemoryArenaClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
@@ -26,13 +26,11 @@ export const metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
-
 export default function MemoryArenaPage() {
   return (
     <>
       <AdGateway gameName="Memory Arena">
-        <MemoryArenaGame />
+        <MemoryArenaClient />
       </AdGateway>
       <article 
         className="seo-guide" 

@@ -1,4 +1,4 @@
-import OddOneOutGame from './OddOneOutGame';
+import OddOneOutClient from './OddOneOutClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
@@ -26,13 +26,11 @@ export const metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
-
 export default function OddOneOutPage() {
   return (
     <>
       <AdGateway gameName="Odd One Out">
-        <OddOneOutGame />
+        <OddOneOutClient />
       </AdGateway>
       <article 
         className="seo-guide" 
