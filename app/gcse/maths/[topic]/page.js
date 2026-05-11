@@ -30,5 +30,5 @@ export default async function MathsTopicPage({ params }) {
   
   if (!config) notFound();
 
-  return <TopicClientWrapper subject="maths" topicSlug={topicSlug} />;
+  return <TopicClientWrapper subject="maths" topicSlug={topicSlug} initialConfig={config} />;
 }

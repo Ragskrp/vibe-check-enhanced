@@ -1,4 +1,10 @@
-'use client';
+export const metadata = {
+  title: 'The Architecture of Truth: A Guide to Logical Reasoning | Vibe Blog',
+  description: 'Explore the three engines of logic: Deductive, Inductive, and Abductive reasoning, and how to debug your own thoughts.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/logical-reasoning-logic',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Target, Brain, ShieldAlert, Zap, Network, History, BookOpen, Search, CheckCircle, Scale, AlertOctagon, Cpu, Eye, Puzzle, FlaskConical, GitBranch } from 'lucide-react';

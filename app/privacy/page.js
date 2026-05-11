@@ -1,4 +1,10 @@
-'use client';
+export const metadata = {
+  title: 'Privacy Policy | VIBEMENOW',
+  description: 'How we handle your data, cookies, and third-party advertising disclosures.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/privacy',
+  },
+};
 
 import Link from 'next/link';
 import { Home } from 'lucide-react';
@@ -30,7 +36,7 @@ export default function PrivacyPage() {
             <li style={{ marginBottom: '8px' }}><strong>Game state:</strong> Local storage only, never transmitted to our servers. Legal basis: Contract/Service delivery.</li>
             <li style={{ marginBottom: '8px' }}><strong>Multiplayer sessions:</strong> Temporary room codes and display names via Firebase. Legal basis: Contract (deleted within 24 hours of session end).</li>
             <li style={{ marginBottom: '8px' }}><strong>Analytics:</strong> Page views, session duration via Google Analytics. Legal basis: Consent.</li>
-            <li><strong>Advertising:</strong> Google AdSense advertising cookies for personalized ads. Legal basis: Consent.</li>
+            <li><strong>Advertising:</strong> Third-party vendors, including Google, use cookies to serve ads based on your prior visits to our website or other websites. Legal basis: Consent.</li>
           </ul>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>3. Cookies and consent</h2>
@@ -47,7 +53,12 @@ export default function PrivacyPage() {
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>4. Third-party processors</h2>
           <p>We use the following third-party processors:</p>
           <ul style={{ paddingLeft: '20px' }}>
-            <li style={{ marginBottom: '8px' }}><strong>Google LLC (AdSense, Analytics, Firebase):</strong> Processes analytics and advertising data based on your consent, and handles transient multiplayer room data. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Read Google's Privacy Policy</a>.</li>
+            <li style={{ marginBottom: '8px' }}>
+              <strong>Google LLC (AdSense, Analytics, Firebase):</strong> Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff94' }}>Ads Settings</a>. 
+            </li>
+            <li style={{ marginBottom: '8px' }}>
+              <strong>Third-Party Ad Networks:</strong> We may use other third-party advertising companies to serve ads when you visit our Website. These companies may use information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.
+            </li>
           </ul>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. Data retention periods</h2>

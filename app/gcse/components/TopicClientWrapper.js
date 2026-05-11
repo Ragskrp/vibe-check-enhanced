@@ -15,11 +15,12 @@ const DATA_LOADERS = {
   'geography': () => import('../geography/geographyData'),
 };
 
-export default function TopicClientWrapper({ subject, topicSlug, ...rest }) {
-  const [config, setConfig] = useState(null);
+export default function TopicClientWrapper({ subject, topicSlug, initialConfig, ...rest }) {
+  const [config, setConfig] = useState(initialConfig || null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    if (config) return; // Skip loading if we already have initialConfig
     const loadData = async () => {
       try {
         const loader = DATA_LOADERS[subject];

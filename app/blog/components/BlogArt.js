@@ -1,4 +1,3 @@
-'use client';
 
 import { HelpCircle, Brain, Target, Layers, Zap, Network, Dice3, Sparkles, Users, Type, Image, Lock, Cpu, Lightbulb, Volume2, BookOpen } from 'lucide-react';
 

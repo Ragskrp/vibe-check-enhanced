@@ -1,4 +1,10 @@
-'use client';
+export const metadata = {
+  title: 'The Imitation Game: Decoding the Turing Test | Vibe Blog',
+  description: 'Can machines think? Explore the history, philosophy, and modern reality of the test that defined artificial intelligence.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/turing-test',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Cpu, UserCheck, Code, Globe, MessageSquare } from 'lucide-react';

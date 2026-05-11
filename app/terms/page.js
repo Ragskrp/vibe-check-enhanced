@@ -7,7 +7,7 @@ export const metadata = {
     images: ['/og/terms.png'],
   },
   alternates: {
-    canonical: '/terms',
+    canonical: 'https://vibemenow.uk/terms',
   },
 };
 
@@ -56,10 +56,16 @@ export default function TermsPage() {
             All content on VIBEMENOW, including but not limited to game designs, text, graphics, logos, icons, images, audio clips, and software, is the property of VIBEMENOW or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content on this site without our express written permission.
           </p>
 
-          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. Advertisements</h2>
+          <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>5. Advertisements and Third-Party Vendors</h2>
           <p>
-            VIBEMENOW is a free service supported by advertising revenue through Google AdSense and potentially other advertising networks. By using the Service, you acknowledge that advertisements may be displayed on the site. You agree not to use ad-blocking software to circumvent these advertisements, as they are essential to the continued operation of the free Service. You also agree not to click on advertisements in a fraudulent or deceptive manner.
+            VIBEMENOW is a free service supported by advertising revenue. By using the Service, you acknowledge and agree that:
           </p>
+          <ul style={{ marginTop: '12px', paddingLeft: '20px', marginBottom: '16px' }}>
+            <li style={{ marginBottom: '8px' }}>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
+            <li style={{ marginBottom: '8px' }}>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+            <li style={{ marginBottom: '8px' }}>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00d4ff' }}>Ads Settings</a>.</li>
+            <li>You agree not to use ad-blocking software to circumvent these advertisements, as they are essential to the continued operation of the free Service.</li>
+          </ul>
 
           <h2 style={{ color: '#fff', fontSize: '20px', marginTop: '32px', marginBottom: '16px' }}>6. Disclaimer of Warranties</h2>
           <p>

@@ -1,4 +1,10 @@
-'use client';
+export const metadata = {
+  title: 'Vibe Blog | Cognitive Science, Learning & Game Design Notes',
+  description: 'Explore the science behind our games. Notes on memory, cognitive load, and the history of browser puzzles.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog',
+  },
+};
 
 import Link from 'next/link';
 import { BookOpen, Clock, ArrowRight, Zap, TrendingUp } from 'lucide-react';

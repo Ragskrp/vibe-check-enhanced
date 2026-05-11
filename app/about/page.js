@@ -5,7 +5,7 @@ export const metadata = {
   title: 'About VIBEMENOW',
   description: 'Learn what VIBEMENOW is, how the site is run, and how the team approaches privacy, moderation, and ads.',
   alternates: {
-    canonical: '/about',
+    canonical: 'https://vibemenow.uk/about',
   },
   openGraph: {
     url: '/about',

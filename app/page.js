@@ -1,3 +1,9 @@
+export const metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
+
 import HomeContent from './components/HomeContent';
 import HomeEditorial from './components/HomeEditorial';
 
