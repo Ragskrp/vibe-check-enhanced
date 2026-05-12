@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'daniel-ek-backed-defense-tech-helsing-to-raise-1-2b-at-18b-valuation',
+    title: 'Helsing\'s AI War Machine: Daniel Ek-Backed Defense Tech Just Got Wildly Rich at $18B!',
+    excerpt: 'European defense tech startup Helsing, backed by Spotify\'s Daniel Ek, is gearing up for a massive $1.2 billion funding round. This latest influx of cash will push their valuation to a staggering $18 billion, making waves in the world of AI-powered military drones.',
+    category: 'AI',
+    date: 'May 12, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic drone',
+    featured: true,
+  },
+
+  {
+    slug: 'finally-texts-between-android-and-iphone-users-can-be-end-to-end-encrypted',
+    title: 'Green Bubbles No More? The HUGE Texting Upgrade You Didn\'t Know You Needed!',
+    excerpt: 'Forget pixelated memes and insecure chats. Apple is finally adopting RCS, bringing end-to-end encryption to texts between Android and iPhone users. This is a game-changer for privacy and seamless cross-platform communication.',
+    category: 'Digital Culture',
+    date: 'May 12, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?phone chat bubbles',
+    
+  },
+
+  {
+    slug: 'gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills',
+    title: 'GM Just Ditched Old IT for AI Superstars: What This Means For YOUR Future Job!',
+    excerpt: 'General Motors just made a huge splash, laying off hundreds of IT workers to bring in a new wave of AI talent. This isn\'t just about cars; it\'s a massive signal for the evolving job market and a peek into what skills are truly in demand.',
+    category: 'AI',
+    date: 'May 12, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI future workforce',
+    
+  },
+
+  {
+    slug: 'riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo',
+    title: 'Robinhood\'s Wild AI Bet: Fueling the Next Wave of Startup Superstars!',
+    excerpt: 'Robinhood, the trading app that redefined retail investment, is confidentially prepping its second venture fund. This time, they\'re not just riding the AI rally – they\'re looking to ignite early-stage startups with serious cash and a vision for the future.',
+    category: 'Startups',
+    date: 'May 12, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI startup funding',
+    
+  },
+
+  {
+    slug: 'thinking-machines-wants-to-build-an-ai-that-actually-listens-while-it-talks',
+    title: 'No More Awkward Pauses: Thinking Machines Is Building an AI That *Actually* Listens While It Talks',
+    excerpt: 'Tired of your AI waiting for you to finish before it even *thinks* about replying? Thinking Machines is flipping the script, creating models that process your words and generate responses simultaneously, just like a real phone call.',
+    category: 'AI',
+    date: 'May 12, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI conversation',
+    
+  },
+
+  {
     slug: 'were-feeling-cynical-about-xais-big-deal-with-anthropic',
     title: 'Elon\'s Wild AI Alliance: What Does xAI & Anthropic Mean For SpaceX (And Us)?',
     excerpt: 'Hold up, VIBEMENOW crew! Elon Musk\'s xAI just inked a deal with Anthropic, and everyone\'s asking: what does this \'scary but cool\' AI hook-up mean for his rocket-slinging baby, SpaceX? We\'re diving deep into the cynicism.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 11, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?ai space exploration',
-    featured: true,
+    
   },
 
   {
