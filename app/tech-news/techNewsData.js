@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares',
+    title: 'AI Hype Just Got Real: Anthropic\'s Wild Warning to Investors!',
+    excerpt: 'Anthropic, the AI beast behind Claude, just dropped a massive warning: don\'t buy their shares from unofficial secondary platforms. Any such sales are void, leaving investors in the lurch amidst the red-hot AI market.',
+    category: 'AI',
+    date: 'May 13, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI investment warning fraud',
+    featured: true,
+  },
+
+  {
+    slug: 'musk-mulled-handing-openai-to-his-children-altman-testifies',
+    title: 'WTF?! Elon Musk Almost Handed OpenAI to His Heirs, Says Altman: The AI Power Play That Almost Was',
+    excerpt: 'Sam Altman\'s recent testimony dropped a bombshell: Elon Musk reportedly considered giving control of OpenAI\'s early for-profit arm to his children. This revelation highlights the intense battle for control over the future of AI and raises critical questions about who should steer this powerful technology.',
+    category: 'AI',
+    date: 'May 13, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI future',
+    
+  },
+
+  {
+    slug: 'former-tesla-exec-and-heron-power-ceo-drew-baglino-has-founded-a-heat-pump-startup',
+    title: 'From Tesla\'s Brain Trust to Heat Pump Hero: Why Drew Baglino\'s New Startup Is A VIBE',
+    excerpt: 'Former Tesla and Heron Power exec Drew Baglino is back with Sadi Thermal Machines, tackling the unsung hero of green tech: advanced heat pumps. This isn\'t just about HVAC; it\'s about a cleaner, more efficient future for all of us.',
+    category: 'Hardware',
+    date: 'May 13, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?sustainable heat pump technology innovation',
+    
+  },
+
+  {
+    slug: 'kevin-hartzs-a-just-closed-its-third-fund-with-450m',
+    title: 'Kevin Hartz\'s A* Drops a Wild $450M Fund: What It Means for Your Future Tech',
+    excerpt: 'Tech titan Kevin Hartz\'s A* just closed its third fund with an insane $450M, set to back the next wave of AI, fintech, healthcare, and security startups. Get ready for some serious innovation hitting your feeds soon.',
+    category: 'Startups',
+    date: 'May 13, 2026',
+    readTime: '5 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic tech startup investment',
+    
+  },
+
+  {
+    slug: 'medicares-new-payment-model-is-built-for-ai-and-most-of-the-tech-world-has-no-idea',
+    title: 'Medicare\'s Secret AI Weapon: Your Future Health Just Got a Major Upgrade You Didn\'t See Coming',
+    excerpt: 'Medicare\'s new ACCESS payment model is quietly paving the way for AI to revolutionize patient care beyond hospital walls. This is a huge, game-changing move for how tech will reshape our health.',
+    category: 'AI',
+    date: 'May 13, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI healthcare',
+    
+  },
+
+  {
     slug: 'daniel-ek-backed-defense-tech-helsing-to-raise-1-2b-at-18b-valuation',
     title: 'Helsing\'s AI War Machine: Daniel Ek-Backed Defense Tech Just Got Wildly Rich at $18B!',
     excerpt: 'European defense tech startup Helsing, backed by Spotify\'s Daniel Ek, is gearing up for a massive $1.2 billion funding round. This latest influx of cash will push their valuation to a staggering $18 billion, making waves in the world of AI-powered military drones.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 12, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?futuristic drone',
-    featured: true,
+    
   },
 
   {
