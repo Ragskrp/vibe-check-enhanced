@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are',
+    title: 'Mind-Reading AI? Anthropic\'s Cat Wu Says It\'s Coming (and It\'s Wild!)',
+    excerpt: 'Forget reactive AI – Anthropic\'s Cat Wu says the next big wave is proactive AI that anticipates your needs before you even know them. Get ready for a hyper-personalized digital future where your tech knows you better than you know yourself.',
+    category: 'AI',
+    date: 'May 14, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic mind tech',
+    featured: true,
+  },
+
+  {
+    slug: 'musks-xai-is-running-nearly-50-gas-turbines-unchecked-at-its-mississippi-data-center',
+    title: 'Musk\'s xAI: Powering the Future (and Lawsuits) with a 50-Turbine Beast!',
+    excerpt: 'Elon Musk\'s xAI is making headlines again, but this time it\'s not for a new AI model. Their Mississippi data center is reportedly running nearly 50 \'mobile\' gas turbines to power its operations, sparking environmental concerns and a hefty lawsuit.',
+    category: 'AI',
+    date: 'May 14, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?gas turbine power plant data center',
+    
+  },
+
+  {
+    slug: 'notion-just-turned-its-workspace-into-a-hub-for-ai-agents',
+    title: 'Notion Just Unleashed AI Agents: Your Workspace Is About to Get WILD',
+    excerpt: 'Notion just dropped a game-changer, turning its beloved workspace into a full-blown command center for AI agents. Get ready for a future where your digital space works harder, smarter, and way more autonomously.',
+    category: 'AI',
+    date: 'May 14, 2026',
+    readTime: '5 min read',
+    image: 'https://source.unsplash.com/featured/?ai workspace collaboration future productivity notion',
+    
+  },
+
+  {
+    slug: 'clios-500m-milestone-arrives-just-as-anthropic-ups-the-ante',
+    title: 'Lawyers, AI, and Half-a-Billion Bucks: The Legal Tech Glow-Up You Didn\'t See Coming!',
+    excerpt: 'Forget dusty law books – legal tech is booming, with Clio hitting a massive $500M in annual revenue. But hold up, AI giants like Anthropic are about to make things even wilder, totally reshaping how we think about law and future careers.',
+    category: 'AI',
+    date: 'May 14, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic legal office AI',
+    
+  },
+
+  {
+    slug: 'who-decides-what-ai-tells-you-campbell-brown-once-metas-news-chief-has-thoughts',
+    title: 'Who\'s Steering the AI Brain? Why What It Tells You Matters MORE Than Ever',
+    excerpt: 'Ever wonder who decides what your AI assistant tells you? Campbell Brown, formerly Meta\'s news chief, highlights a massive disconnect between Silicon Valley\'s AI debates and what consumers actually expect from these powerful tools.',
+    category: 'AI',
+    date: 'May 14, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?digital information',
+    
+  },
+
+  {
     slug: 'anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares',
     title: 'AI Hype Just Got Real: Anthropic\'s Wild Warning to Investors!',
     excerpt: 'Anthropic, the AI beast behind Claude, just dropped a massive warning: don\'t buy their shares from unofficial secondary platforms. Any such sales are void, leaving investors in the lurch amidst the red-hot AI market.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 13, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?AI investment warning fraud',
-    featured: true,
+    
   },
 
   {
