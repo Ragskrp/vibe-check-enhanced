@@ -7,9 +7,54 @@ export const metadata = {
   },
 };
 
+// Article + Breadcrumb schema injected globally for all blog posts
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "VIBEMENOW Blog — Cognitive Science & Learning",
+  "url": "https://vibemenow.uk/blog",
+  "description": "In-depth articles on cognitive science, learning psychology, educational technology, and the neuroscience of games and performance.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "VIBEMENOW",
+    "url": "https://vibemenow.uk",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vibemenow.uk/icon.png"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vibemenow.uk"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://vibemenow.uk/blog"
+    }
+  ]
+};
+
 export default function BlogLayout({ children }) {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {children}
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 16px 48px' }}>
         <div

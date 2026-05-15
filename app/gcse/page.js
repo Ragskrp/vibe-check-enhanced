@@ -27,6 +27,37 @@ export const metadata = {
   },
 };
 
+// ---- Structured Data ----
+
+const educationSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "VIBEMENOW GCSE Revision",
+    "url": "https://vibemenow.uk/gcse",
+    "description": "Free, curriculum-aligned GCSE revision games for AQA, OCR, and Edexcel. No login required.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "GCSE Subjects",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Maths Revision", "url": "https://vibemenow.uk/gcse/maths" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Science Revision", "url": "https://vibemenow.uk/gcse/science" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Computer Science Revision", "url": "https://vibemenow.uk/gcse/computer-science" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE English Language Revision", "url": "https://vibemenow.uk/gcse/english-language" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE History Revision", "url": "https://vibemenow.uk/gcse/history" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Geography Revision", "url": "https://vibemenow.uk/gcse/geography" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vibemenow.uk" },
+      { "@type": "ListItem", "position": 2, "name": "GCSE Revision", "item": "https://vibemenow.uk/gcse" }
+    ]
+  }
+];
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -65,10 +96,13 @@ export default function GCSEHub() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(educationSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <GCSEClientWrapper />
     </>
   );
 }
-

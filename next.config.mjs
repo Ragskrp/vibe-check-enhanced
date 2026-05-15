@@ -49,6 +49,23 @@ const nextConfig = {
           destination: '/gravity-dash',
           permanent: true,
         },
+        // --- SEO Audit Fixes (2026-05-15) ---
+        {
+          source: '/gcse/english',
+          destination: '/gcse/english-language',
+          permanent: true,
+        },
+        {
+          source: '/publisher-info',
+          destination: '/publisher-information',
+          permanent: true,
+        },
+        {
+          // Catch /play/<game> links from old external sources
+          source: '/play/:slug',
+          destination: '/:slug',
+          permanent: true,
+        },
       ];
     },
 };
