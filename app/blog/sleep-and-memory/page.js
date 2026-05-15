@@ -1,6 +1,6 @@
 
 export const metadata = {
-  title: 'Sleep and Memory: The Brain's Nighttime Maintenance | VIBEMENOW Blog',
+  title: "Sleep and Memory: The Brain's Nighttime Maintenance | VIBEMENOW Blog",
   description: 'How the hippocampus and cortex work together during REM and deep sleep to consolidate what you learned today.',
   alternates: {
     canonical: 'https://vibemenow.uk/blog/sleep-and-memory',
