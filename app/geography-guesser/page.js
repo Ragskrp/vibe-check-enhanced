@@ -46,34 +46,51 @@ export default function GeographyGuesserPage() {
           About Geography Guesser
         </h2>
 
-        <p>
-          Geography Guesser is a recognition game built around world flags. The rounds are quick,
-          but the challenge grows as you start running into designs that share similar layouts,
-          colors, or symbols.
+        <p style={{ marginBottom: '20px' }}>
+          Geography Guesser is a rapid-fire recognition game built around world flags. While the initial rounds might seem straightforward if you are familiar with major nations, the challenge quickly scales as you encounter flags from smaller territories, island nations, and countries that share remarkably similar layouts, colors, or historical symbols.
+        </p>
+
+        <p style={{ marginBottom: '24px' }}>
+          This game is designed to test your active recall—a cognitive process where retrieving information from memory strengthens your ability to remember it in the future. By placing you under a slight time pressure, Geography Guesser forces your brain to rely on pattern recognition rather than slow deliberation.
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
-          How to improve faster
+          How to Improve Your Flag Recognition
         </h3>
-        <p>
-          Instead of trying to memorize every flag as a separate item, it helps to group them.
-          Some are easier to remember by region, some by color family, and some by one distinctive
-          element such as a star, crest, cross, or stripe order.
+        <p style={{ marginBottom: '20px' }}>
+          Instead of trying to memorize every single flag as a completely isolated image, the most effective strategy is to categorize and group them by shared characteristics. Vexillology (the study of flags) shows us that flags are deeply tied to regional history and shared cultural heritage.
         </p>
-
-        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
-          Good patterns to watch for
-        </h3>
-        <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
-          <li style={{ marginBottom: '10px' }}>Nordic-style crosses are a strong first clue for a small group of countries.</li>
-          <li style={{ marginBottom: '10px' }}>Vertical tricolours can look similar, so stripe order matters.</li>
-          <li style={{ marginBottom: '10px' }}>Flags with crests or seals often become easier once you remember the overall layout first.</li>
+        <p style={{ marginBottom: '20px' }}>
+          When learning, try to focus on these grouping methods:
+        </p>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '24px' }}>
+          <li style={{ marginBottom: '10px' }}><strong>Regional Crosses:</strong> The Nordic cross is used by Scandinavian countries (Sweden, Norway, Denmark, Finland, Iceland). Recognizing this underlying shape immediately narrows down your options.</li>
+          <li style={{ marginBottom: '10px' }}><strong>Pan-African Colors:</strong> Many African nations use green, yellow, and red (or black, red, and green). These colors signify a shared history of independence and solidarity.</li>
+          <li style={{ marginBottom: '10px' }}><strong>Pan-Arab Colors:</strong> Black, white, green, and red frequently appear on the flags of Middle Eastern nations, often arranged in horizontal stripes with a triangle at the hoist.</li>
+          <li style={{ marginBottom: '10px' }}><strong>Tricolors and Order:</strong> The order of stripes matters immensely. For instance, Ireland (green, white, orange) and Ivory Coast (orange, white, green) are mirror images of each other. Paying attention to which color touches the flagpole is crucial.</li>
         </ul>
 
-        <p>
-          This page works well as repeated practice. You do not need to master everything at once;
-          better recognition usually comes from seeing the same patterns several times in short sessions.
+        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
+          The Power of Spaced Repetition
+        </h3>
+        <p style={{ marginBottom: '24px' }}>
+          Geography Guesser works best when played in short, repeated bursts over several days rather than one massive marathon session. This takes advantage of "spaced repetition," a psychological learning technique. Your brain needs time to consolidate visual memories. Make a mental note of the flags you confuse (like Australia and New Zealand, or Romania and Chad) and review them briefly before your next game session.
         </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px', marginTop: '40px' }}>Related Educational Content</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Looking to apply similar learning strategies to your studies? Check out our guides:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <a href="/gcse/geography" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>GCSE Geography Revision Hub</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>Master physical processes, human environments, and detailed case studies with interactive quizzes.</span>
+          </a>
+          <a href="/blog/psychology-of-flow" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>Learn how gamified retrieval practice pushes your brain into optimal learning zones.</span>
+          </a>
+        </div>
       </article>
 
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>

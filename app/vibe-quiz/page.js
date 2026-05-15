@@ -41,37 +41,47 @@ export default function VibeQuizPage() {
         }}
       >
         <h1 style={{ color: '#00ff94', fontSize: '2.5em', marginBottom: '20px' }}>
-          About Vibe Quiz
+          The Psychology Behind the Vibe Quiz
         </h1>
 
-        <p>
-          Vibe Quiz is a short personality-style game that groups answers into playful result
-          labels. It is designed for fun and sharing, not for diagnosis, prediction, or any kind
-          of professional assessment.
+        <p style={{ marginBottom: '20px' }}>
+          Vibe Quiz is a short personality-style interactive game designed to map your current mood, preferences, and aesthetic choices to a playful "vibe" result. While the outcomes are meant entirely for entertainment and are not clinical or diagnostic assessments, the framework behind the quiz draws loosely on how we construct and signal identity in digital spaces.
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
-          How the results work
+          How the Scoring System Works
         </h3>
-        <p>
-          Your choices add weight to different result categories behind the scenes. At the end, the
-          quiz shows the label that best matches the pattern of answers you gave during that run.
-          If you answer differently on another day, you may land on a different result.
+        <p style={{ marginBottom: '20px' }}>
+          Unlike a simple pass/fail trivia game, the Vibe Quiz uses a multi-dimensional weighting system. Every choice you make in the quiz doesn't just push you toward one single answer; instead, it adds fractional weight to several different underlying archetype categories behind the scenes. 
+        </p>
+        <p style={{ marginBottom: '20px' }}>
+          For example, choosing a "late night city drive" aesthetic might simultaneously increase your score in the "Cyberpunk" category while slightly reducing your alignment with the "Cottagecore" or "Nature" categories. At the end of the quiz, the system calculates which overarching archetype accumulated the highest relative weight based on your unique combination of answers.
         </p>
 
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
-          A good way to read the outcome
+          The "Barnum Effect" and Self-Reflection
         </h3>
-        <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
-          <li style={{ marginBottom: '10px' }}>Treat the result as a theme or prompt, not a fixed identity.</li>
-          <li style={{ marginBottom: '10px' }}>Retaking the quiz can show how different answer paths change the outcome.</li>
-          <li style={{ marginBottom: '10px' }}>Share it if it is fun, but do not treat it as a scientific personality measure.</li>
-        </ul>
-
-        <p>
-          The page is intentionally lightweight. It is meant to be a quick interactive break with a
-          readable result card at the end.
+        <p style={{ marginBottom: '20px' }}>
+          When reading your results, you might experience what psychologists call the <strong>Barnum Effect</strong> (or Forer Effect). This is the psychological phenomenon where individuals believe that generic personality descriptions apply specifically and highly accurately to them. It is the same psychological mechanism that makes horoscopes feel so personally relevant.
         </p>
+        <p style={{ marginBottom: '24px' }}>
+          We encourage you to use your result not as a fixed label, but as a fun mirror. If you get a "Chaotic Good" or "Neon Dreamer" vibe, ask yourself: does this reflect how I feel today, or how I wish to be seen? Retaking the quiz on a different day or when you're in a different mood will often yield entirely different paths through the scoring matrix.
+        </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px', marginTop: '40px' }}>Related Editorial Content</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Interested in the intersection of psychology, digital identity, and gaming? Read our related features:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <a href="/blog/psychology-of-flow" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How interactive experiences and games capture our attention and alter our state of mind.</span>
+          </a>
+          <a href="/tech-news/sam-altman-ai-infrastructure" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>Sam Altman Unveils Massive AI Infrastructure Plan</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How emerging technologies are shaping the future of digital interaction and personal data.</span>
+          </a>
+        </div>
       </article>
 
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>

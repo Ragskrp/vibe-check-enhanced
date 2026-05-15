@@ -88,6 +88,20 @@ export default function RootLayout({ children }) {
     },
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VIBEMENOW",
+      "url": "https://vibemenow.uk",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://vibemenow.uk/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       "name": "VIBEMENOW",
       "url": "https://vibemenow.uk",

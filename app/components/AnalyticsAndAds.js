@@ -13,7 +13,7 @@ export default function AnalyticsAndAds() {
         try {
           setConsent(JSON.parse(stored));
         } catch (e) {
-          // invalid json
+          // invalid json — treat as no consent
         }
       }
     };
@@ -23,19 +23,32 @@ export default function AnalyticsAndAds() {
     return () => window.removeEventListener('vibe_consent_updated', handleConsentUpdate);
   }, []);
 
+  // Determine ad personalization mode:
+  // - Advertising consent given → personalized ads (NPA=0)
+  // - No consent yet or declined → non-personalized ads (NPA=1, GDPR-compliant)
+  const npaMode = consent?.advertising ? 0 : 1;
+
   return (
     <>
-      {consent?.advertising && (
-        <>
-          {/* AdSense (Keep for now) */}
-          <Script
-            id="adsbygoogle-init"
-            strategy="afterInteractive"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
-            crossOrigin="anonymous"
-          />
-        </>
-      )}
+      {/* AdSense — always loads. Non-personalized when consent is not given (GDPR-compliant). */}
+      <Script
+        id="adsbygoogle-npa"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.adsbygoogle = window.adsbygoogle || [];
+            window.adsbygoogle.requestNonPersonalizedAds = ${npaMode};
+          `,
+        }}
+      />
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7832965089021505"
+        crossOrigin="anonymous"
+      />
+
+      {/* Google Analytics — only with analytics consent */}
       {consent?.analytics && (
         <>
           <Script
@@ -60,3 +73,4 @@ export default function AnalyticsAndAds() {
     </>
   );
 }
+
