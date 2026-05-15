@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'cerebras-ipo-makes-billions-for-benchmark-but-vc-eric-vishria-almost-didnt-take-the-meeting',
+    title: 'The Billion-Dollar \'Oops\': How One VC Almost Skipped AI\'s Next Big Beast',
+    excerpt: 'Imagine almost missing out on billions because you weren\'t feeling a meeting. That\'s the wild story of Cerebras\' IPO, a reminder that sometimes, the biggest wins come from taking a chance on what others ignore.',
+    category: 'AI',
+    date: 'May 15, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI chip data center supercomputer',
+    featured: true,
+  },
+
+  {
+    slug: 'lovable-just-backed-a-company-thats-looking-to-bring-vibe-coding-to-hardware',
+    title: 'Vibe Check: Atech Just Scored Big to Make Your Hardware FEEL Something (and it\'s WILD!)',
+    excerpt: 'Forget just sleek designs; a new startup named Atech just landed a hefty $800,000 to infuse our devices with \'vibe coding.\' This isn\'t just about functionality anymore – it\'s about giving your gadgets an emotional intelligence.',
+    category: 'Hardware',
+    date: 'May 15, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic hardware glowing',
+    
+  },
+
+  {
+    slug: 'openai-says-codex-is-coming-to-your-phone',
+    title: 'Codex in Your Pocket: OpenAI\'s Mobile AI is About to Unleash Wild New Workflows!',
+    excerpt: 'Get ready to ditch your desktop! OpenAI is bringing its powerful Codex AI to your smartphone, promising a future where coding and workflow management are truly mobile. This update is set to revolutionize how young techies learn, build, and innovate on the go.',
+    category: 'AI',
+    date: 'May 15, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?mobile AI development',
+    
+  },
+
+  {
+    slug: 'elon-musks-spacexai-has-been-bleeding-staff-since-its-merger',
+    title: 'Elon\'s AI Beast is Bleeding Talent: What\'s Up at SpaceXAI?',
+    excerpt: 'More than 50 employees have reportedly bailed from Elon Musk\'s shiny new SpaceXAI since February. We\'re diving into the \'why\' behind this talent exodus and what it means for the future of tech.',
+    category: 'AI',
+    date: 'May 15, 2026',
+    readTime: '5 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic AI workspace',
+    
+  },
+
+  {
+    slug: 'what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman',
+    title: 'AI\'s Ultimate Showdown: Why the Elon vs. Sam Lawsuit is WILD for Your Future!',
+    excerpt: 'Forget your typical Silicon Valley drama; this is the real deal. Elon Musk and Sam Altman are clashing in court over the very soul of AI, and what the jury decides could reshape our digital world.',
+    category: 'AI',
+    date: 'May 15, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic AI courtroom',
+    
+  },
+
+  {
     slug: 'anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are',
     title: 'Mind-Reading AI? Anthropic\'s Cat Wu Says It\'s Coming (and It\'s Wild!)',
     excerpt: 'Forget reactive AI – Anthropic\'s Cat Wu says the next big wave is proactive AI that anticipates your needs before you even know them. Get ready for a hyper-personalized digital future where your tech knows you better than you know yourself.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 14, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?futuristic mind tech',
-    featured: true,
+    
   },
 
   {
