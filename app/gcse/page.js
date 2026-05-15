@@ -28,36 +28,104 @@ export const metadata = {
 };
 
 // ---- Structured Data ----
-
-const educationSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "VIBEMENOW GCSE Revision",
-    "url": "https://vibemenow.uk/gcse",
-    "description": "Free, curriculum-aligned GCSE revision games for AQA, OCR, and Edexcel. No login required.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "GCSE Subjects",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Maths Revision", "url": "https://vibemenow.uk/gcse/maths" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Science Revision", "url": "https://vibemenow.uk/gcse/science" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Computer Science Revision", "url": "https://vibemenow.uk/gcse/computer-science" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE English Language Revision", "url": "https://vibemenow.uk/gcse/english-language" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE History Revision", "url": "https://vibemenow.uk/gcse/history" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "GCSE Geography Revision", "url": "https://vibemenow.uk/gcse/geography" } }
-      ]
+// Course ItemList — Google's supported format for Course rich results
+const courseListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Free GCSE Revision Courses — VIBEMENOW",
+  "description": "Curriculum-aligned GCSE revision games for AQA, OCR, and Edexcel. No login required.",
+  "url": "https://vibemenow.uk/gcse",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/maths",
+        "name": "GCSE Maths Revision Games",
+        "description": "42 interactive modules covering algebra, geometry, fractions, and statistics. Aligned to AQA and Edexcel specifications.",
+        "url": "https://vibemenow.uk/gcse/maths",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT30M" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/science",
+        "name": "GCSE Science Revision Games",
+        "description": "48 modules covering Biology, Chemistry, and Physics for Triple and Combined award specifications.",
+        "url": "https://vibemenow.uk/gcse/science",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT30M" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/computer-science",
+        "name": "GCSE Computer Science Revision Games",
+        "description": "22 interactive modules covering OCR J277 — algorithms, logic gates, networking, and programming fundamentals.",
+        "url": "https://vibemenow.uk/gcse/computer-science",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT30M" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/english-language",
+        "name": "GCSE English Language Revision Games",
+        "description": "7 modules for AQA English Language: reading analysis (AO1–AO4), creative and transactional writing skills.",
+        "url": "https://vibemenow.uk/gcse/english-language",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT20M" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/history",
+        "name": "GCSE History Revision Games",
+        "description": "24 modules for Edexcel and AQA History: Medicine, Weimar Germany, Elizabethan England, and the Cold War.",
+        "url": "https://vibemenow.uk/gcse/history",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT25M" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Course",
+        "@id": "https://vibemenow.uk/gcse/geography",
+        "name": "GCSE Geography Revision Games",
+        "description": "20 modules covering physical processes, human environments, and case studies mapped to AQA Geography.",
+        "url": "https://vibemenow.uk/gcse/geography",
+        "provider": { "@type": "Organization", "name": "VIBEMENOW", "url": "https://vibemenow.uk" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT25M" }
+      }
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vibemenow.uk" },
-      { "@type": "ListItem", "position": 2, "name": "GCSE Revision", "item": "https://vibemenow.uk/gcse" }
-    ]
-  }
-];
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vibemenow.uk" },
+    { "@type": "ListItem", "position": 2, "name": "GCSE Revision", "item": "https://vibemenow.uk/gcse" }
+  ]
+};
+
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -96,7 +164,11 @@ export default function GCSEHub() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(educationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
