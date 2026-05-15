@@ -54,19 +54,44 @@ export default function VibeMergePage() {
           </ul>
         </div>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '48px', marginBottom: '20px' }}>Strategy and Skill: Why 2048 is Good for You</h3>
-        <p><strong>Merge Vibe</strong> is more than just a passing distraction; it&apos;s a deep exercise in spatial logic. Successful players learn to keep their highest-value tiles in a specific corner, allowing for predictable and controlled merging chains. This type of mental simulation helps strengthen the parts of the brain responsible for pattern recognition and long-term planning.</p>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '48px', marginBottom: '20px' }}>Strategy and Cognitive Load: Why 2048 is Good for You</h3>
+        <p style={{ marginBottom: '24px' }}>
+          <strong>Merge Vibe</strong> (based on the legendary 2048 mechanic) is more than just a passing distraction; it is a profound exercise in spatial logic, forward planning, and exponential mathematics. While the early game relies on simple matching, surviving into the late game (building the 512, 1024, and 2048 tiles) requires a strict algorithmic approach to manage the board's limited real estate.
+        </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>✨ Importance: Skill & Health Benefits</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', margin: '32px 0' }}>
-          <div>
-            <h4 style={{ color: '#ff2d78', marginBottom: '8px' }}>🧠 Spatial Reasoning</h4>
-            <p style={{ fontSize: '15px', color: '#999', lineHeight: '1.6' }}>Constantly calculating how the whole board shifts improves your brain&apos;s ability to visualize and manipulate spatial structures.</p>
-          </div>
-          <div>
-            <h4 style={{ color: '#ff2d78', marginBottom: '8px' }}>🎯 Forward Planning</h4>
-            <p style={{ fontSize: '15px', color: '#999', lineHeight: '1.6' }}>Great players don&apos;t just think about their next move—they think three moves ahead, building discipline and patience.</p>
-          </div>
+        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
+          The "Corner Strategy" and Working Memory
+        </h3>
+        <p style={{ marginBottom: '24px' }}>
+          Successful players naturally develop or learn the "Corner Strategy." This involves designating one corner of the 4x4 grid (usually the bottom-right or bottom-left) as the permanent home for the highest-value tile. By exclusively swiping in three directions and treating the fourth direction as forbidden, players create a cascading snake of descending values.
+        </p>
+        <p style={{ marginBottom: '24px' }}>
+          Executing this strategy under the pressure of a filling board heavily taxes your <strong>working memory</strong> and <strong>executive function</strong>. You must hold the current board state in your mind while simulating the geometric outcome of the next two to three swipes. Cognitive psychologists note that games requiring this kind of mental simulation can help strengthen the neural pathways responsible for pattern recognition.
+        </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>
+          Exponential Growth and the Illusion of Progress
+        </h3>
+        <p style={{ marginBottom: '24px' }}>
+          Part of what makes 2048 so captivating is its use of powers of two (2, 4, 8, 16, 32...). Humans are notoriously bad at intuitively understanding exponential growth. Getting the 1024 tile feels like you are halfway to winning. Mathematically, however, creating a 2048 tile requires exactly as much work as everything you did to get the 1024 tile, plus doing it all over again. 
+        </p>
+        <p style={{ marginBottom: '24px' }}>
+          This mathematical reality creates a steep difficulty curve where the margin for error shrinks drastically the closer you get to the goal. A single accidental swipe that pulls your highest tile out of the corner can ruin thousands of precise moves, teaching a harsh but valuable lesson in <strong>impulse control</strong> and deliberate action.
+        </p>
+
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '40px', marginBottom: '16px' }}>Related Editorial Content</h3>
+        <p style={{ marginBottom: '24px' }}>
+          Interested in how logic puzzles affect the brain? Read our related features:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <a href="/blog/cognitive-load-mastery" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#ff2d78', marginBottom: '4px' }}>Cognitive Load Theory: Protecting the Working Memory</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>Understanding the biological limits of the brain when processing new information and patterns.</span>
+          </a>
+          <a href="/blog/history-of-word-games" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#ff2d78', marginBottom: '4px' }}>From Letter Tiles to Daily Browser Puzzles</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>A look at how familiar puzzle mechanics keep getting remixed for the modern web.</span>
+          </a>
         </div>
 
         <h3 style={{ color: '#fff', fontSize: '1.8em', marginTop: '32px', marginBottom: '20px' }}>Explore Similar Games</h3>

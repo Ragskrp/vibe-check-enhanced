@@ -11,6 +11,26 @@ import { BookOpen, Clock, ArrowRight, Zap, TrendingUp } from 'lucide-react';
 
 const ARTICLES = [
   {
+    slug: 'cognitive-science-reaction-times',
+    emoji: '⏱️',
+    title: 'The Cognitive Science of Reaction Times in Gaming',
+    excerpt: 'How the brain processes visual stimuli, and the difference between true reaction speed and anticipation.',
+    readTime: '6 min read',
+    date: 'May 2026',
+    color: '#00d4ff',
+    category: 'Science'
+  },
+  {
+    slug: 'gamified-retrieval-practice-brain',
+    emoji: '🧠',
+    title: 'How Gamified Retrieval Practice Changes the Brain',
+    excerpt: 'The neuroscience of active recall, the testing effect, and why gamification makes learning stick.',
+    readTime: '7 min read',
+    date: 'May 2026',
+    color: '#ff2d78',
+    category: 'Education'
+  },
+  {
     slug: 'science-of-brain-games',
     emoji: '🧠',
     title: 'Notes on Brain Games and Daily Puzzle Habits',

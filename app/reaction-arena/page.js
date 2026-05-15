@@ -55,23 +55,19 @@ export default function ReactionArenaPage() {
         <h3 style={{ color: '#fff', fontSize: '1.5em', marginTop: '30px', marginBottom: '15px' }}>The Science of Human Reflexes</h3>
         <p style={{ marginBottom: '32px' }}>When the screen turns green in Reaction Arena, a complex biological chain reaction occurs. Photons enter your retina, sending electrical signals through the optic nerve to your brain&apos;s visual cortex. The brain processes this signal, recognizes the rule (&quot;green means go"), and sends a command down your spinal cord to the muscles in your hand to contract. The fact that the human body can execute this massive physiological operation in under a quarter of a second is nothing short of miraculous. Practicing games like Reaction Arena helps myelinate these specific nerve pathways. Myelin is the fatty sheath that insulates nerve fibers; thicker myelin means faster signal conduction. So by playing repeatedly, you are literally rewiring your hardware for peak performance.</p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Games</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px', marginTop: '40px' }}>Related Editorial Content</h3>
         <p style={{ marginBottom: '24px' }}>
-          Think you have the fastest hands? Test your skills in these other reaction and arcade games:
+          Interested in the deep biology of how fast the human body can react? Read our related features:
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-          <Link href="/gravity-dash" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🐦</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Gravity Dash</div>
-          </Link>
-          <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Clicker</div>
-          </Link>
-          <Link href="/2048-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧩</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Merge Vibe</div>
-          </Link>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <a href="/blog/cognitive-science-reaction-times" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00ff94', marginBottom: '4px' }}>The Cognitive Science of Reaction Times in Gaming</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How visual stimuli are processed, and the difference between pure reaction and anticipation.</span>
+          </a>
+          <a href="/blog/psychology-of-flow" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00ff94', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How interactive experiences and games capture our attention and alter our state of mind.</span>
+          </a>
         </div>
       </article>
     </>

@@ -90,33 +90,40 @@ export default function GravityDashPage() {
           </ul>
         </div>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>The Space Combat Engine</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>The Cognitive Demands of Endless Space Combat</h3>
         <p style={{ marginBottom: '24px' }}>
-          Neon Strike is built on a high-performance physics engine designed for fluid, responsive space flight. Unlike static arcade shooters, your ship has momentum and tight handling, allowing for precision dodges through dense enemy clusters.
+          Neon Strike is built on a high-performance physics engine designed to push your <strong>spatial awareness</strong> and <strong>dynamic visual acuity</strong> to their limits. Unlike static arcade shooters where enemies follow predictable, hardcoded paths, the procedural generation in Neon Strike means no two flights are ever the same. 
+        </p>
+        <p style={{ marginBottom: '24px' }}>
+          To survive the swarm, players must constantly calculate trajectory vectors. When an enemy drone appears on the edge of your screen, your brain has milliseconds to calculate its speed, its angle, and the necessary counter-movement required to dodge it while simultaneously aiming your primary laser. This rapid calculation engages the parietal lobe, the area of the brain responsible for processing spatial relationships.
         </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Strategic Upgrades</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Strategic Upgrades and Resource Management</h3>
         <p style={{ marginBottom: '24px' }}>
-          Success in the deep void requires more than just fast reflexes. You must prioritize the right power-ups. The <strong>Energy Shield</strong> provides temporary invulnerability, while the <strong>Triple Shot</strong> allows you to clear wide paths through the swarm. Timing your pickups is the key to breaking the world record.
+          Success in the deep void requires more than just fast reflexes; it demands split-second resource management. You must prioritize the right power-ups under extreme duress. 
+        </p>
+        <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '24px' }}>
+          <li style={{ marginBottom: '12px' }}>The <strong>Energy Shield</strong> provides temporary invulnerability, allowing for aggressive ramming tactics.</li>
+          <li style={{ marginBottom: '12px' }}>The <strong>Triple Shot</strong> allows you to clear wide paths through the swarm, but requires you to position yourself centrally to maximize the spread.</li>
+          <li style={{ marginBottom: '12px' }}>The <strong>Rapid Fire</strong> upgrade demands tracking precision, as missing your target leaves you vulnerable during the brief cooldowns.</li>
+        </ul>
+        <p style={{ marginBottom: '24px' }}>
+          Choosing to dive into a dense cluster of enemies to secure an Energy Shield is a high-risk, high-reward decision. Cognitive psychologists refer to this as <em>decision-making under time pressure</em>, a skill that translates heavily into real-world crisis management.
         </p>
 
-        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px' }}>Explore Similar Vibes</h3>
+        <h3 style={{ color: '#fff', fontSize: '1.8em', marginBottom: '16px', marginTop: '40px' }}>Related Editorial Content</h3>
         <p style={{ marginBottom: '24px' }}>
-          If you enjoy high-intensity arcade combat, check out these other challenges:
+          Interested in the psychology behind why fast-paced games are so addictive? Dive into our related articles:
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-          <Link href="/reaction-arena" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚡</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Reaction Arena</div>
-          </Link>
-          <Link href="/whack-a-vibe" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🔨</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Whack-a-Vibe</div>
-          </Link>
-          <Link href="/vibe-clicker" className="card" style={{ textDecoration: 'none', padding: '16px', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🖱️</div>
-            <div style={{ fontWeight: '700', color: '#fff' }}>Vibe Clicker</div>
-          </Link>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <a href="/blog/cognitive-science-reaction-times" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>The Cognitive Science of Reaction Times in Gaming</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How visual stimuli are processed, and the difference between pure reaction and anticipation.</span>
+          </a>
+          <a href="/blog/psychology-of-flow" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How games like Neon Strike lock your brain into the optimal zone of focus and challenge.</span>
+          </a>
         </div>
       </article>
 
