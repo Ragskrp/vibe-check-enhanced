@@ -44,6 +44,11 @@ const nextConfig = {
           destination: '/2048-vibe',
           permanent: true,
         },
+        {
+          source: '/flappy-vibe',
+          destination: '/gravity-dash',
+          permanent: true,
+        },
       ];
     },
 };

@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'Sleep and Memory: The Brain's Nighttime Maintenance | VIBEMENOW Blog',
+  description: 'How the hippocampus and cortex work together during REM and deep sleep to consolidate what you learned today.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/sleep-and-memory',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Moon, ZapOff, Activity, Clock, Shield } from 'lucide-react';

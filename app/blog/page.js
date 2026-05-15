@@ -159,6 +159,66 @@ const ARTICLES = [
     date: 'April 2026',
     color: '#ffffff',
     category: 'Strategy'
+  },
+  {
+    slug: 'psychology-of-flow',
+    emoji: '🌊',
+    title: 'In the Stream: Understanding the Psychology of Flow',
+    excerpt: 'Explore the neurobiology of the "Flow" state—the optimal human experience where time vanishes and complex action becomes effortless.',
+    readTime: '12 min read',
+    date: 'April 2026',
+    color: '#00d4ff',
+    category: 'Psychology'
+  },
+  {
+    slug: 'computational-thinking',
+    emoji: '💻',
+    title: 'Computational Thinking: Solving Problems Without a Screen',
+    excerpt: 'Decomposition, pattern recognition, and abstraction—how to teach logic to kids using offline puzzles.',
+    readTime: '10 min read',
+    date: 'April 2026',
+    color: '#ff2d78',
+    category: 'Computer Science'
+  },
+  {
+    slug: 'the-mozart-effect',
+    emoji: '🎵',
+    title: 'The Mozart Effect: Can Music Really Boost Brain Power?',
+    excerpt: 'Investigating the science of auditory stimulation and its actual impact on spatial reasoning and focus.',
+    readTime: '9 min read',
+    date: 'May 2026',
+    color: '#00ff94',
+    category: 'Biology'
+  },
+  {
+    slug: 'sleep-and-memory',
+    emoji: '😴',
+    title: 'Sleep and Memory: The Brain\'s Nighttime Maintenance',
+    excerpt: 'How the hippocampus and cortex work together during REM and deep sleep to consolidate what you learned today.',
+    readTime: '11 min read',
+    date: 'May 2026',
+    color: '#b14aed',
+    category: 'Neuroscience'
+  },
+  {
+    slug: 'dual-coding-theory',
+    emoji: '🖼️',
+    title: 'Dual Coding Theory: Why Words and Visuals Work Better Together',
+    excerpt: 'The cognitive science of combining verbal and visual information for superior long-term retention.',
+    readTime: '8 min read',
+    date: 'May 2026',
+    color: '#ffe600',
+    category: 'Education'
+  },
+  {
+    slug: 'cyberpsychology',
+    emoji: '🌐',
+    title: 'Cyberpsychology: The Impact of Digital Spaces on Identity',
+    excerpt: 'How social media architectures and virtual environments reshape our sense of self and community.',
+    readTime: '13 min read',
+    date: 'May 2026',
+    color: '#ff8c00',
+    category: 'Social Science'
   }
 ];
 

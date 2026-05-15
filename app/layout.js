@@ -71,25 +71,44 @@ export default function RootLayout({ children }) {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      name: "VIBEMENOW",
-      url: "https://vibemenow.uk",
-      description:
-        "A collection of original browser games, quizzes, and quick party experiences that run without registration.",
-      applicationCategory: "GameApplication",
-      operatingSystem: "Any",
-      offers: {
+      "name": "VIBEMENOW",
+      "url": "https://vibemenow.uk",
+      "description": "A collection of original browser games, quizzes, and quick party experiences that run without registration.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Any",
+      "offers": {
         "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
+        "price": "0",
+        "priceCurrency": "USD",
       },
+      "author": {
+        "@type": "Organization",
+        "name": "VIBEMENOW"
+      }
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "VIBEMENOW",
-      url: "https://vibemenow.uk",
-      logo: "https://vibemenow.uk/icon.png",
+      "name": "VIBEMENOW",
+      "url": "https://vibemenow.uk",
+      "logo": "https://vibemenow.uk/icon.png",
+      "sameAs": [
+        "https://twitter.com/vibemenow",
+        "https://facebook.com/vibemenow"
+      ]
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Raghavendra Reddy",
+      "jobTitle": "Lead Developer & Designer",
+      "url": "https://vibemenow.uk/about",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "VIBEMENOW"
+      }
+    }
+
   ];
 
   return (

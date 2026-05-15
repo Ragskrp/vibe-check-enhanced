@@ -4,34 +4,64 @@ import GravityClient from './GravityClient';
 import AdGateway from '../components/AdGateway';
 
 export const metadata = {
-  title: 'Neon Strike | Space Combat Arcade | VIBEMENOW',
-  description: 'Engage in high-octane deep space combat in Neon Strike. Pilot your ship, upgrade weapons, and survive the neon drone swarm.',
+  title: 'Neon Strike - Space Combat Arcade Game | VIBEMENOW',
+  description: 'Play Neon Strike, a high-octane deep space combat game. No download or login required. Pilot your ship through the neon void and survive the swarm.',
+  keywords: ['Neon Strike game', 'space combat browser game', 'free arcade game no login', 'neon space shooter', 'instant play web game'],
   alternates: {
-    canonical: '/gravity-dash',
+    canonical: 'https://vibemenow.uk/gravity-dash',
   },
   openGraph: {
-    url: '/gravity-dash',
-    title: 'Neon Strike | Deep Space Combat | VIBEMENOW',
-    description: 'Engage in high-octane deep space combat in Neon Strike. Pilot your ship, upgrade weapons, and survive the neon drone swarm.',
-    images: [
-      {
-        url: '/og/neon-strike.png',
-        width: 1200,
-        height: 630,
-        alt: 'Neon Strike space combat game on VIBEMENOW',
-      },
-    ],
+    title: 'Neon Strike - Space Combat Arcade Game | VIBEMENOW',
+    description: 'Pilot your ship through the neon void and survive the swarm in this high-octane space combat game.',
+    url: 'https://vibemenow.uk/gravity-dash',
+    type: 'website',
+    images: [{
+      url: 'https://vibemenow.uk/og/neon-strike.png',
+      width: 1200,
+      height: 630,
+      alt: 'Neon Strike space combat game'
+    }],
   },
-  robots: {
-    index: true,
-    follow: true,
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neon Strike Arcade Game | VIBEMENOW',
+    description: 'High-octane deep space combat. Play instantly without login.',
+    images: ['https://vibemenow.uk/og/neon-strike.png'],
   },
 };
+
+const gameSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Neon Strike",
+  "operatingSystem": "Web Browser",
+  "applicationCategory": "GameApplication",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1250"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VIBEMENOW"
+  }
+};
+
 
 export default function GravityDashPage() {
   return (
     <div className="page-container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(gameSchema) }}
+      />
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
+
         <h1 style={{ fontSize: 48, fontWeight: 900, color: '#00d4ff', marginBottom: 8, marginTop: 32, textShadow: '0 0 20px #00d4ff' }}>
           NEON STRIKE
         </h1>

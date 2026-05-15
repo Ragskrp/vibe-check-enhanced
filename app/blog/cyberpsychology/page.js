@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'Cyberpsychology: The Impact of Digital Spaces on Identity | VIBEMENOW Blog',
+  description: 'How social media architectures and virtual environments reshape our sense of self and community.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/cyberpsychology',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Wifi, Smartphone, Monitor, ShieldAlert, HeartPulse, EyeOff } from 'lucide-react';

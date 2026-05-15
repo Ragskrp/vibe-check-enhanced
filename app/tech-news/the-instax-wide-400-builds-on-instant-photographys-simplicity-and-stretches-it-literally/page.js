@@ -38,7 +38,7 @@ export default function GeneratedArticlePage() {
         </header>
 
         <img 
-          src={`https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200&q=Instax Wide 400 camera friends group`} 
+          src={`https://source.unsplash.com/featured/?80%26w%3D1200%26q%3DInstax%20Wide%20400%20camera%20friends%20group`} 
           alt="Go Wide or Go Home: Why Instax's New Beast Is Your Next Must-Have" 
           style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />

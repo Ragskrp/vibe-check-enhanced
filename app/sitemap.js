@@ -79,7 +79,13 @@ export default function sitemap() {
     'probabilistic-decisions',
     'aha-moment-science',
     'logical-reasoning-logic',
-    'chess-visual-logic'
+    'chess-visual-logic',
+    'computational-thinking',
+    'the-mozart-effect',
+    'sleep-and-memory',
+    'dual-coding-theory',
+    'cyberpsychology',
+    'psychology-of-flow'
   ].map(slug => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified,

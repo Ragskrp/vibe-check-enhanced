@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'Dual Coding Theory: Why Words and Visuals Work Better Together | VIBEMENOW Blog',
+  description: 'The cognitive science of combining verbal and visual information for superior long-term retention.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/dual-coding-theory',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Image, Type, Eye, Headphones, MousePointerClick, AlignLeft } from 'lucide-react';

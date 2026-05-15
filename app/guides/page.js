@@ -1,4 +1,10 @@
-'use client';
+export const metadata = {
+  title: 'Game Guides & Player Notes | VIBEMENOW',
+  description: 'Master your favorite browser games with our expert guides. Tips for WordVibe, Emoji IQ, Geography Guesser, and more.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/guides',
+  },
+};
 
 import Link from 'next/link';
 import { BookOpen, Zap } from 'lucide-react';

@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'In the Stream: Understanding the Psychology of Flow | VIBEMENOW Blog',
+  description: 'Explore the neurobiology of the "Flow" state—the optimal human experience where time vanishes and complex action becomes effortless.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/psychology-of-flow',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Wind, Waves, Activity, Clock, Users, ShieldAlert, Cpu } from 'lucide-react';

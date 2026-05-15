@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'The Mozart Effect: Can Music Really Boost Brain Power? | VIBEMENOW Blog',
+  description: 'Investigating the science of auditory stimulation and its actual impact on spatial reasoning and focus.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/the-mozart-effect',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Music, Volume2, Headphones, Activity, BookAudio } from 'lucide-react';

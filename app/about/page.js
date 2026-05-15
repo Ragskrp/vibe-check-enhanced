@@ -2,21 +2,60 @@ import Link from 'next/link';
 import { Sparkles, Zap, Heart, Shield } from 'lucide-react';
 
 export const metadata = {
-  title: 'About VIBEMENOW',
-  description: 'Learn what VIBEMENOW is, how the site is run, and how the team approaches privacy, moderation, and ads.',
+  title: 'About VIBEMENOW - Independent Browser Games & Tech Analysis',
+  description: 'Learn about VIBEMENOW, an independent collection of free browser games, GCSE revision tools, and tech news reports by Raghavendra Reddy.',
+  keywords: ['VIBEMENOW about', 'Raghavendra Reddy', 'independent games publisher', 'educational games mission', 'tech news editorial policy'],
   alternates: {
     canonical: 'https://vibemenow.uk/about',
   },
   openGraph: {
-    url: '/about',
-    images: ['/og/about.png'],
+    title: 'About VIBEMENOW - Independent Browser Games & Tech Analysis',
+    description: 'Learn about VIBEMENOW, an independent collection of free browser games, GCSE revision tools, and tech news reports by Raghavendra Reddy.',
+    url: 'https://vibemenow.uk/about',
+    type: 'website',
+    images: [{
+      url: 'https://vibemenow.uk/og/about.png',
+      width: 1200,
+      height: 630,
+      alt: 'About VIBEMENOW'
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About VIBEMENOW - Independent Browser Games & Tech Analysis',
+    description: 'Learn about VIBEMENOW, an independent collection of free browser games and tech news reports.',
+    images: ['https://vibemenow.uk/og/about.png'],
   },
 };
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "VIBEMENOW",
+  "url": "https://vibemenow.uk",
+  "logo": "https://vibemenow.uk/logo.png",
+  "description": "An independent ecosystem of 150+ original browser games, interactive quizzes, and GCSE revision tools.",
+  "founder": {
+    "@type": "Person",
+    "name": "Raghavendra Reddy"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@vibemenow.uk",
+    "contactType": "customer support"
+  }
+};
+
 
 export default function AboutPage() {
   return (
     <div className="page-container animate-fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <div className="card" style={{ maxWidth: '900px', margin: '0 auto', padding: '56px 40px' }}>
+
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div
             style={{

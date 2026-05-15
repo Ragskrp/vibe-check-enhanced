@@ -38,7 +38,7 @@ export default function GeneratedArticlePage() {
         </header>
 
         <img 
-          src={`https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200&q=futuristic office quiet AI voice headphones`} 
+          src={`https://source.unsplash.com/featured/?80%26w%3D1200%26q%3Dfuturistic%20office%20quiet%20AI%20voice%20headphones`} 
           alt="Shhh! Your Future Office is Going to Be a Digital Whisper Chamber" 
           style={{ width: '100%', borderRadius: 24, marginBottom: 40, border: '1px solid rgba(255,255,255,0.1)' }}
         />

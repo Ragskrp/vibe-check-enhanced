@@ -1,4 +1,11 @@
-'use client';
+
+export const metadata = {
+  title: 'Computational Thinking: Solving Problems Without a Screen | VIBEMENOW Blog',
+  description: 'Decomposition, pattern recognition, and abstraction—how to teach logic to kids using offline puzzles.',
+  alternates: {
+    canonical: 'https://vibemenow.uk/blog/computational-thinking',
+  },
+};
 
 import Link from 'next/link';
 import { ArrowLeft, Brain, Sparkles, Zap, Target, History, BookOpen, Search, Repeat, Code, Cpu, Layers, GitMerge, Settings, Compass } from 'lucide-react';
