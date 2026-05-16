@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'tesla-reveals-two-robotaxi-crashes-involving-teleoperators',
+    title: 'Robo-Rumble: Tesla\'s Robotaxis Hit a Few Snags, And What It Means For YOUR Future Commute',
+    excerpt: 'Newly unredacted reports reveal Tesla\'s robotaxis have faced a couple of incidents involving human teleoperators, highlighting the wild complexity of scaling autonomous vehicles. This isn\'t just about a few fender-benders; it’s a peek behind the curtain of the future of transport.',
+    category: 'Robotics',
+    date: 'May 16, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?robotaxi',
+    featured: true,
+  },
+
+  {
+    slug: 'silicon-valleys-vacationland-needs-a-new-energy-provider-just-as-ai-is-driving-prices-up',
+    title: 'AI\'s Thirsty Beast: Why Your Lake Tahoe Vacay Just Got Pricier',
+    excerpt: 'Silicon Valley\'s favorite getaway, Lake Tahoe, is facing a massive energy price hike. The culprit? The insatiable power demands of AI, and it\'s about to hit your wallet.',
+    category: 'AI',
+    date: 'May 16, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?Lake Tahoe AI energy grid',
+    
+  },
+
+  {
+    slug: 'a-hotel-check-in-system-left-a-million-passports-and-drivers-licenses-open-for-anyone-to-see',
+    title: 'Your Passport? Totally Exposed! The Wild Hotel Tech Blunder That Left Millions Vulnerable',
+    excerpt: 'Picture this: your most sensitive ID documents just floating out on the web, no password needed. A massive hotel check-in system recently had a colossal screw-up, exposing a million passports and driver\'s licenses – and it\'s a huge wake-up call for our digital future.',
+    category: 'Cybersecurity',
+    date: 'May 16, 2026',
+    readTime: '3 min read',
+    image: 'https://source.unsplash.com/featured/?data breach security',
+    
+  },
+
+  {
+    slug: 'general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z',
+    title: 'VC Brawls Go Public: General Catalyst\'s Rage Bait Hooks a16z on X, and It\'s Wild!',
+    excerpt: 'The tech world just got a front-row seat to some serious VC drama as General Catalyst dropped some expert-level \'rage bait\' on X. Naturally, a16z\'s Marc Andreessen couldn\'t resist, turning a subtle jab into an all-out digital tussle.',
+    category: 'Startups',
+    date: 'May 16, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?social_media_tech_debate_vc',
+    
+  },
+
+  {
+    slug: 'rj-scaringe-has-raised-more-than-12b-across-three-startups-and-investors-still-want-more',
+    title: 'The Midas Touch: How RJ Scaringe Became Tech\'s $12B Storytelling Beast',
+    excerpt: 'Meet RJ Scaringe, the founder who\'s pulled in over $12 billion for his ventures, making investors practically beg for more. His secret? A superpower for storytelling that\'s reshaping the startup game and hinting at the future of innovation.',
+    category: 'Startups',
+    date: 'May 16, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?electric truck startup',
+    
+  },
+
+  {
     slug: 'cerebras-ipo-makes-billions-for-benchmark-but-vc-eric-vishria-almost-didnt-take-the-meeting',
     title: 'The Billion-Dollar \'Oops\': How One VC Almost Skipped AI\'s Next Big Beast',
     excerpt: 'Imagine almost missing out on billions because you weren\'t feeling a meeting. That\'s the wild story of Cerebras\' IPO, a reminder that sometimes, the biggest wins come from taking a chance on what others ignore.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 15, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?AI chip data center supercomputer',
-    featured: true,
+    
   },
 
   {
