@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'openai-co-founder-greg-brockman-takes-charge-of-product-strategy',
+    title: 'OpenAI\'s Brockman Takes the Reins: Your AI Future Just Got Wild!',
+    excerpt: 'OpenAI co-founder Greg Brockman is reportedly steering the product ship, and rumour has it a ChatGPT-Codex combo is on the horizon. This isn\'t just a corporate reshuffle; it\'s a peek into the next generation of AI that could change how we learn, create, and code.',
+    category: 'AI',
+    date: 'May 17, 2026',
+    readTime: '3 min read',
+    image: 'https://source.unsplash.com/featured/?openai hq, artificial intelligence, futuristic tech',
+    featured: true,
+  },
+
+  {
+    slug: 'the-offline-desk-gadget-that-actually-got-me-to-sit-up-straight',
+    title: 'Posture Hacking 101: Deep Care\'s Offline Beast Is Here to Straighten You Out',
+    excerpt: 'Tired of that desk hunch? Deep Care\'s new $350 offline device promises to fix your posture and revolutionize your movement habits without ever touching the cloud. Get ready to sit up straight and vibe with better health.',
+    category: 'Hardware',
+    date: 'May 17, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?ergonomic desk setup',
+    
+  },
+
+  {
+    slug: 'research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work',
+    title: 'AI\'s Research Takeover: ArXiv Just Dropped a WILD Ban Hammer!',
+    excerpt: 'Leading research repository ArXiv is drawing a hard line against AI-generated papers, introducing year-long bans for authors who let large language models do all the heavy lifting. This move signals a crucial shift in how scientific integrity is upheld in the age of generative AI.',
+    category: 'AI',
+    date: 'May 17, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?ai ethics research',
+    
+  },
+
+  {
+    slug: 'marketing-operating-system-nectar-social-raises-30m-series-a-led-by-menlo',
+    title: 'Nectar Social Just Bagged $30M: Get Ready for the AI Marketing Beast to Unleash (It\'s Scary But Cool!)',
+    excerpt: 'AI-powered marketing platform Nectar Social just landed a massive $30 million Series A round, led by Menlo Ventures and its Anthropic-backed Anthology Fund. This huge investment signals a wild shift in how brands will connect with you online, making your feeds smarter and way more targeted.',
+    category: 'AI',
+    date: 'May 17, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI marketing',
+    
+  },
+
+  {
+    slug: 'the-haves-and-have-nots-of-the-ai-gold-rush',
+    title: 'AI Gold Rush: Who\'s Actually Winning (And Why It Matters to YOU)',
+    excerpt: 'The AI revolution is here, but the buzz isn\'t all positive. We\'re diving deep into the growing divide, exploring who\'s really cashing in and what that means for your future.',
+    category: 'AI',
+    date: 'May 17, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI inequality digital divide',
+    
+  },
+
+  {
     slug: 'tesla-reveals-two-robotaxi-crashes-involving-teleoperators',
     title: 'Robo-Rumble: Tesla\'s Robotaxis Hit a Few Snags, And What It Means For YOUR Future Commute',
     excerpt: 'Newly unredacted reports reveal Tesla\'s robotaxis have faced a couple of incidents involving human teleoperators, highlighting the wild complexity of scaling autonomous vehicles. This isn\'t just about a few fender-benders; it’s a peek behind the curtain of the future of transport.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 16, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?robotaxi',
-    featured: true,
+    
   },
 
   {
