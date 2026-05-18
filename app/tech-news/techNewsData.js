@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip',
+    title: 'Air Force One\'s Scary-Cool Tech Purge: Why Spy Games Just Got Physical (and Digital!)',
+    excerpt: 'Hold up – Air Force One travelers just had to dump gifts, pins, and burner phones after a China trip. It\'s not a movie scene; it\'s the wild reality of modern espionage where even a souvenir can be a digital threat.',
+    category: 'Cybersecurity',
+    date: 'May 18, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?cybersecurity espionage',
+    featured: true,
+  },
+
+  {
+    slug: 'power-prices-are-up-76-on-americas-biggest-grid-and-a-watchdog-is-pointing-fingers',
+    title: 'Power Up or Power Down? AI\'s HUGE Appetite is Breaking the Grid (And Your Wallet)',
+    excerpt: 'America\'s biggest power grid just saw a wild 76% price hike, and it\'s a huge red flag. Turns out, our aging infrastructure isn\'t ready for the beast that is AI, and that gap is only getting wider.',
+    category: 'AI',
+    date: 'May 18, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?data center power',
+    
+  },
+
+  {
+    slug: 'users-turn-to-jailbreaking-their-older-kindles-as-amazon-ends-support',
+    title: 'Rebel Readers Unite: Jailbreaking Old Kindles is the Wild New Flex',
+    excerpt: 'Amazon\'s pulling the plug on older Kindles, but a defiant community is finding ways to keep their e-readers alive. We\'re diving deep into the \'scary but cool\' world of jailbreaking and what it means for the future of tech ownership.',
+    category: 'Digital Culture',
+    date: 'May 18, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?hacker code',
+    
+  },
+
+  {
+    slug: 'techcrunch-mobility-the-ai-skills-arms-race-is-coming-for-automotive',
+    title: 'Buckle Up: Why AI is Turning the Auto World Into a Wild Talent Hunt!',
+    excerpt: 'The automotive industry is in a full-blown AI skills arms race, transforming cars into super-intelligent machines. Get ready for a future where your ride is smarter, safer, and totally personalized.',
+    category: 'AI',
+    date: 'May 18, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic car AI interior',
+    
+  },
+
+  {
+    slug: 'apples-siri-revamp-could-include-auto-deleting-chats',
+    title: 'Siri\'s Secret Keeper Mode: Apple\'s Wild Privacy Play Could Auto-Delete Your Chats!',
+    excerpt: 'Apple\'s highly anticipated Siri overhaul is rumored to put privacy front and center, with a groundbreaking feature that could automatically delete your chat history. Get ready for a smarter, more secure digital assistant experience that actually respects your boundaries.',
+    category: 'AI',
+    date: 'May 18, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?data privacy AI',
+    
+  },
+
+  {
     slug: 'openai-co-founder-greg-brockman-takes-charge-of-product-strategy',
     title: 'OpenAI\'s Brockman Takes the Reins: Your AI Future Just Got Wild!',
     excerpt: 'OpenAI co-founder Greg Brockman is reportedly steering the product ship, and rumour has it a ChatGPT-Codex combo is on the horizon. This isn\'t just a corporate reshuffle; it\'s a peek into the next generation of AI that could change how we learn, create, and code.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 17, 2026',
     readTime: '3 min read',
     image: 'https://source.unsplash.com/featured/?openai hq, artificial intelligence, futuristic tech',
-    featured: true,
+    
   },
 
   {
