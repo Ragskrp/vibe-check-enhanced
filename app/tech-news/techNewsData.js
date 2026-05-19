@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'nyc-health-hospitals-says-hackers-stole-medical-data-and-fingerprints-during-breach-affecting-at-least-1-8-million-people',
+    title: 'Your Fingerprints Are Out There: NYC Health Breach Rocks 1.8 Million!',
+    excerpt: 'In a wild turn of events, NYC Health + Hospitals has confirmed a massive data breach affecting 1.8 million people, including the theft of sensitive biometric data like fingerprints. This incident highlights the critical and evolving risks of identity theft in our increasingly digital world.',
+    category: 'Cybersecurity',
+    date: 'May 19, 2026',
+    readTime: '3 min read',
+    image: 'https://source.unsplash.com/featured/?fingerprint scan data breach security',
+    featured: true,
+  },
+
+  {
+    slug: 'elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai',
+    title: 'Elon Musk vs. OpenAI: The Wild AI Lawsuit That Was Too Little, Too Late',
+    excerpt: 'In a massive blow to the tech mogul, Elon Musk\'s high-stakes lawsuit against OpenAI and Sam Altman has officially flopped. A California jury unanimously ruled his claims were filed too late, solidifying OpenAI\'s current trajectory.',
+    category: 'AI',
+    date: 'May 19, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI server room futuristic',
+    
+  },
+
+  {
+    slug: 'anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare',
+    title: 'Wild Card! Anthropic Just Snapped Up the Dev Tools That Power Its Rivals (OpenAI, Google!)',
+    excerpt: 'In a bombshell move, Anthropic has acquired Stainless, the startup behind the crucial developer tools used by none other than OpenAI, Google, and Cloudflare. This isn\'t just an acquisition; it\'s a strategic power play that could reshape the AI development landscape.',
+    category: 'AI',
+    date: 'May 19, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI development tools',
+    
+  },
+
+  {
+    slug: 'sandboxaq-brings-its-drug-discovery-models-to-claude-no-phd-in-computing-required',
+    title: 'AI x Claude: Your Next Meds Could Be Found by an AI You Can Talk To!',
+    excerpt: 'Forget years in a lab; AI is now stepping up to revolutionize drug discovery, and it\'s getting shockingly accessible. SandboxAQ is teaming up with Claude to make cutting-edge models usable by anyone, no advanced degree needed.',
+    category: 'AI',
+    date: 'May 19, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI drug discovery lab futuristic',
+    
+  },
+
+  {
+    slug: 'theo-baker-spent-four-years-investigating-stanford-before-he-leaves-heres-what-he-found',
+    title: 'Internships Are OUT, Startup Funding Is IN: Stanford\'s Wild Reality Check',
+    excerpt: 'A deep dive into Stanford reveals a stunning truth: raising startup cash is now easier than landing an internship. This isn\'t just about one university; it\'s a huge signal for every aspiring tech innovator out there.',
+    category: 'Startups',
+    date: 'May 19, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?young entrepreneur laptop',
+    
+  },
+
+  {
     slug: 'us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip',
     title: 'Air Force One\'s Scary-Cool Tech Purge: Why Spy Games Just Got Physical (and Digital!)',
     excerpt: 'Hold up – Air Force One travelers just had to dump gifts, pins, and burner phones after a China trip. It\'s not a movie scene; it\'s the wild reality of modern espionage where even a souvenir can be a digital threat.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 18, 2026',
     readTime: '4 min read',
     image: 'https://source.unsplash.com/featured/?cybersecurity espionage',
-    featured: true,
+    
   },
 
   {
