@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'discord-enables-end-to-end-encrypted-voice-and-video-calling-for-every-user',
+    title: 'EPIC WIN: Discord Just Went Full Stealth Mode with End-to-End Encrypted Calls!',
+    excerpt: 'Discord just dropped a massive privacy upgrade, rolling out end-to-end encrypted voice and video calls for every single user. This means your private chats are now totally scrambled, making them untouchable by anyone – even Discord itself.',
+    category: 'Cybersecurity',
+    date: 'May 20, 2026',
+    readTime: '3 min read',
+    image: 'https://source.unsplash.com/featured/?discord gaming privacy',
+    featured: true,
+  },
+
+  {
+    slug: 'how-to-use-googles-new-ai-agents-to-go-beyond-your-standard-searches',
+    title: 'Google\'s New AI Agents Are Your Proactive Info Beast – And They\'re WILD',
+    excerpt: 'Google is dropping a game-changer: AI-powered \'information agents\' that don\'t just search, they *watch*. Get ready for proactive updates on everything you care about, without even asking.',
+    category: 'AI',
+    date: 'May 20, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?AI assistant',
+    
+  },
+
+  {
+    slug: 'you-can-now-talk-to-your-gmail-inbox-as-seen-at-google-io-2026',
+    title: 'Your Gmail Inbox Just Got a Voice: Google IO 2026 Unleashes Conversational AI!',
+    excerpt: 'Forget endless scrolling – Google IO 2026 just dropped a *wild* update for Gmail, letting you talk to your inbox. Gemini is now your personal email detective, ready to unearth any detail you\'ve ever received.',
+    category: 'AI',
+    date: 'May 20, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?ai voice assistant gmail',
+    
+  },
+
+  {
+    slug: 'google-just-declared-itself-a-contender-in-ai-design-at-io-2026',
+    title: 'Google Just Dropped a Design Bomb: AI is Now Your Creative Co-Pilot',
+    excerpt: 'Google made a massive statement at I/O 2026, staking its claim as a major player in AI design. They\'re not just aiming for pros; their new tools are built for everyone from teachers to indie creators.',
+    category: 'AI',
+    date: 'May 20, 2026',
+    readTime: '5 min read',
+    image: 'https://source.unsplash.com/featured/?AI creative tools',
+    
+  },
+
+  {
+    slug: 'ask-youtube-brings-ai-powered-conversational-search-to-video-adds-gemini-omni-to-shorts',
+    title: 'YouTube Just Got a Brain Upgrade: Ask Anything, Watch Smarter, VIBE Harder!',
+    excerpt: 'YouTube is diving deep into the AI revolution, bringing mind-blowing conversational search to videos and supercharging Shorts with Gemini Omni. Get ready for a whole new way to discover, learn, and vibe with your favorite content.',
+    category: 'AI',
+    date: 'May 20, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?youtube AI search',
+    
+  },
+
+  {
     slug: 'nyc-health-hospitals-says-hackers-stole-medical-data-and-fingerprints-during-breach-affecting-at-least-1-8-million-people',
     title: 'Your Fingerprints Are Out There: NYC Health Breach Rocks 1.8 Million!',
     excerpt: 'In a wild turn of events, NYC Health + Hospitals has confirmed a massive data breach affecting 1.8 million people, including the theft of sensitive biometric data like fingerprints. This incident highlights the critical and evolving risks of identity theft in our increasingly digital world.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 19, 2026',
     readTime: '3 min read',
     image: 'https://source.unsplash.com/featured/?fingerprint scan data breach security',
-    featured: true,
+    
   },
 
   {
