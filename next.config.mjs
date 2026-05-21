@@ -9,8 +9,11 @@ const nextConfig = {
     ],
     serverExternalPackages: [
         'firebase',
-        'firebase/firestore',
         'firebase/app',
+        'firebase/auth',
+        'firebase/firestore',
+        'firebase/firestore/lite',
+        'firebase/analytics',
         'protobufjs', 
         '@grpc/proto-loader', 
         '@grpc/grpc-js',

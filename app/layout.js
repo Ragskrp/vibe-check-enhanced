@@ -142,7 +142,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="grid-bg" suppressHydrationWarning>
-        <SiteLayout>{children}</SiteLayout>
+          <SiteLayout>{children}</SiteLayout>
         <CookieConsent />
       </body>
     </html>

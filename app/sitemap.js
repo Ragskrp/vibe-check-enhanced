@@ -4,7 +4,6 @@ import { getAllTopicSlugs as getEnglishLanguageTopicSlugs } from './gcse/english
 import { getAllTopicSlugs as getEnglishLiteratureTopicSlugs } from './gcse/english-literature/englishLiteratureData';
 import { getAllTopicSlugs as getMathsTopicSlugs } from './gcse/maths/topicData';
 import { getAllTopicSlugs as getScienceTopicSlugs } from './gcse/science/scienceData';
-import { getAllArticleSlugs as getTechNewsSlugs } from './tech-news/techNewsData';
 import { getAllTopicSlugs as getHistoryTopicSlugs } from './gcse/history/historyData';
 import { getAllTopicSlugs as getGeographyTopicSlugs } from './gcse/geography/geographyData';
 
@@ -187,17 +186,5 @@ export default function sitemap() {
     { url: `${baseUrl}/gcse/geography/mixed-mode`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
   ];
 
-
-  const techNewsSlugs = getTechNewsSlugs();
-  const techNewsPages = [
-    { url: `${baseUrl}/tech-news`, lastModified, changeFrequency: 'daily', priority: 0.8 },
-    ...techNewsSlugs.map(slug => ({
-      url: `${baseUrl}/tech-news/${slug}`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    })),
-  ];
-
-  return [...corePages, ...games, ...blogPosts, ...guides, ...gcsePages, ...techNewsPages];
+  return [...corePages, ...games, ...blogPosts, ...guides, ...gcsePages];
 }

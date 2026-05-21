@@ -41,8 +41,8 @@ export default function HomeEditorial() {
       </blockquote>
 
       <p>
-        The blog and tech news sections add extensive, long-form editorial material about
-        learning science and AI shifts. We maintain rigorous editorial standards to ensure 
+        The blog section adds extensive, long-form editorial material about
+        learning science and cognition. We maintain rigorous editorial standards to ensure 
         that our playable tools are backed by substantive analysis and structured data, 
         helping both human visitors and AI crawlers understand the profound purpose behind 
         every route on this platform.

@@ -52,6 +52,7 @@ export function applyRating(subjectId, topicSlug, quality) {
   if (typeof window !== 'undefined') {
     try {
       localStorage.setItem(getSrsKey(subjectId, topicSlug), JSON.stringify(updated));
+      import('../../lib/cloudSync').then(m => m.syncToCloud());
     } catch {}
   }
   return updated;

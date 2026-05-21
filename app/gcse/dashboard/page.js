@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Flame, Trophy, Zap, ArrowRight, Home, Brain, Target, Star, ChevronRight, RotateCcw, Clock } from 'lucide-react';
+import { Flame, Trophy, Zap, ArrowRight, Home, Brain, Target, Star, ChevronRight, RotateCcw, Clock, LogIn, LogOut, Cloud } from 'lucide-react';
+import { useAuth } from '../../lib/AuthContext';
 import SubjectCanvas from '../components/SubjectCanvas';
 import { useAggregatedStats } from '../components/DashboardStats';
 import AchievementBadge from '../components/AchievementBadge';
 import ExamCountdown from '../components/ExamCountdown';
 import SuggestedTopicCard from '../components/SuggestedTopicCard';
+import FocusTimer from '../components/FocusTimer';
+import GradePredictor from '../components/GradePredictor';
 import { getDueTopics, strengthToColor } from '../utils/spacedRepetitionEngine';
 import { getTopicsByCategory as getMaths } from '../maths/topicData';
 import { getTopicsByCategory as getScience } from '../science/scienceData';
@@ -35,6 +38,7 @@ const ALL_REVIEWABLE = [
 export default function MissionControl() {
   const [mounted, setMounted] = useState(false);
   const stats = useAggregatedStats();
+  const { user, logout } = useAuth();
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -61,11 +65,31 @@ export default function MissionControl() {
               <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', fontWeight: 700, textTransform: 'uppercase' }}>Student Operations v1.0</div>
             </div>
           </div>
-          <Link href="/gcse" style={{ textDecoration: 'none' }}>
-            <div style={{ padding: '8px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Home size={14} /> Subject Hubs
-            </div>
-          </Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            {user ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 8, background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.2)' }}>
+                  <Cloud size={14} color="#00d4ff" />
+                  <span style={{ fontSize: 12, fontWeight: 700, color: '#00d4ff' }}>Synced</span>
+                </div>
+                {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 32, height: 32, borderRadius: '50%', border: '2px solid rgba(0,212,255,0.3)' }} />}
+                <button onClick={logout} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center' }} title="Sign out">
+                  <LogOut size={14} color="rgba(255,255,255,0.5)" />
+                </button>
+              </div>
+            ) : (
+              <Link href="/gcse/login" style={{ textDecoration: 'none' }}>
+                <div style={{ padding: '8px 16px', borderRadius: 8, background: 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,45,120,0.15))', border: '1px solid rgba(0,212,255,0.2)', color: '#00d4ff', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+                  <Cloud size={14} /> Sync Progress
+                </div>
+              </Link>
+            )}
+            <Link href="/gcse" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: '8px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Home size={14} /> Subject Hubs
+              </div>
+            </Link>
+          </div>
         </header>
 
         <main style={{ maxWidth: 1200, margin: '0 auto', padding: '60px clamp(20px, 5vw, 100px) 100px' }}>
@@ -126,6 +150,12 @@ export default function MissionControl() {
               </div>
             </div>
 
+            {/* GRADE PREDICTOR */}
+            <GradePredictor stats={stats} totalTopics={ALL_REVIEWABLE.length} />
+
+            {/* FOCUS TIMER */}
+            <FocusTimer />
+
           </section>
 
           {/* GLOBAL MIXED PRACTICE BANNER */}
@@ -152,6 +182,35 @@ export default function MissionControl() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 800, color: '#00d4ff' }}>
                   START GAUNTLET <ArrowRight size={20} />
+                </div>
+              </div>
+            </Link>
+          </section>
+
+          {/* EXAM SIMULATOR BANNER */}
+          <section style={{ marginBottom: 80 }}>
+            <Link href="/gcse/exam-simulator" style={{ textDecoration: 'none' }}>
+              <div style={{
+                padding: '40px', borderRadius: 32, background: 'linear-gradient(135deg, rgba(177,74,237,0.1), rgba(0,212,255,0.1))',
+                border: '1px solid rgba(177,74,237,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                transition: 'all 0.3s', cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = '#b14aed'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(177,74,237,0.2)'; }}
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'linear-gradient(135deg, #b14aed, #00d4ff)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Clock size={20} color="#000" />
+                    </div>
+                    <h2 style={{ fontSize: 24, fontWeight: 900, color: '#fff', margin: 0 }}>45-Minute Mock Exam Simulator</h2>
+                  </div>
+                  <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', margin: 0, maxWidth: 600, lineHeight: 1.6 }}>
+                    Test your endurance. A strict 45-minute timed paper featuring 20 questions drawn from across your entire curriculum. No instant feedback, just you and the clock.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 800, color: '#b14aed' }}>
+                  START EXAM <ArrowRight size={20} />
                 </div>
               </div>
             </Link>

@@ -1,10 +1,12 @@
+import { AuthProvider } from '../lib/AuthContext';
+
 export const metadata = {
   title: {
     default: 'GCSE Revision | VIBEMENOW',
     template: '%s | GCSE Revision | VIBEMENOW',
   },
   description:
-    'Free interactive GCSE revision tools and games. Master Maths, Science, English Literature, Computer Science, and Business with addictive practice sessions. No login required.',
+    'Free interactive GCSE revision tools and games. Master Maths, Science, English Literature, Computer Science, and Business with addictive practice sessions.',
   keywords: [
     'GCSE revision',
     'GCSE maths',
@@ -22,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: 'GCSE Revision Games | VIBEMENOW',
     description:
-      'Interactive, curriculum-aligned GCSE revision tools for 6 core subjects. Start learning in seconds with no login required.',
+      'Interactive, curriculum-aligned GCSE revision tools for 6 core subjects. Start learning in seconds.',
     url: '/gcse',
     images: [
       {
@@ -101,7 +103,7 @@ export default function GCSELayout({ children }) {
   ];
 
   return (
-    <>
+    <AuthProvider>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -120,6 +122,6 @@ export default function GCSELayout({ children }) {
           Our GCSE tools are designed for effective learning without personal data collection. We do not knowingly collect information from children under 13 (COPPA) or under 18 in the UK. Parents or teachers with questions can reach us at <a href="mailto:support@vibemenow.uk" style={{ color: '#00ff94', textDecoration: 'underline' }}>support@vibemenow.uk</a>.
         </p>
       </footer>
-    </>
+    </AuthProvider>
   );
 }

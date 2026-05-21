@@ -77,9 +77,9 @@ export default function VibeQuizPage() {
             <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
             <span style={{ fontSize: '0.9em', color: '#aaa' }}>How interactive experiences and games capture our attention and alter our state of mind.</span>
           </a>
-          <a href="/tech-news/sam-altman-ai-infrastructure" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>Sam Altman Unveils Massive AI Infrastructure Plan</strong>
-            <span style={{ fontSize: '0.9em', color: '#aaa' }}>How emerging technologies are shaping the future of digital interaction and personal data.</span>
+          <a href="/guides/vibe-quiz-mastery" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>Vibe Quiz Mastery Guide</strong>
+            <span style={{ fontSize: '0.9em', color: '#aaa' }}>Explore the hidden archetypes and how your choices shape the results.</span>
           </a>
         </div>
       </article>

@@ -105,9 +105,6 @@ export default function SiteLayout({ children }) {
             <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
               Blog
             </Link>
-            <Link href="/tech-news" className={`nav-link${pathname.startsWith('/tech-news') ? ' active' : ''}`}>
-              Tech News
-            </Link>
             <Link href="/about" className={`nav-link${pathname === '/about' ? ' active' : ''}`}>
               About
             </Link>
@@ -201,7 +198,6 @@ export default function SiteLayout({ children }) {
             <Link href="/about">About Us</Link>
             <Link href="/publisher-information">Publisher Information</Link>
             <Link href="/blog">Blog</Link>
-            <Link href="/tech-news">Tech News</Link>
             <Link href="/editorial-policy">Editorial Policy</Link>
             <Link href="/community-guidelines">Community Guidelines</Link>
             <Link href="/contact">Contact Us</Link>

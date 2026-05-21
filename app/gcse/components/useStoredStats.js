@@ -30,4 +30,5 @@ export function updateStoredStats(key, data) {
   if (typeof window === 'undefined') return;
   window.localStorage.setItem(key, JSON.stringify(data));
   window.dispatchEvent(new CustomEvent('gcse_stats_updated'));
+  import('../../lib/cloudSync').then(m => m.syncToCloud());
 }

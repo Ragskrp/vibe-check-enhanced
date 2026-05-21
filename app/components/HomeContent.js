@@ -286,6 +286,42 @@ export default function HomeContent() {
         </Link>
       </section>
 
+      {/* Expert Guides CTA */}
+      <section style={{ marginTop: 16, marginBottom: 8 }}>
+        <Link href="/guides" style={{ textDecoration: 'none' }}>
+          <div style={{
+            padding: '24px 28px',
+            borderRadius: 20,
+            background: 'linear-gradient(135deg, rgba(177,74,237,0.1), rgba(255,45,120,0.08))',
+            border: '2px solid rgba(177,74,237,0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 20,
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <span style={{ fontSize: 36 }}>📚</span>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: '#b14aed', textTransform: 'uppercase', marginBottom: 4 }}>
+                  EXPERT ANALYSIS
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: '#f0f0f0' }}>
+                  Game Psychology & Strategy Guides
+                </div>
+                <div style={{ fontSize: 13, color: '#888', marginTop: 4 }}>
+                  Read in-depth articles on the psychology behind our games and master the strategies.
+                </div>
+              </div>
+            </div>
+            <div style={{ color: '#b14aed', fontWeight: 700, fontSize: 14, whiteSpace: 'nowrap' }}>
+              Read Guides →
+            </div>
+          </div>
+        </Link>
+      </section>
+
       <section id="games-listing" style={{ marginTop: 40, marginBottom: 32 }}>
         <div
           style={{
@@ -467,17 +503,6 @@ export default function HomeContent() {
             </p>
           </Link>
           <Link
-            href="/tech-news"
-            className="card"
-            style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}
-          >
-            <div style={{ fontSize: 32, marginBottom: 12 }}>⚡</div>
-            <h3 style={{ fontWeight: 800, fontSize: 16, marginBottom: 8, color: '#fff' }}>Tech Pulse</h3>
-            <p style={{ color: '#888', fontSize: 13 }}>
-              Read original analysis and news about AI, hardware, and digital policy.
-            </p>
-          </Link>
-          <Link
             href="/publisher-information"
             className="card"
             style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.1)' }}
@@ -597,9 +622,9 @@ export default function HomeContent() {
             replaces medical, educational, or professional support.
           </p>
           <p style={{ marginBottom: 20 }}>
-            That is why the site separates play pages, long-form articles, tech news, and policy pages.
-            The games are built to be useful on their own, the blog gives room for broader
-            commentary, and our tech news desk covers the latest shifts in AI and digital policy.
+            That is why the site separates play pages, long-form articles, and policy pages.
+            The games are built to be useful on their own, and the blog gives room for broader
+            commentary.
           </p>
           <p style={{ marginBottom: 20 }}>
             At VIBEMENOW, we design games with these principles in mind. Word puzzles like
@@ -649,11 +674,9 @@ export default function HomeContent() {
 
         <div style={{ color: '#888', lineHeight: '1.8', fontSize: 15, marginBottom: 20 }}>
           <p>
-            Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> and 
-            <Link href="/tech-news" style={{ color: '#00d4ff', textDecoration: 'underline' }}> tech news</Link> sections
-            explore these topics in more depth. From the
-            <Link href="/blog/spacing-effect-memory" style={{ color: '#00d4ff', textDecoration: 'underline' }}> spacing effect in memory consolidation</Link> to
-            the latest <Link href="/tech-news/openai-gpt5-reasoning-leap" style={{ color: '#00d4ff', textDecoration: 'underline' }}>shifts in AI reasoning</Link>,
+            Our <Link href="/blog" style={{ color: '#00d4ff', textDecoration: 'underline' }}>blog</Link> section 
+            explores these topics in more depth. Topics like the
+            <Link href="/blog/spacing-effect-memory" style={{ color: '#00d4ff', textDecoration: 'underline' }}> spacing effect in memory consolidation</Link> are discussed,
             we aim to add context without presenting entertainment pages as clinical advice or
             formal research papers.
           </p>

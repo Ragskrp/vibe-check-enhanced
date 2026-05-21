@@ -195,9 +195,6 @@ export default function PublisherInformationPage() {
             <Link href="/blog" className="btn-outline" style={{ textAlign: 'center' }}>
               Blog
             </Link>
-            <Link href="/tech-news" className="btn-outline" style={{ textAlign: 'center' }}>
-              Tech News
-            </Link>
           </div>
         </div>
 

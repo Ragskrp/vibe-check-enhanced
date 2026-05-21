@@ -38,13 +38,11 @@ export default function AdBanner({ slot = '7171012882', format = 'auto', classNa
     '/gcse/science',
     '/gcse/computer-science',
     '/gcse/business',
-    '/tech-news',
   ]);
 
   const adEnabledPrefixes = [
     '/blog/',
     '/guides/',
-    '/tech-news/',
   ];
 
   const isEnabledByExactRoute = adEnabledRoutes.has(pathname);
