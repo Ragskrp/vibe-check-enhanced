@@ -9,6 +9,61 @@ export const CATEGORIES = {
 
 export const ARTICLES = [
   {
+    slug: 'the-spacex-ipo-filing-is-filled-with-ai-bets-starship-dreams-and-elon-musk-at-the-center',
+    title: 'SpaceX\'s IPO Drops: AI, Starship, and Elon\'s Wild Ride to the Future!',
+    excerpt: 'Get ready, space cadets! SpaceX\'s highly anticipated IPO filing just dropped, revealing audacious AI plays, epic Starship ambitions, and Elon Musk firmly in the pilot\'s seat, ready to launch us into a new era.',
+    category: 'Startups',
+    date: 'May 21, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?Starship rocket',
+    featured: true,
+  },
+
+  {
+    slug: 'anthropic-says-its-about-to-have-its-first-profitable-quarter',
+    title: 'Anthropic Just Hit the Profit Jackpot: What This AI Beast Means For YOU!',
+    excerpt: 'Hold onto your seats, tech fam! Anthropic, the AI powerhouse, is about to drop its first profitable quarter, raking in a wild $10.9 billion. This isn\'t just about big numbers; it\'s a massive signal for the future of AI and how it\'s about to redefine everything.',
+    category: 'AI',
+    date: 'May 21, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?futuristic AI neural network',
+    
+  },
+
+  {
+    slug: 'imperagen-raises-ps5-million-to-use-quantum-physics-ai-on-enzyme-engineering',
+    title: 'Quantum Enzymes?! Imperagen Just Dropped a £5M Bomb on Biotech!',
+    excerpt: 'UK startup Imperagen just secured £5 million to revolutionize enzyme engineering by blending the mind-bending power of quantum physics with advanced AI. Get ready for a future powered by smarter, super-efficient biological machines.',
+    category: 'AI',
+    date: 'May 21, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?biotech AI quantum',
+    
+  },
+
+  {
+    slug: 'general-catalyst-just-led-a-63m-bet-on-indias-travel-payments-market',
+    title: 'Scapia Just Bagged a WILD $63M: Is This the Future of Travel & Money?',
+    excerpt: 'Indian fintech-travel startup Scapia just landed a massive $63M investment from General Catalyst, doubling its valuation. This isn\'t just about money; it\'s a huge bet on how we\'ll book trips and pay on the go, especially for the next-gen traveler.',
+    category: 'Startups',
+    date: 'May 21, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?India travel credit card digital',
+    
+  },
+
+  {
+    slug: 'truecaller-gets-into-the-esim-business-to-diversify-its-revenue-streams',
+    title: 'Truecaller\'s Wild New Move: From Spam Blocker to Global Connectivity Beast?!',
+    excerpt: 'Truecaller, the app synonymous with caller ID, just dropped a massive bomb: they\'re diving headfirst into the eSIM business. Get ready for global data plans, managed right from your favorite spam-stopping app, marking a huge pivot in their revenue strategy.',
+    category: 'Digital Culture',
+    date: 'May 21, 2026',
+    readTime: '4 min read',
+    image: 'https://source.unsplash.com/featured/?eSIM_global_travel_phone',
+    
+  },
+
+  {
     slug: 'discord-enables-end-to-end-encrypted-voice-and-video-calling-for-every-user',
     title: 'EPIC WIN: Discord Just Went Full Stealth Mode with End-to-End Encrypted Calls!',
     excerpt: 'Discord just dropped a massive privacy upgrade, rolling out end-to-end encrypted voice and video calls for every single user. This means your private chats are now totally scrambled, making them untouchable by anyone – even Discord itself.',
@@ -16,7 +71,7 @@ export const ARTICLES = [
     date: 'May 20, 2026',
     readTime: '3 min read',
     image: 'https://source.unsplash.com/featured/?discord gaming privacy',
-    featured: true,
+    
   },
 
   {
