@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Target, ChevronRight, Activity, Zap, Brain, Lightbulb, Calculator, Terminal } from 'lucide-react';
+import { Target, ChevronRight, Activity, Zap, Brain, Lightbulb, Calculator, Terminal, Cloud, Shield, Check } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 import PageValueSection from '../components/PageValueSection';
 import SubjectCanvas from './components/SubjectCanvas';
 import SubjectIcon from './components/SubjectIcon';
+import { useAuth } from '../lib/AuthContext';
 
 const SUBJECTS = [
   {
@@ -65,12 +66,42 @@ function useScrollReveal(threshold = 0.15) {
 }
 
 export default function GCSEClientWrapper() {
+  const { user, loginWithGoogle, loading } = useAuth();
   const [mounted, setMounted] = useState(false);
+  const [guestMode, setGuestMode] = useState(false);
+  const [authLoading, setAuthLoading] = useState(false);
+
   const heroReveal = useScrollReveal(0.05);
   const gridReveal = useScrollReveal(0.05);
   const whyReveal = useScrollReveal(0.1);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      const choice = sessionStorage.getItem('gcse_login_choice');
+      if (choice === 'guest') {
+        setGuestMode(true);
+      }
+    }
+  }, []);
+
+  const handleGoogleLogin = async () => {
+    setAuthLoading(true);
+    try {
+      await loginWithGoogle();
+    } catch (err) {
+      console.error("Authentication failed:", err);
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleProceedAsGuest = () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('gcse_login_choice', 'guest');
+    }
+    setGuestMode(true);
+  };
 
   return (
     <>
@@ -225,6 +256,203 @@ export default function GCSEClientWrapper() {
           </section>
         </div>
 
+        {/* Dual-choice entry gate overlay */}
+        {mounted && !loading && !user && !guestMode && (
+          <div style={{
+            position: 'fixed',
+            top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(5, 5, 12, 0.85)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px 16px',
+            overflowY: 'auto'
+          }}>
+            <div className="scale-up-anim" style={{
+              width: '100%',
+              maxWidth: '780px',
+              background: 'rgba(15, 15, 27, 0.75)',
+              borderRadius: '28px',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              padding: '40px 32px',
+              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              position: 'relative',
+              overflow: 'hidden',
+              fontFamily: 'Inter, sans-serif'
+            }}>
+              {/* Accent glows */}
+              <div style={{ position: 'absolute', top: '-100px', left: '-100px', width: 250, height: 250, borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,229,160,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: '-100px', right: '-100px', width: 250, height: 250, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,45,120,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+              {/* Header */}
+              <div style={{ textAlign: 'center', marginBottom: 36, position: 'relative' }}>
+                <div style={{
+                  width: 56, height: 56, borderRadius: '16px',
+                  background: 'linear-gradient(135deg, #00e5a0, #00d4ff)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 16px',
+                  boxShadow: '0 8px 24px rgba(0,229,160,0.3)'
+                }}>
+                  <Shield size={26} color="#000" strokeWidth={2.5} />
+                </div>
+                <h2 style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 800, color: '#fff', marginBottom: 8, letterSpacing: '-0.02em', margin: '0 0 8px 0' }}>
+                  Select Revision Mode
+                </h2>
+                <p style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: 14, maxWidth: 500, margin: '0 auto', lineHeight: 1.5 }}>
+                  Sync your progress to the cloud or continue with local browser storage.
+                </p>
+              </div>
+
+              {/* Two columns */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: 20,
+                marginBottom: 32
+              }}>
+                {/* Option 1: Cloud Save */}
+                <div className="mode-card mode-card-cloud" style={{
+                  padding: 24,
+                  borderRadius: 20,
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  background: 'rgba(255, 255, 255, 0.015)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative'
+                }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                      <div style={{ width: 32, height: 32, borderRadius: '8px', background: 'rgba(0, 212, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Cloud size={16} color="#00d4ff" />
+                      </div>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: '#00d4ff', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        Recommended
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 10, marginTop: 0 }}>Cloud Active</h3>
+                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, lineHeight: 1.6, marginBottom: 20 }}>
+                      Connect with Google to save your history and study on any device.
+                    </p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                        <Check size={14} color="#00e5a0" /> Cloud progress backup
+                      </li>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                        <Check size={14} color="#00e5a0" /> AI grade prediction synced
+                      </li>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                        <Check size={14} color="#00e5a0" /> Daily streak lock-in
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <button
+                    onClick={handleGoogleLogin}
+                    disabled={authLoading}
+                    style={{
+                      width: '100%',
+                      padding: '14px 18px',
+                      borderRadius: '12px',
+                      fontSize: 14,
+                      fontWeight: 800,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 8,
+                      border: 'none',
+                      cursor: 'pointer',
+                      background: '#fff',
+                      color: '#000',
+                      transition: 'all 0.2s ease',
+                      boxShadow: '0 4px 12px rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    {authLoading ? (
+                      <div style={{ width: 16, height: 16, borderRadius: '50%', border: '2px solid rgba(0,0,0,0.1)', borderTopColor: '#000', animation: 'spin 1s linear infinite' }} />
+                    ) : (
+                      <>
+                        <img src="https://www.google.com/favicon.ico" alt="Google" style={{ width: 14, height: 14 }} />
+                        Sync with Google
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {/* Option 2: Guest Session */}
+                <div className="mode-card mode-card-guest" style={{
+                  padding: 24,
+                  borderRadius: 20,
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  background: 'rgba(255, 255, 255, 0.015)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative'
+                }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                      <div style={{ width: 32, height: 32, borderRadius: '8px', background: 'rgba(255, 45, 120, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Zap size={16} color="#ff2d78" />
+                      </div>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: '#ff2d78', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        No Signup
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 10, marginTop: 0 }}>Local Guest</h3>
+                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, lineHeight: 1.6, marginBottom: 20 }}>
+                      Start learning instantly. Progress is stored locally in this browser.
+                    </p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                        <Check size={14} color="#00e5a0" /> Zero setup time
+                      </li>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+                        <Check size={14} color="#00e5a0" /> 100% private
+                      </li>
+                      <li style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 13 }}>
+                        <span style={{ color: '#ff2d78', fontWeight: 600 }}>⚠</span> Data resets if cache cleared
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={handleProceedAsGuest}
+                    style={{
+                      width: '100%',
+                      padding: '14px 18px',
+                      borderRadius: '12px',
+                      fontSize: 14,
+                      fontWeight: 800,
+                      background: 'transparent',
+                      color: 'rgba(255,255,255,0.7)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    Use Without Login
+                  </button>
+                </div>
+              </div>
+
+              {/* Safety Notice Footer */}
+              <div style={{
+                borderTop: '1px solid rgba(255,255,255,0.06)',
+                paddingTop: 20,
+                textAlign: 'center',
+                fontSize: 12,
+                color: 'rgba(255,255,255,0.3)'
+              }}>
+                By using this service, you agree to our privacy guidelines. Cloud saves are fully secured using Google Firebase OAuth.
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
@@ -236,6 +464,29 @@ export default function GCSEClientWrapper() {
         @keyframes cellReveal {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleUp {
+          from { opacity: 0; transform: scale(0.96) translateY(12px); }
+          to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .scale-up-anim {
+          animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .mode-card {
+          transition: all 0.3s ease;
+        }
+        .mode-card-cloud:hover {
+          border-color: #00e5a0 !important;
+          background: rgba(0, 229, 160, 0.02) !important;
+          box-shadow: 0 10px 30px rgba(0, 229, 160, 0.15);
+        }
+        .mode-card-guest:hover {
+          border-color: #ff2d78 !important;
+          background: rgba(255, 45, 120, 0.02) !important;
+          box-shadow: 0 10px 30px rgba(255, 45, 120, 0.15);
         }
       `}</style>
     </>
