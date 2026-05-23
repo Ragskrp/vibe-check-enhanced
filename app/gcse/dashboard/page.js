@@ -67,32 +67,8 @@ export default function MissionControl() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-  {user ? (
-    <UserProfileCard />
-  ) : (
-    <Link href="/gcse/login" style={{ textDecoration: 'none' }}>
-      <div style={{ padding: '8px 16px', borderRadius: 8, background: 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,45,120,0.15))', border: '1px solid rgba(0,212,255,0.2)', color: '#00d4ff', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
-        <Cloud size={14} /> Sync Progress
-      </div>
-    </Link>
-  )}
-  <Link href="/gcse" style={{ textDecoration: 'none' }}>
-    <div style={{ padding: '8px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
-      <Home size={14} /> Subject Hubs
-    </div>
-  </Link>
-</div>
-
-
-                  <Cloud size={14} color="#00d4ff" />
-                  <span style={{ fontSize: 12, fontWeight: 700, color: '#00d4ff' }}>Synced</span>
-                </div>
-                {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 32, height: 32, borderRadius: '50%', border: '2px solid rgba(0,212,255,0.3)' }} />}
-                <button onClick={logout} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center' }} title="Sign out">
-                  <LogOut size={14} color="rgba(255,255,255,0.5)" />
-                </button>
-              </div>
+            {user ? (
+              <UserProfileCard />
             ) : (
               <Link href="/gcse/login" style={{ textDecoration: 'none' }}>
                 <div style={{ padding: '8px 16px', borderRadius: 8, background: 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,45,120,0.15))', border: '1px solid rgba(0,212,255,0.2)', color: '#00d4ff', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
