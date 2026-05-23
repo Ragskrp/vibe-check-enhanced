@@ -66,10 +66,14 @@ function useScrollReveal(threshold = 0.15) {
 }
 
 export default function GCSEClientWrapper() {
-  const { user, loginWithGoogle, loading } = useAuth();
+  const { user, loginWithGoogle, signUpWithEmail, loginWithEmail, loading } = useAuth();
   const [mounted, setMounted] = useState(false);
   const [guestMode, setGuestMode] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [authError, setAuthError] = useState('');
 
   const heroReveal = useScrollReveal(0.05);
   const gridReveal = useScrollReveal(0.05);
@@ -87,10 +91,43 @@ export default function GCSEClientWrapper() {
 
   const handleGoogleLogin = async () => {
     setAuthLoading(true);
+    setAuthError('');
     try {
       await loginWithGoogle();
     } catch (err) {
       console.error("Authentication failed:", err);
+      setAuthError(err.message || 'Google sign-in failed');
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleEmailAuth = async () => {
+    if (!email || !password) {
+      setAuthError('Please enter both email and password.');
+      return;
+    }
+    if (password.length < 6) {
+      setAuthError('Password must be at least 6 characters.');
+      return;
+    }
+    setAuthLoading(true);
+    setAuthError('');
+    try {
+      if (isSignUp) {
+        await signUpWithEmail(email, password);
+      } else {
+        await loginWithEmail(email, password);
+      }
+    } catch (err) {
+      console.error('Email auth failed:', err);
+      const code = err.code || '';
+      if (code === 'auth/email-already-in-use') setAuthError('This email is already registered. Try logging in.');
+      else if (code === 'auth/invalid-email') setAuthError('Please enter a valid email address.');
+      else if (code === 'auth/wrong-password' || code === 'auth/invalid-credential') setAuthError('Incorrect email or password.');
+      else if (code === 'auth/user-not-found') setAuthError('No account found. Try signing up.');
+      else if (code === 'auth/weak-password') setAuthError('Password is too weak. Use at least 6 characters.');
+      else setAuthError(err.message || 'Authentication failed.');
     } finally {
       setAuthLoading(false);
     }
@@ -380,6 +417,108 @@ export default function GCSEClientWrapper() {
                       </>
                     )}
                   </button>
+
+                  {/* Divider */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '18px 0' }}>
+                    <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }} />
+                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>or</span>
+                    <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }} />
+                  </div>
+
+                  {/* Email/Password Form */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                    <input
+                      type="email"
+                      placeholder="Email address"
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); setAuthError(''); }}
+                      style={{
+                        width: '100%',
+                        padding: '12px 14px',
+                        borderRadius: '10px',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        background: 'rgba(255,255,255,0.04)',
+                        color: '#fff',
+                        fontSize: 13,
+                        outline: 'none',
+                        transition: 'border-color 0.2s',
+                        boxSizing: 'border-box'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'rgba(0,212,255,0.4)'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
+                    />
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => { setPassword(e.target.value); setAuthError(''); }}
+                      onKeyDown={(e) => e.key === 'Enter' && handleEmailAuth()}
+                      style={{
+                        width: '100%',
+                        padding: '12px 14px',
+                        borderRadius: '10px',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        background: 'rgba(255,255,255,0.04)',
+                        color: '#fff',
+                        fontSize: 13,
+                        outline: 'none',
+                        transition: 'border-color 0.2s',
+                        boxSizing: 'border-box'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'rgba(0,212,255,0.4)'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
+                    />
+
+                    {authError && (
+                      <div style={{ fontSize: 12, color: '#ff4d6a', padding: '6px 10px', borderRadius: 8, background: 'rgba(255,77,106,0.08)', border: '1px solid rgba(255,77,106,0.15)' }}>
+                        {authError}
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleEmailAuth}
+                      disabled={authLoading}
+                      style={{
+                        width: '100%',
+                        padding: '13px 18px',
+                        borderRadius: '10px',
+                        fontSize: 13,
+                        fontWeight: 700,
+                        border: 'none',
+                        cursor: 'pointer',
+                        background: isSignUp
+                          ? 'linear-gradient(135deg, #ff2d78, #b14aed)'
+                          : 'linear-gradient(135deg, #00d4ff, #00e5a0)',
+                        color: isSignUp ? '#fff' : '#000',
+                        transition: 'all 0.2s ease',
+                        boxShadow: isSignUp
+                          ? '0 4px 16px rgba(255,45,120,0.25)'
+                          : '0 4px 16px rgba(0,212,255,0.2)'
+                      }}
+                    >
+                      {authLoading ? 'Please wait...' : (isSignUp ? 'Create Account' : 'Log In with Email')}
+                    </button>
+
+                    <div style={{ textAlign: 'center', fontSize: 12, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>
+                      {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
+                      <button
+                        onClick={() => { setIsSignUp(!isSignUp); setAuthError(''); }}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#00d4ff',
+                          cursor: 'pointer',
+                          fontWeight: 700,
+                          fontSize: 12,
+                          padding: 0,
+                          textDecoration: 'underline',
+                          textUnderlineOffset: '2px'
+                        }}
+                      >
+                        {isSignUp ? 'Log In' : 'Sign Up'}
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Option 2: Guest Session */}
