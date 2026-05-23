@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, googleProvider } from './firebase';
 
 const AuthContext = createContext({});
@@ -36,6 +36,28 @@ export function AuthProvider({ children }) {
     }
   };
 
+  // Sign up with email & password
+  const signUpWithEmail = async (email, password) => {
+    if (!auth) return;
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.error("Error signing up with email", error);
+      throw error;
+    }
+  };
+
+  // Log in with email & password
+  const loginWithEmail = async (email, password) => {
+    if (!auth) return;
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.error("Error signing in with email", error);
+      throw error;
+    }
+  };
+
   const logout = async () => {
     if (!auth) return;
     try {
@@ -46,7 +68,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loginWithGoogle, logout, loading }}>
+    <AuthContext.Provider value={{ user, loginWithGoogle, signUpWithEmail, loginWithEmail, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

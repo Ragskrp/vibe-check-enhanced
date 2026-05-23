@@ -5,8 +5,12 @@ import { useRouter } from 'next/navigation';
 import { Target, Cloud, Zap, Flame, Trophy, Shield, Clock, Brain, Star, ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+
 export default function LoginPage() {
-  const { user, loginWithGoogle, loading } = useAuth();
+  const { user, loginWithGoogle, signUpWithEmail, loginWithEmail, loading } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
   const router = useRouter();
   const [hoveredFeature, setHoveredFeature] = useState(null);
 
@@ -278,51 +282,126 @@ export default function LoginPage() {
             
             <p style={{ color: 'rgba(255, 255, 255, 0.6)', marginBottom: 36, fontSize: '14px', lineHeight: 1.6, textAlign: 'center' }}>
               Save your progress to the cloud so you can pick up revision where you left off on any device.
-            </p>
+            </p>{loading ? (
 
-            {loading ? (
-              <div style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                gap: 16, 
-                padding: '16px 0',
-                color: '#00d4ff', 
-                fontWeight: 700 
-              }}>
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(0, 212, 255, 0.1)',
-                  borderTopColor: '#00d4ff',
-                  animation: 'floatEffect 1s linear infinite'
-                }} />
-                <span>Synchronizing Session...</span>
-              </div>
-            ) : (
-              <button
-                onClick={handleLogin}
-                className="login-btn-gradient"
-                style={{ 
-                  width: '100%', 
-                  padding: '18px 24px', 
-                  borderRadius: '16px', 
-                  fontSize: '15px', 
-                  fontWeight: 800, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  gap: 12,
-                  border: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                <img src="https://www.google.com/favicon.ico" alt="Google" style={{ width: 18, height: 18 }} />
-                Authenticate with Google
-              </button>
-            )}
+
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 16,
+    padding: '16px 0',
+    color: '#00d4ff',
+    fontWeight: 700
+  }}>
+    <div style={{
+      width: '28px',
+      height: '28px',
+      borderRadius: '50%',
+      border: '3px solid rgba(0, 212, 255, 0.1)',
+      borderTopColor: '#00d4ff',
+      animation: 'floatEffect 1s linear infinite'
+    }} />
+    <span>Synchronizing Session...</span>
+  </div>
+) : (
+  <div>
+    {/* Google Sign-In */}
+    <button
+      onClick={handleLogin}
+      className="login-btn-gradient"
+      style={{
+        width: '100%',
+        padding: '18px 24px',
+        borderRadius: '16px',
+        fontSize: '15px',
+        fontWeight: 800,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 12,
+        border: 'none',
+        cursor: 'pointer',
+        marginBottom: '24px'
+      }}
+    >
+      <img src="https://www.google.com/favicon.ico" alt="Google" style={{ width: 18, height: 18 }} />
+      Authenticate with Google
+    </button>
+
+    {/* Email/Password Auth */}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          padding: '12px 16px',
+          borderRadius: '12px',
+          border: '1px solid rgba(255,255,255,0.2)',
+          background: 'rgba(255,255,255,0.05)',
+          color: '#fff'
+        }}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{
+          padding: '12px 16px',
+          borderRadius: '12px',
+          border: '1px solid rgba(255,255,255,0.2)',
+          background: 'rgba(255,255,255,0.05)',
+          color: '#fff'
+        }}
+      />
+      <button
+        onClick={async () => {
+          try {
+            if (isSignUp) {
+              await signUpWithEmail(email, password);
+            } else {
+              await loginWithEmail(email, password);
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }}
+        style={{
+          width: '100%',
+          padding: '14px 20px',
+          borderRadius: '12px',
+          background: isSignUp ? '#ff2d78' : '#00d4ff',
+          color: '#fff',
+          border: 'none',
+          fontWeight: 600,
+          cursor: 'pointer'
+        }}
+      >
+        {isSignUp ? 'Sign Up' : 'Log In'}
+      </button>
+      <div style={{ textAlign: 'center', fontSize: '12px', color: '#aaa' }}>
+        {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+        <button
+          onClick={() => setIsSignUp(!isSignUp)}
+          style={{
+            marginLeft: '8px',
+            background: 'none',
+            border: 'none',
+            color: '#ff2d78',
+            cursor: 'pointer',
+            fontWeight: 600
+          }}
+        >
+          {isSignUp ? 'Log In' : 'Sign Up'}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
             {/* Split Mode Selector (Visual indicator of guest vs cloud) */}
             <div style={{
