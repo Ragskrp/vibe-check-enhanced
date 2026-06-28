@@ -1,0 +1,109 @@
+{
+  "id": "maths_num_fractions",
+  "subTopicIndex": 2,
+  "title": "Fractions, Decimals & Percentages",
+  "region": "library_of_numerals",
+  "locationName": "The Fraction Gallery",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "You've restored the Entrance Hall, Scholar. But the Fraction Gallery beyond lies in chaos.",
+        "The Unraveller split whole stained-glass panels into shards — each shard representing a fraction of the original. Decimals and percentages are scattered across the floor, their equivalences severed.",
+        "Reconnect these forms, and the Gallery's light will return."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "A fraction represents part of a whole: the numerator (top) counts the parts you have, and the denominator (bottom) is the total number of equal parts.",
+        "Fractions, decimals, and percentages are three equivalent forms of the same value. To convert: fraction → decimal by dividing numerator by denominator; decimal → percentage by multiplying by 100.",
+        "To compare fractions, find a common denominator. To add or subtract fractions, they must share a denominator. To multiply fractions, multiply numerators together and denominators together. To divide fractions, multiply by the reciprocal of the divisor."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "A stained-glass panel divided into 5 equal shards; 3 shards glow — representing 3/5.",
+          "mathsExpression": "\\frac{3}{5} = 0.6 = 60\\%"
+        },
+        {
+          "step": 2,
+          "description": "Show the reciprocal flip animation for fraction division.",
+          "mathsExpression": "\\frac{2}{3} \\div \\frac{4}{5} = \\frac{2}{3} \\times \\frac{5}{4} = \\frac{10}{12} = \\frac{5}{6}"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Calculate: \\frac{3}{4} + \\frac{2}{5}",
+      "steps": [
+        {
+          "explanation": "Find the Lowest Common Denominator (LCD) of 4 and 5, which is 20.",
+          "mathsExpression": "\\frac{3}{4} = \\frac{15}{20}, \\quad \\frac{2}{5} = \\frac{8}{20}"
+        },
+        {
+          "explanation": "Add the numerators, keeping the denominator the same.",
+          "mathsExpression": "\\frac{15}{20} + \\frac{8}{20} = \\frac{23}{20}"
+        },
+        {
+          "explanation": "Convert to a mixed number.",
+          "mathsExpression": "\\frac{23}{20} = 1\\frac{3}{20}"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "The shards are fusing back together. Each panel shines with its true colour.",
+        "The Gallery remembers its fractions, its decimals, its percentages — all one and the same.",
+        "One more vault awaits: the Ratio Corridor. Prove your mastery here before we advance."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_frac_1",
+        "type": "mcq",
+        "prompt": "Convert \\frac{7}{8} to a decimal.",
+        "options": ["0.875", "0.78", "0.87", "0.8"],
+        "correctAnswer": { "value": "0.875" },
+        "hint": "Divide the numerator by the denominator: 7 ÷ 8."
+      },
+      {
+        "id": "q_frac_2",
+        "type": "fill_blank",
+        "prompt": "What is 35% of 140?",
+        "correctAnswer": { "value": "49" },
+        "hint": "Convert 35% to a decimal (0.35) and multiply by 140."
+      },
+      {
+        "id": "q_frac_3",
+        "type": "mcq",
+        "prompt": "Calculate \\frac{5}{6} - \\frac{1}{4}",
+        "options": ["\\frac{7}{12}", "\\frac{4}{2}", "\\frac{1}{2}", "\\frac{2}{3}"],
+        "correctAnswer": { "value": "\\frac{7}{12}" },
+        "hint": "Find the LCD of 6 and 4 (which is 12), then convert each fraction: 10/12 − 3/12."
+      },
+      {
+        "id": "q_frac_4",
+        "type": "true_false",
+        "prompt": "\\frac{3}{5} is greater than 0.55.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "True" },
+        "hint": "Convert 3/5 to a decimal: 3 ÷ 5 = 0.6. Compare 0.6 with 0.55."
+      },
+      {
+        "id": "q_frac_5",
+        "type": "spot_mistake",
+        "prompt": "Spot the error: \\frac{2}{3} \\div \\frac{1}{4} — Step 1: \\frac{2}{3} \\times \\frac{1}{4} = \\frac{2}{12} = \\frac{1}{6}.",
+        "options": ["Step 1 is correct", "Should multiply by the reciprocal of \\frac{1}{4} which is \\frac{4}{1}", "The simplification is wrong"],
+        "correctAnswer": { "value": "Should multiply by the reciprocal of \\frac{1}{4} which is \\frac{4}{1}" },
+        "hint": "When dividing by a fraction, flip the second fraction (take its reciprocal) and multiply."
+      }
+    ]
+  }
+}

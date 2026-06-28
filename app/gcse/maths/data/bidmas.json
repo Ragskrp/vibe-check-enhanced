@@ -1,0 +1,111 @@
+{
+  "id": "maths_num_bidmas",
+  "subTopicIndex": 1,
+  "title": "Types of Number & BIDMAS",
+  "region": "library_of_numerals",
+  "locationName": "The Entrance Hall",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome, Scholar. The Unraveller's shadow has scattered our Numerals Archive across the floor of the Entrance Hall.",
+        "Look closely at the floating stone tablets. The integers are losing their signage, and the brackets in our formulas are dissolving into void.",
+        "To rebuild the archive, we must first restore the foundational order of mathematical operations — the laws of BIDMAS — and categorize the types of numbers that hold Arithmia together."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "Numbers are categorized into sets: Natural numbers (positive integers), Integers (whole numbers, positive and negative), Rational numbers (fractions), and Irrational numbers (like pi or square roots of non-square numbers that cannot be written as simple fractions).",
+        "When calculating expressions with multiple operations, we must follow BIDMAS: Brackets, Indices (powers/roots), Division and Multiplication (equal priority, calculate left-to-right), Addition and Subtraction (equal priority, calculate left-to-right)."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show categorization of numbers in concentric circles (Integers inside Rationals, beside Irrationals, all inside Real Numbers).",
+          "mathsExpression": "\\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}"
+        },
+        {
+          "step": 2,
+          "description": "Show the BIDMAS priority pyramid on a glowing parchment board.",
+          "mathsExpression": "\\text{B} \\rightarrow \\text{I} \\rightarrow \\text{D} \\& \\text{M} \\rightarrow \\text{A} \\& \\text{S}"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Evaluate the following expression: 12 + 3 \\times (5 - 2)^2",
+      "steps": [
+        {
+          "explanation": "First, evaluate the operation inside the Brackets: (5 - 2)",
+          "mathsExpression": "12 + 3 \\times (3)^2"
+        },
+        {
+          "explanation": "Next, evaluate the Indices: (3)^2",
+          "mathsExpression": "12 + 3 \\times 9"
+        },
+        {
+          "explanation": "Next, perform Multiplication before Addition: 3 \\times 9",
+          "mathsExpression": "12 + 27"
+        },
+        {
+          "explanation": "Finally, perform Addition: 12 + 27",
+          "mathsExpression": "39"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Incredible. The equations have stopped shifting. The columns are beginning to settle.",
+        "But the vault door remains sealed. To unlock the Fraction Gallery, you must prove your mastery of these numbers in the archives."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold": { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_bidmas_1",
+        "type": "mcq",
+        "prompt": "Evaluate: 8 + 12 \\div 4 \\times 2",
+        "options": ["14", "10", "16", "2.5"],
+        "correctAnswer": { "value": "14" },
+        "hint": "Division and Multiplication have equal priority; compute them left-to-right. First, calculate 12 divided by 4, then multiply the result by 2."
+      },
+      {
+        "id": "q_bidmas_2",
+        "type": "true_false",
+        "prompt": "The square root of 2 (\\sqrt{2}) is a rational number.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "False" },
+        "hint": "A rational number can be written as a fraction p/q of two integers. The square root of 2 cannot be expressed this way."
+      },
+      {
+        "id": "q_bidmas_3",
+        "type": "fill_blank",
+        "prompt": "Solve: (7 - 3)^2 \\times 2 - 5 = ___",
+        "correctAnswer": { "value": "27" },
+        "hint": "Calculate brackets first (7 - 3 = 4), then square it (4^2 = 16), then multiply by 2 (32), and finally subtract 5."
+      },
+      {
+        "id": "q_bidmas_4",
+        "type": "spot_mistake",
+        "prompt": "Identify the incorrect step in this evaluation: Step 1: 5 + 3 \\times 2^3 = 5 + 3 \\times 8. Step 2: (5 + 3) \\times 8 = 8 \\times 8 = 64. Step 3: Result is 64.",
+        "options": ["Step 1", "Step 2", "Step 3"],
+        "correctAnswer": { "value": "Step 2" },
+        "hint": "Multiplication should have been performed before addition (3 times 8 first), rather than adding 5 and 3 first."
+      },
+      {
+        "id": "q_bidmas_5",
+        "type": "mcq",
+        "prompt": "Which of the following is an integer?",
+        "options": ["-5", "2.5", "\\sqrt{3}", "3/4"],
+        "correctAnswer": { "value": "-5" },
+        "hint": "Integers are whole numbers, which can be positive, negative, or zero."
+      }
+    ]
+  }
+}

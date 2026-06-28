@@ -1,0 +1,190 @@
+{
+  "subject": "maths",
+  "displayName": "Arithmia — Maths Realm",
+  "worldDescription": "A once-ordered mathematical kingdom whose laws are fracturing under the Unraveller's curse. Restore each region to reclaim Arithmia.",
+  "regions": [
+    {
+      "id": "library_of_numerals",
+      "name": "Library of Numerals",
+      "gcseArea": "Number",
+      "unlocked": true,
+      "subTopics": [
+        {
+          "id": "maths_num_bidmas",
+          "index": 1,
+          "title": "Types of Number & BIDMAS",
+          "dataFile": "bidmas.json",
+          "locationName": "The Entrance Hall",
+          "status": "available"
+        },
+        {
+          "id": "maths_num_fractions",
+          "index": 2,
+          "title": "Fractions, Decimals & Percentages",
+          "dataFile": "fractions.json",
+          "locationName": "The Fraction Gallery",
+          "status": "locked",
+          "unlockAfter": "maths_num_bidmas"
+        },
+        {
+          "id": "maths_num_ratio",
+          "index": 3,
+          "title": "Ratio & Proportion",
+          "dataFile": "ratio.json",
+          "locationName": "The Ratio Corridor",
+          "status": "locked",
+          "unlockAfter": "maths_num_fractions"
+        },
+        {
+          "id": "maths_num_indices",
+          "index": 4,
+          "title": "Indices, Powers & Roots",
+          "dataFile": "indices.json",
+          "locationName": "The Tower of Powers",
+          "status": "locked",
+          "unlockAfter": "maths_num_ratio"
+        },
+        {
+          "id": "maths_num_standard_form",
+          "index": 5,
+          "title": "Standard Form",
+          "dataFile": "standard_form.json",
+          "locationName": "The Observatory Attic",
+          "status": "locked",
+          "unlockAfter": "maths_num_indices"
+        }
+      ]
+    },
+    {
+      "id": "algebra_citadel",
+      "name": "Algebra Citadel",
+      "gcseArea": "Algebra",
+      "unlocked": false,
+      "unlockAfter": "library_of_numerals",
+      "subTopics": [
+        {
+          "id": "maths_alg_expressions",
+          "index": 1,
+          "title": "Expressions & Simplification",
+          "dataFile": "expressions.json",
+          "locationName": "The Gatehouse",
+          "status": "locked"
+        },
+        {
+          "id": "maths_alg_equations",
+          "index": 2,
+          "title": "Solving Equations & Inequalities",
+          "dataFile": "equations.json",
+          "locationName": "The Equation Chambers",
+          "status": "locked"
+        },
+        {
+          "id": "maths_alg_sequences",
+          "index": 3,
+          "title": "Sequences",
+          "dataFile": "sequences.json",
+          "locationName": "The Sequence Spiral",
+          "status": "locked"
+        },
+        {
+          "id": "maths_alg_graphs",
+          "index": 4,
+          "title": "Graphs",
+          "dataFile": "graphs.json",
+          "locationName": "The Graph Garden",
+          "status": "locked"
+        },
+        {
+          "id": "maths_alg_quadratics",
+          "index": 5,
+          "title": "Quadratics",
+          "dataFile": "quadratics.json",
+          "locationName": "The Parabolic Vault",
+          "status": "locked"
+        }
+      ]
+    },
+    {
+      "id": "geometry_sanctum",
+      "name": "Geometry Sanctum",
+      "gcseArea": "Geometry & Measures",
+      "unlocked": false,
+      "unlockAfter": "algebra_citadel",
+      "subTopics": [
+        {
+          "id": "maths_geo_angles",
+          "index": 1,
+          "title": "Angles & Lines",
+          "dataFile": "angles.json",
+          "locationName": "The Angular Nave",
+          "status": "locked"
+        },
+        {
+          "id": "maths_geo_area",
+          "index": 2,
+          "title": "Area, Perimeter & Volume",
+          "dataFile": "area_volume.json",
+          "locationName": "The Measurement Halls",
+          "status": "locked"
+        },
+        {
+          "id": "maths_geo_circles",
+          "index": 3,
+          "title": "Circles & Arcs",
+          "dataFile": "circles.json",
+          "locationName": "The Circular Cloister",
+          "status": "locked"
+        },
+        {
+          "id": "maths_geo_trigonometry",
+          "index": 4,
+          "title": "Trigonometry",
+          "dataFile": "trigonometry.json",
+          "locationName": "The Triangle Temple",
+          "status": "locked"
+        },
+        {
+          "id": "maths_geo_transformations",
+          "index": 5,
+          "title": "Transformations",
+          "dataFile": "transformations.json",
+          "locationName": "The Mirror Maze",
+          "status": "locked"
+        }
+      ]
+    },
+    {
+      "id": "statistics_observatory",
+      "name": "Statistics Observatory",
+      "gcseArea": "Statistics & Probability",
+      "unlocked": false,
+      "unlockAfter": "geometry_sanctum",
+      "subTopics": [
+        {
+          "id": "maths_stat_data",
+          "index": 1,
+          "title": "Collecting & Representing Data",
+          "dataFile": "data_representation.json",
+          "locationName": "The Cartographer's Room",
+          "status": "locked"
+        },
+        {
+          "id": "maths_stat_averages",
+          "index": 2,
+          "title": "Averages & Spread",
+          "dataFile": "averages.json",
+          "locationName": "The Mean Chamber",
+          "status": "locked"
+        },
+        {
+          "id": "maths_stat_probability",
+          "index": 3,
+          "title": "Probability",
+          "dataFile": "probability.json",
+          "locationName": "The Probability Pendulum",
+          "status": "locked"
+        }
+      ]
+    }
+  ]
+}

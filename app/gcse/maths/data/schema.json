@@ -1,0 +1,276 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FLEURIR Maths Subtopic Level Schema",
+  "description": "Schema defining both Learn (Type A) and Quiz (Type B) content for a single subtopic in FLEURIR.",
+  "type": "OBJECT",
+  "required": [
+    "id",
+    "subTopicIndex",
+    "title",
+    "region",
+    "locationName",
+    "learnLevel",
+    "quizLevel"
+  ],
+  "properties": {
+    "id": {
+      "type": "STRING",
+      "description": "Unique identifier for the subtopic (e.g. maths_num_bidmas)"
+    },
+    "subTopicIndex": {
+      "type": "INTEGER",
+      "description": "1-based global sub-topic index (e.g., 1 for BIDMAS)"
+    },
+    "title": {
+      "type": "STRING",
+      "description": "Title of the sub-topic"
+    },
+    "region": {
+      "type": "STRING",
+      "enum": [
+        "library_of_numerals",
+        "garden_of_equations",
+        "merchants_quarter",
+        "crystal_citadel",
+        "oracles_mist_tower",
+        "hall_of_data"
+      ],
+      "description": "Which narrative story region this belongs to"
+    },
+    "locationName": {
+      "type": "STRING",
+      "description": "The specific story location in the region (e.g., The Entrance Hall)"
+    },
+    "learnLevel": {
+      "type": "OBJECT",
+      "required": [
+        "openingScene",
+        "lesson",
+        "workedExample",
+        "closingScene"
+      ],
+      "properties": {
+        "openingScene": {
+          "type": "OBJECT",
+          "required": [
+            "character",
+            "dialogue"
+          ],
+          "properties": {
+            "character": {
+              "type": "STRING",
+              "description": "Speaker name (e.g., Arith)"
+            },
+            "dialogue": {
+              "type": "ARRAY",
+              "items": {
+                "type": "STRING"
+              },
+              "description": "Sequential lines of narrative dialogue"
+            }
+          }
+        },
+        "lesson": {
+          "type": "OBJECT",
+          "required": [
+            "conceptText",
+            "visualCues"
+          ],
+          "properties": {
+            "conceptText": {
+              "type": "ARRAY",
+              "items": {
+                "type": "STRING"
+              },
+              "description": "Text blocks/steps for the animated explanation"
+            },
+            "visualCues": {
+              "type": "ARRAY",
+              "items": {
+                "type": "OBJECT",
+                "required": [
+                  "step",
+                  "description",
+                  "mathsExpression"
+                ],
+                "properties": {
+                  "step": {
+                    "type": "INTEGER"
+                  },
+                  "description": "What visual animates/renders on screen",
+                  "mathsExpression": {
+                    "type": "STRING",
+                    "description": "LaTeX mathematical string to render"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "workedExample": {
+          "type": "OBJECT",
+          "required": [
+            "question",
+            "steps"
+          ],
+          "properties": {
+            "question": {
+              "type": "STRING",
+              "description": "The worked example prompt/problem"
+            },
+            "steps": {
+              "type": "ARRAY",
+              "items": {
+                "type": "OBJECT",
+                "required": [
+                  "explanation",
+                  "mathsExpression"
+                ],
+                "properties": {
+                  "explanation": {
+                    "type": "STRING",
+                    "description": "Step-by-step reasoning"
+                  },
+                  "mathsExpression": {
+                    "type": "STRING",
+                    "description": "LaTeX line representing current state of equation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "closingScene": {
+          "type": "OBJECT",
+          "required": [
+            "character",
+            "dialogue"
+          ],
+          "properties": {
+            "character": {
+              "type": "STRING"
+            },
+            "dialogue": {
+              "type": "ARRAY",
+              "items": {
+                "type": "STRING"
+              }
+            }
+          }
+        }
+      }
+    },
+    "quizLevel": {
+      "type": "OBJECT",
+      "required": [
+        "tiers",
+        "questions"
+      ],
+      "properties": {
+        "tiers": {
+          "type": "OBJECT",
+          "required": [
+            "bronze",
+            "silver",
+            "gold"
+          ],
+          "properties": {
+            "bronze": {
+              "type": "OBJECT",
+              "required": [
+                "minScore",
+                "totalQuestions"
+              ],
+              "properties": {
+                "minScore": {
+                  "type": "INTEGER"
+                },
+                "totalQuestions": {
+                  "type": "INTEGER"
+                }
+              }
+            },
+            "silver": {
+              "type": "OBJECT",
+              "required": [
+                "minScore",
+                "totalQuestions"
+              ],
+              "properties": {
+                "minScore": {
+                  "type": "INTEGER"
+                },
+                "totalQuestions": {
+                  "type": "INTEGER"
+                }
+              }
+            },
+            "gold": {
+              "type": "OBJECT",
+              "required": [
+                "minScore",
+                "totalQuestions"
+              ],
+              "properties": {
+                "minScore": {
+                  "type": "INTEGER"
+                },
+                "totalQuestions": {
+                  "type": "INTEGER"
+                }
+              }
+            }
+          }
+        },
+        "questions": {
+          "type": "ARRAY",
+          "items": {
+            "type": "OBJECT",
+            "required": [
+              "id",
+              "type",
+              "prompt",
+              "correctAnswer"
+            ],
+            "properties": {
+              "id": {
+                "type": "STRING"
+              },
+              "type": {
+                "type": "STRING",
+                "enum": [
+                  "mcq",
+                  "drag_drop",
+                  "fill_blank",
+                  "equation_builder",
+                  "match_up",
+                  "true_false",
+                  "spot_mistake",
+                  "written_markscheme"
+                ]
+              },
+              "prompt": {
+                "type": "STRING",
+                "description": "Question text or LaTeX equation"
+              },
+              "options": {
+                "type": "ARRAY",
+                "items": {
+                  "type": "STRING"
+                },
+                "description": "MCQ choices, drag blocks, or matchup keys"
+              },
+              "correctAnswer": {
+                "type": "OBJECT",
+                "description": "Expected answer payload (structure depends on type)"
+              },
+              "hint": {
+                "type": "STRING"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
