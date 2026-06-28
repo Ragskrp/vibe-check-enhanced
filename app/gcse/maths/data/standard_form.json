@@ -1,0 +1,119 @@
+{
+  "id": "maths_num_standard_form",
+  "subTopicIndex": 5,
+  "title": "Standard Form",
+  "region": "observatory_attic",
+  "locationName": "The Observatory Attic",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome to the Observatory Attic, Scholar. We've reached the highest point of the Library of Numerals.",
+        "The telescope here is used to trace cosmic distances, but the lenses are completely out of focus because the massive stars and tiny stardust particles are written in non-standard notations.",
+        "Mastering Standard Form is the key to aligning the telescope and completing the restoration of this entire region."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "Standard form (also known as scientific notation) writes very large or very small numbers in the format: A \\times 10^n, where A is a number between 1 and 10 (1 \\le A < 10) and n is an integer power of 10.",
+        "For large numbers, n is positive and equals the number of places the decimal point moves to the left: e.g. 53,000 = 5.3 \\times 10^4. For small numbers, n is negative and equals the number of places the decimal point moves to the right: e.g. 0.00045 = 4.5 \\times 10^{-4}.",
+        "To multiply numbers in standard form, multiply the decimal values and add the exponents: (A \\times 10^a) \\times (B \\times 10^b) = (A \\times B) \\times 10^{a+b}. If the resulting A \\times B is not between 1 and 10, adjust it and adjust the exponent accordingly."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show the format of standard form with constraints highlighted in gold.",
+          "mathsExpression": "A \\times 10^n \\quad \\text{where} \\quad 1 \\le A < 10"
+        },
+        {
+          "step": 2,
+          "description": "Show a large number and a decimal converting step-by-step with movement arrows.",
+          "mathsExpression": "680,000 = 6.8 \\times 10^5 \\quad \\text{and} \\quad 0.0072 = 7.2 \\times 10^{-3}"
+        },
+        {
+          "step": 3,
+          "description": "Show multiplication of standard form values with exponent addition.",
+          "mathsExpression": "(2 \\times 10^4) \\times (3 \\times 10^5) = 6 \\times 10^9"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Calculate: (4 \\times 10^5) \\times (5 \\times 10^4), giving your answer in standard form.",
+      "steps": [
+        {
+          "explanation": "Multiply the leading decimal numbers first.",
+          "mathsExpression": "4 \\times 5 = 20"
+        },
+        {
+          "explanation": "Multiply the powers of 10 by adding the exponents.",
+          "mathsExpression": "10^5 \\times 10^4 = 10^{5+4} = 10^9"
+        },
+        {
+          "explanation": "Combine the results.",
+          "mathsExpression": "20 \\times 10^9"
+        },
+        {
+          "explanation": "Adjust the final value so that the first part is between 1 and 10, increasing the exponent by 1.",
+          "mathsExpression": "2.0 \\times 10^{10}"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "The stars are resolving! The telescope view is crystal clear.",
+        "You've done it, Scholar. The entire Library of Numerals has been completely restored to order.",
+        "We are ready to leave this region behind. The Algebra Citadel awaits us next!"
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_sf_1",
+        "type": "mcq",
+        "prompt": "Write 450,000 in standard form.",
+        "options": ["4.5 \\times 10^5", "45 \\times 10^4", "4.5 \\times 10^{-5}", "4.5 \\times 10^6"],
+        "correctAnswer": { "value": "4.5 \\times 10^5" },
+        "hint": "Move the decimal point 5 places to the left to get a number between 1 and 10."
+      },
+      {
+        "id": "q_sf_2",
+        "type": "mcq",
+        "prompt": "Write 0.00078 in standard form.",
+        "options": ["7.8 \\times 10^{-4}", "7.8 \\times 10^{-3}", "0.78 \\times 10^{-3}", "7.8 \\times 10^4"],
+        "correctAnswer": { "value": "7.8 \\times 10^{-4}" },
+        "hint": "Move the decimal point 4 places to the right to get 7.8, giving a negative exponent."
+      },
+      {
+        "id": "q_sf_3",
+        "type": "mcq",
+        "prompt": "Calculate: (3 \\times 10^5) \\times (2 \\times 10^4)",
+        "options": ["6 \\times 10^9", "6 \\times 10^{20}", "5 \\times 10^9", "6 \\times 10^1"],
+        "correctAnswer": { "value": "6 \\times 10^9" },
+        "hint": "Multiply the numbers (3 \\times 2 = 6) and add the powers of 10: 10^5 \\times 10^4 = 10^{5+4} = 10^9."
+      },
+      {
+        "id": "q_sf_4",
+        "type": "true_false",
+        "prompt": "12.5 \\times 10^3 is written in correct standard form.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "False" },
+        "hint": "The leading coefficient must be strictly less than 10 (1 \\le A < 10). 12.5 violates this rule."
+      },
+      {
+        "id": "q_sf_5",
+        "type": "mcq",
+        "prompt": "Calculate: (8 \\times 10^6) \\div (2 \\times 10^3)",
+        "options": ["4 \\times 10^3", "4 \\times 10^9", "4 \\times 10^2", "16 \\times 10^3"],
+        "correctAnswer": { "value": "4 \\times 10^3" },
+        "hint": "Divide the decimal values (8 \\div 2 = 4) and subtract the exponents: 6 - 3 = 3."
+      }
+    ]
+  }
+}

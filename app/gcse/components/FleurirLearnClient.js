@@ -3,13 +3,18 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Math from './Math';
+import MathText from './MathText';
 
 // ── Scene backgrounds per region ──────────────────────────────
 const SCENE_BG = {
   library_of_numerals: '/gcse/bg-library.png',
   fraction_gallery:    '/gcse/bg-fractions.png',
   ratio_corridor:      '/gcse/bg-ratio.png',
+  tower_of_powers:     '/gcse/bg-indices.png',
+  observatory_attic:   '/gcse/bg-standard-form.png',
+  gatehouse:           '/gcse/bg-gatehouse.png',
+  equation_chambers:   '/gcse/bg-equations.png',
+  sequence_spiral:     '/gcse/bg-sequences.png',
 };
 const DEFAULT_BG = '/gcse/bg-library.png';
 
@@ -353,7 +358,7 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                     <div className="fade-slide-up" style={S.visualCueBox}>
                       <p style={S.visualDesc}>{visualCue.description}</p>
                       <div style={S.mathBlock}>
-                        <Math expr={visualCue.mathsExpression} block />
+                        <MathText text={visualCue.mathsExpression} block />
                       </div>
                     </div>
                   )}
@@ -392,7 +397,7 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                 <div style={S.lessonCardInner}>
                   <p style={S.lessonEyebrow}>🔍 Worked Example</p>
                   <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 16, color: '#7a545a', margin: '0 0 20px', paddingBottom: 16, borderBottom: '1px solid #e8e2d8' }}>
-                    <Math expr={workedExample.question} />
+                    <MathText text={workedExample.question} />
                   </p>
 
                   {/* Reveal steps one by one */}
@@ -406,7 +411,7 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                         </p>
                         {(i < subIdx || done) && (
                           <div style={S.mathBlock}>
-                            <Math expr={s.mathsExpression} block />
+                            <MathText text={s.mathsExpression} block />
                           </div>
                         )}
                       </div>

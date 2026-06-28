@@ -1,0 +1,111 @@
+{
+  "id": "maths_alg_equations",
+  "subTopicIndex": 2,
+  "title": "Solving Equations & Inequalities",
+  "region": "equation_chambers",
+  "locationName": "The Equation Chambers",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome to the Equation Chambers, Scholar. Deep within the Citadel, the ancient scale statues have frozen.",
+        "The Unraveller has unbalanced the equations, causing the stone scales to tilt dangerously. The chambers are locked until the balances are restored.",
+        "Remember the golden rule of equations: whatever you do to one side of the equals sign, you must do to the other. Let's find the values that bring perfect balance."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "To solve an equation means to find the value of the unknown variable that makes the equation true. Use inverse operations to isolate the variable: addition offsets subtraction (x - 3 = 5 \\rightarrow x = 8), and multiplication offsets division (2x = 10 \\rightarrow x = 5).",
+        "When variables appear on both sides of the equals sign, move all terms containing the variable to one side (typically the side with the larger coefficient) and all constants to the other side: e.g. 5x - 3 = 2x + 9 \\rightarrow 3x - 3 = 9 \\rightarrow 3x = 12 \\rightarrow x = 4.",
+        "Inequalities use signs like < (less than), > (greater than), \\le (less than or equal to), and \\ge (greater than or equal to). Solve them exactly like equations, with one crucial rule: if you multiply or divide both sides by a negative number, you must flip the inequality sign."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show a balance scale with blocks representing x and unit weights balancing perfectly.",
+          "mathsExpression": "3x + 2 = 11 \\rightarrow 3x = 9 \\rightarrow x = 3"
+        },
+        {
+          "step": 2,
+          "description": "Show variables moving across the equals sign, changing sign as they cross.",
+          "mathsExpression": "5x - 3 = 2x + 9 \\rightarrow 3x = 12 \\rightarrow x = 4"
+        },
+        {
+          "step": 3,
+          "description": "Show an inequality sign flipping direction when divided by a negative number.",
+          "mathsExpression": "-2x < 10 \\rightarrow x > -5"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Solve the inequality: 7 - 3x \\le 16",
+      "steps": [
+        {
+          "explanation": "Subtract 7 from both sides to isolate the variable term on the left.",
+          "mathsExpression": "-3x \\le 16 - 7 \\rightarrow -3x \\le 9"
+        },
+        {
+          "explanation": "Divide both sides by -3. Because we are dividing by a negative number, we must flip the inequality sign from \\le to \\ge.",
+          "mathsExpression": "x \\ge \\frac{9}{-3} \\rightarrow x \\ge -3"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "The stone scale statues have leveled. A warm green light fills the chamber.",
+        "The Unraveller's freeze has broken, and the gateway to the Sequence Spiral is unlocked.",
+        "Let's move upward to unravel the mysteries of numerical sequences."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_eq_1",
+        "type": "mcq",
+        "prompt": "Solve: 4x - 7 = 13",
+        "options": ["x = 5", "x = 1.5", "x = 20", "x = 4"],
+        "correctAnswer": { "value": "x = 5" },
+        "hint": "Add 7 to both sides: 4x = 20. Then divide both sides by 4."
+      },
+      {
+        "id": "q_eq_2",
+        "type": "mcq",
+        "prompt": "Solve: 5x + 3 = 2x + 18",
+        "options": ["x = 5", "x = 7", "x = 3", "x = 15"],
+        "correctAnswer": { "value": "x = 5" },
+        "hint": "Subtract 2x from both sides: 3x + 3 = 18. Subtract 3 from both sides: 3x = 15. Then divide by 3."
+      },
+      {
+        "id": "q_eq_3",
+        "type": "mcq",
+        "prompt": "Solve: 3(x - 4) = 15",
+        "options": ["x = 9", "x = 1", "x = 27", "x = 7"],
+        "correctAnswer": { "value": "x = 9" },
+        "hint": "Expand the bracket first: 3x - 12 = 15. Add 12 to both sides: 3x = 27. Then divide by 3."
+      },
+      {
+        "id": "q_eq_4",
+        "type": "mcq",
+        "prompt": "Solve the inequality: 2x - 5 > 7",
+        "options": ["x > 6", "x > 1", "x < 6", "x > 12"],
+        "correctAnswer": { "value": "x > 6" },
+        "hint": "Add 5 to both sides: 2x > 12. Then divide both sides by 2."
+      },
+      {
+        "id": "q_eq_5",
+        "type": "mcq",
+        "prompt": "Solve the inequality: 6 - 2x < 12",
+        "options": ["x > -3", "x < -3", "x < 3", "x > 3"],
+        "correctAnswer": { "value": "x > -3" },
+        "hint": "Subtract 6 from both sides: -2x < 6. Divide both sides by -2 and flip the inequality sign."
+      }
+    ]
+  }
+}

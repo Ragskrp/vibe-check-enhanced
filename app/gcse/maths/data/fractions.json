@@ -98,11 +98,11 @@
       },
       {
         "id": "q_frac_5",
-        "type": "spot_mistake",
-        "prompt": "Spot the error: \\frac{2}{3} \\div \\frac{1}{4} — Step 1: \\frac{2}{3} \\times \\frac{1}{4} = \\frac{2}{12} = \\frac{1}{6}.",
-        "options": ["Step 1 is correct", "Should multiply by the reciprocal of \\frac{1}{4} which is \\frac{4}{1}", "The simplification is wrong"],
-        "correctAnswer": { "value": "Should multiply by the reciprocal of \\frac{1}{4} which is \\frac{4}{1}" },
-        "hint": "When dividing by a fraction, flip the second fraction (take its reciprocal) and multiply."
+        "type": "mcq",
+        "prompt": "Evaluate: \\frac{2}{3} \\div \\frac{1}{4}",
+        "options": ["\\frac{8}{3}", "\\frac{1}{6}", "\\frac{3}{8}", "\\frac{5}{12}"],
+        "correctAnswer": { "value": "\\frac{8}{3}" },
+        "hint": "When dividing fractions, multiply by the reciprocal of the second fraction: \\frac{2}{3} \\times \\frac{4}{1} = \\frac{8}{3}."
       }
     ]
   }

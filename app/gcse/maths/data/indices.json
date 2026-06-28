@@ -1,0 +1,115 @@
+{
+  "id": "maths_num_indices",
+  "subTopicIndex": 4,
+  "title": "Indices, Powers & Roots",
+  "region": "tower_of_powers",
+  "locationName": "The Tower of Powers",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome to the Tower of Powers, Scholar. This spire channels the exponential force of Arithmia.",
+        "The Unraveller has disrupted the indices. Numbers are expanding uncontrollably or collapsing to zero because their exponents have run wild.",
+        "Master the laws of powers and roots to stabilize the tower's levitation stones and ascend further."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "An index (or exponent) tells you how many times a base number is multiplied by itself: e.g. 5^3 = 5 \\times 5 \\times 5. Key laws for multiplying and dividing with the same base: add exponents for multiplication (a^m \\times a^n = a^{m+n}), and subtract them for division (a^m \\div a^n = a^{m-n}).",
+        "Power of a power: multiply the exponents: (a^m)^n = a^{m \\times n}. Remember that any non-zero base raised to the power of 0 is always 1 (a^0 = 1). Negative exponents indicate the reciprocal: a^{-n} = \\frac{1}{a^n}.",
+        "Fractional exponents represent roots: the denominator is the root and the numerator is the power: a^{1/n} = \\sqrt[n]{a}, and more generally, a^{m/n} = (\\sqrt[n]{a})^m."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show floating stones combining and splitting, showing adding and subtracting exponents.",
+          "mathsExpression": "x^5 \\times x^3 = x^{5+3} = x^8 \\quad \\text{and} \\quad \\frac{x^7}{x^3} = x^{7-3} = x^4"
+        },
+        {
+          "step": 2,
+          "description": "Show a negative power flipping a number down into the denominator of a fraction.",
+          "mathsExpression": "2^{-3} = \\frac{1}{2^3} = \\frac{1}{8} \\quad \\text{and} \\quad 7^0 = 1"
+        },
+        {
+          "step": 3,
+          "description": "Show a fractional exponent translating into a root.",
+          "mathsExpression": "8^{2/3} = (\\sqrt[3]{8})^2 = 2^2 = 4"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Simplify: \\frac{(x^3 \\times x^5)^2}{x^4}",
+      "steps": [
+        {
+          "explanation": "Simplify the expression inside the brackets by adding the exponents.",
+          "mathsExpression": "x^3 \\times x^5 = x^{3+5} = x^8"
+        },
+        {
+          "explanation": "Apply the power of a power rule by multiplying the exponents.",
+          "mathsExpression": "(x^8)^2 = x^{8 \\times 2} = x^{16}"
+        },
+        {
+          "explanation": "Divide by subtracting the denominator's exponent from the numerator's exponent.",
+          "mathsExpression": "\\frac{x^{16}}{x^4} = x^{16-4} = x^{12}"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "The levitation stones have locked into place! The tower is perfectly balanced once more.",
+        "I can feel the resonance returning to the higher chambers.",
+        "Only the Observatory Attic remains in this region. Let us venture up to face the Standard Form challenge."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_indices_1",
+        "type": "mcq",
+        "prompt": "Simplify: y^7 \\times y^{-3}",
+        "options": ["y^4", "y^{10}", "y^{-21}", "y^{-4}"],
+        "correctAnswer": { "value": "y^4" },
+        "hint": "When multiplying bases of the same type, add the indices: 7 + (-3) = 4."
+      },
+      {
+        "id": "q_indices_2",
+        "type": "mcq",
+        "prompt": "Evaluate: 27^{2/3}",
+        "options": ["9", "3", "18", "81"],
+        "correctAnswer": { "value": "9" },
+        "hint": "First take the cube root of 27, which is 3. Then square the result: 3^2 = 9."
+      },
+      {
+        "id": "q_indices_3",
+        "type": "mcq",
+        "prompt": "Evaluate: 5^{-2}",
+        "options": ["\\frac{1}{25}", "-25", "-10", "\\frac{1}{10}"],
+        "correctAnswer": { "value": "\\frac{1}{25}" },
+        "hint": "A negative index indicates a reciprocal: 5^{-2} = \\frac{1}{5^2} = \\frac{1}{25}."
+      },
+      {
+        "id": "q_indices_4",
+        "type": "true_false",
+        "prompt": "Any non-zero number raised to the power of 0 is equal to 1.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "True" },
+        "hint": "By definition of indices rules, x^0 = 1 for any x \\neq 0."
+      },
+      {
+        "id": "q_indices_5",
+        "type": "mcq",
+        "prompt": "Evaluate: (2^3)^2 \\div 8",
+        "options": ["8", "16", "64", "4"],
+        "correctAnswer": { "value": "8" },
+        "hint": "First evaluate (2^3)^2 = 2^6 = 64. Then divide by 8: 64 \\div 8 = 8."
+      }
+    ]
+  }
+}

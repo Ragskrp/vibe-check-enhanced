@@ -135,6 +135,16 @@ const GAMES = [
     category: 'solo'
   },
   {
+    emoji: '🌸',
+    title: 'Fleurir GCSE',
+    desc: 'Unlock your potential in this gorgeous narrative adventure. Restore Arithmia and master GCSE Maths.',
+    path: '/gcse',
+    tag: 'Narrative Study',
+    color: '#854e60',
+    category: 'solo',
+    isNew: true
+  },
+  {
     emoji: '👆',
     title: 'Vibe Clicker',
     desc: 'Satisfyingly addictive. Build your empire, unlock upgrades, and watch the numbers soar.',

@@ -39,8 +39,7 @@
           "title": "Indices, Powers & Roots",
           "dataFile": "indices.json",
           "locationName": "The Tower of Powers",
-          "status": "locked",
-          "unlockAfter": "maths_num_ratio"
+          "status": "available"
         },
         {
           "id": "maths_num_standard_form",
@@ -48,8 +47,7 @@
           "title": "Standard Form",
           "dataFile": "standard_form.json",
           "locationName": "The Observatory Attic",
-          "status": "locked",
-          "unlockAfter": "maths_num_indices"
+          "status": "available"
         }
       ]
     },
@@ -57,7 +55,7 @@
       "id": "algebra_citadel",
       "name": "Algebra Citadel",
       "gcseArea": "Algebra",
-      "unlocked": false,
+      "unlocked": true,
       "unlockAfter": "library_of_numerals",
       "subTopics": [
         {
@@ -66,7 +64,7 @@
           "title": "Expressions & Simplification",
           "dataFile": "expressions.json",
           "locationName": "The Gatehouse",
-          "status": "locked"
+          "status": "available"
         },
         {
           "id": "maths_alg_equations",
@@ -74,7 +72,7 @@
           "title": "Solving Equations & Inequalities",
           "dataFile": "equations.json",
           "locationName": "The Equation Chambers",
-          "status": "locked"
+          "status": "available"
         },
         {
           "id": "maths_alg_sequences",
@@ -82,7 +80,7 @@
           "title": "Sequences",
           "dataFile": "sequences.json",
           "locationName": "The Sequence Spiral",
-          "status": "locked"
+          "status": "available"
         },
         {
           "id": "maths_alg_graphs",

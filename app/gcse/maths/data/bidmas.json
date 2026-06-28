@@ -92,11 +92,11 @@
       },
       {
         "id": "q_bidmas_4",
-        "type": "spot_mistake",
-        "prompt": "Identify the incorrect step in this evaluation: Step 1: 5 + 3 \\times 2^3 = 5 + 3 \\times 8. Step 2: (5 + 3) \\times 8 = 8 \\times 8 = 64. Step 3: Result is 64.",
-        "options": ["Step 1", "Step 2", "Step 3"],
-        "correctAnswer": { "value": "Step 2" },
-        "hint": "Multiplication should have been performed before addition (3 times 8 first), rather than adding 5 and 3 first."
+        "type": "mcq",
+        "prompt": "Evaluate: 5 + 3 \\times 2^3",
+        "options": ["29", "64", "41", "17"],
+        "correctAnswer": { "value": "29" },
+        "hint": "Follow BIDMAS: evaluate indices first (2^3 = 8), then multiplication (3 \\times 8 = 24), then addition (5 + 24 = 29)."
       },
       {
         "id": "q_bidmas_5",

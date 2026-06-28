@@ -1,0 +1,119 @@
+{
+  "id": "maths_alg_expressions",
+  "subTopicIndex": 1,
+  "title": "Expressions & Simplification",
+  "region": "gatehouse",
+  "locationName": "The Gatehouse",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome to the Algebra Citadel, Scholar. We stand before the massive iron gates of the Gatehouse.",
+        "The Unraveller has sealed the citadel. To open the gates, we must reorganize the chaotic symbols scattered on the gateway arch.",
+        "By learning how to simplify expressions and collect like terms, we can turn this raw alphabet of variables back into clean, elegant mathematical code."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "First, learn the definitions. An expression is a collection of numbers and variables with no equals sign (e.g. 3x + 5). An equation contains an equals sign and can be solved (e.g. 3x + 5 = 14). A formula relates variables (e.g. A = lw). An identity is true for all values of the variable (e.g. 2(x+3) \\equiv 2x + 6).",
+        "Simplifying means collecting 'like terms'. Like terms are terms that share the exact same variables and powers. You can add or subtract them: e.g. 4x + 3y - x + 2y = 3x + 5y. Remember, x^2 and x are NOT like terms because their powers are different.",
+        "Expanding a single bracket means multiplying the term on the outside by every term inside: a(b + c) = ab + ac. Factorising is the reverse: find the Highest Common Factor (HCF) of the terms, write it outside the bracket, and divide the terms inside by it."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show a tablet sorting terms into labeled categories: Expression, Equation, Formula, and Identity.",
+          "mathsExpression": "3x+5 \\quad \\text{vs} \\quad 3x+5=14 \\quad \\text{vs} \\quad v=u+at \\quad \\text{vs} \\quad 2(x+1) \\equiv 2x+2"
+        },
+        {
+          "step": 2,
+          "description": "Show colored circles grouping like terms (x terms in red, y terms in blue).",
+          "mathsExpression": "4x + 3y - x + 2y = (4x - x) + (3y + 2y) = 3x + 5y"
+        },
+        {
+          "step": 3,
+          "description": "Show factorisation by pulling out the HCF of 6x^2 and 9x.",
+          "mathsExpression": "6x^2 - 9x = 3x(2x - 3)"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Simplify: 3(2a + 4b) - 2(a - b)",
+      "steps": [
+        {
+          "explanation": "Expand the first bracket by multiplying both terms inside by 3.",
+          "mathsExpression": "3(2a + 4b) = 6a + 12b"
+        },
+        {
+          "explanation": "Expand the second bracket by multiplying both terms inside by -2. Be careful: -2 multiplied by -b becomes positive 2b.",
+          "mathsExpression": "-2(a - b) = -2a + 2b"
+        },
+        {
+          "explanation": "Write down the expanded expression together.",
+          "mathsExpression": "6a + 12b - 2a + 2b"
+        },
+        {
+          "explanation": "Group and collect the like terms (a-terms together, b-terms together).",
+          "mathsExpression": "(6a - 2a) + (12b + 2b) = 4a + 14b"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Incredible! The Gatehouse runes are aligning, and the heavy iron gates are slowly rising.",
+        "The path into the Algebra Citadel is open.",
+        "Our next stop is the Equation Chambers, where we must learn to solve what we have simplified."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_exp_1",
+        "type": "mcq",
+        "prompt": "Simplify by collecting like terms: 5x + 3y - 2x + 4y",
+        "options": ["3x + 7y", "7x + 7y", "3x - y", "3x + y"],
+        "correctAnswer": { "value": "3x + 7y" },
+        "hint": "Group the x terms: 5x - 2x = 3x. Group the y terms: 3y + 4y = 7y."
+      },
+      {
+        "id": "q_exp_2",
+        "type": "mcq",
+        "prompt": "Expand the expression: 4(3p - 2)",
+        "options": ["12p - 8", "12p - 2", "7p - 8", "12p + 8"],
+        "correctAnswer": { "value": "12p - 8" },
+        "hint": "Multiply the outer number 4 by 3p, then multiply 4 by -2."
+      },
+      {
+        "id": "q_exp_3",
+        "type": "mcq",
+        "prompt": "Factorise completely: 6x^2 - 9x",
+        "options": ["3x(2x - 3)", "3(2x^2 - 3x)", "x(6x - 9)", "3x(2x + 3)"],
+        "correctAnswer": { "value": "3x(2x - 3)" },
+        "hint": "Find the highest common factor of 6 and 9 (which is 3) and x^2 and x (which is x). Write 3x outside the bracket."
+      },
+      {
+        "id": "q_exp_4",
+        "type": "true_false",
+        "prompt": "The mathematical statement 3x + 5 = 14 is classified as an expression.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "False" },
+        "hint": "Because it has an equals sign (=), it is an equation, not an expression."
+      },
+      {
+        "id": "q_exp_5",
+        "type": "mcq",
+        "prompt": "Expand and simplify: (x + 3)(x + 2)",
+        "options": ["x^2 + 5x + 6", "x^2 + 6", "x^2 + 5x + 5", "x^2 + 6x + 5"],
+        "correctAnswer": { "value": "x^2 + 5x + 6" },
+        "hint": "Multiply each term in the first bracket by each term in the second: x^2 + 2x + 3x + 6, then collect like terms."
+      }
+    ]
+  }
+}

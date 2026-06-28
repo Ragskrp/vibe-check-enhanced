@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import FleurirLearnClient from '../../components/FleurirLearnClient';
 import FleurirQuizClient from '../../components/FleurirQuizClient';
+import { useFleurir } from '../../components/StateContext';
 
 /**
  * TopicShell — client orchestrator
@@ -13,6 +14,8 @@ import FleurirQuizClient from '../../components/FleurirQuizClient';
 export default function TopicShell({ levelData }) {
   const [mode, setMode] = useState('learn'); // 'learn' | 'quiz' | 'complete'
   const [result, setResult] = useState(null);
+
+  const state = useFleurir();
 
   function handleLearnComplete() {
     setMode('quiz');
@@ -25,6 +28,16 @@ export default function TopicShell({ levelData }) {
     }
     setResult(res);
     setMode('complete');
+
+    // Reward XP & Coins
+    if (state && res) {
+      const isPass = res.score >= 3; // Bronze or better
+      if (isPass) {
+        state.completeTopic(levelData.id);
+        state.addXp(50);
+        state.addCoins(100);
+      }
+    }
   }
 
   if (mode === 'learn') {

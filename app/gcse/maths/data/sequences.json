@@ -1,0 +1,119 @@
+{
+  "id": "maths_alg_sequences",
+  "subTopicIndex": 3,
+  "title": "Sequences",
+  "region": "sequence_spiral",
+  "locationName": "The Sequence Spiral",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Welcome to the Sequence Spiral, Scholar. We stand at the base of a tower where steps spiral upward in numerical patterns.",
+        "The Unraveller has shattered the steps, leaving missing values in the spirals. If we misstep, we fall into the void.",
+        "To rebuild the steps, we must understand the formulas that generate these patterns — from simple steps to exponential climbs."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "An arithmetic sequence has a constant difference between consecutive terms (e.g. 5, 8, 11, 14... increases by 3). The n-th term formula is dn + c, where d is the common difference, and c is the zeroth term (first term minus the difference).",
+        "A geometric sequence progresses by multiplying or dividing by a constant ratio each time: e.g. 3, 6, 12, 24... doubles each step. The ratio here is 2, meaning each term is multiplied by 2 to get the next.",
+        "A quadratic sequence has a changing first difference, but a constant second difference. The n-th term formula is an^2 + bn + c. Crucially, the constant second difference is always equal to 2a (so a is half of the second difference)."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show steps ascending with values 5, 8, 11, 14, highlighting the constant jump of +3.",
+          "mathsExpression": "5 \\xrightarrow{+3} 8 \\xrightarrow{+3} 11 \\xrightarrow{+3} 14 \\rightarrow 3n + 2"
+        },
+        {
+          "step": 2,
+          "description": "Show steps doubling in height: 3, 6, 12, 24.",
+          "mathsExpression": "3 \\xrightarrow{\\times 2} 6 \\xrightarrow{\\times 2} 12 \\xrightarrow{\\times 2} 24"
+        },
+        {
+          "step": 3,
+          "description": "Show a quadratic sequence table with first and second differences.",
+          "mathsExpression": "2, 6, 12, 20... \\text{ (Diffs: 4, 6, 8... Second Diff: 2)} \\rightarrow n^2 + n"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Find the n-th term of the arithmetic sequence: 5, 8, 11, 14, 17...",
+      "steps": [
+        {
+          "explanation": "Find the common difference (d) by subtracting any term from the next term.",
+          "mathsExpression": "8 - 5 = 3"
+        },
+        {
+          "explanation": "Use the common difference as the coefficient of n in the formula.",
+          "mathsExpression": "3n"
+        },
+        {
+          "explanation": "Find the zeroth term (c) by working backwards: subtract the difference from the first term.",
+          "mathsExpression": "5 - 3 = 2"
+        },
+        {
+          "explanation": "Combine the parts to write the final n-th term formula.",
+          "mathsExpression": "3n + 2"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "Look! The missing stairs are re-materializing, winding up into the starlight.",
+        "The Sequence Spiral is fully restored. We can safely ascend.",
+        "Let's move out to the Graph Garden, where functions bloom into geometry."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_seq_1",
+        "type": "mcq",
+        "prompt": "Find the next term in the sequence: 4, 7, 10, 13...",
+        "options": ["16", "17", "15", "14"],
+        "correctAnswer": { "value": "16" },
+        "hint": "Identify the common difference between the terms, and add it to the last term 13."
+      },
+      {
+        "id": "q_seq_2",
+        "type": "mcq",
+        "prompt": "Find the n-th term of the arithmetic sequence: 7, 11, 15, 19...",
+        "options": ["4n + 3", "3n + 4", "4n - 3", "4n + 7"],
+        "correctAnswer": { "value": "4n + 3" },
+        "hint": "The common difference is 4, which gives 4n. Work backwards to find the term before the first: 7 - 4 = 3."
+      },
+      {
+        "id": "q_seq_3",
+        "type": "mcq",
+        "prompt": "What is the 10th term of the sequence with n-th term formula 5n - 2?",
+        "options": ["48", "50", "45", "52"],
+        "correctAnswer": { "value": "48" },
+        "hint": "Substitute n = 10 into the formula: 5 \\times 10 - 2."
+      },
+      {
+        "id": "q_seq_4",
+        "type": "true_false",
+        "prompt": "The sequence 2, 4, 8, 16... is a geometric sequence.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "True" },
+        "hint": "A geometric sequence multiplies by a constant ratio. Here, each term is multiplied by 2."
+      },
+      {
+        "id": "q_seq_5",
+        "type": "mcq",
+        "prompt": "In a quadratic sequence, if the constant second difference is 4, what is the value of a in the n-th term formula an^2 + bn + c?",
+        "options": ["2", "4", "8", "1"],
+        "correctAnswer": { "value": "2" },
+        "hint": "The constant second difference is always equal to 2a. So divide the second difference by 2 to find a."
+      }
+    ]
+  }
+}

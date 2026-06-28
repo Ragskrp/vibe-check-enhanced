@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useCallback } from "react";
-import Math from './Math';
+import MathText from './MathText';
 
 /* ── tier config ──────────────────────────────────────────── */
 function getTier(score, tiers) {
@@ -135,7 +135,7 @@ export default function FleurirQuizClient({ quizData, topicTitle, onComplete }) 
 
         {/* Question card */}
         <div className="quiz-card">
-          <p style={Q.prompt}><Math expr={q.prompt} /></p>
+          <p style={Q.prompt}><MathText text={q.prompt} /></p>
 
           {/* Answer area */}
           {isFill ? (
@@ -168,7 +168,7 @@ export default function FleurirQuizClient({ quizData, topicTitle, onComplete }) 
                       cursor:      answered ? 'default' : 'pointer',
                     }}
                   >
-                    <Math expr={opt} />
+                    <MathText text={opt} />
                   </button>
                 );
               })}
@@ -188,7 +188,7 @@ export default function FleurirQuizClient({ quizData, topicTitle, onComplete }) 
               fontFamily: "'Nunito Sans', sans-serif",
               fontWeight: 600,
             }}>
-              {isCorrect() ? '✓ Correct! Well done, Scholar.' : <span>✗ Not quite. The answer is: <Math expr={q.correctAnswer.value.toString()} /></span>}
+              {isCorrect() ? '✓ Correct! Well done, Scholar.' : <span>✗ Not quite. The answer is: <MathText text={q.correctAnswer.value.toString()} /></span>}
             </div>
           )}
 

@@ -107,11 +107,11 @@
       },
       {
         "id": "q_ratio_5",
-        "type": "spot_mistake",
-        "prompt": "A recipe uses flour and sugar in ratio 3:1. To make 200g total: Step 1: Total parts = 3 + 1 = 4. Step 2: One part = 200 ÷ 3 = 66.7g. Step 3: Flour = 3 × 66.7 = 200g.",
-        "options": ["Step 1 is wrong", "Step 2 is wrong — should be 200 ÷ 4", "Step 3 is wrong"],
-        "correctAnswer": { "value": "Step 2 is wrong — should be 200 ÷ 4" },
-        "hint": "The total is divided by the total number of parts (4), not just the flour parts (3)."
+        "type": "mcq",
+        "prompt": "A map has a scale of 1:25,000. If two towns are 8 cm apart on the map, what is their actual distance apart in kilometers?",
+        "options": ["2 km", "20 km", "0.2 km", "200 km"],
+        "correctAnswer": { "value": "2 km" },
+        "hint": "Actual distance is 8 cm \\times 25,000 = 200,000 cm. Convert to meters (divide by 100) to get 2,000 m, then to kilometers (divide by 1,000) to get 2 km."
       }
     ]
   }
