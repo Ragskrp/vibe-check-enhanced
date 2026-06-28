@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MathText from './MathText';
+import { useFleurir } from './StateContext';
+import { CompanionDisplay } from './CompanionDisplay';
 
 // ── Scene backgrounds per region ──────────────────────────────
 const SCENE_BG = {
@@ -53,6 +55,9 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
   const [step,      setStep]      = useState(0);   // 0 opening | 1 lesson | 2 example | 3 closing
   const [subIdx,    setSubIdx]    = useState(0);
   const [fadeKey,   setFadeKey]   = useState(0);   // triggers card re-animation
+
+  const { equippedCompanionData } = useFleurir();
+  const companionId = equippedCompanionData?.id || 'blanche';
 
   const { title, region, locationName, learnLevel } = levelData;
   const { openingScene, lesson, workedExample, closingScene } = learnLevel;
@@ -286,6 +291,17 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                     />
                   </div>
                   <span style={S.portraitLabel}>{charName.toUpperCase()}</span>
+                </div>
+
+                {/* Companion */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <CompanionDisplay 
+                    companionId={companionId}
+                    variant="default"
+                    animation="idle"
+                    showLabel
+                    labelPosition="bottom"
+                  />
                 </div>
 
                 {/* Dialogue card */}
@@ -533,7 +549,7 @@ const S = {
   },
   narrativeBody: {
     display: 'grid',
-    gridTemplateColumns: '140px 1fr',
+    gridTemplateColumns: '140px 140px 1fr',
     gap: 20,
     alignItems: 'flex-start',
   },

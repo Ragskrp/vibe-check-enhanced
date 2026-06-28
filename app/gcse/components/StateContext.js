@@ -4,10 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const StateContext = createContext(null);
 
-export const AVATARS = {
-  blanche: { id: 'blanche', name: 'Blanche', img: '/gcse/arith-portrait.png', desc: 'The quiet scholar of the rose gardens.' },
-  clara: { id: 'clara', name: 'Clara', img: '/gcse/arith.png', desc: 'Adventurous archivist of the Tower.' }
-};
+import { COMPANIONS, getOnboardingCompanions } from '@/app/gcse/data/companions';
 
 export const THEMES = {
   princess_scholar: {
@@ -34,12 +31,19 @@ export const THEMES = {
   }
 };
 
+const INITIAL_COMPANIONS = ['blanche', 'pip', 'sage'].map(id => ({
+  id,
+  acquiredAt: Date.now(),
+  acquiredBy: 'onboarding_gift',
+  equipped: id === 'blanche',
+}));
+
 export function StateProvider({ children }) {
   const [xp, setXp] = useState(250);
   const [coins, setCoins] = useState(1450);
   const [completed, setCompleted] = useState([]);
   const [inventory, setInventory] = useState(['gilded_quill']);
-  const [equippedAvatar, setEquippedAvatar] = useState('blanche');
+  const [companions, setCompanions] = useState(INITIAL_COMPANIONS);
   const [equippedTheme, setEquippedTheme] = useState('princess_scholar');
 
   // Load from localstorage on mount
@@ -52,7 +56,7 @@ export function StateProvider({ children }) {
         if (parsed.coins !== undefined) setCoins(parsed.coins);
         if (parsed.completed !== undefined) setCompleted(parsed.completed);
         if (parsed.inventory !== undefined) setInventory(parsed.inventory);
-        if (parsed.equippedAvatar !== undefined) setEquippedAvatar(parsed.equippedAvatar);
+        if (parsed.companions !== undefined) setCompanions(parsed.companions);
         if (parsed.equippedTheme !== undefined) setEquippedTheme(parsed.equippedTheme);
       }
     } catch (e) {
@@ -68,7 +72,7 @@ export function StateProvider({ children }) {
         coins: updated.coins ?? coins,
         completed: updated.completed ?? completed,
         inventory: updated.inventory ?? inventory,
-        equippedAvatar: updated.equippedAvatar ?? equippedAvatar,
+        companions: updated.companions ?? companions,
         equippedTheme: updated.equippedTheme ?? equippedTheme
       }));
     } catch (e) {
@@ -115,9 +119,53 @@ export function StateProvider({ children }) {
     return true;
   };
 
-  const selectAvatar = (avatarId) => {
-    setEquippedAvatar(avatarId);
-    saveState({ equippedAvatar: avatarId });
+  const buyCompanion = (companionId, cost) => {
+    if (coins < cost) return false;
+    const companion = COMPANIONS.find(c => c.id === companionId);
+    if (!companion) return false;
+    
+    setCoins(prev => {
+      const next = prev - cost;
+      setCompanions(comp => {
+        if (comp.some(c => c.id === companionId)) return comp;
+        const nextComp = [...comp, {
+          id: companionId,
+          acquiredAt: Date.now(),
+          acquiredBy: 'purchase',
+          equipped: false,
+        }];
+        saveState({ coins: next, companions: nextComp });
+        return nextComp;
+      });
+      return next;
+    });
+    return true;
+  };
+
+  const equipCompanion = (companionId) => {
+    setCompanions(prev => {
+      const next = prev.map(c => ({
+        ...c,
+        equipped: c.id === companionId,
+      }));
+      saveState({ companions: next });
+      return next;
+    });
+  };
+
+  const unlockBossCompanion = (companionId, bossBattleId) => {
+    setCompanions(prev => {
+      if (prev.some(c => c.id === companionId)) return prev;
+      const next = [...prev, {
+        id: companionId,
+        acquiredAt: Date.now(),
+        acquiredBy: 'boss_battle',
+        bossBattleId,
+        equipped: false,
+      }];
+      saveState({ companions: next });
+      return next;
+    });
   };
 
   const selectTheme = (themeId) => {
@@ -126,6 +174,13 @@ export function StateProvider({ children }) {
   };
 
   const activeTheme = THEMES[equippedTheme] || THEMES.princess_scholar;
+  const equippedCompanion = companions.find(c => c.equipped) || companions[0];
+  const equippedCompanionData = COMPANIONS.find(c => c.id === equippedCompanion?.id) || COMPANIONS[0];
+  const ownedCompanionIds = companions.map(c => c.id);
+  const ownedCompanions = COMPANIONS.filter(c => ownedCompanionIds.includes(c.id));
+  const availableCompanions = COMPANIONS.filter(c => 
+    c.unlockSource === 'shop' && !ownedCompanionIds.includes(c.id)
+  );
 
   return (
     <StateContext.Provider value={{
@@ -133,14 +188,21 @@ export function StateProvider({ children }) {
       coins,
       completed,
       inventory,
-      equippedAvatar,
+      companions,
+      equippedCompanion,
+      equippedCompanionData,
+      ownedCompanions,
+      availableCompanions,
       equippedTheme,
       activeTheme,
+      onboardingCompanions: getOnboardingCompanions(),
       addXp,
       addCoins,
       completeTopic,
       buyItem,
-      selectAvatar,
+      buyCompanion,
+      equipCompanion,
+      unlockBossCompanion,
       selectTheme
     }}>
       {children}

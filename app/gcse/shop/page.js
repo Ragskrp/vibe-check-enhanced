@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useFleurir } from '../components/StateContext';
+import { COMPANIONS, getShopCompanions, RARITY_BORDERS } from '../data/companions';
+import { CompanionDisplay, CompanionSelector } from '../components/CompanionDisplay';
 
 const SHOP_ITEMS = [
   {
@@ -12,16 +14,7 @@ const SHOP_ITEMS = [
     tag: 'DECOR',
     desc: 'An elegant vintage frame for your finest achievements.',
     cost: 150,
-    img: '/gcse/bg-library.png' // Use library background as place holder inside frame
-  },
-  {
-    id: 'blanche_spring',
-    name: 'Blanche\'s Spring Ensemble',
-    category: 'companions',
-    tag: 'WARDROBE',
-    desc: 'A lightweight silk blouse and beret perfect for reading in the garden.',
-    cost: 400,
-    img: '/gcse/arith-portrait.png'
+    img: '/gcse/bg-library.png'
   },
   {
     id: 'wisteria_wall',
@@ -57,16 +50,15 @@ const SHOP_ITEMS = [
 export default function BloomShop() {
   const state = useFleurir();
   const [tab, setTab] = useState('customise'); // customise | companions | french_corner
+  const [celebrateTrigger, setCelebrateTrigger] = useState(0);
 
   if (!state) return null;
 
-  const { coins, buyItem, inventory, activeTheme } = state;
+  const { coins, inventory, activeTheme, equippedCompanionData, buyItem, buyCompanion, ownedCompanions } = state;
+  const ownedCompanionIds = ownedCompanions.map(c => c.id);
+  const shopCompanions = getShopCompanions();
 
-  const filteredItems = SHOP_ITEMS.filter(item => {
-    if (tab === 'customise') return item.category === 'customise';
-    if (tab === 'companions') return item.category === 'companions';
-    return false; // French Corner is empty for now
-  });
+  const customiseItems = SHOP_ITEMS.filter(item => item.category === 'customise');
 
   return (
     <>
@@ -264,6 +256,93 @@ export default function BloomShop() {
           border: 1px solid #e8e2d8;
           cursor: default;
         }
+        .companion-shop-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+          gap: 20px;
+        }
+        .companion-shop-card {
+          background: #ffffff;
+          border: 1px solid #e8e2d8;
+          border-radius: 16px;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          position: relative;
+          box-shadow: 0 4px 16px rgba(42,32,53,0.03);
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .companion-shop-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(42,32,53,0.08);
+        }
+        .companion-rarity-badge {
+          position: absolute;
+          top: -8px;
+          right: 16px;
+          font-family: 'Nunito Sans', sans-serif;
+          font-size: 9px;
+          font-weight: 800;
+          padding: 2px 8px;
+          border-radius: 9999px;
+          letter-spacing: 0.05em;
+        }
+        .rarity-common { background: #fff0f3; color: #854e60; border: 1px solid #d4c2c4; }
+        .rarity-uncommon { background: #f0f7ee; color: #4e6b50; border: 1px solid #9db58a; }
+        .rarity-rare { background: #fffbea; color: #7b5900; border: 1px solid #f0c060; }
+        .companion-name {
+          font-family: 'Playfair Display', serif;
+          font-size: 14px;
+          font-weight: 700;
+          color: #2A2035;
+          margin: 4px 0 2px;
+          text-align: center;
+        }
+        .companion-desc {
+          font-size: 11px;
+          line-height: 1.4;
+          color: #6a585a;
+          margin: 0 0 8px;
+          text-align: center;
+        }
+        .companion-price {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-family: 'Nunito Sans', sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          color: #854e60;
+          margin-bottom: 8px;
+        }
+        .section-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        .section-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 24px;
+          font-weight: 700;
+          color: #2A2035;
+          margin: 0;
+        }
+        .coins-display {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-family: 'Nunito Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          color: #504445;
+          background: #faf3e9;
+          border: 1px solid #e8e2d8;
+          border-radius: 9999px;
+          padding: 6px 16px;
+        }
       `}</style>
       <div className="shop-container">
         {/* Banner */}
@@ -275,11 +354,37 @@ export default function BloomShop() {
             </p>
           </div>
           <div className="companion-avatar-wrap">
-            <div className="companion-circle">
-              <Image src="/gcse/arith-portrait.png" alt="Blanche" fill style={{ objectFit: 'cover' }} />
-            </div>
-            <span className="companion-active-label">ACTIVE: BLANCHE</span>
+            <CompanionDisplay 
+              companionId={equippedCompanionData.id}
+              variant="large"
+              animation={celebrateTrigger % 2 === 1 ? 'celebrate' : 'idle'}
+              showLabel
+              labelPosition="bottom"
+            />
+            <button 
+              onClick={() => setCelebrateTrigger(t => t + 1)}
+              style={{
+                background: '#854e60',
+                color: '#fff',
+                border: 'none',
+                padding: '6px 12px',
+                borderRadius: '9999px',
+                fontFamily: "'Nunito Sans', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                cursor: 'pointer',
+                marginTop: 8,
+              }}
+            >
+              ✨ Celebrate
+            </button>
           </div>
+        </div>
+
+        {/* Coins display */}
+        <div className="coins-display" style={{ marginBottom: 24, justifyContent: 'flex-end' }}>
+          <span>🌸</span>
+          <span>{coins.toLocaleString()}</span>
         </div>
 
         {/* Tabs */}
@@ -289,46 +394,96 @@ export default function BloomShop() {
           <button className={`shop-tab ${tab === 'french_corner' ? 'active' : ''}`} onClick={() => setTab('french_corner')}>French Corner</button>
         </div>
 
-        {/* Grid */}
-        <div className="shop-grid">
-          {filteredItems.map(item => {
-            const isOwned = inventory.includes(item.id);
-            return (
-              <div key={item.id} className="shop-card">
-                {item.badge && <span className="shop-card-badge">{item.badge}</span>}
-                <div className="shop-card-image">
-                  <Image src={item.img} alt={item.name} fill style={{ objectFit: 'cover' }} />
-                </div>
-                <span className="shop-card-tag" style={{ background: item.tag === 'THEME' ? '#7b5900' : '#854e60' }}>{item.tag}</span>
-                <h3 className="shop-card-title">{item.name}</h3>
-                <p className="shop-card-desc">{item.desc}</p>
-                <div className="shop-card-footer">
-                  <div className="shop-card-cost">
-                    <span>🌸</span>
-                    <span>{item.cost}</span>
+        {tab === 'customise' && (
+          <>
+            <div className="section-header">
+              <h2 className="section-title">Decor & Themes</h2>
+            </div>
+            <div className="shop-grid">
+              {customiseItems.map(item => {
+                const isOwned = inventory.includes(item.id);
+                return (
+                  <div key={item.id} className="shop-card">
+                    {item.badge && <span className="shop-card-badge">{item.badge}</span>}
+                    <div className="shop-card-image">
+                      <Image src={item.img} alt={item.name} fill style={{ objectFit: 'cover' }} />
+                    </div>
+                    <span className="shop-card-tag" style={{ background: item.tag === 'THEME' ? '#7b5900' : '#854e60' }}>{item.tag}</span>
+                    <h3 className="shop-card-title">{item.name}</h3>
+                    <p className="shop-card-desc">{item.desc}</p>
+                    <div className="shop-card-footer">
+                      <div className="shop-card-cost">
+                        <span>🌸</span>
+                        <span>{item.cost}</span>
+                      </div>
+                      {isOwned ? (
+                        <button className="shop-btn owned" disabled>✓ Owned</button>
+                      ) : (
+                        <button
+                          className="shop-btn"
+                          onClick={() => {
+                            if (coins >= item.cost) {
+                              buyItem(item.id, item.cost);
+                              alert(`Success! You have purchased ${item.name}!`);
+                            } else {
+                              alert(`Insufficient petals! You need ${item.cost - coins} more petals.`);
+                            }
+                          }}
+                        >
+                          Acquire
+                        </button>
+                      )}
+                    </div>
                   </div>
-                  {isOwned ? (
-                    <button className="shop-btn owned" disabled>✓ Owned</button>
-                  ) : (
-                    <button
-                      className="shop-btn"
-                      onClick={() => {
-                        if (coins >= item.cost) {
-                          buyItem(item.id, item.cost);
-                          alert(`Success! You have purchased ${item.name}!`);
-                        } else {
-                          alert(`Insufficient petals! You need ${item.cost - coins} more petals.`);
-                        }
-                      }}
-                    >
-                      Acquire
-                    </button>
-                  )}
-                </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        {tab === 'companions' && (
+          <>
+            <div className="section-header">
+              <h2 className="section-title">Companions</h2>
+              <div className="coins-display">
+                <span>🌸</span>
+                <span>{coins.toLocaleString()}</span>
               </div>
-            );
-          })}
-        </div>
+            </div>
+            <CompanionSelector
+              companions={shopCompanions}
+              selectedId={equippedCompanionData.id}
+              onSelect={(id) => buyCompanion(id, shopCompanions.find(c => c.id === id)?.price || 0)}
+              variant="default"
+              showPrice={true}
+              ownedIds={ownedCompanionIds}
+            />
+            <p style={{ textAlign: 'center', marginTop: 24, fontSize: 13, color: '#827475', fontFamily: "'DM Sans', sans-serif" }}>
+              Owned companions appear in your Profile where you can equip them as your active companion.
+            </p>
+          </>
+        )}
+
+        {tab === 'french_corner' && (
+          <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>🇫🇷</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: '#2A2035', margin: '0 0 12px' }}>French Corner</h2>
+            <p style={{ fontSize: 15, color: '#504445', margin: '0 0 24px', maxWidth: 400, marginLeft: 'auto', marginRight: 'auto' }}>
+              Unlock beautiful French motivational phrases by reaching milestones in your studies. 
+              Each phrase arrives with Cosette's Parisian charm.
+            </p>
+            <div style={{ background: '#faf3e9', border: '1px solid #e8e2d8', borderRadius: 16, padding: '24px', maxWidth: 400, margin: '0 auto', textAlign: 'left' }}>
+              <p style={{ margin: '0 0 12px', fontSize: 13, color: '#854e60', fontWeight: 700, fontFamily: "'Nunito Sans', sans-serif" }}>COMING SOON</p>
+              <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: '#504445', lineHeight: 2 }}>
+                <li>Unlock phrases at streak milestones (Day 7, 14, 30...)</li>
+                <li>Earn phrases for Boss Battle victories</li>
+                <li>Collect all 30 phrases for the <em>Je Parle Français</em> badge</li>
+                <li>View your collection in the Profile page</li>
+              </ul>
+            </div>
+          </div>
+        )}
+
       </div>
     </>
   );
