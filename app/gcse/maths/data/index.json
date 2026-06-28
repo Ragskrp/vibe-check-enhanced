@@ -23,8 +23,7 @@
           "title": "Fractions, Decimals & Percentages",
           "dataFile": "fractions.json",
           "locationName": "The Fraction Gallery",
-          "status": "locked",
-          "unlockAfter": "maths_num_bidmas"
+          "status": "available"
         },
         {
           "id": "maths_num_ratio",
@@ -32,8 +31,7 @@
           "title": "Ratio & Proportion",
           "dataFile": "ratio.json",
           "locationName": "The Ratio Corridor",
-          "status": "locked",
-          "unlockAfter": "maths_num_fractions"
+          "status": "available"
         },
         {
           "id": "maths_num_indices",

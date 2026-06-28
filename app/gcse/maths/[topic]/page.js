@@ -5,7 +5,7 @@ import TopicShell from './TopicShell';
 
 // Build-time: generate static params for known topics
 export async function generateStaticParams() {
-  return ['bidmas', 'fractions'].map((slug) => ({ topic: slug }));
+  return ['bidmas', 'fractions', 'ratio'].map((slug) => ({ topic: slug }));
 }
 
 export async function generateMetadata({ params }) {

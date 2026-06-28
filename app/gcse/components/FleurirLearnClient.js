@@ -3,11 +3,13 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Math from './Math';
 
 // ── Scene backgrounds per region ──────────────────────────────
 const SCENE_BG = {
   library_of_numerals: '/gcse/bg-library.png',
   fraction_gallery:    '/gcse/bg-fractions.png',
+  ratio_corridor:      '/gcse/bg-ratio.png',
 };
 const DEFAULT_BG = '/gcse/bg-library.png';
 
@@ -350,7 +352,9 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                   {visualCue && done && (
                     <div className="fade-slide-up" style={S.visualCueBox}>
                       <p style={S.visualDesc}>{visualCue.description}</p>
-                      <code style={S.mathCode}>{visualCue.mathsExpression}</code>
+                      <div style={S.mathBlock}>
+                        <Math expr={visualCue.mathsExpression} block />
+                      </div>
                     </div>
                   )}
                 </div>
@@ -388,7 +392,7 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                 <div style={S.lessonCardInner}>
                   <p style={S.lessonEyebrow}>🔍 Worked Example</p>
                   <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 16, color: '#7a545a', margin: '0 0 20px', paddingBottom: 16, borderBottom: '1px solid #e8e2d8' }}>
-                    {workedExample.question}
+                    <Math expr={workedExample.question} />
                   </p>
 
                   {/* Reveal steps one by one */}
@@ -401,7 +405,9 @@ export default function FleurirLearnClient({ levelData, onComplete }) {
                           {i === subIdx && !done && <span className="blink-cursor" style={{ color: '#854e60' }}>|</span>}
                         </p>
                         {(i < subIdx || done) && (
-                          <code style={S.mathCode}>{s.mathsExpression}</code>
+                          <div style={S.mathBlock}>
+                            <Math expr={s.mathsExpression} block />
+                          </div>
                         )}
                       </div>
                     </div>
@@ -669,6 +675,16 @@ const S = {
     color: '#7b5900',
     letterSpacing: '0.04em',
     background: 'transparent',
+  },
+  mathBlock: {
+    background: '#faf3e9',
+    border: '1px solid #e8e2d8',
+    borderRadius: 10,
+    padding: '12px 20px',
+    marginTop: 8,
+    fontSize: 20,
+    textAlign: 'center',
+    overflowX: 'auto',
   },
 
   // ── Example steps ──

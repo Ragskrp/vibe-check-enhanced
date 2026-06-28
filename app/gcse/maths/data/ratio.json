@@ -1,0 +1,118 @@
+{
+  "id": "maths_num_ratio",
+  "subTopicIndex": 3,
+  "title": "Ratio & Proportion",
+  "region": "ratio_corridor",
+  "locationName": "The Ratio Corridor",
+  "learnLevel": {
+    "openingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "You've passed through the Fraction Gallery, Scholar. The light returns, but the Ratio Corridor ahead is in disarray.",
+        "Look — the Unraveller has shattered the balance of every mixture and recipe in the archive. The scales are tipped, the proportions scrambled.",
+        "Restore the ratios, and the corridor's mosaics will reassemble themselves piece by piece."
+      ]
+    },
+    "lesson": {
+      "conceptText": [
+        "A ratio compares two or more quantities in a fixed relationship. Written as a:b (e.g. 3:2), it tells you the relative size of each part. Ratios can be simplified just like fractions — divide both parts by their highest common factor (HCF).",
+        "To divide a quantity in a ratio: add the parts of the ratio to find the total shares, then divide the quantity by that total to find one share, and multiply to find each part. For example, divide 40 in the ratio 3:5 → total shares = 8 → one share = 40 ÷ 8 = 5 → parts are 15 and 25.",
+        "Proportion describes when two quantities increase or decrease at the same rate. Direct proportion: y = kx (as x increases, y increases). Inverse proportion: y = k/x (as x increases, y decreases). In problems, find k first by substituting a known pair of values."
+      ],
+      "visualCues": [
+        {
+          "step": 1,
+          "description": "Show a mosaic tile split into coloured sections representing ratio 3:2 — 3 rose tiles, 2 blue tiles, out of 5 total.",
+          "mathsExpression": "3:2 \\rightarrow \\frac{3}{5} \\text{ and } \\frac{2}{5}"
+        },
+        {
+          "step": 2,
+          "description": "Show a balance scale dividing a quantity of 40 into ratio 3:5.",
+          "mathsExpression": "40 \\div (3+5) = 5 \\rightarrow 15 : 25"
+        },
+        {
+          "step": 3,
+          "description": "Show two graphs side by side — one linear (direct proportion) and one hyperbolic (inverse proportion).",
+          "mathsExpression": "y = kx \\quad \\text{vs} \\quad y = \\frac{k}{x}"
+        }
+      ]
+    },
+    "workedExample": {
+      "question": "Mortar is mixed using cement and sand in the ratio 1:4. How much cement is needed to make 35 kg of mortar?",
+      "steps": [
+        {
+          "explanation": "Find the total number of parts in the ratio.",
+          "mathsExpression": "1 + 4 = 5 \\text{ parts total}"
+        },
+        {
+          "explanation": "Find the value of one part by dividing the total quantity.",
+          "mathsExpression": "35 \\div 5 = 7 \\text{ kg per part}"
+        },
+        {
+          "explanation": "Multiply the cement share (1 part) by the value of one part.",
+          "mathsExpression": "1 \\times 7 = 7 \\text{ kg of cement}"
+        },
+        {
+          "explanation": "Check: sand = 4 × 7 = 28 kg. Total = 7 + 28 = 35 kg. ✓",
+          "mathsExpression": "7 + 28 = 35 \\checkmark"
+        }
+      ]
+    },
+    "closingScene": {
+      "character": "Arith",
+      "dialogue": [
+        "The mosaic tiles are sliding back into place. Every ratio restored, every proportion balanced.",
+        "The corridor shimmers — a perfect interplay of scale and symmetry.",
+        "The Tower of Powers beckons. Indices and roots await your mastery, Scholar."
+      ]
+    }
+  },
+  "quizLevel": {
+    "tiers": {
+      "bronze": { "minScore": 3, "totalQuestions": 5 },
+      "silver": { "minScore": 4, "totalQuestions": 5 },
+      "gold":   { "minScore": 5, "totalQuestions": 5 }
+    },
+    "questions": [
+      {
+        "id": "q_ratio_1",
+        "type": "mcq",
+        "prompt": "Simplify the ratio 18:24.",
+        "options": ["3:4", "6:8", "9:12", "2:3"],
+        "correctAnswer": { "value": "3:4" },
+        "hint": "Find the HCF of 18 and 24, which is 6. Divide both sides by 6."
+      },
+      {
+        "id": "q_ratio_2",
+        "type": "fill_blank",
+        "prompt": "Divide £72 in the ratio 5:4. What is the larger share? £___",
+        "correctAnswer": { "value": "40" },
+        "hint": "Total parts = 5 + 4 = 9. One part = 72 ÷ 9 = £8. Larger share = 5 × 8."
+      },
+      {
+        "id": "q_ratio_3",
+        "type": "mcq",
+        "prompt": "y is directly proportional to x. When x = 3, y = 12. What is y when x = 7?",
+        "options": ["21", "28", "36", "42"],
+        "correctAnswer": { "value": "28" },
+        "hint": "Find k: y = kx → 12 = k × 3 → k = 4. Then y = 4 × 7."
+      },
+      {
+        "id": "q_ratio_4",
+        "type": "true_false",
+        "prompt": "If y is inversely proportional to x and x doubles, then y also doubles.",
+        "options": ["True", "False"],
+        "correctAnswer": { "value": "False" },
+        "hint": "Inverse proportion means y = k/x. If x doubles, y is halved, not doubled."
+      },
+      {
+        "id": "q_ratio_5",
+        "type": "spot_mistake",
+        "prompt": "A recipe uses flour and sugar in ratio 3:1. To make 200g total: Step 1: Total parts = 3 + 1 = 4. Step 2: One part = 200 ÷ 3 = 66.7g. Step 3: Flour = 3 × 66.7 = 200g.",
+        "options": ["Step 1 is wrong", "Step 2 is wrong — should be 200 ÷ 4", "Step 3 is wrong"],
+        "correctAnswer": { "value": "Step 2 is wrong — should be 200 ÷ 4" },
+        "hint": "The total is divided by the total number of parts (4), not just the flour parts (3)."
+      }
+    ]
+  }
+}
