@@ -82,10 +82,7 @@ export default function GeographyGuesserPage() {
           Looking to apply similar learning strategies to your studies? Check out our guides:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
-          <a href="/gcse/geography" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>GCSE Geography Revision Hub</strong>
-            <span style={{ fontSize: '0.9em', color: '#aaa' }}>Master physical processes, human environments, and detailed case studies with interactive quizzes.</span>
-          </a>
+
           <a href="/blog/psychology-of-flow" style={{ padding: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
             <strong style={{ display: 'block', color: '#00d4ff', marginBottom: '4px' }}>In the Stream: Understanding Flow States</strong>
             <span style={{ fontSize: '0.9em', color: '#aaa' }}>Learn how gamified retrieval practice pushes your brain into optimal learning zones.</span>

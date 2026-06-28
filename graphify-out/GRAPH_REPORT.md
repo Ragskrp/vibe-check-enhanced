@@ -1,393 +1,272 @@
-# Graph Report - .  (2026-05-30)
+# Graph Report - Vibe-check-enhanced  (2026-06-28)
 
 ## Corpus Check
-- Large corpus: 308 files · ~917,371 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
+- 185 files · ~704,286 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1085 nodes · 1326 edges · 193 communities (100 shown, 93 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.9)
-- Token cost: 5,000 input · 1,200 output
+- 700 nodes · 652 edges · 165 communities (80 shown, 85 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.9)
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `382b8782`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Core Game Engine & UI|Core Game Engine & UI]]
-- [[_COMMUNITY_Geometry and Math Learning|Geometry and Math Learning]]
-- [[_COMMUNITY_Exam & Progress System|Exam & Progress System]]
-- [[_COMMUNITY_Project Dependencies|Project Dependencies]]
-- [[_COMMUNITY_Business Study Modules|Business Study Modules]]
-- [[_COMMUNITY_GCSE Mixed Topics Route|GCSE Mixed Topics Route]]
-- [[_COMMUNITY_GCSE Dashboard & Auth|GCSE Dashboard & Auth]]
-- [[_COMMUNITY_GCSE SEO Schemas|GCSE SEO Schemas]]
-- [[_COMMUNITY_Computer Science Modules|Computer Science Modules]]
-- [[_COMMUNITY_Project Architecture & Docs|Project Architecture & Docs]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module AnalyticsAndAds.js|Module: AnalyticsAndAds.js]]
-- [[_COMMUNITY_Module ExamSimulator.js|Module: ExamSimulator.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module AchievementBadge.js|Module: AchievementBadge.js]]
-- [[_COMMUNITY_Module FlashcardMode.js|Module: FlashcardMode.js]]
-- [[_COMMUNITY_Module HomeContent.js|Module: HomeContent.js]]
-- [[_COMMUNITY_Module generate_banks.js|Module: generate_banks.js]]
-- [[_COMMUNITY_Module DashboardStats.js|Module: DashboardStats.js]]
-- [[_COMMUNITY_Module TopicClientWrapper.js|Module: TopicClientWrapper.js]]
-- [[_COMMUNITY_Module englishLiteratureData.js|Module: englishLiteratureData.js]]
-- [[_COMMUNITY_Module GameEndScreen.js|Module: GameEndScreen.js]]
-- [[_COMMUNITY_Module SubjectIcon.js|Module: SubjectIcon.js]]
-- [[_COMMUNITY_Module gcseSeoData.js|Module: gcseSeoData.js]]
-- [[_COMMUNITY_Module SubjectCanvas.js|Module: SubjectCanvas.js]]
-- [[_COMMUNITY_Module InteractiveActivity.js|Module: InteractiveActivity.js]]
-- [[_COMMUNITY_Module MergeClient()|Module: MergeClient()]]
-- [[_COMMUNITY_Module GravityClient.js|Module: GravityClient.js]]
-- [[_COMMUNITY_Module InteractiveVisualizer.js|Module: InteractiveVisualizer.js]]
-- [[_COMMUNITY_Module background_color|Module: background_color]]
-- [[_COMMUNITY_Module WordVibeClient.js|Module: WordVibeClient.js]]
-- [[_COMMUNITY_Module AdGateway.js|Module: AdGateway.js]]
-- [[_COMMUNITY_Module EnglishLitClientWrapper.js|Module: EnglishLitClientWrapper.js]]
-- [[_COMMUNITY_Module EnglishLanguageClientWrappe...|Module: EnglishLanguageClientWrappe...]]
-- [[_COMMUNITY_Module GeographyGuesserGame.js|Module: GeographyGuesserGame.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module computer-science.json|Module: computer-science.json]]
-- [[_COMMUNITY_Module CompSciClientWrapper.js|Module: CompSciClientWrapper.js]]
-- [[_COMMUNITY_Module fs|Module: fs]]
-- [[_COMMUNITY_Module { createCanvas, registerFont }|Module: { createCanvas, registerFont }]]
-- [[_COMMUNITY_Module fs|Module: fs]]
-- [[_COMMUNITY_Module EmojiIQGame.js|Module: EmojiIQGame.js]]
-- [[_COMMUNITY_Module HotTakesGame.js|Module: HotTakesGame.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module DrawingDashClient.js|Module: DrawingDashClient.js]]
-- [[_COMMUNITY_Module MemoryArenaClient.js|Module: MemoryArenaClient.js]]
-- [[_COMMUNITY_Module OddOneOutClient.js|Module: OddOneOutClient.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module science.json|Module: science.json]]
-- [[_COMMUNITY_Module ARTICLES|Module: ARTICLES]]
-- [[_COMMUNITY_Module appDir|Module: appDir]]
-- [[_COMMUNITY_Module appDir|Module: appDir]]
-- [[_COMMUNITY_Module appDir|Module: appDir]]
-- [[_COMMUNITY_Module appDir|Module: appDir]]
-- [[_COMMUNITY_Module PageValueSection.js|Module: PageValueSection.js]]
-- [[_COMMUNITY_Module AboutPage()|Module: AboutPage()]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module business.json|Module: business.json]]
-- [[_COMMUNITY_Module english-language.json|Module: english-language.json]]
-- [[_COMMUNITY_Module english-literature.json|Module: english-literature.json]]
-- [[_COMMUNITY_Module maths.json|Module: maths.json]]
-- [[_COMMUNITY_Module fs|Module: fs]]
-- [[_COMMUNITY_Module jsconfig.json|Module: jsconfig.json]]
-- [[_COMMUNITY_Module AboutLayout()|Module: AboutLayout()]]
-- [[_COMMUNITY_Module Layout()|Module: Layout()]]
-- [[_COMMUNITY_Module AhaMomentPage()|Module: AhaMomentPage()]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module page.js|Module: page.js]]
-- [[_COMMUNITY_Module vercel.json|Module: vercel.json]]
-- [[_COMMUNITY_Module layout.js|Module: layout.js]]
-- [[_COMMUNITY_Module eslint.config.mjs|Module: eslint.config.mjs]]
-- [[_COMMUNITY_Module next.config.mjs|Module: next.config.mjs]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
+- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
+- [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 35|Community 35]]
+- [[_COMMUNITY_Community 36|Community 36]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
+- [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 47|Community 47]]
+- [[_COMMUNITY_Community 48|Community 48]]
+- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
+- [[_COMMUNITY_Community 58|Community 58]]
+- [[_COMMUNITY_Community 59|Community 59]]
+- [[_COMMUNITY_Community 60|Community 60]]
+- [[_COMMUNITY_Community 62|Community 62]]
+- [[_COMMUNITY_Community 63|Community 63]]
+- [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
+- [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 73|Community 73]]
+- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 77|Community 77]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
+- [[_COMMUNITY_Community 80|Community 80]]
+- [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 82|Community 82]]
+- [[_COMMUNITY_Community 83|Community 83]]
+- [[_COMMUNITY_Community 84|Community 84]]
+- [[_COMMUNITY_Community 85|Community 85]]
+- [[_COMMUNITY_Community 86|Community 86]]
+- [[_COMMUNITY_Community 87|Community 87]]
+- [[_COMMUNITY_Community 88|Community 88]]
+- [[_COMMUNITY_Community 89|Community 89]]
+- [[_COMMUNITY_Community 90|Community 90]]
+- [[_COMMUNITY_Community 91|Community 91]]
+- [[_COMMUNITY_Community 92|Community 92]]
+- [[_COMMUNITY_Community 93|Community 93]]
+- [[_COMMUNITY_Community 94|Community 94]]
+- [[_COMMUNITY_Community 95|Community 95]]
+- [[_COMMUNITY_Community 96|Community 96]]
+- [[_COMMUNITY_Community 97|Community 97]]
+- [[_COMMUNITY_Community 98|Community 98]]
+- [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 100|Community 100]]
+- [[_COMMUNITY_Community 101|Community 101]]
+- [[_COMMUNITY_Community 102|Community 102]]
+- [[_COMMUNITY_Community 103|Community 103]]
+- [[_COMMUNITY_Community 104|Community 104]]
+- [[_COMMUNITY_Community 105|Community 105]]
+- [[_COMMUNITY_Community 106|Community 106]]
+- [[_COMMUNITY_Community 109|Community 109]]
+- [[_COMMUNITY_Community 110|Community 110]]
+- [[_COMMUNITY_Community 111|Community 111]]
+- [[_COMMUNITY_Community 112|Community 112]]
+- [[_COMMUNITY_Community 113|Community 113]]
+- [[_COMMUNITY_Community 114|Community 114]]
+- [[_COMMUNITY_Community 115|Community 115]]
+- [[_COMMUNITY_Community 116|Community 116]]
+- [[_COMMUNITY_Community 117|Community 117]]
+- [[_COMMUNITY_Community 118|Community 118]]
+- [[_COMMUNITY_Community 119|Community 119]]
+- [[_COMMUNITY_Community 120|Community 120]]
+- [[_COMMUNITY_Community 123|Community 123]]
+- [[_COMMUNITY_Community 124|Community 124]]
+- [[_COMMUNITY_Community 125|Community 125]]
+- [[_COMMUNITY_Community 127|Community 127]]
+- [[_COMMUNITY_Community 128|Community 128]]
+- [[_COMMUNITY_Community 129|Community 129]]
+- [[_COMMUNITY_Community 130|Community 130]]
+- [[_COMMUNITY_Community 132|Community 132]]
+- [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 167|Community 167]]
+- [[_COMMUNITY_Community 168|Community 168]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Next.js 15+` - 17 edges
 2. `Vanilla CSS Design System` - 16 edges
-3. `getTopicsByCategory()` - 10 edges
-4. `getTopicsByCategory()` - 10 edges
-5. `useAuth()` - 9 edges
-6. `sanitizePlayerName()` - 9 edges
-7. `validatePlayerName()` - 9 edges
-8. `useAggregatedStats()` - 8 edges
-9. `useStoredStats()` - 8 edges
-10. `getTopicsByCategory()` - 8 edges
+3. `VIBEMENOW Project Guidelines` - 11 edges
+4. `sanitizePlayerName()` - 9 edges
+5. `validatePlayerName()` - 9 edges
+6. `VIBEMENOW - Project Architecture & LLM Reference` - 9 edges
+7. `sanitizeRoomCode()` - 8 edges
+8. `VIBEMENOW - Free Daily Games & Social Vibes` - 7 edges
+9. `Google Firebase` - 6 edges
+10. `scripts` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `HistoryClientWrapper()` --calls--> `useAggregatedStats()`  [EXTRACTED]
-  app/gcse/history/HistoryClientWrapper.js → app/gcse/components/DashboardStats.js
-- `BusinessClientWrapper()` --calls--> `useStoredStats()`  [EXTRACTED]
-  app/gcse/business/BusinessClientWrapper.js → app/gcse/components/useStoredStats.js
-- `useAggregatedStats()` --calls--> `getStreakData()`  [EXTRACTED]
-  app/gcse/components/DashboardStats.js → app/gcse/utils/streakLogic.js
-- `MissionControl()` --calls--> `useAggregatedStats()`  [EXTRACTED]
-  app/gcse/dashboard/page.js → app/gcse/components/DashboardStats.js
-- `GeographyClientWrapper()` --calls--> `useAggregatedStats()`  [EXTRACTED]
-  app/gcse/geography/GeographyClientWrapper.js → app/gcse/components/DashboardStats.js
+- None detected - all connections are within the same source files.
 
-## Communities (193 total, 93 thin omitted)
+## Communities (165 total, 85 thin omitted)
 
-### Community 0 - "Core Game Engine & UI"
-Cohesion: 0.09
-Nodes (18): DRAW_COLORS, WORDS, BLOCKED_TERMS, hasBlockedTerm(), normalizeText(), sanitizeFreeText(), sanitizePlayerName(), sanitizeRoomCode() (+10 more)
+### Community 0 - "Community 0"
+Cohesion: 0.07
+Nodes (19): DRAW_COLORS, WORDS, AuthContext, BLOCKED_TERMS, hasBlockedTerm(), normalizeText(), sanitizeFreeText(), sanitizePlayerName() (+11 more)
 
-### Community 1 - "Geometry and Math Learning"
-Cohesion: 0.06
-Nodes (9): generateQuestion(), GEOMETRY_LESSONS, r(), metadata, BRIDGES, ALGEBRA_LESSONS, metadata, FDP_LESSONS (+1 more)
+### Community 1 - "Community 1"
+Cohesion: 0.11
+Nodes (17): AdBanner & AdGateway, Additional Resources, Architecture Overview, Code Style & Naming, Common Pitfalls & Solutions, Component Patterns, Components, CSS Classes (Design System) (+9 more)
 
-### Community 2 - "Exam & Progress System"
-Cohesion: 0.10
-Nodes (20): BusinessClientWrapper(), DATA_LOADERS, getFallbackQuestions(), getSubjectColor(), getTopicConfig(), mapQuestion(), calculateGrade(), MockExam() (+12 more)
+### Community 2 - "Community 2"
+Cohesion: 0.15
+Nodes (12): Ambient Orbs (Background Animation), Brand & Style, Buttons, Colors, Components, Do's and Don'ts, Elevation & Depth, Hero Sections (+4 more)
 
-### Community 3 - "Project Dependencies"
+### Community 3 - "Community 3"
 Cohesion: 0.07
 Nodes (29): dependencies, canvas-confetti, @grpc/grpc-js, @grpc/proto-loader, lodash.camelcase, lucide-react, next, postprocessing (+21 more)
 
-### Community 4 - "Business Study Modules"
-Cohesion: 0.11
-Nodes (10): CATEGORY_COLORS, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory(), makeMCQ(), pick(), r(), shuffle() (+2 more)
+### Community 4 - "Community 4"
+Cohesion: 0.20
+Nodes (9): 🏗️ Core Architecture, 🎨 Design System & Styling, 🛠️ Development Workflow, 📁 Directory Structure, 🕹️ Game Logic Patterns, 💡 Important Logic Notes for AI, 📡 Multiplayer & Real-time, 🔍 SEO & Technical Metadata (+1 more)
 
-### Community 5 - "GCSE Mixed Topics Route"
-Cohesion: 0.11
-Nodes (9): metadata, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory(), makeMCQ(), pick(), r(), shuffle() (+1 more)
+### Community 5 - "Community 5"
+Cohesion: 0.22
+Nodes (8): 🛠️ Development, 📚 Features, 🎮 Game Modes, Getting Started, 🚀 Play Now, 🔒 Privacy & Terms, 🛠️ Tech Stack, VIBEMENOW - Free Daily Games & Social Vibes
 
-### Community 6 - "GCSE Dashboard & Auth"
-Cohesion: 0.11
-Nodes (13): UserProfileCard(), GCSEClientWrapper(), SUBJECTS, useScrollReveal(), metadata, breadcrumbSchema, courseListSchema, faqSchema (+5 more)
+### Community 6 - "Community 6"
+Cohesion: 0.40
+Nodes (3): FACTS, GAME_GUIDES, RELATED_GAMES
 
-### Community 7 - "GCSE SEO Schemas"
-Cohesion: 0.12
-Nodes (15): courseSchema, faqSchema, metadata, TOPICS, courseSchema, faqSchema, metadata, TOPICS (+7 more)
-
-### Community 8 - "Computer Science Modules"
-Cohesion: 0.12
-Nodes (9): metadata, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory(), makeMCQ(), pick(), r(), shuffle() (+1 more)
-
-### Community 9 - "Project Architecture & Docs"
+### Community 9 - "Community 9"
 Cohesion: 0.16
 Nodes (20): Emoji IQ Game, Google Firebase, Geography Guesser, Hot Takes Game, Memory Arena, Next.js 15+, Odd One Out, Poll Party (+12 more)
 
-### Community 10 - "Module: page.js"
-Cohesion: 0.12
-Nodes (9): metadata, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory(), makeMCQ(), pick(), r(), shuffle() (+1 more)
-
-### Community 11 - "Module: AnalyticsAndAds.js"
+### Community 11 - "Community 11"
 Cohesion: 0.10
 Nodes (6): metadata, viewport, GAME_CONTENT, NAV_ITEMS, metadata, COLORS
 
-### Community 12 - "Module: ExamSimulator.js"
-Cohesion: 0.15
-Nodes (5): metadata, ALL_TOPICS, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory()
-
-### Community 13 - "Module: page.js"
-Cohesion: 0.17
-Nodes (5): metadata, metadata, getAllTopicSlugs(), getTopicBySlug(), getTopicsByCategory()
-
-### Community 14 - "Module: AchievementBadge.js"
-Cohesion: 0.15
-Nodes (7): BADGES, ALL_REVIEWABLE, DueReviewQueue(), getRank(), MissionControl(), getDueTopics(), strengthToColor()
-
-### Community 15 - "Module: FlashcardMode.js"
-Cohesion: 0.23
-Nodes (8): getSubjectColor(), SuggestedTopicCard(), applyRating(), calculateNextReview(), defaultRecord(), getMemoryStrength(), getSrsKey(), getSrsRecord()
-
-### Community 16 - "Module: HomeContent.js"
+### Community 16 - "Community 16"
 Cohesion: 0.14
 Nodes (8): homeFaqSchema, metadata, CATEGORIES, GAMES, headingStyle, linkStyle, panelStyle, paragraphStyle
 
-### Community 17 - "Module: generate_banks.js"
-Cohesion: 0.14
-Nodes (8): banksDir, bData, csData, eData, fs, mathsData, path, scienceData
+### Community 21 - "Community 21"
+Cohesion: 0.52
+Nodes (6): getGameStats(), getGlobalStreak(), getStats(), getTotalGamesPlayed(), recordGame(), saveStats()
 
-### Community 18 - "Module: DashboardStats.js"
-Cohesion: 0.18
-Nodes (7): SUBJECT_KEYS, SUBJECT_ORDER, useAggregatedStats(), CATEGORY_COLORS, CATEGORY_ORDER, GeographyClientWrapper(), metadata
-
-### Community 19 - "Module: TopicClientWrapper.js"
-Cohesion: 0.18
-Nodes (3): DATA_LOADERS, getAllTopicSlugs(), TOPICS
-
-### Community 21 - "Module: GameEndScreen.js"
-Cohesion: 0.27
-Nodes (9): FACTS, GAME_GUIDES, RELATED_GAMES, getGameStats(), getGlobalStreak(), getStats(), getTotalGamesPlayed(), recordGame() (+1 more)
-
-### Community 23 - "Module: gcseSeoData.js"
-Cohesion: 0.24
-Nodes (4): metadata, gcseSeoData, metadata, metadata
-
-### Community 24 - "Module: SubjectCanvas.js"
-Cohesion: 0.20
-Nodes (4): CATEGORY_COLORS, CATEGORY_ORDER, HistoryClientWrapper(), metadata
-
-### Community 25 - "Module: InteractiveActivity.js"
-Cohesion: 0.22
-Nodes (5): CATEGORY_COLORS, CATEGORY_ORDER, FEATURED, MathsClientWrapper(), useScrollReveal()
-
-### Community 27 - "Module: GravityClient.js"
+### Community 27 - "Community 27"
 Cohesion: 0.22
 Nodes (3): WEAPONS, gameSchema, metadata
 
-### Community 28 - "Module: InteractiveVisualizer.js"
-Cohesion: 0.25
-Nodes (5): CATEGORY_COLORS, CATEGORY_DESCS, CATEGORY_ORDER, ScienceClientWrapper(), useScrollReveal()
-
-### Community 29 - "Module: background_color"
+### Community 29 - "Community 29"
 Cohesion: 0.22
 Nodes (8): background_color, description, display, icons, name, short_name, start_url, theme_color
 
-### Community 32 - "Module: EnglishLitClientWrapper.js"
-Cohesion: 0.25
-Nodes (3): CATEGORY_COLORS, getTopicsByCategory(), metadata
+### Community 30 - "Community 30"
+Cohesion: 0.17
+Nodes (3): metadata, KEYBOARD_ROWS, WORDS
 
-### Community 33 - "Module: EnglishLanguageClientWrappe..."
-Cohesion: 0.25
-Nodes (3): CATEGORY_COLORS, getTopicsByCategory(), metadata
-
-### Community 35 - "Module: page.js"
+### Community 35 - "Community 35"
 Cohesion: 0.25
 Nodes (3): metadata, ALL_QUESTIONS, RESULTS
 
-### Community 36 - "Module: page.js"
+### Community 36 - "Community 36"
 Cohesion: 0.25
 Nodes (3): metadata, RATINGS, STATES
 
-### Community 37 - "Module: computer-science.json"
-Cohesion: 0.29
-Nodes (6): computer-science, algorithms, memory-storage, networks, programming, systems-architecture
-
-### Community 38 - "Module: CompSciClientWrapper.js"
-Cohesion: 0.38
-Nodes (5): CATEGORY_COLORS, CATEGORY_ORDER, CompSciClientWrapper(), useScrollReveal(), getStreakData()
-
-### Community 39 - "Module: fs"
+### Community 39 - "Community 39"
 Cohesion: 0.29
 Nodes (5): fs, games, path, seoData, targetDir
 
-### Community 40 - "Module: { createCanvas, registerFont }"
+### Community 40 - "Community 40"
 Cohesion: 0.29
 Nodes (5): { createCanvas, registerFont }, fs, OUTPUT_DIR, pages, path
 
-### Community 41 - "Module: fs"
+### Community 41 - "Community 41"
 Cohesion: 0.29
 Nodes (5): fs, OUTPUT_DIR, pages, path, puppeteer
 
-### Community 53 - "Module: layout.js"
+### Community 53 - "Community 53"
 Cohesion: 0.40
 Nodes (3): articleSchema, breadcrumbSchema, metadata
 
-### Community 55 - "Module: science.json"
-Cohesion: 0.40
-Nodes (4): science, biology, chemistry, physics
-
-### Community 56 - "Module: ARTICLES"
+### Community 56 - "Community 56"
 Cohesion: 0.40
 Nodes (4): ARTICLES, BLOG_DIR, fs, path
 
-### Community 57 - "Module: appDir"
+### Community 57 - "Community 57"
 Cohesion: 0.40
 Nodes (3): appDir, fs, path
 
-### Community 58 - "Module: appDir"
+### Community 58 - "Community 58"
 Cohesion: 0.40
 Nodes (3): appDir, fs, path
 
-### Community 59 - "Module: appDir"
+### Community 59 - "Community 59"
 Cohesion: 0.40
 Nodes (3): appDir, fs, path
 
-### Community 60 - "Module: appDir"
+### Community 60 - "Community 60"
 Cohesion: 0.40
 Nodes (3): appDir, fs, path
 
-### Community 68 - "Module: business.json"
-Cohesion: 0.50
-Nodes (3): business, finance, marketing
-
-### Community 69 - "Module: english-language.json"
-Cohesion: 0.50
-Nodes (3): english-language, language-analysis, structure-analysis
-
-### Community 70 - "Module: english-literature.json"
-Cohesion: 0.50
-Nodes (3): english-literature, poetry, shakespeare
-
-### Community 71 - "Module: maths.json"
-Cohesion: 0.50
-Nodes (3): maths, algebra, geometry
-
-### Community 73 - "Module: jsconfig.json"
+### Community 73 - "Community 73"
 Cohesion: 0.50
 Nodes (3): compilerOptions, paths, @/*
 
 ## Knowledge Gaps
-- **311 isolated node(s):** `eslintConfig`, `fs`, `path`, `banksDir`, `mathsData` (+306 more)
+- **254 isolated node(s):** `eslintConfig`, `@/*`, `nextConfig`, `name`, `version` (+249 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **93 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **85 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getTopicsByCategory()` connect `Module: ExamSimulator.js` to `Module: DashboardStats.js`, `Module: page.js`, `Module: AchievementBadge.js`, `Module: FlashcardMode.js`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
-- **Why does `getTopicsByCategory()` connect `Module: page.js` to `Module: ExamSimulator.js`, `Module: page.js`, `Module: AchievementBadge.js`, `Module: FlashcardMode.js`, `Module: InteractiveVisualizer.js`?**
+- **Why does `dependencies` connect `Community 3` to `Community 9`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `getTopicsByCategory()` connect `GCSE Mixed Topics Route` to `Module: ExamSimulator.js`, `Module: page.js`, `Module: AchievementBadge.js`, `Module: FlashcardMode.js`, `Module: InteractiveActivity.js`?**
+- **Why does `firebase` connect `Community 9` to `Community 3`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Are the 15 inferred relationships involving `Next.js 15+` (e.g. with `Emoji IQ Game` and `Geography Guesser`) actually correct?**
   _`Next.js 15+` has 15 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 15 inferred relationships involving `Vanilla CSS Design System` (e.g. with `Emoji IQ Game` and `Geography Guesser`) actually correct?**
   _`Vanilla CSS Design System` has 15 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `eslintConfig`, `fs`, `path` to the rest of the system?**
-  _312 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Core Game Engine & UI` be split into smaller, more focused modules?**
-  _Cohesion score 0.08879492600422834 - nodes in this community are weakly interconnected._
+- **What connects `eslintConfig`, `@/*`, `nextConfig` to the rest of the system?**
+  _255 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.07137254901960784 - nodes in this community are weakly interconnected._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._

@@ -1,13 +1,13 @@
 export const metadata = {
-  title: 'VIBEMENOW | Free Browser Games, Quizzes & GCSE Revision (No Login)',
-  description: 'Play 150+ original browser games and 3,000+ GCSE revision modules. Engineered for instant access with no account required.',
-  keywords: ['free browser games', 'no login games', 'GCSE revision games', 'daily word puzzles', 'reaction speed test', 'interactive learning tools'],
+  title: 'VIBEMENOW | Free Browser Games, Quizzes & Word Puzzles (No Login)',
+  description: 'Play 150+ original browser games, daily word puzzles, and quizzes. Engineered for instant access with no account required.',
+  keywords: ['free browser games', 'no login games', 'daily word puzzles', 'reaction speed test', 'interactive learning tools', 'free trivia quizzes'],
   alternates: {
     canonical: 'https://vibemenow.uk/',
   },
   openGraph: {
-    title: 'VIBEMENOW | Free Browser Games & GCSE Revision',
-    description: '150+ original games and 3,000+ revision modules. Play instantly without login.',
+    title: 'VIBEMENOW | Free Browser Games & Quizzes',
+    description: '150+ original games and daily puzzles. Play instantly without login.',
     url: 'https://vibemenow.uk/',
     type: 'website',
     images: [{
@@ -19,8 +19,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VIBEMENOW | Free Browser Games & GCSE Revision',
-    description: '150+ original games and interactive revision tools.',
+    title: 'VIBEMENOW | Free Browser Games & Quizzes',
+    description: '150+ original games and interactive quick-play tools.',
     images: ['https://vibemenow.uk/og/home.png'],
   },
 };
@@ -35,7 +35,7 @@ const homeFaqSchema = {
       "name": "What is VIBEMENOW?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VIBEMENOW is an independent ecosystem of 150+ original browser games, interactive quizzes, and GCSE revision tools. Our platform is designed for instant play with zero account creation, focusing on active recall and cognitive engagement."
+        "text": "VIBEMENOW is an independent ecosystem of 150+ original browser games, interactive quizzes, and daily word puzzles. Our platform is designed for instant play with zero account creation, focusing on active recall and cognitive engagement."
       }
     },
     {
@@ -44,14 +44,6 @@ const homeFaqSchema = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. According to our zero-friction policy, all games are accessible without downloads or sign-ups. We prioritize student focus and rapid-access entertainment."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer GCSE revision?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we provide 150+ interactive modules mapped to AQA, OCR, and Edexcel specifications. Research shows that retrieval practice via gamified modules can improve retention by up to 40% compared to passive reading."
       }
     }
   ]

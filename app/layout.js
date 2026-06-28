@@ -12,16 +12,16 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: 'VIBEMENOW | Free Browser Games, Quizzes & GCSE Revision (No Login)',
+    default: 'VIBEMENOW | Free Browser Games, Quizzes & Word Puzzles (No Login)',
     template: '%s | VIBEMENOW',
   },
   metadataBase: new URL('https://vibemenow.uk'),
   description:
-    'Play original browser games, daily word puzzles, and GCSE revision modules on VIBEMENOW. No accounts, no downloads—just instant, free fun.',
+    'Play original browser games, daily word puzzles, and quick quizzes on VIBEMENOW. No accounts, no downloads—just instant, free fun.',
   keywords: [
     'free browser games no login',
     'wordle alternatives uk',
-    'gcse revision games free',
+    'brain training games free',
     'daily puzzles online',
     'reaction speed test',
     'party games no sign up',

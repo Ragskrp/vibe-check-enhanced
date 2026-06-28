@@ -1,9 +1,9 @@
 export default function manifest() {
   return {
-    name: 'VIBEMENOW Revision',
+    name: 'VIBEMENOW Games',
     short_name: 'VIBEMENOW',
-    description: 'Free, interactive GCSE revision games and tools. No login required.',
-    start_url: '/gcse',
+    description: 'Free, interactive browser games, quizzes, and word puzzles. No login required.',
+    start_url: '/',
     display: 'standalone',
     background_color: '#000000',
     theme_color: '#00d4ff',

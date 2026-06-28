@@ -99,9 +99,7 @@ export default function SiteLayout({ children }) {
               <LayoutGrid size={16} /> Browse Games
             </Link>
 
-            <Link href="/gcse" className={`nav-link${pathname.startsWith('/gcse') ? ' active' : ''}`} style={{ color: pathname.startsWith('/gcse') ? '#00e5a0' : undefined }}>
-              🎓 GCSE
-            </Link>
+
             <Link href="/blog" className={`nav-link${pathname.startsWith('/blog') ? ' active' : ''}`}>
               Blog
             </Link>
@@ -194,7 +192,7 @@ export default function SiteLayout({ children }) {
             ))}
           </div>
           <div className="footer-links">
-            <Link href="/gcse" style={{ color: '#00e5a0' }}>🎓 GCSE Revision</Link>
+
             <Link href="/about">About Us</Link>
             <Link href="/publisher-information">Publisher Information</Link>
             <Link href="/blog">Blog</Link>
@@ -244,9 +242,7 @@ export default function SiteLayout({ children }) {
           <Link href="/" className={`mobile-nav-link${pathname === '/' ? ' active' : ''}`}>
             🏠 Home
           </Link>
-          <Link href="/gcse" className={`mobile-nav-link${pathname.startsWith('/gcse') ? ' active' : ''}`} style={{ color: pathname.startsWith('/gcse') ? '#00e5a0' : undefined }}>
-            🎓 GCSE
-          </Link>
+
           {NAV_ITEMS.map(item => (
             <Link
               key={item.name}

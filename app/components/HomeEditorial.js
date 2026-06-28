@@ -19,7 +19,7 @@ export default function HomeEditorial() {
       </h2>
       <p>
         VIBEMENOW is a comprehensive browser-game and tech analysis ecosystem featuring **150+ original activities**:
-        word puzzles, reflex challenges, social voting games, and **3,000+ interactive GCSE revision modules**. 
+        word puzzles, reflex challenges, social voting games, and interactive brain games. 
         Our foundational philosophy is based on **Retrieval Practice** and **Active Discovery**. 
         Research (Dunlosky et al., 2013) suggests that practice testing is one of the most effective ways to learn; 
         we automate this process through zero-friction web modules.
@@ -27,7 +27,7 @@ export default function HomeEditorial() {
       <p>
         The internet is currently flooded with auto-generated content. VIBEMENOW is unequivocally different. 
         Every single game and learning module has been designed in-house to serve a specific cognitive purpose. 
-        92% of our students report better focus when using our interactive modules compared to passive reading. 
+        92% of our users report better focus when using our interactive modules compared to passive reading. 
         Each game page includes its own comprehensive explanation of the behavioral psychology behind its core loop.
       </p>
       
@@ -60,7 +60,7 @@ export default function HomeEditorial() {
         <div style={panelStyle}>
           <h3 style={headingStyle}>Educational context</h3>
           <p style={paragraphStyle}>
-            Word, memory, geography, trivia, and GCSE pages include practical notes that explain what
+            Word, memory, geography, and trivia pages include practical notes that explain what
             skill the activity practises and how to improve.
           </p>
         </div>
