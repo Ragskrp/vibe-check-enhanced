@@ -1,0 +1,1542 @@
+{
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\eslint.config.mjs": {
+    "mtime": 1771065271.5855012,
+    "ast_hash": "bcb00e240634dd9448e57386fdff1902",
+    "semantic_hash": "bcb00e240634dd9448e57386fdff1902"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\generate_banks.js": {
+    "mtime": 1777929857.3099258,
+    "ast_hash": "ce063fedf645808bff2dd885fa8462b2",
+    "semantic_hash": "ce063fedf645808bff2dd885fa8462b2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\jsconfig.json": {
+    "mtime": 1772910749.1488745,
+    "ast_hash": "21306b44064ae42bbbd715b1986abaf8",
+    "semantic_hash": "21306b44064ae42bbbd715b1986abaf8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\next.config.mjs": {
+    "mtime": 1779400110.3495133,
+    "ast_hash": "c3502ac955078fb93933439dce8d5549",
+    "semantic_hash": "c3502ac955078fb93933439dce8d5549"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\package.json": {
+    "mtime": 1777484135.6598613,
+    "ast_hash": "d4c9c9ffac3a0f9cc8c547b9cad04d13",
+    "semantic_hash": "d4c9c9ffac3a0f9cc8c547b9cad04d13"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\vercel.json": {
+    "mtime": 1774695071.2498553,
+    "ast_hash": "56dbf5056cfcecdb7b1892d958d6f1b8",
+    "semantic_hash": "56dbf5056cfcecdb7b1892d958d6f1b8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\layout.js": {
+    "mtime": 1779400110.3434813,
+    "ast_hash": "eff9f9340564a9f8735132c293422eca",
+    "semantic_hash": "eff9f9340564a9f8735132c293422eca"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\manifest.js": {
+    "mtime": 1778425249.8808546,
+    "ast_hash": "eccd3d2f37c197b590d1fce6e4f5aefe",
+    "semantic_hash": "eccd3d2f37c197b590d1fce6e4f5aefe"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\page.js": {
+    "mtime": 1778865010.1235416,
+    "ast_hash": "e48701612a06a50da84e0466b03222ff",
+    "semantic_hash": "e48701612a06a50da84e0466b03222ff"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\robots.js": {
+    "mtime": 1778867030.7252996,
+    "ast_hash": "55f5b875e6e4f95365a0e6591285fff2",
+    "semantic_hash": "55f5b875e6e4f95365a0e6591285fff2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\sitemap.js": {
+    "mtime": 1779400110.347503,
+    "ast_hash": "b412b8c280ca40ca28285483e50516c0",
+    "semantic_hash": "b412b8c280ca40ca28285483e50516c0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\2048-vibe\\MergeClient.js": {
+    "mtime": 1777488198.921429,
+    "ast_hash": "aa033fcc95526ce19451ca78e5cefdc7",
+    "semantic_hash": "aa033fcc95526ce19451ca78e5cefdc7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\2048-vibe\\MergeGame.js": {
+    "mtime": 1778422885.5447521,
+    "ast_hash": "85ac04ed0c08ce023fe48a2aeaccaabf",
+    "semantic_hash": "85ac04ed0c08ce023fe48a2aeaccaabf"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\2048-vibe\\page.js": {
+    "mtime": 1778871909.9820325,
+    "ast_hash": "a94aef5e0dd868282ddb878b91411a54",
+    "semantic_hash": "a94aef5e0dd868282ddb878b91411a54"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\about\\layout.js": {
+    "mtime": 1778053337.7747831,
+    "ast_hash": "eaeef4f8f041e14c081cee607c1a18a2",
+    "semantic_hash": "eaeef4f8f041e14c081cee607c1a18a2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\about\\page.js": {
+    "mtime": 1778865010.0787475,
+    "ast_hash": "5ef731142de5ea02f8c706b4562a368b",
+    "semantic_hash": "5ef731142de5ea02f8c706b4562a368b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\api\\contact\\route.js": {
+    "mtime": 1777454161.7384381,
+    "ast_hash": "d3ec3ae5f0a498ab33440ed8a2add561",
+    "semantic_hash": "d3ec3ae5f0a498ab33440ed8a2add561"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\api\\cron\\route.js": {
+    "mtime": 1774268968.8078482,
+    "ast_hash": "0daa44d0840ea0af51a6fc5b203577d4",
+    "semantic_hash": "0daa44d0840ea0af51a6fc5b203577d4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\layout.js": {
+    "mtime": 1778868605.3733377,
+    "ast_hash": "0349de78f7b06c1e7218960805d7847f",
+    "semantic_hash": "0349de78f7b06c1e7218960805d7847f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\page.js": {
+    "mtime": 1778871820.8509004,
+    "ast_hash": "e4f4241c2cde48b21a490a29b477c30b",
+    "semantic_hash": "e4f4241c2cde48b21a490a29b477c30b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\aha-moment-science\\layout.js": {
+    "mtime": 1778053337.7819886,
+    "ast_hash": "9906bbaf29578a0fff05fa3b680f851a",
+    "semantic_hash": "9906bbaf29578a0fff05fa3b680f851a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\aha-moment-science\\page.js": {
+    "mtime": 1777494337.749147,
+    "ast_hash": "3032e830d26d4704a06c93080009b81a",
+    "semantic_hash": "3032e830d26d4704a06c93080009b81a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\art-of-mnemonics\\page.js": {
+    "mtime": 1777494337.7559354,
+    "ast_hash": "29fe6bda7a129885131a234cdbbdbbeb",
+    "semantic_hash": "29fe6bda7a129885131a234cdbbdbbeb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\chess-visual-logic\\layout.js": {
+    "mtime": 1778053337.7849844,
+    "ast_hash": "cfda2d0a25d0f1c76ce4f39174bc1fd1",
+    "semantic_hash": "cfda2d0a25d0f1c76ce4f39174bc1fd1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\chess-visual-logic\\page.js": {
+    "mtime": 1777494337.757221,
+    "ast_hash": "9d0043ce2d5a2a115b3fbb09e72b72b2",
+    "semantic_hash": "9d0043ce2d5a2a115b3fbb09e72b72b2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\cognitive-biases\\page.js": {
+    "mtime": 1777494337.7584145,
+    "ast_hash": "04ca3b0135fd62ab7be6ff79871a6fa0",
+    "semantic_hash": "04ca3b0135fd62ab7be6ff79871a6fa0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\cognitive-load-mastery\\layout.js": {
+    "mtime": 1778053337.7873492,
+    "ast_hash": "24978a0adeb25bfcacdeda3fd14476d5",
+    "semantic_hash": "24978a0adeb25bfcacdeda3fd14476d5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\cognitive-load-mastery\\page.js": {
+    "mtime": 1777494337.760101,
+    "ast_hash": "44c2dba65570709ba59d4815f4a5ae6d",
+    "semantic_hash": "44c2dba65570709ba59d4815f4a5ae6d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\cognitive-science-reaction-times\\page.js": {
+    "mtime": 1778871784.2587938,
+    "ast_hash": "548bdf7884e4c8e2df4f4d50b650266f",
+    "semantic_hash": "548bdf7884e4c8e2df4f4d50b650266f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\components\\BlogArt.js": {
+    "mtime": 1778530663.437831,
+    "ast_hash": "d4a774036fa59bb6d0da9142f64cd86e",
+    "semantic_hash": "d4a774036fa59bb6d0da9142f64cd86e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\computational-thinking\\page.js": {
+    "mtime": 1778865010.0834527,
+    "ast_hash": "918382554e6e4d29c480874b30c07a8e",
+    "semantic_hash": "918382554e6e4d29c480874b30c07a8e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\cyberpsychology\\page.js": {
+    "mtime": 1778865010.0859904,
+    "ast_hash": "31665cb6f1f61ab2c7ff35ebdb102502",
+    "semantic_hash": "31665cb6f1f61ab2c7ff35ebdb102502"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\decision-fatigue\\page.js": {
+    "mtime": 1777494337.7634795,
+    "ast_hash": "23aa0f47b1813c3e43f890a97ceea2f1",
+    "semantic_hash": "23aa0f47b1813c3e43f890a97ceea2f1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\dual-coding-theory\\page.js": {
+    "mtime": 1778865010.0859904,
+    "ast_hash": "b63f648085b8b1994137cb327cf782b2",
+    "semantic_hash": "b63f648085b8b1994137cb327cf782b2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\dunning-kruger-effect\\page.js": {
+    "mtime": 1777494337.7656033,
+    "ast_hash": "537e0ea0adfdcac5e6136cdb614d019e",
+    "semantic_hash": "537e0ea0adfdcac5e6136cdb614d019e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\emoji-communication-guide\\layout.js": {
+    "mtime": 1778053337.7930672,
+    "ast_hash": "49b594deaea4226656ec7b7aea7d3374",
+    "semantic_hash": "49b594deaea4226656ec7b7aea7d3374"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\emoji-communication-guide\\page.js": {
+    "mtime": 1777494337.766166,
+    "ast_hash": "b894ae8c622bec2f5cc7a209141fdbb9",
+    "semantic_hash": "b894ae8c622bec2f5cc7a209141fdbb9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\evolution-of-puzzles\\page.js": {
+    "mtime": 1777494337.7672763,
+    "ast_hash": "c4df76457834efcde1bb51b45a837f1e",
+    "semantic_hash": "c4df76457834efcde1bb51b45a837f1e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\executive-function-control\\layout.js": {
+    "mtime": 1778053337.7971637,
+    "ast_hash": "06120c2a123865169d88378ead31c630",
+    "semantic_hash": "06120c2a123865169d88378ead31c630"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\executive-function-control\\page.js": {
+    "mtime": 1777494337.7678132,
+    "ast_hash": "15cb047a79caa71dcc171fe8daee27f3",
+    "semantic_hash": "15cb047a79caa71dcc171fe8daee27f3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\gamification-in-healthcare\\page.js": {
+    "mtime": 1777494337.7686708,
+    "ast_hash": "1307d9e6ac123652c345d54802f2e1ed",
+    "semantic_hash": "1307d9e6ac123652c345d54802f2e1ed"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\gamification-of-life\\page.js": {
+    "mtime": 1777494337.7692137,
+    "ast_hash": "f8761ad1a7a4fc319bd13fc85f1400d1",
+    "semantic_hash": "f8761ad1a7a4fc319bd13fc85f1400d1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\gamified-retrieval-practice-brain\\page.js": {
+    "mtime": 1778871805.2298243,
+    "ast_hash": "601759a710dc98f9b1458099e72d1d2b",
+    "semantic_hash": "601759a710dc98f9b1458099e72d1d2b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\growth-mindset\\page.js": {
+    "mtime": 1777494337.7697427,
+    "ast_hash": "fb80ab0255f1ef88c097a9c5c90878a8",
+    "semantic_hash": "fb80ab0255f1ef88c097a9c5c90878a8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\history-of-cryptography\\page.js": {
+    "mtime": 1777494337.7709665,
+    "ast_hash": "9d1dd362f2e97b20e27b355bd14dc8bb",
+    "semantic_hash": "9d1dd362f2e97b20e27b355bd14dc8bb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\history-of-the-abacus\\page.js": {
+    "mtime": 1777494337.7720318,
+    "ast_hash": "9b5fa0771f781b8d9bb7c8681d4881e3",
+    "semantic_hash": "9b5fa0771f781b8d9bb7c8681d4881e3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\history-of-word-games\\layout.js": {
+    "mtime": 1778053337.8027406,
+    "ast_hash": "cb03dbb1295171a08efb4c618aa66a97",
+    "semantic_hash": "cb03dbb1295171a08efb4c618aa66a97"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\history-of-word-games\\page.js": {
+    "mtime": 1777494337.7731304,
+    "ast_hash": "3c0f394eb357bcc39a0a0e73fe8c8f7e",
+    "semantic_hash": "3c0f394eb357bcc39a0a0e73fe8c8f7e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\interleaving-strategy\\page.js": {
+    "mtime": 1777494337.7736652,
+    "ast_hash": "ae9d91851305a7c5d53a779370369591",
+    "semantic_hash": "ae9d91851305a7c5d53a779370369591"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\logical-reasoning-logic\\layout.js": {
+    "mtime": 1778053337.8057473,
+    "ast_hash": "b5788df069894552c5870cba44b17d97",
+    "semantic_hash": "b5788df069894552c5870cba44b17d97"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\logical-reasoning-logic\\page.js": {
+    "mtime": 1778530663.4418104,
+    "ast_hash": "ab224877d37ee83bc88fcaf3a7ae6e7e",
+    "semantic_hash": "ab224877d37ee83bc88fcaf3a7ae6e7e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\mathematics-in-nature\\page.js": {
+    "mtime": 1777494337.775251,
+    "ast_hash": "a9b6a0fc7ef76f816ea5bd9c27946769",
+    "semantic_hash": "a9b6a0fc7ef76f816ea5bd9c27946769"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\metacognition-thinking\\layout.js": {
+    "mtime": 1778053337.8098686,
+    "ast_hash": "179fab16f87f6a3466d0b0df494365bc",
+    "semantic_hash": "179fab16f87f6a3466d0b0df494365bc"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\metacognition-thinking\\page.js": {
+    "mtime": 1777494337.7762933,
+    "ast_hash": "1830ec93cefb18b8ec32756901b85c64",
+    "semantic_hash": "1830ec93cefb18b8ec32756901b85c64"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\multiplayer-gaming-social-benefits\\layout.js": {
+    "mtime": 1778053337.8137386,
+    "ast_hash": "7339b17096c5787aa5f172f99128e824",
+    "semantic_hash": "7339b17096c5787aa5f172f99128e824"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\multiplayer-gaming-social-benefits\\page.js": {
+    "mtime": 1777494337.7768245,
+    "ast_hash": "dbab3fe963a4abfc2aa9fd52c349c58f",
+    "semantic_hash": "dbab3fe963a4abfc2aa9fd52c349c58f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\neuroplasticity\\page.js": {
+    "mtime": 1777494337.777861,
+    "ast_hash": "c27a342fa056f7908536bd461b93270e",
+    "semantic_hash": "c27a342fa056f7908536bd461b93270e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\philosophy-for-children\\layout.js": {
+    "mtime": 1778053337.8167396,
+    "ast_hash": "d801ce3bdaf6d0ec46e1707c23b20c52",
+    "semantic_hash": "d801ce3bdaf6d0ec46e1707c23b20c52"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\philosophy-for-children\\page.js": {
+    "mtime": 1777494337.7789252,
+    "ast_hash": "4d833b0a1e2254bccb877314ef47ece7",
+    "semantic_hash": "4d833b0a1e2254bccb877314ef47ece7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\probabilistic-decisions\\layout.js": {
+    "mtime": 1778053337.819036,
+    "ast_hash": "e3d1b090b01b0f3d14427ac0a0d71ad0",
+    "semantic_hash": "e3d1b090b01b0f3d14427ac0a0d71ad0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\probabilistic-decisions\\page.js": {
+    "mtime": 1777494337.7800558,
+    "ast_hash": "c7e1b8610142b3e5a9f1c1e5a9858a24",
+    "semantic_hash": "c7e1b8610142b3e5a9f1c1e5a9858a24"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\psychology-of-color\\page.js": {
+    "mtime": 1777494337.7805736,
+    "ast_hash": "5fb5f8b60b7aa645c497203fd71bd77a",
+    "semantic_hash": "5fb5f8b60b7aa645c497203fd71bd77a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\psychology-of-flow\\page.js": {
+    "mtime": 1778865010.0913038,
+    "ast_hash": "5ebc51ec0e53d87e22bc64b8dffc3db3",
+    "semantic_hash": "5ebc51ec0e53d87e22bc64b8dffc3db3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\retrieval-practice\\page.js": {
+    "mtime": 1777494337.7821825,
+    "ast_hash": "bb0d805464665b91185abc794245ecad",
+    "semantic_hash": "bb0d805464665b91185abc794245ecad"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\science-of-brain-games\\layout.js": {
+    "mtime": 1778053337.8201265,
+    "ast_hash": "aa37da461f94ceb0e4101fcb3e4fa22e",
+    "semantic_hash": "aa37da461f94ceb0e4101fcb3e4fa22e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\science-of-brain-games\\page.js": {
+    "mtime": 1777494337.7838073,
+    "ast_hash": "9ddce0afcdd57f761b3c8d55e1690191",
+    "semantic_hash": "9ddce0afcdd57f761b3c8d55e1690191"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\science-of-reading\\page.js": {
+    "mtime": 1777494337.7848685,
+    "ast_hash": "c95ff6c1dee38d4a9881307c1ee1def9",
+    "semantic_hash": "c95ff6c1dee38d4a9881307c1ee1def9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\screen-time-vs-game-time\\layout.js": {
+    "mtime": 1778053337.8201265,
+    "ast_hash": "0d6cbad55e8d4e9872f6c8d311cb5255",
+    "semantic_hash": "0d6cbad55e8d4e9872f6c8d311cb5255"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\screen-time-vs-game-time\\page.js": {
+    "mtime": 1777494337.7854505,
+    "ast_hash": "b6a66d31e0fff912b1dec20c5103c305",
+    "semantic_hash": "b6a66d31e0fff912b1dec20c5103c305"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\sleep-and-memory\\page.js": {
+    "mtime": 1778865105.6073027,
+    "ast_hash": "4dda734ab9047bbe0ea9692202dfa026",
+    "semantic_hash": "4dda734ab9047bbe0ea9692202dfa026"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\socratic-method-discovery\\layout.js": {
+    "mtime": 1778053337.8284817,
+    "ast_hash": "e952860f0a19ab1c4e8f54496e3582fb",
+    "semantic_hash": "e952860f0a19ab1c4e8f54496e3582fb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\socratic-method-discovery\\page.js": {
+    "mtime": 1777494337.7877073,
+    "ast_hash": "a5880bb74fe14297964beca08805a645",
+    "semantic_hash": "a5880bb74fe14297964beca08805a645"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\spacing-effect-memory\\layout.js": {
+    "mtime": 1778053337.8318286,
+    "ast_hash": "e8d4a5bd8ca6e854ffe30231fe53ea20",
+    "semantic_hash": "e8d4a5bd8ca6e854ffe30231fe53ea20"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\spacing-effect-memory\\page.js": {
+    "mtime": 1777494337.7877073,
+    "ast_hash": "59646a9d9b230ebea8212983400df474",
+    "semantic_hash": "59646a9d9b230ebea8212983400df474"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\the-feynman-technique\\page.js": {
+    "mtime": 1777494337.7892542,
+    "ast_hash": "fe545a41bc451fb70604af2cd23bbabf",
+    "semantic_hash": "fe545a41bc451fb70604af2cd23bbabf"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\the-mozart-effect\\page.js": {
+    "mtime": 1778865010.0953708,
+    "ast_hash": "94d0d36632446216618f1d25a2450fd1",
+    "semantic_hash": "94d0d36632446216618f1d25a2450fd1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\turing-test\\page.js": {
+    "mtime": 1778530663.4461699,
+    "ast_hash": "3cee05c4d9f77976604827d4784d75c3",
+    "semantic_hash": "3cee05c4d9f77976604827d4784d75c3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\blog\\zeigarnik-effect\\page.js": {
+    "mtime": 1777494337.7923124,
+    "ast_hash": "cb8a2bb35826dab616f152bd0063fbe9",
+    "semantic_hash": "cb8a2bb35826dab616f152bd0063fbe9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\community-guidelines\\page.js": {
+    "mtime": 1777483527.566983,
+    "ast_hash": "c35bb9147e6cdbd33a78bedc2f399e7f",
+    "semantic_hash": "c35bb9147e6cdbd33a78bedc2f399e7f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\AdBanner.js": {
+    "mtime": 1779400110.3249204,
+    "ast_hash": "6eaa715b3e71620c9358fbba389d9fe4",
+    "semantic_hash": "6eaa715b3e71620c9358fbba389d9fe4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\AdGateway.js": {
+    "mtime": 1777490057.1108012,
+    "ast_hash": "15e2705266fb69505c599a93ec3568b1",
+    "semantic_hash": "15e2705266fb69505c599a93ec3568b1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\AnalyticsAndAds.js": {
+    "mtime": 1778868550.0201533,
+    "ast_hash": "b85a0bfab2aa158b3f029ccf8d27466c",
+    "semantic_hash": "b85a0bfab2aa158b3f029ccf8d27466c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\CookieConsent.js": {
+    "mtime": 1777492963.0490294,
+    "ast_hash": "875003ff7410bee8cabd74d0e5fcf8a6",
+    "semantic_hash": "875003ff7410bee8cabd74d0e5fcf8a6"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\FaqSchema.js": {
+    "mtime": 1777489724.0247943,
+    "ast_hash": "3d6c3ca21a46b45b9906c60e0a91797a",
+    "semantic_hash": "3d6c3ca21a46b45b9906c60e0a91797a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\GameEditorialLayer.js": {
+    "mtime": 1778423022.2286754,
+    "ast_hash": "6d058327939f43597f55e4f8da29ebea",
+    "semantic_hash": "6d058327939f43597f55e4f8da29ebea"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\GameEndScreen.js": {
+    "mtime": 1774696274.5864275,
+    "ast_hash": "d018dd51d2a9f2824e04b24e0c1b45ce",
+    "semantic_hash": "d018dd51d2a9f2824e04b24e0c1b45ce"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\GameSeoArticle.js": {
+    "mtime": 1777494295.781386,
+    "ast_hash": "6546dd41042d9a77917f862b91e4baa3",
+    "semantic_hash": "6546dd41042d9a77917f862b91e4baa3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\GameStats.js": {
+    "mtime": 1774002314.4446313,
+    "ast_hash": "9cdb403b39125c93b9704b8f2da31c73",
+    "semantic_hash": "9cdb403b39125c93b9704b8f2da31c73"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\HomeContent.js": {
+    "mtime": 1779400110.3249204,
+    "ast_hash": "771c43007d01f815e952e7cde69742bd",
+    "semantic_hash": "771c43007d01f815e952e7cde69742bd"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\HomeEditorial.js": {
+    "mtime": 1779400110.3249204,
+    "ast_hash": "30fe8a9550e6c7ec70265972ee9fab48",
+    "semantic_hash": "30fe8a9550e6c7ec70265972ee9fab48"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\PageValueSection.js": {
+    "mtime": 1776635299.481892,
+    "ast_hash": "e48e8fdfbcbfd54d021757a668fb5b1c",
+    "semantic_hash": "e48e8fdfbcbfd54d021757a668fb5b1c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\components\\SiteLayout.js": {
+    "mtime": 1779400110.3318079,
+    "ast_hash": "fc6ede167792f3a3874cd3525922a40f",
+    "semantic_hash": "fc6ede167792f3a3874cd3525922a40f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\contact\\layout.js": {
+    "mtime": 1778053337.8369682,
+    "ast_hash": "3e72aab4b3b281694dc626b0aecedb54",
+    "semantic_hash": "3e72aab4b3b281694dc626b0aecedb54"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\contact\\page.js": {
+    "mtime": 1777494138.951365,
+    "ast_hash": "dc524211fa276a3fc4c4f33995306017",
+    "semantic_hash": "dc524211fa276a3fc4c4f33995306017"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\data\\gcseSeoData.js": {
+    "mtime": 1777490094.7796738,
+    "ast_hash": "137cd15757173ce554c67ce61180b6ee",
+    "semantic_hash": "137cd15757173ce554c67ce61180b6ee"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\data\\seoData.js": {
+    "mtime": 1778865010.100039,
+    "ast_hash": "f5edce962a0817f58eddea627b36a7c7",
+    "semantic_hash": "f5edce962a0817f58eddea627b36a7c7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\disclaimer\\layout.js": {
+    "mtime": 1778053337.8369682,
+    "ast_hash": "17656d7fde8d5a576dce8060f43142d9",
+    "semantic_hash": "17656d7fde8d5a576dce8060f43142d9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\disclaimer\\page.js": {
+    "mtime": 1777483527.6502702,
+    "ast_hash": "3d5482d64f2d7d0e07ac98051b47c85e",
+    "semantic_hash": "3d5482d64f2d7d0e07ac98051b47c85e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\drawing-dash\\DrawingDashClient.js": {
+    "mtime": 1778532983.410994,
+    "ast_hash": "f860d004535be1b4faef632961f3fb2a",
+    "semantic_hash": "f860d004535be1b4faef632961f3fb2a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\drawing-dash\\DrawingDashGame.js": {
+    "mtime": 1775687854.7681382,
+    "ast_hash": "8baff611dcf6fd3f321938dfe0c478f8",
+    "semantic_hash": "8baff611dcf6fd3f321938dfe0c478f8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\drawing-dash\\page.js": {
+    "mtime": 1778533001.6742013,
+    "ast_hash": "2ba44b643cfef307b4ace86ee6e0d976",
+    "semantic_hash": "2ba44b643cfef307b4ace86ee6e0d976"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\editorial-policy\\page.js": {
+    "mtime": 1777636155.4395065,
+    "ast_hash": "10e20b3558cabeb3da5f9bb9d214da41",
+    "semantic_hash": "10e20b3558cabeb3da5f9bb9d214da41"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\emoji-iq\\EmojiIQGame.js": {
+    "mtime": 1776519563.5959487,
+    "ast_hash": "b53d1e7b7b66c5b7d996517bd08b67da",
+    "semantic_hash": "b53d1e7b7b66c5b7d996517bd08b67da"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\emoji-iq\\page.js": {
+    "mtime": 1777454353.012344,
+    "ast_hash": "99b78b8c08db386f3a0e3b94ec48c803",
+    "semantic_hash": "99b78b8c08db386f3a0e3b94ec48c803"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\faq\\layout.js": {
+    "mtime": 1778053337.8458433,
+    "ast_hash": "70c6bbd94ae4dcc48e282e95eca9ea21",
+    "semantic_hash": "70c6bbd94ae4dcc48e282e95eca9ea21"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\faq\\page.js": {
+    "mtime": 1777636138.0272765,
+    "ast_hash": "ddf06d60327a12ed92e9ab1a108f3e21",
+    "semantic_hash": "ddf06d60327a12ed92e9ab1a108f3e21"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\GCSEClientWrapper.js": {
+    "mtime": 1779564822.6714427,
+    "ast_hash": "e5cd16af3bc6e5244663a497ca7fb803",
+    "semantic_hash": "e5cd16af3bc6e5244663a497ca7fb803"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\layout.js": {
+    "mtime": 1779400110.33946,
+    "ast_hash": "88e42d9e8a96f8554a101e3795a33a95",
+    "semantic_hash": "88e42d9e8a96f8554a101e3795a33a95"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\page.js": {
+    "mtime": 1778868070.998998,
+    "ast_hash": "eae8527c16638ca7cdef54fddeb3e63e",
+    "semantic_hash": "eae8527c16638ca7cdef54fddeb3e63e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\BusinessClientWrapper.js": {
+    "mtime": 1778530663.4493248,
+    "ast_hash": "4093c5af150dd2bb29442dfe3fafa41e",
+    "semantic_hash": "4093c5af150dd2bb29442dfe3fafa41e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\businessData.js": {
+    "mtime": 1778428460.4500356,
+    "ast_hash": "4b458a22d2153398e7952f912934ab79",
+    "semantic_hash": "4b458a22d2153398e7952f912934ab79"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\page.js": {
+    "mtime": 1778530663.4520254,
+    "ast_hash": "ceaba17a09b891774c7dee47ef8d09de",
+    "semantic_hash": "ceaba17a09b891774c7dee47ef8d09de"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\mock-exam\\page.js": {
+    "mtime": 1777927723.0757375,
+    "ast_hash": "257971d224137d25c6fb1bd42c4ba8f2",
+    "semantic_hash": "257971d224137d25c6fb1bd42c4ba8f2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\[topic]\\layout.js": {
+    "mtime": 1778053337.8496323,
+    "ast_hash": "c69834f6014d8a5e68a5efb2358f610f",
+    "semantic_hash": "c69834f6014d8a5e68a5efb2358f610f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\business\\[topic]\\page.js": {
+    "mtime": 1778429522.8887458,
+    "ast_hash": "d4279b336ced6675d395a776999bff44",
+    "semantic_hash": "d4279b336ced6675d395a776999bff44"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\AchievementBadge.js": {
+    "mtime": 1778424853.2669687,
+    "ast_hash": "9898689ef80c15cbff676f67302848d5",
+    "semantic_hash": "9898689ef80c15cbff676f67302848d5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\DashboardStats.js": {
+    "mtime": 1778428674.6008582,
+    "ast_hash": "95a6533cea3a7934ae35afdb8c21b987",
+    "semantic_hash": "95a6533cea3a7934ae35afdb8c21b987"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\ExamCountdown.js": {
+    "mtime": 1778424722.9170108,
+    "ast_hash": "3351bcca6a3d141139891481f2c8be77",
+    "semantic_hash": "3351bcca6a3d141139891481f2c8be77"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\ExamSimulator.js": {
+    "mtime": 1779398407.6328504,
+    "ast_hash": "c953e7c1c269a42938026e04e6e6f0f8",
+    "semantic_hash": "c953e7c1c269a42938026e04e6e6f0f8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\FlashcardMode.js": {
+    "mtime": 1778424557.4246025,
+    "ast_hash": "635bdf8585177d7c28e9b272755331c2",
+    "semantic_hash": "635bdf8585177d7c28e9b272755331c2"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\FocusTimer.js": {
+    "mtime": 1779398363.971424,
+    "ast_hash": "4710eeeb0d53cad0d91402095c2b2ab8",
+    "semantic_hash": "4710eeeb0d53cad0d91402095c2b2ab8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\GradePredictor.js": {
+    "mtime": 1779398364.1016715,
+    "ast_hash": "4741e97f2bf15f36cd9752c7fd71da90",
+    "semantic_hash": "4741e97f2bf15f36cd9752c7fd71da90"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\InteractiveActivity.js": {
+    "mtime": 1778425703.9584472,
+    "ast_hash": "3234816d2c7e357fa7b49118fd8c5b1e",
+    "semantic_hash": "3234816d2c7e357fa7b49118fd8c5b1e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\InteractiveVisualizer.js": {
+    "mtime": 1778424403.3579168,
+    "ast_hash": "2c96ea351e6b67f88e2e8eb032b3f2d7",
+    "semantic_hash": "2c96ea351e6b67f88e2e8eb032b3f2d7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\LessonCards.js": {
+    "mtime": 1777917373.4230874,
+    "ast_hash": "ffe0c116e7c6c2f77ba20d8455a1ce90",
+    "semantic_hash": "ffe0c116e7c6c2f77ba20d8455a1ce90"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\MasteryMap.js": {
+    "mtime": 1778428681.7230113,
+    "ast_hash": "4d6b1e52d9355229a90eb66475111d44",
+    "semantic_hash": "4d6b1e52d9355229a90eb66475111d44"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\MixedGame.js": {
+    "mtime": 1778430881.1687489,
+    "ast_hash": "4d039df489fe79a2c644f10f31805bb6",
+    "semantic_hash": "4d039df489fe79a2c644f10f31805bb6"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\MockExam.js": {
+    "mtime": 1778090988.7514553,
+    "ast_hash": "11b8d67658af0475f27da97a15458b60",
+    "semantic_hash": "11b8d67658af0475f27da97a15458b60"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\PedagogyBridge.js": {
+    "mtime": 1777036916.7484908,
+    "ast_hash": "bd102047aab5691109a8e113de7878aa",
+    "semantic_hash": "bd102047aab5691109a8e113de7878aa"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\SubjectCanvas.js": {
+    "mtime": 1777036890.625634,
+    "ast_hash": "f9fb1e4b7b16a719fa674cc630e948fb",
+    "semantic_hash": "f9fb1e4b7b16a719fa674cc630e948fb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\SubjectIcon.js": {
+    "mtime": 1778428960.1988235,
+    "ast_hash": "c7460083c0a6c3f30dac3828d575e24f",
+    "semantic_hash": "c7460083c0a6c3f30dac3828d575e24f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\SuggestedTopicCard.js": {
+    "mtime": 1778428320.2298715,
+    "ast_hash": "81c3b2cf3319f1c88609f3061b1b5122",
+    "semantic_hash": "81c3b2cf3319f1c88609f3061b1b5122"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\TopicClientWrapper.js": {
+    "mtime": 1778530663.4532778,
+    "ast_hash": "3f2f63efa4079356b6545b52317d276d",
+    "semantic_hash": "3f2f63efa4079356b6545b52317d276d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\TopicGame.js": {
+    "mtime": 1778430205.86257,
+    "ast_hash": "653e796cde83e9c38191dde7485e42eb",
+    "semantic_hash": "653e796cde83e9c38191dde7485e42eb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\UserProfileCard.js": {
+    "mtime": 1779563518.6894784,
+    "ast_hash": "b6ba381cc06c17c0f2502b7d96d2625c",
+    "semantic_hash": "b6ba381cc06c17c0f2502b7d96d2625c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\useStoredStats.js": {
+    "mtime": 1779400110.3338232,
+    "ast_hash": "2344ccc7dfc469fd91ca377dd3c88d63",
+    "semantic_hash": "2344ccc7dfc469fd91ca377dd3c88d63"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\sandbox\\BinaryConverter.js": {
+    "mtime": 1777917344.7155337,
+    "ast_hash": "8a90a4186806e3446ff7d9d9c5dbe237",
+    "semantic_hash": "8a90a4186806e3446ff7d9d9c5dbe237"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\sandbox\\LogicGateLab.js": {
+    "mtime": 1777917354.9845922,
+    "ast_hash": "2192e979ef2bf60ecd4d6818bf14d84b",
+    "semantic_hash": "2192e979ef2bf60ecd4d6818bf14d84b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\components\\sandbox\\SortingLab.js": {
+    "mtime": 1777917364.1980982,
+    "ast_hash": "8f2a96c52e40b057fc45c8faa3862382",
+    "semantic_hash": "8f2a96c52e40b057fc45c8faa3862382"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\CompSciClientWrapper.js": {
+    "mtime": 1778530663.4561462,
+    "ast_hash": "8f80af4d6c165ab2707207d74abe5ffb",
+    "semantic_hash": "8f80af4d6c165ab2707207d74abe5ffb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\computerScienceData.js": {
+    "mtime": 1778428687.449261,
+    "ast_hash": "27e6cd6a89e3edf751b37218855144ee",
+    "semantic_hash": "27e6cd6a89e3edf751b37218855144ee"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\page.js": {
+    "mtime": 1778530663.457771,
+    "ast_hash": "ed881228e7eac193a81eabcdba55cf29",
+    "semantic_hash": "ed881228e7eac193a81eabcdba55cf29"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\mixed-mode\\page.js": {
+    "mtime": 1778429849.074683,
+    "ast_hash": "6514453b93783bad8f1986f4b4b466e9",
+    "semantic_hash": "6514453b93783bad8f1986f4b4b466e9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\mock-exam\\page.js": {
+    "mtime": 1777926779.5905907,
+    "ast_hash": "7390862443210ee11168f25953138cc1",
+    "semantic_hash": "7390862443210ee11168f25953138cc1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\ocr\\page.js": {
+    "mtime": 1778425096.073729,
+    "ast_hash": "34fde3e34f25c5ca27a4e637cf533385",
+    "semantic_hash": "34fde3e34f25c5ca27a4e637cf533385"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\[topic]\\layout.js": {
+    "mtime": 1778429300.0223894,
+    "ast_hash": "fa56951165ab85228c9a50ae39a8ff8f",
+    "semantic_hash": "fa56951165ab85228c9a50ae39a8ff8f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\computer-science\\[topic]\\page.js": {
+    "mtime": 1778429530.7234972,
+    "ast_hash": "441cc76abf4f7c1c9cfb9749c82d61ee",
+    "semantic_hash": "441cc76abf4f7c1c9cfb9749c82d61ee"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\dashboard\\page.js": {
+    "mtime": 1779564482.1485794,
+    "ast_hash": "4ed0b08eb685abe3c8be3d86d872b2e3",
+    "semantic_hash": "4ed0b08eb685abe3c8be3d86d872b2e3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\dashboard\\mixed-mode\\page.js": {
+    "mtime": 1778429849.5470123,
+    "ast_hash": "9a30340964dc9168da9e9b772d7f13c4",
+    "semantic_hash": "9a30340964dc9168da9e9b772d7f13c4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\business.json": {
+    "mtime": 1777929872.1399555,
+    "ast_hash": "90e2b0eecae74dabf9d8046360cda37b",
+    "semantic_hash": "90e2b0eecae74dabf9d8046360cda37b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\computer-science.json": {
+    "mtime": 1777929872.137244,
+    "ast_hash": "7b46677d52014efb77a02d54745558c1",
+    "semantic_hash": "7b46677d52014efb77a02d54745558c1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\english-language.json": {
+    "mtime": 1777929872.1444957,
+    "ast_hash": "67adf8943850649a8dd9ffa31074f129",
+    "semantic_hash": "67adf8943850649a8dd9ffa31074f129"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\english-literature.json": {
+    "mtime": 1777929872.1475787,
+    "ast_hash": "7f3e1973501cc231f65e2526df55102b",
+    "semantic_hash": "7f3e1973501cc231f65e2526df55102b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\maths.json": {
+    "mtime": 1777929872.1239061,
+    "ast_hash": "30beedfa316cc396e5ade4ff859a0789",
+    "semantic_hash": "30beedfa316cc396e5ade4ff859a0789"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\data\\banks\\science.json": {
+    "mtime": 1777929872.131526,
+    "ast_hash": "6c4d2e42c10b5c0a7425021bcc124977",
+    "semantic_hash": "6c4d2e42c10b5c0a7425021bcc124977"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-language\\EnglishLanguageClientWrapper.js": {
+    "mtime": 1778530663.459582,
+    "ast_hash": "d4155b252405b0911cbf3d4aca549f0c",
+    "semantic_hash": "d4155b252405b0911cbf3d4aca549f0c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-language\\englishLanguageData.js": {
+    "mtime": 1778428470.565227,
+    "ast_hash": "86e002e97cda04f97315f12923b0800f",
+    "semantic_hash": "86e002e97cda04f97315f12923b0800f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-language\\layout.js": {
+    "mtime": 1778053337.8650613,
+    "ast_hash": "6f9b65232fde10a39c327e51645e1181",
+    "semantic_hash": "6f9b65232fde10a39c327e51645e1181"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-language\\page.js": {
+    "mtime": 1778530663.461095,
+    "ast_hash": "4be030320628cb5392e7be4a5ad8a94b",
+    "semantic_hash": "4be030320628cb5392e7be4a5ad8a94b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-language\\[topic]\\page.js": {
+    "mtime": 1778429765.2954319,
+    "ast_hash": "4b9a86f96662b2a6b5a3bc090c9800f5",
+    "semantic_hash": "4b9a86f96662b2a6b5a3bc090c9800f5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-literature\\EnglishLitClientWrapper.js": {
+    "mtime": 1778530663.461095,
+    "ast_hash": "39cfe16e2b4cd1ddc599bf301de63b75",
+    "semantic_hash": "39cfe16e2b4cd1ddc599bf301de63b75"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-literature\\englishLiteratureData.js": {
+    "mtime": 1778428479.3908546,
+    "ast_hash": "84c9d1c373b1364eb449685d2ff755e9",
+    "semantic_hash": "84c9d1c373b1364eb449685d2ff755e9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-literature\\layout.js": {
+    "mtime": 1778053337.8661647,
+    "ast_hash": "39a72148aa694492f23317a62295075c",
+    "semantic_hash": "39a72148aa694492f23317a62295075c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-literature\\page.js": {
+    "mtime": 1778530663.4646506,
+    "ast_hash": "84e5d98dd895ed17372b9fa029c45f95",
+    "semantic_hash": "84e5d98dd895ed17372b9fa029c45f95"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\english-literature\\[topic]\\page.js": {
+    "mtime": 1778429765.420542,
+    "ast_hash": "77cb3be5316cdacc6e3aa28b33879bb5",
+    "semantic_hash": "77cb3be5316cdacc6e3aa28b33879bb5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\exam-simulator\\page.js": {
+    "mtime": 1779398407.5925815,
+    "ast_hash": "6a9d4ba871ad47155dd986145da72432",
+    "semantic_hash": "6a9d4ba871ad47155dd986145da72432"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\GeographyClientWrapper.js": {
+    "mtime": 1778530663.4646506,
+    "ast_hash": "4378f698d899fb016f3cd7c331151d52",
+    "semantic_hash": "4378f698d899fb016f3cd7c331151d52"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\geographyData.js": {
+    "mtime": 1778428005.3549595,
+    "ast_hash": "a0c65ed2e7699604d3d5e776dc445a30",
+    "semantic_hash": "a0c65ed2e7699604d3d5e776dc445a30"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\layout.js": {
+    "mtime": 1778428087.3899755,
+    "ast_hash": "2410c8eef164e6fa36b1ebb7f8cb8136",
+    "semantic_hash": "2410c8eef164e6fa36b1ebb7f8cb8136"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\page.js": {
+    "mtime": 1778530663.466666,
+    "ast_hash": "f2def0464534e24493092fdff97714f4",
+    "semantic_hash": "f2def0464534e24493092fdff97714f4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\mixed-mode\\page.js": {
+    "mtime": 1778429849.359327,
+    "ast_hash": "3cbe0851bf04a364a48f6774df1f3791",
+    "semantic_hash": "3cbe0851bf04a364a48f6774df1f3791"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\geography\\[topicSlug]\\page.js": {
+    "mtime": 1778429765.6951692,
+    "ast_hash": "53fb6734e804d567078b0f639ec145be",
+    "semantic_hash": "53fb6734e804d567078b0f639ec145be"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\HistoryClientWrapper.js": {
+    "mtime": 1778530663.466666,
+    "ast_hash": "f8b076f393a2f7d3c2cf09b1ee3ed18d",
+    "semantic_hash": "f8b076f393a2f7d3c2cf09b1ee3ed18d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\historyData.js": {
+    "mtime": 1778427994.1138,
+    "ast_hash": "3b76b927eea3a3022f765efcc9d41620",
+    "semantic_hash": "3b76b927eea3a3022f765efcc9d41620"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\layout.js": {
+    "mtime": 1778428081.5255473,
+    "ast_hash": "09fd908f951d66b3ce1f9252fe8b7648",
+    "semantic_hash": "09fd908f951d66b3ce1f9252fe8b7648"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\page.js": {
+    "mtime": 1778530663.4697716,
+    "ast_hash": "667e59d92e2d48c30cc54c67fe3718be",
+    "semantic_hash": "667e59d92e2d48c30cc54c67fe3718be"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\mixed-mode\\page.js": {
+    "mtime": 1778429849.2144196,
+    "ast_hash": "8153b534d46d8c3e880001de040b44e7",
+    "semantic_hash": "8153b534d46d8c3e880001de040b44e7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\history\\[topicSlug]\\page.js": {
+    "mtime": 1778429765.5519774,
+    "ast_hash": "8949c5f8b412b965a0c455c45ef7bcc7",
+    "semantic_hash": "8949c5f8b412b965a0c455c45ef7bcc7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\login\\page.js": {
+    "mtime": 1779564227.7481744,
+    "ast_hash": "a2dc4a5c1c569c7b6a3ed12a05485a86",
+    "semantic_hash": "a2dc4a5c1c569c7b6a3ed12a05485a86"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\layout.js": {
+    "mtime": 1778428070.0770025,
+    "ast_hash": "d93a9149348c2b0147938387ef33379b",
+    "semantic_hash": "d93a9149348c2b0147938387ef33379b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\MathsClientWrapper.js": {
+    "mtime": 1778530663.473238,
+    "ast_hash": "78d1aa57ca4819f19b2afd3e4be703c5",
+    "semantic_hash": "78d1aa57ca4819f19b2afd3e4be703c5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\page.js": {
+    "mtime": 1778530663.4758887,
+    "ast_hash": "21ef68569a8ddba8ca05bcbfe16556b5",
+    "semantic_hash": "21ef68569a8ddba8ca05bcbfe16556b5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\topicData.js": {
+    "mtime": 1778428435.1529937,
+    "ast_hash": "9655b6add015454bea1db3f3f39963b4",
+    "semantic_hash": "9655b6add015454bea1db3f3f39963b4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\angle-snapper\\AngleSnapperClient.js": {
+    "mtime": 1778865010.1050217,
+    "ast_hash": "174f026bb2444dc203e0e2d93a1aa0f1",
+    "semantic_hash": "174f026bb2444dc203e0e2d93a1aa0f1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\angle-snapper\\page.js": {
+    "mtime": 1778865010.1050217,
+    "ast_hash": "a2ca3f77f029e025c5d48b0ded37b596",
+    "semantic_hash": "a2ca3f77f029e025c5d48b0ded37b596"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\aqa\\page.js": {
+    "mtime": 1778425055.2241855,
+    "ast_hash": "54d68e82cd586e9261f376a9e6f76bc6",
+    "semantic_hash": "54d68e82cd586e9261f376a9e6f76bc6"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\equation-rush\\EquationRushClient.js": {
+    "mtime": 1778865010.10833,
+    "ast_hash": "18e576ce4584f53b3bad2b9678e02a4a",
+    "semantic_hash": "18e576ce4584f53b3bad2b9678e02a4a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\equation-rush\\page.js": {
+    "mtime": 1778865010.1098082,
+    "ast_hash": "065e5d3f220f1ea440040bf089ff4e43",
+    "semantic_hash": "065e5d3f220f1ea440040bf089ff4e43"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\fraction-frenzy\\FractionFrenzyClient.js": {
+    "mtime": 1778865010.1123347,
+    "ast_hash": "86cf4d4a1c2b559020dab36a86805508",
+    "semantic_hash": "86cf4d4a1c2b559020dab36a86805508"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\fraction-frenzy\\page.js": {
+    "mtime": 1778865010.113444,
+    "ast_hash": "8090a17d13ff02f28be095ac74155394",
+    "semantic_hash": "8090a17d13ff02f28be095ac74155394"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\mixed-mode\\page.js": {
+    "mtime": 1778429848.7967274,
+    "ast_hash": "fd0cb222922d31984a67c1d12fd09b00",
+    "semantic_hash": "fd0cb222922d31984a67c1d12fd09b00"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\mock-exam\\page.js": {
+    "mtime": 1777926795.8324459,
+    "ast_hash": "825c738eb7c9757e0a911dd1c1d14286",
+    "semantic_hash": "825c738eb7c9757e0a911dd1c1d14286"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\[topic]\\layout.js": {
+    "mtime": 1778053337.8744354,
+    "ast_hash": "c6ac12a44b36dea5019475803f2df2b5",
+    "semantic_hash": "c6ac12a44b36dea5019475803f2df2b5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\maths\\[topic]\\page.js": {
+    "mtime": 1778532546.0610113,
+    "ast_hash": "9d44e9f68eb248c7cbecb08319023cbb",
+    "semantic_hash": "9d44e9f68eb248c7cbecb08319023cbb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\layout.js": {
+    "mtime": 1778428075.7657146,
+    "ast_hash": "d29371ab5eec5fa7b1a9fee371be2472",
+    "semantic_hash": "d29371ab5eec5fa7b1a9fee371be2472"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\page.js": {
+    "mtime": 1778530663.48183,
+    "ast_hash": "2aa917499049822bfc22850335c93a94",
+    "semantic_hash": "2aa917499049822bfc22850335c93a94"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\ScienceClientWrapper.js": {
+    "mtime": 1778530663.480488,
+    "ast_hash": "1e9243fcf90247b4ea9869e209167b52",
+    "semantic_hash": "1e9243fcf90247b4ea9869e209167b52"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\scienceData.js": {
+    "mtime": 1778428448.5689893,
+    "ast_hash": "275c1aab36656b0e58f7d42f01c7af00",
+    "semantic_hash": "275c1aab36656b0e58f7d42f01c7af00"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\aqa\\page.js": {
+    "mtime": 1778425146.7763648,
+    "ast_hash": "5c03dd495d43c6d7024da942828dd5a0",
+    "semantic_hash": "5c03dd495d43c6d7024da942828dd5a0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\mixed-mode\\page.js": {
+    "mtime": 1778429848.9346914,
+    "ast_hash": "7ade8c6b644df7f56c6d58c3f0455e4f",
+    "semantic_hash": "7ade8c6b644df7f56c6d58c3f0455e4f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\mock-exam\\page.js": {
+    "mtime": 1777927712.1068892,
+    "ast_hash": "0361021ff06b954568b2f1cf5891808c",
+    "semantic_hash": "0361021ff06b954568b2f1cf5891808c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\[topic]\\layout.js": {
+    "mtime": 1778053337.8812995,
+    "ast_hash": "131041706e8bf94d73aa0c56eedfbb7a",
+    "semantic_hash": "131041706e8bf94d73aa0c56eedfbb7a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\science\\[topic]\\page.js": {
+    "mtime": 1778429765.1874268,
+    "ast_hash": "ea21dc5708513664a86ed0937ffa1543",
+    "semantic_hash": "ea21dc5708513664a86ed0937ffa1543"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\utils\\questionBankLoader.js": {
+    "mtime": 1778430818.7182536,
+    "ast_hash": "21e474b93d1e6f8bac957991b45ec481",
+    "semantic_hash": "21e474b93d1e6f8bac957991b45ec481"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\utils\\spacedRepetitionEngine.js": {
+    "mtime": 1779400110.341471,
+    "ast_hash": "010d1823b0a030abba43d1e002db121f",
+    "semantic_hash": "010d1823b0a030abba43d1e002db121f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\utils\\streakLogic.js": {
+    "mtime": 1777917282.6900392,
+    "ast_hash": "f546049fadc66c4af7359cfa946223ca",
+    "semantic_hash": "f546049fadc66c4af7359cfa946223ca"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gcse\\utils\\structuredData.js": {
+    "mtime": 1778425011.4916668,
+    "ast_hash": "1591655cb9b160d7145e9f232850bdc8",
+    "semantic_hash": "1591655cb9b160d7145e9f232850bdc8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\geography-guesser\\GeographyGuesserGame.js": {
+    "mtime": 1775486173.3104508,
+    "ast_hash": "7e54bbfef6de22b0481ca17057983dc0",
+    "semantic_hash": "7e54bbfef6de22b0481ca17057983dc0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\geography-guesser\\page.js": {
+    "mtime": 1778868724.6973624,
+    "ast_hash": "465f01139e753774c0ad61dea36ea09f",
+    "semantic_hash": "465f01139e753774c0ad61dea36ea09f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gravity-dash\\GravityClient.js": {
+    "mtime": 1778087243.2723975,
+    "ast_hash": "1cc8a88f81ad7b918783f48c8bca531c",
+    "semantic_hash": "1cc8a88f81ad7b918783f48c8bca531c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gravity-dash\\GravityGame.js": {
+    "mtime": 1778422766.6593301,
+    "ast_hash": "d654bc9936246281bdf25f1cb8e5a0a9",
+    "semantic_hash": "d654bc9936246281bdf25f1cb8e5a0a9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\gravity-dash\\page.js": {
+    "mtime": 1778871877.3334923,
+    "ast_hash": "3139e2ac46e1af27d431880b480dd35d",
+    "semantic_hash": "3139e2ac46e1af27d431880b480dd35d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\layout.js": {
+    "mtime": 1778053337.888437,
+    "ast_hash": "a582af41ed68cef1642e6ccfb463283d",
+    "semantic_hash": "a582af41ed68cef1642e6ccfb463283d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\page.js": {
+    "mtime": 1778865010.1195993,
+    "ast_hash": "08e7de37950054887706baa28051f526",
+    "semantic_hash": "08e7de37950054887706baa28051f526"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\emoji-iq-mastery\\layout.js": {
+    "mtime": 1778053337.8845637,
+    "ast_hash": "00450c568a7bfbc20ba956784d31885b",
+    "semantic_hash": "00450c568a7bfbc20ba956784d31885b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\emoji-iq-mastery\\page.js": {
+    "mtime": 1776208226.7604947,
+    "ast_hash": "718d2ba0a5dbdf77b923f96eaac6256d",
+    "semantic_hash": "718d2ba0a5dbdf77b923f96eaac6256d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\geography-guesser-tips\\layout.js": {
+    "mtime": 1778053337.8866272,
+    "ast_hash": "af917d9a28335a8a5ad0d7ea56eab307",
+    "semantic_hash": "af917d9a28335a8a5ad0d7ea56eab307"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\geography-guesser-tips\\page.js": {
+    "mtime": 1776207884.48609,
+    "ast_hash": "c94f5bf45975136a78549cce233785f1",
+    "semantic_hash": "c94f5bf45975136a78549cce233785f1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\reaction-arena-tips\\layout.js": {
+    "mtime": 1778053337.89113,
+    "ast_hash": "1b15415f2c4deeb679accbdf7405edd1",
+    "semantic_hash": "1b15415f2c4deeb679accbdf7405edd1"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\reaction-arena-tips\\page.js": {
+    "mtime": 1776207874.3527455,
+    "ast_hash": "d91a0b479d0b680f4693151b45d2317d",
+    "semantic_hash": "d91a0b479d0b680f4693151b45d2317d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\vibe-quiz-mastery\\layout.js": {
+    "mtime": 1778053337.894883,
+    "ast_hash": "59dd18d40fbe4afaba682ff01353ca9f",
+    "semantic_hash": "59dd18d40fbe4afaba682ff01353ca9f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\vibe-quiz-mastery\\page.js": {
+    "mtime": 1776207898.7650683,
+    "ast_hash": "d98afd2e3da3f13eb246fdb30458a36d",
+    "semantic_hash": "d98afd2e3da3f13eb246fdb30458a36d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\wordvibe-strategies\\layout.js": {
+    "mtime": 1778053337.8990362,
+    "ast_hash": "635dcf4d964808a8425431811808a23a",
+    "semantic_hash": "635dcf4d964808a8425431811808a23a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\wordvibe-strategies\\page.js": {
+    "mtime": 1776207625.5937955,
+    "ast_hash": "2c12d1f81e1f3ed9b8ff9399e81a3944",
+    "semantic_hash": "2c12d1f81e1f3ed9b8ff9399e81a3944"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\would-you-rather-psychology\\layout.js": {
+    "mtime": 1778053337.9016235,
+    "ast_hash": "1d1fde62eca391f3eda8048242f8394d",
+    "semantic_hash": "1d1fde62eca391f3eda8048242f8394d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\guides\\would-you-rather-psychology\\page.js": {
+    "mtime": 1776208367.6495261,
+    "ast_hash": "1917d4788fbe7e06bea90a4505100e16",
+    "semantic_hash": "1917d4788fbe7e06bea90a4505100e16"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\hot-takes\\HotTakesGame.js": {
+    "mtime": 1775486007.9482634,
+    "ast_hash": "3a52d242ffb0388c7e317ac3135a1ee9",
+    "semantic_hash": "3a52d242ffb0388c7e317ac3135a1ee9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\hot-takes\\page.js": {
+    "mtime": 1777483487.194977,
+    "ast_hash": "86abca87b22530fdb24ac5bd98f41c24",
+    "semantic_hash": "86abca87b22530fdb24ac5bd98f41c24"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\lib\\AuthContext.js": {
+    "mtime": 1779564120.5381143,
+    "ast_hash": "a779b1ceaae8fa1a9ca0744711c3f7af",
+    "semantic_hash": "a779b1ceaae8fa1a9ca0744711c3f7af"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\lib\\cloudSync.js": {
+    "mtime": 1779398453.0806656,
+    "ast_hash": "4b4f365baca00c8b028091d6642f794e",
+    "semantic_hash": "4b4f365baca00c8b028091d6642f794e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\lib\\contentPolicy.js": {
+    "mtime": 1776519699.585404,
+    "ast_hash": "4b9cb85815ebed30c77c30f9fb8e23e9",
+    "semantic_hash": "4b9cb85815ebed30c77c30f9fb8e23e9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\lib\\firebase.js": {
+    "mtime": 1779400110.3454926,
+    "ast_hash": "e30c162f51c450254cf114f6f100be45",
+    "semantic_hash": "e30c162f51c450254cf114f6f100be45"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\login\\page.js": {
+    "mtime": 1779398876.600039,
+    "ast_hash": "f23a512a2a47d8617812c60ef06c69ee",
+    "semantic_hash": "f23a512a2a47d8617812c60ef06c69ee"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\memory-arena\\MemoryArenaClient.js": {
+    "mtime": 1778532983.5430093,
+    "ast_hash": "ebd1814eaca802469591e83c85dbb1c0",
+    "semantic_hash": "ebd1814eaca802469591e83c85dbb1c0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\memory-arena\\MemoryArenaGame.js": {
+    "mtime": 1775687945.5160747,
+    "ast_hash": "e912cfa39a8cb197888f15fe8f8c7bcb",
+    "semantic_hash": "e912cfa39a8cb197888f15fe8f8c7bcb"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\memory-arena\\page.js": {
+    "mtime": 1778533002.0217264,
+    "ast_hash": "e2f38c2f7b683ba6c0ee74a92ebc4069",
+    "semantic_hash": "e2f38c2f7b683ba6c0ee74a92ebc4069"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\odd-one-out\\OddOneOutClient.js": {
+    "mtime": 1778532983.607211,
+    "ast_hash": "15ce3c14791c0bd4067eef27a79ada84",
+    "semantic_hash": "15ce3c14791c0bd4067eef27a79ada84"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\odd-one-out\\OddOneOutGame.js": {
+    "mtime": 1775687689.6862755,
+    "ast_hash": "80b5829d454a984c77676a72821c5552",
+    "semantic_hash": "80b5829d454a984c77676a72821c5552"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\odd-one-out\\page.js": {
+    "mtime": 1778533002.170002,
+    "ast_hash": "02e98ee4251d837a1a586bc809e20159",
+    "semantic_hash": "02e98ee4251d837a1a586bc809e20159"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\poll-party\\page.js": {
+    "mtime": 1778533002.360871,
+    "ast_hash": "396beac1754330fe071657233df337e7",
+    "semantic_hash": "396beac1754330fe071657233df337e7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\poll-party\\PollPartyClient.js": {
+    "mtime": 1778532983.6962178,
+    "ast_hash": "605e801acb11c5c999977b65feaabc32",
+    "semantic_hash": "605e801acb11c5c999977b65feaabc32"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\poll-party\\PollPartyGame.js": {
+    "mtime": 1775687689.6847706,
+    "ast_hash": "eb30c4c310c4306944c05f545a9cf029",
+    "semantic_hash": "eb30c4c310c4306944c05f545a9cf029"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\privacy\\layout.js": {
+    "mtime": 1778053337.9074266,
+    "ast_hash": "767f8039ec9b6423cac5e00e0c89c213",
+    "semantic_hash": "767f8039ec9b6423cac5e00e0c89c213"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\privacy\\page.js": {
+    "mtime": 1778532748.8258674,
+    "ast_hash": "4846abe5951605cdc6185f76a47c427b",
+    "semantic_hash": "4846abe5951605cdc6185f76a47c427b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\publisher-information\\page.js": {
+    "mtime": 1779400110.347503,
+    "ast_hash": "207f1d67b67998edeb1a09b49d88d1da",
+    "semantic_hash": "207f1d67b67998edeb1a09b49d88d1da"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\quiz-arena\\page.js": {
+    "mtime": 1778533001.8891542,
+    "ast_hash": "9b5b0416e46aecae3518ec4f36a55a00",
+    "semantic_hash": "9b5b0416e46aecae3518ec4f36a55a00"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\quiz-arena\\QuizArenaClient.js": {
+    "mtime": 1778532983.4757323,
+    "ast_hash": "f6ed58b190fb9cd00adfc02bc96c4171",
+    "semantic_hash": "f6ed58b190fb9cd00adfc02bc96c4171"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\quiz-arena\\QuizArenaGame.js": {
+    "mtime": 1775687910.0032,
+    "ast_hash": "1d9c7929bde39468a29c24d492ed790c",
+    "semantic_hash": "1d9c7929bde39468a29c24d492ed790c"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\reaction-arena\\page.js": {
+    "mtime": 1778871969.4822938,
+    "ast_hash": "835d4148528171170706e00b95725b27",
+    "semantic_hash": "835d4148528171170706e00b95725b27"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\reaction-arena\\ReactionArenaClient.js": {
+    "mtime": 1778532983.2927392,
+    "ast_hash": "3c3a586c57ff689c7d8af53b2bd958d0",
+    "semantic_hash": "3c3a586c57ff689c7d8af53b2bd958d0"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\reaction-arena\\ReactionArenaGame.js": {
+    "mtime": 1775687689.6836774,
+    "ast_hash": "279587ab93ada74c9a1b5169183b38d4",
+    "semantic_hash": "279587ab93ada74c9a1b5169183b38d4"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\ricochet-strike\\page.js": {
+    "mtime": 1778423001.9379625,
+    "ast_hash": "381c6b880f01282c21a4409a34ca9322",
+    "semantic_hash": "381c6b880f01282c21a4409a34ca9322"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\ricochet-strike\\RicochetGame.js": {
+    "mtime": 1778422991.3780248,
+    "ast_hash": "b03c6eb0138b8da0e71c3468a62efcd7",
+    "semantic_hash": "b03c6eb0138b8da0e71c3468a62efcd7"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\terms\\layout.js": {
+    "mtime": 1778053337.9201326,
+    "ast_hash": "d0b5e6c121449ac1e3c078086671cdae",
+    "semantic_hash": "d0b5e6c121449ac1e3c078086671cdae"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\terms\\page.js": {
+    "mtime": 1778530663.4886448,
+    "ast_hash": "0253ed88be7fce8e9d166dbb86cad508",
+    "semantic_hash": "0253ed88be7fce8e9d166dbb86cad508"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibe-clicker\\page.js": {
+    "mtime": 1778087914.6238813,
+    "ast_hash": "57f68eb7bde05c67509b2faed1db9fb3",
+    "semantic_hash": "57f68eb7bde05c67509b2faed1db9fb3"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibe-clicker\\VibeClickerGame.js": {
+    "mtime": 1774129733.8427775,
+    "ast_hash": "ddcd611733ea84ef1945fe36314633c6",
+    "semantic_hash": "ddcd611733ea84ef1945fe36314633c6"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibe-quiz\\page.js": {
+    "mtime": 1779400110.3495133,
+    "ast_hash": "364f5974cf11f83fa734e279431cdee5",
+    "semantic_hash": "364f5974cf11f83fa734e279431cdee5"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibe-quiz\\VibeQuizGame.js": {
+    "mtime": 1774002629.3091135,
+    "ast_hash": "4606c078044a72e907e4f6244bb1c311",
+    "semantic_hash": "4606c078044a72e907e4f6244bb1c311"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibeordie\\page.js": {
+    "mtime": 1778868722.2691972,
+    "ast_hash": "125ffcb257dba743d0769df27ae5c31a",
+    "semantic_hash": "125ffcb257dba743d0769df27ae5c31a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vibeordie\\VibeOrDieGame.js": {
+    "mtime": 1775486091.5473382,
+    "ast_hash": "649120d4d5f3257362c4979bae0caaed",
+    "semantic_hash": "649120d4d5f3257362c4979bae0caaed"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vocab-match\\page.js": {
+    "mtime": 1778533001.3470263,
+    "ast_hash": "2def0a2fcaa705a14f4b6cd173fc1466",
+    "semantic_hash": "2def0a2fcaa705a14f4b6cd173fc1466"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vocab-match\\VocabGame.js": {
+    "mtime": 1775686713.740239,
+    "ast_hash": "67df8564bfb4d0771cce9cdf595a5178",
+    "semantic_hash": "67df8564bfb4d0771cce9cdf595a5178"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\vocab-match\\VocabGameClient.js": {
+    "mtime": 1778532983.1992314,
+    "ast_hash": "e0d70cbef6c6495cd64b5361ec384163",
+    "semantic_hash": "e0d70cbef6c6495cd64b5361ec384163"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\whack-a-vibe\\page.js": {
+    "mtime": 1777488102.5668159,
+    "ast_hash": "5dc91fbbc1e416bcbb8eea89bc647e7b",
+    "semantic_hash": "5dc91fbbc1e416bcbb8eea89bc647e7b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\whack-a-vibe\\WhackGame.js": {
+    "mtime": 1774129855.232417,
+    "ast_hash": "d9fa0634a10e10009b185133f128cd61",
+    "semantic_hash": "d9fa0634a10e10009b185133f128cd61"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\wordvibe\\page.js": {
+    "mtime": 1778423516.7920165,
+    "ast_hash": "fb6805650fe4046e12411b253fe61a83",
+    "semantic_hash": "fb6805650fe4046e12411b253fe61a83"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\wordvibe\\WordVibeClient.js": {
+    "mtime": 1777488199.1348767,
+    "ast_hash": "51a185f0f185204d557f120e71323254",
+    "semantic_hash": "51a185f0f185204d557f120e71323254"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\wordvibe\\WordVibeGame.js": {
+    "mtime": 1776207675.886366,
+    "ast_hash": "1c1366ae5cf0b4da46fc2b2c6e800f79",
+    "semantic_hash": "1c1366ae5cf0b4da46fc2b2c6e800f79"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\would-you-rather\\page.js": {
+    "mtime": 1778087914.612865,
+    "ast_hash": "29b6666ce5cca603ed10e599692877d9",
+    "semantic_hash": "29b6666ce5cca603ed10e599692877d9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\app\\would-you-rather\\WouldYouRatherGame.js": {
+    "mtime": 1776512805.8559918,
+    "ast_hash": "1ad4901238d725508ed31eb3f08c1bfa",
+    "semantic_hash": "1ad4901238d725508ed31eb3f08c1bfa"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\manifest.json": {
+    "mtime": 1772919864.6139123,
+    "ast_hash": "f2df3f6e21850181c4d054672c679798",
+    "semantic_hash": "f2df3f6e21850181c4d054672c679798"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\fix-commas.js": {
+    "mtime": 1778052854.9257512,
+    "ast_hash": "c0f1b4e4a6ba2e9b95927e261d4a655b",
+    "semantic_hash": "c0f1b4e4a6ba2e9b95927e261d4a655b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\fix-metadata.js": {
+    "mtime": 1775484510.4568672,
+    "ast_hash": "bc2e28d93b04e3dae598499d41bcaa23",
+    "semantic_hash": "bc2e28d93b04e3dae598499d41bcaa23"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\fix_blog_metadata.js": {
+    "mtime": 1778865010.16344,
+    "ast_hash": "55b3be99e2df35eae8e0f3bc5e72ba61",
+    "semantic_hash": "55b3be99e2df35eae8e0f3bc5e72ba61"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\generate_seo_data.js": {
+    "mtime": 1778865010.167925,
+    "ast_hash": "ffc22701f318571b2255070a2864ab17",
+    "semantic_hash": "ffc22701f318571b2255070a2864ab17"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\og-image-generator.js": {
+    "mtime": 1777483771.9425876,
+    "ast_hash": "7da074c4e94fbecd1c44437dd267ae6e",
+    "semantic_hash": "7da074c4e94fbecd1c44437dd267ae6e"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\og-image-puppeteer.js": {
+    "mtime": 1777483968.4512973,
+    "ast_hash": "772cc00d38b522bc6f3fb4bfefe0800a",
+    "semantic_hash": "772cc00d38b522bc6f3fb4bfefe0800a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\remove-layout-canonical.js": {
+    "mtime": 1778052437.5052805,
+    "ast_hash": "a6a60008a548aad9173fc47cbbd6f735",
+    "semantic_hash": "a6a60008a548aad9173fc47cbbd6f735"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\seo_audit.py": {
+    "mtime": 1778865010.167925,
+    "ast_hash": "09851ae1a5c971c69a9cdfa7f8d3943b",
+    "semantic_hash": "09851ae1a5c971c69a9cdfa7f8d3943b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\update-metadata.js": {
+    "mtime": 1775484465.1928926,
+    "ast_hash": "8ac179066efc7d65d30a8f2cadf5bb07",
+    "semantic_hash": "8ac179066efc7d65d30a8f2cadf5bb07"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\update_blogs.js": {
+    "mtime": 1777494328.6842513,
+    "ast_hash": "11ff612aa006ddbb0982a2a57db0624b",
+    "semantic_hash": "11ff612aa006ddbb0982a2a57db0624b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\DESIGN.md": {
+    "mtime": 1776977019.7736194,
+    "ast_hash": "ad98b0837ef5bd714519e5d3b981dee9",
+    "semantic_hash": "ad98b0837ef5bd714519e5d3b981dee9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\gcse_cs_spec.txt": {
+    "mtime": 1777911842.691143,
+    "ast_hash": "709b17833fdb7e45b3b02549045bddf8",
+    "semantic_hash": "709b17833fdb7e45b3b02549045bddf8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\llms.txt": {
+    "mtime": 1776203964.7921257,
+    "ast_hash": "8983e5a08a47b998d26ec69362e475d8",
+    "semantic_hash": "8983e5a08a47b998d26ec69362e475d8"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\PROJECT_REFERENCE.md": {
+    "mtime": 1777841412.3342214,
+    "ast_hash": "b4f2a0c5613f37238f98a205cc3e4683",
+    "semantic_hash": "b4f2a0c5613f37238f98a205cc3e4683"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\README.md": {
+    "mtime": 1776203969.7817004,
+    "ast_hash": "af53190775ba306bddb36f8f613b52a6",
+    "semantic_hash": "af53190775ba306bddb36f8f613b52a6"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\.agents\\rules\\graphify.md": {
+    "mtime": 1780134132.9327064,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": "a0e4d192b9e2e17256124dbfc8e24e6a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\.agents\\workflows\\graphify.md": {
+    "mtime": 1780134132.936725,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": "637776aa6f7496d069afe7520c845c8a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\.github\\copilot-instructions.md": {
+    "mtime": 1777449425.0824912,
+    "ast_hash": "a90ef4a360a677b12d11f70fb8018204",
+    "semantic_hash": "a90ef4a360a677b12d11f70fb8018204"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\.github\\workflows\\daily-news.yml": {
+    "mtime": 1778422300.823932,
+    "ast_hash": "b82dd277f96702ea9779d53531b68c09",
+    "semantic_hash": "b82dd277f96702ea9779d53531b68c09"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\ads.txt": {
+    "mtime": 1772965674.3734925,
+    "ast_hash": "f52d83e03203040c3bada9fb737d4732",
+    "semantic_hash": "f52d83e03203040c3bada9fb737d4732"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\scripts\\requirements.txt": {
+    "mtime": 1778422300.8338661,
+    "ast_hash": "cdd5be62fe21477c6043ae238fbc8a50",
+    "semantic_hash": "cdd5be62fe21477c6043ae238fbc8a50"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\icon-192.png": {
+    "mtime": 1774004915.834473,
+    "ast_hash": "f956779df693f2ad039f0d9406f266f9",
+    "semantic_hash": "f956779df693f2ad039f0d9406f266f9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\icon-512.png": {
+    "mtime": 1774004915.834473,
+    "ast_hash": "f956779df693f2ad039f0d9406f266f9",
+    "semantic_hash": "f956779df693f2ad039f0d9406f266f9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\icon.png": {
+    "mtime": 1774004915.834473,
+    "ast_hash": "f956779df693f2ad039f0d9406f266f9",
+    "semantic_hash": "f956779df693f2ad039f0d9406f266f9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\og-image.png": {
+    "mtime": 1774004915.834473,
+    "ast_hash": "f956779df693f2ad039f0d9406f266f9",
+    "semantic_hash": "f956779df693f2ad039f0d9406f266f9"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\publisher.jpg": {
+    "mtime": 1778869349.8785262,
+    "ast_hash": "e9a1dcc7340b306e5bf35f3e1abdb746",
+    "semantic_hash": "e9a1dcc7340b306e5bf35f3e1abdb746"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\aha-moment.png": {
+    "mtime": 1777015637.3655033,
+    "ast_hash": "e6acb55c739e1710810d4a0f3de2a70d",
+    "semantic_hash": "e6acb55c739e1710810d4a0f3de2a70d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\chess-logic.png": {
+    "mtime": 1777016214.9380941,
+    "ast_hash": "74c52be09cc37aea63a394efcaa712fa",
+    "semantic_hash": "74c52be09cc37aea63a394efcaa712fa"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\cognitive-load.png": {
+    "mtime": 1777016549.6304514,
+    "ast_hash": "43b24a4fd55a42f6b6db05b8733e3e9f",
+    "semantic_hash": "43b24a4fd55a42f6b6db05b8733e3e9f"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\emoji-guide.png": {
+    "mtime": 1777017091.9534023,
+    "ast_hash": "262e8a176b31e2fd4cb5dff20819c430",
+    "semantic_hash": "262e8a176b31e2fd4cb5dff20819c430"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\executive-function.png": {
+    "mtime": 1777017353.0493338,
+    "ast_hash": "41fdc32b3859699bd2996a515e2dc90d",
+    "semantic_hash": "41fdc32b3859699bd2996a515e2dc90d"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\blog\\socratic-method.png": {
+    "mtime": 1777015182.5008955,
+    "ast_hash": "2b909ae7ab91ae793f9a700ea04f1cdc",
+    "semantic_hash": "2b909ae7ab91ae793f9a700ea04f1cdc"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\tech-news\\apple-crunch.jpg": {
+    "mtime": 1777842238.0744588,
+    "ast_hash": "cd06a914c7a23c238dae03faf70d4b9a",
+    "semantic_hash": "cd06a914c7a23c238dae03faf70d4b9a"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\tech-news\\meta-robots.jpg": {
+    "mtime": 1777842026.1874259,
+    "ast_hash": "6f73d232676efbef3f6983aced2fb934",
+    "semantic_hash": "6f73d232676efbef3f6983aced2fb934"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\tech-news\\musk-trial.jpg": {
+    "mtime": 1777841984.5652997,
+    "ast_hash": "cd963a7b0e52efb550b77685b165540b",
+    "semantic_hash": "cd963a7b0e52efb550b77685b165540b"
+  },
+  "C:\\Users\\Dell\\Documents\\Vibe-check-enhanced\\public\\tech-news\\roblox-safety.jpg": {
+    "mtime": 1777842158.052502,
+    "ast_hash": "0d460afa1d9455174b7f540b71164e73",
+    "semantic_hash": "0d460afa1d9455174b7f540b71164e73"
+  }
+}
