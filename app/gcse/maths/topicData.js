@@ -28,101 +28,119 @@ const TOPICS = {
 
   // ─── NUMBER ────────────────────────────────────────────────
 
-  'laws-of-indices': {
-    title: 'Laws of Indices',
+  'integers-place-value': {
+    title: 'Integers & Place Value',
     emoji: '🔢',
     color: '#00e5a0',
     category: 'Number',
-    description: 'Simplify expressions using index laws — multiply, divide, and raise powers.',
+    description: 'Understand place value, ordering integers, and applying BIDMAS or operation hierarchies.',
+    examWeight: 3,
+    difficulty: 'low',
+    estimatedMinutes: 8,
+    prerequisites: [],
+    questionTypes: ['mcq', 'numeric', 'ordering'],
     lessons: {
       foundation: [
-        { title: 'Multiplying Powers', visualId: 'math-indices', content: 'When multiplying powers with the same base, add the indices.', formula: 'aᵐ × aⁿ = aᵐ⁺ⁿ', example: '3² × 3⁴ = 3⁶ = 729' },
-        { title: 'Dividing Powers', content: 'When dividing powers with the same base, subtract the indices.', formula: 'aᵐ ÷ aⁿ = aᵐ⁻ⁿ', example: '5⁷ ÷ 5³ = 5⁴ = 625' },
-        { title: 'Power of Zero', content: 'Any number raised to the power of 0 equals 1.', formula: 'a⁰ = 1', example: '7⁰ = 1\n100⁰ = 1', tip: 'This works for ANY non-zero number.' },
-        { title: 'Power of One', content: 'Any number to the power of 1 is just the number itself.', formula: 'a¹ = a', example: '15¹ = 15' },
-        { title: 'Common Mistake', content: 'Index laws ONLY work when the base (the big number) is the same.', tip: 'You cannot simplify 2³ × 5² using index laws!' },
-        { title: 'Base 10 Powers', content: 'Powers of 10 follow a simple pattern: 10ⁿ is 1 followed by n zeros.', example: '10³ = 1000\n10⁶ = 1,000,000', tip: 'Count the zeros to find the power!' },
-        { title: 'Squaring and Cubing', content: 'Index 2 means square (multiply by itself once). Index 3 means cube (multiply by itself twice).', formula: 'x² = x × x, x³ = x × x × x', example: '5³ = 5 × 5 × 5 = 125' }
+        { title: 'Place Value Columns', content: 'Each position in a number represents a power of 10. Columns include Thousands, Hundreds, Tens, Units.', example: 'In 4,521, the 5 stands for 500.', tip: 'Use a place value grid if you find decimals or large numbers tricky.' },
+        { title: 'BIDMAS / Order of Operations', content: 'Always perform calculations in this order: Brackets, Indices, Division/Multiplication (left to right), Addition/Subtraction (left to right).', formula: 'B -> I -> D/M -> A/S', example: '3 + 5 × 2 = 3 + 10 = 13', tip: 'Multiplication does NOT take priority over division; work left to right for those.' }
       ],
       higher: [
-        { title: 'Negative Indices', content: 'A negative index means the reciprocal (1 over) the positive power.', formula: 'a⁻ⁿ = 1/aⁿ', example: '2⁻³ = 1/2³ = 1/8' },
-        { title: 'Fractional Indices (Roots)', content: 'The denominator is the root, the numerator is the power.', formula: 'a^(1/n) = ⁿ√a', example: '9^(1/2) = √9 = 3\n64^(1/3) = ³√64 = 4' },
-        { title: 'Complex Fractional Indices', content: 'Apply the root first (bottom number), then the power (top number).', formula: 'a^(m/n) = (ⁿ√a)ᵐ', example: '27^(2/3) = (³√27)² = 3² = 9' },
-        { title: 'Power of a Power', content: 'When raising a power to another power, multiply the indices.', formula: '(aᵐ)ⁿ = aᵐˣⁿ', example: '(2³)⁴ = 2¹² = 4096' },
-        { title: 'Fractional Bases', content: 'Apply the power to both numerator and denominator.', example: '(2/3)⁻² = (3/2)² = 9/4' },
-        { title: 'Combining Laws', content: 'In complex questions, follow BIDMAS. Apply power-to-power first, then multiply/divide.', example: '(x²)³ × x⁴ = x⁶ × x⁴ = x¹⁰' },
-        { title: 'Base Conversion', content: 'Sometimes you need to change the base to use index laws.', example: '9⁴ = (3²)⁴ = 3⁸', tip: 'Recognise powers of 2, 3, 5, and 10!' }
-      ],
+        { title: 'Complex Order of Operations', content: 'Apply index laws, algebraic groupings, and fractional boundaries within multi-step operation order problems.', example: '[3³ - (5 - 2)] ÷ 6 = [27 - 3] ÷ 6 = 24 ÷ 6 = 4', tip: 'Treat the top and bottom of a large fraction as if they are inside hidden brackets.' }
+      ]
     },
     hacks: [
-      { title: 'The Bracket Trap', content: 'On your calculator, (-3)² = 9 but -3² = -9. If you are substituting a negative number into an index, ALWAYS put it in brackets.' },
-      { title: 'Zero is One', content: 'It sounds counter-intuitive, but any number (except 0) to the power of 0 is 1. x⁰ = 1. If you see a term without a power, its power is actually 1, not 0.' }
+      { title: 'Left-to-Right Tiebreaker', content: 'When only addition/subtraction or multiplication/division remain, work strictly from left to right to prevent errors.' }
     ],
     advanced: [
-      { title: 'The Root Logic', content: 'A fractional index is just another way of writing a root. a^(1/n) is the nth root. The denominator (bottom) of the fraction "roots" the number down, while the numerator (top) "powers" it up.' },
-      { title: 'Exponential Growth', content: 'Indices are the basis of exponential growth. A small change in the index leads to a massive change in the result. This is why indices are used to model things like bacteria growth or viral spread.' }
+      { title: 'Mathematical Proof Foundations', content: 'Use integer properties to demonstrate general arithmetic truths algebraically.' }
     ],
-    generateQuestion: (tier) => {
-      const types = [
-        () => {
-           const b = r(2, 6); const m = r(2, 5); const n = r(2, 5);
-           return makeMCQ(`${b}^${m} × ${b}^${n} = ${b}^?`, `${m + n}`, [`${m * n}`, `${Math.abs(m - n)}`, `${m + n + 1}`], 'Add the powers.', `${b}^${m + n}`);
-        },
-        () => {
-           const b = r(2, 6); const m = r(6, 12); const n = r(2, 5);
-           return makeMCQ(`${b}^${m} ÷ ${b}^${n} = ${b}^?`, `${m - n}`, [`${m / n}`, `${m + n}`, '0'], 'Subtract the powers.', `${b}^${m - n}`);
-        },
-        () => {
-           const b = r(2, 10);
-           return makeMCQ(`Evaluate ${b}⁰`, '1', ['0', `${b}`, `${b * 10}`], 'Anything to the power of 0 is...', '1');
-        },
-        () => {
-           const b = r(2, 4); const m = r(2, 3); const n = r(2, 3);
-           return makeMCQ(`(${b}^${m})^${n} = ${b}^?`, `${m * n}`, [`${m + n}`, `${m ** n}`, '1'], 'Multiply the powers.', `${b}^${m * n}`);
-        }
-      ];
-      return pick(types)();
-    },
-  },
-
-  'prime-factors': {
-    title: 'Prime Factors, HCF & LCM',
-    emoji: '🔍',
-    color: '#ff6b35',
-    category: 'Number',
-    description: 'Break numbers into prime factors and find HCF and LCM.',
-    lessons: {
-      foundation: [
-        { title: 'What Are Prime Factors?', content: 'Prime factors are the prime numbers that multiply together to make a number.', formula: '12 = 2 × 2 × 3 = 2² × 3', example: '30 = 2 × 3 × 5\n60 = 2² × 3 × 5' },
-        { title: 'Factor Trees', content: 'Split the number into factors, then split those until only primes (circles) remain.', tip: 'Multiply all the circled primes to check your answer!' },
-        { title: 'HCF (Highest Common Factor)', content: 'The largest number that divides into both numbers.', example: 'HCF of 12 & 18 is 6.' },
-        { title: 'LCM (Lowest Common Multiple)', content: 'The smallest number in both times tables.', example: 'LCM of 4 & 6 is 12.' },
-        { title: 'Prime Numbers', content: 'A number with exactly two factors: 1 and itself.', example: '2, 3, 5, 7, 11, 13, 17, 19...', tip: '1 is NOT a prime number! 2 is the ONLY even prime.' },
-        { title: 'Checking with Multiplication', content: 'To check your prime factorisation, multiply all the primes together. It should equal the original number.', example: '2² × 3 × 5 = 4 × 3 × 5 = 60 ✓' }
-      ],
-      higher: [
-        { title: 'Venn Diagram Method', visualId: 'math-venn', content: 'Put prime factors in a Venn diagram. HCF is the intersection (center). LCM is the union (everything inside).', example: '12: 2, 2, 3\n18: 2, 3, 3\nMiddle: 2, 3 (HCF=6)\nOuter: 2 & 3 (LCM=2×2×3×3=36)' },
-        { title: 'Product of Primes', content: 'Write any number as a product of its prime factors using index notation.', formula: '360 = 2³ × 3² × 5', example: '360 ÷ 2 = 180... keeps going until 1.' },
-        { title: 'HCF × LCM Rule', content: 'For any two numbers a and b: HCF × LCM = a × b.', formula: 'HCF × LCM = Product of Numbers', example: 'a=6, b=10\nHCF=2, LCM=30\n2 × 30 = 60; 6 × 10 = 60 ✓' },
-        { title: 'Exam Tip', content: 'If asked for HCF of large numbers, always use the Venn Diagram method to avoid missing factors.' },
-        { title: 'HCF of Three Numbers', content: 'Find the prime factors of all three. The HCF is the product of primes shared by ALL three lists.', example: '12, 18, 30: All share a 2 and a 3. HCF = 6.' },
-        { title: 'Problem Solving', content: 'HCF is used for "cutting into equal pieces". LCM is used for "when things happen at the same time again".', tip: 'Look for keywords like "smallest length" (LCM) or "biggest possible" (HCF).' }
-      ],
-    },
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
-          () => { const primes = [2, 3, 5, 7, 11, 13]; const p = pick(primes); const n = p * pick([2, 3, 4, 5, 6]); return { display: `Is ${n} divisible by ${p}?`, answer: n % p === 0 ? 1 : 2, hint: '1 = Yes, 2 = No', explanation: `${n} ÷ ${p} = ${n / p}, so yes it is divisible.` }; },
+          () => {
+            const num = r(1000, 9999);
+            const digits = num.toString().split('');
+            const pos = r(0, 3);
+            const placeNames = ['units', 'tens', 'hundreds', 'thousands'];
+            return { display: `In the number ${num}, what is the value of the digit in the ${placeNames[pos]} column?`, answer: parseInt(digits[3-pos]) * Math.pow(10, pos), hint: `The ${placeNames[pos]} column is 10^${pos}`, explanation: `The digit ${digits[3-pos]} in the ${placeNames[pos]} column represents ${parseInt(digits[3-pos]) * Math.pow(10, pos)}` };
+          },
+          () => {
+            const a = r(2, 9); const b = r(2, 9); const c = r(2, 9);
+            const ans = a + b * c;
+            return { display: `Calculate: ${a} + ${b} × ${c}`, answer: ans, hint: 'BIDMAS: multiply first', explanation: `${b} × ${c} = ${b*c}, then ${a} + ${b*c} = ${ans}` };
+          },
+          () => {
+            const nums = [r(10, 99), r(10, 99), r(10, 99), r(10, 99)];
+            const sorted = [...nums].sort((a,b) => a-b);
+            return { display: `Order from smallest to largest: ${nums.join(', ')}`, answer: sorted.join(', '), answerType: 'text', hint: 'Compare tens then units', explanation: `Sorted: ${sorted.join(', ')}`, type: 'ordering', items: nums };
+          }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => {
+            const a = r(2, 5); const b = r(2, 5); const c = r(2, 5); const d = r(2, 5);
+            const inner = a * a - b;
+            const outer = c * inner + d;
+            return { display: `Evaluate: ${c} × (${a}² − ${b}) + ${d}`, answer: outer, hint: 'Brackets → Indices → Multiply → Add', explanation: `${a}² = ${a*a}, ${a*a} − ${b} = ${inner}, ${c} × ${inner} = ${c*inner}, + ${d} = ${outer}` };
+          },
+          () => {
+            const num = r(2, 9) + r(1,9)/10 + r(1,9)/100;
+            const rounded = Math.round(num * 10) / 10;
+            return { display: `Round ${num} to 1 decimal place`, answer: rounded, hint: 'Look at the hundredths digit', explanation: `${num} → ${rounded} (hundredths digit is ${Math.round((num*100)%10)})` };
+          }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'primes-hcf-lcm': {
+    title: 'Primes, HCF & LCM',
+    emoji: '🌳',
+    color: '#00e5a0',
+    category: 'Number',
+    description: 'Find prime factors, Highest Common Factors (HCF), and Lowest Common Multiples (LCM).',
+    examWeight: 4,
+    difficulty: 'medium',
+    estimatedMinutes: 12,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Prime Factor Decomposition', content: 'Break any number down into a product of prime numbers using a factor tree.', example: '24 = 2 × 2 × 2 × 3 = 2³ × 3', tip: 'Circle the prime numbers at the end of each branch so you do not lose them.' },
+        { title: 'Listing for HCF and LCM', content: 'Find HCF by listing all factors and picking the highest. Find LCM by listing multiples and picking the lowest matching value.', example: 'Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. HCF = 6.', tip: 'Listing works best for smaller numbers; use Venn diagrams for larger ones.' }
+      ],
+      higher: [
+        { title: 'Venn Diagrams for HCF & LCM', content: 'Put common prime factors in the intersection of a Venn Diagram. HCF is the product of the center numbers. LCM is the product of ALL numbers in the circles.', example: '24 = 2³×3, 60 = 2²×3×5. Intersection has 2, 2, 3. HCF = 2×2×3 = 12. LCM = 2×12×5 = 120.', tip: 'Ensure numbers that appear multiple times are represented accurately in power sets.' }
+      ]
+    },
+    hacks: [
+      { title: 'The Product Formula', content: 'For any two numbers A and B: A × B = HCF(A,B) × LCM(A,B). If you know three values, you can find the fourth instantly.' }
+    ],
+    advanced: [
+      { title: 'Cryptographic Primes', content: 'Understand how prime factor limits underpin modern digital security and RSA encryption keys.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => {
+            const primes = [2, 3, 5, 7, 11, 13, 17, 19];
+            const p = pick(primes);
+            const mult = pick([2, 3, 4, 5, 6, 7, 8, 9]);
+            const n = p * mult;
+            return { display: `Which of these is a prime factor of ${n}?`, answer: p, options: [p, mult, p*mult, 1].filter(x => x !== p).slice(0,3), hint: 'Prime factors are prime numbers that divide exactly', explanation: `${n} = ${p} × ${mult}, so ${p} is a prime factor` };
+          },
           () => {
             const pairs = [[12, 18, 6], [8, 12, 4], [15, 20, 5], [24, 36, 12], [14, 21, 7], [16, 24, 8]];
             const [a, b, hcf] = pick(pairs);
-            return { display: `Find the HCF of ${a} and ${b}`, answer: hcf, hint: 'Highest Common Factor', explanation: `Factors of ${a}: ${Array.from({length: a}, (_, i) => i + 1).filter(x => a % x === 0).join(', ')}\nFactors of ${b}: ${Array.from({length: b}, (_, i) => i + 1).filter(x => b % x === 0).join(', ')}\nHCF = ${hcf}` };
+            return { display: `Find the HCF of ${a} and ${b}`, answer: hcf, hint: 'List the factors of both numbers', explanation: `Factors of ${a}: ${Array.from({length: a}, (_, i) => i + 1).filter(x => a % x === 0).join(', ')}\nFactors of ${b}: ${Array.from({length: b}, (_, i) => i + 1).filter(x => b % x === 0).join(', ')}\nHCF = ${hcf}` };
           },
           () => {
             const pairs = [[3, 4, 12], [4, 6, 12], [5, 6, 30], [3, 7, 21], [6, 8, 24], [4, 10, 20]];
             const [a, b, lcm] = pick(pairs);
-            return { display: `Find the LCM of ${a} and ${b}`, answer: lcm, hint: 'Lowest Common Multiple', explanation: `Multiples of ${a}: ${[1,2,3,4,5,6,7,8].map(x=>a*x).join(', ')}\nMultiples of ${b}: ${[1,2,3,4,5,6,7,8].map(x=>b*x).join(', ')}\nLCM = ${lcm}` };
-          },
+            return { display: `Find the LCM of ${a} and ${b}`, answer: lcm, hint: 'List multiples until you find a match', explanation: `Multiples of ${a}: ${[1,2,3,4,5,6,7,8].map(x=>a*x).join(', ')}\nMultiples of ${b}: ${[1,2,3,4,5,6,7,8].map(x=>b*x).join(', ')}\nLCM = ${lcm}` };
+          }
         ];
         return pick(types)();
       } else {
@@ -130,258 +148,354 @@ const TOPICS = {
           () => {
             const pairs = [[24, 36, 12], [30, 45, 15], [48, 60, 12], [36, 84, 12], [42, 56, 14]];
             const [a, b, hcf] = pick(pairs);
-            return { display: `Find the HCF of ${a} and ${b}`, answer: hcf, hint: 'Use prime factorisation', explanation: `HCF(${a}, ${b}) = ${hcf}` };
+            return { display: `Find the HCF of ${a} and ${b} using prime factorisation`, answer: hcf, hint: 'Break into prime factors first', explanation: `HCF(${a}, ${b}) = ${hcf}` };
           },
           () => {
             const pairs = [[12, 18, 36], [15, 20, 60], [8, 14, 56], [9, 12, 36], [10, 15, 30]];
             const [a, b, lcm] = pick(pairs);
-            return { display: `Find the LCM of ${a} and ${b}`, answer: lcm, hint: 'Use prime factorisation', explanation: `LCM(${a}, ${b}) = ${lcm}` };
+            return { display: `Find the LCM of ${a} and ${b} using prime factorisation`, answer: lcm, hint: 'Use Venn diagram or prime factors', explanation: `LCM(${a}, ${b}) = ${lcm}` };
           },
           () => {
             const a = pick([12, 18, 24, 30, 36, 40, 48, 60]);
             const b = pick([8, 10, 14, 15, 20, 21, 25, 28]);
             const h = gcd(a, b);
             return { display: `HCF(${a}, ${b}) = ${h}. Find LCM(${a}, ${b})`, answer: (a * b) / h, hint: 'HCF × LCM = a × b', explanation: `LCM = (${a} × ${b}) ÷ ${h} = ${(a * b) / h}` };
-          },
+          }
         ];
         return pick(types)();
       }
-    },
+    }
   },
 
-  'standard-form': {
-    title: 'Standard Form',
-    emoji: '🔬',
-    color: '#b14aed',
+  'fractions-decimals-percentages': {
+    title: 'Fractions, Decimals & Percentages',
+    emoji: '🍰',
+    color: '#00e5a0',
     category: 'Number',
-    description: 'Write very large and very small numbers using standard form (a × 10ⁿ).',
+    description: 'Convert, compare, and perform four-operation arithmetic across fractions, decimals, and percentages.',
+    examWeight: 5,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'fraction', 'cloze', 'ordering'],
     lessons: {
       foundation: [
-        { title: 'What is Standard Form?', content: 'A number written as a × 10ⁿ, where 1 ≤ a < 10 and n is an integer.', formula: 'a × 10ⁿ  (1 ≤ a < 10)', example: '3500 = 3.5 × 10³\n0.006 = 6 × 10⁻³' },
-        { title: 'Large Numbers', content: 'Count how many places the decimal point moves to the LEFT. This is your positive power.', example: '45000 → 4.5 × 10⁴' },
-        { title: 'Small Numbers', content: 'Count how many places the decimal point moves to the RIGHT. This is your negative power.', example: '0.0032 → 3.2 × 10⁻³', tip: 'Small numbers = negative powers.' },
-        { title: 'The Rule of A', content: 'The leading number MUST be between 1 and 10. 12 × 10³ is NOT in standard form.', tip: 'Always check if your final answer is between 1 and 10!' },
-        { title: 'Comparing Sizes', content: 'First compare the powers of 10. If the powers are the same, compare the leading numbers.', example: '2 × 10⁵ > 9 × 10⁴ because 10⁵ is larger than 10⁴.' }
+        { title: 'Adding & Subtracting Fractions', content: 'Find a common denominator first, adjust the numerators, combine them, and simplify.', formula: 'a/c + b/c = (a+b)/c', example: '1/4 + 2/3 = 3/12 + 8/12 = 11/12', tip: 'Multiplying the two denominators always gives a common denominator, though not always the lowest.' },
+        { title: 'Multiplying & Dividing Fractions', content: 'Multiply straight across for multiplication. For division, flip the second fraction and multiply (Keep-Change-Flip).', formula: '(a/b) ÷ (c/d) = (a/b) × (d/c)', example: '2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6', tip: 'Simplify your fractions before multiplying to keep numbers smaller and easier to handle.' }
       ],
       higher: [
-        { title: 'Multiplication', content: 'Multiply the numbers and add the powers of 10.', formula: '(A × 10ᵃ) × (B × 10ᵇ) = (A×B) × 10ᵃ⁺ᵇ', example: '(3 × 10⁴) × (2 × 10³) = 6 × 10⁷' },
-        { title: 'Division', content: 'Divide the numbers and subtract the powers of 10.', formula: '(A × 10ᵃ) ÷ (B × 10ᵇ) = (A/B) × 10ᵃ⁻ᵇ', example: '(8 × 10⁶) ÷ (2 × 10²) = 4 × 10⁴' },
-        { title: 'Addition & Subtraction', content: 'Convert both numbers to the SAME power of 10 before adding or subtracting.', example: '(3 × 10⁴) + (5 × 10³) = (30 × 10³) + (5 × 10³) = 35 × 10³ = 3.5 × 10⁴' },
-        { title: 'Adjusting the Answer', content: 'If your calculation result isn\'t between 1 and 10, shift the decimal and adjust the power.', example: '20 × 10⁵ = 2 × 10⁶' },
-        { title: 'Negative Powers in Division', content: 'Be careful: subtracting a negative power means ADDING.', example: '10⁵ ÷ 10⁻³ = 10⁸' },
-        { title: 'Standard Form on Calcs', content: 'Use the ×10ˣ or EXP button. Be careful with brackets during division!', tip: 'If your calc says 5.2E04, it means 5.2 × 10⁴.' }
-      ],
+        { title: 'Recurring Decimals to Fractions', content: 'Set x equal to the decimal. Multiply by a power of 10 to shift one full repeating loop, subtract x to clear the recurrence, and solve.', example: 'x = 0.777... → 10x = 7.777... → 9x = 7 → x = 7/9', tip: 'The number of repeating digits tells you whether to multiply by 10, 100, or 1000.' }
+      ]
     },
     hacks: [
-      { title: 'The Range Check', content: 'The number at the front (a) MUST be between 1 and 10. After every calculation, check your answer. If it\'s 45 × 10³, it is WRONG. It must be 4.5 × 10⁴.' },
-      { title: 'Calculator "E"', content: 'If your calculator screen shows "5.2 E 08", this is scientific notation for 5.2 × 10⁸. Don\'t write "E" in your exam; write "× 10".' }
+      { title: 'The Cross-Multiplication Comparison', content: 'To see if a/b or c/d is larger, calculate a×d and b×c. Whichever product is bigger points to the larger fraction.' }
     ],
     advanced: [
-      { title: 'Orders of Magnitude', content: 'Standard form is used to compare "Orders of Magnitude." A difference of 1 in the power of 10 means a 10x difference in size. 10⁸ is not twice as big as 10⁴; it is 10,000 times bigger.' },
-      { title: 'Scientific Precision', content: 'In physics and chemistry, standard form is essential for managing significant figures in extremely large (astronomical) or small (atomic) measurements.' }
+      { title: 'Infinite Geometric Progressions', content: 'See how recurring decimals are actually sums of infinite geometric series where common ratios are fractions of 10.' }
     ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
-          () => { const a = r(1, 9); const p = r(2, 6); const num = a * Math.pow(10, p); return { display: `Write ${num.toLocaleString()} in standard form.\nAnswer as: a × 10^n (e.g. 3.5 × 10^4)`, answer: `${a} × 10^${p}`, answerType: 'text', hint: 'Standard form', explanation: `${num.toLocaleString()} = ${a} × 10^${p}`, placeholder: 'e.g. 3 × 10^5' }; },
-          () => { const a = pick([1.2, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9]); const p = r(2, 5); return { display: `Convert ${a} × 10^${p} to an ordinary number`, answer: a * Math.pow(10, p), hint: 'Expand', explanation: `${a} × 10^${p} = ${a * Math.pow(10, p)}` }; },
-          () => { const p = r(2, 5); const val = r(1, 9); return { display: `What is the power of 10 in:\n${val} × 10^? = ${val * Math.pow(10, p)}`, answer: p, hint: 'Count the zeros', explanation: `${val * Math.pow(10, p)} = ${val} × 10^${p}` }; },
+          () => {
+            const n1 = r(1, 8); const d1 = r(2, 9); const n2 = r(1, 8); const d2 = r(2, 9);
+            const num = n1 * d2 + n2 * d1;
+            const den = d1 * d2;
+            const g = gcd(num, den);
+            return { display: `${n1}/${d1} + ${n2}/${d2} = ?`, answer: `${num/g}/${den/g}`, answerType: 'fraction', hint: 'Find common denominator', explanation: `${n1}/${d1} + ${n2}/${d2} = ${n1*d2}/${d1*d2} + ${n2*d1}/${d1*d2} = ${num}/${den} = ${num/g}/${den/g}` };
+          },
+          () => {
+            const n1 = r(1, 8); const d1 = r(2, 9); const n2 = r(1, 8); const d2 = r(2, 9);
+            const num = n1 * n2;
+            const den = d1 * d2;
+            const g = gcd(num, den);
+            return { display: `${n1}/${d1} × ${n2}/${d2} = ?`, answer: `${num/g}/${den/g}`, answerType: 'fraction', hint: 'Multiply straight across', explanation: `${n1}/${d1} × ${n2}/${d2} = ${num}/${den} = ${num/g}/${den/g}` };
+          },
+          () => {
+            const frac = pick(['1/2', '1/4', '3/4', '1/5', '2/5', '3/5', '4/5', '1/8', '3/8', '5/8', '7/8']);
+            const [n, d] = frac.split('/').map(Number);
+            return { display: `Convert ${frac} to a decimal`, answer: n/d, hint: 'Divide numerator by denominator', explanation: `${n} ÷ ${d} = ${n/d}` };
+          },
+          () => {
+            const p = r(10, 90);
+            return { display: `Convert ${p}% to a fraction in simplest form`, answer: `${p/10}/${10}`, answerType: 'fraction', hint: 'Percentage means out of 100', explanation: `${p}% = ${p}/100 = ${p/10}/10` };
+          }
         ];
         return pick(types)();
       } else {
         const types = [
-          () => { const a1 = r(2, 5); const a2 = r(2, 4); const p1 = r(2, 4); const p2 = r(2, 4); let ra = a1 * a2; let rp = p1 + p2; if (ra >= 10) { rp += 1; ra /= 10; } return { display: `(${a1} × 10^${p1}) × (${a2} × 10^${p2}) = ? × 10^?`, answer: `${ra} × 10^${rp}`, answerType: 'text', hint: 'Multiply & add powers', explanation: `${a1}×${a2} = ${a1*a2}, 10^${p1}×10^${p2} = 10^${p1+p2}\n= ${ra} × 10^${rp}`, placeholder: 'e.g. 6 × 10^7' }; },
-          () => { const a1 = pick([4, 6, 8, 9]); const a2 = pick([2, 3, 4]); const p1 = r(4, 8); const p2 = r(1, 3); const ra = a1 / a2; const rp = p1 - p2; return { display: `(${a1} × 10^${p1}) ÷ (${a2} × 10^${p2})`, answer: `${ra} × 10^${rp}`, answerType: 'text', hint: 'Divide & subtract powers', explanation: `${a1}÷${a2} = ${ra}, 10^${p1}÷10^${p2} = 10^${rp}\n= ${ra} × 10^${rp}`, placeholder: 'e.g. 2 × 10^3' }; },
+          () => {
+            const recurring = pick(['0.3...', '0.6...', '0.1...', '0.09...', '0.12...', '0.123...']);
+            let answer, explanation;
+            if (recurring === '0.3...') { answer = '1/3'; explanation = 'x = 0.333... → 10x = 3.333... → 9x = 3 → x = 1/3'; }
+            else if (recurring === '0.6...') { answer = '2/3'; explanation = 'x = 0.666... → 10x = 6.666... → 9x = 6 → x = 2/3'; }
+            else if (recurring === '0.1...') { answer = '1/9'; explanation = 'x = 0.111... → 10x = 1.111... → 9x = 1 → x = 1/9'; }
+            else if (recurring === '0.09...') { answer = '1/11'; explanation = 'x = 0.0909... → 100x = 9.0909... → 99x = 9 → x = 1/11'; }
+            else if (recurring === '0.12...') { answer = '4/33'; explanation = 'x = 0.1212... → 100x = 12.1212... → 99x = 12 → x = 4/33'; }
+            else { answer = '41/333'; explanation = 'x = 0.123123... → 1000x = 123.123... → 999x = 123 → x = 41/333'; }
+            return { display: `Convert ${recurring} to a fraction in simplest form`, answer, answerType: 'fraction', hint: 'Let x = the decimal, multiply to shift repeat', explanation };
+          },
+          () => {
+            const n1 = r(1, 8); const d1 = r(2, 9); const n2 = r(1, 8); const d2 = r(2, 9);
+            const num = n1 * d2;
+            const den = d1 * n2;
+            const g = gcd(num, den);
+            return { display: `${n1}/${d1} ÷ ${n2}/${d2} = ?`, answer: `${num/g}/${den/g}`, answerType: 'fraction', hint: 'Keep-Change-Flip', explanation: `${n1}/${d1} ÷ ${n2}/${d2} = ${n1}/${d1} × ${d2}/${n2} = ${num}/${den} = ${num/g}/${den/g}` };
+          }
         ];
         return pick(types)();
       }
-    },
-    fractionInput: true,
+    }
   },
 
-  'estimating': {
-    title: 'Estimating',
-    emoji: '🎯',
-    color: '#ff2d78',
+  'indices-standard-form': {
+    title: 'Indices & Standard Form',
+    emoji: '🚀',
+    color: '#00e5a0',
     category: 'Number',
-    description: 'Round numbers to one significant figure and estimate calculations.',
+    description: 'Master index laws, zero, negative, fractional indices, and reading/writing values in standard form.',
+    examWeight: 4,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Decimal Places (d.p.)', content: 'Look at the digit directly after your cut-off. If 5 or more, round the previous digit UP.', example: '3.47 to 1 d.p. → 3.5\n0.124 to 2 d.p. → 0.12' },
-        { title: '1 Significant Figure (s.f.)', content: 'Keep only the first non-zero digit. Zeros at the start don\'t count!', example: '382 → 400\n0.0068 → 0.007' },
-        { title: 'Estimating Calculations', content: 'Round every number to 1 significant figure first, then calculate.', formula: 'Round → Calculate', example: 'Estimate 39 × 5.1\n≈ 40 × 5 = 200' },
-        { title: 'Money Estimates', content: 'Real-world checks: Usually round costs to the nearest whole pound.', tip: 'If you round UP, your estimate will be higher than the real answer.' },
-        { title: 'Significant Figures vs Decimals', content: 's.f. counts from the first non-zero digit. d.p. counts from the decimal point.', example: '0.0053 is 2 s.f. but 4 d.p.' }
+        { title: 'Basic Laws of Indices', content: 'When multiplying, add powers. When dividing, subtract powers. When raising a power to a power, multiply them.', formula: 'x^a × x^b = x^(a+b), x^a ÷ x^b = x^(a-b), (x^a)^b = x^(ab)', example: 'y⁴ × y³ = y⁷', tip: 'These rules only work when the base numbers or variables are identical.' },
+        { title: 'Converting Standard Form', content: 'Write numbers as a value between 1 and 10 multiplied by a power of 10.', formula: 'A × 10^n (where 1 ≤ A < 10)', example: '45,000 = 4.5 × 10⁴; 0.0032 = 3.2 × 10⁻³', tip: 'A positive index means a large number; a negative index means a tiny number closer to zero.' }
       ],
       higher: [
-        { title: 'Rounding in Division', content: 'Round each number to 1 s.f. before dividing.', example: 'Estimate 412 ÷ 19 \n≈ 400 ÷ 20 = 20' },
-        { title: 'Estimating Complex Expressions', content: 'Follow BIDMAS: Brackets, Indices, Division/Multiplication, then Addition/Subtraction.', example: 'Estimate (48.7 × 11.2) ÷ 4.9\n≈ (50 × 10) ÷ 5 = 100' },
-        { title: 'Deciding Accuracy', content: 'If a question specifies "reasonable accuracy", 1 or 2 s.f. is usually target.', tip: 'Always show your rounded numbers so the examiner knows how you estimated!' },
-        { title: 'Upper/Lower Estimates', content: 'To get the MAXIMUM estimate for a fraction, use the Upper Bound for the top and Lower Bound for the bottom.' },
-        { title: 'Reasonableness', content: 'After estimating, ask: "Does this answer make sense?" If you estimated 40 × 5, the answer should be near 200, not 2000.' }
-      ],
+        { title: 'Negative & Fractional Indices', content: 'A negative index means the reciprocal. A fractional index means a root, where the denominator is the root and the numerator is the power.', formula: 'x^(-n) = 1/(x^n), x^(a/b) = b√(x^a)', example: '8^(-2/3) = 1 / (³√8)² = 1 / 2² = 1/4', tip: 'Deal with the root part first to keep numbers smaller before applying the power.' }
+      ]
     },
+    hacks: [
+      { title: 'Power of Zero Rule', content: 'Anything to the power of 0 is always 1. x⁰ = 1, 5⁰ = 1, (123x)⁰ = 1. Do not let big expressions trick you!' }
+    ],
+    advanced: [
+      { title: 'Exponential Equations', content: 'Solve equations where the unknown variable is an index by converting bases to identical prime foundations.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
-          () => { const a = r(2, 9) * 10 + r(1, 9); const b = r(2, 9); const est = Math.round(a / 10) * 10 * b; return { display: `Estimate ${a} × ${b}`, answer: est, hint: 'Round to 1 s.f. first', explanation: `${a} ≈ ${Math.round(a / 10) * 10}\n${Math.round(a / 10) * 10} × ${b} = ${est}` }; },
-          () => { const n = r(1, 9) * 100 + r(1, 9) * 10 + r(1, 9); const rounded = Math.round(n / 100) * 100; return { display: `Round ${n} to 1 significant figure`, answer: rounded, hint: '1 s.f.', explanation: `${n} → ${rounded}` }; },
+          () => {
+            const b = r(2, 6); const m = r(2, 5); const n = r(2, 5);
+            return makeMCQ(`${b}^${m} × ${b}^${n} = ${b}^?`, `${m + n}`, [`${m * n}`, `${Math.abs(m - n)}`, `${m + n + 1}`], 'Add the powers.', `${b}^${m + n}`);
+          },
+          () => {
+            const b = r(2, 6); const m = r(6, 12); const n = r(2, 5);
+            return makeMCQ(`${b}^${m} ÷ ${b}^${n} = ${b}^?`, `${m - n}`, [`${m / n}`, `${m + n}`, '0'], 'Subtract the powers.', `${b}^${m - n}`);
+          },
+          () => {
+            const b = r(2, 10);
+            return makeMCQ(`Evaluate ${b}⁰`, '1', ['0', `${b}`, `${b * 10}`], 'Anything to the power of 0 is...', '1');
+          },
+          () => {
+            const a = r(1, 9); const p = r(2, 6);
+            const num = a * Math.pow(10, p);
+            return { display: `Write ${num.toLocaleString()} in standard form`, answer: `${a} × 10^${p}`, answerType: 'text', hint: 'Move decimal point', explanation: `${num.toLocaleString()} = ${a} × 10^${p}`, placeholder: 'e.g. 3.5 × 10^4' };
+          },
+          () => {
+            const a = pick([1.2, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9]); const p = r(2, 5);
+            return { display: `Convert ${a} × 10^${p} to an ordinary number`, answer: a * Math.pow(10, p), hint: 'Move decimal point right', explanation: `${a} × 10^${p} = ${a * Math.pow(10, p)}` };
+          }
         ];
         return pick(types)();
       } else {
         const types = [
-          () => { const a = r(20, 50) * 10 + r(1, 9); const b = r(2, 9) * 10 + r(1, 9); const ea = Math.round(a / 100) * 100; const eb = Math.round(b / 10) * 10; return { display: `Estimate ${a} ÷ ${b}`, answer: Math.round(ea / eb), hint: 'Round to 1 s.f. first', explanation: `${a} ≈ ${ea}, ${b} ≈ ${eb}\n${ea} ÷ ${eb} = ${Math.round(ea / eb)}` }; },
-          () => { const a = r(3, 9) * 10 + r(1, 9); const b = r(2, 9); const c = r(2, 5); const ea = Math.round(a / 10) * 10; return { display: `Estimate (${a} × ${b}) ÷ ${c}`, answer: Math.round((ea * b) / c), hint: 'Round then calculate', explanation: `${a} ≈ ${ea}\n(${ea} × ${b}) ÷ ${c} = ${Math.round((ea * b) / c)}` }; },
+          () => {
+            const b = r(2, 4); const m = r(2, 3); const n = r(2, 3);
+            return makeMCQ(`(${b}^${m})^${n} = ${b}^?`, `${m * n}`, [`${m + n}`, `${m ** n}`, '1'], 'Multiply the powers.', `${b}^${m * n}`);
+          },
+          () => {
+            const b = r(2, 9); const n = r(2, 4);
+            return makeMCQ(`${b}^(-${n}) = ?`, `1/${b}^${n}`, [`-${b}^${n}`, `1/${b}^${n+1}`, `${b}^${n}`], 'Negative power = reciprocal', `1/${b}^${n}`);
+          },
+          () => {
+            const b = r(2, 5); const p = r(2, 3); const q = r(2, 3);
+            const root = Math.round(Math.pow(b, p/q) * 100) / 100;
+            return makeMCQ(`${b}^(${p}/${q}) = ?`, `${root}`, [`${b}^${p*q}`, `${b}^${p+q}`, `${Math.round(Math.pow(b, q/p)*100)/100}`], 'Denominator = root, numerator = power', `${b}^(${p}/${q}) = ${root}`);
+          },
+          () => {
+            const a1 = r(2, 5); const a2 = r(2, 4); const p1 = r(2, 4); const p2 = r(2, 4);
+            let ra = a1 * a2; let rp = p1 + p2;
+            if (ra >= 10) { rp += 1; ra /= 10; }
+            return { display: `(${a1} × 10^${p1}) × (${a2} × 10^${p2}) = ? × 10^?`, answer: `${ra} × 10^${rp}`, answerType: 'text', hint: 'Multiply numbers, add powers', explanation: `${a1}×${a2}=${a1*a2}, 10^${p1}×10^${p2}=10^${p1+p2} = ${ra} × 10^${rp}`, placeholder: 'e.g. 6 × 10^7' };
+          }
         ];
         return pick(types)();
       }
-    },
+    }
   },
 
-  'error-intervals': {
-    title: 'Error Intervals',
-    emoji: '📏',
-    color: '#00d4ff',
+  'surds': {
+    title: 'Surds & Irrational Numbers',
+    emoji: '🧮',
+    color: '#00e5a0',
     category: 'Number',
-    description: 'Find upper and lower bounds for rounded measurements.',
+    description: 'Simplify surds, expand expressions containing surds, and rationalise denominators.',
+    examWeight: 4,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['primes-hcf-lcm', 'indices-standard-form'],
+    questionTypes: ['mcq', 'numeric', 'fraction', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'What Are Bounds?', content: 'A range where the true value lies. The Lower Bound (LB) is the smallest possible value; the Upper Bound (UB) is the first value that rounds into the next category.', formula: 'LB ≤ x < UB', example: '5.3 cm (to 1 d.p.)\nLB = 5.25, UB = 5.35' },
-        { title: 'Finding LB and UB', content: 'Add and subtract HALF the degree of accuracy.', tip: 'If rounded to nearest 10, accuracy is 10. Half is 5. So +/- 5.' },
-        { title: 'Error Interval Notation', content: 'Always uses a ≤ for the lower bound and a < for the upper bound.', formula: 'LB ≤ x < UB', example: '120 rounded to nearest 10:\n115 ≤ x < 125' },
-        { title: 'Truncation', content: 'Truncating is different from rounding. Truncating to 1 d.p. means simply "cutting off" the extra digits.', example: '5.39 truncated to 1 d.p. is 5.3 (LB=5.3, UB=5.4)' },
-        { title: 'Half-Unit Rule', content: 'The range is always ± half of the rounding unit.', example: 'To nearest 0.1 → ± 0.05\nTo nearest 100 → ± 50' }
+        { title: 'Introduction to Square Roots', content: 'A square root of a number multiplied by itself gives the original number. Perfect squares have integer roots.', formula: '√a × √a = a', example: '√25 = 5', tip: 'Know your square numbers up to 15!' }
       ],
       higher: [
-        { title: 'Bounds in Area', content: 'Max Area = UB_length × UB_width. Min Area = LB_length × LB_width.', example: 'l=5.3, w=3.1 (both 1 d.p.)\nMax = 5.35 × 3.15 = 16.8525' },
-        { title: 'Bounds in Fractions', content: 'To get the MAX result: Max ÷ Min. To get the MIN result: Min ÷ Max.', formula: 'Upper = UB_top / LB_bottom\nLower = LB_top / UB_bottom', tip: 'This is the most common Higher tier exam question on bounds!' },
-        { title: 'Significant Figure Bounds', content: 'If a number is 400 to 1 s.f., the degree of accuracy is 100. Half is 50.', example: 'LB = 350, UB = 450' },
-        { title: 'Complex Calculation Bounds', content: 'Calculate each part separately using its specific bound, then combine using the rules of arithmetic.' },
-        { title: 'Bounds in Subtraction', content: 'To get the MAX difference: UB_first − LB_second. To get the MIN difference: LB_first − UB_second.', tip: 'Think: "Biggest minus Smallest = Maximum gap".' }
-      ],
+        { title: 'Simplifying Surds', content: 'Find the largest perfect square factor of the number under the root and take it outside.', formula: '√(ab) = √a × √b', example: '√18 = √(9×2) = 3√2', tip: 'Always look for 4, 9, 16, 25, or 36 as factors.' },
+        { title: 'Rationalising Denominators', content: 'Multiply the top and bottom of the fraction by the surd on the bottom to remove the root from the denominator.', formula: 'a / √b = (a√b) / b', example: '5 / √3 = 5√3 / 3', tip: 'For denominators like a + √b, multiply by its conjugate a - √b.' }
+      ]
     },
+    hacks: [
+      { title: 'Conjugate Pair Trick', content: 'Multiplying (a + √b)(a - √b) always results in an integer: a² - b. Eliminates the middle surd term completely.' }
+    ],
+    advanced: [
+      { title: 'Algebraic Surds', content: 'Simplify expressions where variables are under roots using identical laws of indices and surds.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const squares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+        const n = pick(squares);
+        return { display: `√${n} = ?`, answer: Math.sqrt(n), hint: 'What number squared gives this?', explanation: `√${n} = ${Math.sqrt(n)} because ${Math.sqrt(n)}² = ${n}` };
+      } else {
+        const types = [
+          () => {
+            const squareFactors = [4, 9, 16, 25, 36];
+            const factor = pick(squareFactors);
+            const other = pick([2, 3, 5, 6, 7, 10, 11, 13, 14, 15, 17, 19]);
+            const n = factor * other;
+            const root = Math.sqrt(factor);
+            return { display: `Simplify √${n}`, answer: `${root}√${other}`, answerType: 'text', hint: 'Find largest square factor', explanation: `√${n} = √(${factor} × ${other}) = √${factor} × √${other} = ${root}√${other}`, placeholder: 'e.g. 3√2' };
+          },
+          () => {
+            const a = r(1, 9); const b = r(2, 9);
+            return { display: `Rationalise: ${a} / √${b}`, answer: `${a}√${b} / ${b}`, answerType: 'text', hint: 'Multiply top and bottom by √b', explanation: `${a}/√${b} = ${a}√${b}/${b}`, placeholder: 'e.g. 5√3/3' };
+          },
+          () => {
+            const a = r(1, 5); const b = r(2, 7);
+            const num = a * a - b;
+            return { display: `Simplify (${a} + √${b})(${a} - √${b})`, answer: num, hint: 'Difference of two squares', explanation: `(${a}+√${b})(${a}-√${b}) = ${a}² - ${b} = ${a*a} - ${b} = ${num}` };
+          }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'bounds-error-intervals': {
+    title: 'Bounds & Error Intervals',
+    emoji: '📏',
+    color: '#00e5a0',
+    category: 'Number',
+    description: 'Calculate upper and lower bounds for rounded values and express structural error intervals.',
+    examWeight: 3,
+    difficulty: 'medium',
+    estimatedMinutes: 12,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Finding Single Bounds', content: 'To find upper and lower bounds, find half of the unit the value was rounded to, then add it for the upper bound and subtract it for the lower bound.', example: 'Mass = 70kg to the nearest 10kg. Half unit = 5kg. LB = 65kg, UB = 75kg.', tip: 'The upper bound is the limit the value cannot quite reach, written using inequalities like x < 75.' }
+      ],
+      higher: [
+        { title: 'Calculations with Bounds', content: 'For maximum combined values: add UB+UB, multiply UB×UB, or divide UB÷LB. For minimum combined values: subtract LB-UB, or divide LB÷UB.', example: 'Speed = Distance ÷ Time. Max Speed = Max Distance ÷ Min Time.', tip: 'Always substitute the individual bounds into your formula before doing the arithmetic.' }
+      ]
+    },
+    hacks: [
+      { title: 'Division Bound Rule', content: 'To get the biggest value from a division, use the biggest numerator possible divided by the smallest denominator possible.' }
+    ],
+    advanced: [
+      { title: 'Truncation vs Rounding Error Intervals', content: 'Contrast inequalities generated by standard decimal rounding rules against those built from absolute floor truncation systems.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
           () => { const v = r(10, 90) * 10; return { display: `${v} is rounded to the nearest 10.\nWhat is the lower bound?`, answer: v - 5, hint: 'Subtract half the unit', explanation: `Lower bound = ${v} − 5 = ${v - 5}` }; },
           () => { const v = r(10, 90) * 10; return { display: `${v} is rounded to the nearest 10.\nWhat is the upper bound?`, answer: v + 5, hint: 'Add half the unit', explanation: `Upper bound = ${v} + 5 = ${v + 5}` }; },
-          () => { const w = r(1, 9); const d = r(1, 9); const v = w + d / 10; return { display: `${v} is rounded to 1 d.p.\nWhat is the lower bound?`, answer: v - 0.05, hint: 'Subtract 0.05', explanation: `LB = ${v} − 0.05 = ${v - 0.05}` }; },
+          () => { const w = r(1, 9); const d = r(1, 9); const v = w + d / 10; return { display: `${v} is rounded to 1 d.p.\nWhat is the lower bound?`, answer: v - 0.05, hint: 'Subtract 0.05', explanation: `LB = ${v} − 0.05 = ${v - 0.05}` }; }
         ];
         return pick(types)();
       } else {
         const types = [
           () => { const v = r(10, 50) * 100; return { display: `${v} is rounded to the nearest 100.\nWrite the error interval.`, answer: `${v - 50} ≤ x < ${v + 50}`, answerType: 'text', hint: 'LB ≤ x < UB', explanation: `${v - 50} ≤ x < ${v + 50}`, placeholder: 'e.g. 150 ≤ x < 250' }; },
-          () => { const l = r(3, 9) + r(1, 9) / 10; const w = r(2, 7) + r(1, 9) / 10; const maxA = ((l + 0.05) * (w + 0.05)); return { display: `l = ${l} cm, w = ${w} cm (1 d.p.)\nFind the maximum area (2 d.p.)`, answer: Math.round(maxA * 100) / 100, hint: 'Use upper bounds for both', explanation: `Max l = ${l + 0.05}, Max w = ${w + 0.05}\nArea = ${Math.round(maxA * 100) / 100}` }; },
+          () => { const l = r(3, 9) + r(1, 9) / 10; const w = r(2, 7) + r(1, 9) / 10; const maxA = ((l + 0.05) * (w + 0.05)); return { display: `l = ${l} cm, w = ${w} cm (1 d.p.)\nFind the maximum area (2 d.p.)`, answer: Math.round(maxA * 100) / 100, hint: 'Use upper bounds for both', explanation: `Max l = ${l + 0.05}, Max w = ${w + 0.05}\nArea = ${Math.round(maxA * 100) / 100}` }; }
         ];
         return pick(types)();
       }
-    },
-    fractionInput: true,
+    }
   },
-
-  'product-rule-counting': {
-    title: 'Product Rule for Counting',
-    emoji: '🔢',
-    color: '#ffe600',
-    category: 'Number',
-    description: 'Calculate the number of possible outcomes using the product rule.',
-    lessons: {
-      foundation: [
-        { title: 'The Product Rule', content: 'If there are m ways to do one thing and n ways to do another, the total number of outcomes is m × n.', formula: 'Total = m × n', example: '3 shirts and 4 trousers:\nTotal outfits = 3 × 4 = 12' },
-        { title: 'Multiple Choices', content: 'Extend the rule: just keep multiplying for each additional choice.', example: '3 starters, 5 mains, 4 desserts:\nTotal meals = 3 × 5 × 4 = 60' },
-        { title: 'Making Lists', content: 'You can check your answer by listing pairs (e.g., S1T1, S1T2...), but the product rule is much faster.', tip: 'Good for small sets!' },
-        { title: 'Tree Diagrams', content: 'Each branch represents a choice. Total outcomes = total branches at the end.' }
-      ],
-      higher: [
-        { title: 'Codes and Passwords', content: 'Each position in a code has a number of choices. Multiply them all.', example: '4-digit PIN (digits 0-9):\n10 × 10 × 10 × 10 = 10,000' },
-        { title: 'Without Repetition', content: 'If items cannot be reused, the choices reduce by 1 each time.', example: '3-letter code from 26 letters (no repeats):\n26 × 25 × 24 = 15,600' },
-        { title: 'Arranging Items', content: 'The number of ways to arrange n distinct items is n!', formula: 'n! = n × (n-1) × ... × 1', example: 'Ways to arrange 5 books = 5 × 4 × 3 × 2 × 1 = 120' },
-        { title: 'Fixed Positions', content: 'If some choices are fixed (e.g. "code must start with A"), that position only has 1 choice.', example: '4-letter code starting with A: 1 × 26 × 26 × 26' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        return (() => { const a = r(2, 8); const b = r(2, 8); const items = [['shirts', 'trousers'], ['starters', 'mains'], ['hats', 'scarves']]; const [i1, i2] = pick(items); return { display: `${a} ${i1} and ${b} ${i2}.\nHow many combinations?`, answer: a * b, hint: 'Product rule', explanation: `${a} × ${b} = ${a * b}` }; })();
-      } else {
-        const types = [
-          () => { const d = r(3, 5); return { display: `A ${d}-digit PIN using digits 0-9.\nHow many possible PINs?`, answer: Math.pow(10, d), hint: 'Each digit has 10 choices', explanation: `${'10 × '.repeat(d - 1)}10 = ${Math.pow(10, d).toLocaleString()}` }; },
-          () => { const n = r(3, 5); const letters = 26; let ans = 1; const parts = []; for (let i = 0; i < n; i++) { ans *= (letters - i); parts.push(letters - i); } return { display: `A ${n}-letter code from A–Z, no repeats.\nHow many possible codes?`, answer: ans, hint: 'Decreasing choices', explanation: `${parts.join(' × ')} = ${ans.toLocaleString()}` }; },
-        ];
-        return pick(types)();
-      }
-    },
-  },
-
-  // ─── ALGEBRA ───────────────────────────────────────────────
 
   'expanding-simplifying': {
     title: 'Expanding & Simplifying',
-    emoji: '📖',
+    emoji: '🎒',
     color: '#00e5a0',
     category: 'Algebra',
-    description: 'Expand brackets and collect like terms.',
+    description: 'Collect like terms, multiply single or double brackets, and simplify algebraic terms.',
+    examWeight: 5,
+    difficulty: 'low',
+    estimatedMinutes: 10,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Expanding Single Brackets', content: 'Multiply the term outside by EVERYTHING inside.', formula: 'a(b + c) = ab + ac', example: '3(x + 4) = 3x + 12\n-2(5y - 3) = -10y + 6' },
-        { title: 'Collecting Like Terms', content: 'Combine parts with identical letters and powers.', example: '3x + 2y + 5x - y = 8x + y' },
-        { title: 'Negative Terms', content: 'Be extremely careful with negatives when expanding.', tip: 'A negative outside times a negative inside becomes POSITIVE.' },
-        { title: 'Multi-term Brackets', content: 'The rule is the same regardless of how many terms are inside.', example: '5(x + y - z) = 5x + 5y - 5z' },
-        { title: 'Algebraic Terms Outside', content: 'When a variable is outside, remember x × x = x².', example: 'x(x + 3) = x² + 3x' }
+        { title: 'Collecting Like Terms', content: 'You can only add or subtract terms with identical variables and powers.', example: '3x + 4y - x + 2y = 2x + 6y', tip: 'Circle or underline like terms along with the operational sign right in front of them.' },
+        { title: 'Single Bracket Expansion', content: 'Multiply the term on the outside of the bracket by every single term inside the bracket.', formula: 'a(b + c) = ab + ac', example: '4(2x - 3) = 8x - 12', tip: 'Be extremely careful when multiplying by a negative term outside brackets.' }
       ],
       higher: [
-        { title: 'Double Brackets (FOIL)', content: 'First, Outer, Inner, Last.', formula: '(a+b)(c+d) = ac + ad + bc + bd', example: '(x + 3)(x + 5) = x² + 8x + 15' },
-        { title: 'Triple Brackets', content: 'Expand two brackets first, then multiply the result by the third.', tip: 'Do it in steps to avoid losing terms!' },
-        { title: 'Difference of Two Squares (DOTS)', content: 'Middle terms cancel out. Always gives x² - n².', formula: '(x+a)(x-a) = x² - a²', example: '(x+5)(x-5) = x² - 25' },
-        { title: 'Squaring a Bracket', content: 'It means multiplying it by itself. (x+3)² is NOT x²+9.', formula: '(a+b)² = a² + 2ab + b²', example: '(x+3)² = (x+3)(x+3) = x² + 6x + 9' },
-        { title: 'Negative Coefficients', content: 'Be careful with (x−3)². It expands to x² − 6x + 9.', tip: 'The constant term is always positive when squaring a real bracket!' }
-      ],
+        { title: 'Triple Bracket Expansion', content: 'Expand two brackets first, simplify that result completely, and then multiply that new trinomial expression by the third remaining bracket.', example: '(x+1)(x+2)(x+3) = (x²+3x+2)(x+3) = x³ + 6x² + 11x + 6', tip: 'Keep your work clean and organized in rows to avoid missing cross-product terms.' }
+      ]
     },
     hacks: [
-      { title: 'Double Bracket Danger', content: '(x + 3)² is NOT x² + 9. It is (x + 3)(x + 3), which expands to x² + 6x + 9. Never forget the middle term!' },
-      { title: 'Negative Expansion', content: 'When expanding -2(x - 5), remember that "minus times a minus is a plus." The result is -2x + 10.' }
+      { title: 'FOIL Method for Double Brackets', content: 'Remember First, Outer, Inner, Last when expanding two brackets to ensure you check all four multiplication steps.' }
     ],
     advanced: [
-      { title: 'The Area Model', content: 'Expanding brackets is just finding the area of a rectangle. (x + 3)(x + 5) can be visualized as a rectangle with sides of length (x+3) and (x+5). The four terms you get from FOIL are the areas of the four smaller rectangles inside.' },
-      { title: 'Pascal’s Triangle', content: 'For higher powers like (x + y)³, the coefficients (the numbers in front of the terms) follow the patterns in Pascal’s Triangle. This is the foundation of Binomial Expansion.' }
+      { title: 'Binomial Theorem Basics', content: 'Spot simple expansion coefficient patterns using combinations from Pascal\'s Triangle for higher powers.' }
     ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const types = [
           () => { const a = r(2, 6); const b = r(1, 10); const c = r(1, 10); return { display: `Expand: ${a}(${b}x + ${c})\nWhat is the coefficient of x?`, answer: a * b, hint: 'Multiply through', explanation: `${a} × ${b}x = ${a * b}x` }; },
           () => { const a = r(2, 8); const b = r(1, 10); return { display: `Expand: ${a}(x + ${b})\nWhat is the constant term?`, answer: a * b, hint: 'Multiply the constant', explanation: `${a} × ${b} = ${a * b}` }; },
-          () => { const a = r(2, 8); const b = r(1, 6); const c = r(1, 8); const d = r(1, 4); return { display: `Simplify: ${a}x + ${b} + ${c}x − ${d}`, answer: a + c, hint: 'Collect x terms', explanation: `${a}x + ${c}x = ${a + c}x\n${b} − ${d} = ${b - d}\nAnswer: ${a + c}x + ${b - d}` }; },
+          () => { const a = r(2, 8); const b = r(1, 6); const c = r(1, 8); const d = r(1, 4); return { display: `Simplify: ${a}x + ${b} + ${c}x − ${d}`, answer: `${a + c}x + ${b - d}`, answerType: 'text', hint: 'Collect x terms', explanation: `${a}x + ${c}x = ${a + c}x\n${b} − ${d} = ${b - d}\nAnswer: ${a + c}x + ${b - d}` }; }
         ];
         return pick(types)();
       } else {
         const types = [
           () => { const a = r(1, 6); const b = r(1, 6); return { display: `Expand (x + ${a})(x + ${b})\nWhat is the coefficient of x?`, answer: a + b, hint: 'FOIL — add inner and outer', explanation: `Outer: ${b}x, Inner: ${a}x\nTotal: ${a + b}x` }; },
           () => { const a = r(1, 6); const b = r(1, 6); return { display: `Expand (x + ${a})(x + ${b})\nWhat is the constant term?`, answer: a * b, hint: 'Last terms multiply', explanation: `${a} × ${b} = ${a * b}` }; },
-          () => { const a = r(2, 8); return { display: `Expand (x + ${a})(x − ${a})\nWhat is the constant?`, answer: -(a * a), hint: 'Difference of two squares', explanation: `(x+${a})(x−${a}) = x² − ${a}² = x² − ${a * a}` }; },
+          () => { const a = r(2, 8); return { display: `Expand (x + ${a})(x − ${a})\nWhat is the constant?`, answer: -(a * a), hint: 'Difference of two squares', explanation: `(x+${a})(x−${a}) = x² − ${a}² = x² − ${a * a}` }; }
         ];
         return pick(types)();
       }
-    },
+    }
   },
 
   'factorising': {
-    title: 'Factorising',
-    emoji: '🧩',
-    color: '#00d4ff',
+    title: 'Factorising Expressions',
+    emoji: '🗝️',
+    color: '#00e5a0',
     category: 'Algebra',
-    description: 'Factorise expressions by finding common factors or using quadratic methods.',
+    description: 'Extract common factors, factorise simple and complex quadratics, and recognize the difference of two squares.',
+    examWeight: 6,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['expanding-simplifying'],
+    questionTypes: ['mcq', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Common Factor', content: 'Find the highest common factor of all terms and put it outside a bracket.', formula: 'ab + ac = a(b + c)', example: '6x + 12 = 6(x + 2)\n4x² + 8x = 4x(x + 2)' },
-        { title: 'Fully Factorise', content: 'Examiners want the HIGHEST common factor. 2(2x+4) is factorised, but 4(x+2) is FULLY factorised.', tip: 'Always check if the terms inside the bracket still have a common factor.' },
-        { title: 'Checking with Expansion', content: 'You can check your factorisation by multiplying the brackets out again.', tip: 'If you don\'t get your original expression, something went wrong!' },
-        { title: 'Letters as Factors', content: 'Sometimes the common factor is a letter or both a number and a letter.', example: '5x² - 10x = 5x(x - 2)' }
+        { title: 'Common Factor Extraction', content: 'Find the Highest Common Factor of numbers and letters, and pull it outside a single set of brackets.', example: '6x² + 9x = 3x(2x + 3)', tip: 'Check your answer by expanding it back out; it should match the original question.' },
+        { title: 'Basic Quadratic Factorising', content: 'For quadratics like x² + bx + c, find two numbers that multiply to c and add to b to place inside two sets of brackets.', formula: 'x² + (p+q)x + pq = (x+p)(x+q)', example: 'x² + 5x + 6 = (x+2)(x+3)', tip: 'If c is negative, your two bracket numbers must have opposite signs.' }
       ],
       higher: [
-        { title: 'Factorising Quadratics', content: 'Find two numbers that multiply to give c and add to give b in x² + bx + c.', formula: 'x² + bx + c = (x + p)(x + q)\nwhere p × q = c and p + q = b', example: 'x² + 7x + 12\nNumbers: 3 and 4 (3×4=12, 3+4=7)\n= (x + 3)(x + 4)' },
-        { title: 'Difference of Two Squares', content: 'If the expression is a² − b², it factorises to (a+b)(a−b).', formula: 'a² − b² = (a + b)(a − b)', example: 'x² − 25 = (x + 5)(x − 5)\n4x² − 9 = (2x + 3)(2x − 3)' },
-        { title: 'Quadratics with a > 1', content: 'For ax² + bx + c where a > 1, use the "split the middle" method or trial and improvement.', example: '2x² + 5x + 3 = (2x + 3)(x + 1)' }
-      ],
+        { title: 'Complex Quadratic Factorising', content: 'When a > 1 in ax² + bx + c, split the middle term bx using factors of (a × c) to complete factorisation by grouping.', example: '2x² + 5x + 2 = 2x² + 4x + x + 2 = 2x(x+2) + 1(x+2) = (2x+1)(x+2)', tip: 'Always verify if there is an overall common numerical factor you can pull out first to simplify things.' }
+      ]
     },
+    hacks: [
+      { title: 'Difference of Two Squares (DOTS)', content: 'Whenever you see two perfect squares subtracted with no middle term, it factorises instantly into matching brackets with opposite signs: x² - a² = (x-a)(x+a).' }
+    ],
+    advanced: [
+      { title: 'Factorising Higher Degree Polynomials', content: 'Apply algebraic remainder concepts to isolate matching terms out of advanced multi-variable expressions.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const a = r(2, 8); const b = r(1, 10); const c = r(1, 10);
@@ -389,1308 +503,907 @@ const TOPICS = {
       } else {
         const types = [
           () => { const p = r(1, 8); const q = r(1, 8); return { display: `Factorise: x² + ${p + q}x + ${p * q}\nWhat is the smaller bracket number?`, answer: Math.min(p, q), hint: 'Two numbers multiply to give c, add to give b', explanation: `${Math.min(p, q)} × ${Math.max(p, q)} = ${p * q}\n${Math.min(p, q)} + ${Math.max(p, q)} = ${p + q}\n= (x + ${Math.min(p, q)})(x + ${Math.max(p, q)})` }; },
-          () => { const a = r(2, 9); return { display: `Factorise: x² − ${a * a}`, answer: a, hint: 'Difference of two squares — what is the value that squares to give the constant?', explanation: `x² − ${a * a} = (x + ${a})(x − ${a})` }; },
+          () => { const a = r(2, 9); return { display: `Factorise: x² − ${a * a}`, answer: a, hint: 'Difference of two squares — what is the value that squares to give the constant?', explanation: `x² − ${a * a} = (x + ${a})(x − ${a})` }; }
         ];
         return pick(types)();
       }
-    },
+    }
   },
 
-  'substitution': {
-    title: 'Substitution',
-    emoji: '🔄',
-    color: '#ff6b35',
-    category: 'Algebra',
-    description: 'Substitute values into algebraic expressions and formulae.',
-    lessons: {
-      foundation: [
-        { title: 'Basic Substitution', content: 'Replace the letter with the number, then calculate.', example: 'If a = 3, find 2a + 5\n= 2(3) + 5 = 11' },
-        { title: 'Negative Numbers', content: 'Use brackets when substituting negatives to keep the sign safe.', example: 'If x = -2, 3x becomes 3(-2) = -6' },
-        { title: 'Squared Values', content: 'Square the value before multiplying by other coefficients.', tip: 'Calculate powers before addition/subtraction!' },
-        { title: 'Using Brackets', content: 'On a calculator, always put your substituted number in brackets.', example: 'If x = -2, type (-2)² not -2².' }
-      ],
-      higher: [
-        { title: 'With Negative Square Powers', content: 'Squaring a negative always gives a POSITIVE result.', example: 'If x = -2, x² = (-2)² = 4', tip: 'Common error alert: -2² is -4 on many calcs, but (-2)² is 4!' },
-        { title: 'Kinematics Formulae', content: 'Substitute values into physics-style equations like v = u + at.', example: 'u=5, a=2, t=3:\nv = 5 + (2×3) = 11' },
-        { title: 'Subject of the Formula', content: 'Sometimes you must substitute, THEN solve for a different variable.', example: 'y = 2x + 1. If y=9, what is x?\n9 = 2x + 1 → 2x = 8 → x = 4' },
-        { title: 'Fractional Substitution', content: 'Carefully calculate the numerator and denominator separately before dividing.' },
-        { title: 'Rearranging First', content: 'Sometimes it is easier to simplify or rearrange an expression before substituting the values in.', tip: 'Always check if you can simplify first!' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const types = [
-          () => { const a = r(2, 6); const x = r(1, 8); const b = r(1, 10); return { display: `If x = ${x}, find ${a}x + ${b}`, answer: a * x + b, hint: 'Replace x', explanation: `${a}(${x}) + ${b} = ${a * x} + ${b} = ${a * x + b}` }; },
-          () => { const x = r(2, 6); const y = r(1, 5); const a = r(2, 5); return { display: `If x = ${x}, y = ${y}\nFind ${a}x + y`, answer: a * x + y, hint: 'Replace both', explanation: `${a}(${x}) + ${y} = ${a * x + y}` }; },
-        ];
-        return pick(types)();
-      } else {
-        const types = [
-          () => { const x = r(2, 6); const a = r(1, 4); return { display: `If x = ${x}, find x² + ${a}x`, answer: x * x + a * x, hint: 'Square first', explanation: `${x}² + ${a}(${x}) = ${x * x} + ${a * x} = ${x * x + a * x}` }; },
-          () => { const x = -r(2, 5); const a = r(2, 4); return { display: `If x = ${x}, find x² − ${a}x`, answer: x * x - a * x, hint: 'Careful with negatives', explanation: `(${x})² − ${a}(${x}) = ${x * x} − (${a * x}) = ${x * x - a * x}` }; },
-        ];
-        return pick(types)();
-      }
-    },
-  },
-
-  'setting-up-equations': {
-    title: 'Setting Up & Solving Equations',
+  'linear-equations': {
+    title: 'Linear Equations',
     emoji: '⚖️',
-    color: '#00ff94',
+    color: '#00e5a0',
     category: 'Algebra',
-    description: 'Form equations from word problems and solve them.',
+    description: 'Solve linear equations with unknowns on one or both sides, including fractional configurations.',
+    examWeight: 5,
+    difficulty: 'low',
+    estimatedMinutes: 12,
+    prerequisites: ['expanding-simplifying'],
+    questionTypes: ['numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Forming Equations', content: 'Translate words into algebra: "a number" = x, "three more" = + 3, "twice" = 2x.', example: '"I think of a number, double it and add 5. The answer is 17."\n2x + 5 = 17' },
-        { title: 'Solving (2 Steps)', content: 'Use inverse operations to find x. Do the addition/subtraction first!', example: '2x + 5 = 17\n2x = 12\nx = 6' },
-        { title: 'Variable on Both Sides', content: 'Collect all x terms on one side (the side with more x) and numbers on the other.', example: '5x + 3 = 2x + 12\n3x + 3 = 12\n3x = 9 → x = 3' },
-        { title: 'Equations with Brackets', content: 'Expand the brackets first, then solve as normal.', example: '3(x + 4) = 18\n3x + 12 = 18\n3x = 6 → x = 2' },
-        { title: 'Balancing Method', content: 'Whatever you do to one side, you MUST do to the other side to keep it equal.', tip: 'Think of a pair of scales.' }
+        { title: 'Unknowns on One Side', content: 'Isolate the variable by doing inverse operations to both sides of the equation.', example: '3x - 4 = 11 -> 3x = 15 -> x = 5', tip: 'Always work backward against standard arithmetic operation priority.' },
+        { title: 'Unknowns on Both Sides', content: 'Move all terms with variables to one side and numbers to the other, ideally moving the smaller coefficient.', example: '5x + 2 = 2x + 14 -> 3x + 2 = 14 -> 3x = 12 -> x = 4', tip: 'Subtracting the smaller variable term keeps your coefficients positive, avoiding minus sign slips.' }
       ],
       higher: [
-        { title: 'Equations from Shapes', content: 'Use properties like "angles in a triangle = 180°" to form equations.', example: 'Angles: x, 2x, 3x\nx + 2x + 3x = 180\n6x = 180\nx = 30' },
-        { title: 'Equations with Fractions', content: 'Multiply through by the common denominator to clear all fractions.', example: 'x/3 + x/2 = 10\nMultiply by 6: 2x + 3x = 60\n5x = 60 → x = 12' },
-        { title: 'Solving Quadratics by Factorising', content: 'Set the equation to zero, factorise, then find the x values that make each bracket zero.', formula: '(x+p)(x+q) = 0 → x = -p or x = -q', example: 'x² - 5x + 6 = 0\n(x-2)(x-3) = 0 → x=2 or x=3' },
-        { title: 'The Quadratic Formula', content: 'Used when you can\'t factorise. Always round to given accuracy.', formula: 'x = [-b ± √(b² - 4ac)] / 2a', tip: 'Be careful with the -b if b is already negative!' },
-        { title: 'Iterative Methods', content: 'Use a formula repeatedly to find increasingly accurate approximations for a root.', tip: 'Often used with a calculator ANS button.' }
-      ],
+        { title: 'Complex Fractional Linear Equations', content: 'Clear denominators completely by multiplying every term by the Lowest Common Multiple of all the denominators.', example: '(x/2) + ((x-1)/3) = 4 -> 3x + 2(x-1) = 24 -> 5x - 2 = 24 -> 5x = 26 -> x = 5.2', tip: 'Be sure to multiply single stand-alone constants by the LCM as well.' }
+      ]
     },
+    hacks: [
+      { title: 'The Equal Balance Rule', content: 'Treat the equals sign like a balance scale. Whatever operation you apply to one side, you must apply to the other side to keep it true.' }
+    ],
+    advanced: [
+      { title: 'Matrix Representations', content: 'Explore how multi-variable linear arrays map to transformation matrices used widely across computer physics software.' }
+    ],
     generateQuestion: (tier) => {
       if (tier === 'foundation') {
         const x = r(2, 12); const a = r(2, 6); const b = r(1, 10); const c = a * x + b;
         return { display: `Solve: ${a}x + ${b} = ${c}`, answer: x, hint: 'Inverse operations', explanation: `${a}x = ${c} − ${b} = ${c - b}\nx = ${c - b} ÷ ${a} = ${x}` };
       } else {
-        const types = [
-          () => { const x = r(10, 50); const a = r(1, 3); const b = r(1, 4); return { display: `Triangle angles: ${a}x°, ${b}x°, ${(6 - a - b)}x°\nFind x`, answer: Math.round(180 / 6) === x ? x : (() => { const sum = a + b + (6 - a - b); return Math.round(180 / sum); })(), hint: 'Angles add to 180°', explanation: `${a}x + ${b}x + ${6 - a - b}x = 180\n6x = 180\nx = 30` }; },
-          () => { const x = r(2, 10); const d = r(2, 5); const b = r(1, 8); const c = x / d + b; return { display: `Solve: x/${d} + ${b} = ${c}`, answer: x, hint: 'Clear the fraction', explanation: `x/${d} = ${c - b}\nx = ${d} × ${c - b} = ${x}` }; },
-        ];
-        // Simpler fallback
-        const x2 = r(2, 15); const a2 = r(2, 6); const b2 = r(1, 15); const c2 = a2 * x2 - b2;
-        return { display: `Solve: ${a2}x − ${b2} = ${c2}`, answer: x2, hint: 'Add, then divide', explanation: `${a2}x = ${c2} + ${b2} = ${c2 + b2}\nx = ${(c2 + b2)} ÷ ${a2} = ${x2}` };
+        const x = r(2, 10); const d = r(2, 5); const b = r(1, 8); const c = x / d + b;
+        return { display: `Solve: x/${d} + ${b} = ${c}`, answer: x, hint: 'Clear the fraction first', explanation: `x/${d} = ${c - b}\nx = ${d} × ${c - b} = ${x}` };
       }
-    },
+    }
   },
 
-  'straight-line-graphs': {
-    title: 'Straight Line Graphs',
-    emoji: '📈',
-    color: '#b14aed',
-    category: 'Algebra',
-    description: 'Work with y = mx + c — find gradients, intercepts, and equations.',
-    lessons: {
-      foundation: [
-        { title: 'y = mx + c', visualId: 'math-gradients', content: 'm is the gradient (steepness) and c is the y-intercept (where the line crosses the y-axis).', formula: 'y = mx + c', example: 'y = 3x + 2\nGradient = 3, y-intercept = 2' },
-        { title: 'Finding the Gradient', content: 'Gradient = rise ÷ run = change in y ÷ change in x.', formula: 'm = (y₂ − y₁) / (x₂ − x₁)', example: 'Points (1, 3) and (3, 7):\nm = (7−3)/(3−1) = 4/2 = 2' },
-        { title: 'Drawing from a Table', content: 'Substitute x values into the equation to find y values, then plot the points.', tip: 'Always pick simple x values like -1, 0, 1, 2.' },
-        { title: 'x = a and y = b', content: 'x = a is a VERTICAL line through a. y = b is a HORIZONTAL line through b.', example: 'x = 3 is a vertical line.' },
-        { title: 'Intercepts', content: 'x-intercept is where y=0. y-intercept is where x=0.' }
-      ],
-      higher: [
-        { title: 'Finding the Equation', content: 'If you know the gradient and a point, substitute into y = mx + c to find c.', example: 'Gradient 2, passes through (3, 8):\n8 = 2(3) + c\nc = 2\ny = 2x + 2' },
-        { title: 'Parallel Lines', content: 'Lines are parallel if they have the SAME gradient.', example: 'y = 2x + 5 and y = 2x - 3 are parallel.' },
-        { title: 'Perpendicular Lines', content: 'Parallel lines have gradients that multiply to −1. (Negative reciprocal).', formula: 'm₁ × m₂ = −1', example: 'Line: y = 3x + 1\nPerpendicular: m = −1/3' },
-        { title: 'Real World Graphs', content: 'The gradient represents the rate of change (e.g. speed on a distance-time graph).', tip: 'Check the units on the axes!' },
-        { title: 'Midpoints & Lengths', content: 'Find the midpoint between two points by averaging the x and y coordinates.', formula: 'Midpoint = [(x1+x2)/2 , (y1+y2)/2]' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      const types = [
-        () => {
-           const m = r(1, 6); const c = r(-5, 10);
-           return makeMCQ(`In the equation y = ${m}x + ${c}, what is the gradient?`, `${m}`, [`${c}`, `${m + 1}`, '1'], 'The gradient is the multiplier of x.', `${m}`);
-        },
-        () => {
-           const x1 = r(0, 3); const m = r(1, 5); const x2 = x1 + r(1, 4);
-           const y1 = r(0, 10); const y2 = y1 + m * (x2 - x1);
-           return makeMCQ(`Find the gradient of the line passing through (${x1}, ${y1}) and (${x2}, ${y2})`, `${m}`, [`${m + 2}`, `${y2 - y1}`, `${x2 - x1}`], 'Rise over Run.', `(${y2} - ${y1}) / (${x2} - ${x1}) = ${m}`);
-        },
-        () => {
-           const m = r(2, 6);
-           return makeMCQ(`A line has gradient ${m}. What is the gradient of a parallel line?`, `${m}`, [`${-1/m}`, '1', '0'], 'Parallel lines have the same gradient.', `${m}`);
-        }
-      ];
-      return pick(types)();
-    },
-    fractionInput: true,
-  },
-
-  // ─── GEOMETRY ──────────────────────────────────────────────
-
-  'angles-polygons': {
-    title: 'Angles in Polygons',
-    emoji: '🔷',
-    color: '#00d4ff',
-    category: 'Geometry',
-    description: 'Find interior and exterior angles of regular and irregular polygons.',
-    lessons: {
-      foundation: [
-        { title: 'Interior Angles Sum', content: 'Sum of interior angles = (n − 2) × 180° where n is sides.', formula: '(n-2) × 180', example: 'Pentagon (5 sides):\n(5-2)×180 = 540°' },
-        { title: 'Exterior Angles Sum', content: 'Exterior angles always sum to 360° for ANY polygon.', formula: 'Sum = 360°', example: 'Regular Hexagon:\nEach exterior = 360/6 = 60°' },
-        { title: 'Regular Polygons', content: 'All sides and angles are equal. Each interior angle = Sum ÷ n.', formula: 'Int = (n-2)×180 / n' }
-      ],
-      higher: [
-        { title: 'Finding Number of Sides', content: 'If you know the exterior angle, n = 360 ÷ exterior angle.', formula: 'n = 360 / ext', example: 'Exterior = 40°\nn = 360/40 = 9 sides' },
-        { title: 'Interior + Exterior', content: 'At any vertex, the interior and exterior angles add to 180° (straight line).', formula: 'Int + Ext = 180°', example: 'Ext = 36° → Int = 144°' },
-        { title: 'Tessellation', content: 'Regular polygons tessellate if their interior angle divides exactly into 360°.', tip: 'Equilateral triangles, squares, and hexagons tessellate!' },
-        { title: 'Irregular Polygons', content: 'Sum rules still apply, but individual angles vary based on the specifics of the shape.' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const n = r(5, 10); const names = { 5:'pentagon', 6:'hexagon', 7:'heptagon', 8:'octagon', 9:'nonagon', 10:'decagon' };
-        return { display: `Find the sum of interior angles of a ${names[n] || n+'-sided polygon'}`, answer: (n - 2) * 180, hint: '(n−2) × 180', explanation: `(${n}−2) × 180 = ${n - 2} × 180 = ${(n - 2) * 180}°` };
-      } else {
-        const types = [
-          () => { const n = r(5, 12); return { display: `Each exterior angle of a regular polygon is ${360 / n}°.\nHow many sides?`, answer: n, hint: '360 ÷ exterior', explanation: `360 ÷ ${360 / n} = ${n} sides` }; },
-          () => { const n = r(5, 10); const each = ((n - 2) * 180) / n; return { display: `Find each interior angle of a regular ${n}-sided polygon`, answer: Math.round(each), hint: '(n−2)×180 ÷ n', explanation: `(${n}−2)×180 ÷ ${n} = ${(n - 2) * 180} ÷ ${n} = ${Math.round(each)}°` }; },
-        ];
-        return pick(types)();
-      }
-    },
-  },
-
-  'angles-parallel-lines': {
-    title: 'Angles on Parallel Lines',
-    emoji: '↗️',
-    color: '#ff6b35',
-    category: 'Geometry',
-    description: 'Identify and calculate alternate, corresponding, and co-interior angles.',
-    lessons: {
-      foundation: [
-        { title: 'Alternate Angles (Z)', content: 'Alternate angles are equal. They form a Z shape between parallel lines.', formula: 'Alternate angles are equal', example: 'Angle = 65° → Alternate = 65°' },
-        { title: 'Corresponding Angles (F)', content: 'Corresponding angles are equal. They form an F shape.', formula: 'Corresponding angles are equal', example: 'Angle = 110° → Corresponding = 110°' },
-        { title: 'Co-interior Angles (C)', content: 'Co-interior (allied) angles add up to 180°. They form a C or U shape.', formula: 'Co-interior add to 180°', example: 'Angle = 70° → Co-interior = 110°' },
-        { title: 'Vertically Opposite', content: 'Angles opposite each other when two lines cross are ALWAYS equal.' },
-        { title: 'Angles on a Point', content: 'Angles around a point add up to 360°.' }
-      ],
-      higher: [
-        { title: 'Multi-Step Problems', content: 'Combine angle rules: use alternate, corresponding, vertically opposite, and angles on a line together.', example: 'If angle a = 55° (alternate)\nAngle b = 180° − 55° = 125° (straight line)' },
-        { title: 'Proofs', content: 'You may be asked to prove that lines are parallel by showing that alternate or corresponding angles are equal.', tip: 'Always state the full reason (e.g. "Alternate angles are equal").' },
-        { title: 'Geometric Reasonings', content: 'In Higher tier, you often need to provide a chain of reasons for every step in an angle calculation.' },
-        { title: 'Parallel Lines in Shapes', content: 'Parallel lines properties often appear inside parallelograms, rhombuses and trapezia.' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      const types = [
-        () => { const a = r(25, 155); return { display: `Parallel lines with a transversal.\nOne angle is ${a}°. Find the alternate angle.`, answer: a, hint: 'Z-angles are equal', explanation: `Alternate angles = ${a}°` }; },
-        () => { const a = r(25, 155); return { display: `Parallel lines with a transversal.\nOne angle is ${a}°. Find the corresponding angle.`, answer: a, hint: 'F-angles are equal', explanation: `Corresponding angles = ${a}°` }; },
-        () => { const a = r(40, 140); return { display: `Find the co-interior angle if one is ${a}°`, answer: 180 - a, hint: 'C-angles add to 180°', explanation: `180 − ${a} = ${180 - a}°` }; },
-      ];
-      return pick(types)();
-    },
-  },
-
-  'area-2d-shapes': {
-    title: 'Area of 2D Shapes',
-    emoji: '📐',
+  'rearranging-formulae': {
+    title: 'Rearranging Formulae',
+    emoji: '🔧',
     color: '#00e5a0',
-    category: 'Geometry',
-    description: 'Calculate areas of triangles, rectangles, trapeziums, circles, and more.',
-    lessons: {
-      foundation: [
-        { title: 'Rectangle', formula: 'A = length × width', example: '8 × 5 = 40 cm²' },
-        { title: 'Triangle', content: 'Half of base times height.', formula: 'A = ½ × base × height', example: 'b=10, h=6: A = ½ × 10 × 6 = 30 cm²' },
-        { title: 'Trapezium', content: 'Average of parallel sides times height.', formula: 'A = ½(a + b) × h', example: 'a=4, b=8, h=5: A = ½(12) × 5 = 30 cm²' },
-      ],
-      higher: [
-        { title: 'Circle', formula: 'A = πr²', example: 'r = 5: A = π × 25 = 78.5 cm² (1 d.p.)' },
-        { title: 'Sector', content: 'A fraction of the full circle area.', formula: 'A = (θ/360) × πr²', example: 'r=6, θ=90°: A = (90/360) × π × 36 = 28.3 cm²' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const types = [
-          () => { const l = r(3, 15); const w = r(2, 10); return { display: `Rectangle: length ${l} cm, width ${w} cm.\nFind the area.`, answer: l * w, hint: 'l × w', explanation: `${l} × ${w} = ${l * w} cm²` }; },
-          () => { const b = r(4, 14); const h = r(3, 10); return { display: `Triangle: base ${b} cm, height ${h} cm.\nFind the area.`, answer: (b * h) / 2, hint: '½ × b × h', explanation: `½ × ${b} × ${h} = ${(b * h) / 2} cm²` }; },
-          () => { const a = r(3, 10); const b = r(a, a + 8); const h = r(3, 8); return { display: `Trapezium: a=${a}, b=${b}, h=${h}.\nFind the area.`, answer: ((a + b) * h) / 2, hint: '½(a+b)×h', explanation: `½(${a}+${b}) × ${h} = ${((a + b) * h) / 2} cm²` }; },
-        ];
-        return pick(types)();
-      } else {
-        const rad = r(3, 10);
-        const area = Math.round(Math.PI * rad * rad * 10) / 10;
-        return { display: `Circle: radius ${rad} cm.\nFind the area (1 d.p., use π = 3.14159)`, answer: area, hint: 'πr²', explanation: `π × ${rad}² = π × ${rad * rad} = ${area} cm²` };
-      }
-    },
-  },
-
-  'bearings': {
-    title: 'Bearings',
-    emoji: '🧭',
-    color: '#ffe600',
-    category: 'Geometry',
-    description: 'Work with three-figure bearings measured clockwise from North.',
-    lessons: {
-      foundation: [
-        { title: 'What is a Bearing?', content: 'A bearing is an angle measured clockwise from North. Always written as 3 digits.', formula: 'Always 3 digits, measured clockwise from N', example: 'Due East = 090°\nDue South = 180°\nNorth-East ≈ 045°' },
-        { title: 'Reading Bearings', content: 'Start at North, turn clockwise to the direction you want.', example: 'South-West = 225°\nNorth-West = 315°' },
-      ],
-      higher: [
-        { title: 'Back Bearings', content: 'The bearing from B back to A is the reverse bearing. Add or subtract 180°.', formula: 'Back bearing = bearing ± 180°', example: 'Bearing A→B = 060°\nBearing B→A = 060 + 180 = 240°', tip: 'If < 180, add 180. If ≥ 180, subtract 180.' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const dirs = [['North', 0], ['East', 90], ['South', 180], ['West', 270], ['North-East', 45], ['South-East', 135], ['South-West', 225], ['North-West', 315]];
-        const [name, bearing] = pick(dirs);
-        return { display: `What is the bearing of ${name}?\n(3 digits)`, answer: bearing, hint: 'Clockwise from North', explanation: `${name} = ${String(bearing).padStart(3, '0')}°` };
-      } else {
-        const b = r(10, 35) * 10;
-        const back = b < 180 ? b + 180 : b - 180;
-        return { display: `Bearing A to B = ${String(b).padStart(3, '0')}°.\nFind the bearing from B to A.`, answer: back, hint: 'Add or subtract 180', explanation: `${b} ${b < 180 ? '+' : '−'} 180 = ${back}°` };
-      }
-    },
-  },
-
-  'pythagoras-theorem': {
-    title: "Pythagoras' Theorem",
-    emoji: '📐',
-    color: '#ff2d78',
-    category: 'Geometry',
-    description: 'Find missing sides in right-angled triangles.',
-    lessons: {
-      foundation: [
-        { title: "Pythagoras' Theorem", visualId: 'math-triangles', content: 'In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.', formula: 'a² + b² = c²', example: 'a=3, b=4:\nc² = 9 + 16 = 25\nc = √25 = 5' },
-        { title: 'Finding the Hypotenuse', content: 'Square both sides, add, then square root.', formula: 'c = √(a² + b²)', example: 'a=5, b=12:\nc = √(25 + 144) = √169 = 13' },
-      ],
-      higher: [
-        { title: 'Finding a Shorter Side', content: 'Rearrange: a² = c² − b²', formula: 'a = √(c² − b²)', example: 'c=10, b=6:\na = √(100 − 36) = √64 = 8' },
-        { title: '3D Pythagoras', content: 'Find the space diagonal: d² = a² + b² + c².', formula: 'd = √(a² + b² + c²)', example: 'Cuboid 3×4×12:\nd = √(9+16+144) = √169 = 13' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      const triples = [[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29]];
-      const t = pick(triples);
-      const types = [
-        () => makeMCQ(`In a right triangle, sides are ${t[0]} and ${t[1]}. Find the hypotenuse.`, `${t[2]}`, [`${t[0]+t[1]}`, `${t[2]+1}`, '10'], 'a² + b² = c²', `${t[0]}² + ${t[1]}² = ${t[2]}²`),
-        () => makeMCQ(`In a right triangle, the hypotenuse is ${t[2]} and one side is ${t[0]}. Find the other side.`, `${t[1]}`, [`${t[2]-t[0]}`, `${t[1]-1}`, '5'], 'c² - a² = b²', `${t[2]}² - ${t[0]}² = ${t[1]}²`)
-      ];
-      return pick(types)();
-    },
-  },
-
-  'volume': {
-    title: 'Volume',
-    emoji: '📦',
-    color: '#00ff94',
-    category: 'Geometry',
-    description: 'Calculate volumes of cuboids, prisms, cylinders, and spheres.',
-    lessons: {
-      foundation: [
-        { title: 'Cuboid', formula: 'V = l × w × h', example: '5 × 3 × 4 = 60 cm³' },
-        { title: 'Prism', content: 'Volume = area of cross-section × length.', formula: 'V = A × l', example: 'Triangular prism:\nA = ½ × 6 × 4 = 12\nV = 12 × 10 = 120 cm³' },
-      ],
-      higher: [
-        { title: 'Cylinder', formula: 'V = πr²h', example: 'r=3, h=10: V = π(9)(10) = 282.7 cm³' },
-        { title: 'Sphere', formula: 'V = ⁴⁄₃πr³', example: 'r=6: V = ⁴⁄₃ × π × 216 = 904.8 cm³' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const l = r(3, 10); const w = r(2, 8); const h = r(2, 7);
-        return { display: `Cuboid: ${l} × ${w} × ${h} cm.\nFind the volume.`, answer: l * w * h, hint: 'l × w × h', explanation: `${l} × ${w} × ${h} = ${l * w * h} cm³` };
-      } else {
-        const types = [
-          () => { const ra = r(2, 8); const h = r(5, 15); const v = Math.round(Math.PI * ra * ra * h * 10) / 10; return { display: `Cylinder: r=${ra}, h=${h}.\nVolume? (1 d.p.)`, answer: v, hint: 'πr²h', explanation: `π × ${ra}² × ${h} = ${v} cm³` }; },
-          () => { const l = r(3, 10); const w = r(2, 8); const h = r(2, 7); return { display: `Cuboid: ${l} × ${w} × ${h} cm.\nFind the volume.`, answer: l * w * h, hint: 'l × w × h', explanation: `${l} × ${w} × ${h} = ${l * w * h} cm³` }; },
-        ];
-        return pick(types)();
-      }
-    },
-  },
-
-  'surface-area': {
-    title: 'Surface Area',
-    emoji: '🎁',
-    color: '#00d4ff',
-    category: 'Geometry',
-    description: 'Calculate surface areas of cuboids and spheres.',
-    lessons: {
-      foundation: [
-        { title: 'Cuboid Surface Area', content: 'Add up the area of all 6 faces (3 pairs of rectangles).', formula: 'SA = 2(lw + lh + wh)', example: '3 × 4 × 5:\nSA = 2(12 + 15 + 20) = 2(47) = 94 cm²' },
-      ],
-      higher: [
-        { title: 'Sphere Surface Area', formula: 'SA = 4πr²', example: 'r = 5:\nSA = 4π(25) = 314.2 cm²' },
-        { title: 'Hemisphere', content: 'Curved surface + flat circular base.', formula: 'SA = 3πr²', example: 'r=4: SA = 3π(16) = 150.8 cm²' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const l = r(2, 8); const w = r(2, 6); const h = r(2, 5);
-        return { display: `Cuboid: ${l} × ${w} × ${h}.\nFind the surface area.`, answer: 2 * (l * w + l * h + w * h), hint: '2(lw + lh + wh)', explanation: `2(${l*w} + ${l*h} + ${w*h}) = 2(${l*w+l*h+w*h}) = ${2*(l*w+l*h+w*h)} cm²` };
-      } else {
-        const ra = r(2, 8);
-        const sa = Math.round(4 * Math.PI * ra * ra * 10) / 10;
-        return { display: `Sphere: radius ${ra}.\nSurface area? (1 d.p.)`, answer: sa, hint: '4πr²', explanation: `4π × ${ra}² = 4π × ${ra*ra} = ${sa} cm²` };
-      }
-    },
-  },
-
-  'plans-elevations': {
-    title: 'Plans and Elevations',
-    emoji: '🏗️',
-    color: '#ff6b35',
-    category: 'Geometry',
-    description: 'Understand views of 3D shapes from different directions.',
-    lessons: {
-      foundation: [
-        { title: 'What Are Plans and Elevations?', content: 'Plan = view from above. Front elevation = view from the front. Side elevation = view from the side.' },
-        { title: 'Common Shapes', content: 'Cube: all views are squares. Cylinder: plan is a circle, elevations are rectangles. Cone: plan is a circle, elevation is a triangle.' },
-      ],
-      higher: [
-        { title: 'Drawing from 3D', content: 'Identify which faces you can see from each direction. Hidden edges are shown as dashed lines.' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      const shapes = [
-        { name: 'cube', plan: 'square', front: 'square', side: 'square' },
-        { name: 'cylinder', plan: 'circle', front: 'rectangle', side: 'rectangle' },
-        { name: 'cone', plan: 'circle', front: 'triangle', side: 'triangle' },
-        { name: 'sphere', plan: 'circle', front: 'circle', side: 'circle' },
-        { name: 'triangular prism', plan: 'rectangle', front: 'triangle', side: 'rectangle' },
-      ];
-      const s = pick(shapes);
-      const views = [['plan (from above)', s.plan], ['front elevation', s.front], ['side elevation', s.side]];
-      const [viewName, answer] = pick(views);
-      return { display: `What shape is the ${viewName} of a ${s.name}?`, answer, answerType: 'text', hint: 'Think about the view direction', explanation: `The ${viewName} of a ${s.name} is a ${answer}`, placeholder: 'e.g. circle' };
-    },
-    fractionInput: true,
-  },
-
-  // ─── RATIO & PROPORTION ───────────────────────────────────
-
-  'percentages': {
-    title: 'Percentages',
-    emoji: '💯',
-    color: '#ff2d78',
-    category: 'Number',
-    description: 'Percentage increase, decrease, reverse percentages, and compound interest.',
-    lessons: {
-      foundation: [
-        { title: 'Finding a Percentage', formula: '% out of total = (% ÷ 100) × total', example: '15% of 80 = 0.15 × 80 = 12' },
-        { title: 'Multiplier Method', content: 'Convert back and forth between percentages and decimals.', example: '15% = 0.15 multiplier\n7% = 0.07 multiplier' },
-        { title: 'Increase/Decrease', content: 'Add/subtract the amount or use an adjusted multiplier.', formula: 'Increase 20%: x 1.2\nDecrease 20%: x 0.8', example: '£60 decrease 10%:\n60 × 0.9 = £54' },
-        { title: 'Percentage Change', formula: '(Change / Original) × 100', example: 'Bought for £8, sold for £10:\n(2 / 8) × 100 = 25% profit' }
-      ],
-      higher: [
-        { title: 'Reverse Percentages', content: 'Find original amount BEFORE a change happened.', formula: 'Original = Result ÷ Multiplier', example: 'After 20% increase, price is £72.\n72 ÷ 1.2 = £60', tip: 'NEVER just subtract the percentage from the finish value!' },
-        { title: 'Compound Interest', content: 'Interest is added each year, and the next year\'s interest is calculated on the NEW total.', formula: 'Final = P × (Multiplier)ⁿ', example: '£1000 at 3% for 5 years:\n1000 × 1.03⁵ = £1159.27' },
-        { title: 'Depreciation', content: 'Value decreases by a percentage each year.', example: 'Car £20k loses 15% yearly.\nValue after 3 years: 20000 × 0.85³ = £12,282.50' },
-        { title: 'Repeated Changes', content: 'Keep multiplying by each specific change multiplier in sequence.' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const types = [
-          () => { const p = pick([10, 15, 20, 25, 30, 50]); const a = r(4, 20) * 10; return { display: `${p}% of ${a}`, answer: (p / 100) * a, hint: 'Divide % by 100, multiply', explanation: `${p}/100 × ${a} = ${(p / 100) * a}` }; },
-          () => { const a = r(5, 20) * 10; const p = pick([10, 20, 25, 50]); return { display: `Increase ${a} by ${p}%`, answer: a * (1 + p / 100), hint: 'Multiply by (1 + %/100)', explanation: `${a} × ${1 + p / 100} = ${a * (1 + p / 100)}` }; },
-        ];
-        return pick(types)();
-      } else {
-        const pct = pick([10, 20, 25]); const orig = r(4, 20) * 10; const after = orig * (1 + pct / 100);
-        return { display: `After ${pct}% increase, price is £${after}.\nFind the original price.`, answer: orig, hint: 'Divide by multiplier', explanation: `£${after} ÷ ${1 + pct / 100} = £${orig}` };
-      }
-    },
-  },
-
-  'fractions-operations': {
-    title: 'Fractions',
-    emoji: '🥧',
-    color: '#00d4ff',
-    category: 'Number',
-    description: 'Add, subtract, multiply and divide fractions.',
-    lessons: {
-      foundation: [
-        { title: 'Adding & Subtracting', content: 'Find a Common Denominator before adding or subtracting numerators.', example: '1/3 + 1/4 = 4/12 + 3/12 = 7/12', tip: 'Never add the denominators!' },
-        { title: 'Multiplying Fractions', content: 'Multiply across (top-top, bottom-bottom).', formula: 'a/b × c/d = ac/bd', example: '2/3 × 4/5 = 8/15' },
-        { title: 'Dividing Fractions', content: 'Keep the first, Change sign to multiply, Flip the second (KCF).', example: '1/2 ÷ 3/4 = 1/2 × 4/3 = 4/6 = 2/3' },
-        { title: 'Simplifying', content: 'Divide top and bottom by their HCF.', example: '10/25 = 2/5 (Divide by 5)' }
-      ],
-      higher: [
-        { title: 'Mixed Numbers', content: 'Convert to improper fractions first.', example: '1 ½ = 3/2\n2 ¾ = 11/4', tip: 'Do the arithmetic, then convert back to mixed if requested.' },
-        { title: 'Complex Subtraction', content: 'Mixed number subtraction: borrow from the whole number or convert all to improper.', example: '2 ¼ - 1 ¾ = 9/4 - 7/4 = 2/4 = 1/2' },
-        { title: 'Algebraic Fractions', content: 'The rules are identical. Find common denominators using algebra.', example: '1/x + 1/2x = 2/2x + 1/2x = 3/2x' },
-        { title: 'Recurring Decimals', content: 'Convert recurring decimals to fractions using algebra (see specific topic).' }
-      ],
-    },
-    generateQuestion: (tier) => {
-      const d1 = r(2, 6); const d2 = r(2, 6);
-      const n1 = r(1, d1 - 1); const n2 = r(1, d2 - 1);
-      const common = d1 * d2;
-      const numSum = (n1 * d2) + (n2 * d1);
-      const commonGcd = gcd(numSum, common);
-      
-      const types = [
-        () => makeMCQ(`${n1}/${d1} + ${n2}/${d2}`, `${numSum/commonGcd}/${common/commonGcd}`, [`${n1+n2}/${d1+d2}`, `${numSum}/${common + 1}`, '1/2'], 'Find a common denominator first.', `${numSum/commonGcd}/${common/commonGcd}`),
-        () => {
-           const multNum = n1 * n2; const multDen = d1 * d2;
-           const multGcd = gcd(multNum, multDen);
-           return makeMCQ(`${n1}/${d1} × ${n2}/${d2}`, `${multNum/multGcd}/${multDen/multGcd}`, [`${n1+n2}/${d1+d2}`, '1/10', '0'], 'Multiply top with top, bottom with bottom.', `${multNum/multGcd}/${multDen/multGcd}`);
-        }
-      ];
-      return pick(types)();
-    },
-    fractionInput: true,
-    inputHint: 'Type fractions as a/b (e.g. 7/12). Always simplify your answer.',
-  },
-
-  'recurring-decimals': {
-    title: 'Recurring Decimals to Fractions',
-    emoji: '🔁',
-    color: '#b14aed',
-    category: 'Number',
-    description: 'Convert recurring decimals into fractions using algebra.',
-    lessons: {
-      foundation: [
-        { title: 'Common Recurring Decimals', content: 'Learn these standard conversions.', example: '0.333... = 1/3\n0.666... = 2/3\n0.111... = 1/9\n0.1666... = 1/6' },
-      ],
-      higher: [
-        { title: 'Algebraic Method', content: 'Let x = the decimal. Multiply by 10 (or 100) to shift the recurring part. Subtract to eliminate it.', example: 'x = 0.272727...\n100x = 27.2727...\n100x − x = 27\n99x = 27\nx = 27/99 = 3/11' },
-        { title: 'Single Recurring Digit', content: 'For 0.aaa... where one digit repeats, the fraction is a/9.', formula: '0.ṙ = r/9', example: '0.444... = 4/9\n0.777... = 7/9' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const pairs = [['0.333...', '1/3'], ['0.666...', '2/3'], ['0.111...', '1/9'], ['0.1666...', '1/6'], ['0.25', '1/4'], ['0.125', '1/8']];
-        const [dec, frac] = pick(pairs);
-        return { display: `Convert ${dec} to a fraction`, answer: frac, answerType: 'fraction', hint: 'Standard conversion', explanation: `${dec} = ${frac}`, placeholder: 'e.g. 1/3' };
-      } else {
-        const d = r(1, 9);
-        return { display: `Convert 0.${d}${d}${d}... to a fraction`, answer: `${d}/9`, answerType: 'fraction', hint: 'Single repeating digit = ?/9', explanation: `0.${d}${d}${d}... = ${d}/9`, placeholder: 'e.g. 4/9' };
-      }
-    },
-    fractionInput: true,
-    inputHint: 'Type fractions as a/b (e.g. 1/3)',
-  },
-
-  'converting-fdp': {
-    title: 'Converting FDP',
-    emoji: '🔄',
-    color: '#ffe600',
-    category: 'Number',
-    description: 'Convert between fractions, decimals, and percentages.',
-    lessons: {
-      foundation: [
-        { title: 'Fraction → Decimal', content: 'Divide numerator by denominator.', formula: 'a/b = a ÷ b', example: '3/4 = 3 ÷ 4 = 0.75' },
-        { title: 'Decimal → Percentage', formula: 'decimal × 100', example: '0.35 × 100 = 35%' },
-        { title: 'Percentage → Fraction', content: 'Put over 100 and simplify.', example: '45% = 45/100 = 9/20' },
-      ],
-      higher: [
-        { title: 'Complex Conversions', example: '3/8 = 0.375 = 37.5%\n7/20 = 0.35 = 35%' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      const types = [
-        () => { const n = r(1, 9); const d = pick([2, 4, 5, 8, 10, 20]); const g = gcd(n, d); const sn = n / g; const sd = d / g; if (sn >= sd) return { display: `Convert 50% to a decimal`, answer: 0.5, hint: 'Divide by 100', explanation: '50 ÷ 100 = 0.5' }; return { display: `Convert ${sn}/${sd} to a decimal`, answer: Math.round((sn / sd) * 1000) / 1000, hint: 'Divide top by bottom', explanation: `${sn} ÷ ${sd} = ${Math.round((sn / sd) * 1000) / 1000}` }; },
-        () => { const p = pick([10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 75, 80]); return { display: `Convert ${p}% to a decimal`, answer: p / 100, hint: 'Divide by 100', explanation: `${p} ÷ 100 = ${p / 100}` }; },
-      ];
-      return pick(types)();
-    },
-  },
-
-  // ─── STATISTICS ────────────────────────────────────────────
-
-  'frequency-polygons': {
-    title: 'Frequency Polygons',
-    emoji: '📊',
-    color: '#00d4ff',
-    category: 'Statistics',
-    description: 'Read and interpret frequency tables and calculate averages from grouped data.',
-    lessons: {
-      foundation: [
-        { title: 'Reading Frequency Tables', content: 'A frequency table shows how often each value or range occurs. Total frequency = total number of data items.' },
-        { title: 'Midpoint', content: 'For grouped data, use the midpoint of each class to estimate the mean.', formula: 'Midpoint = (lower + upper) / 2', example: 'Class 10-20: midpoint = 15' },
-      ],
-      higher: [
-        { title: 'Estimated Mean from Grouped Data', content: 'Multiply each midpoint by its frequency, sum these, then divide by total frequency.', formula: 'Mean ≈ Σ(fx) / Σf', example: 'Scores 0-10 (f=3), 10-20 (f=7):\nΣfx = 5×3 + 15×7 = 120\nMean = 120/10 = 12' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const freqs = [r(2, 8), r(3, 10), r(1, 7), r(2, 9)];
-        const total = freqs.reduce((s, v) => s + v, 0);
-        return { display: `Frequencies: ${freqs.join(', ')}\nFind the total frequency.`, answer: total, hint: 'Add all frequencies', explanation: `${freqs.join(' + ')} = ${total}` };
-      } else {
-        const f1 = r(3, 8); const f2 = r(4, 10); const f3 = r(2, 7);
-        const sum = 5 * f1 + 15 * f2 + 25 * f3;
-        const total = f1 + f2 + f3;
-        const mean = Math.round((sum / total) * 10) / 10;
-        return { display: `Groups: 0-10(f=${f1}), 10-20(f=${f2}), 20-30(f=${f3})\nEstimate the mean (1 d.p.)`, answer: mean, hint: 'Σ(midpoint × f) ÷ Σf', explanation: `(5×${f1} + 15×${f2} + 25×${f3}) ÷ ${total}\n= ${sum} ÷ ${total} = ${mean}` };
-      }
-    },
-  },
-
-  'parallel-perpendicular-lines': {
-    title: 'Parallel & Perpendicular Lines',
-    emoji: '➕',
-    color: '#00ff94',
     category: 'Algebra',
-    description: 'Identify parallel and perpendicular lines from their equations.',
+    description: 'Change the subject of a formula, including cases where the target variable appears multiple times.',
+    examWeight: 4,
+    difficulty: 'medium',
+    estimatedMinutes: 12,
+    prerequisites: ['linear-equations', 'factorising'],
+    questionTypes: ['mcq', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Parallel Lines', content: 'Parallel lines have the same gradient.', example: 'y = 3x + 1 and y = 3x − 5 are parallel (both m = 3)' },
+        { title: 'Simple Two-Step Rearranging', content: 'Isolate the target variable by performing matching inverse operations on both sides.', example: 'Make x the subject of y = 3x - 5. Add 5 -> y + 5 = 3x. Divide by 3 -> x = (y + 5)/3.', tip: 'Undo additions or subtractions before dealing with coefficients.' }
       ],
       higher: [
-        { title: 'Perpendicular Lines', content: 'Perpendicular gradients multiply to −1.', formula: 'm₁ × m₂ = −1', example: 'y = 2x + 1 → perpendicular m = −1/2' },
-        { title: 'Finding Equations', content: 'Use y − y₁ = m(x − x₁) with the perpendicular gradient and a given point.', example: 'Perpendicular to y = 3x, through (6, 1):\nm = −1/3\ny − 1 = −1/3(x − 6)\ny = −x/3 + 3' },
-      ],
-    },
-    generateQuestion: (tier) => {
-      if (tier === 'foundation') {
-        const m = r(1, 6); const c1 = r(-5, 5); const c2 = r(-5, 5);
-        return { display: `Are y = ${m}x + ${c1} and y = ${m}x + ${c2} parallel?`, answer: 1, hint: '1=Yes, 2=No — compare gradients', explanation: `Both have gradient ${m}, so YES — they are parallel.` };
-      } else {
-        const m = r(2, 6);
-        return { display: `Line: y = ${m}x + 3\nWhat is the gradient of a perpendicular line?`, answer: `-1/${m}`, answerType: 'fraction', hint: 'm₁ × m₂ = −1', explanation: `Perpendicular gradient = −1/${m}`, placeholder: 'e.g. -1/3' };
-      }
-    },
-    fractionInput: true,
-  },
-
-
-  // ==============================================================
-  // CALCULATOR TOPICS (Added dynamically based on Calculator prompts)
-  // ==============================================================
-
-  'angle-bisectors': {
-    title: 'Angle Bisectors',
-    emoji: '📐',
-    category: 'Geometry',
-    description: 'Using compasses to bisect angles and lines.',
-    lessons: {
-      foundation: [{ title: 'Bisecting an Angle', visualId: 'math-polygons', content: 'Place compass on the vertex. Draw an arc crossing both lines. From these two points, draw two more arcs inside the angle. Draw a line from the vertex through where the arcs cross.' }],
-      higher: [{ title: 'Loci', content: 'The angle bisector is the locus of points equidistant from two intersecting lines.' }]
-    },
-    generateQuestion: () => makeMCQ('What tool is essential for an accurate angle bisector?', 'Compass', ['Protractor only', 'Ruler only', 'Set square'], 'Used to draw arcs', 'A compass is required to draw the intersecting arcs accurately.')
-  },
-
-  'area-money-problems': {
-    title: 'Area & Money Problems',
-    emoji: '💷',
-    category: 'Geometry',
-    description: 'Calculating costs based on area (e.g. flooring or painting).',
-    lessons: {
-      foundation: [{ title: 'Cost per Square Metre', content: 'First calculate the total area in m². Then multiply by the cost per m².' }],
-      higher: [{ title: 'Complex Costing', content: 'Sometimes you must buy items in fixed batches (e.g. tins of paint covering 5m²). Deal with remainders by rounding up to the next whole tin!' }]
-    },
-    generateQuestion: () => {
-      const w = r(4, 8); const h = r(3, 5); const c = r(12, 20);
-      return { display: `A room is ${w}m by ${h}m.\nCarpet costs £${c} per m².\nTotal cost?`, answer: w * h * c, answerType: 'number' };
-    }
-  },
-
-  'area-2d-shapes-calc': {
-    title: 'Area of 2D Shapes (Calc)',
-    emoji: '🟢',
-    category: 'Geometry',
-    description: 'Using formulas for trapezium, circles, etc. with a calculator.',
-    lessons: {
-      foundation: [{ title: 'Trapezium Area', content: 'Area = 1/2 × (a + b) × h' }],
-      higher: [{ title: 'Circle Area', content: 'Area = π × r² (Use the π button on your calculator for precision).' }]
-    },
-    generateQuestion: () => {
-      const a = r(4, 10); const b = r(6, 14); const h = r(5, 12);
-      return { display: `Trapezium parallel sides: ${a}cm, ${b}cm.\nHeight: ${h}cm.\nArea?`, answer: 0.5 * (a + b) * h, answerType: 'number' };
-    }
-  },
-  'estimated-mean-calc': {
-    title: 'Estimated Mean (Calc)',
-    emoji: '🧮',
-    category: 'Statistics',
-    description: 'Calculate an estimate of the mean from grouped data using midpoints.',
-    lessons: {
-      foundation: [{ title: 'Midpoints', content: 'Use the middle value of each class.' }],
-      higher: [{ title: 'Σfx / Σf', content: 'Multiply midpoints by frequencies and sum them.' }]
-    },
-    generateQuestion: () => {
-       const freqs = [r(2, 6), r(3, 10), r(1, 5)];
-       const midpoints = [5, 15, 25];
-       const totalF = freqs.reduce((a,b) => a+b, 0);
-       const sumFX = freqs.reduce((total, f, i) => total + (f * midpoints[i]), 0);
-       const mean = (sumFX / totalF).toFixed(1);
-       return { 
-         display: `Estimated Mean Calculation:\nSums: (5×${freqs[0]}) + (15×${freqs[1]}) + (25×${freqs[2]})\nTotal Frequency: ${totalF}\nWhat is the estimated mean?`, 
-         answer: mean, 
-         answerType: 'number',
-         hint: 'Σ(fx) / Σf',
-         explanation: `Total fx = ${sumFX}. Total frequency = ${totalF}. Mean = ${sumFX}/${totalF} = ${mean}`
-       };
-    }
-  },
-
-  'bounds': {
-    title: 'Bounds (Upper & Lower)',
-    emoji: '📏',
-    category: 'Number',
-    description: 'Upper and lower bounds of rounded measurements.',
-    lessons: {
-      foundation: [{ title: 'Error Intervals', content: 'If rounded to the nearest 10, the error is ±5. If 40 (nearest 10), lower bound is 35, upper bound is 45.' }],
-      higher: [{ title: 'Calculating with Bounds', content: 'To find the MAXIMUM possible result of division: Upper Bound ÷ Lower Bound.' }]
-    },
-    generateQuestion: (t) => {
-      if (t === 'foundation') return { display: 'A length is 15cm to the nearest cm.\nWhat is the lower bound?', answer: 14.5, answerType: 'number' };
-      return { display: 'd = f / g.\nMax value configuration?', answerType: 'text', options: ['f(UB) / g(LB)', 'f(LB) / g(UB)', 'f(UB) / g(UB)', 'f(LB) / g(LB)'] };
-    }
-  },
-
-  'changing-subject': {
-    title: 'Changing the Subject',
-    emoji: '🔄',
-    category: 'Algebra',
-    description: 'Rearranging formulas to make a different variable the subject.',
-    lessons: {
-      foundation: [{ title: 'Rearranging Basic Equations', content: 'Do the inverse operation to move terms across the equals sign. E.g. v = u + at ➔ at = v - u' }],
-      higher: [{ title: 'Subject Appears Twice', content: 'If the target variable appears twice, move all terms containing it to one side, FACTORISE it out, then divide.' }]
-    },
-    generateQuestion: () => makeMCQ('Make x the subject: y = mx + c', 'x = (y - c) / m', ['x = y - mc', 'x = (y + c) / m', 'x = m / (y - c)'], 'Subtract c first', 'Subtract c: y - c = mx. Then divide by m.')
-  },
-
-  'distance-time-graphs': {
-    title: 'Distance-Time Graphs',
-    emoji: '📈',
-    category: 'Algebra',
-    description: 'Interpreting speed and gradients from graphs.',
-    lessons: {
-      foundation: [{ title: 'Gradients', content: 'The steepness of the line represents the Speed. A flat horizontal line means the object is stationary (not moving).' }],
-      higher: [{ title: 'Average Speed', content: 'Average Speed = Total Distance ÷ Total Time. E.g. 100km total over 2 hours = 50km/h.' }]
-    },
-    generateQuestion: () => makeMCQ('In a distance-time graph, what does a flat, horizontal line mean?', 'Stationary (stopped)', ['Constant speed', 'Accelerating', 'Returning to start'], 'Distance isn\'t changing', 'Since distance is not changing over time, speed is zero.')
-  },
-
-  'expanding-factorising-calc': {
-    title: 'Expanding & Factorising (Calc)',
-    emoji: '🧮',
-    category: 'Algebra',
-    description: 'Expanding double brackets and extracting common factors.',
-    lessons: {
-      foundation: [{ title: 'Single Brackets', content: 'Multiply the outside term by EVERYTHING inside. 3x(x - 4) = 3x² - 12x.' }],
-      higher: [{ title: 'Double Brackets (FOIL)', content: 'First, Outer, Inner, Last. (x+2)(x+3) = x² + 3x + 2x + 6 = x² + 5x + 6.' }]
-    },
-    generateQuestion: () => makeMCQ('Expand and simplify: (x - 3)(x + 4)', 'x² + x - 12', ['x² - 12', 'x² - x - 12', 'x² + 7x - 12'], 'Combine x terms', 'x² + 4x - 3x - 12 = x² + x - 12')
-  },
-
-  'factorising-quadratics': {
-    title: 'Factorising Quadratics',
-    emoji: '✖️',
-    category: 'Algebra',
-    description: 'Factorising expressions of the form ax² + bx + c.',
-    lessons: {
-      foundation: [{ title: 'Sum and Product', content: 'For x² + bx + c: Find two numbers that Multiply to give c, and Add to give b.' }],
-      higher: [{ title: 'Difference of Two Squares', content: 'x² - y² = (x + y)(x - y). Example: x² - 25 = (x + 5)(x - 5).' }]
-    },
-    generateQuestion: () => makeMCQ('Factorise completely: x² - 9', '(x - 3)(x + 3)', ['(x - 9)(x + 1)', '(x - 3)²', 'x(x - 9)'], 'Difference of two squares', '9 is 3 squared. (x-3)(x+3).')
-  },
-
-  'fractions-calc': {
-    title: 'Fractions (Calculator)',
-    emoji: '➗',
-    category: 'Number',
-    description: 'Advanced fraction manipulation with mixed numbers on a calc.',
-    lessons: {
-      foundation: [{ title: 'Using calc fractions', content: 'Use the `[ab/c]` or fraction button to input mixed numbers quickly to prevent BODMAS errors.' }],
-      higher: [{ title: 'Complex Fraction problems', content: 'You can use the calculator to rapidly find equivalent portions when solving density/mass/volume layered fraction queries.' }]
-    },
-    generateQuestion: () => makeMCQ('Which button converts a decimal to a fraction on most scientific calculators?', 'S⇔D', ['MODE', 'SHIFT', 'ENG'], 'Standard to Decimal', 'The S⇔D button toggles between fraction and decimal representations.')
-  },
-
-  'hcf-lcm': {
-    title: 'HCF and LCM',
-    emoji: '🔢',
-    category: 'Number',
-    description: 'Highest Common Factor & Lowest Common Multiple using Venn diagrams or lists.',
-    lessons: {
-      foundation: [{ title: 'LCM', content: 'Lowest Common Multiple: the smallest number in both times tables. LCM of 4 & 6 = 12.' }],
-      higher: [{ title: 'Prime Factor Trees', visualId: 'math-venn', content: 'Find HCF by multiplying overlapping prime factors in a Venn diagram. Find LCM by multiplying all numbers in the diagram.' }]
-    },
-    generateQuestion: () => {
-      const a = pick([4, 6, 8]); const b = pick([10, 12, 14]);
-      // Calculate LCM
-      const gcd = (x, y) => (!y ? x : gcd(y, x % y));
-      const lcm = (a * b) / gcd(a, b);
-      return { display: `Find the Lowest Common Multiple (LCM) of ${a} and ${b}`, answer: lcm, answerType: 'number' };
-    }
-  },
-
-  'histograms': {
-    title: 'Histograms',
-    emoji: '📊',
-    category: 'Statistics',
-    description: 'Frequency density and unequal class widths.',
-    lessons: {
-      foundation: [{ title: 'Bar Charts vs Histograms', content: 'Bar charts have equal gaps and widths. Histograms have NO gaps and often have unequal class widths.' }],
-      higher: [{ title: 'Frequency Density', content: 'Frequency Density = Frequency ÷ Class Width. Area of the bar equals the frequency!' }]
-    },
-    generateQuestion: () => makeMCQ('In a histogram, what does the AREA of the bar represent?', 'Frequency', ['Frequency Density', 'Class Width', 'Cumulative Frequency'], 'Area = width × height', 'The area of the bar always represents the frequency.')
-  },
-
-  'iteration': {
-    title: 'Iteration',
-    emoji: '🔁',
-    category: 'Algebra',
-    description: 'Using iterative formulas to approximate roots of equations.',
-    lessons: {
-      foundation: [{ title: 'What is iteration?', content: 'Repeating a process using the previous answer. We use x₁ to find x₂, then x₂ to find x₃.' }],
-      higher: [{ title: 'Calculator Trick', content: 'Type your starting value (e.g. 5) and press =. Then type the formula using the `ANS` button. Keep pressing = to find successive iterations!' }]
-    },
-    generateQuestion: () => makeMCQ('Which calculator button is most helpful when doing repeated iterations?', 'ANS', ['MODE', 'M+', 'SHIFT'], 'Uses previous output', 'The ANS button automatically plugs the last output into the next cycle.')
-  },
-
-  'laws-of-indices-calc': {
-    title: 'Laws of Indices (Calc)',
-    emoji: 'ⁿ',
-    category: 'Number',
-    description: 'Using fractional and negative powers with a scientific calculator.',
-    lessons: {
-      foundation: [{ title: 'Negative Indices', content: 'A negative power means "1 over". E.g., x⁻² = 1/x².' }],
-      higher: [{ title: 'Fractional Indices', content: 'x^(1/2) means the square root of x. x^(1/3) means the cube root.' }]
-    },
-    generateQuestion: () => makeMCQ('What is 25 to the power of 1/2?', '5', ['12.5', '50', '625'], '1/2 power = square root', 'The 1/2 power is exactly the same as taking the square root.')
-  },
-
-  'metric-conversions': {
-    title: 'Metric Conversions',
-    emoji: '⚖️',
-    category: 'Number',
-    description: 'Converting distance, mass, and complex units like m² to cm².',
-    lessons: {
-      foundation: [{ title: 'Basic Units', content: '1km = 1000m. 1m = 100cm. 1kg = 1000g. 1 litre = 1000ml.' }],
-      higher: [{ title: 'Area and Volume Units', content: '1m² = 10,000cm² (because 100 × 100). 1m³ = 1,000,000cm³ (100 × 100 × 100).' }]
-    },
-    generateQuestion: (t) => {
-      if (t === 'foundation') {
-        const km = r(2, 9);
-        return { display: `Convert ${km} km into metres`, answer: km * 1000, answerType: 'number' };
-      }
-      return { display: 'Convert 3 m² into cm².', answer: 30000, answerType: 'number' };
-    }
-  },
-  'compound-interest-calc': {
-    title: 'Compound Interest',
-    emoji: '📈',
-    color: '#00ff94',
-    category: 'Number',
-    description: 'Using multipliers to calculate compound interest and exponential growth.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Multipliers', content: 'Transform a percentage increase into a decimal multiplier.', example: 'Increase by 5% → 100% + 5% = 105% → × 1.05.\nDecrease by 10% → 100% - 10% = 90% → × 0.9' },
-        { title: 'Step-by-Step Method', content: 'For a 2-year increase, multiply the principal by the multiplier, then multiply the result by the multiplier again.', tip: 'Good for checking your answer manually!' },
-        { title: 'Simple vs Compound', content: 'Simple interest only pays on the original amount. Compound interest pays on the NEW total every year.', tip: 'Compound interest grows much faster!' },
-        { title: 'Reverse Percentages', content: 'To find the original value AFTER a change, divide by the multiplier.', example: 'Sale price £90 (10% off) → 90 ÷ 0.9 = £100 original.' }
-      ],
-      higher: [
-        { title: 'The Power Formula', content: 'Calculate compound interest for many years in one step.', formula: 'Total = P × (multiplier)ⁿ', example: '£1000 for 5 years at 3%:\n1000 × 1.03⁵ = £1159.27' },
-        { title: 'Exponential Decay', content: 'Use a multiplier less than 1 to model things losing value over time (depreciation).', example: 'Car losing 20% value per year for 3 years: P × 0.8³' },
-        { title: 'Financial Interest Problems', content: 'Interest is often calculated monthly or quarterly. The period (n) must match the interest rate frequency.', tip: 'N is the total number of times the interest is applied.' },
-        { title: 'Comparing Deals', content: 'Work out the final amount for two different interest options to see which is the better deal over a set number of years.' }
-      ],
-    },
-    generateQuestion: () => {
-       const principal = r(1, 10) * 100;
-       const rate = r(1, 6);
-       const multiplier = (1 + rate / 100).toFixed(2);
-       return makeMCQ(`To increase £${principal} by ${rate}% per year, what multiplier is used?`, `${multiplier}`, [`${rate}`, `${(rate/100).toFixed(2)}`, `${(1 - rate/100).toFixed(2)}`], 'Add the rate to 100% and convert to decimal.', `${multiplier}`);
-    }
-  },
-
-  'pie-charts-calc': {
-    title: 'Pie Charts (Calc)',
-    emoji: '🍕',
-    category: 'Statistics',
-    description: 'Calculate angles for pie chart slices using a multiplier.',
-    lessons: {
-      foundation: [{ title: 'Multiplier', content: '360 ÷ Total Frequency.' }],
-      higher: [{ title: 'Angles', content: 'Frequency × Multiplier.' }]
-    },
-    generateQuestion: () => {
-       const total = pick([36, 72, 120, 180, 240]);
-       const freq = pick([5, 10, 15, 20]);
-       const angle = (360 / total) * freq;
-       return { 
-         display: `Total data frequency = ${total}.\nA category has frequency ${freq}.\nHow many degrees (°) is the slice?`, 
-         answer: angle, 
-         answerType: 'number',
-         hint: '(360 / Total) × Frequency',
-         explanation: `Multiplier = 360 / ${total} = ${360/total} per unit.\nAngle = ${360/total} × ${freq} = ${angle}°`
-       };
-    }
-  },
-
-  'rounding': {
-    title: 'Rounding & Sig Figs',
-    emoji: '🎯',
-    color: '#ff2d78',
-    category: 'Number',
-    description: 'Rounding to decimal places and significant figures.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Decimal Places (d.p.)', content: 'Count the digits AFTER the decimal point. Look at the next digit to decide whether to round up.', example: '3.1415 to 2 d.p. → 3.14 (the next digit 1 is less than 5).' },
-        { title: 'Rounding Up', content: 'If the next digit is 5, 6, 7, 8, or 9, add 1 to your target digit.', example: '7.86 to 1 d.p. → 7.9' },
-        { title: 'Nearest Unit', content: 'Rounding to the nearest whole number, ten, hundred, etc.', example: '382 to nearest 10 → 380\n382 to nearest 100 → 400' },
-        { title: 'Large Numbers', content: 'When rounding to nearest 10/100, replace the dropped digits with zeros to keep the size correct!', tip: '382 rounded to nearest 100 is NOT 4!' }
-      ],
-      higher: [
-        { title: 'Significant Figures (s.f.)', content: 'The first significant figure is the first NON-ZERO digit from the left. Zeros at the start don\'t count!', example: '0.00456 to 2 s.f. → 0.0046' },
-        { title: 'Zero as Significant', content: 'Once you start counting s.f., all zeros AFTER that are significant.', example: '5.03 is 3 s.f. Zeros in the middle or at the end count if they follow a non-zero digit.' },
-        { title: 'Scientific Notation Link', content: 'Significant figures are related to Standard Form. 3.4 × 10⁵ is 2 s.f.', tip: 'Exam papers usually expect answers to 2 or 3 s.f. unless stated otherwise.' },
-        { title: 'Estimation Consistency', content: 'Always round to 1 s.f. when estimating a calculation result.', tip: 'Consistency in rounding prevents compounding errors.' }
-      ],
-    },
-    generateQuestion: () => makeMCQ('Round 0.0456 to 2 significant figures', '0.046', ['0.05', '0.04', '0.045'], 'Find the first non-zero', 'The 4 is the 1st s.f., the 5 is the 2nd. The 6 rounds the 5 up to 6 ➔ 0.046.')
-  },
-
-  'scatter-graphs': {
-    title: 'Scatter Graphs',
-    emoji: '📈',
-    color: '#ffe600',
-    category: 'Statistics',
-    description: 'Lines of best fit and correlation.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Correlation', content: 'Positive correlation goes up. Negative goes down. No correlation has no pattern.', tip: 'The closer the points are to a straight line, the stronger the correlation.' },
-        { title: 'Line of Best Fit', content: 'A straight line drawn through the middle of the plots, with roughly equal numbers of points on both sides.', tip: 'Always use a ruler!' },
-        { title: 'Outliers', content: 'Points that don\'t fit the general trend. They should be ignored when drawing the line of best fit.' },
-        { title: 'Reading from the Line', content: 'Use your line of best fit to estimate one value given another (Interpolation).' }
-      ],
-      higher: [
-        { title: 'Interpolation vs Extrapolation', content: 'Interpolation (estimating inside your data range) is reliable. Extrapolation (going beyond the range) is risky and often unreliable.', tip: 'Reasons for unreliability: trends might change or have physical limits.' },
-        { title: 'Causation vs Correlation', content: 'Just because two things are correlated doesn\'t mean one CAUSES the other.', example: 'Ice cream sales and shark attacks are correlated, but both are caused by hot weather!' },
-        { title: 'Equation of Best Fit', content: 'Sometimes you might be asked to find the equation (y = mx + c) of your trend line.' }
+        { title: 'Subject Appearing Twice', content: 'Gather all terms containing the new subject on one side, move everything else to the opposite side, and factorise out the subject.', example: 'Make x the subject of ax + b = cx + d -> ax - cx = d - b -> x(a - c) = d - b -> x = (d - b)/(a - c)', tip: 'Factorising is the key step to turning two appearances of a variable into a single one.' }
       ]
     },
-    generateQuestion: () => makeMCQ('Why is it risky to estimate a value far outside the range of the scatter graph data?', 'Extrapolation is unreliable', ['The line bends', 'It causes negative correlation', 'The calculator will break'], 'Going beyond the bounds', 'This is called extrapolation. The established trend might not continue beyond the collected data.')
+    hacks: [
+      { title: 'Factorisation Pivot Trick', content: 'If the variable you want to make the subject is stuck inside multiple terms, group them together and factorise. This isolates it instantly.' }
+    ],
+    advanced: [
+      { title: 'Inverting Composed Operator Sets', content: 'Formulate algebraic inverse rules across composite non-linear functions by carefully reversing operational paths.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const a = r(2, 6); const b = r(1, 10);
+        return makeMCQ(`Make x the subject of: y = ${a}x + ${b}`, `x = (y - ${b}) / ${a}`, [`x = y - ${b}`, `x = ${a}y + ${b}`, `x = (y + ${b}) / ${a}`], 'Undo the operations in reverse order', `y = ${a}x + ${b} → y - ${b} = ${a}x → x = (y - ${b})/${a}`);
+      } else {
+        const a = r(2, 5); const b = r(2, 5); const c = r(1, 8);
+        return makeMCQ(`Make x the subject: ${a}x + ${b} = ${c}x + d`, `x = (d - ${b}) / (${a} - ${c})`, [`x = d - ${b}`, `x = ${a} - ${c}`, `x = (d + ${b}) / (${a} + ${c})`], 'Collect x terms, factorise, divide', `${a}x - ${c}x = d - ${b} → x(${a} - ${c}) = d - ${b} → x = (d - ${b})/(${a} - ${c})`);
+      }
+    }
   },
 
-  'sectors': {
-    title: 'Area & Arc of Sectors',
-    emoji: '🍰',
-    color: '#00d4ff',
-    category: 'Geometry',
-    description: 'Calculating arc lengths and sector areas of circles.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Fractions of a Circle', content: 'If the angle is 90°, it is 90/360 or 1/4 of the circle. Calculate the full circle area, then multiply by the fraction.', example: 'Full area 40, angle 90° → Sector area = 10.' },
-        { title: 'Semicircles & Quadrants', content: 'A semicircle is half a circle (180°). A quadrant is a quarter (90°).', tip: 'These are the most common sectors in foundation exams!' },
-        { title: 'Perimeter of a Sector', content: 'The total boundary: arc length + TWO radii. Don\'t forget the straight edges!', example: 'Arc 10cm, Radius 5cm → Perimeter = 20cm.' }
-      ],
-      higher: [
-        { title: 'Arc Length Formula', formula: 'L = (θ / 360) × π × d', tip: 'Use d = 2r.' },
-        { title: 'Sector Area Formula', formula: 'A = (θ / 360) × π × r²', example: 'r=6, θ=60°: (60/360) × 36π = 6π ≈ 18.8 cm²' },
-        { title: 'Segments (Tricky!)', content: 'Area of segment = Area of sector − Area of triangle.', tip: 'Often requires trigonometry (1/2 ab sin C) to find the triangle area.' },
-        { title: 'Working Backwards', content: 'Given the sector area and radius, find the angle by rearranging the formula.', example: 'θ = (Area × 360) / (πr²)' }
-      ],
-    },
-    generateQuestion: () => makeMCQ('What is the formula for the AREA of a sector?', '(Angle/360) × πr²', ['(Angle/360) × πd', 'πr² ÷ Angle', 'πd ÷ 360'], 'Fraction of circle area', 'It is the fraction of the full circle (Angle/360) multiplied by the circle area formula (πr²).')
-  },
-
-  'standard-form-calc': {
-    title: 'Standard Form (Calc)',
-    emoji: '🔟',
-    category: 'Number',
-    description: 'Calculating large numbers using the x10^x button on calcs.',
-    lessons: {
-      foundation: [{ title: 'Writing Standard Form', visualId: 'math-standard-form', content: 'A number between 1 and 10, multiplied by a power of 10. E.g. 4500 = 4.5 × 10³.' }],
-      higher: [{ title: 'Calculator Buttons', content: 'Use the [EXP] or [×10^x] button on your calculator, NOT the regular multiply button, when doing standard form calculations.' }]
-    },
-    generateQuestion: () => makeMCQ('Which value is correct Standard Form?', '3.4 × 10⁵', ['34 × 10⁴', '0.34 × 10⁶', '3.4³'], 'Front number must be 1 ≤ x < 10', 'The number in front must be between 1 and 9.99.')
-  },
-
-  'substitution-calc': {
-    title: 'Substitution (Calc)',
-    emoji: '🔍',
+  'quadratic-equations': {
+    title: 'Quadratic Equations',
+    emoji: '📐',
+    color: '#00e5a0',
     category: 'Algebra',
-    description: 'Substituting decimals and negatives into complex equations.',
-    lessons: {
-      foundation: [{ title: 'Using Brackets', content: 'When substituting negative numbers into a calculator, ALWAYS put them in brackets. E.g. (-3)².' }],
-      higher: [{ title: 'Kinematics Equations', content: 'Substituting values into v² = u² + 2as. Remember to square root at the very end to find v!' }]
-    },
-    generateQuestion: () => makeMCQ('Why should you use brackets when squaring a negative number on a calculator?', 'To prevent getting a negative result', ['It looks neater', 'The calculator will freeze', 'It ignores BODMAS'], '-3² vs (-3)²', 'Without brackets, the calc does -(3²)=-9. With brackets, (-3)²=9.')
-  },
-
-  'surds': {
-    title: 'Surds',
-    emoji: '√',
-    color: '#ff6b35',
-    category: 'Number',
-    description: 'Simplifying surds and rationalising denominators.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Solve quadratics by factorising, completing the square, and using the formula.',
+    examWeight: 8,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['expanding-simplifying', 'factorising'],
+    questionTypes: ['mcq', 'numeric', 'cloze', 'ordering'],
     lessons: {
       foundation: [
-        { title: 'What is a Surd?', content: 'A root that cannot be written as a whole number or simple fraction. e.g. √2.', tip: '√9 is NOT a surd because it equals 3 (it is a rational number).' },
-        { title: 'Multiplying Surds', formula: '√a × √b = √ab', example: '√2 × √3 = √6' },
-        { title: 'Dividing Surds', formula: '√a ÷ √b = √(a / b)', example: '√10 ÷ √2 = √5' },
-        { title: 'Squares and Roots', content: 'Squaring a square root cancels it out!', example: '(√7)² = 7' }
+        { title: 'What is a Quadratic?', content: 'A quadratic equation contains an x² term as its highest power. Standard form is ax² + bx + c = 0.', formula: 'ax² + bx + c = 0', example: 'x² + 5x + 6 = 0', tip: 'The coefficient \'a\' cannot be zero, or it becomes a linear equation.' },
+        { title: 'Solving by Factorising', content: 'Factorise the quadratic into two brackets, set it to zero, and find the values that make each bracket zero.', formula: '(x+p)(x+q) = 0 -> x = -p or x = -q', example: 'x² + 5x + 6 = (x+2)(x+3) = 0 -> x = -2 or x = -3', tip: 'Always make sure the equation equals zero before you start factorising.' }
       ],
       higher: [
-        { title: 'Simplifying Surds', content: 'Find a square factor (4, 9, 16, 25...) and take its root out.', example: '√75 = √(25 × 3) = √25 × √3 = 5√3' },
-        { title: 'Adding/Subtracting', content: 'You can only combine "like" surds. 5√2 + 3√2 = 8√2.', tip: 'Always simplify before adding/subtracting!' },
-        { title: 'Rationalising Denominators', content: 'Multiply top and bottom by the root to remove it from the bottom.', example: '1 / √2 = (1 × √2) / (√2 × √2) = √2 / 2' },
-        { title: 'Expanding Surd Brackets', content: 'Use FOIL just like algebra.', example: '(2 + √3)(2 - √3) = 4 - 2√3 + 2√3 - 3 = 1' }
-      ],
+        { title: 'The Quadratic Formula', content: 'Use this formula to find solutions for any quadratic equation, especially when it will not factorise cleanly.', formula: 'x = [-b ± √(b² - 4ac)] / 2a', example: '2x² - 4x - 6 = 0 -> a=2, b=-4, c=-6 -> x = 3 or x = -1', tip: 'Remember to use brackets around negative numbers under the square root in your calculator.' },
+        { title: 'Completing the Square', content: 'Rewrite a quadratic in vertex form by taking half of the middle coefficient.', formula: 'x² + bx + c = (x + b/2)² - (b/2)² + c', example: 'x² + 6x + 5 = (x + 3)² - 9 + 5 = (x + 3)² - 4', tip: 'This method is great for finding the coordinates of a graph\'s turning point.' }
+      ]
     },
-    generateQuestion: () => makeMCQ('Simplify: √12', '2√3', ['3√2', '4√3', '6'], 'Look for a square factor', '√12 = √(4 × 3) = √4 × √3 = 2√3.')
-  },
-
-  'surface-area-cones': {
-    title: 'Surface Area of Cones/Spheres',
-    emoji: '🍦',
-    category: 'Geometry',
-    description: 'Using complex surface area formulas (often given in exams).',
-    lessons: {
-      foundation: [{ title: 'Using the Formula Sheet', content: 'Many advanced shape formulas are provided. Your job is to carefully substitute the radius and height into them.' }],
-      higher: [{ title: 'Formulas', content: 'Curved SA of Cone = πrl (where l is slant height).\nSA of Sphere = 4πr².' }]
-    },
-    generateQuestion: () => makeMCQ('In the cone formula A = πrl, what does "l" stand for?', 'Slant height', ['Vertical length', 'Lateral force', 'Locus'], 'The slanted edge', 'The "l" stands for the slanted height down the side of the cone.')
-  },
-
-  'two-way-tables': {
-    title: 'Two-Way Tables',
-    emoji: '🧮',
-    color: '#ff2d78',
-    category: 'Statistics',
-    description: 'Extracting and filling probability tables linking two variables.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'The Layout', content: 'A grid that compares two categories (e.g. Boys/Girls vs Bus/Walk/Car).' },
-        { title: 'Totals Check', content: 'The totals of the rows must add up perfectly to the grand total, and the totals of the columns must do exactly the same.', tip: 'Always start with the rows/columns where only one box is missing.' },
-        { title: 'Finding Probabilities', content: 'Probability = (Cell Value) / (Grand Total).', example: '10 boys walk out of 50 total students → 10/50 = 1/5.' }
-      ],
-      higher: [
-        { title: 'Conditional Probability', content: 'Watch out for questions saying "Given that...". This means you only look at one specific row or column, not the grand total!', tip: 'The denominator changes!' },
-        { title: 'Combined Categories', content: 'You may need to add multiple cells together before dividing by the total.' },
-        { title: 'Setting Up from Words', content: 'Read the story carefully and fill in the known values. Usually, you have to find several "hidden" values to solve the final part.' }
-      ],
-    },
-    generateQuestion: () => {
-      const a = r(10, 20); const b = r(5, 15);
-      return { display: `Row total is 40.\nOne cell is ${a}, the second is ${b}.\nWhat is the third cell?`, answer: 40 - a - b, answerType: 'number' };
+    hacks: [
+      { title: 'Discriminant Check Shortcut', content: 'Look at b² - 4ac. If it is greater than 0, you get two real answers; if it equals 0, you get one answer; if it is less than 0, there are no real solutions.' }
+    ],
+    advanced: [
+      { title: 'Hidden Quadratics', content: 'Solve complex equations like x⁴ - 5x² + 4 = 0 by substituting u = x² to make it a quadratic equation first.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => {
+            const p = r(1, 8); const q = r(1, 8);
+            return makeMCQ(`Solve: x² + ${p + q}x + ${p * q} = 0`, `x = -${p} or x = -${q}`, [`x = ${p} or x = ${q}`, `x = -${p} or x = ${q}`, `x = ${p} or x = -${q}`], 'Factorise: find two numbers that multiply to c and add to b', `(x+${p})(x+${q})=0 → x=-${p}, -${q}`);
+          },
+          () => {
+            const a = r(2, 9);
+            return makeMCQ(`Solve: x² - ${a * a} = 0`, `x = ${a} or x = -${a}`, [`x = ${a}`, `x = -${a}`, `x = ${a * a}`], 'Difference of two squares', `x² - ${a * a} = (x-${a})(x+${a}) = 0`);
+          }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => {
+            const a = r(2, 5); const b = r(-8, 8); let c = r(-10, 10);
+            while (b*b - 4*a*c < 0) { c = r(-10, 10); }
+            const disc = b*b - 4*a*c;
+            const sqrtD = Math.sqrt(disc);
+            const x1 = Math.round((-b + sqrtD) / (2*a) * 100) / 100;
+            const x2 = Math.round((-b - sqrtD) / (2*a) * 100) / 100;
+            return { display: `Solve: ${a}x² ${b >= 0 ? '+' : ''}${b}x ${c >= 0 ? '+' : ''}${c} = 0\n(Answer to 2 d.p., smaller first)`, answer: `${Math.min(x1, x2)}, ${Math.max(x1, x2)}`, answerType: 'text', hint: 'Use quadratic formula', explanation: `a=${a}, b=${b}, c=${c}\nb²-4ac = ${disc}\nx = [${-b} ± √${disc}] / ${2*a}\nx = ${Math.min(x1, x2)} or ${Math.max(x1, x2)}`, placeholder: 'e.g. -2.5, 1.3' };
+          },
+          () => {
+            const p = r(2, 8);
+            return { display: `Complete the square: x² + ${2*p}x + 5`, answer: `(x + ${p})² - ${p*p - 5}`, answerType: 'text', hint: 'Half the x-coefficient, square it, adjust constant', explanation: `x² + ${2*p}x + 5 = (x + ${p})² - ${p*p} + 5 = (x + ${p})² - ${p*p - 5}`, placeholder: 'e.g. (x+3)² - 4' };
+          }
+        ];
+        return pick(types)();
+      }
     }
   },
 
   'simultaneous-equations': {
     title: 'Simultaneous Equations',
-    emoji: '🔗',
-    color: '#00ff94',
+    emoji: '交叉',
+    color: '#00e5a0',
     category: 'Algebra',
-    description: 'Find the values of x and y that satisfy two equations at once.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Solve pairs of simultaneous linear or non-linear equations using elimination or substitution.',
+    examWeight: 6,
+    difficulty: 'high',
+    estimatedMinutes: 18,
+    prerequisites: ['linear-equations', 'quadratic-equations'],
+    questionTypes: ['numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Method of Elimination', content: 'Add or subtract the equations to get rid of one variable.', example: 'Eq1: x+y=10, Eq2: x-y=2\nAdd them: 2x = 12 → x = 6. Then 6+y=10 → y=4.' },
-        { title: 'Scaling Equations', content: 'If the coefficients don\'t match, multiply one or both equations by a number so they do.', example: '3x + y = 11, x + 2y = 7\nMultiply Eq1 by 2: 6x + 2y = 22. Now subtract Eq2!' },
-        { title: 'Same Sign Subtract (SSS)', content: 'If the matching coefficients have the same sign (e.g. both +2y), SUBTRACT the equations. If signs are different, ADD.', tip: 'SSS = Same Sign Subtract.' }
+        { title: 'Elimination Method', content: 'Multiply one or both equations to make the coefficients of one variable match, then add or subtract the equations to eliminate that variable.', example: 'Eq1: 2x+y=7, Eq2: 3x-y=3. Add them -> 5x=10 -> x=2. Substitute x back in -> 4+y=7 -> y=3.', tip: 'If the signs of the matching coefficients are the Same, Subtract. If they are Opposite, Add (SSS: Same Signs Subtract).' }
       ],
       higher: [
-        { title: 'Substitution Method', content: 'Rearrange one equation to make x or y the subject, then substitute it into the other.', tip: 'Best used when one x or y is already "on its own".' },
-        { title: 'Quadratic & Linear', content: 'One equation is a straight line, one is a circle or curve. Always use substitution.', example: 'y = x² and y = x+2\nx² = x + 2 → x² - x - 2 = 0' },
-        { title: 'Graphical Solution', content: 'The solutions are the coordinates (x, y) where the two lines INTERSECT.' },
-        { title: 'Word Problems', content: 'Set up two equations from a scenario (e.g. 2 adults and 3 children cost £25) and solve to find individual prices.' }
-      ],
+        { title: 'Substitution with Linear and Non-Linear', content: 'Rearrange the linear equation to isolate one variable, then substitute that expression into the quadratic equation to solve it.', example: 'y = x + 1 and x² + y² = 5 -> x² + (x+1)² = 5 -> 2x² + 2x - 4 = 0 -> x = 1 or x = -2. Find corresponding y values.', tip: 'Quadratic simultaneous equations usually give you two pairs of matching x and y answers.' }
+      ]
     },
-    generateQuestion: () => {
-      const x = r(2, 6); const y = r(1, 4);
-      const a = r(1, 3); const b = 1; const c1 = a * x + b * y;
-      const d = 1; const e = -1; const c2 = d * x + e * y;
-      return { 
-        display: `Solve:\n${a}x + y = ${c1}\nx - y = ${c2}\nFind x`, 
-        answer: x, 
-        hint: 'Add the equations together', 
-        explanation: `Summing them: (${a}x + x) + (y - y) = ${c1} + ${c2}\n${a+1}x = ${c1+c2}\nx = ${(c1+c2)/(a+1)}`
-      };
+    hacks: [
+      { title: 'The Bracket Safeguard', content: 'When substituting a linear expression into a quadratic equation, always place brackets around it before squaring to avoid missing middle expansion terms.' }
+    ],
+    advanced: [
+      { title: 'Intersection Interpretations', content: 'Understand how the solutions connect to real geometry, like a straight line intersecting or touching a circle.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const x = r(1, 8); const y = r(1, 8);
+        const a1 = r(1, 4); const b1 = r(1, 4); const c1 = a1*x + b1*y;
+        const a2 = r(1, 4); const b2 = r(1, 4); const c2 = a2*x + b2*y;
+        return { display: `Solve:\n${a1}x + ${b1}y = ${c1}\n${a2}x + ${b2}y = ${c2}\nFind x`, answer: x, hint: 'Eliminate y', explanation: `Multiply eq1 by ${b2}, eq2 by ${b1}, subtract to eliminate y, solve for x = ${x}` };
+      } else {
+        const x = r(-3, 3); const y = x + r(-3, 3);
+        const r1 = r(1, 5);
+        const c = x*x + y*y;
+        return { display: `Solve:\nx² + y² = ${c}\nx + y = ${x + y}\nFind x (smaller value first)`, answer: `${Math.min(x,y)}, ${Math.max(x,y)}`, answerType: 'text', hint: 'Substitute y = (x+y) - x into circle', explanation: `Substitute y = ${x+y} - x → x² + (${x+y}-x)² = ${c} → solve quadratic`, placeholder: 'e.g. -2, 3' };
+      }
     }
   },
 
-  'pythagoras-trig': {
-    title: 'Pythagoras & SOHCAHTOA',
-    emoji: '📐',
-    color: '#00d4ff',
-    category: 'Geometry',
-    description: 'Calculate lengths and angles in right-angled triangles.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+  'inequalities': {
+    title: 'Inequalities',
+    emoji: '⚠️',
+    color: '#00e5a0',
+    category: 'Algebra',
+    description: 'Solve linear inequalities, represent solutions on graphs/number lines, and solve quadratic inequalities.',
+    examWeight: 5,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['linear-equations', 'quadratic-equations'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Pythagoras\' Theorem', formula: 'a² + b² = c²', content: 'c is always the hypotenuse (the longest side).', example: 'Sides 3 and 4: 3² + 4² = 25. √25 = 5.' },
-        { title: 'Finding a Shorter Side', content: 'Subtract the squares: c² - a² = b².', example: 'Hyp=13, side=5: 169 - 25 = 144. √144 = 12.' },
-        { title: 'Trigonometry (SOH CAH TOA)', content: 'Links angles and sides. Label sides: Opposite (from angle), Adjacent (next to), Hypotenuse (longest).', formula: 'sin θ = O/H, cos θ = A/H, tan θ = O/A' },
-        { title: 'Finding a Length', content: 'Pick Sin, Cos, or Tan based on what you have and what you want. Rearrange the formula.', tip: 'Use the trig triangles if you find rearranging hard!' }
+        { title: 'Linear Inequalities', content: 'Solve linear inequalities just like normal equations, but remember to flip the inequality sign if you multiply or divide by a negative number.', example: '-3x < 9 -> divide by -3 -> x > -3', tip: 'Use open circles for < or > on a number line, and solid circles for ≤ or ≥.' },
+        { title: 'Shading Regions on Graphs', content: 'Draw boundary lines, then choose a test point like (0,0) to see which region matches the inequality before shading it.', tip: 'Use a dashed line for strict inequalities (<, >) and a solid line for inclusive ones (≤, ≥).' }
       ],
       higher: [
-        { title: 'Finding an Angle', content: 'Use the inverse trig buttons (sin⁻¹, cos⁻¹, tan⁻¹).', example: 'sin θ = 0.5 → θ = sin⁻¹(0.5) = 30°' },
-        { title: 'Pythagoras in 3D', content: 'Apply a² + b² + c² = d² to find diagonals across rooms or pyramids.', example: 'Box 3x4x12: √(3²+4²+12²) = √169 = 13.' },
-        { title: 'Exact Trig Values', content: 'You must memorize sin/cos/tan for 0, 30, 45, 60, 90.', tip: 'sin 30 = 0.5, cos 60 = 0.5, tan 45 = 1.' },
-        { title: 'Trig Graphs', content: 'Know the shapes of Sine, Cosine, and Tangent waves from 0° to 360°.' }
-      ],
+        { title: 'Quadratic Inequalities', content: 'Find the critical values by setting the inequality to an equation and solving it. Sketch the curve to see where it goes above or below the x-axis.', example: 'x² - 5x + 6 > 0 -> roots are 2 and 3. Parabola opens upward, so x < 2 or x > 3.', tip: 'Do not try to solve it like a linear inequality; always find the roots first.' }
+      ]
     },
-    generateQuestion: () => {
-       const a = 3; const b = 4;
-       return makeMCQ('In a right triangle, sides are 3cm and 4cm. What is the hypotenuse?', '5cm', ['6cm', '7cm', '12cm'], '3² + 4² = x²', '9 + 16 = 25. √25 = 5.');
+    hacks: [
+      { title: 'The Negative Flip Alert', content: 'Whenever you multiply or divide both sides of an inequality by a negative number, turn the inequality sign around immediately.' }
+    ],
+    advanced: [
+      { title: 'Linear Programming Optimization', content: 'Find maximum or minimum values over regional boundaries defined by a set of multiple linear inequalities.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const a = r(2, 6); const b = r(1, 10); const c = a * r(-5, 5) + b;
+        const sign = pick(['<', '>', '≤', '≥']);
+        return { display: `Solve: ${a}x + ${b} ${sign} ${c}`, answer: `x ${sign === '<' ? '>' : sign === '>' ? '<' : sign === '≤' ? '≥' : '≤'} ${(c - b) / a}`, answerType: 'text', hint: 'Isolate x, flip sign if dividing by negative', explanation: `${a}x ${sign} ${c - b} → x ${sign === '<' ? '>' : sign === '>' ? '<' : sign === '≤' ? '≥' : '≤'} ${(c - b) / a}` };
+      } else {
+        const p = r(1, 8); const q = r(1, 8);
+        const roots = [p, q].sort((a,b) => a-b);
+        const sign = pick(['>', '<']);
+        return makeMCQ(`Solve: x² - ${p+q}x + ${p*q} ${sign} 0`, sign === '>' ? `x < ${roots[0]} or x > ${roots[1]}` : `${roots[0]} < x < ${roots[1]}`, [sign === '>' ? `${roots[0]} < x < ${roots[1]}` : `x < ${roots[0]} or x > ${roots[1]}`, `x < ${roots[0]}`, `x > ${roots[1]}`], 'Find roots, sketch parabola, check inequality direction', `(x-${roots[0]})(x-${roots[1]}) ${sign} 0`);
+      }
+    }
+  },
+
+  'iteration': {
+    title: 'Numerical Methods & Iteration',
+    emoji: '🔄',
+    color: '#00e5a0',
+    category: 'Algebra',
+    description: 'Find approximate solutions to equations using iterative processes and recurrence relations.',
+    examWeight: 3,
+    difficulty: 'high',
+    estimatedMinutes: 12,
+    prerequisites: ['rearranging-formulae', 'quadratic-equations'],
+    questionTypes: ['numeric', 'cloze'],
+    lessons: {
+      foundation: [],
+      higher: [
+        { title: 'Understanding Recurrence Relations', content: 'An iteration formula uses the current value x_n to find the next value x_{n+1}.', formula: 'x_{n+1} = f(x_n)', example: 'Given x_0 = 1 and x_{n+1} = √(x_n + 2), calculate x_1.', tip: 'Use the ANS key on your calculator to speed up inputs!' },
+        { title: 'Locating Roots', content: 'If a continuous function changes sign between two values of x, a root lies between those values.', formula: 'f(a) > 0 and f(b) < 0 -> root between a and b', example: 'f(x) = x³ - x - 1. f(1) = -1, f(2) = 5. Change of sign proves root exists.', tip: 'Always explicitly state \'change of sign implies a root\' in exams.' }
+      ]
+    },
+    hacks: [
+      { title: 'Calculator ANS Key', content: 'Type the initial value x_0 and press equals. Then type the formula using the \'Ans\' button instead of x. Keep pressing \'=\' to generate x_1, x_2, x_3 instantly.' }
+    ],
+    advanced: [
+      { title: 'Cobweb and Staircase Diagrams', content: 'Visualise convergence and divergence of iterations by drawing lines between y = x and the curve y = f(x).' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return { display: 'Iteration questions are Higher tier only.', answer: 'Higher tier only', hint: '', explanation: '' };
+      } else {
+        const types = [
+          () => {
+            const a = r(2, 5); const b = r(1, 5);
+            const x0 = r(1, 3);
+            const x1 = Math.sqrt(x0 + a);
+            return { display: `Given x₀ = ${x0} and x_{n+1} = √(x_n + ${a})\nFind x₁ (2 d.p.)`, answer: Math.round(x1 * 100) / 100, hint: 'Substitute x₀ into formula', explanation: `x₁ = √(${x0} + ${a}) = √${x0 + a} = ${Math.round(x1 * 100) / 100}` };
+          },
+          () => {
+            const a = r(1, 3); const b = r(1, 3);
+            return { display: `f(x) = x³ - ${a}x - ${b}\nf(1) = ${1 - a - b}, f(2) = ${8 - 2*a - b}\nIs there a root between 1 and 2?`, answer: (1 - a - b) * (8 - 2*a - b) < 0 ? 'Yes' : 'No', hint: 'Check for sign change', explanation: `f(1) = ${1 - a - b}, f(2) = ${8 - 2*a - b}. ${(1 - a - b) * (8 - 2*a - b) < 0 ? 'Sign change → root exists' : 'No sign change'}` };
+          }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  // ─── GEOMETRY ──────────────────────────────────────────────
+
+  'angles': {
+    title: 'Angle Properties & Parallel Lines',
+    emoji: '📐',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Apply core angle facts, parallel lines rules, and find interior/exterior angles of polygons.',
+    examWeight: 5,
+    difficulty: 'low',
+    estimatedMinutes: 10,
+    prerequisites: [],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Angles on Lines & Around Points', content: 'Angles on a straight line add up to 180°. Angles around a point add up to 360°. Vertically opposite angles are equal.', example: 'If two straight lines cross and one angle is 50°, the opposite angle is also 50°.', tip: 'Always double check your subtraction from 180 or 360.' },
+        { title: 'Parallel Lines (F, Z, C Shapes)', content: 'Alternate angles are equal (Z shape). Corresponding angles are equal (F shape). Allied/Co-interior angles add up to 180° (C shape).', tip: 'Make sure you use the official exam terms like \'alternate\' or \'corresponding\' rather than letters like Z or F.' },
+        { title: 'Angles in Polygons', content: 'Exterior angles of any polygon always add up to 360°. The sum of interior angles is found using a formula based on the number of sides.', formula: 'Sum of Interior Angles = (n - 2) × 180', example: 'For a hexagon (6 sides): (6 - 2) × 180 = 720°.', tip: 'For regular polygons, you can find a single interior angle easily by doing 180° minus the exterior angle.' }
+      ],
+      higher: [
+        { title: 'Geometric Proof with Angles', content: 'Construct full algebraic proofs for polygon or line properties using parallel line theorems and variable forms.', tip: 'Link each step clearly to an official geometric reason.' }
+      ]
+    },
+    hacks: [
+      { title: 'The Exterior Shortcut', content: 'To find the number of sides of a regular polygon quickly, just divide 360 by the exterior angle: n = 360 / Exterior.' }
+    ],
+    advanced: [
+      { title: 'Non-Euclidean Geometries', content: 'See how angle sum rules change when drawing shapes on curved surfaces instead of flat planes.' }
+    ],
+    generateQuestion: (tier) => {
+      const types = [
+        () => { const a = r(25, 155); return { display: `Parallel lines with a transversal.\nOne angle is ${a}°. Find the alternate angle.`, answer: a, hint: 'Z-angles are equal', explanation: `Alternate angles = ${a}°` }; },
+        () => { const a = r(25, 155); return { display: `Parallel lines with a transversal.\nOne angle is ${a}°. Find the corresponding angle.`, answer: a, hint: 'F-angles are equal', explanation: `Corresponding angles = ${a}°` }; },
+        () => { const a = r(40, 140); return { display: `Find the co-interior angle if one is ${a}°`, answer: 180 - a, hint: 'C-angles add to 180°', explanation: `180 − ${a} = ${180 - a}°` }; },
+        () => { const n = r(5, 10); const names = { 5:'pentagon', 6:'hexagon', 7:'heptagon', 8:'octagon', 9:'nonagon', 10:'decagon' }; return { display: `Find the sum of interior angles of a ${names[n] || n+'-sided polygon'}`, answer: (n - 2) * 180, hint: '(n−2) × 180', explanation: `(${n}−2) × 180 = ${n - 2} × 180 = ${(n - 2) * 180}°` }; }
+      ];
+      return pick(types)();
+    }
+  },
+
+  'perimeter-area-volume': {
+    title: 'Perimeter, Area & Volume',
+    emoji: '📦',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Calculate area and perimeter of 2D shapes, along with surface area and volume of prisms, cylinders, pyramids, and spheres.',
+    examWeight: 6,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['fractions-decimals-percentages'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Area of Core 2D Shapes', content: 'Know the formulas for triangles, parallelograms, and trapeziums.', formula: 'Triangle = 0.5×b×h, Trapezium = 0.5×(a+b)×h', example: 'Trapezium with a=4cm, b=6cm, h=3cm: Area = 0.5 × (4+6) × 3 = 15 cm²', tip: 'Always look out for perpendicular heights; do not use slanted side lengths by mistake.' },
+        { title: 'Volume of Prisms', content: 'The volume of any prism is the area of its cross-section multiplied by its length.', formula: 'Volume = Area of Cross-section × Length', example: 'A triangular prism with a cross-section area of 10 cm² and length 5 cm has a volume of 50 cm³.', tip: 'Remember that volume is measured in cubic units, like cm³ or m³.' }
+      ],
+      higher: [
+        { title: 'Pyramids, Cones & Spheres', content: 'Apply the fractional volume formulas provided on the exam formulas sheet for advanced curved solids.', formula: 'Sphere Volume = (4/3)πr³, Cone Volume = (1/3)πr²h', example: 'Find the volume of a cone with radius 3cm and height 4cm: Vol = (1/3) × π × 3² × 4 = 12π cm³', tip: 'Leave your answers in terms of π if the question asks for an exact value.' }
+      ]
+    },
+    hacks: [
+      { title: 'The Net Breakdown Strategy', content: 'To find the surface area of any 3D object safely, sketch out its flat net first, calculate the individual area of each face, and add them up.' }
+    ],
+    advanced: [
+      { title: 'Frustum Calculations', content: 'Find the volume of a truncated cone or pyramid by subtracting the volume of the smaller missing top cone from the original large cone shape.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => { const b = r(2, 10); const h = r(2, 10); return { display: `Triangle: base = ${b}cm, height = ${h}cm\nFind the area`, answer: (b * h) / 2, hint: '½ × base × height', explanation: `Area = ½ × ${b} × ${h} = ${(b * h) / 2} cm²` }; },
+          () => { const a = r(2, 8); const b = r(2, 8); const h = r(2, 8); return { display: `Trapezium: a = ${a}cm, b = ${b}cm, h = ${h}cm\nFind the area`, answer: (a + b) * h / 2, hint: '½(a+b)×h', explanation: `Area = ½ × (${a}+${b}) × ${h} = ${(a+b)*h/2} cm²` }; },
+          () => { const area = r(5, 20); const len = r(3, 10); return { display: `Prism: cross-section area = ${area}cm², length = ${len}cm\nFind the volume`, answer: area * len, hint: 'Area × length', explanation: `Volume = ${area} × ${len} = ${area * len} cm³` }; }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => { const r = r(2, 8); const vol = (4/3) * Math.PI * r**3; return { display: `Sphere: radius = ${r}cm\nFind the volume in terms of π`, answer: `${(4/3) * r**3}π`, answerType: 'text', hint: '(4/3)πr³', explanation: `Volume = (4/3)π(${r}³) = ${(4/3) * r**3}π cm³`, placeholder: 'e.g. 36π' }; },
+          () => { const r = r(2, 6); const h = r(3, 10); const vol = (1/3) * Math.PI * r**2 * h; return { display: `Cone: radius = ${r}cm, height = ${h}cm\nFind the volume (1 d.p.)`, answer: Math.round(vol * 10) / 10, hint: '(1/3)πr²h', explanation: `Volume = (1/3) × π × ${r}² × ${h} = ${Math.round(vol * 10) / 10} cm³` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'right-angle-triangles': {
+    title: 'Right-Angled Triangles',
+    emoji: '📐',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Master Pythagoras\' Theorem and standard SOHCAHTOA trigonometry to find missing sides and angles.',
+    examWeight: 7,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['linear-equations'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Pythagoras\' Theorem', content: 'In any right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.', formula: 'a² + b² = c²', example: 'Sides 3cm and 4cm -> 3² + 4² = 9 + 16 = 25 -> √25 = 5cm', tip: 'The hypotenuse \'c\' is always the longest side, directly opposite the 90-degree angle.' },
+        { title: 'SOHCAHTOA Trigonometry Sides', content: 'Label sides as Hypotenuse, Opposite, and Adjacent relative to a given angle, and use sine, cosine, or tangent ratios to find missing lengths.', formula: 'sin(θ)=O/H, cos(θ)=A/H, tan(θ)=O/A', example: 'Find Opposite if Hypotenuse=10m and angle=30°. O = 10 × sin(30°) = 5m.', tip: 'Set your scientific calculator to Degree mode (\'DEG\') before doing trig questions.' }
+      ],
+      higher: [
+        { title: 'Exact Trigonometric Values', content: 'Memorise the exact non-decimal values for sine, cosine, and tangent for key angles like 0°, 30°, 45°, 60°, and 90°.', example: 'sin(30°) = 1/2, cos(45°) = √2/2, tan(60°) = √3', tip: 'You can use a simple hand trick or sketch quick triangles to remember these without a calculator.' }
+      ]
+    },
+    hacks: [
+      { title: 'The SOHCAHTOA Triangle Triangles', content: 'Cover the letter you want to find in formula triangles (like O over S×H) to quickly see whether you need to multiply or divide.' }
+    ],
+    advanced: [
+      { title: '3D Pythagoras & Trigonometry', content: 'Find diagonals across 3D boxes by applying Pythagoras twice, or calculate angles between lines and planes inside pyramids.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => { const a = r(3, 12); const b = r(3, 12); const c = Math.sqrt(a*a + b*b); return { display: `Right triangle: sides ${a}cm and ${b}cm\nFind the hypotenuse (1 d.p.)`, answer: Math.round(c * 10) / 10, hint: 'a² + b² = c²', explanation: `${a}² + ${b}² = ${a*a} + ${b*b} = ${a*a+b*b}\nc = √${a*a+b*b} = ${Math.round(c * 10) / 10}` }; },
+          () => { const h = r(5, 15); const a = r(20, 70); const opp = Math.round(h * Math.sin(a * Math.PI / 180) * 10) / 10; return { display: `Hypotenuse = ${h}cm, angle = ${a}°\nFind the opposite side (1 d.p.)`, answer: opp, hint: 'sin = O/H', explanation: `O = H × sin(${a}°) = ${h} × ${Math.round(Math.sin(a * Math.PI / 180) * 100) / 100} = ${opp}` }; },
+          () => { const h = r(5, 15); const a = r(20, 70); const adj = Math.round(h * Math.cos(a * Math.PI / 180) * 10) / 10; return { display: `Hypotenuse = ${h}cm, angle = ${a}°\nFind the adjacent side (1 d.p.)`, answer: adj, hint: 'cos = A/H', explanation: `A = H × cos(${a}°) = ${h} × ${Math.round(Math.cos(a * Math.PI / 180) * 100) / 100} = ${adj}` }; }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => { const angle = pick([30, 45, 60]); const values = { 30: {sin: '1/2', cos: '√3/2', tan: '1/√3'}, 45: {sin: '√2/2', cos: '√2/2', tan: '1'}, 60: {sin: '√3/2', cos: '1/2', tan: '√3'} }; const fn = pick(['sin', 'cos', 'tan']); return makeMCQ(`What is the exact value of ${fn}(${angle}°)?`, values[angle][fn], Object.values(values[angle]).filter(v => v !== values[angle][fn]).slice(0,3), 'Exact value triangle', `${fn}(${angle}°) = ${values[angle][fn]}`); },
+          () => { const a = r(3, 8); const b = r(3, 8); const c = Math.sqrt(a*a + b*b); return { display: `Cuboid: sides ${a}cm, ${b}cm, ${r(3,8)}cm\nFind the space diagonal (1 d.p.)`, answer: Math.round(Math.sqrt(a*a + b*b + r(3,8)**2) * 10) / 10, hint: 'Apply Pythagoras twice', explanation: `Diagonal = √(a² + b² + c²)` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'non-right-triangles': {
+    title: 'Non-Right Triangles',
+    emoji: '🔺',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Apply the Sine Rule, Cosine Rule, and the trigonometric area formula to find dimensions of non-right-angled triangles.',
+    examWeight: 5,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['right-angle-triangles'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [],
+      higher: [
+        { title: 'The Sine Rule', content: 'Use this rule when you have matching opposite pairs of sides and angles.', formula: 'a/sin(A) = b/sin(B) = c/sin(C)', example: 'Find side a when A=40°, b=10cm, B=60°. a = (10 × sin(40°)) ÷ sin(60°) = 7.42cm.', tip: 'Flip the formula upside down to sin(A)/a if you need to find an unknown angle instead of a side.' },
+        { title: 'The Cosine Rule', content: 'Use this rule when you know two sides and the angle between them (SAS), or when you know all three sides (SSS).', formula: 'a² = b² + c² - 2bc·cos(A)', example: 'b=5, c=7, A=60°. a² = 5² + 7² - 2(5)(7)cos(60°) = 25 + 49 - 35 = 39 -> a = √39 = 6.24', tip: 'Remember to execute the multiplication 2bc·cos(A) completely before subtracting it from the earlier sum.' },
+        { title: 'Trigonometric Area Formula', content: 'Calculate the area of any triangle given two sides and the included angle.', formula: 'Area = 0.5 × a × b × sin(C)', tip: 'The angle used must be trapped right between the two known sides.' }
+      ]
+    },
+    hacks: [
+      { title: 'Sine vs Cosine Decision Rule', content: 'If you have all three sides or a trapped angle (SAS), use the Cosine Rule. For any other combination, use the Sine Rule.' }
+    ],
+    advanced: [
+      { title: 'The Ambiguous Case of the Sine Rule', content: 'Be aware that when finding an angle, sin⁻¹ gives an acute angle, but an obtuse option might also exist, found by doing 180° minus that angle.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return { display: 'Non-right triangle trigonometry is Higher tier only.', answer: 'Higher tier only', hint: '', explanation: '' };
+      } else {
+        const types = [
+          () => { const a = r(5, 12); const A = r(30, 60); const B = r(30, 60); const C = 180 - A - B; if (C <= 0) return { display: 'Invalid triangle', answer: 'N/A', hint: '', explanation: '' }; const b = Math.round(a * Math.sin(B * Math.PI / 180) / Math.sin(A * Math.PI / 180) * 100) / 100; return { display: `Triangle ABC: a = ${a}cm, A = ${A}°, B = ${B}°\nUse Sine Rule to find side b (2 d.p.)`, answer: b, hint: 'a/sinA = b/sinB', explanation: `b = a × sin(B) / sin(A) = ${a} × sin(${B}°) / sin(${A}°) = ${b}` }; },
+          () => { const b = r(4, 10); const c = r(4, 10); const A = r(40, 100); const a2 = b*b + c*c - 2*b*c*Math.cos(A * Math.PI / 180); const a = Math.round(Math.sqrt(Math.max(0, a2)) * 100) / 100; return { display: `Triangle ABC: b = ${b}cm, c = ${c}cm, A = ${A}°\nUse Cosine Rule to find side a (2 d.p.)`, answer: a, hint: 'a² = b² + c² - 2bc cosA', explanation: `a² = ${b}² + ${c}² - 2(${b})(${c})cos(${A}°) = ${Math.round(a2)} → a = ${a}` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'transformations': {
+    title: 'Transformations',
+    emoji: '🔄',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Perform and describe reflections, rotations, translations, and enlargements.',
+    examWeight: 4,
+    difficulty: 'medium',
+    estimatedMinutes: 12,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Translations & Reflections', content: 'Translations shift a shape using a column vector. Reflections flip a shape across a specific mirror line like x=2 or y=x.', example: 'Translating [3, -1] means moving 3 squares right and 1 square down.', tip: 'Count grid lines perpendicularly to the mirror line to keep reflections accurate.' },
+        { title: 'Rotations', content: 'Turn a shape around a fixed coordinate point, using a specific angle direction (clockwise or anticlockwise).', tip: 'Always use tracing paper in the exam to check your rotations carefully.' }
+      ],
+      higher: [
+        { title: 'Negative and Fractional Enlargements', content: 'Fractional scale factors shrink shapes closer to the center. Negative scale factors project the shape upside down on the opposite side of the center point.', example: 'Scale factor -2 doubles the size and flips the shape through the center point.', tip: 'Draw guidelines from the original corners through the center of enlargement to find the new positions.' }
+      ]
+    },
+    hacks: [
+      { title: 'Full Description Marks Checklist', content: 'To get full marks when describing a transformation: Translation needs a vector; Reflection needs a line; Rotation needs an angle, direction, and center; Enlargement needs a scale factor and center.' }
+    ],
+    advanced: [
+      { title: 'Invariance Properties', content: 'Identify points or lines that do not move at all after a specific sequence of geometric transformations.' }
+    ],
+    generateQuestion: (tier) => {
+      const types = [
+        () => { const x = r(-5, 5); const y = r(-5, 5); const tx = r(-5, 5); const ty = r(-5, 5); return { display: `Point (${x}, ${y}) is translated by vector [${tx}, ${ty}]\nWhat are the new coordinates?`, answer: `(${x + tx}, ${y + ty})`, answerType: 'text', hint: 'Add vector to coordinates', explanation: `(${x} + ${tx}, ${y} + ${ty}) = (${x + tx}, ${y + ty})`, placeholder: '(x, y)' }; },
+        () => { const line = pick(['x-axis', 'y-axis', 'y=x', 'y=-x']); const x = r(-5, 5); const y = r(-5, 5); let ans; if (line === 'x-axis') ans = `(${x}, ${-y})`; else if (line === 'y-axis') ans = `(${ -x}, ${y})`; else if (line === 'y=x') ans = `(${y}, ${x})`; else ans = `(${ -y}, ${ -x})`; return { display: `Point (${x}, ${y}) reflected in the ${line}\nNew coordinates?`, answer: ans, answerType: 'text', hint: 'Flip across the line', explanation: `Reflection in ${line}: (${x}, ${y}) → ${ans}`, placeholder: '(x, y)' }; },
+        () => { const sf = pick([2, 3, -1, -2, '1/2', '1/3']); return makeMCQ(`An enlargement with scale factor ${sf} makes a shape...`, sf === -1 ? 'same size, rotated 180°' : sf === -2 ? 'double size, rotated 180°' : sf === '1/2' ? 'half size, same orientation' : sf === '1/3' ? 'third size, same orientation' : `${sf}× size, same orientation`, [sf === -1 ? 'double size, same orientation' : 'same size, same orientation', sf === -1 ? 'half size, rotated 180°' : 'double size, same orientation', sf === 2 ? 'half size, same orientation' : 'same size, rotated 180°'], 'Negative = rotation, fractional = shrink', `Scale factor ${sf}: ${sf < 0 ? 'rotation + size change' : sf < 1 ? 'shrink' : 'enlarge'}`); }
+      ];
+      return pick(types)();
+    }
+  },
+
+  'similarity-congruence': {
+    title: 'Similarity & Congruence',
+    emoji: '♊',
+    color: '#00e5a0',
+    category: 'Geometry',
+    description: 'Prove geometric congruence and calculate lengths, areas, and volumes for mathematically similar shapes.',
+    examWeight: 5,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['ratios', 'perimeter-area-volume'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Congruence Proof Criteria', content: 'Two shapes are congruent if they are identical in size and shape. For triangles, prove this using SSS, SAS, ASA, or RHS rules.', tip: 'Make sure you state the exact rule abbreviation (like SSS) as your reason to secure full marks.' }
+      ],
+      higher: [
+        { title: 'Length, Area & Volume Scale Factors', content: 'If the linear scale factor is k, the area scale factor is k² and the volume scale factor is k³.', formula: 'ASF = LSF², VSF = LSF³', example: 'If a shape\'s length is doubled (LSF=2), its area increases by 4 (ASF=4) and its volume increases by 8 (VSF=8).', tip: 'Find the length scale factor first before trying to solve area or volume adjustments.' }
+      ]
+    },
+    hacks: [
+      { title: 'Scale Factor Root Trick', content: 'If you are given two areas, divide them to find the Area Scale Factor, then take the square root to find the Length Scale Factor.' }
+    ],
+    advanced: [
+      { title: 'Formal Geometric Congruence Deductions', content: 'Construct multi-stage triangle alignment proofs within circle and tangent structures using formal mathematical notation.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return makeMCQ(`Which is NOT a valid congruence condition for triangles?`, 'AAA', ['SSS', 'SAS', 'ASA', 'RHS'], 'AAA only proves similarity', 'AAA gives same angles but not same size');
+      } else {
+        const types = [
+          () => { const lsf = r(2, 5); const area1 = r(5, 30); return { display: `Two similar shapes have LSF = ${lsf}.\nArea of smaller = ${area1} cm².\nArea of larger?`, answer: area1 * lsf * lsf, hint: 'ASF = LSF²', explanation: `ASF = ${lsf}² = ${lsf*lsf}\nLarger area = ${area1} × ${lsf*lsf} = ${area1 * lsf * lsf}` }; },
+          () => { const lsf = r(2, 4); const vol1 = r(10, 50); return { display: `Two similar solids have LSF = ${lsf}.\nVolume of smaller = ${vol1} cm³.\nVolume of larger?`, answer: vol1 * lsf * lsf * lsf, hint: 'VSF = LSF³', explanation: `VSF = ${lsf}³ = ${lsf*lsf*lsf}\nLarger volume = ${vol1} × ${lsf*lsf*lsf} = ${vol1 * lsf * lsf * lsf}` }; }
+        ];
+        return pick(types)();
+      }
     }
   },
 
   'vectors': {
     title: 'Vectors',
-    emoji: '➗',
-    color: '#ff6b35',
+    emoji: '↗️',
+    color: '#00e5a0',
     category: 'Geometry',
-    description: 'Work with movement and direction as column vectors.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Understand column vectors, add/subtract vectors geometrically, and solve geometric proofs using vectors.',
+    examWeight: 6,
+    difficulty: 'high',
+    estimatedMinutes: 20,
+    prerequisites: ['angles', 'similarity-congruence'],
+    questionTypes: ['mcq', 'numeric', 'cloze', 'ordering'],
     lessons: {
       foundation: [
-        { title: 'Column Vectors', content: 'Written as [x, y]. Top number is horizontal movement, bottom is vertical.', example: '[3, -2] means 3 right, 2 down.' },
-        { title: 'Adding & Subtracting', content: 'Just add/subtract the top numbers and the bottom numbers separately.', example: '[1, 2] + [3, 4] = [4, 6]' },
-        { title: 'Scalar Multipliers', content: 'Multiply both numbers by the scalar.', example: '3 × [2, 5] = [6, 15]' },
-        { title: 'Resultant Vectors', content: 'The single vector that replaces multiple movements. Geometrically, it\'s the "shortcut".' }
+        { title: 'Column Vectors', content: 'Vectors describe a movement with direction and size. The top number shows horizontal movement, the bottom shows vertical movement.', formula: 'a = [x, y]^T', example: '[2, -3] means move 2 units right and 3 units down.', tip: 'Multiplying a vector by a number scales both parts inside.' }
       ],
       higher: [
-        { title: 'Geometric Vectors', content: 'Vectors like a and b on a diagram. Go "the long way round" using known paths.', tip: 'Going against an arrow makes the vector negative!' },
-        { title: 'Midpoints & Ratios', content: 'Find points a fraction of the way along a line. E.g. M is the midpoint of AB: OM = OA + 0.5AB.' },
-        { title: 'Parallel Vectors', content: 'Vectors are parallel if one is a multiple of the other.', example: '[2, 3] is parallel to [4, 6] because [4, 6] = 2 × [2, 3].' },
-        { title: 'Collinear Points', content: 'To prove points A, B, and C lie on a straight line: show AB is parallel to BC and they share point B.' }
-      ],
+        { title: 'Vector Geometry Paths', content: 'To find an unknown vector route, construct an alternative pathway along known vectors from the start point to the endpoint.', example: 'Vector AB = AO + OB = -a + b', tip: 'Going against a vector arrow reverses its sign.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('If a = [2, 3] and b = [1, -5], what is a + b?', '[3, -2]', ['[3, 8]', '[1, 8]', '[2, -15]'], 'Add tops, add bottoms.', '[2+1, 3+(-5)] = [3, -2]');
+    hacks: [
+      { title: 'Collinear Proof Trick', content: 'To prove three points A, B, and C lie on a straight line, show that vector AB is a multiple of vector BC, and state that they share point B.' }
+    ],
+    advanced: [
+      { title: 'Ratio Splitting', content: 'If a point P splits vector AB in the ratio 2:3, then vector AP = 2/5 of vector AB and PB = 3/5 of vector AB.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const x1 = r(-5, 5); const y1 = r(-5, 5); const x2 = r(-5, 5); const y2 = r(-5, 5);
+        return { display: `Add vectors: [${x1}, ${y1}] + [${x2}, ${y2}] = ?`, answer: `[${x1 + x2}, ${y1 + y2}]`, answerType: 'text', hint: 'Add top components, add bottom components', explanation: `[${x1}+${x2}, ${y1}+${y2}] = [${x1+x2}, ${y1+y2}]`, placeholder: '[x, y]' };
+      } else {
+        const types = [
+          () => { const a = r(1, 5); const b = r(1, 5); return { display: `Vector a = [${a}, ${b}]. What is 3a?`, answer: `[${3*a}, ${3*b}]`, answerType: 'text', hint: 'Multiply each component by 3', explanation: `3 × [${a}, ${b}] = [${3*a}, ${3*b}]`, placeholder: '[x, y]' }; },
+          () => { const x = r(-5, 5); const y = r(-5, 5); return { display: `Vector AB = [${x}, ${y}]. What is vector BA?`, answer: `[${-x}, ${-y}]`, answerType: 'text', hint: 'Reverse the direction', explanation: `BA = -AB = [${-x}, ${-y}]`, placeholder: '[x, y]' }; }
+        ];
+        return pick(types)();
+      }
     }
   },
 
   'circle-theorems': {
     title: 'Circle Theorems',
     emoji: '⭕',
-    color: '#b14aed',
+    color: '#00e5a0',
     category: 'Geometry',
-    description: 'The geometric laws governing angles in circles.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Apply geometric properties and formal circle theorems to calculate unknown angles.',
+    examWeight: 5,
+    difficulty: 'high',
+    estimatedMinutes: 18,
+    prerequisites: ['angles'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Tangent & Radius', content: 'A tangent meets a radius at exactly 90°.', tip: 'Always look for the right angle if you see a line touching the edge!' },
-        { title: 'Two Tangents', content: 'Two tangents from the same external point to a circle are equal in length.' },
-        { title: 'Angles in a Semicircle', content: 'The angle in a semicircle is always 90°.', tip: 'If the hypotenuse is the diameter, the opposite angle is 90°.' }
+        { title: 'Parts of a Circle', content: 'Identify radius, diameter, chord, tangent, arc, sector, and segment elements before performing proofs.', tip: 'A radius and a tangent meet at exactly 90 degrees.' }
       ],
       higher: [
-        { title: 'Angles at Center/Circumference', content: 'The angle at the center is TWICE the angle at the circumference.', tip: 'Look for an "arrowhead" shape.' },
-        { title: 'Cyclic Quadrilaterals', content: 'Opposite angles in a cyclic quadrilateral (all corners on the circle) add up to 180°.' },
-        { title: 'Alternate Segment Theorem', content: 'The angle between a tangent and its chord is equal to the angle in the alternate segment.', tip: 'This is usually the hardest theorem to spot!' },
-        { title: 'Same Segment', content: 'Angles in the same segment (from the same chord) are equal.', tip: 'Look for the "bowtie" or "butterfly" shape!' },
-        { title: 'Radius bisects Chord', content: 'A radius that is perpendicular to a chord bisects the chord (cuts it in half).' }
-      ],
+        { title: 'Core Circle Theorems', content: '1. Angle at the centre is twice the angle at the circumference.\n2. Angle in a semi-circle is 90 degrees.\n3. Angles in the same segment are equal.', formula: 'Centre = 2 × Circumference', tip: 'Look for isosceles triangles created by drawing multiple radii from the centre.' },
+        { title: 'Cyclic Quadrilaterals & Tangents', content: '4. Opposite angles in a cyclic quadrilateral sum to 180 degrees.\n5. Alternate Segment Theorem: The angle between a tangent and a chord equals the angle in the alternate segment.', tip: 'Always write out the exact phrasing of the theorem text as your reason in exams.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('Angle at circumference is 40°. What is the angle at the center?', '80°', ['20°', '40°', '180°'], 'Center is double.', '40 × 2 = 80°.');
+    hacks: [
+      { title: 'The \'Arrowhead\' Cue', content: 'Whenever you spot an arrowhead shape anchored to the circle perimeter and passing through the centre, instantly apply the \'double angle at centre\' rule.' }
+    ],
+    advanced: [
+      { title: 'Geometric Proofs', content: 'Prove theorems algebraically by introducing variables like x and y alongside base triangle geometry constraints.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return makeMCQ(`A tangent meets a radius at what angle?`, '90°', ['45°', '60°', '180°'], 'Tangent ⟂ radius', 'Tangent is perpendicular to radius at point of contact');
+      } else {
+        const types = [
+          () => { const angle = r(20, 70); return { display: `Angle at circumference = ${angle}°\nAngle at centre (subtended by same arc)?`, answer: angle * 2, hint: 'Centre = 2 × Circumference', explanation: `Centre angle = 2 × ${angle}° = ${angle * 2}°` }; },
+          () => { const angle = r(30, 80); return { display: `Cyclic quadrilateral: one angle = ${angle}°\nOpposite angle?`, answer: 180 - angle, hint: 'Opposite angles sum to 180°', explanation: `180° - ${angle}° = ${180 - angle}°` }; },
+          () => { const angle = r(20, 60); return { display: `Angle between tangent and chord = ${angle}°\nAngle in alternate segment?`, answer: angle, hint: 'Alternate segment theorem', explanation: `Alternate segment angle = ${angle}°` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  // ─── STATISTICS ────────────────────────────────────────────
+
+  'mean-median-mode': {
+    title: 'Mean, Median & Mode',
+    emoji: '📊',
+    color: '#00e5a0',
+    category: 'Statistics',
+    description: 'Calculate and compare averages from list datasets or grouped frequency tables.',
+    examWeight: 4,
+    difficulty: 'low',
+    estimatedMinutes: 10,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'Averages from Lists', content: 'Mean is the sum divided by the count. Median is the middle value when ordered. Mode is the most common number. Range is the high minus the low value.', example: 'List: 2, 2, 5, 7. Mean = 16/4 = 4. Median = 3.5. Mode = 2. Range = 5.', tip: 'Always sort your data list first before looking for the median.' },
+        { title: 'Averages from Grouped Tables', content: 'Estimate the mean by multiplying each group midpoint by its frequency, adding them up, and dividing by the total frequency.', formula: 'Estimated Mean = Σ(fx) ÷ Σf', tip: 'Remember, this is an estimate because we do not know the exact raw values inside the groups.' }
+      ],
+      higher: [
+        { title: 'Comparing Averages and Spread', content: 'Use an average (like median) to talk about central trend, and a spread measure (like range or IQR) to discuss consistency.', tip: 'Always mention context (e.g., test scores, race times) when writing comparison answers.' }
+      ]
+    },
+    hacks: [
+      { title: 'Total Frequency Divide Warning', content: 'When calculating the mean from a table, make sure you divide by the total frequency, NOT by the number of rows in the table.' }
+    ],
+    advanced: [
+      { title: 'Skewness and Outliers', content: 'Analyse how extreme outlier data points distort the mean while leaving the median stable.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => { const arr = Array.from({length: r(5, 8)}, () => r(1, 20)).sort((a,b) => a-b); const mean = arr.reduce((a,b) => a+b, 0) / arr.length; return { display: `Find the mean: ${arr.join(', ')}`, answer: Math.round(mean * 10) / 10, hint: 'Sum ÷ count', explanation: `Sum = ${arr.reduce((a,b)=>a+b,0)}, Count = ${arr.length}\nMean = ${Math.round(mean * 10) / 10}` }; },
+          () => { const arr = Array.from({length: r(5, 9)}, () => r(1, 20)).sort((a,b) => a-b); const mid = Math.floor(arr.length / 2); const median = arr.length % 2 ? arr[mid] : (arr[mid-1] + arr[mid]) / 2; return { display: `Find the median: ${arr.join(', ')}`, answer: median, hint: 'Middle value (or average of two middle)', explanation: `Sorted: ${arr.join(', ')}\nMedian = ${median}` }; },
+          () => { const arr = Array.from({length: r(6, 10)}, () => pick([1,2,3,4,5,6])); const freq = {}; arr.forEach(x => freq[x] = (freq[x]||0)+1); const mode = parseInt(Object.entries(freq).sort((a,b)=>b[1]-a[1])[0][0]); return { display: `Find the mode: ${arr.join(', ')}`, answer: mode, hint: 'Most frequent value', explanation: `Mode = ${mode} (appears ${freq[mode]} times)` }; }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => { const groups = [[0,10,5],[10,20,8],[20,30,12],[30,40,7],[40,50,3]]; const fx = groups.reduce((sum, [lo, hi, f]) => sum + ((lo+hi)/2)*f, 0); const tf = groups.reduce((sum, [,,f]) => sum + f, 0); return { display: `Estimate the mean from this grouped table:\n0-10: 5\n10-20: 8\n20-30: 12\n30-40: 7\n40-50: 3`, answer: Math.round((fx/tf) * 10) / 10, hint: 'Use midpoints: Σ(fx) ÷ Σf', explanation: `Midpoints: 5,15,25,35,45\nΣfx = ${fx}, Σf = ${tf}\nMean = ${Math.round((fx/tf) * 10) / 10}` }; }
+        ];
+        return pick(types)();
+      }
     }
   },
 
   'probability-trees': {
-    title: 'Probability Trees',
+    title: 'Probability Trees & Diagrams',
     emoji: '🌲',
-    color: '#ffe600',
+    color: '#00e5a0',
     category: 'Statistics',
-    description: 'Calculate probabilities of multiple events using tree diagrams.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Calculate probabilities of single and combined events using sample spaces, Venn diagrams, and tree diagrams.',
+    examWeight: 5,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['fractions-decimals-percentages'],
+    questionTypes: ['mcq', 'numeric', 'fraction', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'The Branches', content: 'Each set of branches from a point must add up to 1.', example: 'P(Rain) = 0.3 → P(No Rain) = 0.7' },
-        { title: 'Along the Branches', content: 'To find the probability of one event AND another, MULTIPLY along the branches.', example: '0.5 × 0.5 = 0.25' },
-        { title: 'Choosing Outcomes', content: 'Identify the specific end-points that satisfy the question (e.g. "at least one red").' }
+        { title: 'Basic Probability Scale', content: 'Probabilities range from 0 (impossible) to 1 (certain). The probabilities of all mutually exclusive events add up to 1.', formula: 'P(Not A) = 1 - P(A)', tip: 'You can write probabilities as fractions, decimals, or percentages, but never as ratios.' },
+        { title: 'Independent Tree Diagrams', content: 'Multiply probabilities along the branches to find the chance of combined outcomes.', example: 'Flipping two heads: 0.5 × 0.5 = 0.25', tip: 'Branches coming from the same node must always add up to 1.' }
       ],
       higher: [
-        { title: 'Dependent Events', content: 'The second set of branches changes based on the first outcome (e.g. picking without replacement).', tip: 'The denominator usually decrease by 1!' },
-        { title: 'At the End of Branches', content: 'To find the probability of one outcome OR another, ADD the results from the end of the trees.', formula: 'P(A or B) = P(A) + P(B)' },
-        { title: 'The "At Least One" Trick', content: 'P(At least one) = 1 − P(None). This is often much faster than adding many branches.', tip: 'Use this for "at least one 6" in three dice rolls.' }
-      ],
+        { title: 'Dependent Events (No Replacement)', content: 'Adjust the fractions on the second set of branches because the total number of items has decreased.', example: 'Pick 2 red counters out of a bag with 4 red and 6 blue: P(Red, Red) = 4/10 × 3/9 = 12/90.', tip: 'Look out for keywords like \'does not replace\' or \'takes another\'.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('P(A) = 0.3, P(B) = 0.4. What is P(A and B)?', '0.12', ['0.7', '0.1', '0.5'], 'Multiply them.', '0.3 × 0.4 = 0.12');
+    hacks: [
+      { title: 'The \'And\' / \'Or\' Probability Rule', content: 'Multiply probabilities when you need one event AND another to happen. Add them when you want one event OR another outcome.' }
+    ],
+    advanced: [
+      { title: 'Conditional Probability Proofs', content: 'Master formulaic representations for formal conditional systems, written as P(A given B).' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => { const p = pick([0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]); return makeMCQ(`P(A) = ${p}. What is P(not A)?`, String(1 - p), [String(p), String(p/2), String(p*2)], 'Probabilities sum to 1', `1 - ${p} = ${1-p}`); },
+          () => { const p = 0.5; return { display: `Fair coin flipped twice.\nP(Two heads)?`, answer: 0.25, hint: 'Multiply along branches', explanation: `0.5 × 0.5 = 0.25` }; },
+          () => { const n = r(4, 10); const k = r(1, n-1); return { display: `Bag: ${k} red, ${n-k} blue counters.\nPick one, replace it, pick again.\nP(Both red)?`, answer: `${k*k}/${n*n}`, answerType: 'fraction', hint: 'Independent: multiply', explanation: `(${k}/${n}) × (${k}/${n}) = ${k*k}/${n*n}` }; }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => { const r = r(3, 8); const b = r(3, 8); const total = r + b; const p = `${r*r}/${total*total}`; const p2 = `${r*(r-1)}/${total*(total-1)}`; return makeMCQ(`Bag: ${r} red, ${b} blue. Pick 2 WITHOUT replacement.\nP(Both red)?`, p2, [p, `${r*b}/${total*(total-1)}`, `${b*(b-1)}/${total*(total-1)}`], 'No replacement: second pick has one less', `(${r}/${total}) × (${r-1}/${total-1}) = ${p2}`); },
+          () => { const r = r(3, 8); const b = r(3, 8); const total = r + b; const p = `${r*b*2}/${total*(total-1)}`; return makeMCQ(`Bag: ${r} red, ${b} blue. Pick 2 WITHOUT replacement.\nP(One of each colour)?`, p, [`${r*(r-1)}/${total*(total-1)}`, `${b*(b-1)}/${total*(total-1)}`, `${r*b}/${total*total}`], 'Two orders: R then B, or B then R', `P(RB) + P(BR) = (${r}/${total}×${b}/${total-1}) + (${b}/${total}×${r}/${total-1}) = ${p}`); }
+        ];
+        return pick(types)();
+      }
     }
   },
 
-  'venn-diagrams': {
-    title: 'Venn Diagrams (Prob)',
-    emoji: '⭕',
-    color: '#ff2d78',
+  'cumulative-frequency-box-plots': {
+    title: 'Cumulative Frequency & Box Plots',
+    emoji: '📦',
+    color: '#00e5a0',
     category: 'Statistics',
-    description: 'Using Venn diagrams to solve probability and set theory problems.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    description: 'Construct and interpret cumulative frequency curves and box plots, and estimate the median and interquartile range (IQR).',
+    examWeight: 4,
+    difficulty: 'medium',
+    estimatedMinutes: 15,
+    prerequisites: ['mean-median-mode'],
+    questionTypes: ['numeric', 'cloze'],
     lessons: {
-      foundation: [
-        { title: 'Intersection (A ∩ B)', content: 'The middle part where both things happen.', example: 'Students who like both Maths and Art.' },
-        { title: 'Union (A ∪ B)', content: 'Everything inside both circles. "A or B or both".' },
-        { title: 'Complement (A\')', content: 'Everything NOT in A.', tip: 'P(A) + P(A\') = 1.' }
-      ],
+      foundation: [],
       higher: [
-        { title: 'Conditional Venns', content: 'P(A|B) means "Probability of A GIVEN B". Your new total is only the people in circle B.', tip: 'P(A|B) = P(A ∩ B) / P(B)' },
-        { title: 'Three-Circle Venns', content: 'Handle overlapping groups for three categories. Always start from the very center (the intersection of all three) and work outwards.' }
-      ],
+        { title: 'Cumulative Frequency Curves', content: 'Add up frequencies as you go, plot the points at the UPPER class limits, and join them with a smooth S-shaped curve.', tip: 'Always read values carefully by drawing lines across from 25%, 50%, and 75% of the total frequency axis.' },
+        { title: 'Reading Box Plots', content: 'A box plot summarizes data using five key values: Minimum, Lower Quartile (LQ), Median, Upper Quartile (UQ), and Maximum.', formula: 'Interquartile Range (IQR) = UQ - LQ', example: 'If UQ = 70 and LQ = 40, the Interquartile Range is 30.', tip: 'The box itself holds the middle 50% of the entire data sample.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('In a Venn, 5 are in the middle, 10 are in A only, 8 are in B only. How many in A union B?', '23', ['5', '15', '18'], '10 + 5 + 8', 'The union is everything inside both circles: 10 + 5 + 8 = 23.');
+    hacks: [
+      { title: 'The Upper Limit Plot Rule', content: 'Never plot cumulative frequency points at the midpoint of a group; always use the upper limit of that group interval.' }
+    ],
+    advanced: [
+      { title: 'Identifying Outliers Algebraically', content: 'Classify extreme data points as formal outliers if they lie more than 1.5 times the IQR past either quartile line.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return { display: 'Cumulative frequency & box plots are Higher tier only.', answer: 'Higher tier only', hint: '', explanation: '' };
+      } else {
+        const types = [
+          () => { const uq = r(60, 90); const lq = r(30, uq - 10); return { display: `Box plot: UQ = ${uq}, LQ = ${lq}\nFind the IQR`, answer: uq - lq, hint: 'UQ - LQ', explanation: `IQR = ${uq} - ${lq} = ${uq - lq}` }; },
+          () => { const median = r(40, 60); const lq = median - r(5, 15); const uq = median + r(5, 15); return { display: `Box plot: Min=10, LQ=${lq}, Median=${median}, UQ=${uq}, Max=90\nWhat percentage of data lies between LQ and UQ?`, answer: 50, hint: 'The box holds the middle 50%', explanation: 'IQR covers the middle 50% of data' }; }
+        ];
+        return pick(types)();
+      }
     }
   },
 
-  'surds-recurring': {
-    title: 'Surds & Recurring Decimals',
-    emoji: '√',
-    color: '#00d4ff',
-    category: 'Number',
-    description: 'Simplify surds, rationalise denominators, and convert recurring decimals.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+  'histograms': {
+    title: 'Histograms',
+    emoji: '📊',
+    color: '#00e5a0',
+    category: 'Statistics',
+    description: 'Draw and interpret histograms for unequal class intervals using frequency density calculations.',
+    examWeight: 4,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['mean-median-mode'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [],
+      higher: [
+        { title: 'Frequency Density Formula', content: 'Histograms deal with continuous data in uneven groups. The area of each bar shows the frequency, not the height.', formula: 'Frequency Density = Frequency ÷ Class Width', example: 'A group spanning 0-10 has a frequency of 30. Frequency density = 30 / 10 = 3.', tip: 'Always label your vertical axis as \'Frequency Density\'.' },
+        { title: 'Estimating the Median', content: 'Find the cumulative midpoint position, then calculate how far into a specific bar\'s width you need to go to reach that count.', tip: 'Assume the data values are spread out evenly across that specific group bar.' }
+      ]
+    },
+    hacks: [
+      { title: 'Area Equals Frequency Rule', content: 'Always remember: Area = Frequency. If a question asks for a count of items, find the combined area of those blocks.' }
+    ],
+    advanced: [
+      { title: 'Interpreting Skewness', content: 'Analyze asymmetric shapes across histograms to describe real-world sample population patterns.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        return { display: 'Histograms are Higher tier only.', answer: 'Higher tier only', hint: '', explanation: '' };
+      } else {
+        const types = [
+          () => { const freq = r(10, 50); const width = r(5, 20); return { display: `Group: 0-${width}, Frequency = ${freq}\nFrequency density?`, answer: freq / width, hint: 'Frequency ÷ Class Width', explanation: `${freq} ÷ ${width} = ${freq / width}` }; },
+          () => { const fd = r(1, 8); const width = r(5, 20); return { display: `Frequency density = ${fd}, Class width = ${width}\nFrequency?`, answer: fd * width, hint: 'Frequency = FD × Width', explanation: `${fd} × ${width} = ${fd * width}` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'scatter-graphs': {
+    title: 'Scatter Graphs & Correlation',
+    emoji: '📈',
+    color: '#00e5a0',
+    category: 'Statistics',
+    description: 'Plot scatter data, identify correlation types, and draw lines of best fit to estimate missing values.',
+    examWeight: 3,
+    difficulty: 'low',
+    estimatedMinutes: 10,
+    prerequisites: ['integers-place-value'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Converting Recurring Decimals', content: 'Use algebra: let x = 0.777... then 10x = 7.777... Subtract x to get 9x = 7, so x = 7/9.', tip: 'The number of recurring digits tells you which power of 10 to multiply by.' },
-        { title: 'The Dot Notation', content: 'A dot over a number means it repeats forever. Dots over two numbers mean the whole block repeats.', example: '0.12̇3̇ = 0.1232323...' }
+        { title: 'Types of Correlation', content: 'Positive correlation means both values go up together. Negative correlation means as one goes up, the other goes down. No correlation means the points are scattered randomly.', example: 'Temperature and ice cream sales show a positive correlation.', tip: 'Correlation does not automatically mean that one thing caused the other to happen.' },
+        { title: 'Line of Best Fit', content: 'Draw a straight line through the center of the points, keeping roughly the same number of dots above and below your line.', tip: 'Always use a ruler, and avoid forcing your line to pass through the origin (0,0) unless it naturally fits the data.' }
       ],
       higher: [
-        { title: 'Simplifying Surds', content: 'Find the largest square factor of the number inside the root.', formula: '√ab = √a × √b', example: '√12 = √4 × √3 = 2√3' },
-        { title: 'Multiplying Surds', content: 'Multiply the numbers inside the roots together.', example: '√2 × √8 = √16 = 4', tip: 'Always check if your result can be simplified further!' },
-        { title: 'Rationalising (Simple)', content: 'Multiply top and bottom by the surd to remove it from the denominator.', formula: '1/√a = √a / a', example: '5/√2 = 5√2 / 2' },
-        { title: 'Rationalising (Complex)', content: 'Multiply by the conjugate (reverse the sign).', formula: '1/(a + √b) × (a - √b)/(a - √b)', example: 'Sign swap: + becomes −. Middle terms cancel out!' }
-      ],
+        { title: 'Extrapolation Dangers', content: 'Estimating values outside the range of your original data points is unreliable and should be avoided.', tip: 'State that estimates outside the data range are unreliable because trends can change.' }
+      ]
     },
-    generateQuestion: () => {
+    hacks: [
+      { title: 'The Mean Coordination Point', content: 'A perfect line of best fit should always pass exactly through the mean average coordinate of x and y from your dataset.' }
+    ],
+    advanced: [
+      { title: 'Introduction to Linear Regression', content: 'Learn how computer algorithms find the absolute mathematically ideal line of best fit by minimizing squared distances.' }
+    ],
+    generateQuestion: (tier) => {
       const types = [
-        () => makeMCQ('Simplify √50', '5√2', ['2√5', '5√5', '10√5'], 'Find square factor 25.', '√50 = √25 × √2 = 5√2'),
-        () => makeMCQ('Convert 0.444... to a fraction', '4/9', ['4/10', '2/5', '4/99'], 'Use 10x - x.', '9x = 4 -> x = 4/9')
+        () => makeMCQ(`As temperature increases, ice cream sales increase.\nWhat type of correlation?`, 'Positive', ['Negative', 'None', 'Curved'], 'Both variables increase together', 'Positive correlation'),
+        () => makeMCQ(`A line of best fit should pass through which point?`, 'The mean point (x̄, ȳ)', ['The origin (0,0)', 'The first data point', 'The highest y-value'], 'Mean point property', 'Line of best fit passes through (mean of x, mean of y)'),
+        () => { const x = r(10, 50); const y = r(10, 50); return { display: `Mean point: (${x}, ${y})\nLine of best fit passes through this point.\nIf x = ${x+10}, estimate y using the trend.`, answer: y + r(-5, 5), hint: 'Extrapolate carefully', explanation: 'Follow the line of best fit from the mean point' }; }
       ];
       return pick(types)();
     }
   },
 
-  'trigonometry': {
-    title: 'Trigonometry',
-    emoji: '📐',
-    color: '#ff2d78',
-    category: 'Geometry',
-    description: 'SOH CAH TOA, Sine rule, Cosine rule, and 3D applications.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Labeling the Sides', content: 'Hypotenuse (Longest, opposite 90°), Opposite (Across from the angle θ), Adjacent (Next to the angle θ).' },
-        { title: 'SOH CAH TOA', content: 'Sin θ = Opp/Hyp, Cos θ = Adj/Hyp, Tan θ = Opp/Adj.', tip: 'Use a mnemonic: Some Old Horses Can Always Hear Their Owners Approach.' },
-        { title: 'Finding a Side', content: 'Rearrange the formula and multiply or divide.', example: 'Opp = Hyp × Sin θ' },
-        { title: 'Finding an Angle', content: 'Use the inverse functions (sin⁻¹, cos⁻¹, tan⁻¹) on your calculator.', tip: 'Make sure your calculator is in DEGREES mode (D).' }
-      ],
-      higher: [
-        { title: 'The Sine Rule', formula: 'a/Sin A = b/Sin B = c/Sin C', tip: 'Use this when you have "opposite pairs" of sides and angles.' },
-        { title: 'The Cosine Rule (Side)', formula: 'a² = b² + c² − 2bc Cos A', tip: 'Use this when you have Side-Angle-Side (SAS).' },
-        { title: 'The Cosine Rule (Angle)', formula: 'Cos A = (b² + c² − a²) / 2bc' },
-        { title: 'Area of a Triangle', formula: 'Area = ½ab Sin C', tip: 'Works for any triangle, not just right-angled ones!' },
-        { title: 'Exact Trig Values', content: 'Learn: Sin 30 = 0.5, Cos 60 = 0.5, Tan 45 = 1.', tip: 'Often tested in non-calculator papers.' }
-      ],
-    },
-    generateQuestion: () => {
-      return makeMCQ('In a right triangle, Opp=5, Hyp=10. What is Sin θ?', '0.5', ['2', '0.2', '1'], 'Opp/Hyp', '5/10 = 0.5');
-    }
-  },
+  // ─── RATIO/PROPORTION ──────────────────────────────────────
 
-  'simultaneous-equations': {
-    title: 'Simultaneous Equations',
-    emoji: '📈',
+  'ratios': {
+    title: 'Ratios & Sharing',
+    emoji: '🍕',
     color: '#00e5a0',
-    category: 'Algebra',
-    description: 'Solve two equations at the same time using elimination or substitution.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    category: 'Ratio/Proportion',
+    description: 'Simplify ratios, convert ratios to fractions, and share quantities into given ratio parts.',
+    examWeight: 5,
+    difficulty: 'low',
+    estimatedMinutes: 10,
+    prerequisites: ['fractions-decimals-percentages'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Elimination Method', content: 'Multiply one or both equations so one variable has the same coefficient. Then Add or Subtract to get rid of it.', tip: 'Same Signs Subtract (SSS), Different Signs Add.' },
-        { title: 'Substitution Method', content: 'Rearrange one equation for one variable (e.g. x = ...) and "plug it" into the other.', example: 'y = 2x, 3x + y = 10 -> 3x + 2x = 10' }
+        { title: 'Simplifying Ratios', content: 'Divide all parts of a ratio by their highest common factor until they cannot be divided further.', example: '15 : 20 simplifies to 3 : 4 by dividing both parts by 5.', tip: 'Make sure all units are exactly the same before you start simplifying a ratio.' },
+        { title: 'Sharing an Amount', content: 'Add up the total parts, divide the total amount by this number to find the value of one part, then multiply to find each share.', example: 'Share £60 in the ratio 2:3. Total parts = 5. One part = 60/5 = £12. Shares are £24 and £36.', tip: 'Add your final shares back together to make sure they equal the original total amount.' }
       ],
       higher: [
-        { title: 'Linear and Quadratic', content: 'Always use substitution. Express the linear as x = ... or y = ..., then substitute into the quadratic.', tip: 'Usually gives two pairs of answers (x₁, y₁) and (x₂, y₂).' },
-        { title: 'Graphical Solutions', content: 'The solution is the coordinates (x, y) where the two lines INTERSECT.', tip: 'Zoom in on the graph to find decimal solutions.' }
-      ],
+        { title: 'Changing Ratios', content: 'Solve multi-step problems where adding or subtracting quantities shifts the ratio between variables.', example: 'Initial ratio 1:2. Add 5 to the first part, new ratio becomes 2:3. Set up an equation to find the original values.', tip: 'Convert ratios into algebraic fractions to solve these changing proportion puzzles easily.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('Solve: x + y = 10, x - y = 4. What is x?', '7', ['6', '5', '3'], 'Add the equations.', '2x = 14 -> x = 7');
+    hacks: [
+      { title: 'The Three-Step Ratio Plan', content: 'Remember: Add parts, Divide total, Multiply shares (ADM: Add, Divide, Multiply) to solve sharing questions quickly.' }
+    ],
+    advanced: [
+      { title: 'The Golden Ratio Relationship', content: 'Explore the unique properties of the golden ratio φ and its appearances across nature and geometry.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const types = [
+          () => { const a = r(2, 15); const b = r(2, 15); const g = gcd(a, b); return { display: `Simplify the ratio ${a} : ${b}`, answer: `${a/g} : ${b/g}`, answerType: 'text', hint: 'Divide by HCF', explanation: `HCF of ${a} and ${b} = ${g}\n${a}÷${g} : ${b}÷${g} = ${a/g} : ${b/g}`, placeholder: 'e.g. 3 : 4' }; },
+          () => { const total = r(20, 100); const p1 = r(1, 5); const p2 = r(1, 5); const parts = p1 + p2; const share1 = total * p1 / parts; const share2 = total * p2 / parts; return { display: `Share ${total} in the ratio ${p1}:${p2}`, answer: `${share1} and ${share2}`, answerType: 'text', hint: 'Add parts, divide total, multiply', explanation: `Total parts = ${parts}\nOne part = ${total} ÷ ${parts} = ${total/parts}\nShares: ${share1} and ${share2}`, placeholder: 'e.g. 24 and 36' }; }
+        ];
+        return pick(types)();
+      } else {
+        const types = [
+          () => { const p1 = r(1, 4); const p2 = r(1, 4); const add = r(2, 10); const newP1 = r(2, 5); const newP2 = r(2, 5); const total = r(20, 80); return { display: `Ratio ${p1}:${p2}. Add ${add} to first part → new ratio ${newP1}:${newP2}.\nOriginal total ${total}.\nFind original first part.`, answer: Math.round(total * p1 / (p1 + p2)), hint: 'Set up equation with original ratio', explanation: `Let original parts be ${p1}x and ${p2}x. Total = ${p1+p2}x = ${total} → x = ${total/(p1+p2)}\nFirst part = ${p1} × ${total/(p1+p2)} = ${Math.round(total * p1 / (p1 + p2))}` }; }
+        ];
+        return pick(types)();
+      }
     }
   },
 
-  'sequences': {
-    title: 'Sequences',
-    emoji: '🔢',
-    color: '#ffe600',
-    category: 'Algebra',
-    description: 'Linear (Arithmetic) and Quadratic sequences.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Linear Sequences (nth term)', content: 'The gap is constant. The formula is always "dn + c" where d is the difference.', example: '5, 8, 11... Gap is 3. nth term = 3n + 2' },
-        { title: 'Finding the Difference', content: 'Subtract the 1st term from the 2nd term.', tip: 'If the sequence goes down, the difference is negative!' }
-      ],
-      higher: [
-        { title: 'Quadratic Sequences', content: 'The SECOND difference is constant. The nth term involves n².', formula: 'an² + bn + c', tip: 'The second difference is equal to 2a.' },
-        { title: 'Geometric Sequences', content: 'Each term is multiplied by a common ratio.', example: '2, 6, 18, 54... (×3)' },
-        { title: 'Fibonacci-style', content: 'Each term is the sum of the two previous terms.', example: '1, 1, 2, 3, 5, 8...' }
-      ],
-    },
-    generateQuestion: () => {
-      return makeMCQ('Find nth term of: 4, 7, 10, 13...', '3n + 1', ['4n - 1', '3n + 4', 'n + 3'], 'Gap of 3.', '3n + 1 gives 4 when n=1.');
-    }
-  },
-
-  'vectors-basic': {
-    title: 'Vectors',
-    emoji: '↗️',
-    color: '#ff6b35',
-    category: 'Geometry',
-    description: 'Work with column vectors and vector geometry.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
-    lessons: {
-      foundation: [
-        { title: 'Column Vectors', content: 'Shows movement: top number is x (left/right), bottom is y (up/down).', example: '[3, -2] means 3 right, 2 down.' },
-        { title: 'Adding Vectors', content: 'Add the top numbers and add the bottom numbers separately.', example: '[1, 2] + [3, 4] = [4, 6]' },
-        { title: 'Multiplying by a Scalar', content: 'Multiply both components by the number outside.', example: '3 × [2, 1] = [6, 3]' }
-      ],
-      higher: [
-        { title: 'Vector Geometry', content: 'Find paths across a shape by following known vectors. `BA = −AB`.', tip: 'Going against the arrow means the vector becomes negative!' },
-        { title: 'Parallel Vectors', content: 'Two vectors are parallel if one is a multiple of the other.', example: '[1, 2] is parallel to [5, 10].' },
-        { title: 'Midpoints & Ratios', content: 'Use ratios to find parts of vectors (e.g. "P is 1/3 of the way along AB").' }
-      ],
-    },
-    generateQuestion: () => {
-      return makeMCQ('Vector a = [2, 3]. Find 2a.', '[4, 6]', ['[4, 3]', '[2, 6]', '[5, 5]'], 'Multiply both.', '[4, 6]');
-    }
-  },
-
-  'proportion': {
+  'direct-inverse-proportion': {
     title: 'Direct & Inverse Proportion',
     emoji: '⚖️',
-    color: '#b14aed',
-    category: 'Ratio',
-    description: 'Solve problems involving y ∝ x and y ∝ 1/x.',
-    hubPath: '/gcse/maths',
-    backLabel: 'Back to Maths',
+    color: '#00e5a0',
+    category: 'Ratio/Proportion',
+    description: 'Set up and solve algebraic direct and inverse proportion equations using a constant of proportionality k.',
+    examWeight: 5,
+    difficulty: 'high',
+    estimatedMinutes: 15,
+    prerequisites: ['rearranging-formulae', 'linear-equations'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
     lessons: {
       foundation: [
-        { title: 'Direct Proportion', content: 'One value increases at the same rate as the other. y = kx.', example: '5 apples cost £1, so 10 apples cost £2.' },
-        { title: 'Inverse Proportion', content: 'As one value increases, the other DECREASES. y = k/x.', example: 'More builders on a job = less time taken.' }
+        { title: 'Simple Unitary Proportion', content: 'Find the value of a single item first to scale quantities up or down accordingly.', example: 'If 5 apples cost £2, then 1 apple costs £0.40. Therefore, 8 apples cost 8 × £0.40 = £3.20.', tip: 'Keeping things clear with a table can help track units under exam pressure.' }
       ],
       higher: [
-        { title: 'Proportion with Powers', content: 'y can be proportional to x², x³ or √x.', formula: 'y = kx²', example: 'Area of circle ∝ r²' },
-        { title: 'Finding k', content: 'Substitute values of x and y to find the constant of proportionality (k), then rewrite the formula.', tip: 'This is the first step in almost every proportion exam question!' }
-      ],
+        { title: 'Algebraic Direct Proportion', content: 'Write the relationship using the proportionality symbol, convert it to an equation with a constant k, find k using given numbers, and write the final formula.', formula: 'y = kx or y = kx²', example: 'y is directly proportional to x². When x=2, y=12. So 12 = k(2²) -> k=3. Final formula: y = 3x².', tip: 'Read carefully to see if it is proportional to x, x², or the square root of x.' },
+        { title: 'Algebraic Inverse Proportion', content: 'As one value goes up, the other goes down. Set up your formula with x on the bottom of the fraction.', formula: 'y = k / x', example: 'y is inversely proportional to x. When x=3, y=4. So 4 = k/3 -> k=12. Formula: y = 12/x.', tip: 'In inverse proportion, multiplying the two given x and y values gives you the constant k immediately.' }
+      ]
     },
-    generateQuestion: () => {
-      return makeMCQ('y ∝ x. When x=2, y=10. What is k?', '5', ['2', '20', '0.2'], 'y = kx -> 10 = 2k', 'k = 5');
+    hacks: [
+      { title: 'The k-Constant Anchor', content: 'Never skip finding k. Treat finding the value of k as your primary goal, and write down the full formula before answering the rest of the question.' }
+    ],
+    advanced: [
+      { title: 'Joint Proportion Systems', content: 'Handle complex scenarios where a variable depends on multiple other factors at the same time, like y = kxz / w.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const items = r(3, 10); const cost = r(5, 50); const newItems = r(items+1, 20);
+        return { display: `${items} items cost £${cost}.\nHow much for ${newItems} items?`, answer: Math.round((cost / items) * newItems * 100) / 100, hint: 'Unitary method', explanation: `1 item = £${cost} ÷ ${items} = £${cost/items}\n${newItems} items = £${cost/items} × ${newItems} = £${Math.round((cost / items) * newItems * 100) / 100}` };
+      } else {
+        const types = [
+          () => { const x = r(2, 5); const y = r(10, 50); const k = y / (x * x); const newX = r(3, 8); const newY = Math.round(k * newX * newX * 10) / 10; return { display: `y ∝ x². When x = ${x}, y = ${y}.\nFind y when x = ${newX}.`, answer: newY, hint: 'Find k first: y = kx²', explanation: `${y} = k × ${x}² → k = ${y} ÷ ${x*x} = ${k}\ny = ${k} × ${newX}² = ${newY}` }; },
+          () => { const x = r(2, 6); const y = r(10, 50); const k = x * y; const newX = r(3, 10); const newY = Math.round(k / newX * 10) / 10; return { display: `y ∝ 1/x. When x = ${x}, y = ${y}.\nFind y when x = ${newX}.`, answer: newY, hint: 'Find k: y = k/x → k = xy', explanation: `k = ${x} × ${y} = ${k}\ny = ${k} ÷ ${newX} = ${newY}` }; }
+        ];
+        return pick(types)();
+      }
+    }
+  },
+
+  'capture-recapture': {
+    title: 'Capture-Recapture Method',
+    emoji: '🐟',
+    color: '#00e5a0',
+    category: 'Ratio/Proportion',
+    description: 'Estimate overall population sizes in ecosystems using proportions from tagged sample sets.',
+    examWeight: 2,
+    difficulty: 'medium',
+    estimatedMinutes: 10,
+    prerequisites: ['ratios', 'probability-trees'],
+    questionTypes: ['mcq', 'numeric', 'cloze'],
+    lessons: {
+      foundation: [
+        { title: 'The Proportional Principle', content: 'Capture a sample, tag them, and release them. Capture a second sample later. The proportion of tagged items in the second sample helps estimate the total population.', formula: 'Total Population = (Sample 1 Count × Sample 2 Count) ÷ Tagged Recaptured Count', example: 'Catch and tag 20 fish. Next day catch 50 fish, finding 5 tagged. Total = (20 × 50) / 5 = 200 fish.', tip: 'Set up two equal fractions to double check your calculations safely.' }
+      ],
+      higher: [
+        { title: 'Underlying Assumptions', content: 'This method assumes the population stays stable (no births, deaths, or migration), tags do not fall off, and tagged animals mix back in thoroughly.', tip: 'Be ready to list at least two of these assumptions in written exam answers.' }
+      ]
+    },
+    hacks: [
+      { title: 'Cross-Multiplication Layout', content: 'Write it as: Tagged/Total = Recaptured Tagged/Total Recaptured Sample. Cross multiply to isolate your unknown total value immediately.' }
+    ],
+    advanced: [
+      { title: 'Bias and Errors', content: 'Evaluate how animal behavior (like being trap-shy or attracted to bait) can cause overestimates or underestimates of population sizes.' }
+    ],
+    generateQuestion: (tier) => {
+      if (tier === 'foundation') {
+        const s1 = r(15, 40); const s2 = r(20, 60); const tagged = r(3, 10);
+        const total = Math.round(s1 * s2 / tagged);
+        return { display: `Catch ${s1}, tag and release. Later catch ${s2}, ${tagged} tagged.\nEstimated total population?`, answer: total, hint: '(S1 × S2) ÷ Tagged', explanation: `(${s1} × ${s2}) ÷ ${tagged} = ${total}` };
+      } else {
+        return makeMCQ(`Capture-recapture assumes the population is...`, 'Closed (no births/deaths/migration)', ['Open', 'Increasing', 'Decreasing'], 'Key assumption', 'Population must be stable during the study');
+      }
     }
   }
 };
@@ -1700,28 +1413,18 @@ const TOPICS = {
 // ============================================================
 
 export function getTopicBySlug(slug) {
-  if (!TOPICS[slug]) return null;
-  return { ...TOPICS[slug], slug };
+  return TOPICS[slug] || null;
 }
 
 export function getAllTopicSlugs() {
   return Object.keys(TOPICS);
 }
 
-export function getAllTopics() {
-  return Object.entries(TOPICS).map(([slug, data]) => ({
-    slug,
-    ...data,
-  }));
-}
-
 export function getTopicsByCategory() {
-  const cats = {};
-  Object.entries(TOPICS).forEach(([slug, data]) => {
-    if (!cats[data.category]) cats[data.category] = [];
-    cats[data.category].push({ slug, ...data });
+  const categories = {};
+  Object.entries(TOPICS).forEach(([slug, topic]) => {
+    if (!categories[topic.category]) categories[topic.category] = [];
+    categories[topic.category].push({ ...topic, slug });
   });
-  return cats;
+  return categories;
 }
-
-export default TOPICS;

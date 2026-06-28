@@ -1,0 +1,869 @@
+{
+  "subject": "maths",
+  "subjectMeta": {
+    "examBoards": ["AQA", "Edexcel"],
+    "tiers": ["foundation", "higher"],
+    "totalTopics": 30
+  },
+  "topics": [
+    {
+      "slug": "integers-place-value",
+      "title": "Integers & Place Value",
+      "emoji": "🔢",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Understand place value, ordering integers, and applying BIDMAS or operation hierarchies.",
+      "examWeight": 3,
+      "difficulty": "low",
+      "estimatedMinutes": 8,
+      "prerequisites": [],
+      "questionTypes": ["mcq", "numeric", "ordering"],
+      "lessons": {
+        "foundation": [
+          {"title": "Place Value Columns", "content": "Each position in a number represents a power of 10. Columns include Thousands, Hundreds, Tens, Units.", "example": "In 4,521, the 5 stands for 500.", "tip": "Use a place value grid if you find decimals or large numbers tricky."},
+          {"title": "BIDMAS / Order of Operations", "content": "Always perform calculations in this order: Brackets, Indices, Division/Multiplication (left to right), Addition/Subtraction (left to right).", "formula": "B -> I -> D/M -> A/S", "example": "3 + 5 × 2 = 3 + 10 = 13", "tip": "Multiplication does NOT take priority over division; work left to right for those."}
+        ],
+        "higher": [
+          {"title": "Complex Order of Operations", "content": "Apply index laws, algebraic groupings, and fractional boundaries within multi-step operation order problems.", "example": "[3³ - (5 - 2)] ÷ 6 = [27 - 3] ÷ 6 = 24 ÷ 6 = 4", "tip": "Treat the top and bottom of a large fraction as if they are inside hidden brackets."}
+        ]
+      },
+      "hacks": [
+        {"title": "Left-to-Right Tiebreaker", "content": "When only addition/subtraction or multiplication/division remain, work strictly from left to right to prevent errors."}
+      ],
+      "advanced": [
+        {"title": "Mathematical Proof Foundations", "content": "Use integer properties to demonstrate general arithmetic truths algebraically."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "primes-hcf-lcm",
+      "title": "Primes, HCF & LCM",
+      "emoji": "🌳",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Find prime factors, Highest Common Factors (HCF), and Lowest Common Multiples (LCM).",
+      "examWeight": 4,
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Prime Factor Decomposition", "content": "Break any number down into a product of prime numbers using a factor tree.", "example": "24 = 2 × 2 × 2 × 3 = 2³ × 3", "tip": "Circle the prime numbers at the end of each branch so you do not lose them."},
+          {"title": "Listing for HCF and LCM", "content": "Find HCF by listing all factors and picking the highest. Find LCM by listing multiples and picking the lowest matching value.", "example": "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. HCF = 6.", "tip": "Listing works best for smaller numbers; use Venn diagrams for larger ones."}
+        ],
+        "higher": [
+          {"title": "Venn Diagrams for HCF & LCM", "content": "Put common prime factors in the intersection of a Venn Diagram. HCF is the product of the center numbers. LCM is the product of ALL numbers in the circles.", "example": "24 = 2³×3, 60 = 2²×3×5. Intersection has 2, 2, 3. HCF = 2×2×3 = 12. LCM = 2×12×5 = 120.", "tip": "Ensure numbers that appear multiple times are represented accurately in power sets."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Product Formula", "content": "For any two numbers A and B: A × B = HCF(A,B) × LCM(A,B). If you know three values, you can find the fourth instantly."}
+      ],
+      "advanced": [
+        {"title": "Cryptographic Primes", "content": "Understand how prime factor limits underpin modern digital security and RSA encryption keys."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "fractions-decimals-percentages",
+      "title": "Fractions, Decimals & Percentages",
+      "emoji": "🍰",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Convert, compare, and perform four-operation arithmetic across fractions, decimals, and percentages.",
+      "examWeight": 5,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "fraction", "cloze", "ordering"],
+      "lessons": {
+        "foundation": [
+          {"title": "Adding & Subtracting Fractions", "content": "Find a common denominator first, adjust the numerators, combine them, and simplify.", "formula": "a/c + b/c = (a+b)/c", "example": "1/4 + 2/3 = 3/12 + 8/12 = 11/12", "tip": "Multiplying the two denominators always gives a common denominator, though not always the lowest."},
+          {"title": "Multiplying & Dividing Fractions", "content": "Multiply straight across for multiplication. For division, flip the second fraction and multiply (Keep-Change-Flip).", "formula": "(a/b) ÷ (c/d) = (a/b) × (d/c)", "example": "2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6", "tip": "Simplify your fractions before multiplying to keep numbers smaller and easier to handle."}
+        ],
+        "higher": [
+          {"title": "Recurring Decimals to Fractions", "content": "Set x equal to the decimal. Multiply by a power of 10 to shift one full repeating loop, subtract x to clear the recurrence, and solve.", "example": "x = 0.777... -> 10x = 7.777... -> 9x = 7 -> x = 7/9", "tip": "The number of repeating digits tells you whether to multiply by 10, 100, or 1000."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Cross-Multiplication Comparison", "content": "To see if a/b or c/d is larger, calculate a×d and b×c. Whichever product is bigger points to the larger fraction."}
+      ],
+      "advanced": [
+        {"title": "Infinite Geometric Progressions", "content": "See how recurring decimals are actually sums of infinite geometric series where common ratios are fractions of 10."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "indices-standard-form",
+      "title": "Indices & Standard Form",
+      "emoji": "🚀",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Master index laws, zero, negative, fractional indices, and reading/writing values in standard form.",
+      "examWeight": 4,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Basic Laws of Indices", "content": "When multiplying, add powers. When dividing, subtract powers. When raising a power to a power, multiply them.", "formula": "x^a × x^b = x^(a+b), x^a ÷ x^b = x^(a-b), (x^a)^b = x^(ab)", "example": "y⁴ × y³ = y⁷", "tip": "These rules only work when the base numbers or variables are identical."},
+          {"title": "Converting Standard Form", "content": "Write numbers as a value between 1 and 10 multiplied by a power of 10.", "formula": "A × 10^n (where 1 ≤ A < 10)", "example": "45,000 = 4.5 × 10⁴; 0.0032 = 3.2 × 10⁻³", "tip": "A positive index means a large number; a negative index means a tiny number closer to zero."}
+        ],
+        "higher": [
+          {"title": "Negative & Fractional Indices", "content": "A negative index means the reciprocal. A fractional index means a root, where the denominator is the root and the numerator is the power.", "formula": "x^(-n) = 1/(x^n), x^(a/b) = \u221fb√(x^a)", "example": "8^(-2/3) = 1 / (³\u221a8)² = 1 / 2² = 1/4", "tip": "Deal with the root part first to keep numbers smaller before applying the power."}
+        ]
+      },
+      "hacks": [
+        {"title": "Power of Zero Rule", "content": "Anything to the power of 0 is always 1. x⁰ = 1, 5⁰ = 1, (123x)⁰ = 1. Do not let big expressions trick you!"}
+      ],
+      "advanced": [
+        {"title": "Exponential Equations", "content": "Solve equations where the unknown variable is an index by converting bases to identical prime foundations."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "surds",
+      "title": "Surds & Irrational Numbers",
+      "emoji": "🧮",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Simplify surds, expand expressions containing surds, and rationalise denominators.",
+      "examWeight": 4,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["primes-hcf-lcm", "indices-standard-form"],
+      "questionTypes": ["mcq", "numeric", "fraction", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Introduction to Square Roots", "content": "A square root of a number multiplied by itself gives the original number. Perfect squares have integer roots.", "formula": "√a × √a = a", "example": "√25 = 5", "tip": "Know your square numbers up to 15!"}
+        ],
+        "higher": [
+          {"title": "Simplifying Surds", "content": "Find the largest perfect square factor of the number under the root and take it outside.", "formula": "√(ab) = √a × √b", "example": "√18 = √(9×2) = 3√2", "tip": "Always look for 4, 9, 16, 25, or 36 as factors."},
+          {"title": "Rationalising Denominators", "content": "Multiply the top and bottom of the fraction by the surd on the bottom to remove the root from the denominator.", "formula": "a / √b = (a√b) / b", "example": "5 / √3 = 5√3 / 3", "tip": "For denominators like a + √b, multiply by its conjugate a - √b."}
+        ]
+      },
+      "hacks": [
+        {"title": "Conjugate Pair Trick", "content": "Multiplying (a + √b)(a - √b) always results in an integer: a² - b. Eliminates the middle surd term completely."}
+      ],
+      "advanced": [
+        {"title": "Algebraic Surds", "content": "Simplify expressions where variables are under roots using identical laws of indices and surds."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "bounds-error-intervals",
+      "title": "Bounds & Error Intervals",
+      "emoji": "📏",
+      "color": "#00e5a0",
+      "category": "Number",
+      "description": "Calculate upper and lower bounds for rounded values and express structural error intervals.",
+      "examWeight": 3,
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Finding Single Bounds", "content": "To find upper and lower bounds, find half of the unit the value was rounded to, then add it for the upper bound and subtract it for the lower bound.", "example": "Mass = 70kg to the nearest 10kg. Half unit = 5kg. LB = 65kg, UB = 75kg.", "tip": "The upper bound is the limit the value cannot quite reach, written using inequalities like x < 75."}
+        ],
+        "higher": [
+          {"title": "Calculations with Bounds", "content": "For maximum combined values: add UB+UB, multiply UB×UB, or divide UB÷LB. For minimum combined values: subtract LB-UB, or divide LB÷UB.", "example": "Speed = Distance ÷ Time. Max Speed = Max Distance ÷ Min Time.", "tip": "Always substitute the individual bounds into your formula before doing the arithmetic."}
+        ]
+      },
+      "hacks": [
+        {"title": "Division Bound Rule", "content": "To get the biggest value from a division, use the biggest numerator possible divided by the smallest denominator possible."}
+      ],
+      "advanced": [
+        {"title": "Truncation vs Rounding Error Intervals", "content": "Contrast inequalities generated by standard decimal rounding rules against those built from absolute floor truncation systems."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "expanding-simplifying",
+      "title": "Expanding & Simplifying",
+      "emoji": "🎒",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Collect like terms, multiply single or double brackets, and simplify algebraic terms.",
+      "examWeight": 5,
+      "difficulty": "low",
+      "estimatedMinutes": 10,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Collecting Like Terms", "content": "You can only add or subtract terms with identical variables and powers.", "example": "3x + 4y - x + 2y = 2x + 6y", "tip": "Circle or underline like terms along with the operational sign right in front of them."},
+          {"title": "Single Bracket Expansion", "content": "Multiply the term on the outside of the bracket by every single term inside the bracket.", "formula": "a(b + c) = ab + ac", "example": "4(2x - 3) = 8x - 12", "tip": "Be extremely careful when multiplying by a negative term outside brackets."}
+        ],
+        "higher": [
+          {"title": "Triple Bracket Expansion", "content": "Expand two brackets first, simplify that result completely, and then multiply that new trinomial expression by the third remaining bracket.", "example": "(x+1)(x+2)(x+3) = (x²+3x+2)(x+3) = x³ + 6x² + 11x + 6", "tip": "Keep your work clean and organized in rows to avoid missing cross-product terms."}
+        ]
+      },
+      "hacks": [
+        {"title": "FOIL Method for Double Brackets", "content": "Remember First, Outer, Inner, Last when expanding two brackets to ensure you check all four multiplication steps."}
+      ],
+      "advanced": [
+        {"title": "Binomial Theorem Basics", "content": "Spot simple expansion coefficient patterns using combinations from Pascal's Triangle for higher powers."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "factorising",
+      "title": "Factorising Expressions",
+      "emoji": "🗝️",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Extract common factors, factorise simple and complex quadratics, and recognize the difference of two squares.",
+      "examWeight": 6,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["expanding-simplifying"],
+      "questionTypes": ["mcq", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Common Factor Extraction", "content": "Find the Highest Common Factor of numbers and letters, and pull it outside a single set of brackets.", "example": "6x² + 9x = 3x(2x + 3)", "tip": "Check your answer by expanding it back out; it should match the original question."},
+          {"title": "Basic Quadratic Factorising", "content": "For quadratics like x² + bx + c, find two numbers that multiply to c and add to b to place inside two sets of brackets.", "formula": "x² + (p+q)x + pq = (x+p)(x+q)", "example": "x² + 5x + 6 = (x+2)(x+3)", "tip": "If c is negative, your two bracket numbers must have opposite signs."}
+        ],
+        "higher": [
+          {"title": "Complex Quadratic Factorising", "content": "When a > 1 in ax² + bx + c, split the middle term bx using factors of (a × c) to complete factorisation by grouping.", "example": "2x² + 5x + 2 = 2x² + 4x + x + 2 = 2x(x+2) + 1(x+2) = (2x+1)(x+2)", "tip": "Always verify if there is an overall common numerical factor you can pull out first to simplify things."}
+        ]
+      },
+      "hacks": [
+        {"title": "Difference of Two Squares (DOTS)", "content": "Whenever you see two perfect squares subtracted with no middle term, it factorises instantly into matching brackets with opposite signs: x² - a² = (x-a)(x+a)."}
+      ],
+      "advanced": [
+        {"title": "Factorising Higher Degree Polynomials", "content": "Apply algebraic remainder concepts to isolate matching terms out of advanced multi-variable expressions."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "linear-equations",
+      "title": "Linear Equations",
+      "emoji": "⚖️",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Solve linear equations with unknowns on one or both sides, including fractional configurations.",
+      "examWeight": 5,
+      "difficulty": "low",
+      "estimatedMinutes": 12,
+      "prerequisites": ["expanding-simplifying"],
+      "questionTypes": ["numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Unknowns on One Side", "content": "Isolate the variable by doing inverse operations to both sides of the equation.", "example": "3x - 4 = 11 -> 3x = 15 -> x = 5", "tip": "Always work backward against standard arithmetic operation priority."},
+          {"title": "Unknowns on Both Sides", "content": "Move all terms with variables to one side and numbers to the other, ideally moving the smaller coefficient.", "example": "5x + 2 = 2x + 14 -> 3x + 2 = 14 -> 3x = 12 -> x = 4", "tip": "Subtracting the smaller variable term keeps your coefficients positive, avoiding minus sign slips."}
+        ],
+        "higher": [
+          {"title": "Complex Fractional Linear Equations", "content": "Clear denominators completely by multiplying every term by the Lowest Common Multiple of all the denominators.", "example": "(x/2) + ((x-1)/3) = 4 -> 3x + 2(x-1) = 24 -> 5x - 2 = 24 -> 5x = 26 -> x = 5.2", "tip": "Be sure to multiply single stand-alone constants by the LCM as well."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Equal Balance Rule", "content": "Treat the equals sign like a balance scale. Whatever operation you apply to one side, you must apply to the other side to keep it true."}
+      ],
+      "advanced": [
+        {"title": "Matrix Representations", "content": "Explore how multi-variable linear arrays map to transformation matrices used widely across computer physics software."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "rearranging-formulae",
+      "title": "Rearranging Formulae",
+      "emoji": "🔧",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Change the subject of a formula, including cases where the target variable appears multiple times.",
+      "examWeight": 4,
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisites": ["linear-equations", "factorising"],
+      "questionTypes": ["mcq", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Simple Two-Step Rearranging", "content": "Isolate the target variable by performing matching inverse operations on both sides.", "example": "Make x the subject of y = 3x - 5. Add 5 -> y + 5 = 3x. Divide by 3 -> x = (y + 5)/3.", "tip": "Undo additions or subtractions before dealing with coefficients."}
+        ],
+        "higher": [
+          {"title": "Subject Appearing Twice", "content": "Gather all terms containing the new subject on one side, move everything else to the opposite side, and factorise out the subject.", "example": "Make x the subject of ax + b = cx + d -> ax - cx = d - b -> x(a - c) = d - b -> x = (d - b)/(a - c)", "tip": "Factorising is the key step to turning two appearances of a variable into a single one."}
+        ]
+      },
+      "hacks": [
+        {"title": "Factorisation Pivot Trick", "content": "If the variable you want to make the subject is stuck inside multiple terms, group them together and factorise. This isolates it instantly."}
+      ],
+      "advanced": [
+        {"title": "Inverting Composed Operator Sets", "content": "Formulate algebraic inverse rules across composite non-linear functions by carefully reversing operational paths."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "quadratic-equations",
+      "title": "Quadratic Equations",
+      "emoji": "📐",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Solve quadratics by factorising, completing the square, and using the formula.",
+      "examWeight": 8,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["expanding-simplifying", "factorising"],
+      "questionTypes": ["mcq", "numeric", "cloze", "ordering"],
+      "lessons": {
+        "foundation": [
+          {"title": "What is a Quadratic?", "content": "A quadratic equation contains an x² term as its highest power. Standard form is ax² + bx + c = 0.", "formula": "ax² + bx + c = 0", "example": "x² + 5x + 6 = 0", "tip": "The coefficient 'a' cannot be zero, or it becomes a linear equation."},
+          {"title": "Solving by Factorising", "content": "Factorise the quadratic into two brackets, set it to zero, and find the values that make each bracket zero.", "formula": "(x+p)(x+q) = 0 -> x = -p or x = -q", "example": "x² + 5x + 6 = (x+2)(x+3) = 0 -> x = -2 or x = -3", "tip": "Always make sure the equation equals zero before you start factorising."}
+        ],
+        "higher": [
+          {"title": "The Quadratic Formula", "content": "Use this formula to find solutions for any quadratic equation, especially when it will not factorise cleanly.", "formula": "x = [-b ± √(b² - 4ac)] / 2a", "example": "2x² - 4x - 6 = 0 -> a=2, b=-4, c=-6 -> x = 3 or x = -1", "tip": "Remember to use brackets around negative numbers under the square root in your calculator."},
+          {"title": "Completing the Square", "content": "Rewrite a quadratic in vertex form by taking half of the middle coefficient.", "formula": "x² + bx + c = (x + b/2)² - (b/2)² + c", "example": "x² + 6x + 5 = (x + 3)² - 9 + 5 = (x + 3)² - 4", "tip": "This method is great for finding the coordinates of a graph's turning point."}
+        ]
+      },
+      "hacks": [
+        {"title": "Discriminant Check Shortcut", "content": "Look at b² - 4ac. If it is greater than 0, you get two real answers; if it equals 0, you get one answer; if it is less than 0, there are no real solutions."}
+      ],
+      "advanced": [
+        {"title": "Hidden Quadratics", "content": "Solve complex equations like x⁴ - 5x² + 4 = 0 by substituting u = x² to make it a quadratic equation first."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "simultaneous-equations",
+      "title": "Simultaneous Equations",
+      "emoji": "交叉",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Solve pairs of simultaneous linear or non-linear equations using elimination or substitution.",
+      "examWeight": 6,
+      "difficulty": "high",
+      "estimatedMinutes": 18,
+      "prerequisites": ["linear-equations", "quadratic-equations"],
+      "questionTypes": ["numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Elimination Method", "content": "Multiply one or both equations to make the coefficients of one variable match, then add or subtract the equations to eliminate that variable.", "example": "Eq1: 2x+y=7, Eq2: 3x-y=3. Add them -> 5x=10 -> x=2. Substitute x back in -> 4+y=7 -> y=3.", "tip": "If the signs of the matching coefficients are the Same, Subtract. If they are Opposite, Add (SSS: Same Signs Subtract)."}
+        ],
+        "higher": [
+          {"title": "Substitution with Linear and Non-Linear", "content": "Rearrange the linear equation to isolate one variable, then substitute that expression into the quadratic equation to solve it.", "example": "y = x + 1 and x² + y² = 5 -> x² + (x+1)² = 5 -> 2x² + 2x - 4 = 0 -> x = 1 or x = -2. Find corresponding y values.", "tip": "Quadratic simultaneous equations usually give you two pairs of matching x and y answers."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Bracket Safeguard", "content": "When substituting a linear expression into a quadratic equation, always place brackets around it before squaring to avoid missing middle expansion terms."}
+      ],
+      "advanced": [
+        {"title": "Intersection Interpretations", "content": "Understand how the solutions connect to real geometry, like a straight line intersecting or touching a circle."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "inequalities",
+      "title": "Inequalities",
+      "emoji": "⚠️",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Solve linear inequalities, represent solutions on graphs/number lines, and solve quadratic inequalities.",
+      "examWeight": 5,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["linear-equations", "quadratic-equations"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Linear Inequalities", "content": "Solve linear inequalities just like normal equations, but remember to flip the inequality sign if you multiply or divide by a negative number.", "example": "-3x < 9 -> divide by -3 -> x > -3", "tip": "Use open circles for < or > on a number line, and solid circles for ≤ or ≥."},
+          {"title": "Shading Regions on Graphs", "content": "Draw boundary lines, then choose a test point like (0,0) to see which region matches the inequality before shading it.", "tip": "Use a dashed line for strict inequalities (<, >) and a solid line for inclusive ones (≤, ≥)."}
+        ],
+        "higher": [
+          {"title": "Quadratic Inequalities", "content": "Find the critical values by setting the inequality to an equation and solving it. Sketch the curve to see where it goes above or below the x-axis.", "example": "x² - 5x + 6 > 0 -> roots are 2 and 3. Parabola opens upward, so x < 2 or x > 3.", "tip": "Do not try to solve it like a linear inequality; always find the roots first."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Negative Flip Alert", "content": "Whenever you multiply or divide both sides of an inequality by a negative number, turn the inequality sign around immediately."}
+      ],
+      "advanced": [
+        {"title": "Linear Programming Optimization", "content": "Find maximum or minimum values over regional boundaries defined by a set of multiple linear inequalities."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "iteration",
+      "title": "Numerical Methods & Iteration",
+      "emoji": "🔄",
+      "color": "#00e5a0",
+      "category": "Algebra",
+      "description": "Find approximate solutions to equations using iterative processes and recurrence relations.",
+      "examWeight": 3,
+      "difficulty": "high",
+      "estimatedMinutes": 12,
+      "prerequisites": ["rearranging-formulae", "quadratic-equations"],
+      "questionTypes": ["numeric", "cloze"],
+      "lessons": {
+        "foundation": [],
+        "higher": [
+          {"title": "Understanding Recurrence Relations", "content": "An iteration formula uses the current value x_n to find the next value x_{n+1}.", "formula": "x_{n+1} = f(x_n)", "example": "Given x_0 = 1 and x_{n+1} = √(x_n + 2), calculate x_1.", "tip": "Use the ANS key on your calculator to speed up inputs!"},
+          {"title": "Locating Roots", "content": "If a continuous function changes sign between two values of x, a root lies between those values.", "formula": "f(a) > 0 and f(b) < 0 -> root between a and b", "example": "f(x) = x³ - x - 1. f(1) = -1, f(2) = 5. Change of sign proves root exists.", "tip": "Always explicitly state 'change of sign implies a root' in exams."}
+        ]
+      },
+      "hacks": [
+        {"title": "Calculator ANS Key", "content": "Type the initial value x_0 and press equals. Then type the formula using the 'Ans' button instead of x. Keep pressing '=' to generate x_1, x_2, x_3 instantly."}
+      ],
+      "advanced": [
+        {"title": "Cobweb and Staircase Diagrams", "content": "Visualise convergence and divergence of iterations by drawing lines between y = x and the curve y = f(x)."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "angles",
+      "title": "Angle Properties & Parallel Lines",
+      "emoji": "📐",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Apply core angle facts, parallel lines rules, and find interior/exterior angles of polygons.",
+      "examWeight": 5,
+      "difficulty": "low",
+      "estimatedMinutes": 10,
+      "prerequisites": [],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Angles on Lines & Around Points", "content": "Angles on a straight line add up to 180°. Angles around a point add up to 360°. Vertically opposite angles are equal.", "example": "If two straight lines cross and one angle is 50°, the opposite angle is also 50°.", "tip": "Always double check your subtraction from 180 or 360."},
+          {"title": "Parallel Lines (F, Z, C Shapes)", "content": "Alternate angles are equal (Z shape). Corresponding angles are equal (F shape). Allied/Co-interior angles add up to 180° (C shape).", "tip": "Make sure you use the official exam terms like 'alternate' or 'corresponding' rather than letters like Z or F."},
+          {"title": "Angles in Polygons", "content": "Exterior angles of any polygon always add up to 360°. The sum of interior angles is found using a formula based on the number of sides.", "formula": "Sum of Interior Angles = (n - 2) × 180", "example": "For a hexagon (6 sides): (6 - 2) × 180 = 720°.", "tip": "For regular polygons, you can find a single interior angle easily by doing 180° minus the exterior angle."}
+        ],
+        "higher": [
+          {"title": "Geometric Proof with Angles", "content": "Construct full algebraic proofs for polygon or line properties using parallel line theorems and variable forms.", "tip": "Link each step clearly to an official geometric reason."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Exterior Shortcut", "content": "To find the number of sides of a regular polygon quickly, just divide 360 by the exterior angle: n = 360 / Exterior."}
+      ],
+      "advanced": [
+        {"title": "Non-Euclidean Geometries", "content": "See how angle sum rules change when drawing shapes on curved surfaces instead of flat planes."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "perimeter-area-volume",
+      "title": "Perimeter, Area & Volume",
+      "emoji": "📦",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Calculate area and perimeter of 2D shapes, along with surface area and volume of prisms, cylinders, pyramids, and spheres.",
+      "examWeight": 6,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["fractions-decimals-percentages"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Area of Core 2D Shapes", "content": "Know the formulas for triangles, parallelograms, and trapeziums.", "formula": "Triangle = 0.5×b×h, Trapezium = 0.5×(a+b)×h", "example": "Trapezium with a=4cm, b=6cm, h=3cm: Area = 0.5 × (4+6) × 3 = 15 cm²", "tip": "Always look out for perpendicular heights; do not use slanted side lengths by mistake."},
+          {"title": "Volume of Prisms", "content": "The volume of any prism is the area of its cross-section multiplied by its length.", "formula": "Volume = Area of Cross-section × Length", "example": "A triangular prism with a cross-section area of 10 cm² and length 5 cm has a volume of 50 cm³.", "tip": "Remember that volume is measured in cubic units, like cm³ or m³."}
+        ],
+        "higher": [
+          {"title": "Pyramids, Cones & Spheres", "content": "Apply the fractional volume formulas provided on the exam formulas sheet for advanced curved solids.", "formula": "Sphere Volume = (4/3)πr³, Cone Volume = (1/3)πr²h", "example": "Find the volume of a cone with radius 3cm and height 4cm: Vol = (1/3) × π × 3² × 4 = 12π cm³", "tip": "Leave your answers in terms of π if the question asks for an exact value."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Net Breakdown Strategy", "content": "To find the surface area of any 3D object safely, sketch out its flat net first, calculate the individual area of each face, and add them up."}
+      ],
+      "advanced": [
+        {"title": "Frustum Calculations", "content": "Find the volume of a truncated cone or pyramid by subtracting the volume of the smaller missing top cone from the original large cone shape."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "right-angle-triangles",
+      "title": "Right-Angled Triangles",
+      "emoji": "📐",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Master Pythagoras' Theorem and standard SOHCAHTOA trigonometry to find missing sides and angles.",
+      "examWeight": 7,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["linear-equations"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Pythagoras' Theorem", "content": "In any right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.", "formula": "a² + b² = c²", "example": "Sides 3cm and 4cm -> 3² + 4² = 9 + 16 = 25 -> √25 = 5cm", "tip": "The hypotenuse 'c' is always the longest side, directly opposite the 90-degree angle."},
+          {"title": "SOHCAHTOA Trigonometry Sides", "content": "Label sides as Hypotenuse, Opposite, and Adjacent relative to a given angle, and use sine, cosine, or tangent ratios to find missing lengths.", "formula": "sin(θ)=O/H, cos(θ)=A/H, tan(θ)=O/A", "example": "Find Opposite if Hypotenuse=10m and angle=30°. O = 10 × sin(30°) = 5m.", "tip": "Set your scientific calculator to Degree mode ('DEG') before doing trig questions."}
+        ],
+        "higher": [
+          {"title": "Exact Trigonometric Values", "content": "Memorise the exact non-decimal values for sine, cosine, and tangent for key angles like 0°, 30°, 45°, 60°, and 90°.", "example": "sin(30°) = 1/2, cost(45°) = √2/2, tan(60°) = √3", "tip": "You can use a simple hand trick or sketch quick triangles to remember these without a calculator."}
+        ]
+      },
+      "hacks": [
+        {"title": "The SOHCAHTOA Triangle Triangles", "content": "Cover the letter you want to find in formula triangles (like O over S×H) to quickly see whether you need to multiply or divide."}
+      ],
+      "advanced": [
+        {"title": "3D Pythagoras & Trigonometry", "content": "Find diagonals across 3D boxes by applying Pythagoras twice, or calculate angles between lines and planes inside pyramids."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "non-right-triangles",
+      "title": "Non-Right Triangles",
+      "emoji": "🔺",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Apply the Sine Rule, Cosine Rule, and the trigonometric area formula to find dimensions of non-right-angled triangles.",
+      "examWeight": 5,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["right-angle-triangles"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [],
+        "higher": [
+          {"title": "The Sine Rule", "content": "Use this rule when you have matching opposite pairs of sides and angles.", "formula": "a/sin(A) = b/sin(B) = c/sin(C)", "example": "Find side a when A=40°, b=10cm, B=60°. a = (10 × sin(40°)) ÷ sin(60°) = 7.42cm.", "tip": "Flip the formula upside down to sin(A)/a if you need to find an unknown angle instead of a side."},
+          {"title": "The Cosine Rule", "content": "Use this rule when you know two sides and the angle between them (SAS), or when you know all three sides (SSS).", "formula": "a² = b² + c² - 2bc·cos(A)", "example": "b=5, c=7, A=60°. a² = 5² + 7² - 2(5)(7)cos(60°) = 25 + 49 - 35 = 39 -> a = √39 = 6.24", "tip": "Remember to execute the multiplication 2bc·cos(A) completely before subtracting it from the earlier sum."},
+          {"title": "Trigonometric Area Formula", "content": "Calculate the area of any triangle given two sides and the included angle.", "formula": "Area = 0.5 × a × b × sin(C)", "tip": "The angle used must be trapped right between the two known sides."}
+        ]
+      },
+      "hacks": [
+        {"title": "Sine vs Cosine Decision Rule", "content": "If you have all three sides or a trapped angle (SAS), use the Cosine Rule. For any other combination, use the Sine Rule."}
+      ],
+      "advanced": [
+        {"title": "The Ambiguous Case of the Sine Rule", "content": "Be aware that when finding an angle, sin⁻¹ gives an acute angle, but an obtuse option might also exist, found by doing 180° minus that angle."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "transformations",
+      "title": "Transformations",
+      "emoji": "🔄",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Perform and describe reflections, rotations, translations, and enlargements.",
+      "examWeight": 4,
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Translations & Reflections", "content": "Translations shift a shape using a column vector. Reflections flip a shape across a specific mirror line like x=2 or y=x.", "example": "Translating [3, -1] means moving 3 squares right and 1 square down.", "tip": "Count grid lines perpendicularly to the mirror line to keep reflections accurate."},
+          {"title": "Rotations", "content": "Turn a shape around a fixed coordinate point, using a specific angle direction (clockwise or anticlockwise).", "tip": "Always use tracing paper in the exam to check your rotations carefully."}
+        ],
+        "higher": [
+          {"title": "Negative and Fractional Enlargements", "content": "Fractional scale factors shrink shapes closer to the center. Negative scale factors project the shape upside down on the opposite side of the center point.", "example": "Scale factor -2 doubles the size and flips the shape through the center point.", "tip": "Draw guidelines from the original corners through the center of enlargement to find the new positions."}
+        ]
+      },
+      "hacks": [
+        {"title": "Full Description Marks Checklist", "content": "To get full marks when describing a transformation: Translation needs a vector; Reflection needs a line; Rotation needs an angle, direction, and center; Enlargement needs a scale factor and center."}
+      ],
+      "advanced": [
+        {"title": "Invariance Properties", "content": "Identify points or lines that do not move at all after a specific sequence of geometric transformations."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "similarity-congruence",
+      "title": "Similarity & Congruence",
+      "emoji": "♊",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Prove geometric congruence and calculate lengths, areas, and volumes for mathematically similar shapes.",
+      "examWeight": 5,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["ratios", "perimeter-area-volume"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Congruence Proof Criteria", "content": "Two shapes are congruent if they are identical in size and shape. For triangles, prove this using SSS, SAS, ASA, or RHS rules.", "tip": "Make sure you state the exact rule abbreviation (like SSS) as your reason to secure full marks."}
+        ],
+        "higher": [
+          {"title": "Length, Area & Volume Scale Factors", "content": "If the linear scale factor is k, the area scale factor is k² and the volume scale factor is k³.", "formula": "ASF = LSF², VSF = LSF³", "example": "If a shape's length is doubled (LSF=2), its area increases by 4 (ASF=4) and its volume increases by 8 (VSF=8).", "tip": "Find the length scale factor first before trying to solve area or volume adjustments."}
+        ]
+      },
+      "hacks": [
+        {"title": "Scale Factor Root Trick", "content": "If you are given two areas, divide them to find the Area Scale Factor, then take the square root to find the Length Scale Factor."}
+      ],
+      "advanced": [
+        {"title": "Formal Geometric Congruence Deductions", "content": "Construct multi-stage triangle alignment proofs within circle and tangent structures using formal mathematical notation."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "vectors",
+      "title": "Vectors",
+      "emoji": "↗️",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Understand column vectors, add/subtract vectors geometrically, and solve geometric proofs using vectors.",
+      "examWeight": 6,
+      "difficulty": "high",
+      "estimatedMinutes": 20,
+      "prerequisites": ["angles", "similarity-congruence"],
+      "questionTypes": ["mcq", "numeric", "cloze", "ordering"],
+      "lessons": {
+        "foundation": [
+          {"title": "Column Vectors", "content": "Vectors describe a movement with direction and size. The top number shows horizontal movement, the bottom shows vertical movement.", "formula": "a = [x, y]^T", "example": "[2, -3] means move 2 units right and 3 units down.", "tip": "Multiplying a vector by a number scales both parts inside."}
+        ],
+        "higher": [
+          {"title": "Vector Geometry Paths", "content": "To find an unknown vector route, construct an alternative pathway along known vectors from the start point to the endpoint.", "example": "Vector AB = AO + OB = -a + b", "tip": "Going against a vector arrow reverses its sign."}
+        ]
+      },
+      "hacks": [
+        {"title": "Collinear Proof Trick", "content": "To prove three points A, B, and C lie on a straight line, show that vector AB is a multiple of vector BC, and state that they share point B."}
+      ],
+      "advanced": [
+        {"title": "Ratio Splitting", "content": "If a point P splits vector AB in the ratio 2:3, then vector AP = 2/5 of vector AB and PB = 3/5 of vector AB."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "circle-theorems",
+      "title": "Circle Theorems",
+      "emoji": "⭕",
+      "color": "#00e5a0",
+      "category": "Geometry",
+      "description": "Apply geometric properties and formal circle theorems to calculate unknown angles.",
+      "examWeight": 5,
+      "difficulty": "high",
+      "estimatedMinutes": 18,
+      "prerequisites": ["angles"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Parts of a Circle", "content": "Identify radius, diameter, chord, tangent, arc, sector, and segment elements before performing proofs.", "tip": "A radius and a tangent meet at exactly 90 degrees."}
+        ],
+        "higher": [
+          {"title": "Core Circle Theorems", "content": "1. Angle at the centre is twice the angle at the circumference.\n2. Angle in a semi-circle is 90 degrees.\n3. Angles in the same segment are equal.", "formula": "Centre = 2 × Circumference", "tip": "Look for isosceles triangles created by drawing multiple radii from the centre."},
+          {"title": "Cyclic Quadrilaterals & Tangents", "content": "4. Opposite angles in a cyclic quadrilateral sum to 180 degrees.\n5. Alternate Segment Theorem: The angle between a tangent and a chord equals the angle in the alternate segment.", "tip": "Always write out the exact phrasing of the theorem text as your reason in exams."}
+        ]
+      },
+      "hacks": [
+        {"title": "The 'Arrowhead' Cue", "content": "Whenever you spot an arrowhead shape anchored to the circle perimeter and passing through the centre, instantly apply the 'double angle at centre' rule."}
+      ],
+      "advanced": [
+        {"title": "Geometric Proofs", "content": "Prove theorems algebraically by introducing variables like x and y alongside base triangle geometry constraints."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "mean-median-mode",
+      "title": "Mean, Median & Mode",
+      "emoji": "📊",
+      "color": "#00e5a0",
+      "category": "Statistics",
+      "description": "Calculate and compare averages from list datasets or grouped frequency tables.",
+      "examWeight": 4,
+      "difficulty": "low",
+      "estimatedMinutes": 10,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Averages from Lists", "content": "Mean is the sum divided by the count. Median is the middle value when ordered. Mode is the most common number. Range is the high minus the low value.", "example": "List: 2, 2, 5, 7. Mean = 16/4 = 4. Median = 3.5. Mode = 2. Range = 5.", "tip": "Always sort your data list first before looking for the median."},
+          {"title": "Averages from Grouped Tables", "content": "Estimate the mean by multiplying each group midpoint by its frequency, adding them up, and dividing by the total frequency.", "formula": "Estimated Mean = Σ(fx) ÷ Σf", "tip": "Remember, this is an estimate because we do not know the exact raw values inside the groups."}
+        ],
+        "higher": [
+          {"title": "Comparing Averages and Spread", "content": "Use an average (like median) to talk about central trend, and a spread measure (like range or IQR) to discuss consistency.", "tip": "Always mention context (e.g., test scores, race times) when writing comparison answers."}
+        ]
+      },
+      "hacks": [
+        {"title": "Total Frequency Divide Warning", "content": "When calculating the mean from a table, make sure you divide by the total frequency, NOT by the number of rows in the table."}
+      ],
+      "advanced": [
+        {"title": "Skewness and Outliers", "content": "Analyse how extreme outlier data points distort the mean while leaving the median stable."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "probability-trees",
+      "title": "Probability Trees & Diagrams",
+      "emoji": "🌲",
+      "color": "#00e5a0",
+      "category": "Statistics",
+      "description": "Calculate probabilities of single and combined events using sample spaces, Venn diagrams, and tree diagrams.",
+      "examWeight": 5,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["fractions-decimals-percentages"],
+      "questionTypes": ["mcq", "numeric", "fraction", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Basic Probability Scale", "content": "Probabilities range from 0 (impossible) to 1 (certain). The probabilities of all mutually exclusive events add up to 1.", "formula": "P(Not A) = 1 - P(A)", "tip": "You can write probabilities as fractions, decimals, or percentages, but never as ratios."},
+          {"title": "Independent Tree Diagrams", "content": "Multiply probabilities along the branches to find the chance of combined outcomes.", "example": "Flipping two heads: 0.5 × 0.5 = 0.25", "tip": "Branches coming from the same node must always add up to 1."}
+        ],
+        "higher": [
+          {"title": "Dependent Events (No Replacement)", "content": "Adjust the fractions on the second set of branches because the total number of items has decreased.", "example": "Pick 2 red counters out of a bag with 4 red and 6 blue: P(Red, Red) = 4/10 × 3/9 = 12/90.", "tip": "Look out for keywords like 'does not replace' or 'takes another'."}
+        ]
+      },
+      "hacks": [
+        {"title": "The 'And' / 'Or' Probability Rule", "content": "Multiply probabilities when you need one event AND another to happen. Add them when you want one event OR another outcome."}
+      ],
+      "advanced": [
+        {"title": "Conditional Probability Proofs", "content": "Master formulaic representations for formal conditional systems, written as P(A given B)."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "cumulative-frequency-box-plots",
+      "title": "Cumulative Frequency & Box Plots",
+      "emoji": "📦",
+      "color": "#00e5a0",
+      "category": "Statistics",
+      "description": "Construct and interpret cumulative frequency curves and box plots, and estimate the median and interquartile range (IQR).",
+      "examWeight": 4,
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisites": ["mean-median-mode"],
+      "questionTypes": ["numeric", "cloze"],
+      "lessons": {
+        "foundation": [],
+        "higher": [
+          {"title": "Cumulative Frequency Curves", "content": "Add up frequencies as you go, plot the points at the UPPER class limits, and join them with a smooth S-shaped curve.", "tip": "Always read values carefully by drawing lines across from 25%, 50%, and 75% of the total frequency axis."},
+          {"title": "Reading Box Plots", "content": "A box plot summarizes data using five key values: Minimum, Lower Quartile (LQ), Median, Upper Quartile (UQ), and Maximum.", "formula": "Interquartile Range (IQR) = UQ - LQ", "example": "If UQ = 70 and LQ = 40, the Interquartile Range is 30.", "tip": "The box itself holds the middle 50% of the entire data sample."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Upper Limit Plot Rule", "content": "Never plot cumulative frequency points at the midpoint of a group; always use the upper limit of that group interval."}
+      ],
+      "advanced": [
+        {"title": "Identifying Outliers Algebraically", "content": "Classify extreme data points as formal outliers if they lie more than 1.5 times the IQR past either quartile line."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "histograms",
+      "title": "Histograms",
+      "emoji": "📊",
+      "color": "#00e5a0",
+      "category": "Statistics",
+      "description": "Draw and interpret histograms for unequal class intervals using frequency density calculations.",
+      "examWeight": 4,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["mean-median-mode"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [],
+        "higher": [
+          {"title": "Frequency Density Formula", "content": "Histograms deal with continuous data in uneven groups. The area of each bar shows the frequency, not the height.", "formula": "Frequency Density = Frequency ÷ Class Width", "example": "A group spanning 0-10 has a frequency of 30. Frequency density = 30 / 10 = 3.", "tip": "Always label your vertical axis as 'Frequency Density'."},
+          {"title": "Estimating the Median", "content": "Find the cumulative midpoint position, then calculate how far into a specific bar's width you need to go to reach that count.", "tip": "Assume the data values are spread out evenly across that specific group bar."}
+        ]
+      },
+      "hacks": [
+        {"title": "Area Equals Frequency Rule", "content": "Always remember: Area = Frequency. If a question asks for a count of items, find the combined area of those blocks."}
+      ],
+      "advanced": [
+        {"title": "Interpreting Skewness", "content": "Analyze asymmetric shapes across histograms to describe real-world sample population patterns."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "scatter-graphs",
+      "title": "Scatter Graphs & Correlation",
+      "emoji": "📈",
+      "color": "#00e5a0",
+      "category": "Statistics",
+      "description": "Plot scatter data, identify correlation types, and draw lines of best fit to estimate missing values.",
+      "examWeight": 3,
+      "difficulty": "low",
+      "estimatedMinutes": 10,
+      "prerequisites": ["integers-place-value"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Types of Correlation", "content": "Positive correlation means both values go up together. Negative correlation means as one goes up, the other goes down. No correlation means the points are scattered randomly.", "example": "Temperature and ice cream sales show a positive correlation.", "tip": "Correlation does not automatically mean that one thing caused the other to happen."},
+          {"title": "Line of Best Fit", "content": "Draw a straight line through the center of the points, keeping roughly the same number of dots above and below your line.", "tip": "Always use a ruler, and avoid forcing your line to pass through the origin (0,0) unless it naturally fits the data."}
+        ],
+        "higher": [
+          {"title": "Extrapolation Dangers", "content": "Estimating values outside the range of your original data points is unreliable and should be avoided.", "tip": "State that estimates outside the data range are unreliable because trends can change."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Mean Coordination Point", "content": "A perfect line of best fit should always pass exactly through the mean average coordinate of x and y from your dataset."}
+      ],
+      "advanced": [
+        {"title": "Introduction to Linear Regression", "content": "Learn how computer algorithms find the absolute mathematically ideal line of best fit by minimizing squared distances."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "ratios",
+      "title": "Ratios & Sharing",
+      "emoji": "🍕",
+      "color": "#00e5a0",
+      "category": "Ratio/Proportion",
+      "description": "Simplify ratios, convert ratios to fractions, and share quantities into given ratio parts.",
+      "examWeight": 5,
+      "difficulty": "low",
+      "estimatedMinutes": 10,
+      "prerequisites": ["fractions-decimals-percentages"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Simplifying Ratios", "content": "Divide all parts of a ratio by their highest common factor until they cannot be divided further.", "example": "15 : 20 simplifies to 3 : 4 by dividing both parts by 5.", "tip": "Make sure all units are exactly the same before you start simplifying a ratio."},
+          {"title": "Sharing an Amount", "content": "Add up the total parts, divide the total amount by this number to find the value of one part, then multiply to find each share.", "example": "Share £60 in the ratio 2:3. Total parts = 5. One part = 60/5 = £12. Shares are £24 and £36.", "tip": "Add your final shares back together to make sure they equal the original total amount."}
+        ],
+        "higher": [
+          {"title": "Changing Ratios", "content": "Solve multi-step problems where adding or subtracting quantities shifts the ratio between variables.", "example": "Initial ratio 1:2. Add 5 to the first part, new ratio becomes 2:3. Set up an equation to find the original values.", "tip": "Convert ratios into algebraic fractions to solve these changing proportion puzzles easily."}
+        ]
+      },
+      "hacks": [
+        {"title": "The Three-Step Ratio Plan", "content": "Remember: Add parts, Divide total, Multiply shares (ADM: Add, Divide, Multiply) to solve sharing questions quickly."}
+      ],
+      "advanced": [
+        {"title": "The Golden Ratio Relationship", "content": "Explore the unique properties of the golden ratio φ and its appearances across nature and geometry."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "direct-inverse-proportion",
+      "title": "Direct & Inverse Proportion",
+      "emoji": "⚖️",
+      "color": "#00e5a0",
+      "category": "Ratio/Proportion",
+      "description": "Set up and solve algebraic direct and inverse proportion equations using a constant of proportionality k.",
+      "examWeight": 5,
+      "difficulty": "high",
+      "estimatedMinutes": 15,
+      "prerequisites": ["rearranging-formulae", "linear-equations"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "Simple Unitary Proportion", "content": "Find the value of a single item first to scale quantities up or down accordingly.", "example": "If 5 apples cost £2, then 1 apple costs £0.40. Therefore, 8 apples cost 8 × £0.40 = £3.20.", "tip": "Keeping things clear with a table can help track units under exam pressure."}
+        ],
+        "higher": [
+          {"title": "Algebraic Direct Proportion", "content": "Write the relationship using the proportionality symbol, convert it to an equation with a constant k, find k using given numbers, and write the final formula.", "formula": "y = kx or y = kx²", "example": "y is directly proportional to x². When x=2, y=12. So 12 = k(2²) -> k=3. Final formula: y = 3x².", "tip": "Read carefully to see if it is proportional to x, x², or the square root of x."},
+          {"title": "Algebraic Inverse Proportion", "content": "As one value goes up, the other goes down. Set up your formula with x on the bottom of the fraction.", "formula": "y = k / x", "example": "y is inversely proportional to x. When x=3, y=4. So 4 = k/3 -> k=12. Formula: y = 12/x.", "tip": "In inverse proportion, multiplying the two given x and y values gives you the constant k immediately."}
+        ]
+      },
+      "hacks": [
+        {"title": "The k-Constant Anchor", "content": "Never skip finding k. Treat finding the value of k as your primary goal, and write down the full formula before answering the rest of the question."}
+      ],
+      "advanced": [
+        {"title": "Joint Proportion Systems", "content": "Handle complex scenarios where a variable depends on multiple other factors at the same time, like y = kxz / w."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    },
+    {
+      "slug": "capture-recapture",
+      "title": "Capture-Recapture Method",
+      "emoji": "🐟",
+      "color": "#00e5a0",
+      "category": "Ratio/Proportion",
+      "description": "Estimate overall population sizes in ecosystems using proportions from tagged sample sets.",
+      "examWeight": 2,
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisites": ["ratios", "probability-trees"],
+      "questionTypes": ["mcq", "numeric", "cloze"],
+      "lessons": {
+        "foundation": [
+          {"title": "The Proportional Principle", "content": "Capture a sample, tag them, and release them. Capture a second sample later. The proportion of tagged items in the second sample helps estimate the total population.", "formula": "Total Population = (Sample 1 Count × Sample 2 Count) ÷ Tagged Recaptured Count", "example": "Catch and tag 20 fish. Next day catch 50 fish, finding 5 tagged. Total = (20 × 50) / 5 = 200 fish.", "tip": "Set up two equal fractions to double check your calculations safely."}
+        ],
+        "higher": [
+          {"title": "Underlying Assumptions", "content": "This method assumes the population stays stable (no births, deaths, or migration), tags do not fall off, and tagged animals mix back in thoroughly.", "tip": "Be ready to list at least two of these assumptions in written exam answers."}
+        ]
+      },
+      "hacks": [
+        {"title": "Cross-Multiplication Layout", "content": "Write it as: Tagged/Total = Recaptured Tagged/Total Recaptured Sample. Cross multiply to isolate your unknown total value immediately."}
+      ],
+      "advanced": [
+        {"title": "Bias and Errors", "content": "Evaluate how animal behavior (like being trap-shy or attracted to bait) can cause overestimates or underestimates of population sizes."}
+      ],
+      "generateQuestion": "FUNCTION_TEMPLATE"
+    }
+  ]
+}
